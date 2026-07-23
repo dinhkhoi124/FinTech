@@ -98,23 +98,30 @@ per-label 10% allocation from official train using seed `20260723` and a SHA-256
 ordering rule. W1-002 and W1-003 must consume and verify the same locked manifest;
 they must not resplit, tune on, or inspect test outcomes for model selection.
 
-## Experiments and evaluation
+## W1-002 lexical experiment
 
-No Week 1 experiment entry point exists yet by design. Each Week 1 task must add a
-CLI/script with explicit config, seed, input version, output path, and a command
-that runs outside a notebook. Locked tests are never used for tuning.
+Install only the pinned lexical stack into the Python 3.11 environment:
 
-Planned stable command families (implemented and finalized only in Week 1):
-
-```text
-python -m payresolve_ai.<data_audit_command> --config configs/<locked-config>
-python -m payresolve_ai.<train_command> --config configs/<baseline-config>
-python -m payresolve_ai.<evaluate_command> --config configs/<eval-config>
+```powershell
+py -3.11 -m pip install -r requirements/week1-lexical.txt
+py -3.11 -m pip install -e . --no-deps
 ```
 
-These placeholders document the interface contract, not completed functionality.
-The exact module names must be recorded in `TASKS.md`, the daily report, and the
-relevant experiment note when implemented.
+Run the controlled validation-only experiment and optional error inspection:
+
+```powershell
+py -3.11 scripts/data/banking77.py --root . --config configs/data/banking77_w1_locked.json verify
+py -3.11 scripts/baselines/lexical.py --root . --config configs/models/banking77_lexical_w1.json
+py -3.11 scripts/baselines/lexical.py --root . --config configs/models/banking77_lexical_w1.json --inspect-errors 20
+```
+
+The CLI reads only the official `train.csv` content, partitions it using the
+locked train/validation membership, and asserts the source/protocol hashes. It
+does not load or evaluate `test.csv`. The fitted portable parameter artifact is
+local under ignored `artifacts/models/w1-002/`; trackable metrics, predictions,
+per-class scores, confusions, and the version manifest are under
+`reports/week_01/results/`. W1-003 and W1-004 must add their own reviewed entry
+points; the frozen test remains untouched until W1-004.
 
 ## Future service launch
 

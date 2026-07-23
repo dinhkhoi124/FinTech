@@ -1,5 +1,5 @@
 <!-- GENERATED FILE: edit canonical sources, not this aggregate. -->
-<!-- Built: 2026-07-23 | Source commit: 8e321d6 -->
+<!-- Built: 2026-07-23 | Source commit: 72c1c02 -->
 
 # PayResolve AI — Week 01 Report
 
@@ -8,6 +8,7 @@
 - `reports/week_01/week_01_summary.md`
 - `reports/week_01/daily/2026-07-23.md`
 - `reports/week_01/experiments/W1-001_banking77_data_audit.md`
+- `reports/week_01/experiments/W1-002_lexical_baseline.md`
 - `reports/week_01/results/banking77_data_audit.md`
 
 ---
@@ -20,13 +21,15 @@
 Full Banking77 + 2 baselines + reproducible evaluation + error analysis.
 
 ## Status
-IN PROGRESS — W1-001 complete; W1-002/W1-003/W1-004 not started
+IN PROGRESS — W1-001 and W1-002 complete; W1-003/W1-004 not started
 
 ## Deliverables completed
 - W1-001 authoritative Banking77 acquisition/provenance contract.
 - Deterministic official-train → train/validation membership with frozen official test.
 - Data integrity/class-distribution/leakage/short-query audit.
 - Reproducibility CLI, manifest verification, and regression tests.
+- Controlled TF-IDF + Logistic Regression lexical baseline selected on locked
+  validation only; portable fitted parameters and aligned evidence retained.
 
 ## Key evidence
 | Claim | Evidence | Result | Decision |
@@ -36,6 +39,8 @@ IN PROGRESS — W1-001 complete; W1-002/W1-003/W1-004 not started
 | Test remains frozen | `data/banking77_split_manifest.json` | 8,998 train / 1,005 validation / 3,080 test | Tune only on validation |
 | Split is reproducible | W1-001 `verify` output and manifest | Combined membership SHA-256 `baa3d31f...c902`; rerun matches | Require same manifest in W1-002/W1-003 |
 | Leakage risk is visible | W1-001 audit note | 0 exact overlap; 7 normalized label-consistent overlaps | Preserve official source; slice in W1-004 |
+| Lexical baseline is frozen | `reports/week_01/results/lexical_validation_metrics.json` | Unigram accuracy 0.865672, macro-F1 0.862649 on 1,005 validation rows | Carry selected config to W1-004; do not claim test performance |
+| Lexical artifacts reproduce | `reports/week_01/results/lexical_baseline_manifest.json` | Six model/evidence hashes matched across consecutive runs | Use canonical fitted parameters and fixed numerical threads |
 
 ## Important data findings
 
@@ -45,20 +50,28 @@ IN PROGRESS — W1-001 complete; W1-002/W1-003/W1-004 not started
   examples per intent.
 - Validation contains every intent with 4–19 examples per intent.
 - Short inputs exist: 9 examples have at most 2 tokens and 49 have at most 3.
+- Uni+bigrams underperformed unigrams on validation (macro-F1 0.846269 vs
+  0.862649) while creating 22,225 vs 2,237 features.
+- The selected unigram model made 135 validation errors. Frequent confusions
+  separated payment rails or pending/reverted/failed transaction states.
 
 ## P0 exit criteria
 - [x] W1-001 data audit and deterministic locked split.
-- [ ] W1-002 lexical baseline.
+- [x] W1-002 lexical baseline (validation selection complete; test reserved for W1-004).
 - [ ] W1-003 semantic/model-based baseline.
 - [ ] W1-004 evaluation, confusion/error analysis, and Week 1 gate.
 
 ## Risks / limitations
 - Seven normalized official-boundary overlaps are a known evaluation limitation.
-- No model result exists yet; Week 1 P0 gate remains open.
+- W1-002 numbers are validation diagnostics, not official test claims.
+- Some validation classes have only 4–19 examples, so per-class results remain
+  directional until the frozen-test evaluation.
+- The Week 1 P0 gate remains open until W1-003 and W1-004 complete.
 
 ## Handoff
-- Queue W1-002 only. It must verify and consume `banking77_w1_v1` unchanged.
-- Do not start W1-002 without separate user authorization.
+- Queue W1-003 only. It must consume `banking77_w1_v1` unchanged and use the same
+  validation/evaluation contract.
+- Do not start W1-003 or inspect frozen-test outcomes without separate authorization.
 
 ---
 
@@ -68,14 +81,15 @@ IN PROGRESS — W1-001 complete; W1-002/W1-003/W1-004 not started
 
 ## 1. Goal
 
-Complete only `W1-001`: acquire the mentor-provided authoritative Banking77
-files, audit actual integrity, and lock one deterministic data protocol shared by
-future W1-002/W1-003 runs.
+Complete `W1-001`, then execute separately authorized `W1-002`: lock the
+authoritative Banking77 protocol and establish one reproducible lexical baseline
+without touching the frozen official test.
 
 ## 2. Tasks
 
 - `W1-001` — completed with reproducibility, integrity, split, and test evidence.
-- `W1-002` — not started; queued only.
+- `W1-002` — completed with validation-only evidence.
+- `W1-003` / `W1-004` — not started.
 
 ## 3. Work completed
 
@@ -95,8 +109,28 @@ future W1-002/W1-003 runs.
 - Found 7 case-folded/whitespace-normalized official train/test overlaps; all are
   label-consistent. Preserved the authoritative boundary and flagged this as a
   W1-004 evaluation limitation instead of mutating data or tuning on test.
-- Performed no model training, benchmark evaluation, W1-002/W1-003 work, P1, or
-  Week 2 work.
+- During W1-001, performed no model training or benchmark evaluation. Across the
+  day, no W1-003, W1-004 frozen-test evaluation, P1, or Week 2 work was performed.
+
+### W1-002 lexical baseline
+
+- Installed CPython 3.11.9 at user scope because the machine initially exposed
+  only 3.10/3.13, then created ignored `.venv-w1` and installed five exact pins.
+- Implemented a config-driven TF-IDF + Logistic Regression validation CLI. Its
+  data loader verifies source checksums and locked membership, reads only
+  `categories.json` and `train.csv`, and has no test evaluation path.
+- Compared only word unigrams against word uni+bigrams with every other setting
+  fixed. Unigram was selected on validation macro-F1.
+- Recorded validation accuracy 0.865672 and macro-F1 0.862649 for the selected
+  unigram configuration. The bigram candidate recorded 0.857711 / 0.846269.
+- Generated aligned predictions for all 1,005 validation IDs, 77-class metrics,
+  directional confusion counts, version metadata, and a local portable fitted
+  parameter artifact. No official-test prediction or metric was generated.
+- Reviewed 20 validation errors. Frequent three-case confusions involved payment
+  rail recognition and pending/reverted/failed transaction states.
+- Replaced non-byte-stable joblib persistence with canonical JSON + deterministic
+  gzip after proving joblib bytes changed across processes despite identical
+  predictions and metrics.
 
 ## 4. Files changed
 
@@ -109,6 +143,14 @@ future W1-002/W1-003 runs.
 - `reports/week_01/experiments/W1-001_banking77_data_audit.md` — decision/audit note.
 - `reports/week_01/results/banking77_data_audit.{json,md}` — actual evidence.
 - `PROJECT_STATE.md`, `TASKS.md`, and `reports/week_01/week_01_summary.md` — project memory.
+- `requirements/week1-lexical.txt`, `configs/models/banking77_lexical_w1.json` —
+  pinned W1-002 environment and experiment contract.
+- `src/payresolve_ai/baselines/`, `scripts/baselines/lexical.py` — lexical pipeline,
+  validation-only loader, portable model persistence, and CLI.
+- `tests/test_lexical_baseline.py` — scope, alignment, invalid-config, and
+  reproducibility coverage.
+- `reports/week_01/experiments/W1-002_lexical_baseline.md` and
+  `reports/week_01/results/lexical_*` — actual W1-002 evidence.
 
 ## 5. Verification performed
 
@@ -122,6 +164,7 @@ py -3.11 scripts/data/banking77.py --root . --config configs/data/banking77_w1_l
 py -3.11 -m unittest discover -s tests -v
 py -3.11 scripts/reporting/validate_project_docs.py
 py -3.11 scripts/reporting/build_week_report.py --week 1 --format md
+py -3.11 scripts/baselines/lexical.py --root . --config configs/models/banking77_lexical_w1.json --inspect-errors 20
 ```
 
 Results:
@@ -132,6 +175,11 @@ Results:
   provenance/split/audit outputs (`match=True`).
 - Deterministic `verify`: passed raw checksums and exact regenerated artifact bytes.
 - Dataset/model metrics: none; W1-001 is data preparation only.
+- W1-002 selected validation metrics: accuracy 0.865672; macro-F1 0.862649.
+- Full suite after W1-002: 15/15 tests passed on Python 3.11.9.
+- Two consecutive W1-002 runs were byte-identical for model parameters, metrics,
+  per-class scores, predictions, confusions, and manifest.
+- W1-002 evaluation scope was validation only (`test_evaluated=false`).
 
 ## 6. Problems / debugging
 
@@ -146,6 +194,14 @@ Results:
 - Regression protection: a unit test verifies normalized overlaps are evidenced
   without silently removing them; W1-004 must interpret results with this slice.
 
+### Non-deterministic joblib bytes
+
+- Symptom: repeated runs produced identical predictions/metrics but different
+  serialized joblib and manifest SHA-256 values.
+- Root cause: object serialization ordering varied across independent processes.
+- Resolution: persist complete fitted parameters as canonical JSON compressed by
+  gzip with `mtime=0`; all six artifact hashes then matched across reruns.
+
 ## 7. Decisions / trade-offs
 
 - Official test boundary takes precedence over random re-splitting.
@@ -154,6 +210,10 @@ Results:
   verify the exact protocol while raw payloads remain ignored.
 - Near-duplicate work stops at lightweight normalization; fuzzy deduplication
   would widen W1-001 without a demonstrated need.
+- Lexical selection uses validation macro-F1 and only one controlled variable,
+  word `ngram_range`; no broad sweep or third model was allowed.
+- Single-thread numerical execution and a portable parameter format make the
+  selected model artifact reproducible across independent local runs.
 
 ## 8. Evidence
 
@@ -166,6 +226,9 @@ Results:
   `baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902`.
 - Raw source files remain ignored and are not Git candidates.
 - Commit/PR: pending; no stage, commit, push, or merge performed.
+- W1-002 manifest: `reports/week_01/results/lexical_baseline_manifest.json`.
+- Selected local model SHA-256:
+  `4f564e227c5f61164d51710b1a86c6e8405fa0a793cf5b71b9842f0b40d5b021`.
 
 ## 9. Risks / blockers
 
@@ -173,15 +236,17 @@ Results:
   results slightly optimistic; report the slice in W1-004.
 - Exhaustive semantic annotation review was not performed; suspected ambiguity is
   handled through later confusion/error analysis.
-- No blocker remains for W1-001. W1-002 requires separate user authorization.
+- No blocker remains for W1-001 or W1-002. W1-003 requires separate review and
+  authorization; the Week 1 P0 gate remains open.
 
 ## 10. Next step
 
-- Stop. Queue `W1-002` without executing it.
+- Stop. Queue `W1-003` without executing it; do not evaluate the frozen test
+  before W1-004.
 
 ## Suggested commit message
 
-`feat(data): audit and lock Banking77 split`
+`feat(baseline): add reproducible Banking77 lexical validation`
 
 ---
 
@@ -290,6 +355,105 @@ Accept `banking77_w1_v1` as the only W1-002/W1-003 data protocol. Downstream cod
 must verify the manifest before use, must not resplit official data, and must use
 validation—not frozen test—for selection/tuning. W1-001 makes no model-quality
 claim and starts no baseline.
+
+---
+
+<!-- Source: reports/week_01/experiments/W1-002_lexical_baseline.md -->
+
+# W1-002 — Controlled Lexical Baseline
+
+## Objective and scope
+
+Establish one simple lexical reference using TF-IDF + Logistic Regression on the
+locked `banking77_w1_v1` development protocol. This task performs model selection
+only on validation. It does not load, predict, or evaluate the 3,080-row frozen
+official test set; that single controlled evaluation is reserved for W1-004.
+
+## Inputs and invariants
+
+- Authoritative source revision: `57ec275d8078af65b7731c2a98be812d844a6d6b`.
+- Locked membership: 8,998 train / 1,005 validation / 3,080 frozen test.
+- Combined membership SHA-256:
+  `baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902`.
+- Runtime: CPython 3.11.9 with exact pins in
+  `requirements/week1-lexical.txt`.
+- Classifier, seed, solver, and all settings except `ngram_range` were held fixed.
+- Selection metric was validation macro-F1; accuracy and candidate ID were fixed
+  tie-breakers.
+
+## Controlled candidates
+
+| Candidate | Word n-grams | Features | Validation accuracy | Validation macro-F1 |
+|---|---:|---:|---:|---:|
+| `word_unigram` | 1–1 | 2,237 | 0.865672 | 0.862649 |
+| `word_unigram_bigram` | 1–2 | 22,225 | 0.857711 | 0.846269 |
+
+Both candidates used lowercase text, `min_df=1`, sublinear TF, LogisticRegression
+with `C=1.0`, `solver=lbfgs`, `max_iter=1000`, seed `20260723`, and a fixed
+single-thread numerical execution policy.
+
+## Decision
+
+Freeze `word_unigram` for the later W1-004 comparison. It improved validation
+macro-F1 by 0.016381 and accuracy by 0.007960 while using about one tenth as many
+features. No additional lexical sweep or third model was opened.
+
+## Minimal validation error inspection
+
+The selected model made 135 errors among 1,005 validation examples. The most
+frequent directional confusion pairs (three cases each) were:
+
+- `direct_debit_payment_not_recognised` → `card_payment_not_recognised`;
+- `pending_top_up` → `top_up_failed`;
+- `reverted_card_payment?` → `request_refund`;
+- `top_up_reverted` → `top_up_failed`.
+
+Representative stable sample IDs reviewed included
+`10c97cc5...216d1d5` (unrecognized payment without a strong payment-rail cue),
+`10414657...b540110` (top-up “didn't finish”), and
+`5450a431...2ed638` (transfer timing vs pending transfer). The evidence supports
+a lexical limitation: neighboring intents often share transaction nouns while
+the decisive distinction is event state, rail, or temporal semantics. This is a
+W1-002 observation only, not the final W1-004 taxonomy or gate decision.
+
+Lowest selected per-class F1 values were `card_acceptance` (0.545455),
+`card_not_working` (0.571429), `topping_up_by_card` (0.666667), and
+`virtual_card_not_working` (0.666667). Per-class support is retained in the CSV;
+small validation support means these values are diagnostic, not final test claims.
+
+## Reproducibility and artifact decision
+
+Exact command:
+
+```powershell
+py -3.11 scripts/baselines/lexical.py --root . --config configs/models/banking77_lexical_w1.json --inspect-errors 20
+```
+
+Two consecutive independent runs produced byte-identical metrics, predictions,
+per-class metrics, confusions, portable model parameters, and manifest. The model
+uses canonical JSON + deterministic gzip rather than joblib serialization because
+joblib bytes varied across processes despite identical predictions/metrics. The
+portable artifact records vocabulary, IDF, class order, coefficients, and
+intercepts and remains ignored under `artifacts/`; its SHA-256 is
+`4f564e227c5f61164d51710b1a86c6e8405fa0a793cf5b71b9842f0b40d5b021`.
+
+## Evidence
+
+- Config: `configs/models/banking77_lexical_w1.json`.
+- Metrics: `reports/week_01/results/lexical_validation_metrics.json`.
+- Per-class metrics: `reports/week_01/results/lexical_validation_per_class.csv`.
+- Predictions: `reports/week_01/results/lexical_validation_predictions.csv`.
+- Confusion counts: `reports/week_01/results/lexical_validation_confusions.csv`.
+- Version/hashes: `reports/week_01/results/lexical_baseline_manifest.json`.
+- Tests: 15/15 passed after adding W1-002 coverage.
+
+## Limitations and next boundary
+
+- These are validation results, not official test results.
+- The two-candidate comparison isolates only word bigrams; it is not a broad
+  hyperparameter search.
+- W1-003 has not started. W1-004 must later evaluate exactly the two frozen
+  baselines once on the untouched official test and perform the final analysis.
 
 ---
 

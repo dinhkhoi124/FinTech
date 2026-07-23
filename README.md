@@ -2,8 +2,9 @@
 
 Banking Intent Classification & Grounded RAG for Payment Support.
 
-The project is currently at **Phase 0 — Repository bootstrap**. No Week 1 model or
-benchmark result is claimed yet.
+The project is currently at **Phase 1 — Banking77 benchmark**. W1-001 data locking
+and the W1-002 lexical validation baseline are complete; W1-003 and the frozen-test
+W1-004 evaluation have not started.
 
 ## Start here
 

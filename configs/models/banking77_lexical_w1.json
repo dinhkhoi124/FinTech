@@ -1,0 +1,52 @@
+{
+  "task_id": "W1-002",
+  "description": "Controlled validation-only TF-IDF + Logistic Regression baseline",
+  "data_config": "configs/data/banking77_w1_locked.json",
+  "locked_combined_membership_sha256": "baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902",
+  "estimator": "sklearn.pipeline.Pipeline(TfidfVectorizer,LogisticRegression)",
+  "seed": 20260723,
+  "selection": {
+    "metric": "macro_f1",
+    "tie_breakers": ["accuracy", "candidate_id"]
+  },
+  "candidates": [
+    {
+      "id": "word_unigram",
+      "tfidf": {
+        "lowercase": true,
+        "min_df": 1,
+        "ngram_range": [1, 1],
+        "sublinear_tf": true
+      },
+      "logistic_regression": {
+        "C": 1.0,
+        "max_iter": 1000,
+        "random_state": 20260723,
+        "solver": "lbfgs"
+      }
+    },
+    {
+      "id": "word_unigram_bigram",
+      "tfidf": {
+        "lowercase": true,
+        "min_df": 1,
+        "ngram_range": [1, 2],
+        "sublinear_tf": true
+      },
+      "logistic_regression": {
+        "C": 1.0,
+        "max_iter": 1000,
+        "random_state": 20260723,
+        "solver": "lbfgs"
+      }
+    }
+  ],
+  "outputs": {
+    "model": "artifacts/models/w1-002/lexical_parameters.json.gz",
+    "metrics": "reports/week_01/results/lexical_validation_metrics.json",
+    "per_class": "reports/week_01/results/lexical_validation_per_class.csv",
+    "predictions": "reports/week_01/results/lexical_validation_predictions.csv",
+    "confusions": "reports/week_01/results/lexical_validation_confusions.csv",
+    "manifest": "reports/week_01/results/lexical_baseline_manifest.json"
+  }
+}

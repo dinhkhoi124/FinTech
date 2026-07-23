@@ -1,0 +1,72 @@
+{
+  "artifacts": {
+    "confusions": {
+      "path": "reports/week_01/results/lexical_validation_confusions.csv",
+      "sha256": "7ca8bed95a84991ac80b0c6cb1a2cf47966aaed30c16f1926dc80c73296589e7"
+    },
+    "metrics": {
+      "path": "reports/week_01/results/lexical_validation_metrics.json",
+      "sha256": "9ed8cbef0039737e807b0ee4ffe67145d18e467940ce3e86b00ce03b46fd2910"
+    },
+    "model": {
+      "path": "artifacts/models/w1-002/lexical_parameters.json.gz",
+      "sha256": "4f564e227c5f61164d51710b1a86c6e8405fa0a793cf5b71b9842f0b40d5b021"
+    },
+    "per_class": {
+      "path": "reports/week_01/results/lexical_validation_per_class.csv",
+      "sha256": "985d97d24858f3724048ce301196f07af2bb7a505340ac9f70894338b03ce9c1"
+    },
+    "predictions": {
+      "path": "reports/week_01/results/lexical_validation_predictions.csv",
+      "sha256": "96d856d41d19b614709cabd0ccd74c969c4ac5473640b3d6be06ef52351c9b09"
+    }
+  },
+  "combined_membership_sha256": "baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902",
+  "config_sha256": "f99955a401063fa849d93af2dec3639e8e3aaa3f8a99d3029b0ce01edb02b64d",
+  "counts": {
+    "classes": 77,
+    "train": 8998,
+    "validation": 1005
+  },
+  "evaluation_scope": "locked_validation_only",
+  "model_artifact_format": "payresolve-lexical-parameters-v1 (canonical JSON + gzip mtime=0)",
+  "model_family": "TF-IDF + Logistic Regression",
+  "protocol_id": "banking77_w1_v1",
+  "runtime": {
+    "dependencies": {
+      "joblib": "1.4.2",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.5.2",
+      "scipy": "1.13.1",
+      "threadpoolctl": "3.5.0"
+    },
+    "numerical_thread_limit": 1,
+    "python": "3.11.9"
+  },
+  "selected_candidate": {
+    "id": "word_unigram",
+    "logistic_regression": {
+      "C": 1.0,
+      "max_iter": 1000,
+      "random_state": 20260723,
+      "solver": "lbfgs"
+    },
+    "tfidf": {
+      "lowercase": true,
+      "min_df": 1,
+      "ngram_range": [
+        1,
+        1
+      ],
+      "sublinear_tf": true
+    }
+  },
+  "selected_validation_metrics": {
+    "accuracy": 0.8656716417910447,
+    "macro_f1": 0.8626492356833871
+  },
+  "source_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "split_manifest_sha256": "dfb2c0f54eda2796614032708c630cecef18d066cf050e02b3394e812896fffd",
+  "task_id": "W1-002",
+  "test_evaluated": false
+}

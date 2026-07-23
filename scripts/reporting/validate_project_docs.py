@@ -196,6 +196,23 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
             if not (root / relative).is_file():
                 issues.append(ValidationIssue("missing-w1-001-evidence", relative))
 
+    if "W1-002" in done_task_ids:
+        for relative in (
+            "requirements/week1-lexical.txt",
+            "configs/models/banking77_lexical_w1.json",
+            "scripts/baselines/lexical.py",
+            "src/payresolve_ai/baselines/lexical.py",
+            "tests/test_lexical_baseline.py",
+            "reports/week_01/experiments/W1-002_lexical_baseline.md",
+            "reports/week_01/results/lexical_baseline_manifest.json",
+            "reports/week_01/results/lexical_validation_metrics.json",
+            "reports/week_01/results/lexical_validation_per_class.csv",
+            "reports/week_01/results/lexical_validation_predictions.csv",
+            "reports/week_01/results/lexical_validation_confusions.csv",
+        ):
+            if not (root / relative).is_file():
+                issues.append(ValidationIssue("missing-w1-002-evidence", relative))
+
     return issues
 
 

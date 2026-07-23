@@ -1,0 +1,30 @@
+{
+  "candidate_results": [
+    {
+      "accuracy": 0.8656716417910447,
+      "candidate_id": "word_unigram",
+      "feature_count": 2237,
+      "macro_f1": 0.8626492356833871
+    },
+    {
+      "accuracy": 0.8577114427860697,
+      "candidate_id": "word_unigram_bigram",
+      "feature_count": 22225,
+      "macro_f1": 0.8462685325965399
+    }
+  ],
+  "counts": {
+    "classes": 77,
+    "train": 8998,
+    "validation": 1005
+  },
+  "evaluation_scope": "locked_validation_only",
+  "selected_candidate_id": "word_unigram",
+  "selected_validation_metrics": {
+    "accuracy": 0.8656716417910447,
+    "macro_f1": 0.8626492356833871
+  },
+  "selection_metric": "macro_f1",
+  "task_id": "W1-002",
+  "test_evaluated": false
+}
