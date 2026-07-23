@@ -4,19 +4,23 @@
 
 ## Current status
 - Project: PayResolve AI
-- Current phase: Phase 0 — Repository bootstrap
-- Current week: Week 0 / Bootstrap
-- P0 gate status: PASSED — ready for user commit/review
+- Current phase: Phase 1 — Banking77 benchmark
+- Current week: Week 1
+- P0 gate status: IN PROGRESS
 - Active task: None
-- Next authorized task: `W1-001` — NOT STARTED; requires explicit user approval
+- Next task: `W1-002` — QUEUED / NOT STARTED; requires separate user authorization
 - Last updated: 2026-07-23 by Codex
 
 ## Active objective
-Establish the repository operating system, context, reporting workflow, and reproducible development entry points before Week 1 implementation.
+Complete the two controlled Week 1 baselines and final error analysis using the
+verified `banking77_w1_v1` protocol without changing its locked membership.
 
 ## Current versions
-- Code version: not frozen
-- Banking77 data version/split: not created
+- Code version: Phase 0 commit `8e321d6`; W1-001 working tree not committed
+- Banking77 data version/split: `banking77_w1_v1` locked
+  - upstream revision: `57ec275d8078af65b7731c2a98be812d844a6d6b`
+  - train/validation/test: 8,998 / 1,005 / 3,080
+  - combined membership SHA-256: `baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902`
 - Intent model version: none
 - KB version: none
 - Index version: none
@@ -28,36 +32,38 @@ Establish the repository operating system, context, reporting workflow, and repr
 - [x] Reporting workflow implemented and validated
 - [x] Week 1 executable task breakdown prepared
 - [x] Final source-of-truth, reduced-scope, Python strategy, and public-safety review passed
-- [ ] Week 1 task breakdown reviewed/approved by user
+- [x] W1-001 authoritative source, audit, and deterministic locked split
+- [ ] W1-002 lexical baseline
+- [ ] W1-003 semantic/model-based baseline
+- [ ] W1-004 evaluation/error analysis and Week 1 P0 gate
 
 ## Blockers / risks
-- No remaining Phase 0 blocker. Week 1 must not start before user commit/review
-  and explicit approval of `W1-001`.
-- Week 1 is locked to CPython 3.11.x. The installed Python 3.11.9 passed the
-  Phase 0 suite, but the existing `.venv` is Python 3.14.3 with only pip and must
-  be recreated after review before Week 1 ML/data execution.
-- Week 1 ML/data dependencies remain intentionally unselected; `W1-001` must pin
-  and verify only the dependencies needed for its P0 data contract.
+- No W1-001 blocker. W1-002 must not start without separate user authorization.
+- Seven official train/test queries overlap after case-fold + whitespace
+  normalization (0 exact overlaps; all 7 label-consistent). Preserve the official
+  boundary and report this evaluation limitation in W1-004.
+- Week 1 remains locked to CPython 3.11.x. No ML dependency has been installed or
+  selected yet; W1-002 must justify and pin only its lexical-baseline dependencies.
 - Pandoc is available for DOCX; PDF export still depends on a working PDF engine
   and must be verified explicitly before claiming a PDF artifact.
 
 ## Latest verified evidence
-- `py -3.11 -m unittest discover -s tests -v`: 6/6 tests passed on Python 3.11.9.
+- `py -3.11 -m unittest discover -s tests -v`: 12/12 tests passed on Python 3.11.9.
 - `py -3.11 scripts/reporting/validate_project_docs.py`: required structure,
   Week 1 contracts, Python constraint, and public-safety checks passed.
-- The same 6/6 bootstrap tests passed on the retained Python 3.14.3 `.venv`; this
-  does not establish ML dependency support on Python 3.14.
-- `reports/week_00/daily/2026-07-23.md`: exact bootstrap work and commands.
-- `reports/week_00/exports/week_00_report.md`: generated weekly Markdown aggregate.
-- Final Git audit: 1 tracked modified file (`README.md`), 73 untracked bootstrap
-  files, no staged files, no protected tracked paths, and one authoritative PRD.
+- `py -3.11 scripts/data/banking77.py ... verify`: raw checksums and deterministic
+  source/split/audit artifact regeneration passed.
+- `reports/week_01/results/banking77_data_audit.json`: 13,083 samples, 77 intents,
+  integrity counts, distributions, short-query cases, and overlap evidence.
+- `data/banking77_split_manifest.json`: exact membership and per-split hashes.
 
 ## Next 3 actions
-1. User reviews/commits the Phase 0 checkpoint; no Git mutation is performed by Codex.
-2. After explicit approval, recreate `.venv` with Python 3.11 and activate only `W1-001`.
-3. Keep `W1-002` through `W1-004` queued; do not open P1, a third model, or Week 2.
+1. User reviews/commits W1-001 evidence; Codex performs no Git mutation.
+2. If separately authorized, activate only W1-002 and verify `banking77_w1_v1` before use.
+3. Keep W1-003/W1-004 queued; do not open a third model, P1, or Week 2.
 
 ## Handoff note
-Phase 0 final review passed but Week 1 has not started. No Banking77 data, split,
-model, benchmark metric, or RAG artifact exists. New sessions must inspect the
-repository and receive explicit user approval before activating `W1-001`.
+W1-001 is complete. Raw data stays ignored; provenance, checksums, audit evidence,
+and locked membership are trackable. No model or benchmark metric exists. New
+sessions must verify `banking77_w1_v1` and receive explicit user approval before
+activating W1-002.

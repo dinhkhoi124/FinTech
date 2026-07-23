@@ -82,6 +82,22 @@ python -m unittest discover -s tests -v
 python scripts/reporting/validate_project_docs.py
 ```
 
+## Week 1 data protocol
+
+W1-001 uses only the mentor-provided PolyAI GitHub source at the exact commit and
+checksums locked in `configs/data/banking77_w1_locked.json`:
+
+```powershell
+py -3.11 scripts/data/banking77.py --root . --config configs/data/banking77_w1_locked.json acquire --refresh
+py -3.11 scripts/data/banking77.py --root . --config configs/data/banking77_w1_locked.json audit-lock
+py -3.11 scripts/data/banking77.py --root . --config configs/data/banking77_w1_locked.json verify
+```
+
+`test.csv` remains the official frozen test set. Validation is a deterministic,
+per-label 10% allocation from official train using seed `20260723` and a SHA-256
+ordering rule. W1-002 and W1-003 must consume and verify the same locked manifest;
+they must not resplit, tune on, or inspect test outcomes for model selection.
+
 ## Experiments and evaluation
 
 No Week 1 experiment entry point exists yet by design. Each Week 1 task must add a

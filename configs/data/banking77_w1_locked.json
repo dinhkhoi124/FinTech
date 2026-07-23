@@ -1,0 +1,44 @@
+{
+  "protocol_id": "banking77_w1_v1",
+  "source": {
+    "repository_url": "https://github.com/PolyAI-LDN/task-specific-datasets.git",
+    "directory_url": "https://github.com/PolyAI-LDN/task-specific-datasets/tree/master/banking_data",
+    "revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+    "subdirectory": "banking_data",
+    "license": {
+      "spdx_id": "CC-BY-4.0",
+      "path": "LICENSE",
+      "url": "https://github.com/PolyAI-LDN/task-specific-datasets/blob/57ec275d8078af65b7731c2a98be812d844a6d6b/LICENSE"
+    },
+    "files": {
+      "categories.json": {
+        "sha256": "53261da888122daf2d120d925458631d9619e15d82e56052e7a42e535ce32b63"
+      },
+      "train.csv": {
+        "sha256": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b"
+      },
+      "test.csv": {
+        "sha256": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d"
+      }
+    }
+  },
+  "paths": {
+    "raw_directory": "data/raw/banking77/57ec275d8078af65b7731c2a98be812d844a6d6b",
+    "source_manifest": "data/banking77_source_manifest.json",
+    "split_manifest": "data/banking77_split_manifest.json",
+    "audit_json": "reports/week_01/results/banking77_data_audit.json",
+    "audit_markdown": "reports/week_01/results/banking77_data_audit.md"
+  },
+  "split": {
+    "strategy": "official_test_plus_hash_stratified_validation",
+    "seed": 20260723,
+    "validation_fraction": {
+      "numerator": 1,
+      "denominator": 10
+    }
+  },
+  "audit": {
+    "short_token_thresholds": [1, 2, 3],
+    "shortest_examples_limit": 20
+  }
+}

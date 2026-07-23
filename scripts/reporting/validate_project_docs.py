@@ -184,6 +184,18 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
         if task_id not in daily_text:
             issues.append(ValidationIssue("done-task-without-daily-evidence", task_id))
 
+    if "W1-001" in done_task_ids:
+        for relative in (
+            "configs/data/banking77_w1_locked.json",
+            "data/banking77_source_manifest.json",
+            "data/banking77_split_manifest.json",
+            "reports/week_01/experiments/W1-001_banking77_data_audit.md",
+            "reports/week_01/results/banking77_data_audit.json",
+            "reports/week_01/results/banking77_data_audit.md",
+        ):
+            if not (root / relative).is_file():
+                issues.append(ValidationIssue("missing-w1-001-evidence", relative))
+
     return issues
 
 
