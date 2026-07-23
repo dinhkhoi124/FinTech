@@ -1,0 +1,46 @@
+# Personal/local documents and archives (never publish)
+document/
+file_zip/
+*.zip
+*.7z
+*.rar
+
+# Python environments and caches
+.venv/
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local data/model artifacts; keep policies and placeholders only
+data/raw/**
+data/interim/**
+data/processed/**
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+artifacts/**
+!artifacts/README.md
+!artifacts/.gitkeep
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,228 @@
+<!-- GENERATED FILE: edit canonical sources, not this aggregate. -->
+<!-- Built: 2026-07-23 | Source commit: 6e3b415 -->
+
+# PayResolve AI — Week 00 Report
+
+## Included canonical sources
+
+- `reports/week_00/week_00_summary.md`
+- `reports/week_00/daily/2026-07-23.md`
+
+---
+
+<!-- Source: reports/week_00/week_00_summary.md -->
+
+# Week 00 Summary
+
+## P0 objective
+
+Bootstrap a safe, reproducible, mentor-facing PayResolve AI repository before
+Week 1 implementation.
+
+## Status
+
+PASSED — ready for user commit/review; Week 1 not started
+
+## Deliverables completed
+
+- Minimal source/test/config/data/experiment/artifact structure established.
+- Reporting automation implemented with regression tests.
+- Git/public-safety guardrails and validation implemented.
+- Stable Phase 0 commands documented.
+- W1-001 through W1-004 executable P0 contracts prepared.
+- Final source-of-truth review reconciled retrieval/failure-analysis wording and
+  confirmed the repository is not scoped as a mini enterprise AI platform.
+- CPython 3.11.x established as the supported Week 1 strategy; no ML dependency
+  or framework was installed.
+
+## Key evidence
+
+| Claim | Evidence | Result | Decision |
+|---|---|---|---|
+| Daily/report generation is safe | `tests/test_reporting.py` | 6/6 tests pass, including no-overwrite and cross-drive export cases | Keep standard-library automation |
+| Required structure and public-safety rules hold | `scripts/reporting/validate_project_docs.py` | Validation passed | Phase 0 gate can close |
+| Bootstrap report is reproducible | `reports/week_00/exports/week_00_report.md` | Generated from canonical Markdown | Do not manually edit aggregate |
+| Binary export behavior is honest | `scripts/reporting/build_week_report.py` | DOCX succeeds; PDF reports missing `xelatex` | Markdown remains canonical |
+| Final scope lock is consistent | `docs/MASTER_PRD.md`, `docs/ROADMAP.md`, `TASKS.md` | Exactly two Week 1 approaches; R0/R1 retrieval; one deep incident/change request | Keep P1/P2 closed |
+| Supported runtime is explicit | `pyproject.toml`, `docs/DEVELOPMENT.md` | Python 3.11.9 passes 6/6 tests and validator | Recreate `.venv` only after review |
+
+## P0 exit criteria
+
+- [x] Minimal project structure exists.
+- [x] Environment and stable commands are documented.
+- [x] Reporting automation and tests pass.
+- [x] Public-safety validation passes.
+- [x] W1-001 through W1-004 have executable acceptance contracts.
+- [x] Final source-of-truth, scope-lock, environment, Git, and implementation review passed.
+
+## Risks / limitations
+
+- Existing `.venv` is Python 3.14.3 with only pip; recreate it with installed
+  Python 3.11.9 after user review and before Week 1 data/model execution.
+- PDF generation is unavailable until a Pandoc-compatible PDF engine is present.
+- Week 1 remains blocked by the intentional user-review stop, not by implementation.
+
+## Handoff
+
+- Do not start Week 1 until bootstrap is reviewed.
+
+---
+
+<!-- Source: reports/week_00/daily/2026-07-23.md -->
+
+# Daily Report — 2026-07-23
+
+## 1. Goal
+
+Complete Phase 0 repository bootstrap only: audit the existing repository, add
+the minimum reproducible project/reporting structure, protect public Git safety,
+and prepare Week 1 executable task contracts without starting them.
+
+## 2. Tasks
+
+- `BOOT-001` — completed: minimal structure and reporting automation.
+- `BOOT-002` — completed: repository/Git/toolchain audit and developer workflow.
+- `BOOT-003` — completed: final consistency, scope-lock, Python, implementation,
+  and public-safety review gate.
+
+## 3. Work completed
+
+- Read all mandatory context and the lifecycle skill; kept `MASTER_PRD.md` as the
+  single authoritative PRD.
+- Audited all project files, Git tracked/untracked/ignored state, `.gitignore`,
+  local toolchain, high-confidence secret patterns, and sensitive filenames.
+- Added minimal `src/`, `tests/`, `configs/`, `data/`, `experiments/`, and
+  `artifacts/` areas without adding a model/framework.
+- Added Week 00 bootstrap reporting and missing `exports/` directories for Weeks
+  01–05; preserved existing Week 01–05 report sources.
+- Implemented non-overwriting daily creation, project/report/public-safety
+  validation, deterministic weekly Markdown aggregation, and optional Pandoc
+  DOCX/PDF export with explicit failure behavior.
+- Documented stable Phase 0 commands and detailed W1-001 through W1-004 contracts.
+- Did not download Banking77, create a split, train/evaluate models, or start P1,
+  Week 1, or Week 2.
+- Reconciled two stale scope wordings in `MASTER_PRD.md`: P0 retrieval is exactly
+  R0 vs R1 with filtering invariant, and full E1–E5 percentage decomposition is
+  P1 rather than a hidden P0 requirement.
+- Defined Week 00 explicitly as bootstrap/pre-execution in `ROADMAP.md` and
+  `REPORTING_POLICY.md`; no daily log was duplicated into Week 1.
+- Locked the supported Week 1 interpreter to CPython 3.11.x and preserved the
+  existing Python 3.14 `.venv` without moving, deleting, or installing packages.
+
+## 4. Files changed
+
+- Root/state: `.gitignore`, `README.md`, `README_OPERATING_SYSTEM.md`,
+  `pyproject.toml`, `PROJECT_STATE.md`, `TASKS.md`.
+- Scope/workflow: `docs/MASTER_PRD.md`, `docs/ROADMAP.md`,
+  `docs/REPORTING_POLICY.md`, `docs/DEVELOPMENT.md`, `CODEX_BOOTSTRAP_PROMPT.md`,
+  `scripts/reporting/*.py`,
+  `scripts/reporting/README.md`, `tests/test_reporting.py`.
+- Structure/policy: `src/payresolve_ai/`, `configs/`, `data/`, `experiments/`,
+  `artifacts/`.
+- Reports: `reports/README.md`, `reports/week_00/`, and Week 01–05 `exports/`
+  placeholders.
+
+## 5. Verification performed
+
+Commands:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe scripts/reporting/validate_project_docs.py
+.\.venv\Scripts\python.exe scripts/reporting/new_daily_report.py --week 0 --date 2026-07-23
+.\.venv\Scripts\python.exe scripts/reporting/build_week_report.py --week 0 --format md
+.\.venv\Scripts\python.exe scripts/reporting/build_week_report.py --week 0 --check-converters
+py -3.11 -m unittest discover -s tests -v
+py -3.11 scripts/reporting/validate_project_docs.py
+```
+
+Results:
+
+- Initial tests: 4/5 passed; repository-contract test correctly failed because
+  `PROJECT_STATE.md` still contained the `YYYY-MM-DD` placeholder.
+- After updating project memory and export regression coverage: 6/6 tests passed
+  and repository validation passed.
+- Daily report creation succeeded once; the second attempt returned an error and
+  preserved the existing file.
+- Weekly Markdown build succeeded once; the second attempt refused overwrite
+  without `--force`.
+- Pandoc was detected. DOCX export succeeded. PDF export failed clearly because
+  no `xelatex` PDF engine is installed; Markdown remains canonical.
+- Final review: Python 3.11.9 passed 6/6 tests and validation; the retained Python
+  3.14.3 `.venv` also passed 6/6 bootstrap-only tests.
+- Final no-overwrite smoke tests returned exit code 2 for the existing daily and
+  weekly Markdown files, preserving both files.
+- Git check-ignore confirmed protected paths are ignored; sample metrics JSON/CSV,
+  split manifest/checksum, config, and experiment metadata paths remain trackable.
+- Final Git status: one tracked modified file (`README.md`) and 73 untracked
+  bootstrap files; nothing staged. `git ls-files` contained only the original
+  `README.md`, and no protected path was tracked.
+- Final canonical rebuild produced the Week 00 Markdown aggregate and DOCX; the
+  DOCX ZIP/container integrity check passed.
+- ML/benchmark metrics: none; no Week 1 experiment was run.
+
+## 6. Problems / debugging
+
+### State placeholder detected by validator
+
+- Symptom: the first integration test and validator reported one
+  `state-placeholder` issue.
+- Root cause: bootstrap state still had its initialization placeholder.
+- Fix: updated `PROJECT_STATE.md` with the actual date/status and evidence.
+- Regression protection: `test_repository_contract` and
+  `validate_project_docs.py` reject that placeholder in future runs.
+
+### DOCX cross-drive export failure
+
+- Symptom: Pandoc created the DOCX successfully, but `os.replace` raised
+  `WinError 17` while moving it from the system temp directory on C: to the
+  repository exports directory on E:.
+- Root cause: atomic replace cannot cross Windows volumes.
+- Fix: create the converter output temp file inside the destination `exports/`
+  directory, then atomically replace on the same volume; report remaining OS
+  errors without an uncaught traceback.
+- Regression protection:
+  `test_converter_output_is_created_on_destination_volume` verifies temp-output
+  placement and final export creation. Its first draft mocked the shared
+  `subprocess.run` too broadly and intercepted the Git metadata lookup; the mock
+  was narrowed to the converter path before the final 6/6 pass.
+
+## 7. Decisions / trade-offs
+
+- Used Python standard library for Phase 0 automation to avoid premature/heavy
+  dependencies.
+- Added `week_00/` so bootstrap evidence does not falsely count as Week 1 work.
+- Kept raw/interim/processed data and local model/index artifacts ignored; public,
+  safe evidence is reduced into weekly report results.
+- Deferred exact ML/data dependencies and semantic model choice to W1-001/W1-003,
+  where versions and rationale can be verified.
+- Selected CPython 3.11.x as the narrow supported Week 1 runtime; widening the
+  constraint requires recorded dependency compatibility evidence.
+
+## 8. Evidence
+
+- `tests/test_reporting.py`
+- `scripts/reporting/validate_project_docs.py`
+- `reports/week_00/exports/week_00_report.md`
+- `reports/week_00/exports/week_00_report.docx`
+- `PROJECT_STATE.md` and `TASKS.md`
+- Git audit at completion: only the original `README.md` was tracked before this
+  work; `.venv/` was ignored; protected paths were not tracked; no high-confidence
+  secret pattern or sensitive filename was found outside `.git/.venv`.
+- Config/data/model versions: none frozen; no Banking77/model artifact exists.
+- Commit/PR: pending; no commit, push, merge, or PR was performed.
+
+## 9. Risks / blockers
+
+- User commit/review and explicit approval are required before activating W1-001.
+- Local `.venv` uses Python 3.14.3 and must be recreated with the installed Python
+  3.11.9 after review; no environment mutation occurred in this gate.
+- PDF export requires a PDF engine such as `xelatex`; it is not available now.
+
+## 10. Next step
+
+- Stop and wait for user review. If approved, start only W1-001.
+
+## Suggested commit message
+
+`chore(bootstrap): establish repository and reporting workflow`
