@@ -9,7 +9,7 @@
 - P0 gate status: IN PROGRESS
 - Active task: None
 - Next task: `W1-003` — QUEUED / NOT STARTED; requires separate user authorization
-- Last updated: 2026-07-23 by Codex
+- Last updated: 2026-07-24 by Codex
 
 ## Active objective
 Complete the two controlled Week 1 baselines and final error analysis using the
@@ -39,6 +39,7 @@ verified `banking77_w1_v1` protocol without changing its locked membership.
 - [x] Final source-of-truth, reduced-scope, Python strategy, and public-safety review passed
 - [x] W1-001 authoritative source, audit, and deterministic locked split
 - [x] W1-002 lexical validation baseline and frozen selection
+- [x] DOC-001 reader-friendly MASTER_PRD split generated under `tai_lieu/`
 - [ ] W1-003 semantic/model-based baseline
 - [ ] W1-004 evaluation/error analysis and Week 1 P0 gate
 
@@ -67,6 +68,9 @@ verified `banking77_w1_v1` protocol without changing its locked membership.
   uni+bigrams; validation accuracy 0.865672 and macro-F1 0.862649.
 - `reports/week_01/results/lexical_baseline_manifest.json`: exact runtime/config/
   data/model/evidence hashes; two consecutive runs matched all six artifacts.
+- `py -3.11 scripts/reporting/split_master_prd.py --root . --check`: all numbered
+  `MASTER_PRD.md` sections 0–19 are assigned exactly once and generated reader
+  copies are current; the authoritative master remains unchanged.
 
 ## Next 3 actions
 1. User reviews W1-002 implementation and validation evidence; Codex performs no Git mutation.

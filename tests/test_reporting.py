@@ -15,7 +15,8 @@ sys.path.insert(0, str(REPORTING_DIR))
 from build_week_report import export_with_pandoc, write_markdown  # noqa: E402
 from new_daily_report import create_daily_report  # noqa: E402
 from reporting_common import parse_iso_date, render_week_markdown  # noqa: E402
-from validate_project_docs import validate_repository  # noqa: E402
+from split_master_prd import render_documents  # noqa: E402
+from validate_project_docs import is_current_reader_prd, validate_repository  # noqa: E402
 
 
 class DailyReportTests(unittest.TestCase):
@@ -92,6 +93,21 @@ class WeekReportTests(unittest.TestCase):
 
 
 class RepositoryContractTests(unittest.TestCase):
+    def test_only_current_generated_reader_prd_is_allowed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            master = root / "docs" / "MASTER_PRD.md"
+            reader = root / "tai_lieu" / "PRD.md"
+            master.parent.mkdir(parents=True)
+            reader.parent.mkdir(parents=True)
+            sections = "\n".join(f"# {number}. Section {number}\n\nBody {number}." for number in range(20))
+            master.write_text(f"# Master\n\n{sections}\n", encoding="utf-8")
+            reader.write_text(render_documents(master, reader.parent)["PRD.md"], encoding="utf-8")
+
+            self.assertTrue(is_current_reader_prd(root, reader))
+            reader.write_text(reader.read_text(encoding="utf-8") + "manual edit\n", encoding="utf-8")
+            self.assertFalse(is_current_reader_prd(root, reader))
+
     def test_repository_contract(self) -> None:
         issues = validate_repository(REPO_ROOT)
         self.assertEqual([], issues, "\n".join(f"{i.code}: {i.message}" for i in issues))

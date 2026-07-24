@@ -13,6 +13,7 @@ from reporting_common import (
     repository_root,
     week_path,
 )
+from split_master_prd import render_documents
 
 
 REQUIRED_FILES = (
@@ -37,6 +38,7 @@ REQUIRED_FILES = (
     "scripts/reporting/new_daily_report.py",
     "scripts/reporting/build_week_report.py",
     "scripts/reporting/validate_project_docs.py",
+    "scripts/reporting/split_master_prd.py",
 )
 
 REQUIRED_DIRECTORIES = (
@@ -63,6 +65,21 @@ REQUIRED_IGNORE_RULES = (
 
 FORBIDDEN_TRACKED_PREFIXES = ("document/", "file_zip/", ".venv/", "secrets/", "credentials/")
 SENSITIVE_SUFFIXES = (".pem", ".key", ".p12", ".pfx")
+
+
+def is_current_reader_prd(root: Path, path: Path) -> bool:
+    """Allow only the generated, byte-current tai_lieu/PRD.md reader copy."""
+    reader_prd = root / "tai_lieu" / "PRD.md"
+    if path != reader_prd or not path.is_file():
+        return False
+    master_prd = root / "docs" / "MASTER_PRD.md"
+    if not master_prd.is_file():
+        return False
+    try:
+        expected = render_documents(master_prd, reader_prd.parent)[reader_prd.name]
+        return path.read_text(encoding="utf-8") == expected
+    except (KeyError, OSError, UnicodeError, ValueError):
+        return False
 
 
 def git_paths(root: Path) -> list[Path]:
@@ -155,7 +172,11 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
         if ".git" not in path.parts and ".venv" not in path.parts
     ]
     expected_prd = root / "docs" / "MASTER_PRD.md"
-    if set(prd_files) != {expected_prd}:
+    allowed_prds = {expected_prd}
+    reader_prd = root / "tai_lieu" / "PRD.md"
+    if is_current_reader_prd(root, reader_prd):
+        allowed_prds.add(reader_prd)
+    if set(prd_files) != allowed_prds:
         paths = ", ".join(str(path.relative_to(root)) for path in prd_files) or "none"
         issues.append(ValidationIssue("competing-prd", paths))
 

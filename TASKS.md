@@ -10,6 +10,7 @@ Priority: `P0 | P1 | P2`
 | BOOT-001 | 0 | P0 | Integrate minimal project/reporting structure and automation | Required files exist; reporting tests and validation pass | DONE |
 | BOOT-002 | 0 | P0 | Audit repo, Git/public safety, and developer commands | Audit evidence recorded; commands executed in current environment | DONE |
 | BOOT-003 | 0 | P0 | Final Phase 0 consistency, scope-lock, environment, and safety review | Source-of-truth reconciled; Python 3.11 gate, tests, validator, and Git audit pass | DONE |
+| DOC-001 | — | P0 | Generate reader-friendly views of authoritative MASTER_PRD | `tai_lieu/` index + section-completeness check; master remains authoritative and unchanged | DONE |
 | W1-001 | 1 | P0 | Audit Banking77 and lock split | Audit artifact + deterministic split/config | DONE |
 | W1-002 | 1 | P0 | Lexical baseline | Metrics + config + reproducible command | DONE |
 | W1-003 | 1 | P0 | Semantic/model baseline | Metrics + config + reproducible command | TODO |
