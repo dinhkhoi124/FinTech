@@ -2,9 +2,9 @@
 
 Banking Intent Classification & Grounded RAG for Payment Support.
 
-The project is currently at **Phase 1 — Banking77 benchmark**. W1-001 data locking
-and the W1-002 lexical validation baseline are complete; W1-003 and the frozen-test
-W1-004 evaluation have not started.
+The project is currently at **Phase 1 — Banking77 benchmark**. W1-001 data locking,
+W1-002 lexical validation, and W1-003 semantic validation are complete. The
+frozen-test W1-004 comparison has not started.
 
 ## Start here
 

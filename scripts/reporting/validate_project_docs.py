@@ -234,6 +234,40 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
             if not (root / relative).is_file():
                 issues.append(ValidationIssue("missing-w1-002-evidence", relative))
 
+    if "W1-003" in done_task_ids:
+        semantic_evidence = (
+            "requirements/week1-semantic.txt",
+            "configs/models/banking77_semantic_w1.json",
+            "scripts/baselines/semantic.py",
+            "src/payresolve_ai/baselines/semantic.py",
+            "tests/test_semantic_baseline.py",
+            "reports/week_01/experiments/W1-003_semantic_baseline.md",
+            "reports/week_01/results/semantic_baseline_manifest.json",
+            "reports/week_01/results/semantic_embedding_manifest.json",
+            "reports/week_01/results/semantic_model_provenance.json",
+            "reports/week_01/results/semantic_runtime.json",
+            "reports/week_01/results/semantic_validation_metrics.json",
+            "reports/week_01/results/semantic_validation_per_class.csv",
+            "reports/week_01/results/semantic_validation_predictions.csv",
+            "reports/week_01/results/semantic_validation_confusions.csv",
+            "reports/week_01/results/semantic_lexical_validation_comparison.json",
+        )
+        for relative in semantic_evidence:
+            if not (root / relative).is_file():
+                issues.append(ValidationIssue("missing-w1-003-evidence", relative))
+        manifest_path = root / "reports/week_01/results/semantic_baseline_manifest.json"
+        if manifest_path.is_file():
+            try:
+                import json
+
+                semantic_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                if semantic_manifest.get("test_evaluated") is not False:
+                    issues.append(ValidationIssue("w1-003-test-access", "test_evaluated must be false"))
+                if semantic_manifest.get("test_encoded") is not False:
+                    issues.append(ValidationIssue("w1-003-test-access", "test_encoded must be false"))
+            except (OSError, UnicodeError, ValueError):
+                issues.append(ValidationIssue("invalid-w1-003-manifest", str(manifest_path)))
+
     return issues
 
 

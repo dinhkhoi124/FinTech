@@ -1,5 +1,5 @@
 <!-- GENERATED FILE: edit canonical sources, not this aggregate. -->
-<!-- Built: 2026-07-23 | Source commit: 72c1c02 -->
+<!-- Built: 2026-07-27 | Source commit: 9ee91c3 -->
 
 # PayResolve AI — Week 01 Report
 
@@ -7,8 +7,11 @@
 
 - `reports/week_01/week_01_summary.md`
 - `reports/week_01/daily/2026-07-23.md`
+- `reports/week_01/daily/2026-07-24.md`
+- `reports/week_01/daily/2026-07-27.md`
 - `reports/week_01/experiments/W1-001_banking77_data_audit.md`
 - `reports/week_01/experiments/W1-002_lexical_baseline.md`
+- `reports/week_01/experiments/W1-003_semantic_baseline.md`
 - `reports/week_01/results/banking77_data_audit.md`
 
 ---
@@ -21,57 +24,60 @@
 Full Banking77 + 2 baselines + reproducible evaluation + error analysis.
 
 ## Status
-IN PROGRESS — W1-001 and W1-002 complete; W1-003/W1-004 not started
+IN PROGRESS — W1-001, W1-002, and W1-003 complete; W1-004 not started
 
 ## Deliverables completed
-- W1-001 authoritative Banking77 acquisition/provenance contract.
-- Deterministic official-train → train/validation membership with frozen official test.
-- Data integrity/class-distribution/leakage/short-query audit.
-- Reproducibility CLI, manifest verification, and regression tests.
-- Controlled TF-IDF + Logistic Regression lexical baseline selected on locked
-  validation only; portable fitted parameters and aligned evidence retained.
+- Authoritative Banking77 acquisition, audit, and deterministic locked protocol.
+- Controlled TF-IDF + Logistic Regression lexical validation baseline.
+- One controlled frozen-encoder semantic validation baseline using the same sample
+  IDs, labels, metric implementation, and Logistic Regression family.
+- Reproducible semantic CLI, exact model/dependency provenance, aligned evidence,
+  ignored cache/model artifacts, and an independent fresh-cache rerun.
 
 ## Key evidence
 | Claim | Evidence | Result | Decision |
 |---|---|---|---|
-| Authoritative data is pinned | `data/banking77_source_manifest.json` | PolyAI commit `57ec275...`, 3 files with SHA-256, CC-BY-4.0 | Reject silent mirrors/repackages |
-| Full Banking77 foundation is present | `reports/week_01/results/banking77_data_audit.json` | 13,083 samples, 77 intents | Use full taxonomy for Week 1 |
-| Test remains frozen | `data/banking77_split_manifest.json` | 8,998 train / 1,005 validation / 3,080 test | Tune only on validation |
-| Split is reproducible | W1-001 `verify` output and manifest | Combined membership SHA-256 `baa3d31f...c902`; rerun matches | Require same manifest in W1-002/W1-003 |
-| Leakage risk is visible | W1-001 audit note | 0 exact overlap; 7 normalized label-consistent overlaps | Preserve official source; slice in W1-004 |
-| Lexical baseline is frozen | `reports/week_01/results/lexical_validation_metrics.json` | Unigram accuracy 0.865672, macro-F1 0.862649 on 1,005 validation rows | Carry selected config to W1-004; do not claim test performance |
-| Lexical artifacts reproduce | `reports/week_01/results/lexical_baseline_manifest.json` | Six model/evidence hashes matched across consecutive runs | Use canonical fitted parameters and fixed numerical threads |
+| Authoritative data is pinned | `data/banking77_source_manifest.json` | PolyAI commit `57ec275...`, 3 files with SHA-256 | Reject silent mirrors/repackages |
+| Split is reproducible and test frozen | `data/banking77_split_manifest.json` | 8,998 / 1,005 / 3,080; membership `baa3d31f...c902` | Tune only on validation |
+| Lexical baseline is frozen | `lexical_validation_metrics.json` | Accuracy 0.865672, macro-F1 0.862649 | Carry unchanged to W1-004 |
+| Semantic baseline is frozen | `semantic_validation_metrics.json` | Accuracy 0.900498, macro-F1 0.898020 | Carry unchanged to W1-004 |
+| Semantic comparison is controlled | `semantic_lexical_validation_comparison.json` | Accuracy +0.034826; macro-F1 +0.035371 | H1 supported on validation only |
+| Semantic artifacts reproduce | `semantic_baseline_manifest.json` and experiment note | Eight stable evidence/model hashes matched across fresh-cache reruns | Retain exact revision/config |
+| Frozen test remains untouched | semantic manifests | `test_encoded=false`, `test_evaluated=false` | W1-004 exclusively owns test |
 
-## Important data findings
-
+## Important findings
 - No missing/empty text or label, invalid label, exact duplicate, exact conflicting
-  label, or exact official train/test overlap was found.
-- Official train is imbalanced (35–187 examples per intent); official test has 40
-  examples per intent.
-- Validation contains every intent with 4–19 examples per intent.
-- Short inputs exist: 9 examples have at most 2 tokens and 49 have at most 3.
-- Uni+bigrams underperformed unigrams on validation (macro-F1 0.846269 vs
-  0.862649) while creating 22,225 vs 2,237 features.
-- The selected unigram model made 135 validation errors. Frequent confusions
-  separated payment rails or pending/reverted/failed transaction states.
+  label, or exact official train/test overlap was found in W1-001.
+- Seven normalized official-boundary overlaps are label-consistent and retained as
+  a known evaluation limitation; the official boundary was not changed.
+- The semantic baseline improved 43 per-class validation F1 values, regressed 14,
+  and left 20 unchanged versus lexical; only one regression reached the
+  predeclared absolute material threshold of 0.10 (`cancel_transfer`, -0.125).
+- Three of four predeclared lexical focus confusion counts decreased; the
+  `top_up_reverted → top_up_failed` count remained 3.
+- These per-class and confusion findings are validation diagnostics only because
+  class support is 4–19 and the official test remains unseen.
+- Primary and independent fresh-cache semantic runs took 79.315 s and 70.651 s on
+  CPU; downloaded encoder and embedding/model caches remain ignored.
 
 ## P0 exit criteria
 - [x] W1-001 data audit and deterministic locked split.
 - [x] W1-002 lexical baseline (validation selection complete; test reserved for W1-004).
-- [ ] W1-003 semantic/model-based baseline.
+- [x] W1-003 semantic baseline (validation selection complete; test reserved for W1-004).
 - [ ] W1-004 evaluation, confusion/error analysis, and Week 1 gate.
 
 ## Risks / limitations
-- Seven normalized official-boundary overlaps are a known evaluation limitation.
-- W1-002 numbers are validation diagnostics, not official test claims.
-- Some validation classes have only 4–19 examples, so per-class results remain
-  directional until the frozen-test evaluation.
-- The Week 1 P0 gate remains open until W1-003 and W1-004 complete.
+- Both reported baseline numbers are validation diagnostics, not official test claims.
+- Validation per-class deltas are directional due to low class support.
+- Cold-cache semantic reproduction depends on availability of the exact upstream
+  model revision; all required provenance and snapshot checksums are recorded.
+- The Week 1 P0 gate remains open until W1-004 completes.
 
 ## Handoff
-- Queue W1-003 only. It must consume `banking77_w1_v1` unchanged and use the same
-  validation/evaluation contract.
-- Do not start W1-003 or inspect frozen-test outcomes without separate authorization.
+- Stop for review. If separately authorized, W1-004 must first verify the locked
+  data and both frozen baseline configurations, then evaluate exactly those two
+  approaches once on the untouched official test.
+- Do not start a third model, P1, or Week 2.
 
 ---
 
@@ -247,6 +253,181 @@ Results:
 ## Suggested commit message
 
 `feat(baseline): add reproducible Banking77 lexical validation`
+
+---
+
+<!-- Source: reports/week_01/daily/2026-07-24.md -->
+
+# Daily Report — 2026-07-24
+
+## 1. Goal
+
+Complete `DOC-001`: create reader-friendly Markdown views of the authoritative
+`docs/MASTER_PRD.md` without changing project requirements or opening W1-003.
+
+## 2. Scope and acceptance criteria
+
+- Classification: P0 documentation support; it does not change the Week 1 gate.
+- Put all reader copies under `tai_lieu/`.
+- Cover numbered master sections 0–19 exactly once, with no missing or duplicate
+  section assignment.
+- Keep `docs/MASTER_PRD.md` unchanged and clearly identified as the sole source of
+  truth.
+- Provide a reproducible generation/check command.
+
+## 3. Work completed
+
+- Added `scripts/reporting/split_master_prd.py` to parse numbered sections from
+  the master and generate eight topic files plus a reader index.
+- Generated `Brief.md`, `PRD.md`, `Data_Strategy.md`, `Evaluation_Plan.md`,
+  `System_Architecture.md`, `Internship_Plan.md`, `Delivery_and_Success.md`, and
+  `References.md` under `tai_lieu/`.
+- Added an authority notice to every generated topic file and a section-to-file
+  map in `tai_lieu/README.md`.
+- Made check mode detect missing, stale, modified, or unexpected Markdown files.
+- Updated the repository validator narrowly: `tai_lieu/PRD.md` is accepted only
+  when it is the byte-current generated reader copy; any manual modification or
+  additional PRD file still triggers the competing-PRD guard.
+- Added a regression test proving a current generated PRD is accepted and a
+  manually modified reader PRD is rejected.
+- Did not modify `docs/MASTER_PRD.md`, model code, data, split membership,
+  benchmark evidence, or the frozen test protocol.
+
+## 4. Verification performed
+
+Commands:
+
+```powershell
+py -3.11 scripts/reporting/split_master_prd.py --root .
+py -3.11 scripts/reporting/split_master_prd.py --root . --check
+py -3.11 scripts/reporting/validate_project_docs.py
+py -3.11 -m unittest discover -s tests -v
+git diff -- docs/MASTER_PRD.md
+```
+
+Results:
+
+- Generated 9 Markdown files under `tai_lieu/`.
+- Check passed: master sections 0–19 are complete, current, and assigned exactly
+  once.
+- Initial project validation correctly flagged `tai_lieu/PRD.md` under the old
+  blanket competing-PRD rule. After adding the generated-copy invariant and its
+  regression test, project validation passed.
+- Reporting regression tests: 7/7 passed.
+- Full unit suite: 16/16 passed on Python 3.11.
+- One full-suite retry initially failed during Python startup with `MemoryError`
+  after a parallel test process had not returned a final result. No assertion ran
+  in that attempt; after confirming no Python process remained, the relevant
+  suite and then the full suite passed sequentially.
+- `git diff -- docs/MASTER_PRD.md` produced no output; the master is unchanged.
+
+## 5. Decisions and risks
+
+- Generated topic files are navigation/readability copies only. Requirement
+  changes must be made in `docs/MASTER_PRD.md` and then regenerated.
+- Sections are grouped by topic, so their order across files differs from the
+  original master; section text itself is copied without manual rewriting.
+- W1-003 remains queued and requires separate user authorization.
+
+## 6. Project memory updated
+
+- `PROJECT_STATE.md` records the completed documentation support task and check.
+- `TASKS.md` records `DOC-001` as done.
+- The Week 1 P0 model/evaluation gate remains in progress and unchanged.
+
+## Suggested commit message
+
+`docs(prd): add reader-friendly generated master views`
+
+---
+
+<!-- Source: reports/week_01/daily/2026-07-27.md -->
+
+# Daily Report — 2026-07-27
+
+## 1. Goal
+Complete `W1-003` as the single frozen semantic baseline on the locked
+`banking77_w1_v1` train/validation protocol, without touching the official test.
+
+## 2. Tasks
+- `W1-003` — completed: frozen all-MiniLM-L6-v2 embeddings plus Logistic Regression.
+
+## 3. Work completed
+- Reverified W1-001 data membership and W1-002 frozen lexical contract.
+- Pinned the exact encoder revision and complete isolated dependency set.
+- Implemented a deterministic CLI, embedding cache/alignment guards, portable
+  classifier artifact, provenance, runtime, validation metrics, and comparison.
+- Ran a real smoke test, the primary full validation run, and an independent
+  fresh-cache reproducibility rerun.
+- Inspected validation-only per-class changes, focus confusions, and 20 errors.
+- Kept `test_evaluated=false` and `test_encoded=false` throughout.
+
+## 4. Files changed
+- `configs/models/banking77_semantic_w1.json` — frozen semantic configuration.
+- `requirements/week1-semantic.txt` — fully pinned isolated runtime.
+- `src/payresolve_ai/baselines/semantic.py` and `semantic_cli.py` — pipeline/CLI.
+- `scripts/baselines/semantic.py` — stable script entry point.
+- `tests/test_semantic_baseline.py` — contract, cache, alignment, and regression tests.
+- `reports/week_01/results/semantic_*` — trackable W1-003 evidence.
+- `reports/week_01/experiments/W1-003_semantic_baseline.md` — experiment record.
+- Developer, reporting, state, task, and Week 1 documentation — lifecycle updates.
+
+## 5. Verification performed
+Commands included:
+```powershell
+.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json verify-contract
+.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json smoke
+.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json run --refresh-cache --run-label primary
+.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json run --refresh-cache --run-label reproducibility_rerun
+.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json verify-cache
+.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_semantic_baseline.py" -v
+.venv-semantic\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+Results:
+- Isolated semantic module: `4/4` tests passed with direct package imports.
+- Full suite in the same semantic environment: `20/20` tests passed.
+- Validation: accuracy `0.900498`, macro-F1 `0.898020` on 1,005 rows.
+- Delta versus frozen lexical validation: accuracy `+0.034826`, macro-F1 `+0.035371`.
+- Primary total runtime: `79.315 s`; independent rerun: `70.651 s`, CPU only.
+- Stable classifier, metrics, predictions, per-class, confusion, cache-manifest,
+  provenance, and comparison artifact hashes matched across fresh-cache reruns.
+
+## 6. Problems / debugging
+### Git provenance outside a repository
+- Symptom: an integration test using a temporary project root failed.
+- Root cause: provenance collection assumed every fixture root was a Git repository.
+- Fix: record `git.available=false` when Git metadata is absent while retaining
+  exact HEAD/dirty evidence in the real repository.
+- Regression protection: the previously failing integration test now covers it.
+
+## 7. Decisions / trade-offs
+- Decision: freeze normalized 384-dimensional mean-pooled embeddings from
+  `sentence-transformers/all-MiniLM-L6-v2` revision
+  `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`, then fit the same Logistic
+  Regression family used by W1-002.
+- Evidence: the controlled validation result improved both required metrics.
+- Trade-off: CPU inference and local model/cache footprint are materially larger
+  than the lexical baseline; no additional model or tuning sweep was opened.
+- Revisit when: W1-004 performs the one controlled frozen-test evaluation.
+
+## 8. Evidence
+- Metrics/artifacts: `reports/week_01/results/semantic_*`.
+- Config/data/model versions: semantic config, exact model revision, dependency
+  lock, data protocol `banking77_w1_v1`, membership SHA-256 `baa3d31f...c902`.
+- Commit/PR: pending; no staging, commit, push, or merge performed.
+
+## 9. Risks / blockers
+- Validation classes have only 4–19 examples, so per-class deltas are directional.
+- Model downloads depend on the upstream Hugging Face service for a cold cache.
+- Frozen official test performance remains unknown by design until W1-004.
+
+## 10. Next step
+- Stop for review. If separately authorized, W1-004 may evaluate exactly the two
+  frozen baselines once on the untouched official test.
+
+## Suggested commit message
+`feat(baseline): add reproducible Banking77 semantic baseline`
 
 ---
 
@@ -454,6 +635,192 @@ intercepts and remains ignored under `artifacts/`; its SHA-256 is
   hyperparameter search.
 - W1-003 has not started. W1-004 must later evaluate exactly the two frozen
   baselines once on the untouched official test and perform the final analysis.
+
+---
+
+<!-- Source: reports/week_01/experiments/W1-003_semantic_baseline.md -->
+
+# W1-003 — Frozen Semantic Representation Baseline
+
+## Objective and hypothesis
+
+Test whether one pretrained dense semantic representation improves fine-grained
+Banking77 intent classification over the frozen lexical reference, especially
+when surface vocabulary is shared but transaction state, payment rail, or
+operational meaning differs.
+
+This is a controlled representation comparison:
+
+```text
+W1-002: TF-IDF word unigrams → Logistic Regression
+W1-003: frozen all-MiniLM-L6-v2 embeddings → Logistic Regression
+```
+
+The downstream classifier remains `C=1.0`, `lbfgs`, `max_iter=1000`, seed
+`20260723`, and one numerical thread. No model/config search was performed.
+
+## Frozen contracts
+
+- Data protocol: `banking77_w1_v1`.
+- Train/validation/frozen test: 8,998 / 1,005 / 3,080.
+- Membership SHA-256:
+  `baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902`.
+- Lexical config SHA-256:
+  `f99955a401063fa849d93af2dec3639e8e3aaa3f8a99d3029b0ce01edb02b64d`.
+- Frozen test encoded/evaluated: no/no.
+
+The semantic loader reuses W1-002's locked train/validation loader and metric
+functions. It does not reference a test example or create a test cache.
+
+## Encoder provenance and configuration
+
+- Model ID: `sentence-transformers/all-MiniLM-L6-v2`.
+- Exact Hugging Face revision:
+  `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`.
+- License recorded from upstream metadata: Apache-2.0.
+- Encoder frozen: yes; all parameters have `requires_grad=false` and eval mode.
+- Pooling: mean.
+- Output dimension: 384.
+- Sentence Transformer/tokenizer maximum sequence length: 256.
+- Embedding normalization: L2 normalization enabled, predeclared before run.
+- Batch size: 64.
+- Device: CPU; CUDA unavailable.
+- Remote code: not trusted/executed.
+
+The local snapshot contained 11 required files totaling 91,578,415 bytes. The
+90,868,376-byte `model.safetensors` SHA-256 is
+`53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db`.
+Weights remain under ignored `artifacts/`; only provenance and checksums are
+trackable.
+
+## Executions
+
+1. Contract tests with a deterministic fake encoder.
+2. Realistic smoke test: 16 train / 4 validation rows across four classes;
+   embeddings `(16,384)` and `(4,384)`; four predictions; no metric used as final
+   evidence.
+3. One full primary run with the predeclared configuration.
+4. One independent full refresh rerun of the same configuration.
+5. Cache verification and limited validation-only error inspection.
+
+No alternative encoder, normalization, pooling, `C`, or classifier was tried.
+
+## Validation results
+
+| Baseline | Accuracy | Macro-F1 | Correct | Errors |
+|---|---:|---:|---:|---:|
+| Frozen lexical unigram | 0.865672 | 0.862649 | 870 | 135 |
+| Frozen semantic encoder | 0.900498 | 0.898020 | 905 | 100 |
+| Semantic − lexical | +0.034826 | +0.035371 | +35 | −35 |
+
+These are validation results only. They do not establish a frozen-test winner.
+
+## Per-class and confusion findings
+
+Using strict F1 change relative to lexical:
+
+- 43 classes improved;
+- 14 regressed;
+- 20 were unchanged;
+- 14 improved by at least 0.10 F1;
+- one regressed by at least 0.10 F1 (`cancel_transfer`, −0.125).
+
+Largest improvements included `virtual_card_not_working` (+0.1905, support 4),
+`top_up_by_card_charge` (+0.1739, support 11),
+`declined_cash_withdrawal` (+0.1606, support 17), and
+`balance_not_updated_after_bank_transfer` (+0.1444, support 17). Small support,
+especially four rows, makes these diagnostic rather than final claims.
+
+Largest regressions included `cancel_transfer` (−0.125),
+`wrong_amount_of_cash_received` (−0.100 within floating representation),
+`card_about_to_expire` (−0.080), and `compromised_card` (−0.0743).
+
+For the four W1-002 focus confusions:
+
+| True → predicted | Lexical | Semantic | Change |
+|---|---:|---:|---:|
+| direct debit unrecognized → card payment unrecognized | 3 | 2 | −1 |
+| pending top-up → top-up failed | 3 | 2 | −1 |
+| reverted card payment → request refund | 3 | 0 | −3 |
+| top-up reverted → top-up failed | 3 | 3 | 0 |
+
+Semantic representation reduced three focus pairs but did not solve reverted vs
+failed top-up. It also created new two-case patterns such as
+`cancel_transfer → terminate_account`, `card_about_to_expire → order_physical_card`,
+and `reverted_card_payment? → Refund_not_showing_up`. These examples suggest the
+encoder can improve operational semantics overall while still collapsing intents
+whose short wording omits the decisive event/state cue.
+
+## Runtime and cache evidence
+
+Primary CPU run:
+
+- Model load: 8.79 seconds.
+- Train encoding: 58.89 seconds for 8,998 rows.
+- Validation encoding: 8.24 seconds for 1,005 rows.
+- Classifier fit: 2.65 seconds.
+- Validation prediction: 0.024 seconds.
+- Total experiment: 79.31 seconds.
+- Embedding cache: 16,086,001 bytes.
+- Hugging Face cache: 183,156,831 bytes; required snapshot footprint was
+  91,578,415 bytes, with cache metadata/blob duplication accounting for the
+  larger on-disk cache directory.
+
+These are local experiment timings, not production latency. Compared with the
+2,237-dimensional sparse lexical representation, semantic uses 384 dense values
+per query but adds pretrained model loading/encoding complexity.
+
+## Cache and reproducibility
+
+Cache key:
+`c7e89e194c319cb4217a91302a663058773f494d5bc51e8261a8900832d09302`.
+
+- Train embedding shape/hash: `(8998,384)`,
+  `ffa3572d9c24940fe72466ab1ce42599e88ff7cdf9e897c32509bbb5249be0b6`.
+- Validation embedding shape/hash: `(1005,384)`,
+  `c2c717f087f0b6896ce4d68e2144f58c60b9f558e1985b19568c0ee2b7422048`.
+- Train/validation sample-ID hashes were independently verified.
+- Both primary and reproducibility runs forced fresh encoding (`cache_hit=false`).
+- Eight stable artifacts were byte-identical across independent refresh runs:
+  classifier parameters, metrics, per-class metrics, predictions, confusions,
+  embedding manifest, model provenance, and lexical comparison.
+- Runtime and overall manifest bytes intentionally differ because measured timing
+  and run-label evidence differ; this is not numerical nondeterminism.
+
+## Debugging evidence
+
+The first full test run exposed an integration-fixture bug: Git provenance assumed
+every supplied repository root contained `.git`. The full project run was valid,
+but the isolated temp-root test failed. The helper now records
+`{"available": false}` outside Git and continues to record HEAD/dirty state in the
+real repository. The previously failing integration test is the regression guard.
+
+Hugging Face also reported that optional Xet acceleration was absent and used its
+regular HTTP fallback. No new dependency was added because correctness and exact
+revision acquisition succeeded without it.
+
+Pre-commit verification on 2026-07-27 ran the semantic test module in isolation
+with `.venv-semantic` before the full suite. Direct imports resolved from
+`src/payresolve_ai`; the isolated module passed 4/4 tests and the same interpreter
+then passed the full 20/20 tests. This confirms the semantic tests do not depend on
+another test mutating `sys.path` first.
+
+## Decision and boundary
+
+Freeze this semantic configuration for W1-004. Validation supports H1, but the
+official test performance remains unknown. Do not retune either baseline, start a
+third model, or perform the final cross-model/frozen-test decision within W1-003.
+
+## Evidence
+
+- Config: `configs/models/banking77_semantic_w1.json`.
+- Dependency lock: `requirements/week1-semantic.txt`.
+- Model provenance: `reports/week_01/results/semantic_model_provenance.json`.
+- Embedding manifest: `reports/week_01/results/semantic_embedding_manifest.json`.
+- Metrics/predictions/per-class/confusions: `reports/week_01/results/semantic_validation_*`.
+- Lexical comparison: `reports/week_01/results/semantic_lexical_validation_comparison.json`.
+- Runtime: `reports/week_01/results/semantic_runtime.json`.
+- Frozen result manifest: `reports/week_01/results/semantic_baseline_manifest.json`.
 
 ---
 

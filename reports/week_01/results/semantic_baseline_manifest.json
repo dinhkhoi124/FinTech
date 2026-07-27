@@ -1,0 +1,99 @@
+{
+  "artifacts": {
+    "classifier": {
+      "path": "artifacts/models/w1-003/semantic_classifier_parameters.json.gz",
+      "sha256": "649e712c56c79c6cbc47895762c45f9b65f5267b71e6bde1cde6d62e01e55011"
+    },
+    "comparison": {
+      "path": "reports/week_01/results/semantic_lexical_validation_comparison.json",
+      "sha256": "bf2fd805af6fc1dab38f9ce29ea609e00643016d79e0c56fd156255c7834f2fc"
+    },
+    "confusions": {
+      "path": "reports/week_01/results/semantic_validation_confusions.csv",
+      "sha256": "c79eb16d21730e73e0ddc0a73602a5a18c09eccc73abd6a8c9020a3702000738"
+    },
+    "embedding_manifest": {
+      "path": "reports/week_01/results/semantic_embedding_manifest.json",
+      "sha256": "30cc5dc628c9b73be13c45c3c2ec2cb94972ff2900f9a89f84366c844d4c6ae6"
+    },
+    "metrics": {
+      "path": "reports/week_01/results/semantic_validation_metrics.json",
+      "sha256": "ced015720131dc0deaf5bfc6cf502fbbdf69d857ec017f3a793969e752873aed"
+    },
+    "per_class": {
+      "path": "reports/week_01/results/semantic_validation_per_class.csv",
+      "sha256": "34aa6705dbfe270672adddf04f72ea17f50a3414ad1b9df0f3874f8f93fda017"
+    },
+    "predictions": {
+      "path": "reports/week_01/results/semantic_validation_predictions.csv",
+      "sha256": "79a253a59bcdb22a1e9dc21cae7de0ddc9cb2ee0aabb894b5349025a391b0103"
+    },
+    "provenance": {
+      "path": "reports/week_01/results/semantic_model_provenance.json",
+      "sha256": "5756793f3d651deca9d0de2c8767e55e55890a08e7fb42616a25c23823fd7f55"
+    },
+    "runtime": {
+      "path": "reports/week_01/results/semantic_runtime.json",
+      "sha256": "75414baeaf7383a878626bdc44f5111e84355b70d2c4d42bf39108eab35ab964"
+    }
+  },
+  "cache_key": "c7e89e194c319cb4217a91302a663058773f494d5bc51e8261a8900832d09302",
+  "classifier": {
+    "C": 1.0,
+    "family": "LogisticRegression",
+    "max_iter": 1000,
+    "numerical_thread_limit": 1,
+    "random_state": 20260723,
+    "solver": "lbfgs"
+  },
+  "combined_membership_sha256": "baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902",
+  "completed_runtime_labels": [
+    "primary",
+    "reproducibility_rerun"
+  ],
+  "counts": {
+    "classes": 77,
+    "train": 8998,
+    "validation": 1005
+  },
+  "encoder": {
+    "batch_size": 64,
+    "device": "cpu",
+    "expected_dimension": 384,
+    "frozen": true,
+    "license": "apache-2.0",
+    "max_sequence_length": 256,
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "normalize_embeddings": true,
+    "pooling": "mean",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "show_progress_bar": false,
+    "source_url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "trust_remote_code": false
+  },
+  "evaluation_scope": "locked_validation_only",
+  "implementation": {
+    "git": {
+      "available": true,
+      "head": "9ee91c3de9dbf1cb3ada598179547751a18e0974",
+      "working_tree_dirty": true
+    },
+    "semantic_cli_sha256": "0f07cf1ae2d70a3f41c08bd7dd032d477445e3a2eef13750e8b896899cd277d9",
+    "semantic_module_sha256": "54dc6383dd0ce20750f486e22a604aa9e0c696b27324402c7c5548806661e03b"
+  },
+  "lexical_manifest_sha256": "b57c7ad0bdc32481a807ec93b5fa8262c45ef2390826370871cf55aba99414b6",
+  "model_family": "Frozen Sentence Transformer embeddings + Logistic Regression",
+  "protocol_id": "banking77_w1_v1",
+  "semantic_config_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+  "semantic_requirements_sha256": "9ba69a0be8f956c678759d19d9093d16965f02093146778e76a98e8bd3cc911b",
+  "source_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "split_manifest_sha256": "dfb2c0f54eda2796614032708c630cecef18d066cf050e02b3394e812896fffd",
+  "status": "FROZEN_ON_VALIDATION",
+  "task_id": "W1-003",
+  "test_encoded": false,
+  "test_evaluated": false,
+  "validation_metrics": {
+    "accuracy": 0.900497512437811,
+    "macro_f1": 0.8980203776160892
+  }
+}

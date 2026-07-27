@@ -13,7 +13,7 @@ Priority: `P0 | P1 | P2`
 | DOC-001 | — | P0 | Generate reader-friendly views of authoritative MASTER_PRD | `tai_lieu/` index + section-completeness check; master remains authoritative and unchanged | DONE |
 | W1-001 | 1 | P0 | Audit Banking77 and lock split | Audit artifact + deterministic split/config | DONE |
 | W1-002 | 1 | P0 | Lexical baseline | Metrics + config + reproducible command | DONE |
-| W1-003 | 1 | P0 | Semantic/model baseline | Metrics + config + reproducible command | TODO |
+| W1-003 | 1 | P0 | Semantic/model baseline | Metrics + config + reproducible command | DONE |
 | W1-004 | 1 | P0 | Evaluation, confusion/error analysis, and Week 1 gate | Metrics/confusions/examples/gate decision + summary | TODO |
 | W2-001 | 2 | P0 | Synthetic KB specification/generation/validation | Versioned KB + validation evidence | TODO |
 | W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | TODO |
@@ -101,6 +101,15 @@ portable local fitted parameters, manifest hashes, and passing tests are retaine
   any unavailable model/download limitation.
 - **Report updates:** today's daily report; semantic baseline experiment note;
   relevant `results/`; `PROJECT_STATE.md`, this board, and Week 1 summary.
+
+Completion record (2026-07-27): froze normalized 384-dimensional mean-pooled
+embeddings from `sentence-transformers/all-MiniLM-L6-v2` revision
+`1110a243fdf4706b3f48f1d95db1a4f5529b4d41` with Logistic Regression. On the
+same 1,005-row locked validation set, accuracy was 0.900498 and macro-F1 was
+0.898020, improvements of 0.034826 and 0.035371 over frozen W1-002. Exact
+dependencies, provenance, aligned predictions, per-class/confusion evidence,
+runtime, cache integrity, and matching fresh-cache rerun hashes are retained.
+`test_evaluated=false` and `test_encoded=false`; official test remains W1-004.
 
 ### W1-004 — Evaluation, confusion/error analysis, and Week 1 P0 gate
 

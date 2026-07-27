@@ -4,54 +4,57 @@
 Full Banking77 + 2 baselines + reproducible evaluation + error analysis.
 
 ## Status
-IN PROGRESS — W1-001 and W1-002 complete; W1-003/W1-004 not started
+IN PROGRESS — W1-001, W1-002, and W1-003 complete; W1-004 not started
 
 ## Deliverables completed
-- W1-001 authoritative Banking77 acquisition/provenance contract.
-- Deterministic official-train → train/validation membership with frozen official test.
-- Data integrity/class-distribution/leakage/short-query audit.
-- Reproducibility CLI, manifest verification, and regression tests.
-- Controlled TF-IDF + Logistic Regression lexical baseline selected on locked
-  validation only; portable fitted parameters and aligned evidence retained.
+- Authoritative Banking77 acquisition, audit, and deterministic locked protocol.
+- Controlled TF-IDF + Logistic Regression lexical validation baseline.
+- One controlled frozen-encoder semantic validation baseline using the same sample
+  IDs, labels, metric implementation, and Logistic Regression family.
+- Reproducible semantic CLI, exact model/dependency provenance, aligned evidence,
+  ignored cache/model artifacts, and an independent fresh-cache rerun.
 
 ## Key evidence
 | Claim | Evidence | Result | Decision |
 |---|---|---|---|
-| Authoritative data is pinned | `data/banking77_source_manifest.json` | PolyAI commit `57ec275...`, 3 files with SHA-256, CC-BY-4.0 | Reject silent mirrors/repackages |
-| Full Banking77 foundation is present | `reports/week_01/results/banking77_data_audit.json` | 13,083 samples, 77 intents | Use full taxonomy for Week 1 |
-| Test remains frozen | `data/banking77_split_manifest.json` | 8,998 train / 1,005 validation / 3,080 test | Tune only on validation |
-| Split is reproducible | W1-001 `verify` output and manifest | Combined membership SHA-256 `baa3d31f...c902`; rerun matches | Require same manifest in W1-002/W1-003 |
-| Leakage risk is visible | W1-001 audit note | 0 exact overlap; 7 normalized label-consistent overlaps | Preserve official source; slice in W1-004 |
-| Lexical baseline is frozen | `reports/week_01/results/lexical_validation_metrics.json` | Unigram accuracy 0.865672, macro-F1 0.862649 on 1,005 validation rows | Carry selected config to W1-004; do not claim test performance |
-| Lexical artifacts reproduce | `reports/week_01/results/lexical_baseline_manifest.json` | Six model/evidence hashes matched across consecutive runs | Use canonical fitted parameters and fixed numerical threads |
+| Authoritative data is pinned | `data/banking77_source_manifest.json` | PolyAI commit `57ec275...`, 3 files with SHA-256 | Reject silent mirrors/repackages |
+| Split is reproducible and test frozen | `data/banking77_split_manifest.json` | 8,998 / 1,005 / 3,080; membership `baa3d31f...c902` | Tune only on validation |
+| Lexical baseline is frozen | `lexical_validation_metrics.json` | Accuracy 0.865672, macro-F1 0.862649 | Carry unchanged to W1-004 |
+| Semantic baseline is frozen | `semantic_validation_metrics.json` | Accuracy 0.900498, macro-F1 0.898020 | Carry unchanged to W1-004 |
+| Semantic comparison is controlled | `semantic_lexical_validation_comparison.json` | Accuracy +0.034826; macro-F1 +0.035371 | H1 supported on validation only |
+| Semantic artifacts reproduce | `semantic_baseline_manifest.json` and experiment note | Eight stable evidence/model hashes matched across fresh-cache reruns | Retain exact revision/config |
+| Frozen test remains untouched | semantic manifests | `test_encoded=false`, `test_evaluated=false` | W1-004 exclusively owns test |
 
-## Important data findings
-
+## Important findings
 - No missing/empty text or label, invalid label, exact duplicate, exact conflicting
-  label, or exact official train/test overlap was found.
-- Official train is imbalanced (35–187 examples per intent); official test has 40
-  examples per intent.
-- Validation contains every intent with 4–19 examples per intent.
-- Short inputs exist: 9 examples have at most 2 tokens and 49 have at most 3.
-- Uni+bigrams underperformed unigrams on validation (macro-F1 0.846269 vs
-  0.862649) while creating 22,225 vs 2,237 features.
-- The selected unigram model made 135 validation errors. Frequent confusions
-  separated payment rails or pending/reverted/failed transaction states.
+  label, or exact official train/test overlap was found in W1-001.
+- Seven normalized official-boundary overlaps are label-consistent and retained as
+  a known evaluation limitation; the official boundary was not changed.
+- The semantic baseline improved 43 per-class validation F1 values, regressed 14,
+  and left 20 unchanged versus lexical; only one regression reached the
+  predeclared absolute material threshold of 0.10 (`cancel_transfer`, -0.125).
+- Three of four predeclared lexical focus confusion counts decreased; the
+  `top_up_reverted → top_up_failed` count remained 3.
+- These per-class and confusion findings are validation diagnostics only because
+  class support is 4–19 and the official test remains unseen.
+- Primary and independent fresh-cache semantic runs took 79.315 s and 70.651 s on
+  CPU; downloaded encoder and embedding/model caches remain ignored.
 
 ## P0 exit criteria
 - [x] W1-001 data audit and deterministic locked split.
 - [x] W1-002 lexical baseline (validation selection complete; test reserved for W1-004).
-- [ ] W1-003 semantic/model-based baseline.
+- [x] W1-003 semantic baseline (validation selection complete; test reserved for W1-004).
 - [ ] W1-004 evaluation, confusion/error analysis, and Week 1 gate.
 
 ## Risks / limitations
-- Seven normalized official-boundary overlaps are a known evaluation limitation.
-- W1-002 numbers are validation diagnostics, not official test claims.
-- Some validation classes have only 4–19 examples, so per-class results remain
-  directional until the frozen-test evaluation.
-- The Week 1 P0 gate remains open until W1-003 and W1-004 complete.
+- Both reported baseline numbers are validation diagnostics, not official test claims.
+- Validation per-class deltas are directional due to low class support.
+- Cold-cache semantic reproduction depends on availability of the exact upstream
+  model revision; all required provenance and snapshot checksums are recorded.
+- The Week 1 P0 gate remains open until W1-004 completes.
 
 ## Handoff
-- Queue W1-003 only. It must consume `banking77_w1_v1` unchanged and use the same
-  validation/evaluation contract.
-- Do not start W1-003 or inspect frozen-test outcomes without separate authorization.
+- Stop for review. If separately authorized, W1-004 must first verify the locked
+  data and both frozen baseline configurations, then evaluate exactly those two
+  approaches once on the untouched official test.
+- Do not start a third model, P1, or Week 2.

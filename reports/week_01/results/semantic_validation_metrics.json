@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.900497512437811,
+  "correct_count": 905,
+  "counts": {
+    "classes": 77,
+    "train": 8998,
+    "validation": 1005
+  },
+  "error_count": 100,
+  "evaluation_scope": "locked_validation_only",
+  "macro_f1": 0.8980203776160892,
+  "model_family": "Frozen Sentence Transformer embeddings + Logistic Regression",
+  "task_id": "W1-003",
+  "test_evaluated": false
+}

@@ -123,6 +123,41 @@ per-class scores, confusions, and the version manifest are under
 `reports/week_01/results/`. W1-003 and W1-004 must add their own reviewed entry
 points; the frozen test remains untouched until W1-004.
 
+## W1-003 semantic experiment
+
+Create an isolated Python 3.11 environment and install the fully pinned CPU stack:
+
+```powershell
+py -3.11 -m venv .venv-semantic
+.\.venv-semantic\Scripts\python.exe -m pip install --upgrade pip==24.3.1
+.\.venv-semantic\Scripts\python.exe -m pip install -r requirements/week1-semantic.txt
+.\.venv-semantic\Scripts\python.exe -m pip install -e . --no-deps
+```
+
+Verify contracts, run the realistic smoke test, execute the one primary
+configuration, and verify its local embedding cache:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/baselines/semantic.py --root . --config configs/models/banking77_semantic_w1.json verify-contract
+.\.venv-semantic\Scripts\python.exe scripts/baselines/semantic.py --root . --config configs/models/banking77_semantic_w1.json smoke
+.\.venv-semantic\Scripts\python.exe scripts/baselines/semantic.py --root . --config configs/models/banking77_semantic_w1.json run --run-label primary --refresh-cache
+.\.venv-semantic\Scripts\python.exe scripts/baselines/semantic.py --root . --config configs/models/banking77_semantic_w1.json verify-cache
+.\.venv-semantic\Scripts\python.exe scripts/baselines/semantic.py --root . --config configs/models/banking77_semantic_w1.json inspect-errors --limit 20
+```
+
+An independent numerical rerun uses the same configuration and refreshes both
+train and validation embeddings:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/baselines/semantic.py --root . --config configs/models/banking77_semantic_w1.json run --run-label reproducibility_rerun --refresh-cache
+```
+
+The exact encoder revision and weights are cached only under ignored
+`artifacts/cache/w1-003/`. Full embeddings and the fitted classifier parameters
+also remain ignored. Trackable manifests contain revision, file checksums,
+embedding shape/alignment checksums, runtime, predictions, metrics, and comparison
+metadata. Neither `test.csv` nor a test embedding cache is used by this workflow.
+
 ## Future service launch
 
 The service is a Week 4 P0 deliverable. No service command is claimed during

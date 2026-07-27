@@ -1,0 +1,61 @@
+{
+  "task_id": "W1-003",
+  "description": "Single frozen all-MiniLM-L6-v2 semantic representation baseline",
+  "data_config": "configs/data/banking77_w1_locked.json",
+  "requirements": "requirements/week1-semantic.txt",
+  "locked_combined_membership_sha256": "baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902",
+  "lexical_manifest": "reports/week_01/results/lexical_baseline_manifest.json",
+  "lexical_config": "configs/models/banking77_lexical_w1.json",
+  "lexical_config_sha256": "f99955a401063fa849d93af2dec3639e8e3aaa3f8a99d3029b0ce01edb02b64d",
+  "seed": 20260723,
+  "encoder": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "source_url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "license": "apache-2.0",
+    "frozen": true,
+    "expected_dimension": 384,
+    "max_sequence_length": 256,
+    "pooling": "mean",
+    "normalize_embeddings": true,
+    "batch_size": 64,
+    "device": "cpu",
+    "show_progress_bar": false,
+    "trust_remote_code": false
+  },
+  "classifier": {
+    "family": "LogisticRegression",
+    "C": 1.0,
+    "max_iter": 1000,
+    "random_state": 20260723,
+    "solver": "lbfgs",
+    "numerical_thread_limit": 1
+  },
+  "cache": {
+    "directory": "artifacts/cache/w1-003/embeddings",
+    "huggingface_home": "artifacts/cache/w1-003/huggingface"
+  },
+  "analysis": {
+    "lexical_per_class": "reports/week_01/results/lexical_validation_per_class.csv",
+    "lexical_confusions": "reports/week_01/results/lexical_validation_confusions.csv",
+    "material_f1_delta": 0.1,
+    "focus_confusion_pairs": [
+      ["direct_debit_payment_not_recognised", "card_payment_not_recognised"],
+      ["pending_top_up", "top_up_failed"],
+      ["reverted_card_payment?", "request_refund"],
+      ["top_up_reverted", "top_up_failed"]
+    ]
+  },
+  "outputs": {
+    "classifier": "artifacts/models/w1-003/semantic_classifier_parameters.json.gz",
+    "metrics": "reports/week_01/results/semantic_validation_metrics.json",
+    "per_class": "reports/week_01/results/semantic_validation_per_class.csv",
+    "predictions": "reports/week_01/results/semantic_validation_predictions.csv",
+    "confusions": "reports/week_01/results/semantic_validation_confusions.csv",
+    "embedding_manifest": "reports/week_01/results/semantic_embedding_manifest.json",
+    "provenance": "reports/week_01/results/semantic_model_provenance.json",
+    "comparison": "reports/week_01/results/semantic_lexical_validation_comparison.json",
+    "runtime": "reports/week_01/results/semantic_runtime.json",
+    "manifest": "reports/week_01/results/semantic_baseline_manifest.json"
+  }
+}

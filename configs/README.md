@@ -8,3 +8,7 @@ Week 1 uses `data/banking77_w1_locked.json` as the immutable data contract.
 `models/banking77_lexical_w1.json` contains the controlled W1-002 validation-only
 comparison and the frozen lexical selection. The official test set is not a
 model-selection input and remains reserved for W1-004.
+
+`models/banking77_semantic_w1.json` pins the single W1-003 frozen encoder,
+revision, normalization, downstream classifier, local cache contract, and
+validation evidence paths. It permits no second encoder/configuration.
