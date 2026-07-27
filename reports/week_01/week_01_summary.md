@@ -1,60 +1,67 @@
 # Week 01 Summary
 
 ## P0 objective
-Full Banking77 + 2 baselines + reproducible evaluation + error analysis.
+Full Banking77 + exactly two baselines + reproducible evaluation + error analysis.
 
 ## Status
-IN PROGRESS — W1-001, W1-002, and W1-003 complete; W1-004 not started
+`PASSED` — W1-001 through W1-004 complete; Week 2 not started
 
-## Deliverables completed
-- Authoritative Banking77 acquisition, audit, and deterministic locked protocol.
-- Controlled TF-IDF + Logistic Regression lexical validation baseline.
-- One controlled frozen-encoder semantic validation baseline using the same sample
-  IDs, labels, metric implementation, and Logistic Regression family.
-- Reproducible semantic CLI, exact model/dependency provenance, aligned evidence,
-  ignored cache/model artifacts, and an independent fresh-cache rerun.
+## Final benchmark
 
-## Key evidence
-| Claim | Evidence | Result | Decision |
-|---|---|---|---|
-| Authoritative data is pinned | `data/banking77_source_manifest.json` | PolyAI commit `57ec275...`, 3 files with SHA-256 | Reject silent mirrors/repackages |
-| Split is reproducible and test frozen | `data/banking77_split_manifest.json` | 8,998 / 1,005 / 3,080; membership `baa3d31f...c902` | Tune only on validation |
-| Lexical baseline is frozen | `lexical_validation_metrics.json` | Accuracy 0.865672, macro-F1 0.862649 | Carry unchanged to W1-004 |
-| Semantic baseline is frozen | `semantic_validation_metrics.json` | Accuracy 0.900498, macro-F1 0.898020 | Carry unchanged to W1-004 |
-| Semantic comparison is controlled | `semantic_lexical_validation_comparison.json` | Accuracy +0.034826; macro-F1 +0.035371 | H1 supported on validation only |
-| Semantic artifacts reproduce | `semantic_baseline_manifest.json` and experiment note | Eight stable evidence/model hashes matched across fresh-cache reruns | Retain exact revision/config |
-| Frozen test remains untouched | semantic manifests | `test_encoded=false`, `test_evaluated=false` | W1-004 exclusively owns test |
+Both frozen candidates were refit on the same 10,003 non-test samples and evaluated
+on the untouched 3,080-row official test.
 
-## Important findings
-- No missing/empty text or label, invalid label, exact duplicate, exact conflicting
-  label, or exact official train/test overlap was found in W1-001.
-- Seven normalized official-boundary overlaps are label-consistent and retained as
-  a known evaluation limitation; the official boundary was not changed.
-- The semantic baseline improved 43 per-class validation F1 values, regressed 14,
-  and left 20 unchanged versus lexical; only one regression reached the
-  predeclared absolute material threshold of 0.10 (`cancel_transfer`, -0.125).
-- Three of four predeclared lexical focus confusion counts decreased; the
-  `top_up_reverted → top_up_failed` count remained 3.
-- These per-class and confusion findings are validation diagnostics only because
-  class support is 4–19 and the official test remains unseen.
-- Primary and independent fresh-cache semantic runs took 79.315 s and 70.651 s on
-  CPU; downloaded encoder and embedding/model caches remain ignored.
+| Model | Accuracy | Macro-F1 | Correct | Errors | Dimension | Repro-run total |
+|---|---:|---:|---:|---:|---:|---:|
+| TF-IDF unigram + LR | 0.878247 | 0.878362 | 2,705 | 375 | 2,320 | 4.259 s |
+| frozen MiniLM + LR | 0.908117 | 0.908075 | 2,797 | 283 | 384 | 92.227 s |
+
+Semantic minus lexical: accuracy `+0.029870`; macro-F1 `+0.029713`.
+
+## Key evidence and decisions
+
+- Authoritative PolyAI data remains pinned to commit `57ec275...` and protocol
+  membership SHA-256 `baa3d31f...c902`.
+- Evaluation protocol was preregistered before test access; both frozen candidates
+  used identical final-fit scope and no test-driven tuning.
+- Paired outcomes: 2,611 both correct, 94 lexical-only, 186 semantic-only, and
+  189 both wrong.
+- Semantic improved 49 class F1 values, regressed 21, and left 7 unchanged.
+- Thirty deterministic error/disagreement cases were reviewed. Ambiguous label
+  boundaries were most common; transaction-state and product-rail confusions remain.
+- Both models were correct on all seven normalized-overlap rows. Exclusion changes
+  each aggregate metric by less than 0.0003, so the recommendation is insensitive.
+- Confidence distributions are diagnostic only; no calibration/threshold was fitted.
+- Primary and independent fresh-cache reruns matched all stable artifacts.
+- Frozen MiniLM semantic baseline is selected downstream; lexical is fallback.
+
+## Runtime trade-off
+
+Lexical is about 20× faster for the full measured CPU final-fit/evaluation and has
+no encoder cache. Semantic requires ~183 MB local encoder cache and ~21 MB embedding
+cache, but its broad ~2.97 percentage-point aggregate gain satisfies the
+preregistered clear-gain rule. These are local CPU experiment timings, not
+production latency claims.
 
 ## P0 exit criteria
 - [x] W1-001 data audit and deterministic locked split.
-- [x] W1-002 lexical baseline (validation selection complete; test reserved for W1-004).
-- [x] W1-003 semantic baseline (validation selection complete; test reserved for W1-004).
-- [ ] W1-004 evaluation, confusion/error analysis, and Week 1 gate.
+- [x] W1-002 lexical baseline frozen without test tuning.
+- [x] W1-003 semantic baseline frozen without test tuning.
+- [x] W1-004 fair official-test evaluation of exactly two candidates.
+- [x] Accuracy, macro-F1, all-class metrics, predictions, and confusions.
+- [x] Paired, confidence, overlap, runtime, and bounded manual error analysis.
+- [x] Reproducibility and public-safety evidence.
+- [x] Downstream candidate selected and frozen.
+- [x] Week 1 P0 gate passed.
 
-## Risks / limitations
-- Both reported baseline numbers are validation diagnostics, not official test claims.
-- Validation per-class deltas are directional due to low class support.
-- Cold-cache semantic reproduction depends on availability of the exact upstream
-  model revision; all required provenance and snapshot checksums are recorded.
-- The Week 1 P0 gate remains open until W1-004 completes.
+## Limitations
+- Seven normalized official-boundary overlaps are retained and disclosed.
+- Some Banking77 queries are underspecified or appear inconsistent with fine-grained
+  labels; hypotheses are not treated as proven annotation errors.
+- No calibration, abstention, OOS/OOD, third model, or fine-tuning was performed.
+- Semantic inference cost must be revisited when a real service latency target exists.
 
 ## Handoff
-- Stop for review. If separately authorized, W1-004 must first verify the locked
-  data and both frozen baseline configurations, then evaluate exactly those two
-  approaches once on the untouched official test.
-- Do not start a third model, P1, or Week 2.
+Week 1 is closed. Queue Week 2 only; do not implement it without separate user
+authorization. Carry exact semantic revision/config as the selected intent model
+and retain lexical unigram as the reproducible fallback.

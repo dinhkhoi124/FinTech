@@ -1,0 +1,3 @@
+model,representation,test_accuracy,test_macro_f1,correct,errors,dimension,final_runtime_seconds
+lexical_word_unigram,TF-IDF word unigram,0.8782467532467533,0.8783622750489997,2705,375,2320,4.258934400015278
+semantic_all_minilm_l6_v2,normalized frozen MiniLM embeddings,0.9081168831168831,0.9080748065777128,2797,283,384,92.22749620000832

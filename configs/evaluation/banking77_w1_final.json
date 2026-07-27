@@ -1,0 +1,160 @@
+{
+  "task_id": "W1-004",
+  "status": "PREREGISTERED_BEFORE_OFFICIAL_TEST_ACCESS",
+  "preregistered_date": "2026-07-27",
+  "pretest_git_head": "5f287a18a50ec073f961290962de003e1f4e38bc",
+  "data": {
+    "config": "configs/data/banking77_w1_locked.json",
+    "split_manifest": "data/banking77_split_manifest.json",
+    "audit": "reports/week_01/results/banking77_data_audit.json",
+    "protocol_id": "banking77_w1_v1",
+    "source_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+    "combined_membership_sha256": "baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902",
+    "split_manifest_sha256": "dfb2c0f54eda2796614032708c630cecef18d066cf050e02b3394e812896fffd",
+    "counts": {
+      "locked_train": 8998,
+      "locked_validation": 1005,
+      "final_fit": 10003,
+      "official_test": 3080,
+      "classes": 77,
+      "official_test_per_class": 40
+    }
+  },
+  "candidates": {
+    "lexical": {
+      "id": "lexical_word_unigram",
+      "status": "FROZEN_ON_VALIDATION",
+      "config": "configs/models/banking77_lexical_w1.json",
+      "config_sha256": "f99955a401063fa849d93af2dec3639e8e3aaa3f8a99d3029b0ce01edb02b64d",
+      "manifest": "reports/week_01/results/lexical_baseline_manifest.json",
+      "manifest_sha256": "b57c7ad0bdc32481a807ec93b5fa8262c45ef2390826370871cf55aba99414b6",
+      "requirements": "requirements/week1-lexical.txt",
+      "requirements_sha256": "1d80cc1c337643a152e2d09d026fc3f948bbe606b1816f8e5376738df205a238",
+      "selected_candidate_id": "word_unigram"
+    },
+    "semantic": {
+      "id": "semantic_all_minilm_l6_v2",
+      "status": "FROZEN_ON_VALIDATION",
+      "config": "configs/models/banking77_semantic_w1.json",
+      "config_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+      "manifest": "reports/week_01/results/semantic_baseline_manifest.json",
+      "manifest_sha256": "feb6809b9c428ed0f52ca4ce0b7eb24719580c7b4d693fa79f4eae10efdd1267",
+      "requirements": "requirements/week1-semantic.txt",
+      "requirements_sha256": "9ba69a0be8f956c678759d19d9093d16965f02093146778e76a98e8bd3cc911b",
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    }
+  },
+  "final_fit_protocol": {
+    "scope": "locked_train_plus_locked_validation",
+    "sample_count": 10003,
+    "sample_order": "stable_sample_id_ascending",
+    "same_training_scope_for_both_candidates": true,
+    "fit_count_per_candidate_per_run": 1,
+    "hyperparameter_selection_complete_before_test": true
+  },
+  "evaluation": {
+    "scope": "official_frozen_test",
+    "sample_count": 3080,
+    "sample_order": "stable_sample_id_ascending",
+    "metrics": {
+      "accuracy": "correct_predictions / 3080",
+      "macro_f1": "unweighted arithmetic mean of 77 per-class F1 values",
+      "per_class": "precision_recall_fscore_support(labels=categories.json, zero_division=0)",
+      "confusions": "directional counts over incorrect predictions"
+    },
+    "confidence": {
+      "source": "LogisticRegression.predict_proba",
+      "max_probability": true,
+      "top1_top2_margin": true,
+      "diagnostic_only": true,
+      "assumed_calibrated": false
+    }
+  },
+  "paired_analysis": {
+    "categories": [
+      "both_correct",
+      "lexical_correct_semantic_wrong",
+      "lexical_wrong_semantic_correct",
+      "both_wrong"
+    ],
+    "sample_alignment": "exact stable sample_id one-to-one"
+  },
+  "overlap_sensitivity": {
+    "source": "reports/week_01/results/banking77_data_audit.json",
+    "method": "exclude only test sample IDs in audit.integrity.official_train_test_case_whitespace_normalized_overlap.examples",
+    "expected_affected_test_samples": 7,
+    "canonical_benchmark_unchanged": true
+  },
+  "manual_error_review": {
+    "maximum_rows": 30,
+    "selection": "deterministic bounded coverage of semantic fixes, lexical-only correct, both-wrong, high-confidence wrong, low-margin error, short query, and top-confusion cases; deduplicate by sample_id then fill by stable sample_id",
+    "taxonomy": {
+      "T1": "Lexical overlap / keyword dominance",
+      "T2": "Transaction state confusion",
+      "T3": "Payment rail or product confusion",
+      "T4": "Short / underspecified query",
+      "T5": "Ambiguous label boundary",
+      "T6": "Rare phrasing / insufficient representation",
+      "T7": "Potential annotation or taxonomy issue",
+      "T8": "Other evidenced failure"
+    }
+  },
+  "downstream_decision_rule": {
+    "semantic_clear_gain": "recommend semantic when test macro-F1 improves by at least 0.01, test accuracy does not decrease, results reproduce, and no validity issue or unexplained per-class F1 regression of at least 0.20 changes the engineering conclusion",
+    "effective_tie": "if both aggregate absolute deltas are below 0.01, prefer lexical simplicity unless semantic has clearly broader evidenced per-class benefit without material regressions",
+    "semantic_underperformance": "recommend lexical when semantic materially underperforms on either aggregate metric or has serious unexplained regressions",
+    "mixed_result": "when rules do not identify a clear semantic gain, select lexical as the simpler downstream default and retain semantic as documented fallback only if evidence supports it",
+    "third_model_allowed": false
+  },
+  "p0_gate": {
+    "winner_required": false,
+    "criteria": [
+      "both frozen candidates evaluated fairly",
+      "no locked-test tuning",
+      "complete metrics, predictions, per-class and confusion evidence",
+      "bounded error analysis and overlap limitation reported",
+      "evidence-backed model recommendation",
+      "reproducibility, tests and public-safety pass"
+    ],
+    "verdicts": ["PASS", "CONDITIONAL PASS", "FAIL / BLOCKED"]
+  },
+  "run_policy": {
+    "allowed": ["primary", "reproducibility_rerun"],
+    "reproducibility_requires_unchanged_config_and_code": true,
+    "correctness_rerun_requires_documented_invalidation": true
+  },
+  "prohibited_after_test_access": [
+    "candidate or model change",
+    "hyperparameter or threshold tuning",
+    "preprocessing, pooling or normalization change",
+    "data split or sample membership change",
+    "metric or decision-rule change",
+    "third model",
+    "score-driven rerun"
+  ],
+  "outputs": {
+    "lexical_model": "artifacts/models/w1-004/lexical_parameters.json.gz",
+    "semantic_model": "artifacts/models/w1-004/semantic_classifier_parameters.json.gz",
+    "semantic_cache": "artifacts/cache/w1-004/embeddings",
+    "lexical_metrics": "reports/week_01/results/lexical_test_metrics.json",
+    "lexical_per_class": "reports/week_01/results/lexical_test_per_class.csv",
+    "lexical_predictions": "reports/week_01/results/lexical_test_predictions.csv",
+    "lexical_confusions": "reports/week_01/results/lexical_test_confusions.csv",
+    "semantic_metrics": "reports/week_01/results/semantic_test_metrics.json",
+    "semantic_per_class": "reports/week_01/results/semantic_test_per_class.csv",
+    "semantic_predictions": "reports/week_01/results/semantic_test_predictions.csv",
+    "semantic_confusions": "reports/week_01/results/semantic_test_confusions.csv",
+    "benchmark_csv": "reports/week_01/results/intent_benchmark.csv",
+    "benchmark_json": "reports/week_01/results/intent_benchmark.json",
+    "paired": "reports/week_01/results/week1_paired_comparison.csv",
+    "per_class_comparison": "reports/week_01/results/week1_per_class_comparison.csv",
+    "confusion_analysis": "reports/week_01/results/week1_confusion_analysis.json",
+    "confidence": "reports/week_01/results/week1_confidence_diagnostics.json",
+    "overlap": "reports/week_01/results/week1_overlap_sensitivity.json",
+    "manual_review": "reports/week_01/results/week1_manual_error_review.csv",
+    "runtime": "reports/week_01/results/week1_runtime_comparison.json",
+    "selection": "reports/week_01/results/week1_model_selection.json",
+    "manifest": "reports/week_01/results/week1_final_manifest.json"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.9081168831168831,
+  "correct_count": 2797,
+  "counts": {
+    "classes": 77,
+    "final_fit": 10003,
+    "test": 3080
+  },
+  "error_count": 283,
+  "evaluation_scope": "official_frozen_test",
+  "macro_f1": 0.9080748065777128,
+  "model": "semantic_all_minilm_l6_v2",
+  "task_id": "W1-004",
+  "test_evaluated": true
+}

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import subprocess
 from pathlib import Path
 
@@ -258,8 +259,6 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
         manifest_path = root / "reports/week_01/results/semantic_baseline_manifest.json"
         if manifest_path.is_file():
             try:
-                import json
-
                 semantic_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
                 if semantic_manifest.get("test_evaluated") is not False:
                     issues.append(ValidationIssue("w1-003-test-access", "test_evaluated must be false"))
@@ -267,6 +266,53 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
                     issues.append(ValidationIssue("w1-003-test-access", "test_encoded must be false"))
             except (OSError, UnicodeError, ValueError):
                 issues.append(ValidationIssue("invalid-w1-003-manifest", str(manifest_path)))
+
+    if "W1-004" in done_task_ids:
+        final_evidence = (
+            "configs/evaluation/banking77_w1_final.json",
+            "scripts/evaluation/week1_final.py",
+            "src/payresolve_ai/evaluation/week1_final.py",
+            "tests/test_week1_final_evaluation.py",
+            "reports/week_01/experiments/W1-004_final_evaluation.md",
+            "reports/week_01/results/intent_benchmark.csv",
+            "reports/week_01/results/intent_benchmark.json",
+            "reports/week_01/results/lexical_test_metrics.json",
+            "reports/week_01/results/lexical_test_per_class.csv",
+            "reports/week_01/results/lexical_test_predictions.csv",
+            "reports/week_01/results/lexical_test_confusions.csv",
+            "reports/week_01/results/semantic_test_metrics.json",
+            "reports/week_01/results/semantic_test_per_class.csv",
+            "reports/week_01/results/semantic_test_predictions.csv",
+            "reports/week_01/results/semantic_test_confusions.csv",
+            "reports/week_01/results/week1_paired_comparison.csv",
+            "reports/week_01/results/week1_per_class_comparison.csv",
+            "reports/week_01/results/week1_confusion_analysis.json",
+            "reports/week_01/results/week1_confidence_diagnostics.json",
+            "reports/week_01/results/week1_overlap_sensitivity.json",
+            "reports/week_01/results/week1_manual_error_review.csv",
+            "reports/week_01/results/week1_runtime_comparison.json",
+            "reports/week_01/results/week1_model_selection.json",
+            "reports/week_01/results/week1_final_manifest.json",
+        )
+        for relative in final_evidence:
+            if not (root / relative).is_file():
+                issues.append(ValidationIssue("missing-w1-004-evidence", relative))
+        final_manifest_path = root / "reports/week_01/results/week1_final_manifest.json"
+        if final_manifest_path.is_file():
+            try:
+                final_manifest = json.loads(final_manifest_path.read_text(encoding="utf-8"))
+                if final_manifest.get("test_evaluated") is not True:
+                    issues.append(ValidationIssue("w1-004-test-record", "test_evaluated must be true"))
+                if final_manifest.get("test_encoded") is not True:
+                    issues.append(ValidationIssue("w1-004-test-record", "test_encoded must be true"))
+                if final_manifest.get("run_status") != "FINALIZED":
+                    issues.append(ValidationIssue("w1-004-incomplete", "final manifest must be FINALIZED"))
+                if final_manifest.get("week1_p0_gate") != "PASS":
+                    issues.append(ValidationIssue("w1-004-gate", "Week 1 P0 gate must be PASS"))
+                if final_manifest.get("primary_stable_artifact_hashes") != final_manifest.get("reproducibility_stable_artifact_hashes"):
+                    issues.append(ValidationIssue("w1-004-reproducibility", "stable artifact hashes differ"))
+            except (OSError, UnicodeError, ValueError):
+                issues.append(ValidationIssue("invalid-w1-004-manifest", str(final_manifest_path)))
 
     return issues
 

@@ -1,5 +1,5 @@
 <!-- GENERATED FILE: edit canonical sources, not this aggregate. -->
-<!-- Built: 2026-07-27 | Source commit: 9ee91c3 -->
+<!-- Built: 2026-07-27 | Source commit: 5f287a1 -->
 
 # PayResolve AI — Week 01 Report
 
@@ -12,6 +12,7 @@
 - `reports/week_01/experiments/W1-001_banking77_data_audit.md`
 - `reports/week_01/experiments/W1-002_lexical_baseline.md`
 - `reports/week_01/experiments/W1-003_semantic_baseline.md`
+- `reports/week_01/experiments/W1-004_final_evaluation.md`
 - `reports/week_01/results/banking77_data_audit.md`
 
 ---
@@ -21,63 +22,70 @@
 # Week 01 Summary
 
 ## P0 objective
-Full Banking77 + 2 baselines + reproducible evaluation + error analysis.
+Full Banking77 + exactly two baselines + reproducible evaluation + error analysis.
 
 ## Status
-IN PROGRESS — W1-001, W1-002, and W1-003 complete; W1-004 not started
+`PASSED` — W1-001 through W1-004 complete; Week 2 not started
 
-## Deliverables completed
-- Authoritative Banking77 acquisition, audit, and deterministic locked protocol.
-- Controlled TF-IDF + Logistic Regression lexical validation baseline.
-- One controlled frozen-encoder semantic validation baseline using the same sample
-  IDs, labels, metric implementation, and Logistic Regression family.
-- Reproducible semantic CLI, exact model/dependency provenance, aligned evidence,
-  ignored cache/model artifacts, and an independent fresh-cache rerun.
+## Final benchmark
 
-## Key evidence
-| Claim | Evidence | Result | Decision |
-|---|---|---|---|
-| Authoritative data is pinned | `data/banking77_source_manifest.json` | PolyAI commit `57ec275...`, 3 files with SHA-256 | Reject silent mirrors/repackages |
-| Split is reproducible and test frozen | `data/banking77_split_manifest.json` | 8,998 / 1,005 / 3,080; membership `baa3d31f...c902` | Tune only on validation |
-| Lexical baseline is frozen | `lexical_validation_metrics.json` | Accuracy 0.865672, macro-F1 0.862649 | Carry unchanged to W1-004 |
-| Semantic baseline is frozen | `semantic_validation_metrics.json` | Accuracy 0.900498, macro-F1 0.898020 | Carry unchanged to W1-004 |
-| Semantic comparison is controlled | `semantic_lexical_validation_comparison.json` | Accuracy +0.034826; macro-F1 +0.035371 | H1 supported on validation only |
-| Semantic artifacts reproduce | `semantic_baseline_manifest.json` and experiment note | Eight stable evidence/model hashes matched across fresh-cache reruns | Retain exact revision/config |
-| Frozen test remains untouched | semantic manifests | `test_encoded=false`, `test_evaluated=false` | W1-004 exclusively owns test |
+Both frozen candidates were refit on the same 10,003 non-test samples and evaluated
+on the untouched 3,080-row official test.
 
-## Important findings
-- No missing/empty text or label, invalid label, exact duplicate, exact conflicting
-  label, or exact official train/test overlap was found in W1-001.
-- Seven normalized official-boundary overlaps are label-consistent and retained as
-  a known evaluation limitation; the official boundary was not changed.
-- The semantic baseline improved 43 per-class validation F1 values, regressed 14,
-  and left 20 unchanged versus lexical; only one regression reached the
-  predeclared absolute material threshold of 0.10 (`cancel_transfer`, -0.125).
-- Three of four predeclared lexical focus confusion counts decreased; the
-  `top_up_reverted → top_up_failed` count remained 3.
-- These per-class and confusion findings are validation diagnostics only because
-  class support is 4–19 and the official test remains unseen.
-- Primary and independent fresh-cache semantic runs took 79.315 s and 70.651 s on
-  CPU; downloaded encoder and embedding/model caches remain ignored.
+| Model | Accuracy | Macro-F1 | Correct | Errors | Dimension | Repro-run total |
+|---|---:|---:|---:|---:|---:|---:|
+| TF-IDF unigram + LR | 0.878247 | 0.878362 | 2,705 | 375 | 2,320 | 4.259 s |
+| frozen MiniLM + LR | 0.908117 | 0.908075 | 2,797 | 283 | 384 | 92.227 s |
+
+Semantic minus lexical: accuracy `+0.029870`; macro-F1 `+0.029713`.
+
+## Key evidence and decisions
+
+- Authoritative PolyAI data remains pinned to commit `57ec275...` and protocol
+  membership SHA-256 `baa3d31f...c902`.
+- Evaluation protocol was preregistered before test access; both frozen candidates
+  used identical final-fit scope and no test-driven tuning.
+- Paired outcomes: 2,611 both correct, 94 lexical-only, 186 semantic-only, and
+  189 both wrong.
+- Semantic improved 49 class F1 values, regressed 21, and left 7 unchanged.
+- Thirty deterministic error/disagreement cases were reviewed. Ambiguous label
+  boundaries were most common; transaction-state and product-rail confusions remain.
+- Both models were correct on all seven normalized-overlap rows. Exclusion changes
+  each aggregate metric by less than 0.0003, so the recommendation is insensitive.
+- Confidence distributions are diagnostic only; no calibration/threshold was fitted.
+- Primary and independent fresh-cache reruns matched all stable artifacts.
+- Frozen MiniLM semantic baseline is selected downstream; lexical is fallback.
+
+## Runtime trade-off
+
+Lexical is about 20× faster for the full measured CPU final-fit/evaluation and has
+no encoder cache. Semantic requires ~183 MB local encoder cache and ~21 MB embedding
+cache, but its broad ~2.97 percentage-point aggregate gain satisfies the
+preregistered clear-gain rule. These are local CPU experiment timings, not
+production latency claims.
 
 ## P0 exit criteria
 - [x] W1-001 data audit and deterministic locked split.
-- [x] W1-002 lexical baseline (validation selection complete; test reserved for W1-004).
-- [x] W1-003 semantic baseline (validation selection complete; test reserved for W1-004).
-- [ ] W1-004 evaluation, confusion/error analysis, and Week 1 gate.
+- [x] W1-002 lexical baseline frozen without test tuning.
+- [x] W1-003 semantic baseline frozen without test tuning.
+- [x] W1-004 fair official-test evaluation of exactly two candidates.
+- [x] Accuracy, macro-F1, all-class metrics, predictions, and confusions.
+- [x] Paired, confidence, overlap, runtime, and bounded manual error analysis.
+- [x] Reproducibility and public-safety evidence.
+- [x] Downstream candidate selected and frozen.
+- [x] Week 1 P0 gate passed.
 
-## Risks / limitations
-- Both reported baseline numbers are validation diagnostics, not official test claims.
-- Validation per-class deltas are directional due to low class support.
-- Cold-cache semantic reproduction depends on availability of the exact upstream
-  model revision; all required provenance and snapshot checksums are recorded.
-- The Week 1 P0 gate remains open until W1-004 completes.
+## Limitations
+- Seven normalized official-boundary overlaps are retained and disclosed.
+- Some Banking77 queries are underspecified or appear inconsistent with fine-grained
+  labels; hypotheses are not treated as proven annotation errors.
+- No calibration, abstention, OOS/OOD, third model, or fine-tuning was performed.
+- Semantic inference cost must be revisited when a real service latency target exists.
 
 ## Handoff
-- Stop for review. If separately authorized, W1-004 must first verify the locked
-  data and both frozen baseline configurations, then evaluate exactly those two
-  approaches once on the untouched official test.
-- Do not start a third model, P1, or Week 2.
+Week 1 is closed. Queue Week 2 only; do not implement it without separate user
+authorization. Carry exact semantic revision/config as the selected intent model
+and retain lexical unigram as the reproducible fallback.
 
 ---
 
@@ -346,88 +354,90 @@ Results:
 # Daily Report — 2026-07-27
 
 ## 1. Goal
-Complete `W1-003` as the single frozen semantic baseline on the locked
-`banking77_w1_v1` train/validation protocol, without touching the official test.
+Complete W1-003 and the separately authorized W1-004 final locked-test evaluation
+without model retuning, a third model, P1, or Week 2 implementation.
 
 ## 2. Tasks
-- `W1-003` — completed: frozen all-MiniLM-L6-v2 embeddings plus Logistic Regression.
+- `W1-003` — completed and committed as `5f287a1`.
+- `W1-004` — completed; Week 1 P0 gate passed.
 
 ## 3. Work completed
-- Reverified W1-001 data membership and W1-002 frozen lexical contract.
-- Pinned the exact encoder revision and complete isolated dependency set.
-- Implemented a deterministic CLI, embedding cache/alignment guards, portable
-  classifier artifact, provenance, runtime, validation metrics, and comparison.
-- Ran a real smoke test, the primary full validation run, and an independent
-  fresh-cache reproducibility rerun.
-- Inspected validation-only per-class changes, focus confusions, and 20 errors.
-- Kept `test_evaluated=false` and `test_encoded=false` throughout.
+- Completed and verified the frozen semantic validation baseline.
+- Verified clean Git/pre-test state and all W1-001/W1-002/W1-003 hashes.
+- Preregistered W1-004 final-fit, metrics, analysis, decision, rerun, and stop rules.
+- Refit both frozen candidates on the same 10,003 non-test samples.
+- Ran one primary and one identical reproducibility evaluation on official test.
+- Produced aligned metrics, predictions, per-class, confusion, paired, confidence,
+  overlap-sensitivity, runtime, model-selection, and final manifest evidence.
+- Reviewed and annotated a deterministic 30-row error/disagreement sample.
+- Selected frozen MiniLM semantic baseline; retained lexical as fallback.
 
 ## 4. Files changed
-- `configs/models/banking77_semantic_w1.json` — frozen semantic configuration.
-- `requirements/week1-semantic.txt` — fully pinned isolated runtime.
-- `src/payresolve_ai/baselines/semantic.py` and `semantic_cli.py` — pipeline/CLI.
-- `scripts/baselines/semantic.py` — stable script entry point.
-- `tests/test_semantic_baseline.py` — contract, cache, alignment, and regression tests.
-- `reports/week_01/results/semantic_*` — trackable W1-003 evidence.
-- `reports/week_01/experiments/W1-003_semantic_baseline.md` — experiment record.
-- Developer, reporting, state, task, and Week 1 documentation — lifecycle updates.
+- `configs/evaluation/banking77_w1_final.json` — preregistered evaluation contract.
+- `src/payresolve_ai/evaluation/` and `scripts/evaluation/` — final evaluation pipeline/CLI.
+- `tests/test_week1_final_evaluation.py` — frozen-contract and alignment regressions.
+- `reports/week_01/results/intent_benchmark.*`, `*_test_*`, and `week1_*` — evidence.
+- `reports/week_01/experiments/W1-004_final_evaluation.md` — final analysis/decision.
+- Project state, task board, Week 1 summary, development workflow, and validator.
 
 ## 5. Verification performed
-Commands included:
+
 ```powershell
-.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json verify-contract
-.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json smoke
-.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json run --refresh-cache --run-label primary
-.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json run --refresh-cache --run-label reproducibility_rerun
-.venv-semantic\Scripts\python.exe scripts\baselines\semantic.py --config configs\models\banking77_semantic_w1.json verify-cache
-.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_semantic_baseline.py" -v
+.venv-semantic\Scripts\python.exe scripts\evaluation\week1_final.py --root . --config configs\evaluation\banking77_w1_final.json verify-pretest
+.venv-semantic\Scripts\python.exe scripts\evaluation\week1_final.py --root . --config configs\evaluation\banking77_w1_final.json run --run-label primary
+.venv-semantic\Scripts\python.exe scripts\evaluation\week1_final.py --root . --config configs\evaluation\banking77_w1_final.json run --run-label reproducibility_rerun
+.venv-semantic\Scripts\python.exe scripts\evaluation\week1_final.py --root . --config configs\evaluation\banking77_w1_final.json finalize
+.venv-semantic\Scripts\python.exe scripts\evaluation\week1_final.py --root . --config configs\evaluation\banking77_w1_final.json verify-results
 .venv-semantic\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
 Results:
-- Isolated semantic module: `4/4` tests passed with direct package imports.
-- Full suite in the same semantic environment: `20/20` tests passed.
-- Validation: accuracy `0.900498`, macro-F1 `0.898020` on 1,005 rows.
-- Delta versus frozen lexical validation: accuracy `+0.034826`, macro-F1 `+0.035371`.
-- Primary total runtime: `79.315 s`; independent rerun: `70.651 s`, CPU only.
-- Stable classifier, metrics, predictions, per-class, confusion, cache-manifest,
-  provenance, and comparison artifact hashes matched across fresh-cache reruns.
+- Lexical test accuracy/macro-F1: `0.878247 / 0.878362`; 2,705 correct.
+- Semantic test accuracy/macro-F1: `0.908117 / 0.908075`; 2,797 correct.
+- Semantic deltas: accuracy `+0.029870`; macro-F1 `+0.029713`.
+- Paired: 2,611 both correct; 94 lexical-only; 186 semantic-only; 189 both wrong.
+- Primary/repro stable artifacts matched byte-for-byte.
+- W1-004 result validator: PASS; Week 1 P0 gate: PASS.
+- Isolated W1-004 tests: 7/7 PASS; isolated lexical: 3/3 PASS;
+  isolated semantic: 4/4 PASS; full suite: 27/27 PASS.
+- Locked Banking77 artifact verification and semantic contract verification: PASS.
 
 ## 6. Problems / debugging
-### Git provenance outside a repository
-- Symptom: an integration test using a temporary project root failed.
-- Root cause: provenance collection assumed every fixture root was a Git repository.
-- Fix: record `git.available=false` when Git metadata is absent while retaining
-  exact HEAD/dirty evidence in the real repository.
-- Regression protection: the previously failing integration test now covers it.
+
+### Preregistration Git SHA typo
+- Symptom: recovery check found the preregistered full SHA had a correct short
+  prefix but an incorrect suffix.
+- Root cause: the full value was typed rather than read from `git rev-parse HEAD`.
+- Fix: replaced it with `5f287a18a50ec073f961290962de003e1f4e38bc` before test access.
+- Protection: `verify-pretest` now must match full Git HEAD; no prior test artifact existed.
+
+### Git provenance fixture
+- W1-003's temp-root Git assumption was fixed and retained as a regression test.
 
 ## 7. Decisions / trade-offs
-- Decision: freeze normalized 384-dimensional mean-pooled embeddings from
-  `sentence-transformers/all-MiniLM-L6-v2` revision
-  `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`, then fit the same Logistic
-  Regression family used by W1-002.
-- Evidence: the controlled validation result improved both required metrics.
-- Trade-off: CPU inference and local model/cache footprint are materially larger
-  than the lexical baseline; no additional model or tuning sweep was opened.
-- Revisit when: W1-004 performs the one controlled frozen-test evaluation.
+- Final-fit protocol: identical 10,003-sample scope for both frozen candidates.
+- Selected semantic MiniLM because the preregistered clear-gain rule passed.
+- Lexical remains a much faster and smaller fallback.
+- Confidence remains diagnostic and uncalibrated; no P1 threshold work was opened.
 
 ## 8. Evidence
-- Metrics/artifacts: `reports/week_01/results/semantic_*`.
-- Config/data/model versions: semantic config, exact model revision, dependency
-  lock, data protocol `banking77_w1_v1`, membership SHA-256 `baa3d31f...c902`.
-- Commit/PR: pending; no staging, commit, push, or merge performed.
+- Canonical benchmark: `reports/week_01/results/intent_benchmark.json`.
+- Full manifest: `reports/week_01/results/week1_final_manifest.json`.
+- Analysis: `reports/week_01/experiments/W1-004_final_evaluation.md`.
+- Raw data, weights, embeddings, and fitted models remain ignored.
+- W1-004 commit/PR: pending; no stage, commit, push, or merge performed.
 
 ## 9. Risks / blockers
-- Validation classes have only 4–19 examples, so per-class deltas are directional.
-- Model downloads depend on the upstream Hugging Face service for a cold cache.
-- Frozen official test performance remains unknown by design until W1-004.
+- Seven normalized official-boundary overlaps remain a disclosed limitation.
+- Some errors reflect ambiguous or potentially inconsistent taxonomy boundaries.
+- Semantic CPU/cache cost is higher; measured runtime is not production latency.
+- No Week 2 blocker is claimed, but Week 2 needs separate authorization.
 
 ## 10. Next step
-- Stop for review. If separately authorized, W1-004 may evaluate exactly the two
-  frozen baselines once on the untouched official test.
+Stop for review. Week 2 is queued and not started.
 
 ## Suggested commit message
-`feat(baseline): add reproducible Banking77 semantic baseline`
+`feat(evaluation): complete Banking77 Week 1 benchmark`
 
 ---
 
@@ -821,6 +831,167 @@ third model, or perform the final cross-model/frozen-test decision within W1-003
 - Lexical comparison: `reports/week_01/results/semantic_lexical_validation_comparison.json`.
 - Runtime: `reports/week_01/results/semantic_runtime.json`.
 - Frozen result manifest: `reports/week_01/results/semantic_baseline_manifest.json`.
+
+---
+
+<!-- Source: reports/week_01/experiments/W1-004_final_evaluation.md -->
+
+# W1-004 — Final Locked Test Evaluation and Week 1 Gate
+
+## Verdict
+
+`PASS`. Both frozen baselines were refit once per run on all 10,003 official
+training samples and evaluated on the 3,080-row official test under the
+preregistered protocol. Semantic MiniLM is selected for downstream use; the
+lexical unigram model remains the fallback. No test-driven tuning occurred.
+
+## Pre-test gate and preregistration
+
+- Git HEAD and `origin/main`: `5f287a18a50ec073f961290962de003e1f4e38bc`.
+- W1-001/W1-002/W1-003 commits and frozen manifests verified.
+- Protocol: `banking77_w1_v1`; membership SHA-256 `baa3d31f...c902`.
+- Prior state: `test_encoded=false`, `test_evaluated=false`; no prior test artifacts.
+- Evaluation config created before test access with SHA-256
+  `a6ac09654884528aa6ccabf784a349304eddecb3ccb0add680000ad4f6272a40`.
+- An initially typed full Git SHA was corrected before test access. The gate caught
+  the mismatch; no test artifact existed and no score had been observed.
+
+The preregistered final-fit protocol was identical for both candidates:
+
+```text
+locked train 8,998 + locked validation 1,005
+→ 10,003 samples ordered by stable sample ID
+→ refit each frozen configuration once
+→ evaluate on 3,080 official-test samples ordered by stable sample ID
+```
+
+## Official benchmark
+
+| Model | Representation | Accuracy | Macro-F1 | Correct | Errors | Dimension | Repro-run total |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Lexical | TF-IDF word unigram | 0.878247 | 0.878362 | 2,705 | 375 | 2,320 | 4.259 s |
+| Semantic | normalized frozen MiniLM | 0.908117 | 0.908075 | 2,797 | 283 | 384 | 92.227 s |
+
+Semantic minus lexical: accuracy `+0.029870`; macro-F1 `+0.029713`.
+
+Validation-to-test changes were positive for both models:
+
+- lexical: accuracy `+0.012575`, macro-F1 `+0.015713`;
+- semantic: accuracy `+0.007619`, macro-F1 `+0.010054`.
+
+These values are not used for retuning.
+
+## Paired outcomes
+
+| Outcome | Count |
+|---|---:|
+| Both correct | 2,611 |
+| Lexical correct / semantic wrong | 94 |
+| Lexical wrong / semantic correct | 186 |
+| Both wrong | 189 |
+
+Semantic corrected 186 lexical errors while introducing 94 regressions, a net
+gain of 92 correct predictions. The gain is broad: semantic F1 improved for 49
+intents, regressed for 21, and was unchanged for 7. No semantic class regression
+reached the preregistered absolute F1 threshold of 0.20.
+
+Largest F1 improvements included `virtual_card_not_working` (+0.244821),
+`card_not_working` (+0.162494), `why_verify_identity` (+0.153333), and
+`verify_my_identity` (+0.149498). Largest regressions included
+`declined_transfer` (-0.092515), `direct_debit_payment_not_recognised`
+(-0.049787), `beneficiary_not_allowed` (-0.048583), and
+`reverted_card_payment?` (-0.047414).
+
+Validation findings did not all persist: `cancel_transfer` improved by 0.025610
+on test; `top_up_reverted` improved by 0.082621; `pending_top_up` regressed by
+0.032843; `request_refund` improved by 0.062657; and
+`reverted_card_payment?` regressed by 0.047414.
+
+## Confusions and bounded manual review
+
+Semantic reduced several prominent directional confusions:
+
+- `why_verify_identity → verify_my_identity`: 9 → 3;
+- `virtual_card_not_working → get_disposable_virtual_card`: 8 → 1;
+- `request_refund → Refund_not_showing_up`: 5 → 0;
+- `top_up_reverted → top_up_failed`: 5 → 2.
+
+It worsened `declined_transfer → declined_card_payment` from 2 → 6 and retained
+fine-grained boundaries around transfer timing, direct debit/card recognition,
+disposable cards, and transaction states.
+
+The deterministic 30-row review contains semantic fixes, lexical-only correct
+cases, both-wrong cases, high-confidence errors, low-margin errors, and short
+queries. Taxonomy counts were T1=1, T2=5, T3=4, T4=3, T5=10, T6=2, T7=5.
+Root-cause statements are hypotheses. The most common reviewed issue was ambiguous
+or underspecified label boundaries, followed by transaction-state and product-rail
+confusion. Five cases warrant potential annotation/taxonomy review; they are not
+silently relabeled.
+
+## Confidence diagnostics
+
+Probabilities are diagnostic only and are not assumed calibrated.
+
+- Lexical mean max probability: correct `0.5473`, incorrect `0.2374`.
+- Semantic mean max probability: correct `0.6807`, incorrect `0.3422`.
+- Lexical mean top-1/top-2 margin: correct `0.4769`, incorrect `0.1092`.
+- Semantic mean top-1/top-2 margin: correct `0.5978`, incorrect `0.1694`.
+
+Correct and incorrect distributions separate directionally, but confidently wrong
+examples remain. No threshold, calibration, abstention, or OOS policy was fitted.
+
+## Normalized-overlap sensitivity
+
+Both models correctly classified all seven W1-001 normalized-overlap test rows.
+Excluding only those evidenced rows yields 3,073 samples:
+
+| Model | Accuracy excluding overlap | Macro-F1 excluding overlap | Accuracy change | Macro-F1 change |
+|---|---:|---:|---:|---:|
+| Lexical | 0.877969 | 0.878073 | -0.000277 | -0.000289 |
+| Semantic | 0.907908 | 0.907874 | -0.000209 | -0.000201 |
+
+The semantic recommendation does not materially depend on these seven rows. The
+canonical benchmark remains the unmodified 3,080-row official test.
+
+## Runtime and complexity
+
+Primary/repro total evaluation times were 108.906/97.536 seconds. Per-model totals:
+
+- lexical: 4.587/4.259 seconds; 2,320 features; portable model 1,666,588 bytes;
+- semantic: 103.186/92.227 seconds; 384 dimensions; portable classifier 284,058
+  bytes; local encoder cache 183,156,831 bytes; embedding cache 21,038,649 bytes.
+
+Semantic is materially slower and requires model/cache storage, but its ~2.97
+percentage-point aggregate gain and broad class improvements justify the added
+complexity for this research prototype. These CPU measurements are not production
+latency claims.
+
+## Reproducibility and decision
+
+Primary and independent fresh-cache reruns produced byte-identical classifier
+parameters, predictions, metrics, per-class scores, confusions, paired rows,
+confidence analysis, overlap analysis, and manual-review candidate selection.
+Runtime-bearing benchmark/runtime artifacts differ as expected.
+
+The preregistered `semantic_clear_gain` branch applies: macro-F1 improved by more
+than 0.01, accuracy did not decrease, results reproduced, and there was no
+per-class regression of at least 0.20. Selected candidate:
+
+`semantic_all_minilm_l6_v2` using config SHA-256 `de4ebff8...7b50b`.
+
+Fallback: `lexical_word_unigram`. Both remain frozen; no third model is opened.
+
+## Week 1 P0 gate
+
+`PASS`: W1-001 through W1-004 are complete; both frozen candidates were evaluated
+fairly; required artifacts, error analysis, overlap limitation, recommendation,
+tests, reproducibility, and public-safety evidence are present. Week 2 is queued
+but was not started by this task.
+
+Final verification: isolated W1-004 7/7, lexical 3/3, semantic 4/4, and full
+repository suite 27/27 passed under the locked semantic environment. Banking77
+artifact verification, semantic contract verification, and W1-004 result
+verification also passed.
 
 ---
 

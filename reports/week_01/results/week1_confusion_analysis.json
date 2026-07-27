@@ -1,0 +1,572 @@
+{
+  "improved_directional_pairs": [
+    {
+      "delta_semantic_minus_lexical": -7,
+      "lexical_count": 8,
+      "predicted_label": "get_disposable_virtual_card",
+      "semantic_count": 1,
+      "true_label": "virtual_card_not_working"
+    },
+    {
+      "delta_semantic_minus_lexical": -6,
+      "lexical_count": 6,
+      "predicted_label": "declined_cash_withdrawal",
+      "semantic_count": 0,
+      "true_label": "card_swallowed"
+    },
+    {
+      "delta_semantic_minus_lexical": -6,
+      "lexical_count": 9,
+      "predicted_label": "verify_my_identity",
+      "semantic_count": 3,
+      "true_label": "why_verify_identity"
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "lexical_count": 6,
+      "predicted_label": "card_not_working",
+      "semantic_count": 1,
+      "true_label": "card_acceptance"
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "lexical_count": 5,
+      "predicted_label": "Refund_not_showing_up",
+      "semantic_count": 0,
+      "true_label": "request_refund"
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "lexical_count": 5,
+      "predicted_label": "getting_virtual_card",
+      "semantic_count": 0,
+      "true_label": "virtual_card_not_working"
+    },
+    {
+      "delta_semantic_minus_lexical": -4,
+      "lexical_count": 4,
+      "predicted_label": "card_not_working",
+      "semantic_count": 0,
+      "true_label": "contactless_not_working"
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "lexical_count": 3,
+      "predicted_label": "extra_charge_on_statement",
+      "semantic_count": 0,
+      "true_label": "card_payment_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "lexical_count": 3,
+      "predicted_label": "exchange_charge",
+      "semantic_count": 0,
+      "true_label": "exchange_via_app"
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "lexical_count": 4,
+      "predicted_label": "get_physical_card",
+      "semantic_count": 1,
+      "true_label": "pin_blocked"
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "lexical_count": 3,
+      "predicted_label": "top_up_reverted",
+      "semantic_count": 0,
+      "true_label": "top_up_failed"
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "lexical_count": 5,
+      "predicted_label": "top_up_failed",
+      "semantic_count": 2,
+      "true_label": "top_up_reverted"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "declined_cash_withdrawal",
+      "semantic_count": 0,
+      "true_label": "atm_support"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "balance_not_updated_after_bank_transfer",
+      "semantic_count": 0,
+      "true_label": "automatic_top_up"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "declined_card_payment",
+      "semantic_count": 0,
+      "true_label": "card_not_working"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "card_payment_fee_charged",
+      "semantic_count": 0,
+      "true_label": "card_payment_wrong_exchange_rate"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "card_payment_not_recognised",
+      "semantic_count": 0,
+      "true_label": "cash_withdrawal_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "extra_charge_on_statement",
+      "semantic_count": 0,
+      "true_label": "cash_withdrawal_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "card_not_working",
+      "semantic_count": 0,
+      "true_label": "compromised_card"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 2,
+      "predicted_label": "card_arrival",
+      "semantic_count": 0,
+      "true_label": "contactless_not_working"
+    }
+  ],
+  "new_semantic_directional_pairs": 80,
+  "shared_directional_pairs": 101,
+  "top_20_directional": [
+    {
+      "delta_semantic_minus_lexical": -6,
+      "lexical_count": 9,
+      "predicted_label": "verify_my_identity",
+      "semantic_count": 3,
+      "true_label": "why_verify_identity"
+    },
+    {
+      "delta_semantic_minus_lexical": -7,
+      "lexical_count": 8,
+      "predicted_label": "get_disposable_virtual_card",
+      "semantic_count": 1,
+      "true_label": "virtual_card_not_working"
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "lexical_count": 6,
+      "predicted_label": "card_not_working",
+      "semantic_count": 1,
+      "true_label": "card_acceptance"
+    },
+    {
+      "delta_semantic_minus_lexical": -6,
+      "lexical_count": 6,
+      "predicted_label": "declined_cash_withdrawal",
+      "semantic_count": 0,
+      "true_label": "card_swallowed"
+    },
+    {
+      "delta_semantic_minus_lexical": 4,
+      "lexical_count": 2,
+      "predicted_label": "declined_card_payment",
+      "semantic_count": 6,
+      "true_label": "declined_transfer"
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "lexical_count": 4,
+      "predicted_label": "getting_virtual_card",
+      "semantic_count": 5,
+      "true_label": "get_disposable_virtual_card"
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "lexical_count": 4,
+      "predicted_label": "transfer_timing",
+      "semantic_count": 5,
+      "true_label": "pending_transfer"
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "lexical_count": 5,
+      "predicted_label": "Refund_not_showing_up",
+      "semantic_count": 0,
+      "true_label": "request_refund"
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "lexical_count": 5,
+      "predicted_label": "top_up_failed",
+      "semantic_count": 2,
+      "true_label": "top_up_reverted"
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "lexical_count": 5,
+      "predicted_label": "getting_virtual_card",
+      "semantic_count": 0,
+      "true_label": "virtual_card_not_working"
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "lexical_count": 3,
+      "predicted_label": "card_delivery_estimate",
+      "semantic_count": 4,
+      "true_label": "card_arrival"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 2,
+      "predicted_label": "compromised_card",
+      "semantic_count": 4,
+      "true_label": "card_payment_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": 3,
+      "lexical_count": 1,
+      "predicted_label": "wrong_amount_of_cash_received",
+      "semantic_count": 4,
+      "true_label": "cash_withdrawal_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": -4,
+      "lexical_count": 4,
+      "predicted_label": "card_not_working",
+      "semantic_count": 0,
+      "true_label": "contactless_not_working"
+    },
+    {
+      "delta_semantic_minus_lexical": -1,
+      "lexical_count": 4,
+      "predicted_label": "exchange_via_app",
+      "semantic_count": 3,
+      "true_label": "fiat_currency_support"
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "lexical_count": 3,
+      "predicted_label": "balance_not_updated_after_bank_transfer",
+      "semantic_count": 4,
+      "true_label": "pending_transfer"
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "lexical_count": 4,
+      "predicted_label": "get_physical_card",
+      "semantic_count": 1,
+      "true_label": "pin_blocked"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 4,
+      "predicted_label": "verify_my_identity",
+      "semantic_count": 2,
+      "true_label": "unable_to_verify_identity"
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "lexical_count": 4,
+      "predicted_label": "why_verify_identity",
+      "semantic_count": 2,
+      "true_label": "verify_my_identity"
+    },
+    {
+      "delta_semantic_minus_lexical": -1,
+      "lexical_count": 4,
+      "predicted_label": "card_not_working",
+      "semantic_count": 3,
+      "true_label": "virtual_card_not_working"
+    }
+  ],
+  "top_20_symmetric": [
+    {
+      "delta_semantic_minus_lexical": -8,
+      "intent_a": "verify_my_identity",
+      "intent_b": "why_verify_identity",
+      "lexical_count": 13,
+      "semantic_count": 5
+    },
+    {
+      "delta_semantic_minus_lexical": -7,
+      "intent_a": "get_disposable_virtual_card",
+      "intent_b": "virtual_card_not_working",
+      "lexical_count": 8,
+      "semantic_count": 1
+    },
+    {
+      "delta_semantic_minus_lexical": -6,
+      "intent_a": "top_up_failed",
+      "intent_b": "top_up_reverted",
+      "lexical_count": 8,
+      "semantic_count": 2
+    },
+    {
+      "delta_semantic_minus_lexical": -4,
+      "intent_a": "Refund_not_showing_up",
+      "intent_b": "request_refund",
+      "lexical_count": 7,
+      "semantic_count": 3
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "intent_a": "card_arrival",
+      "intent_b": "card_delivery_estimate",
+      "lexical_count": 6,
+      "semantic_count": 7
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "intent_a": "balance_not_updated_after_bank_transfer",
+      "intent_b": "pending_transfer",
+      "lexical_count": 5,
+      "semantic_count": 6
+    },
+    {
+      "delta_semantic_minus_lexical": -2,
+      "intent_a": "balance_not_updated_after_bank_transfer",
+      "intent_b": "transfer_not_received_by_recipient",
+      "lexical_count": 6,
+      "semantic_count": 4
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "intent_a": "balance_not_updated_after_bank_transfer",
+      "intent_b": "transfer_timing",
+      "lexical_count": 5,
+      "semantic_count": 6
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "intent_a": "card_acceptance",
+      "intent_b": "card_not_working",
+      "lexical_count": 6,
+      "semantic_count": 1
+    },
+    {
+      "delta_semantic_minus_lexical": -6,
+      "intent_a": "card_swallowed",
+      "intent_b": "declined_cash_withdrawal",
+      "lexical_count": 6,
+      "semantic_count": 0
+    },
+    {
+      "delta_semantic_minus_lexical": 4,
+      "intent_a": "declined_card_payment",
+      "intent_b": "declined_transfer",
+      "lexical_count": 2,
+      "semantic_count": 6
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "intent_a": "exchange_via_app",
+      "intent_b": "fiat_currency_support",
+      "lexical_count": 5,
+      "semantic_count": 6
+    },
+    {
+      "delta_semantic_minus_lexical": -3,
+      "intent_a": "unable_to_verify_identity",
+      "intent_b": "verify_my_identity",
+      "lexical_count": 6,
+      "semantic_count": 3
+    },
+    {
+      "delta_semantic_minus_lexical": 5,
+      "intent_a": "card_payment_not_recognised",
+      "intent_b": "direct_debit_payment_not_recognised",
+      "lexical_count": 0,
+      "semantic_count": 5
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "intent_a": "cash_withdrawal_not_recognised",
+      "intent_b": "wrong_amount_of_cash_received",
+      "lexical_count": 3,
+      "semantic_count": 5
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "intent_a": "get_disposable_virtual_card",
+      "intent_b": "getting_virtual_card",
+      "lexical_count": 4,
+      "semantic_count": 5
+    },
+    {
+      "delta_semantic_minus_lexical": -4,
+      "intent_a": "get_physical_card",
+      "intent_b": "pin_blocked",
+      "lexical_count": 5,
+      "semantic_count": 1
+    },
+    {
+      "delta_semantic_minus_lexical": -5,
+      "intent_a": "getting_virtual_card",
+      "intent_b": "virtual_card_not_working",
+      "lexical_count": 5,
+      "semantic_count": 0
+    },
+    {
+      "delta_semantic_minus_lexical": 0,
+      "intent_a": "pending_transfer",
+      "intent_b": "transfer_timing",
+      "lexical_count": 5,
+      "semantic_count": 5
+    },
+    {
+      "delta_semantic_minus_lexical": -4,
+      "intent_a": "unable_to_verify_identity",
+      "intent_b": "why_verify_identity",
+      "lexical_count": 5,
+      "semantic_count": 1
+    }
+  ],
+  "worsened_directional_pairs": [
+    {
+      "delta_semantic_minus_lexical": 4,
+      "lexical_count": 2,
+      "predicted_label": "declined_card_payment",
+      "semantic_count": 6,
+      "true_label": "declined_transfer"
+    },
+    {
+      "delta_semantic_minus_lexical": 3,
+      "lexical_count": 0,
+      "predicted_label": "country_support",
+      "semantic_count": 3,
+      "true_label": "card_acceptance"
+    },
+    {
+      "delta_semantic_minus_lexical": 3,
+      "lexical_count": 0,
+      "predicted_label": "direct_debit_payment_not_recognised",
+      "semantic_count": 3,
+      "true_label": "card_payment_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": 3,
+      "lexical_count": 0,
+      "predicted_label": "cash_withdrawal_not_recognised",
+      "semantic_count": 3,
+      "true_label": "card_swallowed"
+    },
+    {
+      "delta_semantic_minus_lexical": 3,
+      "lexical_count": 1,
+      "predicted_label": "wrong_amount_of_cash_received",
+      "semantic_count": 4,
+      "true_label": "cash_withdrawal_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": 3,
+      "lexical_count": 0,
+      "predicted_label": "failed_transfer",
+      "semantic_count": 3,
+      "true_label": "declined_transfer"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 2,
+      "predicted_label": "compromised_card",
+      "semantic_count": 4,
+      "true_label": "card_payment_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 0,
+      "predicted_label": "cash_withdrawal_not_recognised",
+      "semantic_count": 2,
+      "true_label": "compromised_card"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 0,
+      "predicted_label": "card_payment_not_recognised",
+      "semantic_count": 2,
+      "true_label": "direct_debit_payment_not_recognised"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 1,
+      "predicted_label": "fiat_currency_support",
+      "semantic_count": 3,
+      "true_label": "exchange_via_app"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 1,
+      "predicted_label": "card_payment_fee_charged",
+      "semantic_count": 3,
+      "true_label": "extra_charge_on_statement"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 0,
+      "predicted_label": "reverted_card_payment?",
+      "semantic_count": 2,
+      "true_label": "pending_card_payment"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 1,
+      "predicted_label": "transfer_not_received_by_recipient",
+      "semantic_count": 3,
+      "true_label": "pending_transfer"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 0,
+      "predicted_label": "change_pin",
+      "semantic_count": 2,
+      "true_label": "pin_blocked"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 0,
+      "predicted_label": "getting_spare_card",
+      "semantic_count": 2,
+      "true_label": "supported_cards_and_currencies"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 0,
+      "predicted_label": "pending_top_up",
+      "semantic_count": 2,
+      "true_label": "top_up_failed"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 2,
+      "predicted_label": "declined_cash_withdrawal",
+      "semantic_count": 4,
+      "true_label": "wrong_amount_of_cash_received"
+    },
+    {
+      "delta_semantic_minus_lexical": 2,
+      "lexical_count": 0,
+      "predicted_label": "cash_withdrawal_charge",
+      "semantic_count": 2,
+      "true_label": "wrong_exchange_rate_for_cash_withdrawal"
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "lexical_count": 2,
+      "predicted_label": "request_refund",
+      "semantic_count": 3,
+      "true_label": "Refund_not_showing_up"
+    },
+    {
+      "delta_semantic_minus_lexical": 1,
+      "lexical_count": 1,
+      "predicted_label": "reverted_card_payment?",
+      "semantic_count": 2,
+      "true_label": "Refund_not_showing_up"
+    }
+  ]
+}

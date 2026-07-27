@@ -1,0 +1,40 @@
+{
+  "generalization_change_test_minus_validation": {
+    "lexical": {
+      "accuracy": 0.012575111455708554,
+      "macro_f1": 0.015713039365612524
+    },
+    "semantic": {
+      "accuracy": 0.007619370679072146,
+      "macro_f1": 0.010054428961623563
+    }
+  },
+  "rows": [
+    {
+      "correct": 2705,
+      "dimension": 2320,
+      "errors": 375,
+      "final_runtime_seconds": 4.258934400015278,
+      "model": "lexical_word_unigram",
+      "representation": "TF-IDF word unigram",
+      "test_accuracy": 0.8782467532467533,
+      "test_macro_f1": 0.8783622750489997
+    },
+    {
+      "correct": 2797,
+      "dimension": 384,
+      "errors": 283,
+      "final_runtime_seconds": 92.22749620000832,
+      "model": "semantic_all_minilm_l6_v2",
+      "representation": "normalized frozen MiniLM embeddings",
+      "test_accuracy": 0.9081168831168831,
+      "test_macro_f1": 0.9080748065777128
+    }
+  ],
+  "task_id": "W1-004",
+  "test_deltas_semantic_minus_lexical": {
+    "accuracy": 0.029870129870129825,
+    "macro_f1": 0.029712531528713115
+  },
+  "test_evaluated": true
+}

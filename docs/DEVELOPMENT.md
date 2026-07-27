@@ -158,6 +158,26 @@ also remain ignored. Trackable manifests contain revision, file checksums,
 embedding shape/alignment checksums, runtime, predictions, metrics, and comparison
 metadata. Neither `test.csv` nor a test embedding cache is used by this workflow.
 
+## W1-004 final locked evaluation
+
+W1-004 is complete. The following commands document the immutable evaluation
+workflow; do not rerun `primary` or modify the frozen config after test access.
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/evaluation/week1_final.py --root . --config configs/evaluation/banking77_w1_final.json verify-pretest
+.\.venv-semantic\Scripts\python.exe scripts/evaluation/week1_final.py --root . --config configs/evaluation/banking77_w1_final.json run --run-label primary
+.\.venv-semantic\Scripts\python.exe scripts/evaluation/week1_final.py --root . --config configs/evaluation/banking77_w1_final.json run --run-label reproducibility_rerun
+.\.venv-semantic\Scripts\python.exe scripts/evaluation/week1_final.py --root . --config configs/evaluation/banking77_w1_final.json finalize
+.\.venv-semantic\Scripts\python.exe scripts/evaluation/week1_final.py --root . --config configs/evaluation/banking77_w1_final.json verify-results
+```
+
+The first four commands are historical execution commands retained for exact
+reproduction/audit. Routine post-completion verification should run only
+`verify-results`, unit tests, and the project validator. Final-fit scope is all
+10,003 non-test rows for each frozen candidate; official test contains 3,080 rows.
+Tracked evidence is under `reports/week_01/results/`. Test embeddings and fitted
+models remain ignored under `artifacts/cache/w1-004/` and `artifacts/models/w1-004/`.
+
 ## Future service launch
 
 The service is a Week 4 P0 deliverable. No service command is claimed during

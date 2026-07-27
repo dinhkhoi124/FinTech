@@ -14,7 +14,7 @@ Priority: `P0 | P1 | P2`
 | W1-001 | 1 | P0 | Audit Banking77 and lock split | Audit artifact + deterministic split/config | DONE |
 | W1-002 | 1 | P0 | Lexical baseline | Metrics + config + reproducible command | DONE |
 | W1-003 | 1 | P0 | Semantic/model baseline | Metrics + config + reproducible command | DONE |
-| W1-004 | 1 | P0 | Evaluation, confusion/error analysis, and Week 1 gate | Metrics/confusions/examples/gate decision + summary | TODO |
+| W1-004 | 1 | P0 | Evaluation, confusion/error analysis, and Week 1 gate | Metrics/confusions/examples/gate decision + summary | DONE |
 | W2-001 | 2 | P0 | Synthetic KB specification/generation/validation | Versioned KB + validation evidence | TODO |
 | W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | TODO |
 | W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | TODO |
@@ -134,3 +134,11 @@ runtime, cache integrity, and matching fresh-cache rerun hashes are retained.
   note; benchmark/confusion artifacts in `results/`; finalized
   `week_01_summary.md`; `PROJECT_STATE.md` and this board. No Week 2 task begins as
   part of this gate review.
+
+Completion record (2026-07-27): preregistered and ran one primary plus one
+byte-matching reproducibility evaluation of the two frozen candidates after
+identical refits on all 10,003 non-test rows. On the 3,080-row official test,
+lexical accuracy/macro-F1 was 0.878247/0.878362 and semantic was
+0.908117/0.908075. Thirty bounded cases, paired outcomes, all 77 classes,
+confusions, diagnostic confidence, runtime, and the seven-row overlap sensitivity
+were analyzed. Frozen semantic MiniLM was selected; Week 1 P0 gate `PASS`.

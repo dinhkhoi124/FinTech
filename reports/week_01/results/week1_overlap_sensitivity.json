@@ -1,0 +1,42 @@
+{
+  "affected_sample_ids": [
+    "0623f94972c55e63dd8130e78bcefaeec10e790f62260a7c3d07e10d618a6567",
+    "2c5e940f5798a70564fb1a3d31a62a5ce3c20a5454bacfa8dee626a86ffac54d",
+    "3edbdd66759384019a89b7fb8fd0dca9fa307ba6ea0c9c07229413cd1db9c86c",
+    "6ad69b51a73f9412ff2a66bd29a54b6b8293d05404f80e2f4e65afda1f4aa9dd",
+    "985b02df1cda8b86eae6ff6d926a72b30e696276ff40e4507a4290ad1b06a629",
+    "9f2f53845b627adaca2c819f99c46163ddd0ea6ef9db99cd54f8cb1508f8a598",
+    "f1a642c89e8959a6ca03097e62e49fe2bba8246082101742ac935646f2496dc5"
+  ],
+  "canonical_benchmark_changed": false,
+  "lexical": {
+    "accuracy_change_excluded_minus_full": -0.00027734224772957283,
+    "affected_correct": 7,
+    "affected_total": 7,
+    "excluded_accuracy": 0.8779694109990237,
+    "excluded_macro_f1": 0.8780728458272704,
+    "excluded_sample_count": 3073,
+    "full_accuracy": 0.8782467532467533,
+    "full_macro_f1": 0.8783622750489997,
+    "macro_f1_change_excluded_minus_full": -0.0002894292217292538
+  },
+  "primary_benchmark": {
+    "name": "Official Banking77 test",
+    "sample_count": 3080
+  },
+  "semantic": {
+    "accuracy_change_excluded_minus_full": -0.00020930094961979506,
+    "affected_correct": 7,
+    "affected_total": 7,
+    "excluded_accuracy": 0.9079075821672633,
+    "excluded_macro_f1": 0.907873959852862,
+    "excluded_sample_count": 3073,
+    "full_accuracy": 0.9081168831168831,
+    "full_macro_f1": 0.9080748065777128,
+    "macro_f1_change_excluded_minus_full": -0.00020084672485076727
+  },
+  "sensitivity": {
+    "name": "Official test excluding evidenced normalized-overlap samples",
+    "sample_count": 3073
+  }
+}

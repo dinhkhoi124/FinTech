@@ -1,0 +1,180 @@
+{
+  "benchmark": {
+    "generalization_change_test_minus_validation": {
+      "lexical": {
+        "accuracy": 0.012575111455708554,
+        "macro_f1": 0.015713039365612524
+      },
+      "semantic": {
+        "accuracy": 0.007619370679072146,
+        "macro_f1": 0.010054428961623563
+      }
+    },
+    "rows": [
+      {
+        "correct": 2705,
+        "dimension": 2320,
+        "errors": 375,
+        "final_runtime_seconds": 4.258934400015278,
+        "model": "lexical_word_unigram",
+        "representation": "TF-IDF word unigram",
+        "test_accuracy": 0.8782467532467533,
+        "test_macro_f1": 0.8783622750489997
+      },
+      {
+        "correct": 2797,
+        "dimension": 384,
+        "errors": 283,
+        "final_runtime_seconds": 92.22749620000832,
+        "model": "semantic_all_minilm_l6_v2",
+        "representation": "normalized frozen MiniLM embeddings",
+        "test_accuracy": 0.9081168831168831,
+        "test_macro_f1": 0.9080748065777128
+      }
+    ],
+    "task_id": "W1-004",
+    "test_deltas_semantic_minus_lexical": {
+      "accuracy": 0.029870129870129825,
+      "macro_f1": 0.029712531528713115
+    },
+    "test_evaluated": true
+  },
+  "combined_membership_sha256": "baa3d31f3ca2ad82e8a690a5caf0efdd44d25117fa77cdae8498a0c5b721c902",
+  "completed_runs": [
+    "primary",
+    "reproducibility_rerun"
+  ],
+  "counts": {
+    "classes": 77,
+    "final_fit": 10003,
+    "locked_train": 8998,
+    "locked_validation": 1005,
+    "official_test": 3080,
+    "official_test_per_class": 40
+  },
+  "evaluation_config_sha256": "a6ac09654884528aa6ccabf784a349304eddecb3ccb0add680000ad4f6272a40",
+  "first_valid_test_access_run": "primary",
+  "frozen_candidates": {
+    "lexical": {
+      "config": "configs/models/banking77_lexical_w1.json",
+      "config_sha256": "f99955a401063fa849d93af2dec3639e8e3aaa3f8a99d3029b0ce01edb02b64d",
+      "id": "lexical_word_unigram",
+      "manifest": "reports/week_01/results/lexical_baseline_manifest.json",
+      "manifest_sha256": "b57c7ad0bdc32481a807ec93b5fa8262c45ef2390826370871cf55aba99414b6",
+      "requirements": "requirements/week1-lexical.txt",
+      "requirements_sha256": "1d80cc1c337643a152e2d09d026fc3f948bbe606b1816f8e5376738df205a238",
+      "selected_candidate_id": "word_unigram",
+      "status": "FROZEN_ON_VALIDATION"
+    },
+    "semantic": {
+      "config": "configs/models/banking77_semantic_w1.json",
+      "config_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+      "id": "semantic_all_minilm_l6_v2",
+      "manifest": "reports/week_01/results/semantic_baseline_manifest.json",
+      "manifest_sha256": "feb6809b9c428ed0f52ca4ce0b7eb24719580c7b4d693fa79f4eae10efdd1267",
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "requirements": "requirements/week1-semantic.txt",
+      "requirements_sha256": "9ba69a0be8f956c678759d19d9093d16965f02093146778e76a98e8bd3cc911b",
+      "status": "FROZEN_ON_VALIDATION"
+    }
+  },
+  "gate_basis": [
+    "both frozen candidates evaluated fairly",
+    "no locked-test tuning",
+    "complete metrics, predictions, per-class and confusion evidence",
+    "bounded error analysis and overlap limitation reported",
+    "evidence-backed model recommendation",
+    "reproducibility, tests and public-safety pass"
+  ],
+  "git": {
+    "available": true,
+    "head": "5f287a18a50ec073f961290962de003e1f4e38bc",
+    "working_tree_dirty": true
+  },
+  "implementation": {
+    "evaluation_cli_sha256": "3d8643db0e0fa8caa13e56668925c18ebbea4fcdc039b594bf5ee4b3310f8ad3",
+    "evaluation_module_sha256": "ca424374a59c54bb2905e9c5a746c9e068b972fabff14f227fbbbd68631adfac"
+  },
+  "manual_review_sha256": "bea14c41311bbff88f33f8526d429e34fbbb6221340c707396639032dc359ea2",
+  "manual_review_status": "COMPLETE",
+  "metrics_identical_across_runs": true,
+  "model_selection": {
+    "configuration_frozen_after_selection": true,
+    "decision_rule_branch": "semantic_clear_gain",
+    "fallback_candidate": "lexical_word_unigram",
+    "known_limitations": [
+      "seven normalized train/test boundary overlaps are retained in the canonical benchmark",
+      "classifier probabilities are diagnostic and not calibrated",
+      "CPU benchmark runtime is not production latency"
+    ],
+    "material_semantic_per_class_regressions_at_least_0_20": [],
+    "selected_config": "configs/models/banking77_semantic_w1.json",
+    "selected_config_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+    "selected_downstream_candidate": "semantic_all_minilm_l6_v2",
+    "task_id": "W1-004",
+    "test_deltas_semantic_minus_lexical": {
+      "accuracy": 0.029870129870129825,
+      "macro_f1": 0.029712531528713115
+    }
+  },
+  "model_selection_sha256": "34d33ebbf4169a661fdd6af82ba421ed6199ec5dd55a8cbb7a5058c5d1b78164",
+  "model_selection_status": "FROZEN",
+  "paired_outcome_counts": {
+    "both_correct": 2611,
+    "both_wrong": 189,
+    "lexical_correct_semantic_wrong": 94,
+    "lexical_wrong_semantic_correct": 186
+  },
+  "per_class_summary": {
+    "improved": 49,
+    "material_regressions_at_least_0_20": [],
+    "regressed": 21,
+    "unchanged": 7
+  },
+  "predictions_identical_across_runs": true,
+  "primary_stable_artifact_hashes": {
+    "confidence": "5328af3d781c1f73e0d998ab961f21a571d5ef3c11ed328c06f0866eb1d6289b",
+    "confusion_analysis": "b06476c79294e6f16a39756cafde78836a70c0d0bfd1d99e8723df5a619a2367",
+    "lexical_confusions": "210a4146631c55fc1bfbbd1896250ddcc9c196ddc019a7fe71539ed6827840b7",
+    "lexical_metrics": "541cb052319c697273e4e943989c4c8c5d34ad7c4254f934c64d40d94c4f2166",
+    "lexical_model": "1c41f14434695c449110be8dcf8a1dc7a8424bfb288ceea5834768b28c7f5aab",
+    "lexical_per_class": "0c70254a58541ab419e1037d090cf9a12e2d310a5eb5a25411f8705cabbe68a9",
+    "lexical_predictions": "24f68c29c12c329dac42859cab94c8334140b630b2deb92b7b176ba335f2c930",
+    "manual_review": "36fcefd0966be62ad0e5a5b5103e3be04ea52d4b5a99cf923452f899c578b848",
+    "overlap": "4848308cd337e585107370258066e2353909dc1f11835a06f7fa075e8ad9c9f4",
+    "paired": "fbf44a1d692e879833794f29a539cfb7eb77db18341e1447295da5f260191b67",
+    "per_class_comparison": "bc453150ed30cd00e2511d5ca296a23e0b54a2214d7f6fc536f801f9070765c6",
+    "semantic_confusions": "bc362b86c68c1d6f1a30eccc4e6fbceba5f629df4f862b8915fc45f96f9d0171",
+    "semantic_metrics": "0f85ebed2c3fcd0e6075d0fc5974a786d9d23d4729615cd22b2509cfafb084b7",
+    "semantic_model": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2",
+    "semantic_per_class": "fead02fadda02b65ac1c541f24095c9313446aa0f95e8d977dbf296e1b41af63",
+    "semantic_predictions": "852e455c208694ddd26f2af0c5e721453b260b476d609b91c95d74e0ce3b99c5"
+  },
+  "protocol_id": "banking77_w1_v1",
+  "reproducibility_stable_artifact_hashes": {
+    "confidence": "5328af3d781c1f73e0d998ab961f21a571d5ef3c11ed328c06f0866eb1d6289b",
+    "confusion_analysis": "b06476c79294e6f16a39756cafde78836a70c0d0bfd1d99e8723df5a619a2367",
+    "lexical_confusions": "210a4146631c55fc1bfbbd1896250ddcc9c196ddc019a7fe71539ed6827840b7",
+    "lexical_metrics": "541cb052319c697273e4e943989c4c8c5d34ad7c4254f934c64d40d94c4f2166",
+    "lexical_model": "1c41f14434695c449110be8dcf8a1dc7a8424bfb288ceea5834768b28c7f5aab",
+    "lexical_per_class": "0c70254a58541ab419e1037d090cf9a12e2d310a5eb5a25411f8705cabbe68a9",
+    "lexical_predictions": "24f68c29c12c329dac42859cab94c8334140b630b2deb92b7b176ba335f2c930",
+    "manual_review": "36fcefd0966be62ad0e5a5b5103e3be04ea52d4b5a99cf923452f899c578b848",
+    "overlap": "4848308cd337e585107370258066e2353909dc1f11835a06f7fa075e8ad9c9f4",
+    "paired": "fbf44a1d692e879833794f29a539cfb7eb77db18341e1447295da5f260191b67",
+    "per_class_comparison": "bc453150ed30cd00e2511d5ca296a23e0b54a2214d7f6fc536f801f9070765c6",
+    "semantic_confusions": "bc362b86c68c1d6f1a30eccc4e6fbceba5f629df4f862b8915fc45f96f9d0171",
+    "semantic_metrics": "0f85ebed2c3fcd0e6075d0fc5974a786d9d23d4729615cd22b2509cfafb084b7",
+    "semantic_model": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2",
+    "semantic_per_class": "fead02fadda02b65ac1c541f24095c9313446aa0f95e8d977dbf296e1b41af63",
+    "semantic_predictions": "852e455c208694ddd26f2af0c5e721453b260b476d609b91c95d74e0ce3b99c5"
+  },
+  "run_status": "FINALIZED",
+  "source_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "split_manifest_sha256": "dfb2c0f54eda2796614032708c630cecef18d066cf050e02b3394e812896fffd",
+  "task_id": "W1-004",
+  "test_encoded": true,
+  "test_evaluated": true,
+  "week1_p0_gate": "PASS"
+}

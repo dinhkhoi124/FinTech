@@ -1,0 +1,19 @@
+{
+  "configuration_frozen_after_selection": true,
+  "decision_rule_branch": "semantic_clear_gain",
+  "fallback_candidate": "lexical_word_unigram",
+  "known_limitations": [
+    "seven normalized train/test boundary overlaps are retained in the canonical benchmark",
+    "classifier probabilities are diagnostic and not calibrated",
+    "CPU benchmark runtime is not production latency"
+  ],
+  "material_semantic_per_class_regressions_at_least_0_20": [],
+  "selected_config": "configs/models/banking77_semantic_w1.json",
+  "selected_config_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+  "selected_downstream_candidate": "semantic_all_minilm_l6_v2",
+  "task_id": "W1-004",
+  "test_deltas_semantic_minus_lexical": {
+    "accuracy": 0.029870129870129825,
+    "macro_f1": 0.029712531528713115
+  }
+}

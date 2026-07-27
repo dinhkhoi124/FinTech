@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.8782467532467533,
+  "correct_count": 2705,
+  "counts": {
+    "classes": 77,
+    "final_fit": 10003,
+    "test": 3080
+  },
+  "error_count": 375,
+  "evaluation_scope": "official_frozen_test",
+  "macro_f1": 0.8783622750489997,
+  "model": "lexical_word_unigram",
+  "task_id": "W1-004",
+  "test_evaluated": true
+}
