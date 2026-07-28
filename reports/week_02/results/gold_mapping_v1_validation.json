@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "case_tags_locked_answer": {
+      "hard_negative": 10,
+      "multi_document": 4,
+      "normal": 26,
+      "short_query": 3,
+      "version_sensitive": 4
+    },
+    "queries": 60,
+    "response_types": {
+      "ABSTAIN_ESCALATE": 10,
+      "ANSWER": 50
+    },
+    "splits": {
+      "development": 10,
+      "locked_test": 50
+    },
+    "valid_locked_multi_document": 4
+  },
+  "coverage": {
+    "eligible_documents": 26,
+    "eligible_documents_required": 26,
+    "ineligible_documents_required": 10,
+    "ineligible_forbidden_documents": 10
+  },
+  "dataset_name": "payresolve_gold_evidence_mapping",
+  "errors": [],
+  "hashes": {
+    "development_membership_sha256": "15ee4de30609e67d65208a2d13fffb801964bc52a46288fa2e2c3bed43cab458",
+    "locked_test_membership_sha256": "5682d314c17cae0d4c58274cc51b9e6e75dbec56d5be16e9bac712e709dc09b8",
+    "mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+    "query_dataset_sha256": "73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa",
+    "scenario_plan_sha256": "97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486"
+  },
+  "valid": true,
+  "version": "gold_mapping_v1",
+  "warnings": []
+}

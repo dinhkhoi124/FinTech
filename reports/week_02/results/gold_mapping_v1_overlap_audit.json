@@ -1,0 +1,28 @@
+{
+  "banking77": {
+    "official_test": {
+      "available": true,
+      "exact_overlap": 0,
+      "method": "automated exact and token-normalized equality; official-test text was not printed or manually inspected",
+      "normalized_overlap": 0,
+      "rows": 3080
+    },
+    "train": {
+      "available": true,
+      "exact_overlap": 0,
+      "method": "automated exact and token-normalized equality; official-test text was not printed or manually inspected",
+      "normalized_overlap": 0,
+      "rows": 10003
+    }
+  },
+  "kb_overlap_candidates": [],
+  "kb_overlap_threshold": 0.72,
+  "limitations": [
+    "Token Jaccard is lexical only.",
+    "No embedding-based semantic overlap analysis was performed."
+  ],
+  "near_duplicate_candidates": [],
+  "near_duplicate_threshold": 0.72,
+  "query_exact_duplicates": 0,
+  "query_normalized_duplicates": 0
+}

@@ -16,7 +16,7 @@ Priority: `P0 | P1 | P2`
 | W1-003 | 1 | P0 | Semantic/model baseline | Metrics + config + reproducible command | DONE |
 | W1-004 | 1 | P0 | Evaluation, confusion/error analysis, and Week 1 gate | Metrics/confusions/examples/gate decision + summary | DONE |
 | W2-001 | 2 | P0 | Synthetic KB specification/generation/validation | Versioned KB + validation evidence | DONE |
-| W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | TODO |
+| W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | DONE |
 | W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | TODO |
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | End-to-end behavior/tests | TODO |
 | W3-002 | 3 | P0 | Critical safety evaluation + ablations | Eval artifacts + tables + regressions | TODO |
@@ -166,6 +166,30 @@ Four version families, 12 hard-negative relationships, deterministic dataset has
 review passed. Senior-review regression evidence includes 29 focused tests, nine
 direct mutation failures with explicit codes, 56 full-suite tests, and passing
 project reporting validation; canonical dataset bytes were unchanged.
-Senior review verdict: `APPROVE_COMMIT`. W2-001 is DONE / REVIEWED / ACCEPTED in
-the current repository history. Week 2 P0 remains in progress; W2-002 and W2-003
-are not started.
+Senior review verdict: `APPROVE_COMMIT`. W2-001 is DONE / REVIEWED / COMMITTED /
+PUSHED in the current repository history. Week 2 P0 remains in progress.
+
+### W2-002 — Gold evidence mapping
+
+- **Objective:** freeze a manually reviewable, section-level evaluation mapping
+  for the ten W2 intents without implementing retrieval.
+- **Outputs:** 60 scenario-first English queries, 60 section-level mappings,
+  deterministic validator/CLI, overlap audit, manifest/coverage artifacts,
+  structured manual review, and mutation tests.
+- **Acceptance evidence:** exact 10 development / 50 locked split and 50 ANSWER /
+  10 ABSTAIN_ESCALATE; 26/26 eligible documents in active roles; 10/10
+  ineligible documents as forbidden; four valid multi-document cases; zero
+  exact/normalized query or Banking77 overlaps; validator PASS.
+- **Boundary:** no embeddings, index, retriever, R0/R1, generation, API/UI, or P1.
+
+Completion record (2026-07-28): scenario-first authoring was frozen before full
+KB content mapping. Senior review then required direct-support and true
+no-approved-evidence corrections. The corrected mapping has 56 gold, 50
+acceptable, 50 hard-negative, and 10 forbidden section references. Nineteen gold
+and acceptable roles changed, two ANSWER queries and ten safety probes were
+rewritten, 43 focused tests passed, and seven direct mutations failed as expected.
+Senior v2 review accepted all other corrections and the one residual role
+inversion was patched. Review history: initial construction review → Senior
+`FIX_REQUIRED` → direct-support/safety correction → validator hardening →
+residual one-row role inversion → final patch → `APPROVE_COMMIT`. Status is
+DONE / REVIEWED / ACCEPTED; W2-003 remains TODO / NOT STARTED.

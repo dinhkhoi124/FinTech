@@ -6,18 +6,19 @@
 - Project: PayResolve AI
 - Current phase: Phase 2 — Controlled Synthetic KB + retrieval
 - Current week: Week 2
-- P0 gate status: IN PROGRESS; W2-001 DONE / REVIEWED / ACCEPTED
+- P0 gate status: IN PROGRESS; W2-002 DONE / REVIEWED / ACCEPTED
 - Active task: none
-- Next task: `W2-002` gold evidence mapping — QUEUED, NOT STARTED
+- Next task: `W2-003` retrieval R0/R1 — QUEUED, NOT STARTED
 - Last updated: 2026-07-28 by Codex
 
 ## Active objective
-W2-001 received Senior verdict `APPROVE_COMMIT` and is accepted in the current
-repository history. Do not begin gold evidence mapping, retrieval, indexing,
-generation, or any P1 work.
+Commit and push only the Senior-approved W2-002 scope. Keep W2-003 retrieval,
+indexing, generation, and P1 closed until separately authorized.
 
 ## Current versions
-- Code version at W2-001 start: W1-004 commit
+- Current committed code baseline: W2-001 commit
+  `9628ed349615a589b0baee9857787de7495aee10`
+- Historical W1-004 commit:
   `7c60110eab7cd18e538b274803f31879179d9e46`
 - Banking77 protocol: `banking77_w1_v1`
   - upstream revision: `57ec275d8078af65b7731c2a98be812d844a6d6b`
@@ -47,6 +48,14 @@ generation, or any P1 work.
   - schema SHA-256:
     `ee9f959cef795b35482db4f0a9868f5981ec8291e3f228d63a289fddeae3dc29`
 - Index/RAG eval versions: none
+- Gold mapping: `payresolve_gold_evidence_mapping/gold_mapping_v1` — REVIEWED / ACCEPTED / FROZEN
+  - evaluation as-of date: `2026-07-28`
+  - queries: 60 (10 development / 50 locked test)
+  - response types: 50 ANSWER / 10 ABSTAIN_ESCALATE
+  - scenario/query/mapping SHA-256:
+    `97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486` /
+    `73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa` /
+    `4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c`
 
 ## Completed
 - [x] Repository bootstrap and reporting workflow
@@ -55,8 +64,8 @@ generation, or any P1 work.
 - [x] W1-003 frozen semantic validation baseline
 - [x] W1-004 official-test benchmark, error analysis, model selection, and gate
 - [x] Week 1 P0 gate passed
-- [x] W2-001 controlled synthetic KB — DONE / REVIEWED / ACCEPTED
-- [ ] W2-002 gold evidence mapping — NOT STARTED
+- [x] W2-001 controlled synthetic KB — DONE / REVIEWED / COMMITTED / PUSHED
+- [x] W2-002 gold evidence mapping — DONE / REVIEWED / ACCEPTED
 - [ ] W2-003 retrieval R0/R1 — NOT STARTED
 
 ## Latest verified evidence
@@ -88,6 +97,23 @@ generation, or any P1 work.
   with explicit error codes; the first-28 gate counts only valid structures.
 - W2-001 focused tests passed 29/29; full repository suite passed 56/56; project
   reporting validator passed.
+- W2-002 validator passed with 60 unique queries, exact 10/50 split and 50/10
+  ANSWER/safety distribution; all 26 eligible and all 10 ineligible documents
+  are represented in their permitted roles.
+- Locked ANSWER cases cover 26 normal, 10 hard-negative, four multi-document,
+  three short, and four version-sensitive tags. Section role counts are
+  56 gold / 50 acceptable / 50 hard-negative / 10 forbidden.
+- Query duplicate, normalized duplicate, Banking77 train/test equality, and
+  high-threshold lexical-overlap audits all returned zero candidates/overlaps.
+- Senior review superseded the initial 60/60 construction acceptance: 19 gold
+  and 19 acceptable roles changed, two ANSWER queries and ten safety probes were
+  rewritten, and all 60 rationales now state direct-support or no-evidence facts.
+- Senior v2 re-review accepted every other correction and found one residual
+  role inversion in `Q_LOCK_CASH_PEND_002`; FAQ state evidence is now primary
+  and the runbook recognition gate is acceptable support.
+- Senior final review verdict: `APPROVE_COMMIT`.
+- W2-002 focused tests passed 43/43; seven direct mutations failed as expected;
+  the full repository suite passed 99/99.
 
 ## Risks / limitations
 - Seven normalized train/test overlaps remain in the canonical official boundary.
@@ -100,18 +126,21 @@ generation, or any P1 work.
 - KB timelines and workflows are fictional research controls, not real policy.
 - Lightweight lexical near-duplicate screening does not prove absence of semantic
   overlap.
-- Gold evidence quality and retrieval performance remain unmeasured until
-  separately authorized W2-002/W2-003.
+- Gold mapping has one construction reviewer but is now Senior-reviewed and
+  accepted; retrieval remains unmeasured until W2-003.
 
 ## Next 3 actions
-1. Commit and push only the accepted W2-001 scope.
-2. Activate W2-002 only under a separate authorization.
-3. Keep retrieval, generation, model retuning, and all P1 work closed.
+1. Run the final non-writing verification and frozen-hash gate.
+2. Commit/push only the approved W2-002 paths.
+3. Keep W2-003, generation, model retuning, and all P1 work closed.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen
 for downstream PayResolve AI, with lexical retained as fallback. Git preflight on
 2026-07-28 confirmed clean synchronized `main` at W1-004 commit `7c60110`.
-W2-001 received Senior verdict `APPROVE_COMMIT` after validator hardening,
-14 regression tests, and nine direct mutation failures. W2-001 is accepted in
-the current repository history. W2-002 and W2-003 have not started.
+W2-001 is committed in the current repository history. W2-002 completed the
+Senior-required direct-support, safety, validator, scenario-schema, and mutation
+corrections with frozen KB bytes unchanged. Senior v2 accepted all but one
+residual evidence-role inversion, now patched. Senior final verdict is
+`APPROVE_COMMIT`; W2-002 is DONE / REVIEWED / ACCEPTED and has not yet been
+staged, committed, or pushed in this working tree. W2-003 has not started.

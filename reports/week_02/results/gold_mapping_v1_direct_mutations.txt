@@ -1,0 +1,9 @@
+W2-002 DIRECT MUTATION RESULTS
+gold_intent_section_as_hard_negative: FAIL_AS_EXPECTED | expected=hard-negative-supports-gold-intent | codes=hard-negative-intent-mismatch,hard-negative-supports-gold-intent
+unrelated_intent_as_hard_negative: FAIL_AS_EXPECTED | expected=hard-negative-intent-mismatch | codes=hard-negative-intent-mismatch
+numeric_mapping_rationale: FAIL_AS_EXPECTED | expected=invalid-mapping-rationale | codes=invalid-mapping-rationale
+numeric_review_notes: FAIL_AS_EXPECTED | expected=invalid-review-notes | codes=invalid-review-notes
+duplicate_scenario_id: FAIL_AS_EXPECTED | expected=duplicate-scenario-id | codes=duplicate-scenario-id,hard-negative-intent-mismatch,missing-confusing-intent,missing-scenario-row,scenario-plan-hash-mismatch,scenario-query-drift
+missing_scenario_customer_situation: FAIL_AS_EXPECTED | expected=missing-scenario-required-field | codes=missing-scenario-required-field,scenario-plan-hash-mismatch
+invalid_scenario_confusing_intent: FAIL_AS_EXPECTED | expected=scenario-confusing-intent-contract | codes=hard-negative-intent-mismatch,scenario-confusing-intent-contract,scenario-plan-hash-mismatch
+OVERALL: PASS

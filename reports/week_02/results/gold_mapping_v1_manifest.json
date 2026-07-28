@@ -1,0 +1,62 @@
+{
+  "counts": {
+    "case_tags_locked_answer": {
+      "hard_negative": 10,
+      "multi_document": 4,
+      "normal": 26,
+      "short_query": 3,
+      "version_sensitive": 4
+    },
+    "queries": 60,
+    "response_types": {
+      "ABSTAIN_ESCALATE": 10,
+      "ANSWER": 50
+    },
+    "splits": {
+      "development": 10,
+      "locked_test": 50
+    },
+    "valid_locked_multi_document": 4
+  },
+  "coverage": {
+    "eligible_documents": 26,
+    "eligible_documents_required": 26,
+    "ineligible_documents_required": 10,
+    "ineligible_forbidden_documents": 10
+  },
+  "dataset_name": "payresolve_gold_evidence_mapping",
+  "development_membership_sha256": "15ee4de30609e67d65208a2d13fffb801964bc52a46288fa2e2c3bed43cab458",
+  "evaluation_as_of_date": "2026-07-28",
+  "generated_at_utc": "2026-07-28T08:42:48.801276+00:00",
+  "kb_canonical_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+  "kb_raw_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+  "kb_version": "kb_v1",
+  "locked_test_membership_sha256": "5682d314c17cae0d4c58274cc51b9e6e75dbec56d5be16e9bac712e709dc09b8",
+  "mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+  "overlap_audit_summary": {
+    "banking77": {
+      "official_test": {
+        "available": true,
+        "exact_overlap": 0,
+        "method": "automated exact and token-normalized equality; official-test text was not printed or manually inspected",
+        "normalized_overlap": 0,
+        "rows": 3080
+      },
+      "train": {
+        "available": true,
+        "exact_overlap": 0,
+        "method": "automated exact and token-normalized equality; official-test text was not printed or manually inspected",
+        "normalized_overlap": 0,
+        "rows": 10003
+      }
+    },
+    "kb_overlap_candidates": 0,
+    "near_duplicate_candidates": 0,
+    "query_exact_duplicates": 0,
+    "query_normalized_duplicates": 0
+  },
+  "query_dataset_sha256": "73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa",
+  "scenario_plan_sha256": "97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486",
+  "validation_result": "PASS",
+  "version": "gold_mapping_v1"
+}

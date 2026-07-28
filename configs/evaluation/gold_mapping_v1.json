@@ -1,0 +1,51 @@
+{
+  "dataset_name": "payresolve_gold_evidence_mapping",
+  "version": "gold_mapping_v1",
+  "kb_version": "kb_v1",
+  "evaluation_as_of_date": "2026-07-28",
+  "language": "en",
+  "kb_config_path": "configs/kb/kb_v1.json",
+  "kb_documents_path": "data/kb/kb_v1.jsonl",
+  "intent_definitions_path": "configs/kb/intent_definitions_v1.json",
+  "scenario_plan_path": "data/evaluation/gold_mapping_scenarios_v1.jsonl",
+  "mapping_path": "data/evaluation/gold_mapping_v1.jsonl",
+  "correction_ledger_path": "data/evaluation/gold_mapping_correction_ledger_v1.jsonl",
+  "canonical_banking77_source": "data/raw/banking77/57ec275d8078af65b7731c2a98be812d844a6d6b/categories.json",
+  "banking77_train_source": "data/raw/banking77/57ec275d8078af65b7731c2a98be812d844a6d6b/train.csv",
+  "banking77_test_source": "data/raw/banking77/57ec275d8078af65b7731c2a98be812d844a6d6b/test.csv",
+  "expected_kb_raw_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+  "expected_kb_canonical_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+  "frozen_scenario_plan_sha256": "97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486",
+  "allowed": {
+    "splits": ["development", "locked_test"],
+    "response_types": ["ANSWER", "ABSTAIN_ESCALATE"],
+    "evidence_requirements": ["single_document", "multi_document", "no_approved_evidence"],
+    "case_types": ["normal", "intent_confusion", "safety_probe"],
+    "case_tags": ["normal", "hard_negative", "short_query", "multi_document", "version_sensitive", "safety_probe", "policy_gap", "draft_trap", "expired_trap"],
+    "review_statuses": ["APPROVED"]
+  },
+  "acceptance": {
+    "total_queries": 60,
+    "development_queries": 10,
+    "locked_test_queries": 50,
+    "answer_queries": 50,
+    "abstain_escalate_queries": 10,
+    "development_answer_per_intent": 1,
+    "locked_answer_per_intent": 4,
+    "minimum_locked_normal_cases": 20,
+    "minimum_locked_hard_negative_cases": 10,
+    "minimum_locked_multi_document_cases": 4,
+    "minimum_locked_short_answerable_cases": 3,
+    "minimum_locked_version_sensitive_cases": 3,
+    "required_eligible_document_coverage": 26,
+    "required_ineligible_document_coverage": 10,
+    "query_near_duplicate_threshold": 0.72,
+    "query_to_kb_suspicious_overlap_threshold": 0.72
+  },
+  "outputs": {
+    "validation": "reports/week_02/results/gold_mapping_v1_validation.json",
+    "manifest": "reports/week_02/results/gold_mapping_v1_manifest.json",
+    "coverage": "reports/week_02/results/gold_mapping_v1_coverage.csv",
+    "overlap_audit": "reports/week_02/results/gold_mapping_v1_overlap_audit.json"
+  }
+}
