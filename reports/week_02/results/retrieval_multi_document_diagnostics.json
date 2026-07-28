@@ -1,0 +1,155 @@
+{
+  "diagnostic_only": true,
+  "multi_document_query_count": 4,
+  "task_id": "W2-003",
+  "variants": {
+    "r0": {
+      "complete_coverage_count": 1,
+      "complete_coverage_rate": 0.25,
+      "mean_gold_recall_at_3": 0.6666666666666666,
+      "per_query": [
+        {
+          "complete": true,
+          "gold_evidence_ids": [
+            "ESC_CARD_REVERT_001#trigger",
+            "POL_CARD_REVERT_002#return_window"
+          ],
+          "gold_recall_at_3": 1.0,
+          "missing_gold_sections": [],
+          "query_id": "Q_LOCK_CARD_REVERT_004",
+          "retrieved_top3": [
+            "ESC_CARD_REVERT_001#trigger",
+            "POL_CARD_REVERT_002#state_rule",
+            "POL_CARD_REVERT_002#return_window"
+          ]
+        },
+        {
+          "complete": false,
+          "gold_evidence_ids": [
+            "ESC_CASH_UNRECOG_001#immediate_trigger",
+            "POL_CASH_UNRECOG_001#security_rule",
+            "RUN_CASH_UNRECOG_002#safe_handoff"
+          ],
+          "gold_recall_at_3": 0.6666666666666666,
+          "missing_gold_sections": [
+            "RUN_CASH_UNRECOG_002#safe_handoff"
+          ],
+          "query_id": "Q_LOCK_CASH_UNREC_004",
+          "retrieved_top3": [
+            "POL_CASH_UNRECOG_001#security_rule",
+            "ESC_CASH_UNRECOG_001#safe_handoff",
+            "ESC_CASH_UNRECOG_001#immediate_trigger"
+          ]
+        },
+        {
+          "complete": false,
+          "gold_evidence_ids": [
+            "POL_TRANSFER_PENDING_002#current_window",
+            "RUN_TRANSFER_PENDING_001#action"
+          ],
+          "gold_recall_at_3": 0.5,
+          "missing_gold_sections": [
+            "POL_TRANSFER_PENDING_002#current_window"
+          ],
+          "query_id": "Q_LOCK_TR_PEND_004",
+          "retrieved_top3": [
+            "ESC_TRANSFER_RECIPIENT_001#handoff",
+            "RUN_TRANSFER_PENDING_001#action",
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ]
+        },
+        {
+          "complete": false,
+          "gold_evidence_ids": [
+            "ESC_TRANSFER_RECIPIENT_001#handoff",
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ],
+          "gold_recall_at_3": 0.5,
+          "missing_gold_sections": [
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ],
+          "query_id": "Q_LOCK_TR_RECIP_004",
+          "retrieved_top3": [
+            "ESC_TRANSFER_RECIPIENT_001#handoff",
+            "ESC_TRANSFER_RECIPIENT_001#trigger",
+            "FAQ_TRANSFER_RECIPIENT_002#current_window"
+          ]
+        }
+      ]
+    },
+    "r1": {
+      "complete_coverage_count": 1,
+      "complete_coverage_rate": 0.25,
+      "mean_gold_recall_at_3": 0.6666666666666666,
+      "per_query": [
+        {
+          "complete": true,
+          "gold_evidence_ids": [
+            "ESC_CARD_REVERT_001#trigger",
+            "POL_CARD_REVERT_002#return_window"
+          ],
+          "gold_recall_at_3": 1.0,
+          "missing_gold_sections": [],
+          "query_id": "Q_LOCK_CARD_REVERT_004",
+          "retrieved_top3": [
+            "ESC_CARD_REVERT_001#trigger",
+            "POL_CARD_REVERT_002#state_rule",
+            "POL_CARD_REVERT_002#return_window"
+          ]
+        },
+        {
+          "complete": false,
+          "gold_evidence_ids": [
+            "ESC_CASH_UNRECOG_001#immediate_trigger",
+            "POL_CASH_UNRECOG_001#security_rule",
+            "RUN_CASH_UNRECOG_002#safe_handoff"
+          ],
+          "gold_recall_at_3": 0.6666666666666666,
+          "missing_gold_sections": [
+            "RUN_CASH_UNRECOG_002#safe_handoff"
+          ],
+          "query_id": "Q_LOCK_CASH_UNREC_004",
+          "retrieved_top3": [
+            "POL_CASH_UNRECOG_001#security_rule",
+            "ESC_CASH_UNRECOG_001#safe_handoff",
+            "ESC_CASH_UNRECOG_001#immediate_trigger"
+          ]
+        },
+        {
+          "complete": false,
+          "gold_evidence_ids": [
+            "POL_TRANSFER_PENDING_002#current_window",
+            "RUN_TRANSFER_PENDING_001#action"
+          ],
+          "gold_recall_at_3": 0.5,
+          "missing_gold_sections": [
+            "POL_TRANSFER_PENDING_002#current_window"
+          ],
+          "query_id": "Q_LOCK_TR_PEND_004",
+          "retrieved_top3": [
+            "ESC_TRANSFER_RECIPIENT_001#handoff",
+            "RUN_TRANSFER_PENDING_001#action",
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ]
+        },
+        {
+          "complete": false,
+          "gold_evidence_ids": [
+            "ESC_TRANSFER_RECIPIENT_001#handoff",
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ],
+          "gold_recall_at_3": 0.5,
+          "missing_gold_sections": [
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ],
+          "query_id": "Q_LOCK_TR_RECIP_004",
+          "retrieved_top3": [
+            "ESC_TRANSFER_RECIPIENT_001#handoff",
+            "ESC_TRANSFER_RECIPIENT_001#trigger",
+            "FAQ_TRANSFER_RECIPIENT_002#current_window"
+          ]
+        }
+      ]
+    }
+  }
+}

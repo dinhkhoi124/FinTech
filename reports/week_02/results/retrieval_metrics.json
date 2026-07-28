@@ -1,0 +1,83 @@
+{
+  "decision": {
+    "decision_metrics": [
+      "strict_mrr_at_3",
+      "strict_hit_at_1",
+      "strict_recall_at_3"
+    ],
+    "delta_r1_minus_r0": {
+      "strict_hit_at_1": -0.024999999999999967,
+      "strict_mrr_at_3": -0.029166666666666785,
+      "strict_recall_at_3": -0.050000000000000044
+    },
+    "r0": {
+      "answer_queries": 40,
+      "complete_gold_coverage_at_3": 0.575,
+      "draft_leakage_at_1": 0.0,
+      "draft_leakage_at_3": 0.0,
+      "expired_leakage_at_1": 0.0,
+      "expired_leakage_at_3": 0.0,
+      "forbidden_evidence_retrieval_rate": 0.0,
+      "relaxed_hit_at_1": 0.375,
+      "relaxed_hit_at_3": 0.775,
+      "safety_queries": 10,
+      "strict_hit_at_1": 0.35,
+      "strict_mrr_at_3": 0.4833333333333334,
+      "strict_recall_at_3": 0.6166666666666667,
+      "wrong_status_leakage_rate": 0.0
+    },
+    "r1": {
+      "answer_queries": 40,
+      "complete_gold_coverage_at_3": 0.525,
+      "draft_leakage_at_1": 0.0,
+      "draft_leakage_at_3": 0.0,
+      "expired_leakage_at_1": 0.0,
+      "expired_leakage_at_3": 0.0,
+      "forbidden_evidence_retrieval_rate": 0.0,
+      "relaxed_hit_at_1": 0.45,
+      "relaxed_hit_at_3": 0.675,
+      "safety_queries": 10,
+      "strict_hit_at_1": 0.325,
+      "strict_mrr_at_3": 0.4541666666666666,
+      "strict_recall_at_3": 0.5666666666666667,
+      "wrong_status_leakage_rate": 0.0
+    },
+    "safety_gate_pass": true,
+    "selected_retriever": "R0"
+  },
+  "primary": {
+    "r0": {
+      "answer_queries": 40,
+      "complete_gold_coverage_at_3": 0.575,
+      "draft_leakage_at_1": 0.0,
+      "draft_leakage_at_3": 0.0,
+      "expired_leakage_at_1": 0.0,
+      "expired_leakage_at_3": 0.0,
+      "forbidden_evidence_retrieval_rate": 0.0,
+      "relaxed_hit_at_1": 0.375,
+      "relaxed_hit_at_3": 0.775,
+      "safety_queries": 10,
+      "strict_hit_at_1": 0.35,
+      "strict_mrr_at_3": 0.4833333333333334,
+      "strict_recall_at_3": 0.6166666666666667,
+      "wrong_status_leakage_rate": 0.0
+    },
+    "r1": {
+      "answer_queries": 40,
+      "complete_gold_coverage_at_3": 0.525,
+      "draft_leakage_at_1": 0.0,
+      "draft_leakage_at_3": 0.0,
+      "expired_leakage_at_1": 0.0,
+      "expired_leakage_at_3": 0.0,
+      "forbidden_evidence_retrieval_rate": 0.0,
+      "relaxed_hit_at_1": 0.45,
+      "relaxed_hit_at_3": 0.675,
+      "safety_queries": 10,
+      "strict_hit_at_1": 0.325,
+      "strict_mrr_at_3": 0.4541666666666666,
+      "strict_recall_at_3": 0.5666666666666667,
+      "wrong_status_leakage_rate": 0.0
+    }
+  },
+  "task_id": "W2-003"
+}

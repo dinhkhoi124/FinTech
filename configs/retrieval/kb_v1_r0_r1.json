@@ -1,0 +1,78 @@
+{
+  "task_id": "W2-003",
+  "evaluation_as_of_date": "2026-07-28",
+  "kb_config": "configs/kb/kb_v1.json",
+  "kb_documents": "data/kb/kb_v1.jsonl",
+  "gold_config": "configs/evaluation/gold_mapping_v1.json",
+  "gold_mapping": "data/evaluation/gold_mapping_v1.jsonl",
+  "frozen_hashes": {
+    "kb_raw_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "kb_canonical_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+    "scenario_sha256": "97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486",
+    "query_sha256": "73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa",
+    "mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+    "development_membership_sha256": "15ee4de30609e67d65208a2d13fffb801964bc52a46288fa2e2c3bed43cab458",
+    "locked_membership_sha256": "5682d314c17cae0d4c58274cc51b9e6e75dbec56d5be16e9bac712e709dc09b8"
+  },
+  "corpus": {
+    "chunk_strategy": "one_content_section_per_chunk",
+    "chunk_text_template": "{title}\n{heading}\n{content}",
+    "ordering": "chunk_id_ascending",
+    "expected_documents": 26,
+    "expected_chunks": 52
+  },
+  "encoder": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimension": 384,
+    "normalize_embeddings": true,
+    "batch_size": 64,
+    "device": "cpu",
+    "huggingface_home": "artifacts/cache/w1-003/huggingface"
+  },
+  "classifier": {
+    "id": "semantic_all_minilm_l6_v2",
+    "config": "configs/models/banking77_semantic_w1.json",
+    "config_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+    "parameters": "artifacts/models/w1-004/semantic_classifier_parameters.json.gz",
+    "parameters_sha256": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2",
+    "final_fit_rows": 10003,
+    "confidence_use": "diagnostic_only"
+  },
+  "retrieval": {
+    "top_k": 3,
+    "lambda_grid": [0.05, 0.1, 0.15, 0.2],
+    "selection_metric": "strict_mrr_at_3",
+    "tie_break": ["strict_hit_at_1", "strict_recall_at_3", "lower_lambda"],
+    "score_tolerance": 1e-7
+  },
+  "frozen_selection_config_sha256": "7972648021c5757e8ca476b476de42e5aa0c47bf055c87b7042c5ae3f53c8439",
+  "accepted_locked_artifact_sha256": {
+    "locked_r0": "c60dd4b7bd23fcb468aa7d72d4216c52dee1a19aebf95c10e56ff26139c19ccb",
+    "locked_r1": "4b98c7073356f7e3da640a42ed05046b7dc58d05ce15c0bac1d4c9821ab3761d",
+    "metrics": "bebc9e1f354e5a5ceb539afb452683cb99dbaa7d20c0a4122f4a578d3c2dacd1",
+    "paired": "8a464c898c39ff1be7c308f3daa7ee92c3b5ea3eb70e3ff30a7cc4641f45e66a",
+    "dev_rankings": "1a66cd8dd5488f1314e3dfefe8fdf5ade9400945abcfbc314aaf466e542f3a01",
+    "safety_diagnostics": "20abfb14e2b60849a3c3964e09abb4934f13e06de407bd92a714114571bd44e2",
+    "multi_document_diagnostics": "9225f4d3386beb7ba68c3779573daa45495e6b5fef49fd3068b77028cb3679ed"
+  },
+  "accepted_stable_run_sha256": "64637a8ca56cf8ac9a3368118f7b0df3eb3599f66f540c77954a33a413ad40e6",
+  "cache": {
+    "directory": "artifacts/cache/w2-003"
+  },
+  "outputs": {
+    "corpus_manifest": "reports/week_02/results/retrieval_corpus_manifest.json",
+    "dev_selection": "reports/week_02/results/retrieval_dev_selection.json",
+    "dev_rankings": "reports/week_02/results/retrieval_dev_rankings.jsonl",
+    "classifier_predictions": "reports/week_02/results/retrieval_classifier_predictions.jsonl",
+    "locked_r0": "reports/week_02/results/retrieval_locked_r0_rankings.jsonl",
+    "locked_r1": "reports/week_02/results/retrieval_locked_r1_rankings.jsonl",
+    "metrics": "reports/week_02/results/retrieval_metrics.json",
+    "paired": "reports/week_02/results/retrieval_paired_outcomes.json",
+    "error_analysis": "reports/week_02/results/retrieval_error_analysis.csv",
+    "safety_diagnostics": "reports/week_02/results/retrieval_safety_diagnostics.csv",
+    "multi_document_diagnostics": "reports/week_02/results/retrieval_multi_document_diagnostics.json",
+    "version_manifest": "reports/week_02/results/retrieval_version_manifest.json",
+    "validation": "reports/week_02/results/retrieval_validation.json"
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "counts": {
+    "LOSS": 4,
+    "TIE": 33,
+    "WIN": 3,
+    "both_top1_correct": 13,
+    "both_top1_incorrect": 26,
+    "r1_top1_broke_r0_success": 1,
+    "r1_top1_corrected_r0_error": 0
+  },
+  "rows": [
+    {
+      "outcome": "LOSS",
+      "query_id": "Q_LOCK_CARD_DECL_001",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_DECL_002",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_DECL_003",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "LOSS",
+      "query_id": "Q_LOCK_CARD_DECL_004",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": null,
+      "top1_category": "r1_top1_broke_r0_success"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_PEND_001",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "LOSS",
+      "query_id": "Q_LOCK_CARD_PEND_002",
+      "r0_first_gold_rank": 3,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_PEND_003",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_PEND_004",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_REVERT_001",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_REVERT_002",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_REVERT_003",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CARD_REVERT_004",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_DECL_001",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "WIN",
+      "query_id": "Q_LOCK_CASH_DECL_002",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": 3,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_DECL_003",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_DECL_004",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_PEND_001",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_PEND_002",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_PEND_003",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_PEND_004",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "WIN",
+      "query_id": "Q_LOCK_CASH_UNREC_001",
+      "r0_first_gold_rank": 3,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_UNREC_002",
+      "r0_first_gold_rank": 3,
+      "r1_first_gold_rank": 3,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "WIN",
+      "query_id": "Q_LOCK_CASH_UNREC_003",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_CASH_UNREC_004",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_DECL_001",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "LOSS",
+      "query_id": "Q_LOCK_TR_DECL_002",
+      "r0_first_gold_rank": 3,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_DECL_003",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_DECL_004",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_FAIL_001",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_FAIL_002",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_FAIL_003",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_FAIL_004",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_PEND_001",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_PEND_002",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_PEND_003",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_PEND_004",
+      "r0_first_gold_rank": 2,
+      "r1_first_gold_rank": 2,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_RECIP_001",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_RECIP_002",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_RECIP_003",
+      "r0_first_gold_rank": null,
+      "r1_first_gold_rank": null,
+      "top1_category": "both_top1_incorrect"
+    },
+    {
+      "outcome": "TIE",
+      "query_id": "Q_LOCK_TR_RECIP_004",
+      "r0_first_gold_rank": 1,
+      "r1_first_gold_rank": 1,
+      "top1_category": "both_top1_correct"
+    }
+  ]
+}

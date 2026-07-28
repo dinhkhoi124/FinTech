@@ -1,0 +1,118 @@
+{
+  "development_query_ids": [
+    "Q_DEV_CARD_DECL_001",
+    "Q_DEV_CARD_PEND_001",
+    "Q_DEV_CARD_REVERT_001",
+    "Q_DEV_CASH_DECL_001",
+    "Q_DEV_CASH_PEND_001",
+    "Q_DEV_CASH_UNREC_001",
+    "Q_DEV_TR_DECL_001",
+    "Q_DEV_TR_FAIL_001",
+    "Q_DEV_TR_PEND_001",
+    "Q_DEV_TR_RECIP_001"
+  ],
+  "lambda_grid": [
+    {
+      "lambda": 0.05,
+      "metrics": {
+        "answer_queries": 10,
+        "complete_gold_coverage_at_3": 0.6,
+        "draft_leakage_at_1": 0.0,
+        "draft_leakage_at_3": 0.0,
+        "expired_leakage_at_1": 0.0,
+        "expired_leakage_at_3": 0.0,
+        "forbidden_evidence_retrieval_rate": 0.0,
+        "relaxed_hit_at_1": 0.4,
+        "relaxed_hit_at_3": 0.9,
+        "safety_queries": 0,
+        "strict_hit_at_1": 0.2,
+        "strict_mrr_at_3": 0.33333333333333337,
+        "strict_recall_at_3": 0.6,
+        "wrong_status_leakage_rate": 0.0
+      }
+    },
+    {
+      "lambda": 0.1,
+      "metrics": {
+        "answer_queries": 10,
+        "complete_gold_coverage_at_3": 0.6,
+        "draft_leakage_at_1": 0.0,
+        "draft_leakage_at_3": 0.0,
+        "expired_leakage_at_1": 0.0,
+        "expired_leakage_at_3": 0.0,
+        "forbidden_evidence_retrieval_rate": 0.0,
+        "relaxed_hit_at_1": 0.4,
+        "relaxed_hit_at_3": 0.8,
+        "safety_queries": 0,
+        "strict_hit_at_1": 0.2,
+        "strict_mrr_at_3": 0.33333333333333337,
+        "strict_recall_at_3": 0.6,
+        "wrong_status_leakage_rate": 0.0
+      }
+    },
+    {
+      "lambda": 0.15,
+      "metrics": {
+        "answer_queries": 10,
+        "complete_gold_coverage_at_3": 0.8,
+        "draft_leakage_at_1": 0.0,
+        "draft_leakage_at_3": 0.0,
+        "expired_leakage_at_1": 0.0,
+        "expired_leakage_at_3": 0.0,
+        "forbidden_evidence_retrieval_rate": 0.0,
+        "relaxed_hit_at_1": 0.4,
+        "relaxed_hit_at_3": 0.8,
+        "safety_queries": 0,
+        "strict_hit_at_1": 0.2,
+        "strict_mrr_at_3": 0.4,
+        "strict_recall_at_3": 0.8,
+        "wrong_status_leakage_rate": 0.0
+      }
+    },
+    {
+      "lambda": 0.2,
+      "metrics": {
+        "answer_queries": 10,
+        "complete_gold_coverage_at_3": 0.8,
+        "draft_leakage_at_1": 0.0,
+        "draft_leakage_at_3": 0.0,
+        "expired_leakage_at_1": 0.0,
+        "expired_leakage_at_3": 0.0,
+        "forbidden_evidence_retrieval_rate": 0.0,
+        "relaxed_hit_at_1": 0.4,
+        "relaxed_hit_at_3": 0.8,
+        "safety_queries": 0,
+        "strict_hit_at_1": 0.2,
+        "strict_mrr_at_3": 0.4,
+        "strict_recall_at_3": 0.8,
+        "wrong_status_leakage_rate": 0.0
+      }
+    }
+  ],
+  "locked_evaluated": false,
+  "r0_metrics": {
+    "answer_queries": 10,
+    "complete_gold_coverage_at_3": 0.5,
+    "draft_leakage_at_1": 0.0,
+    "draft_leakage_at_3": 0.0,
+    "expired_leakage_at_1": 0.0,
+    "expired_leakage_at_3": 0.0,
+    "forbidden_evidence_retrieval_rate": 0.0,
+    "relaxed_hit_at_1": 0.4,
+    "relaxed_hit_at_3": 0.8,
+    "safety_queries": 0,
+    "strict_hit_at_1": 0.2,
+    "strict_mrr_at_3": 0.3,
+    "strict_recall_at_3": 0.5,
+    "wrong_status_leakage_rate": 0.0
+  },
+  "retrieval_config_sha256": "7972648021c5757e8ca476b476de42e5aa0c47bf055c87b7042c5ae3f53c8439",
+  "selected_lambda": 0.15,
+  "selection_rule": [
+    "strict_hit_at_1",
+    "strict_recall_at_3",
+    "lower_lambda"
+  ],
+  "status": "FROZEN_PRELOCKED",
+  "task_id": "W2-003"
+}

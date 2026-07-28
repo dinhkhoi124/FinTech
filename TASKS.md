@@ -17,7 +17,7 @@ Priority: `P0 | P1 | P2`
 | W1-004 | 1 | P0 | Evaluation, confusion/error analysis, and Week 1 gate | Metrics/confusions/examples/gate decision + summary | DONE |
 | W2-001 | 2 | P0 | Synthetic KB specification/generation/validation | Versioned KB + validation evidence | DONE |
 | W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | DONE |
-| W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | TODO |
+| W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | DONE |
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | End-to-end behavior/tests | TODO |
 | W3-002 | 3 | P0 | Critical safety evaluation + ablations | Eval artifacts + tables + regressions | TODO |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
@@ -192,4 +192,30 @@ Senior v2 review accepted all other corrections and the one residual role
 inversion was patched. Review history: initial construction review → Senior
 `FIX_REQUIRED` → direct-support/safety correction → validator hardening →
 residual one-row role inversion → final patch → `APPROVE_COMMIT`. Status is
-DONE / REVIEWED / ACCEPTED; W2-003 remains TODO / NOT STARTED.
+DONE / REVIEWED / COMMITTED / PUSHED.
+
+### W2-003 — Controlled R0 vs R1 retrieval benchmark
+
+- **Objective:** test whether the frozen predicted intent improves exact dense
+  approved-evidence ranking through one soft boost and no other changed variable.
+- **Frozen comparison:** 26 eligible documents / 52 section chunks, exact cosine,
+  normalized MiniLM revision `1110a243...9b4d41`, top-k 3, and the W1-004
+  final-fit semantic classifier.
+- **Development:** lambda 0.15 selected from `{0.05, 0.10, 0.15, 0.20}` using
+  strict MRR@3 and the preregistered tie-breaks.
+- **Locked evidence:** R0 MRR@3 0.483333 versus R1 0.454167; paired R1 outcomes
+  3 WIN / 4 LOSS / 33 TIE; all status/forbidden leakage metrics zero.
+- **Decision:** retain simpler R0. Primary and reproducibility results matched
+  exactly.
+- **Review correction:** fixed empty-gold safety slicing; persisted 50 development
+  ranking rows; separated 28 ANSWER errors from ten safety diagnostics; added the
+  exact four-query multi-document slice; hardened cache-independent tracked
+  verification and 19 targeted regression/mutation tests. The final taxonomy
+  patch then made F rank-aware, expanded D to retained strict-gold success, and
+  added seven row-semantic regression tests. All seven accepted numerical
+  artifacts remain byte-identical; focused/full suites pass 56/56 and 155/155.
+- **Review history:** initial completion → Senior `FIX_REQUIRED` for safety/error
+  slicing and tracked verification → dev-ranking/verifier correction → Senior
+  taxonomy `FIX_REQUIRED` → rank-aware taxonomy patch → final `APPROVE_COMMIT`.
+- **Status:** DONE / REVIEWED / ACCEPTED. Week 2 P0 gate PASSED; selected
+  retriever remains R0 and Week 3 remains NOT STARTED.

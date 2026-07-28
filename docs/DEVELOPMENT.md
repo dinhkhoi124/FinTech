@@ -208,3 +208,52 @@ the custom checks synchronized. Focused mutation tests therefore cover field
 types/lengths, enums and family/product consistency, exact lifecycle chains, and
 the complete hard-negative relationship contract. The first-28 gate counts only
 families and relationships that pass those structural checks.
+
+## W2-003 controlled retrieval benchmark
+
+Routine post-completion verification is read-only apart from regenerating the
+tracked validation JSON:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/retrieval/week2_benchmark.py --root . --config configs/retrieval/kb_v1_r0_r1.json verify-results
+.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_retrieval_benchmark.py" -v
+```
+
+`verify-results` is the fresh-clone tracked-evidence path. It rebuilds the 26
+document / 52 chunk candidate metadata directly from frozen `data/kb/kb_v1.jsonl`
+and does not require `artifacts/cache/w2-003/` or the ignored fitted classifier.
+
+The review-only development audit uses retained local model/cache artifacts but
+does not rerun selection:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/retrieval/week2_benchmark.py --root . --config configs/retrieval/kb_v1_r0_r1.json audit-dev-selection
+```
+
+Optional runtime reproduction is deliberately separate:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/retrieval/week2_benchmark.py --root . --config configs/retrieval/kb_v1_r0_r1.json verify-runtime-reproduction
+```
+
+It requires ignored encoder weights, corpus embeddings, fitted classifier
+parameters, and primary/rerun runtime records. It is not routine checkout
+verification.
+
+Error taxonomy is also verified from raw tracked evidence. Category F requires a
+non-gold sibling from a strict-gold document to rank above first gold, or to be
+present when no strict gold is in top 3. A strict-gold chunk never satisfies F.
+Category D applies when the classifier is wrong but strict gold remains in R1
+top 3 after the more specific C/E/F/G cases. `verify-results` recomputes every
+row's automatic and reviewed category; aggregate totals alone are insufficient.
+
+The historical lifecycle was `verify-contract`, `build-corpus`, `select-r1`,
+`verify-prelocked`, one primary locked run, one reproducibility rerun, `finalize`,
+then `verify-results`. Do not rerun selection or locked evaluation after review.
+Full embeddings, model cache, and fitted parameters stay under ignored
+`artifacts/`. The workflow uses no official Banking77 test rows, external API,
+generation model, vector database, BM25, reranker, or hard intent filter.
+
+Senior final verdict for W2-003 is `APPROVE_COMMIT`; Week 2 P0 is PASSED and R0
+is the selected retriever. Week 3 remains NOT STARTED and must be opened only by
+a separate reviewed task contract.

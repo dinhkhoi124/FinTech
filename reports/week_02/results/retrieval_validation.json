@@ -1,0 +1,32 @@
+{
+  "answer_error_analysis_rows": 28,
+  "answer_queries": 40,
+  "checks": {
+    "accepted_locked_artifact_hashes": "PASS",
+    "answer_error_analysis": "PASS",
+    "candidate_status_from_frozen_kb": "PASS",
+    "corpus_rebuilt_from_frozen_kb": "PASS",
+    "decision_rule": "PASS",
+    "development_rankings_and_metrics": "PASS",
+    "frozen_contract": "PASS",
+    "locked_membership_rankings_and_metrics": "PASS",
+    "multi_document_diagnostics": "PASS",
+    "paired_outcomes": "PASS",
+    "safety_diagnostics": "PASS",
+    "version_manifest_hashes": "PASS"
+  },
+  "development_rankings": {
+    "rows": 50,
+    "variants_per_query": 5
+  },
+  "multi_document_query_count": 4,
+  "official_banking77_test_accessed": false,
+  "requires_local_cache_or_model": false,
+  "safety_diagnostic_rows": 10,
+  "safety_queries": 10,
+  "selected_lambda": 0.15,
+  "selected_retriever": "R0",
+  "status": "PASS",
+  "task_id": "W2-003",
+  "verification_scope": "tracked_evidence_only"
+}

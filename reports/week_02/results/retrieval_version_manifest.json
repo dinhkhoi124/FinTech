@@ -1,0 +1,165 @@
+{
+  "accepted_locked_artifact_sha256": {
+    "dev_rankings": "1a66cd8dd5488f1314e3dfefe8fdf5ade9400945abcfbc314aaf466e542f3a01",
+    "locked_r0": "c60dd4b7bd23fcb468aa7d72d4216c52dee1a19aebf95c10e56ff26139c19ccb",
+    "locked_r1": "4b98c7073356f7e3da640a42ed05046b7dc58d05ce15c0bac1d4c9821ab3761d",
+    "metrics": "bebc9e1f354e5a5ceb539afb452683cb99dbaa7d20c0a4122f4a578d3c2dacd1",
+    "multi_document_diagnostics": "9225f4d3386beb7ba68c3779573daa45495e6b5fef49fd3068b77028cb3679ed",
+    "paired": "8a464c898c39ff1be7c308f3daa7ee92c3b5ea3eb70e3ff30a7cc4641f45e66a",
+    "safety_diagnostics": "20abfb14e2b60849a3c3964e09abb4934f13e06de407bd92a714114571bd44e2"
+  },
+  "accepted_locked_artifacts_byte_identical": true,
+  "artifact_sha256": {
+    "classifier_predictions": "2b0628d229746b00781bde7edda1c1e8ab5562b95495b7077961910bd0f940d1",
+    "corpus_manifest": "d29cb1b8c8272c4ab85f51ee0a97e0d044914a3c543c470abd6411f169649b67",
+    "dev_rankings": "1a66cd8dd5488f1314e3dfefe8fdf5ade9400945abcfbc314aaf466e542f3a01",
+    "dev_selection": "3d9a7d1489da9b0392cbcb49663bc759285331dbdb8c6bcfc188c9fae54739b3",
+    "error_analysis": "0f804555152e988ff6e6236ea61d51a6c2ef5a9b11460411f27dd556a337dd20",
+    "locked_r0": "c60dd4b7bd23fcb468aa7d72d4216c52dee1a19aebf95c10e56ff26139c19ccb",
+    "locked_r1": "4b98c7073356f7e3da640a42ed05046b7dc58d05ce15c0bac1d4c9821ab3761d",
+    "metrics": "bebc9e1f354e5a5ceb539afb452683cb99dbaa7d20c0a4122f4a578d3c2dacd1",
+    "multi_document_diagnostics": "9225f4d3386beb7ba68c3779573daa45495e6b5fef49fd3068b77028cb3679ed",
+    "paired": "8a464c898c39ff1be7c308f3daa7ee92c3b5ea3eb70e3ff30a7cc4641f45e66a",
+    "retrieval_config": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
+    "safety_diagnostics": "20abfb14e2b60849a3c3964e09abb4934f13e06de407bd92a714114571bd44e2"
+  },
+  "classifier": {
+    "confidence_use": "diagnostic_only",
+    "config": "configs/models/banking77_semantic_w1.json",
+    "config_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+    "final_fit_rows": 10003,
+    "id": "semantic_all_minilm_l6_v2",
+    "parameters": "artifacts/models/w1-004/semantic_classifier_parameters.json.gz",
+    "parameters_sha256": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2"
+  },
+  "classifier_diagnostic": {
+    "accuracy": 0.55,
+    "confidence_calibrated": false,
+    "correct": 33,
+    "queries": 60
+  },
+  "corpus_manifest_sha256": "d29cb1b8c8272c4ab85f51ee0a97e0d044914a3c543c470abd6411f169649b67",
+  "corrected_at": "2026-07-28T16:39:14.302102+00:00",
+  "created_at": "2026-07-28T09:52:32.283315+00:00",
+  "decision": {
+    "decision_metrics": [
+      "strict_mrr_at_3",
+      "strict_hit_at_1",
+      "strict_recall_at_3"
+    ],
+    "delta_r1_minus_r0": {
+      "strict_hit_at_1": -0.024999999999999967,
+      "strict_mrr_at_3": -0.029166666666666785,
+      "strict_recall_at_3": -0.050000000000000044
+    },
+    "r0": {
+      "answer_queries": 40,
+      "complete_gold_coverage_at_3": 0.575,
+      "draft_leakage_at_1": 0.0,
+      "draft_leakage_at_3": 0.0,
+      "expired_leakage_at_1": 0.0,
+      "expired_leakage_at_3": 0.0,
+      "forbidden_evidence_retrieval_rate": 0.0,
+      "relaxed_hit_at_1": 0.375,
+      "relaxed_hit_at_3": 0.775,
+      "safety_queries": 10,
+      "strict_hit_at_1": 0.35,
+      "strict_mrr_at_3": 0.4833333333333334,
+      "strict_recall_at_3": 0.6166666666666667,
+      "wrong_status_leakage_rate": 0.0
+    },
+    "r1": {
+      "answer_queries": 40,
+      "complete_gold_coverage_at_3": 0.525,
+      "draft_leakage_at_1": 0.0,
+      "draft_leakage_at_3": 0.0,
+      "expired_leakage_at_1": 0.0,
+      "expired_leakage_at_3": 0.0,
+      "forbidden_evidence_retrieval_rate": 0.0,
+      "relaxed_hit_at_1": 0.45,
+      "relaxed_hit_at_3": 0.675,
+      "safety_queries": 10,
+      "strict_hit_at_1": 0.325,
+      "strict_mrr_at_3": 0.4541666666666666,
+      "strict_recall_at_3": 0.5666666666666667,
+      "wrong_status_leakage_rate": 0.0
+    },
+    "safety_gate_pass": true,
+    "selected_retriever": "R0"
+  },
+  "dev_selection_sha256": "3d9a7d1489da9b0392cbcb49663bc759285331dbdb8c6bcfc188c9fae54739b3",
+  "encoder": {
+    "batch_size": 64,
+    "device": "cpu",
+    "dimension": 384,
+    "huggingface_home": "artifacts/cache/w1-003/huggingface",
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "normalize_embeddings": true,
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+  },
+  "final_senior_review_verdict": "APPROVE_COMMIT",
+  "frozen_inputs": {
+    "development_membership_sha256": "15ee4de30609e67d65208a2d13fffb801964bc52a46288fa2e2c3bed43cab458",
+    "kb_canonical_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+    "kb_raw_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "locked_membership_sha256": "5682d314c17cae0d4c58274cc51b9e6e75dbec56d5be16e9bac712e709dc09b8",
+    "mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+    "query_sha256": "73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa",
+    "scenario_sha256": "97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486"
+  },
+  "implementation_sha256": {
+    "benchmark": "2020abf78069928e911b52832e139df48a1fa4d7be3c09288b912c594f00c990",
+    "benchmark_cli": "f415e0e4e9f54c442b378ef7ad7753061dba0ff4a2af5c7d7a1cbd6bd892d7f4",
+    "corpus": "cd2a0a1dafa49dafc6b93bfb98e3b8f36deaff6c5e50a4f7b8251699ff7bc67e",
+    "dense": "974d8e23922c1016a5667f175bd7e4cd65201d9f19672b945a5f1fdf32ce4034"
+  },
+  "initial_review_verdict": "FIX_REQUIRED",
+  "metrics_identical": true,
+  "official_banking77_test_accessed": false,
+  "paired_outcomes_identical": true,
+  "primary_stable_sha256": "64637a8ca56cf8ac9a3368118f7b0df3eb3599f66f540c77954a33a413ad40e6",
+  "rankings_identical": true,
+  "reproducibility_stable_sha256": "64637a8ca56cf8ac9a3368118f7b0df3eb3599f66f540c77954a33a413ad40e6",
+  "retrieval_config_sha256": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
+  "review_correction": {
+    "answer_error_analysis_rows": 28,
+    "automatic_error_category_counts_before_manual_refinement": {
+      "A": 3,
+      "C": 4,
+      "D": 4,
+      "E": 4,
+      "F": 2,
+      "G": 4,
+      "I": 7
+    },
+    "development_ranking_rows": 50,
+    "development_variants_per_query": 5,
+    "fix": "Rank-aware mutually exclusive taxonomy with per-row semantic recomputation from frozen mappings, predictions, and rankings.",
+    "lesson": "Aggregate category totals cannot prove row-level taxonomy correctness.",
+    "multi_document_query_count": 4,
+    "regression": "Controlled category fixtures plus row-level and same-aggregate category-tampering checks.",
+    "reviewed_error_category_counts": {
+      "A": 3,
+      "C": 4,
+      "D": 4,
+      "E": 4,
+      "F": 2,
+      "G": 3,
+      "I": 8
+    },
+    "root_cause": "Six rows were categorized F because the F predicate admitted the strict-gold chunk itself, while D covered only rank improvement instead of retained dense-retrieval success.",
+    "safety_diagnostic_rows": 10,
+    "verdict": "FIX_REQUIRED"
+  },
+  "runtime_seconds": {
+    "primary": 12.111080400005449,
+    "reproducibility_rerun": 11.285683699999936
+  },
+  "scores_identical_within_tolerance": true,
+  "scores_tolerance": 1e-07,
+  "selected_lambda": 0.15,
+  "selected_retriever": "R0",
+  "status": "FINALIZED_REVIEW_CORRECTION",
+  "task_id": "W2-003",
+  "week_2_p0_gate": "PASSED"
+}
