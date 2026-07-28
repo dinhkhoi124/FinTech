@@ -15,7 +15,7 @@ Priority: `P0 | P1 | P2`
 | W1-002 | 1 | P0 | Lexical baseline | Metrics + config + reproducible command | DONE |
 | W1-003 | 1 | P0 | Semantic/model baseline | Metrics + config + reproducible command | DONE |
 | W1-004 | 1 | P0 | Evaluation, confusion/error analysis, and Week 1 gate | Metrics/confusions/examples/gate decision + summary | DONE |
-| W2-001 | 2 | P0 | Synthetic KB specification/generation/validation | Versioned KB + validation evidence | TODO |
+| W2-001 | 2 | P0 | Synthetic KB specification/generation/validation | Versioned KB + validation evidence | DONE |
 | W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | TODO |
 | W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | TODO |
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | End-to-end behavior/tests | TODO |
@@ -28,9 +28,8 @@ Priority: `P0 | P1 | P2`
 
 ## Week 1 executable task contracts
 
-All four tasks are P0. They remain `TODO` until the user reviews Phase 0. Do not
-download data, train a model, inspect locked-test outcomes for tuning, open P1, or
-start Week 2 during bootstrap.
+All four tasks are P0 and were completed under the frozen Week 1 protocol. The
+historical contracts below are retained for audit; do not reopen them for tuning.
 
 ### W1-001 — Banking77 data audit and deterministic locked split
 
@@ -142,3 +141,31 @@ lexical accuracy/macro-F1 was 0.878247/0.878362 and semantic was
 0.908117/0.908075. Thirty bounded cases, paired outcomes, all 77 classes,
 confusions, diagnostic confidence, runtime, and the seven-row overlap sensitivity
 were analyzed. Frozen semantic MiniLM was selected; Week 1 P0 gate `PASS`.
+
+## Week 2 executable task contracts
+
+### W2-001 — Controlled synthetic KB specification/generation/validation
+
+- **Objective:** build an English, versioned, fully synthetic KB for exactly ten
+  locked Banking77 intents without starting gold mapping or retrieval.
+- **Outputs:** intent definitions, JSON Schema/config, generation guideline,
+  36 canonical JSONL documents, document/version plan, hard-negative matrix,
+  deterministic validator, manifest/coverage evidence, and regression tests.
+- **Acceptance criteria:** 28–36 documents; every intent has at least two eligible
+  approved documents and two types; four complete version families; at least
+  eight hard negatives; zero invalid references/status leakage/duplicates; fixed
+  as-of eligibility; reproducible hashes and passing tests.
+- **Boundary:** W2-002 queries/gold evidence and W2-003 retrieval remain separate
+  tasks and were not started.
+
+Completion record (2026-07-28): froze 36 fictional PayResolve Demo Bank documents
+with 26/5/5 APPROVED/DRAFT/EXPIRED and 10/12/9/5 FAQ/Policy/Runbook/Escalation.
+All ten intents have two or three eligible documents across at least two types.
+Four version families, 12 hard-negative relationships, deterministic dataset hash
+`e54a215...d4c88`, structurally hardened first-28 gate, full validator, and manual
+review passed. Senior-review regression evidence includes 29 focused tests, nine
+direct mutation failures with explicit codes, 56 full-suite tests, and passing
+project reporting validation; canonical dataset bytes were unchanged.
+Senior review verdict: `APPROVE_COMMIT`. W2-001 is DONE / REVIEWED / ACCEPTED in
+the current repository history. Week 2 P0 remains in progress; W2-002 and W2-003
+are not started.

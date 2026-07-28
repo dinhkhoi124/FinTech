@@ -1,0 +1,309 @@
+{
+  "canonical_dataset_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+  "eligible_document_ids": [
+    "ESC_CARD_REVERT_001",
+    "ESC_CASH_DECLINED_001",
+    "ESC_CASH_UNRECOG_001",
+    "ESC_TRANSFER_RECIPIENT_001",
+    "FAQ_CARD_DECLINED_001",
+    "FAQ_CARD_PENDING_001",
+    "FAQ_CASH_PENDING_001",
+    "FAQ_TRANSFER_DECLINED_001",
+    "FAQ_TRANSFER_FAILED_001",
+    "FAQ_TRANSFER_PENDING_001",
+    "FAQ_TRANSFER_RECIPIENT_002",
+    "POL_CARD_PENDING_001",
+    "POL_CARD_REVERT_002",
+    "POL_CASH_DECLINED_001",
+    "POL_CASH_UNRECOG_001",
+    "POL_TRANSFER_DECLINED_001",
+    "POL_TRANSFER_FAILED_001",
+    "POL_TRANSFER_PENDING_002",
+    "POL_TRANSFER_RECIPIENT_001",
+    "RUN_CARD_DECLINED_001",
+    "RUN_CARD_PENDING_001",
+    "RUN_CASH_PENDING_001",
+    "RUN_CASH_UNRECOG_002",
+    "RUN_TRANSFER_DECLINED_001",
+    "RUN_TRANSFER_FAILED_001",
+    "RUN_TRANSFER_PENDING_001"
+  ],
+  "errors": [],
+  "first_28_quality_gate": {
+    "complete_version_families": [
+      "FAQ_TRANSFER_RECIPIENT",
+      "POL_CARD_REVERT",
+      "POL_TRANSFER_PENDING",
+      "RUN_CASH_UNRECOG"
+    ],
+    "document_count": 28,
+    "eligible_approved_count": 20,
+    "errors": [],
+    "expansion_decision": {
+      "decision": "EXPAND_TO_36",
+      "fixed_variables": [
+        "ten canonical intents",
+        "English language",
+        "fictional organization",
+        "schema",
+        "eligibility date",
+        "status semantics",
+        "no retrieval or gold queries"
+      ],
+      "reason": "The first 28 already satisfy minimum coverage and lifecycle quality. Eight controlled records add agent runbook depth for three transfer/card states, high-risk escalation depth, one explicit attractive future draft, and one retired escalation trap without adding intents or weakening mappings."
+    },
+    "fully_resolved_hard_negative_relationship_ids": [
+      "HN_TRANSFER_02",
+      "HN_TRANSFER_03",
+      "HN_TRANSFER_04",
+      "HN_CARD_01",
+      "HN_CARD_03",
+      "HN_CASH_01",
+      "HN_CASH_03",
+      "HN_CROSS_RAIL_01",
+      "HN_CROSS_RAIL_02"
+    ],
+    "intent_coverage": {
+      "cash_withdrawal_not_recognised": {
+        "document_types": [
+          "policy",
+          "runbook"
+        ],
+        "eligible_approved_count": 2
+      },
+      "declined_card_payment": {
+        "document_types": [
+          "faq",
+          "runbook"
+        ],
+        "eligible_approved_count": 2
+      },
+      "declined_cash_withdrawal": {
+        "document_types": [
+          "escalation_guide",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "declined_transfer": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "failed_transfer": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "pending_card_payment": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "pending_cash_withdrawal": {
+        "document_types": [
+          "faq",
+          "runbook"
+        ],
+        "eligible_approved_count": 2
+      },
+      "pending_transfer": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "reverted_card_payment?": {
+        "document_types": [
+          "escalation_guide",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "transfer_not_received_by_recipient": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      }
+    },
+    "result": "PASS"
+  },
+  "intent_coverage": {
+    "cash_withdrawal_not_recognised": {
+      "document_ids": [
+        "ESC_CASH_UNRECOG_001",
+        "POL_CASH_UNRECOG_001",
+        "RUN_CASH_UNRECOG_002"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "escalation_guide",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "declined_card_payment": {
+      "document_ids": [
+        "FAQ_CARD_DECLINED_001",
+        "RUN_CARD_DECLINED_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "faq",
+        "runbook"
+      ],
+      "eligible_approved_count": 2
+    },
+    "declined_cash_withdrawal": {
+      "document_ids": [
+        "ESC_CASH_DECLINED_001",
+        "POL_CASH_DECLINED_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "escalation_guide",
+        "policy"
+      ],
+      "eligible_approved_count": 2
+    },
+    "declined_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_DECLINED_001",
+        "POL_TRANSFER_DECLINED_001",
+        "RUN_TRANSFER_DECLINED_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "failed_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_FAILED_001",
+        "POL_TRANSFER_FAILED_001",
+        "RUN_TRANSFER_FAILED_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "pending_card_payment": {
+      "document_ids": [
+        "FAQ_CARD_PENDING_001",
+        "POL_CARD_PENDING_001",
+        "RUN_CARD_PENDING_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "pending_cash_withdrawal": {
+      "document_ids": [
+        "FAQ_CASH_PENDING_001",
+        "RUN_CASH_PENDING_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "faq",
+        "runbook"
+      ],
+      "eligible_approved_count": 2
+    },
+    "pending_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_PENDING_001",
+        "POL_TRANSFER_PENDING_002",
+        "RUN_TRANSFER_PENDING_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "reverted_card_payment?": {
+      "document_ids": [
+        "ESC_CARD_REVERT_001",
+        "POL_CARD_REVERT_002"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "escalation_guide",
+        "policy"
+      ],
+      "eligible_approved_count": 2
+    },
+    "transfer_not_received_by_recipient": {
+      "document_ids": [
+        "ESC_TRANSFER_RECIPIENT_001",
+        "FAQ_TRANSFER_RECIPIENT_002",
+        "POL_TRANSFER_RECIPIENT_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "escalation_guide",
+        "faq",
+        "policy"
+      ],
+      "eligible_approved_count": 3
+    }
+  },
+  "near_duplicate": {
+    "candidates": [],
+    "manual_review_required": false,
+    "method": "normalized token-set Jaccard",
+    "threshold": 0.72
+  },
+  "summary": {
+    "complete_version_families": [
+      "FAQ_TRANSFER_RECIPIENT",
+      "POL_CARD_REVERT",
+      "POL_TRANSFER_PENDING",
+      "RUN_CASH_UNRECOG"
+    ],
+    "complete_version_family_count": 4,
+    "document_count": 36,
+    "document_type_counts": {
+      "escalation_guide": 5,
+      "faq": 10,
+      "policy": 12,
+      "runbook": 9
+    },
+    "eligible_document_count": 26,
+    "exact_or_normalized_duplicate_group_count": 0,
+    "hard_negative_relationship_count": 12,
+    "locked_intent_count": 10,
+    "near_duplicate_candidate_count": 0,
+    "status_counts": {
+      "APPROVED": 26,
+      "DRAFT": 5,
+      "EXPIRED": 5
+    }
+  },
+  "validation_result": "PASS",
+  "validation_timestamp": "2026-07-28T04:18:37.838869+00:00",
+  "warnings": []
+}

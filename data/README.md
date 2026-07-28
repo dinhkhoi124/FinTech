@@ -25,3 +25,11 @@ directory. No mirror, nested clone, or repackaged distribution is used. The
 official `test.csv` is the frozen test set. Deterministic validation membership is
 derived only from official `train.csv`; downstream tasks must verify and use
 `data/banking77_split_manifest.json` unchanged.
+
+## Controlled synthetic KB
+
+Unlike local upstream payloads, `data/kb/kb_v1.jsonl` is a small, versioned,
+repository-owned synthetic research artifact. It contains no real customer data
+or real banking policy. The canonical contract is `configs/kb/kb_v1.json`; use
+the W2-001 validator rather than editing generated coverage or manifest evidence
+by hand.

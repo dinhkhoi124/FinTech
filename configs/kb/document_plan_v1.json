@@ -1,0 +1,121 @@
+{
+  "version": "document_plan_v1",
+  "first_28_quality_gate_document_ids": [
+    "ESC_CARD_REVERT_001",
+    "ESC_CASH_DECLINED_001",
+    "FAQ_CARD_DECLINED_001",
+    "FAQ_CARD_PENDING_001",
+    "FAQ_CASH_PENDING_001",
+    "FAQ_TRANSFER_DECLINED_001",
+    "FAQ_TRANSFER_FAILED_001",
+    "FAQ_TRANSFER_PENDING_001",
+    "FAQ_TRANSFER_RECIPIENT_001",
+    "FAQ_TRANSFER_RECIPIENT_002",
+    "FAQ_TRANSFER_RECIPIENT_003",
+    "POL_CARD_PENDING_001",
+    "POL_CARD_REVERT_001",
+    "POL_CARD_REVERT_002",
+    "POL_CARD_REVERT_003",
+    "POL_CASH_DECLINED_001",
+    "POL_CASH_UNRECOG_001",
+    "POL_TRANSFER_DECLINED_001",
+    "POL_TRANSFER_FAILED_001",
+    "POL_TRANSFER_PENDING_001",
+    "POL_TRANSFER_PENDING_002",
+    "POL_TRANSFER_PENDING_003",
+    "POL_TRANSFER_RECIPIENT_001",
+    "RUN_CARD_DECLINED_001",
+    "RUN_CASH_PENDING_001",
+    "RUN_CASH_UNRECOG_001",
+    "RUN_CASH_UNRECOG_002",
+    "RUN_CASH_UNRECOG_003"
+  ],
+  "expansion_document_ids": [
+    "ESC_CARD_DECLINED_001",
+    "ESC_CASH_UNRECOG_001",
+    "ESC_TRANSFER_RECIPIENT_001",
+    "FAQ_CASH_PENDING_002",
+    "RUN_CARD_PENDING_001",
+    "RUN_TRANSFER_DECLINED_001",
+    "RUN_TRANSFER_FAILED_001",
+    "RUN_TRANSFER_PENDING_001"
+  ],
+  "first_28_gate_requirements": {
+    "document_count": 28,
+    "eligible_approved_count": 20,
+    "minimum_eligible_documents_per_intent": 2,
+    "minimum_document_types_per_intent": 2,
+    "minimum_complete_version_families": 4,
+    "minimum_fully_resolved_hard_negative_relationships": 8
+  },
+  "expansion_decision": {
+    "decision": "EXPAND_TO_36",
+    "reason": "The first 28 already satisfy minimum coverage and lifecycle quality. Eight controlled records add agent runbook depth for three transfer/card states, high-risk escalation depth, one explicit attractive future draft, and one retired escalation trap without adding intents or weakening mappings.",
+    "fixed_variables": [
+      "ten canonical intents",
+      "English language",
+      "fictional organization",
+      "schema",
+      "eligibility date",
+      "status semantics",
+      "no retrieval or gold queries"
+    ]
+  },
+  "version_families": [
+    {
+      "document_family_id": "POL_TRANSFER_PENDING",
+      "expired": "POL_TRANSFER_PENDING_001",
+      "approved": "POL_TRANSFER_PENDING_002",
+      "draft": "POL_TRANSFER_PENDING_003",
+      "meaningful_change": "Five-business-day retired window becomes two business days; draft proposes an unapproved six-hour review."
+    },
+    {
+      "document_family_id": "POL_CARD_REVERT",
+      "expired": "POL_CARD_REVERT_001",
+      "approved": "POL_CARD_REVERT_002",
+      "draft": "POL_CARD_REVERT_003",
+      "meaningful_change": "Seven-calendar-day retired return becomes five business days; draft proposes unapproved provisional credit."
+    },
+    {
+      "document_family_id": "RUN_CASH_UNRECOG",
+      "expired": "RUN_CASH_UNRECOG_001",
+      "approved": "RUN_CASH_UNRECOG_002",
+      "draft": "RUN_CASH_UNRECOG_003",
+      "meaningful_change": "Retired wait-and-general-support path becomes immediate security handoff; draft proposes unapproved automation."
+    },
+    {
+      "document_family_id": "FAQ_TRANSFER_RECIPIENT",
+      "expired": "FAQ_TRANSFER_RECIPIENT_001",
+      "approved": "FAQ_TRANSFER_RECIPIENT_002",
+      "draft": "FAQ_TRANSFER_RECIPIENT_003",
+      "meaningful_change": "Four-business-day retired wait becomes one business day; draft proposes unapproved immediate tracing."
+    }
+  ],
+  "designed_cases": {
+    "attractive_drafts": [
+      "POL_TRANSFER_PENDING_003",
+      "POL_CARD_REVERT_003",
+      "FAQ_TRANSFER_RECIPIENT_003",
+      "FAQ_CASH_PENDING_002"
+    ],
+    "expired_conflicts": [
+      ["POL_TRANSFER_PENDING_001", "POL_TRANSFER_PENDING_002"],
+      ["POL_CARD_REVERT_001", "POL_CARD_REVERT_002"],
+      ["FAQ_TRANSFER_RECIPIENT_001", "FAQ_TRANSFER_RECIPIENT_002"]
+    ],
+    "intentional_policy_gap": {
+      "intent": "declined_card_payment",
+      "available_approved_types": ["faq", "runbook"],
+      "reason": "Later evidence mapping must not treat explanatory content as approved policy authority."
+    },
+    "multi_document_support": {
+      "intent": "cash_withdrawal_not_recognised",
+      "document_ids": [
+        "POL_CASH_UNRECOG_001",
+        "RUN_CASH_UNRECOG_002",
+        "ESC_CASH_UNRECOG_001"
+      ],
+      "reason": "Policy establishes security priority, runbook controls safe checks, and escalation guide controls handoff."
+    }
+  }
+}

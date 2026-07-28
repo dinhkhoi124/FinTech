@@ -1,0 +1,169 @@
+{
+  "canonical_dataset_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+  "complete_version_families": [
+    "FAQ_TRANSFER_RECIPIENT",
+    "POL_CARD_REVERT",
+    "POL_TRANSFER_PENDING",
+    "RUN_CASH_UNRECOG"
+  ],
+  "config_sha256": "d6ff1adc158c41cd6e9c9a418aa22bd2696cd0be80343a174b3f74146f74a909",
+  "dataset_name": "payresolve_synthetic_kb",
+  "document_count": 36,
+  "document_plan_sha256": "3c3fa905c74ba991324c4e57fc4c4a5b431438a2d8b14404c09b3bfcdea6d129",
+  "document_type_counts": {
+    "escalation_guide": 5,
+    "faq": 10,
+    "policy": 12,
+    "runbook": 9
+  },
+  "eligible_document_count": 26,
+  "evaluation_as_of_date": "2026-07-28",
+  "generation_guideline_sha256": "235704dcdbbb727e597f53631cbde02e21f325922526c0c4e32bda2787d3c7b2",
+  "hard_negative_matrix_sha256": "2abe3880ee0fedb30e5c865843d3e4713716a8d67f1900f90f4237efe9473435",
+  "hard_negative_relationship_count": 12,
+  "intent_coverage": {
+    "cash_withdrawal_not_recognised": {
+      "document_ids": [
+        "ESC_CASH_UNRECOG_001",
+        "POL_CASH_UNRECOG_001",
+        "RUN_CASH_UNRECOG_002"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "escalation_guide",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "declined_card_payment": {
+      "document_ids": [
+        "FAQ_CARD_DECLINED_001",
+        "RUN_CARD_DECLINED_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "faq",
+        "runbook"
+      ],
+      "eligible_approved_count": 2
+    },
+    "declined_cash_withdrawal": {
+      "document_ids": [
+        "ESC_CASH_DECLINED_001",
+        "POL_CASH_DECLINED_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "escalation_guide",
+        "policy"
+      ],
+      "eligible_approved_count": 2
+    },
+    "declined_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_DECLINED_001",
+        "POL_TRANSFER_DECLINED_001",
+        "RUN_TRANSFER_DECLINED_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "failed_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_FAILED_001",
+        "POL_TRANSFER_FAILED_001",
+        "RUN_TRANSFER_FAILED_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "pending_card_payment": {
+      "document_ids": [
+        "FAQ_CARD_PENDING_001",
+        "POL_CARD_PENDING_001",
+        "RUN_CARD_PENDING_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "pending_cash_withdrawal": {
+      "document_ids": [
+        "FAQ_CASH_PENDING_001",
+        "RUN_CASH_PENDING_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "faq",
+        "runbook"
+      ],
+      "eligible_approved_count": 2
+    },
+    "pending_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_PENDING_001",
+        "POL_TRANSFER_PENDING_002",
+        "RUN_TRANSFER_PENDING_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "reverted_card_payment?": {
+      "document_ids": [
+        "ESC_CARD_REVERT_001",
+        "POL_CARD_REVERT_002"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "escalation_guide",
+        "policy"
+      ],
+      "eligible_approved_count": 2
+    },
+    "transfer_not_received_by_recipient": {
+      "document_ids": [
+        "ESC_TRANSFER_RECIPIENT_001",
+        "FAQ_TRANSFER_RECIPIENT_002",
+        "POL_TRANSFER_RECIPIENT_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "escalation_guide",
+        "faq",
+        "policy"
+      ],
+      "eligible_approved_count": 3
+    }
+  },
+  "intent_definitions_sha256": "dfc771bb5e3175716b88409e922153333c6ed962490531a1c8cb98fd481ef40e",
+  "kb_version": "kb_v1",
+  "schema_sha256": "ee9f959cef795b35482db4f0a9868f5981ec8291e3f228d63a289fddeae3dc29",
+  "stable_identity_excludes_validation_timestamp": true,
+  "status_counts": {
+    "APPROVED": 26,
+    "DRAFT": 5,
+    "EXPIRED": 5
+  },
+  "validation_result": "PASS",
+  "validation_timestamp": "2026-07-28T04:18:37.838869+00:00"
+}

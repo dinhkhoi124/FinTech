@@ -1,0 +1,141 @@
+{
+  "version": "intent_definitions_v1",
+  "basis": "Canonical Banking77 labels plus permitted train/validation and Week 1 error-analysis evidence; no official-test outcome was used for subset design.",
+  "synthetic_assumptions": [
+    "All workflows and time windows are fictional research controls, not real banking rules.",
+    "A transfer is treated as a bank-to-bank transfer; a card payment is a merchant authorization; a cash withdrawal is an ATM event.",
+    "When wording omits the decisive state or rail, downstream systems should prefer clarification or escalation rather than infer facts."
+  ],
+  "intents": [
+    {
+      "canonical_intent": "pending_transfer",
+      "intent_slug": "pending_transfer",
+      "intent_family": "transfer",
+      "business_meaning": "A submitted bank transfer remains in processing and has no terminal success or failure state.",
+      "positive_indicators": ["still pending", "processing", "not completed yet", "transfer in progress"],
+      "explicit_exclusions": ["explicit failure", "bank refusal before processing", "marked completed but recipient lacks funds"],
+      "nearest_confusing_intents": ["failed_transfer", "declined_transfer", "transfer_not_received_by_recipient"],
+      "distinguishing_rule": "Use only when the transfer itself is still non-terminal; a completed transfer with missing recipient credit belongs to transfer_not_received_by_recipient.",
+      "expected_support_workflow": "Confirm the displayed state and synthetic waiting window, then escalate only after the pending threshold or a risk flag.",
+      "risk_level": "medium",
+      "candidate_document_types": ["faq", "policy", "runbook"]
+    },
+    {
+      "canonical_intent": "failed_transfer",
+      "intent_slug": "failed_transfer",
+      "intent_family": "transfer",
+      "business_meaning": "A transfer attempt reached a technical or processing failure state after submission.",
+      "positive_indicators": ["failed", "technical error", "could not complete", "retry shown"],
+      "explicit_exclusions": ["pre-submission refusal", "still processing", "completed transfer missing at recipient"],
+      "nearest_confusing_intents": ["pending_transfer", "declined_transfer"],
+      "distinguishing_rule": "A failure is a terminal processing outcome; a decline is an explicit refusal and a pending transfer has no terminal outcome.",
+      "expected_support_workflow": "Confirm the failed state, avoid duplicate retries, apply the fictional retry rule, and escalate repeated failures.",
+      "risk_level": "medium",
+      "candidate_document_types": ["faq", "policy", "runbook"]
+    },
+    {
+      "canonical_intent": "declined_transfer",
+      "intent_slug": "declined_transfer",
+      "intent_family": "transfer",
+      "business_meaning": "A bank transfer was explicitly refused before it entered normal processing.",
+      "positive_indicators": ["declined", "refused", "not allowed", "rejected immediately"],
+      "explicit_exclusions": ["technical failure", "still pending", "completed but not received"],
+      "nearest_confusing_intents": ["failed_transfer", "pending_transfer", "declined_card_payment"],
+      "distinguishing_rule": "The decisive signal is an explicit transfer refusal; merchant card declines remain declined_card_payment.",
+      "expected_support_workflow": "State that the fictional transfer was not accepted, request no sensitive details, and route repeated or unexplained refusals for review.",
+      "risk_level": "medium",
+      "candidate_document_types": ["faq", "policy", "runbook"]
+    },
+    {
+      "canonical_intent": "transfer_not_received_by_recipient",
+      "intent_slug": "transfer_not_received_by_recipient",
+      "intent_family": "transfer",
+      "business_meaning": "The sender sees a completed transfer but the intended recipient reports no credit.",
+      "positive_indicators": ["marked completed", "recipient did not receive", "sent successfully but missing"],
+      "explicit_exclusions": ["sender still sees pending", "transfer failed", "transfer declined"],
+      "nearest_confusing_intents": ["pending_transfer", "failed_transfer"],
+      "distinguishing_rule": "Requires a completed sender-side state plus missing recipient credit; without completion it is not this intent.",
+      "expected_support_workflow": "Verify only non-sensitive transfer references, follow the fictional recipient-delay policy, and escalate after the stated window.",
+      "risk_level": "high",
+      "candidate_document_types": ["faq", "policy", "escalation_guide"]
+    },
+    {
+      "canonical_intent": "pending_card_payment",
+      "intent_slug": "pending_card_payment",
+      "intent_family": "card_payment",
+      "business_meaning": "A merchant card authorization remains pending and has not posted, declined, or reversed.",
+      "positive_indicators": ["card payment pending", "merchant authorization processing", "not posted"],
+      "explicit_exclusions": ["merchant refusal", "previously completed then reversed", "cash withdrawal pending"],
+      "nearest_confusing_intents": ["declined_card_payment", "reverted_card_payment?", "pending_cash_withdrawal"],
+      "distinguishing_rule": "The merchant card authorization is still open; a reversal requires an earlier completed or held amount being returned.",
+      "expected_support_workflow": "Explain the fictional authorization window, avoid promising release, and escalate only when the pending threshold is exceeded.",
+      "risk_level": "low",
+      "candidate_document_types": ["faq", "policy", "runbook"]
+    },
+    {
+      "canonical_intent": "declined_card_payment",
+      "intent_slug": "declined_card_payment",
+      "intent_family": "card_payment",
+      "business_meaning": "A merchant card authorization was explicitly refused at the point of payment.",
+      "positive_indicators": ["card declined", "merchant payment refused", "authorization denied"],
+      "explicit_exclusions": ["pending merchant authorization", "reversed payment", "declined ATM withdrawal", "declined bank transfer"],
+      "nearest_confusing_intents": ["pending_card_payment", "reverted_card_payment?", "declined_cash_withdrawal", "declined_transfer"],
+      "distinguishing_rule": "The payment rail is merchant card and the state is immediate refusal, not processing or reversal.",
+      "expected_support_workflow": "Offer fictional low-risk checks without exposing rule logic; repeated declines are routed to review.",
+      "risk_level": "medium",
+      "candidate_document_types": ["faq", "runbook"]
+    },
+    {
+      "canonical_intent": "reverted_card_payment?",
+      "intent_slug": "reverted_card_payment",
+      "intent_family": "card_payment",
+      "business_meaning": "A card payment hold or posting was later reversed and the amount is expected to return under the fictional ledger process.",
+      "positive_indicators": ["reverted", "reversed", "payment disappeared", "money returned after card payment"],
+      "explicit_exclusions": ["authorization still pending", "payment declined before acceptance", "refund requested from merchant"],
+      "nearest_confusing_intents": ["pending_card_payment", "declined_card_payment"],
+      "distinguishing_rule": "A prior authorization or posting must have been undone; decline has no accepted amount and pending has no reversal.",
+      "expected_support_workflow": "Confirm the reversal state, explain the fictional return window, and escalate only if ledger credit is absent after that window.",
+      "risk_level": "medium",
+      "candidate_document_types": ["policy", "escalation_guide"]
+    },
+    {
+      "canonical_intent": "pending_cash_withdrawal",
+      "intent_slug": "pending_cash_withdrawal",
+      "intent_family": "cash_withdrawal",
+      "business_meaning": "An ATM withdrawal entry remains pending after an ATM interaction.",
+      "positive_indicators": ["cash withdrawal pending", "ATM transaction processing", "pending cash entry"],
+      "explicit_exclusions": ["ATM explicitly declined", "cash withdrawal not recognized", "merchant card payment pending"],
+      "nearest_confusing_intents": ["declined_cash_withdrawal", "cash_withdrawal_not_recognised", "pending_card_payment"],
+      "distinguishing_rule": "The rail is ATM cash and the state is pending; recognition disputes are high-risk even if the entry is pending.",
+      "expected_support_workflow": "Confirm whether the customer recognizes the ATM event, then apply the fictional pending window or security escalation.",
+      "risk_level": "medium",
+      "candidate_document_types": ["faq", "runbook"]
+    },
+    {
+      "canonical_intent": "declined_cash_withdrawal",
+      "intent_slug": "declined_cash_withdrawal",
+      "intent_family": "cash_withdrawal",
+      "business_meaning": "An ATM refused a recognized cash withdrawal request and no cash was dispensed.",
+      "positive_indicators": ["ATM declined", "cash not dispensed", "withdrawal refused"],
+      "explicit_exclusions": ["pending ATM entry", "unrecognized withdrawal", "merchant card decline"],
+      "nearest_confusing_intents": ["pending_cash_withdrawal", "cash_withdrawal_not_recognised", "declined_card_payment"],
+      "distinguishing_rule": "The customer recognizes the ATM attempt and it was refused; an unknown ATM transaction is always the recognition-dispute intent.",
+      "expected_support_workflow": "Confirm no cash was dispensed, provide fictional safe checks, and escalate repeated declines or any account-security concern.",
+      "risk_level": "medium",
+      "candidate_document_types": ["policy", "escalation_guide"]
+    },
+    {
+      "canonical_intent": "cash_withdrawal_not_recognised",
+      "intent_slug": "cash_withdrawal_not_recognised",
+      "intent_family": "cash_withdrawal",
+      "business_meaning": "The customer disputes knowledge of an ATM cash withdrawal.",
+      "positive_indicators": ["I did not withdraw", "unknown ATM cash", "unrecognized withdrawal"],
+      "explicit_exclusions": ["recognized ATM attempt declined", "recognized withdrawal pending", "merchant card payment dispute"],
+      "nearest_confusing_intents": ["pending_cash_withdrawal", "declined_cash_withdrawal"],
+      "distinguishing_rule": "Customer non-recognition is decisive and overrides transaction-state troubleshooting; treat as a high-risk security event.",
+      "expected_support_workflow": "Do not perform ordinary troubleshooting only; preserve safety, collect no secrets, and use the approved synthetic escalation path.",
+      "risk_level": "high",
+      "candidate_document_types": ["policy", "runbook", "escalation_guide"]
+    }
+  ]
+}

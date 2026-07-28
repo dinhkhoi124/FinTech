@@ -182,3 +182,29 @@ models remain ignored under `artifacts/cache/w1-004/` and `artifacts/models/w1-0
 
 The service is a Week 4 P0 deliverable. No service command is claimed during
 bootstrap; document and test it only when `W4-001` is active.
+
+## W2-001 controlled synthetic KB
+
+W2-001 uses the standard-library validator and the fixed reference date in
+`configs/kb/kb_v1.json`. It does not load the Banking77 official test, create
+queries, build embeddings, or run retrieval.
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/kb/validate.py --root . --config configs/kb/kb_v1.json
+.\.venv-semantic\Scripts\python.exe scripts/kb/validate.py --root . --config configs/kb/kb_v1.json --write-results
+.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_kb_validation.py" -v
+```
+
+The first command is read-only. `--write-results` regenerates the validation
+report, manifest, and coverage CSV under `reports/week_02/results/`. The
+validation timestamp is run metadata and is excluded from the canonical dataset
+SHA-256.
+
+The implementation deliberately uses a complete standard-library custom
+validator for the required document, lifecycle-plan, and hard-negative contracts;
+it does not claim to execute the JSON Schema file. This avoids adding a Week 2
+dependency for one bounded format, at the cost of keeping the schema artifact and
+the custom checks synchronized. Focused mutation tests therefore cover field
+types/lengths, enums and family/product consistency, exact lifecycle chains, and
+the complete hard-negative relationship contract. The first-28 gate counts only
+families and relationships that pass those structural checks.

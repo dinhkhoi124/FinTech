@@ -1,0 +1,125 @@
+{
+  "version": "hard_negative_matrix_v1",
+  "relationships": [
+    {
+      "relationship_id": "HN_TRANSFER_01",
+      "source_intent": "pending_transfer",
+      "confusing_intent": "failed_transfer",
+      "shared_vocabulary": ["transfer", "not completed", "processing problem"],
+      "decisive_distinguishing_fact": "Pending has no terminal outcome; failed has an explicit terminal processing failure.",
+      "positive_document_ids": ["POL_TRANSFER_PENDING_002", "RUN_TRANSFER_PENDING_001"],
+      "hard_negative_document_ids": ["POL_TRANSFER_FAILED_001", "RUN_TRANSFER_FAILED_001"],
+      "risk_if_confused": "An agent may recommend retrying a transfer that is still processing and cause a duplicate."
+    },
+    {
+      "relationship_id": "HN_TRANSFER_02",
+      "source_intent": "failed_transfer",
+      "confusing_intent": "declined_transfer",
+      "shared_vocabulary": ["transfer", "did not go through", "rejected"],
+      "decisive_distinguishing_fact": "Failed is a technical terminal outcome after submission; declined is an explicit refusal before normal processing.",
+      "positive_document_ids": ["FAQ_TRANSFER_FAILED_001", "POL_TRANSFER_FAILED_001"],
+      "hard_negative_document_ids": ["FAQ_TRANSFER_DECLINED_001", "POL_TRANSFER_DECLINED_001"],
+      "risk_if_confused": "The wrong retry or review path may be presented."
+    },
+    {
+      "relationship_id": "HN_TRANSFER_03",
+      "source_intent": "declined_transfer",
+      "confusing_intent": "pending_transfer",
+      "shared_vocabulary": ["transfer", "not completed", "status"],
+      "decisive_distinguishing_fact": "Declined shows an explicit refusal; pending remains accepted for processing.",
+      "positive_document_ids": ["POL_TRANSFER_DECLINED_001"],
+      "hard_negative_document_ids": ["POL_TRANSFER_PENDING_002"],
+      "risk_if_confused": "A refusal may be incorrectly described as a delay."
+    },
+    {
+      "relationship_id": "HN_TRANSFER_04",
+      "source_intent": "transfer_not_received_by_recipient",
+      "confusing_intent": "pending_transfer",
+      "shared_vocabulary": ["transfer", "waiting", "recipient", "not received"],
+      "decisive_distinguishing_fact": "The sender-side transfer is completed for not-received cases; it is non-terminal for pending cases.",
+      "positive_document_ids": ["FAQ_TRANSFER_RECIPIENT_002", "POL_TRANSFER_RECIPIENT_001"],
+      "hard_negative_document_ids": ["FAQ_TRANSFER_PENDING_001", "POL_TRANSFER_PENDING_002"],
+      "risk_if_confused": "The system may retrieve a sender pending workflow instead of recipient tracing."
+    },
+    {
+      "relationship_id": "HN_CARD_01",
+      "source_intent": "pending_card_payment",
+      "confusing_intent": "reverted_card_payment?",
+      "shared_vocabulary": ["card payment", "held amount", "merchant", "waiting"],
+      "decisive_distinguishing_fact": "Pending remains open; reverted means a prior hold or posting was undone.",
+      "positive_document_ids": ["FAQ_CARD_PENDING_001", "POL_CARD_PENDING_001"],
+      "hard_negative_document_ids": ["POL_CARD_REVERT_002", "ESC_CARD_REVERT_001"],
+      "risk_if_confused": "A still-open authorization may be falsely described as returned."
+    },
+    {
+      "relationship_id": "HN_CARD_02",
+      "source_intent": "declined_card_payment",
+      "confusing_intent": "pending_card_payment",
+      "shared_vocabulary": ["merchant", "card payment", "authorization"],
+      "decisive_distinguishing_fact": "Declined is an immediate refusal; pending is an accepted but unsettled authorization.",
+      "positive_document_ids": ["FAQ_CARD_DECLINED_001", "RUN_CARD_DECLINED_001"],
+      "hard_negative_document_ids": ["FAQ_CARD_PENDING_001", "RUN_CARD_PENDING_001"],
+      "risk_if_confused": "An agent may promise a pending release for a payment that was never accepted."
+    },
+    {
+      "relationship_id": "HN_CARD_03",
+      "source_intent": "reverted_card_payment?",
+      "confusing_intent": "declined_card_payment",
+      "shared_vocabulary": ["card payment", "not completed", "merchant"],
+      "decisive_distinguishing_fact": "Reverted has a prior hold or posting and a later reversal; decline has no accepted amount.",
+      "positive_document_ids": ["POL_CARD_REVERT_002"],
+      "hard_negative_document_ids": ["FAQ_CARD_DECLINED_001"],
+      "risk_if_confused": "The customer may receive an invented return timeline for a decline."
+    },
+    {
+      "relationship_id": "HN_CASH_01",
+      "source_intent": "pending_cash_withdrawal",
+      "confusing_intent": "declined_cash_withdrawal",
+      "shared_vocabulary": ["ATM", "cash", "withdrawal", "no cash"],
+      "decisive_distinguishing_fact": "Pending has an open ledger entry; declined is a recognized refusal with no cash dispensed.",
+      "positive_document_ids": ["FAQ_CASH_PENDING_001", "RUN_CASH_PENDING_001"],
+      "hard_negative_document_ids": ["POL_CASH_DECLINED_001", "ESC_CASH_DECLINED_001"],
+      "risk_if_confused": "The wrong ledger or refusal workflow may be selected."
+    },
+    {
+      "relationship_id": "HN_CASH_02",
+      "source_intent": "cash_withdrawal_not_recognised",
+      "confusing_intent": "pending_cash_withdrawal",
+      "shared_vocabulary": ["ATM", "withdrawal", "pending", "cash entry"],
+      "decisive_distinguishing_fact": "Customer non-recognition overrides state troubleshooting and requires a security escalation.",
+      "positive_document_ids": ["RUN_CASH_UNRECOG_002", "ESC_CASH_UNRECOG_001"],
+      "hard_negative_document_ids": ["FAQ_CASH_PENDING_001", "RUN_CASH_PENDING_001"],
+      "risk_if_confused": "A security event may be treated as an ordinary timing question."
+    },
+    {
+      "relationship_id": "HN_CASH_03",
+      "source_intent": "declined_cash_withdrawal",
+      "confusing_intent": "cash_withdrawal_not_recognised",
+      "shared_vocabulary": ["ATM", "cash withdrawal", "problem"],
+      "decisive_distinguishing_fact": "A declined case is a recognized attempt; a not-recognized case is disputed by the customer.",
+      "positive_document_ids": ["POL_CASH_DECLINED_001"],
+      "hard_negative_document_ids": ["POL_CASH_UNRECOG_001"],
+      "risk_if_confused": "A recognized refusal may trigger an unnecessary security workflow, or a dispute may be under-escalated."
+    },
+    {
+      "relationship_id": "HN_CROSS_RAIL_01",
+      "source_intent": "declined_transfer",
+      "confusing_intent": "declined_card_payment",
+      "shared_vocabulary": ["declined", "payment", "refused"],
+      "decisive_distinguishing_fact": "One is a bank-transfer rail; the other is a merchant card authorization.",
+      "positive_document_ids": ["FAQ_TRANSFER_DECLINED_001"],
+      "hard_negative_document_ids": ["FAQ_CARD_DECLINED_001"],
+      "risk_if_confused": "The retrieved controls may refer to the wrong payment rail."
+    },
+    {
+      "relationship_id": "HN_CROSS_RAIL_02",
+      "source_intent": "pending_cash_withdrawal",
+      "confusing_intent": "pending_card_payment",
+      "shared_vocabulary": ["pending", "card-linked entry", "waiting"],
+      "decisive_distinguishing_fact": "ATM cash interaction distinguishes withdrawal from merchant authorization.",
+      "positive_document_ids": ["FAQ_CASH_PENDING_001"],
+      "hard_negative_document_ids": ["FAQ_CARD_PENDING_001"],
+      "risk_if_confused": "An ATM ledger hold may receive merchant authorization guidance."
+    }
+  ]
+}

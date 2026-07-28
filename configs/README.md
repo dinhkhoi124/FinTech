@@ -17,3 +17,9 @@ validation evidence paths. It permits no second encoder/configuration.
 official-test access. It pins both candidate hashes, identical 10,003-row final-fit
 scope, metric/analysis definitions, decision rule, allowed reruns, prohibited
 post-test changes, and final evidence paths.
+
+Week 2 W2-001 uses `kb/kb_v1.json` as the controlled synthetic-KB contract. It
+pins the ten canonical intents, fictional organization, fixed eligibility date,
+schema, canonical JSONL source, generation guideline, document plan, hard-negative
+matrix, validation thresholds, and evidence paths. It contains no retrieval
+configuration, gold evidence mapping, embedding model, or index.
