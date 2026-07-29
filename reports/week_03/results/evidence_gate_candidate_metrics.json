@@ -1,0 +1,1695 @@
+{
+  "candidate_count": 12,
+  "candidates": [
+    {
+      "candidate_id": "S0.40_C0.30",
+      "metrics": {
+        "answer_count": 2,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "negative_abstention_accuracy": 0.9,
+        "positive_answer_count": 1,
+        "positive_grounded_resolution_recall": 0.1,
+        "positive_relevant_answer_count": 1,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 13,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 2,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 18,
+          "ANSWER": 2
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 6,
+        "unnecessary_abstention_count": 9,
+        "unnecessary_abstention_rate": 0.9,
+        "unsafe_answer_count": 1,
+        "unsafe_answer_rate": 0.1,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 2
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.4,
+        "min_weighted_query_coverage": 0.3
+      }
+    },
+    {
+      "candidate_id": "S0.40_C0.45",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 15,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.4,
+        "min_weighted_query_coverage": 0.45
+      }
+    },
+    {
+      "candidate_id": "S0.40_C0.60",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 15,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.4,
+        "min_weighted_query_coverage": 0.6
+      }
+    },
+    {
+      "candidate_id": "S0.45_C0.30",
+      "metrics": {
+        "answer_count": 2,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "negative_abstention_accuracy": 0.9,
+        "positive_answer_count": 1,
+        "positive_grounded_resolution_recall": 0.1,
+        "positive_relevant_answer_count": 1,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 13,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 2,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 18,
+          "ANSWER": 2
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 6,
+        "unnecessary_abstention_count": 9,
+        "unnecessary_abstention_rate": 0.9,
+        "unsafe_answer_count": 1,
+        "unsafe_answer_rate": 0.1,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 2
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.45,
+        "min_weighted_query_coverage": 0.3
+      }
+    },
+    {
+      "candidate_id": "S0.45_C0.45",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 15,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.45,
+        "min_weighted_query_coverage": 0.45
+      }
+    },
+    {
+      "candidate_id": "S0.45_C0.60",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 15,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.45,
+        "min_weighted_query_coverage": 0.6
+      }
+    },
+    {
+      "candidate_id": "S0.50_C0.30",
+      "metrics": {
+        "answer_count": 2,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "negative_abstention_accuracy": 0.9,
+        "positive_answer_count": 1,
+        "positive_grounded_resolution_recall": 0.1,
+        "positive_relevant_answer_count": 1,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 12,
+          "LOW_RETRIEVAL_SUPPORT": 2,
+          "SUFFICIENT_APPROVED_EVIDENCE": 2,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 18,
+          "ANSWER": 2
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 6,
+        "unnecessary_abstention_count": 9,
+        "unnecessary_abstention_rate": 0.9,
+        "unsafe_answer_count": 1,
+        "unsafe_answer_rate": 0.1,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 2
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.5,
+        "min_weighted_query_coverage": 0.3
+      }
+    },
+    {
+      "candidate_id": "S0.50_C0.45",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 14,
+          "LOW_RETRIEVAL_SUPPORT": 2,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.5,
+        "min_weighted_query_coverage": 0.45
+      }
+    },
+    {
+      "candidate_id": "S0.50_C0.60",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 14,
+          "LOW_RETRIEVAL_SUPPORT": 2,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.5,
+        "min_weighted_query_coverage": 0.6
+      }
+    },
+    {
+      "candidate_id": "S0.55_C0.30",
+      "metrics": {
+        "answer_count": 1,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "negative_abstention_accuracy": 0.9,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 9,
+          "LOW_RETRIEVAL_SUPPORT": 6,
+          "SUFFICIENT_APPROVED_EVIDENCE": 1,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 19,
+          "ANSWER": 1
+        },
+        "safe_resolution_accuracy": 0.45,
+        "total_claim_count": 3,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 1,
+        "unsafe_answer_rate": 0.1,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 1
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.55,
+        "min_weighted_query_coverage": 0.3
+      }
+    },
+    {
+      "candidate_id": "S0.55_C0.45",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 10,
+          "LOW_RETRIEVAL_SUPPORT": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.55,
+        "min_weighted_query_coverage": 0.45
+      }
+    },
+    {
+      "candidate_id": "S0.55_C0.60",
+      "metrics": {
+        "answer_count": 0,
+        "cases": 20,
+        "citation_correctness_on_answered": null,
+        "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 0,
+        "positive_grounded_resolution_recall": 0.0,
+        "positive_relevant_answer_count": 0,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_QUERY_EVIDENCE_COVERAGE": 10,
+          "LOW_RETRIEVAL_SUPPORT": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 20
+        },
+        "safe_resolution_accuracy": 0.5,
+        "total_claim_count": 0,
+        "unnecessary_abstention_count": 10,
+        "unnecessary_abstention_rate": 1.0,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": null,
+        "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+        "verified_answer_count": 0
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "LOW_QUERY_EVIDENCE_COVERAGE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_top1_score": 0.55,
+        "min_weighted_query_coverage": 0.6
+      }
+    }
+  ],
+  "development_only": true,
+  "task_id": "W3-001"
+}

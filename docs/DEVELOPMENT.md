@@ -255,5 +255,40 @@ Full embeddings, model cache, and fitted parameters stay under ignored
 generation model, vector database, BM25, reranker, or hard intent filter.
 
 Senior final verdict for W2-003 is `APPROVE_COMMIT`; Week 2 P0 is PASSED and R0
-is the selected retriever. Week 3 remains NOT STARTED and must be opened only by
-a separate reviewed task contract.
+is the selected retriever. Week 3 was subsequently opened under the reviewed
+W3-001 task contract below.
+
+## W3-001 grounded pipeline development workflow
+
+Routine verification uses only tracked configs, datasets, rankings, predictions,
+and results. It does not load encoder weights, fitted models, embeddings, cache,
+network resources, or an external LLM provider:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/generation/week3_pipeline.py --root . --config configs/generation/grounded_pipeline_v1.json verify-contract
+.\.venv-semantic\Scripts\python.exe scripts/generation/week3_pipeline.py --root . --config configs/generation/grounded_pipeline_v1.json validate-gate-dev
+.\.venv-semantic\Scripts\python.exe scripts/generation/week3_pipeline.py --root . --config configs/generation/grounded_pipeline_v1.json verify-results
+.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_grounded_pipeline.py" -v
+```
+
+Historical development execution used `build-dev-runtime`, `select-gate`, two
+`run-dev` calls with labels `primary` and `reproducibility_rerun`, then `finalize`.
+Do not rerun gate selection after review without reopening W3-001. Optional local
+runtime verification is separate and may use ignored frozen artifacts:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/generation/week3_pipeline.py --root . --config configs/generation/grounded_pipeline_v1.json verify-runtime-reproduction
+```
+
+The selected policy abstains on all 20 development cases. Therefore selected-run
+`citation_correctness_on_answered` and `unsupported_claim_rate_on_claims` are
+`null`, with explicit `NOT_APPLICABLE_NO_ANSWERS` and
+`NOT_APPLICABLE_NO_CLAIMS` statuses. Positive success requires a verifier-passing
+ANSWER citing frozen gold/acceptable evidence; multi-document cases require all
+strict gold evidence. The implementation is complete, but the gate-v1 result is
+`PARTIAL — UTILITY NOT DEMONSTRATED`. Senior verdict is `APPROVE_COMMIT — PARTIAL
+BASELINE`: the implementation is DONE / REVIEWED / ACCEPTED and W3-001 overall
+is PARTIAL / REVIEWED / ACCEPTED. Week 3 P0 remains IN PROGRESS. W3-001-CR1
+Evidence Gate Utility Recovery v2 is recommended but NOT STARTED. W3-002 remains
+BLOCKED / NOT STARTED; Week 4, critical evaluation, ablations, API/UI, and
+external LLM work have not started.

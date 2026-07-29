@@ -1,0 +1,39 @@
+{
+  "artifact_sha256": {
+    "candidate_metrics": "45308d2500008521e151c459537515834b506590a238251904860c2d66bf06ea",
+    "metrics": "d40220117ec9fa304c3ee1ba1d47b512afd190ba1b01f1240d6ee53cf967eb89",
+    "predictions": "9fc070e6d9b260d2f0ee1915355195cc1e75eec7f01aa6df5e507c51affeed64",
+    "primary_outputs": "ef405bec24bfac9723b930ac0ed4bd6a3c14d139b0ca3c0fb450e219f86bc118",
+    "rankings": "d4decc72a999d7210ec632770d3d3aaa0c9c1c660f66cfc0279101406a76fba6",
+    "reproduction_outputs": "ef405bec24bfac9723b930ac0ed4bd6a3c14d139b0ca3c0fb450e219f86bc118",
+    "selection": "6c392cca06d635d0c67d48cb47a6701efebb2c9e5501bc45f2f670de9db7fed9"
+  },
+  "created_at": "2026-07-29T04:54:39.834343+00:00",
+  "external_llm_provider_status": "NOT_CONFIGURED",
+  "frozen": {
+    "kb_canonical_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+    "kb_raw_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "retrieval_config_sha256": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
+    "retrieval_locked_r0_sha256": "c60dd4b7bd23fcb468aa7d72d4216c52dee1a19aebf95c10e56ff26139c19ccb",
+    "retrieval_locked_r1_sha256": "4b98c7073356f7e3da640a42ed05046b7dc58d05ce15c0bac1d4c9821ab3761d",
+    "retrieval_metrics_sha256": "bebc9e1f354e5a5ceb539afb452683cb99dbaa7d20c0a4122f4a578d3c2dacd1",
+    "w2_development_membership_sha256": "15ee4de30609e67d65208a2d13fffb801964bc52a46288fa2e2c3bed43cab458",
+    "w2_mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+    "w2_query_sha256": "73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa"
+  },
+  "gate_dev_config_sha256": "3450d4345bfedad2cffc17e1572c7c0d448aedcdc5af3b4b21bebd62d739e586",
+  "idf_sha256": "acd46b5dc3dc5dc266e00efe9b1b899a298c20f250c433ba8f0b28978af7feaf",
+  "pipeline_config_sha256": "3d9f7841e42634375fe548f691bdea8fe17535c50cb05d3a005f80290ed78988",
+  "primary_reproduction_identical": true,
+  "primary_reproduction_sha256": "ef405bec24bfac9723b930ac0ed4bd6a3c14d139b0ca3c0fb450e219f86bc118",
+  "selected_gate": {
+    "ambiguity_score_gap": 0.03,
+    "min_top1_score": 0.4,
+    "min_weighted_query_coverage": 0.45
+  },
+  "selected_retriever": "R0",
+  "status": "PARTIAL_UTILITY_NOT_DEMONSTRATED",
+  "task_id": "W3-001",
+  "w3_002_started": false,
+  "week3_critical_set_created": false
+}

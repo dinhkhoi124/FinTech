@@ -1,0 +1,24 @@
+{
+  "dataset_name": "payresolve_evidence_gate_development",
+  "version": "evidence_gate_dev_v1",
+  "scenario_path": "data/evaluation/evidence_gate_dev_scenarios_v1.jsonl",
+  "dataset_path": "data/evaluation/evidence_gate_dev_v1.jsonl",
+  "w2_mapping_path": "data/evaluation/gold_mapping_v1.jsonl",
+  "banking77_train_path": "data/raw/banking77/57ec275d8078af65b7731c2a98be812d844a6d6b/train.csv",
+  "banking77_test_path": "data/raw/banking77/57ec275d8078af65b7731c2a98be812d844a6d6b/test.csv",
+  "expected": {
+    "total": 20,
+    "positive_w2_references": 10,
+    "negative_probes": 10,
+    "negative_case_types": {
+      "draft_only_unsupported_detail": 2,
+      "expired_only_unsupported_detail": 2,
+      "missing_knowledge": 2,
+      "policy_override_injection": 2,
+      "out_of_scope_banking_support": 1,
+      "ambiguous_insufficient_context": 1
+    }
+  },
+  "frozen_scenario_sha256": "9163eefdd164150d5b9df5445cddcf7809109ec0aceb7c8e15736c2dacc1b67e",
+  "frozen_dataset_sha256": "5101f5d337ea85c9b71b284485b871ec55c4eabaae43088bd5da65bb9c8f0ebb"
+}

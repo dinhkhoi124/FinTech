@@ -18,8 +18,9 @@ Priority: `P0 | P1 | P2`
 | W2-001 | 2 | P0 | Synthetic KB specification/generation/validation | Versioned KB + validation evidence | DONE |
 | W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | DONE |
 | W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | DONE |
-| W3-001 | 3 | P0 | Grounded pipeline + evidence gate | End-to-end behavior/tests | TODO |
-| W3-002 | 3 | P0 | Critical safety evaluation + ablations | Eval artifacts + tables + regressions | TODO |
+| W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
+| W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Separate reviewed task contract; no implementation/config/data yet | TODO |
+| W3-002 | 3 | P0 | Critical safety evaluation + ablations | Eval artifacts + tables + regressions | BLOCKED |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -217,5 +218,43 @@ DONE / REVIEWED / COMMITTED / PUSHED.
 - **Review history:** initial completion → Senior `FIX_REQUIRED` for safety/error
   slicing and tracked verification → dev-ranking/verifier correction → Senior
   taxonomy `FIX_REQUIRED` → rank-aware taxonomy patch → final `APPROVE_COMMIT`.
-- **Status:** DONE / REVIEWED / ACCEPTED. Week 2 P0 gate PASSED; selected
-  retriever remains R0 and Week 3 remains NOT STARTED.
+- **Status:** DONE / REVIEWED / COMMITTED / PUSHED. Week 2 P0 gate PASSED;
+  selected retriever remains R0.
+
+## Week 3 executable task contracts
+
+### W3-001 — Grounded Pipeline + Evidence Gate
+
+- **Objective:** build an offline deterministic R0-based pipeline that answers
+  only from approved/effective evidence or returns a generic safe escalation.
+- **Development contract:** exactly ten frozen W2 development ANSWER queries and
+  ten new scenario-first negative probes; select from the preregistered 4×3 gate
+  grid without using W2 locked or Week 3 critical outcomes.
+- **Outputs:** approved-only context builder, evidence gate, extractive generator,
+  claim/citation verifier, two response modes, tracked development artifacts,
+  reproducibility evidence, tests, and review reports.
+- **Boundary:** W3-002, critical evaluation, formal ablations, external LLMs,
+  API/UI, hybrid retrieval, rerankers, and P1 remain NOT STARTED.
+- **Implementation record (2026-07-29):** implemented the offline R0 pipeline,
+  approved/effective context boundary, deterministic gate, extractive generator,
+  exact-quote citation verifier, tracked verifier, and 69 focused tests. The
+  20-case development grid selected `S0.40_C0.45`; it has zero unsafe answers
+  but abstains on all positives. Primary and reproduction outputs are
+  byte-identical. Senior review found vacuous citation metrics, relevance-blind
+  positive success, unbound citation metadata, and hard-coded generator weights;
+  these are corrected without changing the frozen policy or output bytes.
+- **Experiment verdict:** the preregistered gate-v1 experiment completed, but its
+  selected policy is not a usable production candidate because it abstains on
+  every positive development query.
+- **Review lifecycle:** initial implementation → Senior `FIX_REQUIRED` → citation
+  metadata binding → evidence relevance metrics → non-vacuous citation metrics
+  → config-driven generator weights → Senior `APPROVE_COMMIT — PARTIAL BASELINE`.
+- **Status:** implementation `DONE / REVIEWED / ACCEPTED`; evidence-gate result
+  `PARTIAL — UTILITY NOT DEMONSTRATED`; overall `PARTIAL / REVIEWED / ACCEPTED`.
+  Week 3 P0 remains `IN PROGRESS`; W3-001-CR1 is `NOT STARTED`; W3-002 is
+  `BLOCKED / NOT STARTED`; Week 4 is `NOT STARTED`.
+
+### W3-001-CR1 — Evidence Gate Utility Recovery v2
+
+- **Status:** NOT STARTED. Recommended follow-up only; do not create its
+  implementation, config, or data without a separate reviewed task contract.

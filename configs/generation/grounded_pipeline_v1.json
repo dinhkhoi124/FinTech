@@ -1,0 +1,58 @@
+{
+  "task_id": "W3-001",
+  "pipeline_version": "grounded_pipeline_v1",
+  "generator_version": "extractive_evidence_v1",
+  "gate_version": "evidence_gate_v1",
+  "evaluation_as_of_date": "2026-07-28",
+  "external_llm_provider_status": "NOT_CONFIGURED",
+  "default_mode": "EVIDENCE_GATED",
+  "retriever_variant": "R0",
+  "top_k": 3,
+  "retrieval_config": "configs/retrieval/kb_v1_r0_r1.json",
+  "gate_dev_config": "configs/evaluation/evidence_gate_dev_v1.json",
+  "kb_documents": "data/kb/kb_v1.jsonl",
+  "w2_mapping": "data/evaluation/gold_mapping_v1.jsonl",
+  "frozen": {
+    "kb_raw_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "kb_canonical_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+    "w2_query_sha256": "73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa",
+    "w2_mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+    "w2_development_membership_sha256": "15ee4de30609e67d65208a2d13fffb801964bc52a46288fa2e2c3bed43cab458",
+    "retrieval_locked_r0_sha256": "c60dd4b7bd23fcb468aa7d72d4216c52dee1a19aebf95c10e56ff26139c19ccb",
+    "retrieval_locked_r1_sha256": "4b98c7073356f7e3da640a42ed05046b7dc58d05ce15c0bac1d4c9821ab3761d",
+    "retrieval_metrics_sha256": "bebc9e1f354e5a5ceb539afb452683cb99dbaa7d20c0a4122f4a578d3c2dacd1",
+    "retrieval_config_sha256": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d"
+  },
+  "tokenizer": {
+    "unicode_normalization": "NFKC",
+    "case_rule": "casefold",
+    "token_regex": "[a-z0-9]+",
+    "suffix_normalization": "none",
+    "idf_formula": "log((N+1)/(df+1))+1",
+    "stopwords": ["a", "an", "and", "are", "at", "bank", "be", "card", "cash", "customer", "do", "for", "from", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or", "payment", "please", "should", "support", "the", "this", "to", "transfer", "was", "what", "when", "with", "withdrawal"]
+  },
+  "gate_grid": {
+    "min_top1_score": [0.4, 0.45, 0.5, 0.55],
+    "min_weighted_query_coverage": [0.3, 0.45, 0.6],
+    "ambiguity_score_gap": 0.03
+  },
+  "selection_tie_break": ["safe_resolution_accuracy_desc", "unsafe_answer_rate_asc", "positive_grounded_resolution_recall_desc", "negative_abstention_accuracy_desc", "min_top1_score_asc", "min_weighted_query_coverage_asc"],
+  "extractive": {
+    "max_claims": 3,
+    "sentence_overlap_weight": 0.7,
+    "chunk_score_weight": 0.3,
+    "prefer_one_sentence_per_chunk": true
+  },
+  "safe_fallback": "I do not have enough approved evidence to answer this safely. Please escalate this case to an authorized support or policy owner.",
+  "outputs": {
+    "rankings": "reports/week_03/results/evidence_gate_dev_rankings.jsonl",
+    "predictions": "reports/week_03/results/evidence_gate_dev_classifier_predictions.jsonl",
+    "candidate_metrics": "reports/week_03/results/evidence_gate_candidate_metrics.json",
+    "selection": "reports/week_03/results/evidence_gate_selection.json",
+    "primary_outputs": "reports/week_03/results/grounded_pipeline_dev_outputs.jsonl",
+    "reproduction_outputs": "reports/week_03/results/grounded_pipeline_dev_reproduction.jsonl",
+    "metrics": "reports/week_03/results/grounded_pipeline_dev_metrics.json",
+    "manifest": "reports/week_03/results/grounded_pipeline_manifest.json",
+    "validation": "reports/week_03/results/grounded_pipeline_validation.json"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "answer_count": 0,
+  "cases": 20,
+  "citation_correctness_on_answered": null,
+  "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+  "negative_abstention_accuracy": 1.0,
+  "positive_answer_count": 0,
+  "positive_grounded_resolution_recall": 0.0,
+  "positive_relevant_answer_count": 0,
+  "positive_wrong_evidence_answer_count": 0,
+  "reason_code_counts": {
+    "AMBIGUOUS_EVIDENCE": 2,
+    "LOW_QUERY_EVIDENCE_COVERAGE": 15,
+    "LOW_RETRIEVAL_SUPPORT": 1,
+    "UNTRUSTED_OVERRIDE_REQUEST": 2
+  },
+  "response_counts": {
+    "ABSTAIN_ESCALATE": 20
+  },
+  "safe_resolution_accuracy": 0.5,
+  "total_claim_count": 0,
+  "unnecessary_abstention_count": 10,
+  "unnecessary_abstention_rate": 1.0,
+  "unsafe_answer_count": 0,
+  "unsafe_answer_rate": 0.0,
+  "unsupported_claim_count": 0,
+  "unsupported_claim_rate_on_claims": null,
+  "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+  "verified_answer_count": 0
+}

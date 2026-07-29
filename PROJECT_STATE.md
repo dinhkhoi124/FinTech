@@ -4,20 +4,21 @@
 
 ## Current status
 - Project: PayResolve AI
-- Current phase: Phase 2 — Controlled Synthetic KB + retrieval
-- Current week: Week 2
-- P0 gate status: PASSED
+- Current phase: Phase 3 — Grounded RAG + safety
+- Current week: Week 3
+- P0 gate status: IN PROGRESS
 - Active task: none
-- Next task: open Week 3 only through a separate reviewed task contract
-- Last updated: 2026-07-28 by Codex
+- Next task: none active; W3-001-CR1 is recommended but NOT STARTED, and W3-002 is blocked
+- Last updated: 2026-07-29 by Codex
 
 ## Active objective
-Week 2 P0 is complete and accepted. Keep Week 3 generation, the evidence gate,
-API/UI, and P1 closed until a separate reviewed task contract opens Week 3.
+Preserve the accepted W3-001 partial baseline and its evidence limitations. Keep
+W3-001-CR1, W3-002 critical evaluation, Week 4 API/UI, and all P1 work closed
+until a separate reviewed task contract activates them.
 
 ## Current versions
-- Current committed code baseline: W2-002 commit
-  `76ff6162fb9ddb9a546f8a3f7862b62a8af83285`
+- Pre-W3-001 committed code baseline: W2-003 commit
+  `a886e56143d80e5c70ddbae3507921aeed071dbb`
 - Historical W1-004 commit:
   `7c60110eab7cd18e538b274803f31879179d9e46`
 - Banking77 protocol: `banking77_w1_v1`
@@ -70,8 +71,11 @@ API/UI, and P1 closed until a separate reviewed task contract opens Week 3.
 - [x] Week 1 P0 gate passed
 - [x] W2-001 controlled synthetic KB — DONE / REVIEWED / COMMITTED / PUSHED
 - [x] W2-002 gold evidence mapping — DONE / REVIEWED / COMMITTED / PUSHED
-- [x] W2-003 retrieval R0/R1 — DONE / REVIEWED / ACCEPTED
+- [x] W2-003 retrieval R0/R1 — DONE / REVIEWED / COMMITTED / PUSHED
 - [x] Week 2 P0 gate passed
+- [x] W3-001 implementation — DONE / REVIEWED / ACCEPTED; overall — PARTIAL / REVIEWED / ACCEPTED
+- [ ] W3-001-CR1 Evidence Gate Utility Recovery v2 — NOT STARTED
+- [ ] W3-002 critical safety evaluation + ablations — TODO / BLOCKED / NOT STARTED
 
 ## Latest verified evidence
 - Official test contains 3,080 rows, all 77 intents, exactly 40 rows per intent.
@@ -149,6 +153,22 @@ API/UI, and P1 closed until a separate reviewed task contract opens Week 3.
 - Fresh-clone tracked verification passed while ignored W2 cache and fitted model
   were temporarily unavailable; optional runtime verification also passed.
 - W2-003 focused tests passed 56/56 and the full repository suite passed 155/155.
+- W3-001 froze 20 development cases (10 W2 development positives and 10 new
+  negative probes) with zero W2-locked or Banking77 exact/normalized overlap.
+- The preregistered 12-policy grid selected `S0.40_C0.45`. Development safe
+  resolution is 0.50, unsafe-answer rate is 0.00, negative abstention is 1.00,
+  and positive grounded resolution recall is 0.00.
+- Primary/reproduction outputs remain byte-identical. The selected run has no
+  answers or claims, so citation correctness and unsupported-claim rate are
+  `NOT_APPLICABLE`; controlled tests, rather than selected-run utility, prove the
+  ANSWER/citation path. Corrected focused/full suites pass 69/69 and 224/224.
+- Senior review lifecycle: initial implementation → Senior `FIX_REQUIRED` →
+  citation metadata binding → evidence relevance metrics → non-vacuous citation
+  metrics → config-driven generator weights → Senior `APPROVE_COMMIT — PARTIAL BASELINE`.
+- The grounded pipeline, approved-only context boundary, extractive generator,
+  claim/citation verifier, and tracked evaluation infrastructure are accepted.
+  The selected evidence gate is not accepted as a useful production candidate
+  because it answered zero of ten positive development queries.
 
 ## Risks / limitations
 - Seven normalized train/test overlaps remain in the canonical official boundary.
@@ -167,11 +187,13 @@ API/UI, and P1 closed until a separate reviewed task contract opens Week 3.
   strict locked metrics; this development/locked divergence limits generalization.
 - The 60-query classifier diagnostic is synthetic and must not be interpreted as
   a calibrated deployment estimate.
+- The selected W3-001 gate abstains on all 20 development cases. This follows the
+  frozen safety-first rule but has no demonstrated development utility.
 
 ## Next 3 actions
-1. User runs the final pre-stage gate and commits/pushes only approved W2-003 paths.
-2. Confirm clean synchronized `main` after push.
-3. Open Week 3 only through a separate reviewed task contract.
+1. Verify, stage, commit, and push only the accepted W3-001 partial baseline.
+2. Keep W3-001-CR1 and W3-002 closed after the W3-001 commit.
+3. Open W3-001-CR1 through a separate reviewed task contract when authorized.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen
@@ -184,5 +206,9 @@ leakage. Review correction separated safety diagnostics, persisted development
 rankings, and removed routine verifier dependence on ignored artifacts without
 changing accepted numerical results. Senior final verdict is `APPROVE_COMMIT`;
 W2-003 is DONE / REVIEWED / ACCEPTED and the Week 2 P0 gate is PASSED. The
-current working changes have not yet been staged, committed, or pushed. Week 3
-is NOT STARTED.
+W3-001 implementation is DONE / REVIEWED / ACCEPTED, while the preregistered
+gate-v1 result remains PARTIAL — UTILITY NOT DEMONSTRATED because it abstains on
+all ten positive development cases. Senior verdict is `APPROVE_COMMIT — PARTIAL
+BASELINE`; W3-001 overall is PARTIAL / REVIEWED / ACCEPTED. W3-001-CR1 is NOT
+STARTED. W3-002 is BLOCKED / NOT STARTED, its critical set does not exist, and
+the Week 3 P0 gate remains IN PROGRESS. Week 4 is NOT STARTED.
