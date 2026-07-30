@@ -1,0 +1,1472 @@
+{
+  "candidate_count": 9,
+  "candidates": [
+    {
+      "candidate_id": "S0.40_C0.10",
+      "eligible": false,
+      "metrics": {
+        "answer_count": 7,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "card_payment",
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 3,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 7,
+        "positive_grounded_resolution_recall": 0.6,
+        "positive_relevant_answer_count": 6,
+        "positive_wrong_evidence_answer_count": 1,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 7,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 13,
+          "ANSWER": 7
+        },
+        "safe_resolution_accuracy": 0.8,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 21,
+        "unnecessary_abstention_count": 4,
+        "unnecessary_abstention_rate": 0.4,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 7
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.1,
+        "min_top1_score": 0.4
+      }
+    },
+    {
+      "candidate_id": "S0.40_C0.20",
+      "eligible": true,
+      "metrics": {
+        "answer_count": 3,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 2,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 3,
+        "positive_grounded_resolution_recall": 0.3,
+        "positive_relevant_answer_count": 3,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 6,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 3,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 17,
+          "ANSWER": 3
+        },
+        "safe_resolution_accuracy": 0.65,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 9,
+        "unnecessary_abstention_count": 7,
+        "unnecessary_abstention_rate": 0.7,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 3
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.2,
+        "min_top1_score": 0.4
+      }
+    },
+    {
+      "candidate_id": "S0.40_C0.30",
+      "eligible": true,
+      "metrics": {
+        "answer_count": 2,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 2,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 2,
+        "positive_grounded_resolution_recall": 0.2,
+        "positive_relevant_answer_count": 2,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 7,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 2,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 18,
+          "ANSWER": 2
+        },
+        "safe_resolution_accuracy": 0.6,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 6,
+        "unnecessary_abstention_count": 8,
+        "unnecessary_abstention_rate": 0.8,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 2
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.3,
+        "min_top1_score": 0.4
+      }
+    },
+    {
+      "candidate_id": "S0.45_C0.10",
+      "eligible": false,
+      "metrics": {
+        "answer_count": 7,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "card_payment",
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 3,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 7,
+        "positive_grounded_resolution_recall": 0.6,
+        "positive_relevant_answer_count": 6,
+        "positive_wrong_evidence_answer_count": 1,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 7,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 13,
+          "ANSWER": 7
+        },
+        "safe_resolution_accuracy": 0.8,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 21,
+        "unnecessary_abstention_count": 4,
+        "unnecessary_abstention_rate": 0.4,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 7
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.1,
+        "min_top1_score": 0.45
+      }
+    },
+    {
+      "candidate_id": "S0.45_C0.20",
+      "eligible": true,
+      "metrics": {
+        "answer_count": 3,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 2,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 3,
+        "positive_grounded_resolution_recall": 0.3,
+        "positive_relevant_answer_count": 3,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 6,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 3,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 17,
+          "ANSWER": 3
+        },
+        "safe_resolution_accuracy": 0.65,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 9,
+        "unnecessary_abstention_count": 7,
+        "unnecessary_abstention_rate": 0.7,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 3
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.2,
+        "min_top1_score": 0.45
+      }
+    },
+    {
+      "candidate_id": "S0.45_C0.30",
+      "eligible": true,
+      "metrics": {
+        "answer_count": 2,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 2,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 2,
+        "positive_grounded_resolution_recall": 0.2,
+        "positive_relevant_answer_count": 2,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 7,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 2,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 18,
+          "ANSWER": 2
+        },
+        "safe_resolution_accuracy": 0.6,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 6,
+        "unnecessary_abstention_count": 8,
+        "unnecessary_abstention_rate": 0.8,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 2
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.3,
+        "min_top1_score": 0.45
+      }
+    },
+    {
+      "candidate_id": "S0.50_C0.10",
+      "eligible": false,
+      "metrics": {
+        "answer_count": 7,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "card_payment",
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 3,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 7,
+        "positive_grounded_resolution_recall": 0.6,
+        "positive_relevant_answer_count": 6,
+        "positive_wrong_evidence_answer_count": 1,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 1,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 7,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 13,
+          "ANSWER": 7
+        },
+        "safe_resolution_accuracy": 0.8,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 21,
+        "unnecessary_abstention_count": 4,
+        "unnecessary_abstention_rate": 0.4,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 7
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.1,
+        "min_top1_score": 0.5
+      }
+    },
+    {
+      "candidate_id": "S0.50_C0.20",
+      "eligible": true,
+      "metrics": {
+        "answer_count": 3,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 2,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 3,
+        "positive_grounded_resolution_recall": 0.3,
+        "positive_relevant_answer_count": 3,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 5,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 3,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 17,
+          "ANSWER": 3
+        },
+        "safe_resolution_accuracy": 0.65,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 9,
+        "unnecessary_abstention_count": 7,
+        "unnecessary_abstention_rate": 0.7,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 3
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.2,
+        "min_top1_score": 0.5
+      }
+    },
+    {
+      "candidate_id": "S0.50_C0.30",
+      "eligible": true,
+      "metrics": {
+        "answer_count": 2,
+        "cases": 20,
+        "citation_correctness_on_answered": 1.0,
+        "citation_correctness_status": "APPLICABLE",
+        "citation_metadata_failure_count": 0,
+        "dimension_counts": {
+          "CHECKS": 1,
+          "EXACT_AMOUNT_OR_THRESHOLD": 1,
+          "NEXT_ACTION": 7,
+          "RETRY": 1,
+          "SPECIFIC_INTERNAL_DETAIL": 7,
+          "STATE_OR_MEANING": 1,
+          "TIMING_WINDOW": 1,
+          "UNKNOWN": 1
+        },
+        "draft_expired_citation_count": 0,
+        "intent_families_with_positive_resolution": [
+          "cash_withdrawal",
+          "transfer"
+        ],
+        "intent_family_positive_coverage": 2,
+        "negative_abstention_accuracy": 1.0,
+        "positive_answer_count": 2,
+        "positive_grounded_resolution_recall": 0.2,
+        "positive_relevant_answer_count": 2,
+        "positive_wrong_evidence_answer_count": 0,
+        "reason_code_counts": {
+          "AMBIGUOUS_EVIDENCE": 2,
+          "LOW_CANONICAL_SENTENCE_SUPPORT": 6,
+          "LOW_RETRIEVAL_SUPPORT": 1,
+          "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+          "SUFFICIENT_APPROVED_EVIDENCE": 2,
+          "UNSUPPORTED_REQUESTED_DETAIL": 6,
+          "UNTRUSTED_OVERRIDE_REQUEST": 2
+        },
+        "response_counts": {
+          "ABSTAIN_ESCALATE": 18,
+          "ANSWER": 2
+        },
+        "safe_resolution_accuracy": 0.6,
+        "specificity_guard_trigger_count": 8,
+        "total_claim_count": 6,
+        "unnecessary_abstention_count": 8,
+        "unnecessary_abstention_rate": 0.8,
+        "unsafe_answer_count": 0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_count": 0,
+        "unsupported_claim_rate_on_claims": 0.0,
+        "unsupported_claim_status": "APPLICABLE",
+        "verified_answer_count": 2
+      },
+      "outcomes": [
+        {
+          "query_id": "Q_DEV_CARD_DECL_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_PEND_001",
+          "reason_code": "LOW_RETRIEVAL_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CARD_REVERT_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_DECL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_CASH_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_CASH_UNREC_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_DECL_001",
+          "reason_code": "REQUESTED_DIMENSION_NOT_SUPPORTED",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_FAIL_001",
+          "reason_code": "SUFFICIENT_APPROVED_EVIDENCE",
+          "response_type": "ANSWER"
+        },
+        {
+          "query_id": "Q_DEV_TR_PEND_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_DEV_TR_RECIP_001",
+          "reason_code": "LOW_CANONICAL_SENTENCE_SUPPORT",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_001",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_002",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_003",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_004",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_005",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_006",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_007",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_008",
+          "reason_code": "UNTRUSTED_OVERRIDE_REQUEST",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_009",
+          "reason_code": "UNSUPPORTED_REQUESTED_DETAIL",
+          "response_type": "ABSTAIN_ESCALATE"
+        },
+        {
+          "query_id": "Q_GATE_DEV_SAFE_010",
+          "reason_code": "AMBIGUOUS_EVIDENCE",
+          "response_type": "ABSTAIN_ESCALATE"
+        }
+      ],
+      "policy": {
+        "ambiguity_score_gap": 0.03,
+        "min_best_sentence_support_coverage": 0.3,
+        "min_top1_score": 0.5
+      }
+    }
+  ],
+  "holdout_used": false,
+  "selection_dataset": "gate_v2_design",
+  "task_id": "W3-001-CR1"
+}

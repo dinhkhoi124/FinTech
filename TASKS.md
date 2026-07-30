@@ -11,6 +11,8 @@ Priority: `P0 | P1 | P2`
 | BOOT-002 | 0 | P0 | Audit repo, Git/public safety, and developer commands | Audit evidence recorded; commands executed in current environment | DONE |
 | BOOT-003 | 0 | P0 | Final Phase 0 consistency, scope-lock, environment, and safety review | Source-of-truth reconciled; Python 3.11 gate, tests, validator, and Git audit pass | DONE |
 | DOC-001 | — | P0 | Generate reader-friendly views of authoritative MASTER_PRD | `tai_lieu/` index + section-completeness check; master remains authoritative and unchanged | DONE |
+| DOC-002 | 3 | P0 | Prepare mentor sprint-report draft from official CSV template | Markdown mirrors all requested CSV fields and uses verified project evidence only | DONE |
+| DOC-003 | 3 | P0 | Populate mentor sprint workbook from the approved Markdown draft | Four-sheet XLSX preserves template structure, renders legibly, reopens with intact Unicode, and passes content/error checks | DONE |
 | W1-001 | 1 | P0 | Audit Banking77 and lock split | Audit artifact + deterministic split/config | DONE |
 | W1-002 | 1 | P0 | Lexical baseline | Metrics + config + reproducible command | DONE |
 | W1-003 | 1 | P0 | Semantic/model baseline | Metrics + config + reproducible command | DONE |
@@ -19,8 +21,8 @@ Priority: `P0 | P1 | P2`
 | W2-002 | 2 | P0 | Gold evidence mapping | Locked mapping/eval data | DONE |
 | W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | DONE |
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
-| W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Separate reviewed task contract; no implementation/config/data yet | TODO |
-| W3-002 | 3 | P0 | Critical safety evaluation + ablations | Eval artifacts + tables + regressions | BLOCKED |
+| W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
+| W3-002 | 3 | P0 | Critical safety evaluation + ablations | Eval artifacts + tables + regressions | QUEUED / NOT_STARTED |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -251,10 +253,44 @@ DONE / REVIEWED / COMMITTED / PUSHED.
   → config-driven generator weights → Senior `APPROVE_COMMIT — PARTIAL BASELINE`.
 - **Status:** implementation `DONE / REVIEWED / ACCEPTED`; evidence-gate result
   `PARTIAL — UTILITY NOT DEMONSTRATED`; overall `PARTIAL / REVIEWED / ACCEPTED`.
-  Week 3 P0 remains `IN PROGRESS`; W3-001-CR1 is `NOT STARTED`; W3-002 is
-  `BLOCKED / NOT STARTED`; Week 4 is `NOT STARTED`.
+  Week 3 P0 remains `IN PROGRESS`; W3-001-CR1 is `DONE / REVIEWED / ACCEPTED`
+  with a qualified post-hoc PASS; W3-002 is `QUEUED / NOT STARTED`; Week 4 is
+  `NOT STARTED`.
 
 ### W3-001-CR1 — Evidence Gate Utility Recovery v2
 
-- **Status:** NOT STARTED. Recommended follow-up only; do not create its
-  implementation, config, or data without a separate reviewed task contract.
+- **Authorized objective:** recover useful grounded answers without weakening the
+  accepted approved-only, extractive, citation, ambiguity, or override contracts.
+- **Preregistered hypothesis:** exact IDF token coverage underestimates support
+  across common banking paraphrases; canonical support plus requested-dimension
+  matching can recover utility, while an unsupported-specificity guard prevents
+  strongly overlapping but unsupported detail requests from passing.
+- **Evaluation boundary:** select only on the observed frozen 20-case design set;
+  freeze a new 10 ANSWER / 10 ABSTAIN holdout before execution; run holdout once
+  plus one reproduction; never tune from holdout outcomes.
+- **Frozen selection:** `S0.40_C0.20`; design only, with zero holdout IDs used.
+- **Holdout result:** gate v1 resolved 1/10 positives (recall 0.10; safe resolution
+  0.55); gate v2 resolved 6/10 positives (recall 0.60; safe resolution 0.80),
+  covered transfer/card-payment/cash-withdrawal, and retained negative abstention
+  1.00 and unsafe-answer rate 0.00.
+- **Hard failure:** gate v2 produced one positive wrong-evidence answer
+  (`Q_V2_HOLD_TR_PEND_001`). Unsupported claims, DRAFT/EXPIRED citations, and
+  citation metadata failures remained zero, but the preregistered hard safety
+  requirements therefore failed.
+- **Reproducibility:** primary and reproduction outputs are byte-identical; tracked
+  verification passed; focused/full tests passed 47/47 and 271/271.
+- **Mapping adjudication:** all ten positives were reviewed against all 52 eligible
+  approved sections. Exactly three mappings omitted one direct-support section.
+  The immutable original mapping/result remains FAILED; a Senior-approved three-row
+  overlay applied only to post-holdout relevance metrics yields PASS.
+- **Senior verdict:** `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`.
+- **Status:** implementation DONE / REVIEWED / ACCEPTED; adjudicated evaluation
+  PASS / REVIEWED / ACCEPTED. W3-002 is QUEUED / NOT STARTED.
+
+### W3-002 prerequisite — mapping-quality gate
+
+Before critical evaluation: (1) author and freeze the critical set; (2) audit every
+positive query against all 52 eligible approved sections; (3) freeze the complete
+direct-support evidence set; (4) record a pre-evaluation mapping-audit SHA-256;
+and (5) do not execute while any mapping omission remains. This safeguard is
+recorded only; W3-002 has not been implemented or run.

@@ -1,0 +1,77 @@
+{
+  "candidate_metrics_sha256": "aa7ce05c1782289a2bfc316057691c1bfae45350a5a85cf05a1ab9d18540ff36",
+  "design_membership_sha256": "6e1ed7aa379aae60cc46d00974e740fdfd681538219e99cd6020d93458d763b0",
+  "holdout_metrics_used": false,
+  "holdout_query_ids_used": 0,
+  "lexicon_sha256": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+  "pipeline_config_sha256": "9319799a704ddbc82e824f7351adc3852672e4b277efea2fc0bc552ef4f518f2",
+  "selected_candidate_id": "S0.40_C0.20",
+  "selected_metrics": {
+    "answer_count": 3,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 1,
+      "EXACT_AMOUNT_OR_THRESHOLD": 1,
+      "NEXT_ACTION": 7,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 7,
+      "STATE_OR_MEANING": 1,
+      "TIMING_WINDOW": 1,
+      "UNKNOWN": 1
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 2,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 3,
+    "positive_grounded_resolution_recall": 0.3,
+    "positive_relevant_answer_count": 3,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 2,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 6,
+      "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+      "SUFFICIENT_APPROVED_EVIDENCE": 3,
+      "UNSUPPORTED_REQUESTED_DETAIL": 6,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 17,
+      "ANSWER": 3
+    },
+    "safe_resolution_accuracy": 0.65,
+    "specificity_guard_trigger_count": 8,
+    "total_claim_count": 9,
+    "unnecessary_abstention_count": 7,
+    "unnecessary_abstention_rate": 0.7,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 3
+  },
+  "selected_policy": {
+    "ambiguity_score_gap": 0.03,
+    "min_best_sentence_support_coverage": 0.2,
+    "min_top1_score": 0.4
+  },
+  "selection_dataset": "gate_v2_design",
+  "selection_rule": [
+    "positive_grounded_resolution_recall_desc",
+    "safe_resolution_accuracy_desc",
+    "intent_family_positive_coverage_desc",
+    "unnecessary_abstention_rate_asc",
+    "negative_abstention_accuracy_desc",
+    "min_top1_score_asc",
+    "min_best_sentence_support_coverage_asc"
+  ],
+  "status": "FROZEN_DESIGN_SELECTION",
+  "task_id": "W3-001-CR1"
+}

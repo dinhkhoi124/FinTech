@@ -1,0 +1,293 @@
+{
+  "adjudicated_verdict": "PASS",
+  "adjudication_manifest": {
+    "adjudicated_mapping_sha256": "029a06087b4a7f15f13c61c7a0bb2cf9c76f740448f9715bdd47e6dfc9a7fcf3",
+    "adjudicated_verdict": "PASS",
+    "adjudication_config_sha256": "218f066575f6946e7fb0b7a7c5bc3268ddca6367aebd50a5a50e50e0829f8c21",
+    "application_stage": "POST_HOLDOUT_RELEVANCE_METRICS_ONLY",
+    "artifact_sha256": {
+      "adjudicated_comparison": "c4b93ee22b458c3e5a522e4a80210fda0709f25f5babcf98438208669d0ba870",
+      "adjudicated_metrics": "39400f35fd083c1d1f09544939b93ded5be7a6db9546f7ac984ab0849d2b7ea1",
+      "original_metrics": "f0706503a6d3019680a9bd45bedf306ba8791fcacb6920f4eb178def96d594c2"
+    },
+    "audit_defect_rows": 3,
+    "audit_rows": 10,
+    "created_at": "2026-07-30T03:02:21.600379+00:00",
+    "encoder_retrieval_generation_rerun": false,
+    "limitation": "The holdout remains a post-hoc adjudicated evaluation rather than a pristine untouched-label evaluation.",
+    "mapping_audit_sha256": "4c90728a06652918ae64d8919aa4fa2cd6d17bf4f94ebb9e881acd172bee3cdd",
+    "original_mapping_sha256": "42ae758031d1fb682f4fb20da0060a92e5a69905830a5be1a4b578beb7d5f178",
+    "original_output_sha256": "06fe9075650f463b9e9c019c4fef73ce3f1e91fc94e7c430dc69819b702c37fe",
+    "original_outputs_immutable": true,
+    "original_verdict": "FAILED",
+    "overlay_rows": 3,
+    "overlay_sha256": "dd45753d9a0a39023a6b915c097ff4e5601927771f42834593e4094e8460d14c",
+    "reproduction_output_sha256": "06fe9075650f463b9e9c019c4fef73ce3f1e91fc94e7c430dc69819b702c37fe",
+    "status": "PASS_AWAITING_FINAL_RE_REVIEW",
+    "task_id": "W3-001-CR1",
+    "w3_002_state": "BLOCKED PENDING FINAL SENIOR RE-REVIEW"
+  },
+  "candidate_count": 9,
+  "contract": {
+    "gate_v1_preserved": true,
+    "official_banking77_test_accessed": false,
+    "selected_retriever": "R0",
+    "status": "PASS",
+    "task_id": "W3-001-CR1"
+  },
+  "design_metrics": {
+    "answer_count": 3,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 1,
+      "EXACT_AMOUNT_OR_THRESHOLD": 1,
+      "NEXT_ACTION": 7,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 7,
+      "STATE_OR_MEANING": 1,
+      "TIMING_WINDOW": 1,
+      "UNKNOWN": 1
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 2,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 3,
+    "positive_grounded_resolution_recall": 0.3,
+    "positive_relevant_answer_count": 3,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 2,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 6,
+      "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+      "SUFFICIENT_APPROVED_EVIDENCE": 3,
+      "UNSUPPORTED_REQUESTED_DETAIL": 6,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 17,
+      "ANSWER": 3
+    },
+    "safe_resolution_accuracy": 0.65,
+    "specificity_guard_trigger_count": 8,
+    "total_claim_count": 9,
+    "unnecessary_abstention_count": 7,
+    "unnecessary_abstention_rate": 0.7,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 3
+  },
+  "encoder_retrieval_generation_rerun": false,
+  "gate_v1_holdout_metrics": {
+    "answer_count": 1,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "UNKNOWN": 20
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 1,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 1,
+    "positive_grounded_resolution_recall": 0.1,
+    "positive_relevant_answer_count": 1,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_QUERY_EVIDENCE_COVERAGE": 12,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 1,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 19,
+      "ANSWER": 1
+    },
+    "safe_resolution_accuracy": 0.55,
+    "specificity_guard_trigger_count": 0,
+    "total_claim_count": 3,
+    "unnecessary_abstention_count": 9,
+    "unnecessary_abstention_rate": 0.9,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 1
+  },
+  "gate_v2_adjudicated_holdout_metrics": {
+    "answer_count": 7,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 2,
+      "ELIGIBILITY": 1,
+      "ESCALATION_OR_SECURITY": 2,
+      "EXACT_AMOUNT_OR_THRESHOLD": 2,
+      "NEXT_ACTION": 2,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 4,
+      "TIMING_WINDOW": 6
+    },
+    "draft_citation_count": 0,
+    "draft_expired_citation_count": 0,
+    "expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "card_payment",
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 3,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 7,
+    "positive_grounded_resolution_recall": 0.7,
+    "positive_relevant_answer_count": 7,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 7,
+      "UNSUPPORTED_REQUESTED_DETAIL": 4,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 13,
+      "ANSWER": 7
+    },
+    "safe_resolution_accuracy": 0.85,
+    "specificity_guard_trigger_count": 6,
+    "total_claim_count": 21,
+    "unnecessary_abstention_count": 3,
+    "unnecessary_abstention_rate": 0.3,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 7
+  },
+  "gate_v2_original_holdout_metrics": {
+    "answer_count": 7,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 2,
+      "ELIGIBILITY": 1,
+      "ESCALATION_OR_SECURITY": 2,
+      "EXACT_AMOUNT_OR_THRESHOLD": 2,
+      "NEXT_ACTION": 2,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 4,
+      "TIMING_WINDOW": 6
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "card_payment",
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 3,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 7,
+    "positive_grounded_resolution_recall": 0.6,
+    "positive_relevant_answer_count": 6,
+    "positive_wrong_evidence_answer_count": 1,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 7,
+      "UNSUPPORTED_REQUESTED_DETAIL": 4,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 13,
+      "ANSWER": 7
+    },
+    "safe_resolution_accuracy": 0.8,
+    "specificity_guard_trigger_count": 6,
+    "total_claim_count": 21,
+    "unnecessary_abstention_count": 4,
+    "unnecessary_abstention_rate": 0.4,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 7
+  },
+  "holdout_validation": {
+    "abstain_escalate": 10,
+    "answer": 10,
+    "banking77_overlap": {
+      "official_test": {
+        "contents_manually_inspected": false,
+        "exact_overlap": 0,
+        "normalized_overlap": 0
+      },
+      "train": {
+        "contents_manually_inspected": false,
+        "exact_overlap": 0,
+        "normalized_overlap": 0
+      }
+    },
+    "cases": 20,
+    "correction_ledger_entries": 4,
+    "dataset_name": "evidence_gate_v2_holdout_v1",
+    "exact_overlap": 0,
+    "hashes": {
+      "correction_ledger_raw_sha256": "2aaec1d0500b46b0b7e5be24596c84d335e2aa3e6ab437438362febf7b7ebbcd",
+      "dataset_canonical_sha256": "0e760418e269a0e4354091932226bfe5238cafa4dc23da62ca202e8911716cb1",
+      "dataset_raw_sha256": "6ea54ec1dd79987dcee329a200d6258629050944eabc238d8527581a2b968af8",
+      "mapping_sha256": "42ae758031d1fb682f4fb20da0060a92e5a69905830a5be1a4b578beb7d5f178",
+      "membership_sha256": "1b7c149a9c0f1eb4cbe524ef820e5cc4985d9c6cc5e6e7604463f41a5147ee2f",
+      "scenario_raw_sha256": "312bd916bfef34a85e0463019cf745edfba08a00e213ea80597a7d4ff2a18108"
+    },
+    "holdout_evaluated": false,
+    "near_duplicate_candidates": 0,
+    "negative_case_types": {
+      "ambiguous_insufficient_context": 1,
+      "draft_expired_only_workflow": 2,
+      "out_of_scope_banking_query": 1,
+      "policy_override_injection": 2,
+      "unsupported_exact_amount_threshold": 2,
+      "unsupported_internal_identifier": 2
+    },
+    "normalized_overlap": 0,
+    "official_test_contents_manually_inspected": false,
+    "positive_intents": 10,
+    "status": "PASS"
+  },
+  "original_verdict": "FAILED",
+  "primary_reproduction_identical": true,
+  "requires_model_cache_or_network": false,
+  "selected_policy": {
+    "ambiguity_score_gap": 0.03,
+    "min_best_sentence_support_coverage": 0.2,
+    "min_top1_score": 0.4
+  },
+  "status": "PASS",
+  "task_id": "W3-001-CR1",
+  "verification_scope": "tracked_frozen_outputs_plus_post_hoc_relevance_adjudication",
+  "w3_002_state": "BLOCKED PENDING FINAL SENIOR RE-REVIEW",
+  "week4_started": false
+}

@@ -10,6 +10,7 @@ from .citations import CitationError, verify_draft
 from .context import ContextError, attach_ranked_evidence, render_context
 from .extractive import ExtractiveEvidenceGenerator, extractable_sentences
 from .gate import decide_gate
+from .support_v2 import decide_gate_v2
 from .types import EvidenceChunk, GenerationContext, GenerationDraft, GroundedGenerator
 
 
@@ -40,6 +41,52 @@ def run_case(query: dict[str, Any], ranking: dict[str, Any], prediction: dict[st
         reason = "CITATION_CONTRACT_FAILURE" if isinstance(error, CitationError) else "GENERATOR_FAILURE"
         failed_gate = {**gate, "decision": "FAIL", "reason_code": reason}
         return abstain_response(query, prediction, failed_gate, versions, config["safe_fallback"], retrieved)
+    return {"query_id": query["query_id"], "query_text": query["query_text"], "response_type": "ANSWER", "answer_text": answer, "claims": draft.claims, "citations": draft.citations, "predicted_intent": prediction["predicted_intent"], "intent_confidence": prediction["diagnostic_confidence"], "retriever_variant": "R0", "retrieved_evidence": retrieved, "selected_evidence": retrieved, "gate": gate, "versions": versions}
+
+
+def run_case_v2(
+    query: dict[str, Any], ranking: dict[str, Any], prediction: dict[str, Any],
+    chunks: list[dict[str, Any]], raw_idf: dict[str, float], canonical_idf: dict[str, float],
+    base_config: dict[str, Any], v2_config: dict[str, Any], lexicon: dict[str, Any],
+    candidate: dict[str, float], *, generator: GroundedGenerator | None = None,
+) -> dict[str, Any]:
+    """Run gate v2 while retaining the accepted v1 context/generator/verifier."""
+    as_of = date.fromisoformat(v2_config["evaluation_as_of_date"])
+    versions = {
+        "pipeline_version": v2_config["pipeline_version"],
+        "generator_version": v2_config["generator_version"],
+        "gate_version": v2_config["gate_version"],
+        "intent_model": "semantic_all_minilm_l6_v2",
+        "retriever": "R0",
+        "retrieval_config_sha256": base_config["frozen"]["retrieval_config_sha256"],
+        "kb_version": "kb_v1",
+        "kb_canonical_sha256": v2_config["frozen"]["kb_canonical_sha256"],
+        "lexicon_version": lexicon["version"],
+    }
+    try:
+        evidence = attach_ranked_evidence(ranking["rankings"], chunks, as_of)
+    except ContextError:
+        gate = {"decision": "FAIL", "reason_code": "NO_ELIGIBLE_EVIDENCE", "mode": "EVIDENCE_GATED"}
+        return abstain_response(query, prediction, gate, versions, base_config["safe_fallback"], [])
+    retrieved = [item.to_dict() for item in evidence]
+    gate = decide_gate_v2(
+        query["query_text"], evidence, raw_idf, canonical_idf,
+        base_config["tokenizer"]["stopwords"], lexicon, candidate,
+        extractable=extractable_sentences(evidence),
+    )
+    if gate["decision"] != "PASS":
+        return abstain_response(query, prediction, gate, versions, base_config["safe_fallback"], retrieved)
+    generator = generator or ExtractiveEvidenceGenerator(
+        base_config["tokenizer"]["stopwords"], base_config["extractive"]["max_claims"],
+        base_config["extractive"]["sentence_overlap_weight"], base_config["extractive"]["chunk_score_weight"],
+    )
+    try:
+        draft = generator.generate(query["query_text"], evidence, GenerationContext(query["query_id"], render_context(query["query_text"], evidence), raw_idf))
+        answer = verify_draft(draft, evidence, as_of)
+    except Exception as error:
+        reason = "CITATION_CONTRACT_FAILURE" if isinstance(error, CitationError) else "GENERATOR_FAILURE"
+        failed_gate = {**gate, "decision": "FAIL", "reason_code": reason}
+        return abstain_response(query, prediction, failed_gate, versions, base_config["safe_fallback"], retrieved)
     return {"query_id": query["query_id"], "query_text": query["query_text"], "response_type": "ANSWER", "answer_text": answer, "claims": draft.claims, "citations": draft.citations, "predicted_intent": prediction["predicted_intent"], "intent_confidence": prediction["diagnostic_confidence"], "retriever_variant": "R0", "retrieved_evidence": retrieved, "selected_evidence": retrieved, "gate": gate, "versions": versions}
 
 

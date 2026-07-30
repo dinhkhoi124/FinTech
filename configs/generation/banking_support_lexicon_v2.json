@@ -1,0 +1,29 @@
+{
+  "version": "banking_support_lexicon_v2",
+  "normalization": "deterministic_longest_match_first",
+  "learned_expansion": false,
+  "holdout_outcomes_used": false,
+  "sources": [
+    "configs/kb/intent_definitions_v1.json",
+    "data/kb/kb_v1.jsonl APPROVED headings/content",
+    "W3-001 gate-v1 design failure analysis"
+  ],
+  "concepts": {
+    "pending": ["awaiting completion", "in progress", "not completed yet", "not settled", "still processing", "processing", "pending", "unsettled"],
+    "declined": ["rejected immediately", "not submitted", "not accepted", "not allowed", "refused", "refusal", "rejected", "declined"],
+    "failed": ["ended with error", "processing error", "did not go through", "technical error", "terminal processing failure", "terminal failure", "failed"],
+    "reverted": ["marked reversed", "later undone", "money returned", "ledger return", "was returned", "reversed", "reverted", "undone", "returned"],
+    "recipient_not_received": ["other person has no credit", "recipient has not been credited", "recipient did not receive", "missing recipient credit", "recipient reports no credit", "recipient not received", "not credited"],
+    "recognised": ["customer recognizes", "customer recognises", "i recognize", "i recognise", "i made it", "known transaction", "recognized", "recognised", "my own"],
+    "unrecognised": ["i did not make", "i never made", "not recognized", "not recognised", "unrecognized", "unrecognised", "not mine", "unknown transaction"],
+    "retry": ["one further attempt", "try once more", "try again", "new attempt", "repeated attempts", "resubmit", "retry"],
+    "timing": ["at what point", "how many business days", "how long", "business days", "calendar days", "hours", "deadline", "window", "when"],
+    "checks": ["which checks", "what should i check", "non-sensitive checks", "state checks", "confirm", "verify", "review", "checks", "check"],
+    "action": ["what should be done", "what should i do", "what can i do", "what happens next", "what should i expect", "what next", "next step", "handle", "action"],
+    "escalation": ["security action", "security escalation", "security review", "specialist review", "safe handoff", "escalation", "escalate", "route"],
+    "cash_machine": ["cash machine", "atm"],
+    "card_payment": ["merchant authorization", "merchant charge", "shop payment", "card charge", "card purchase", "card payment"],
+    "transfer": ["bank transfer", "recipient tracing", "transfer"],
+    "cash_withdrawal": ["cash request", "cash entry", "cash withdrawal", "withdrawal"]
+  }
+}

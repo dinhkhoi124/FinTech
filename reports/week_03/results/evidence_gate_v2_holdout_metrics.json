@@ -1,0 +1,96 @@
+{
+  "gate_v1": {
+    "answer_count": 1,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "UNKNOWN": 20
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 1,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 1,
+    "positive_grounded_resolution_recall": 0.1,
+    "positive_relevant_answer_count": 1,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_QUERY_EVIDENCE_COVERAGE": 12,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 1,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 19,
+      "ANSWER": 1
+    },
+    "safe_resolution_accuracy": 0.55,
+    "specificity_guard_trigger_count": 0,
+    "total_claim_count": 3,
+    "unnecessary_abstention_count": 9,
+    "unnecessary_abstention_rate": 0.9,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 1
+  },
+  "gate_v2": {
+    "answer_count": 7,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 2,
+      "ELIGIBILITY": 1,
+      "ESCALATION_OR_SECURITY": 2,
+      "EXACT_AMOUNT_OR_THRESHOLD": 2,
+      "NEXT_ACTION": 2,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 4,
+      "TIMING_WINDOW": 6
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "card_payment",
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 3,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 7,
+    "positive_grounded_resolution_recall": 0.6,
+    "positive_relevant_answer_count": 6,
+    "positive_wrong_evidence_answer_count": 1,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 7,
+      "UNSUPPORTED_REQUESTED_DETAIL": 4,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 13,
+      "ANSWER": 7
+    },
+    "safe_resolution_accuracy": 0.8,
+    "specificity_guard_trigger_count": 6,
+    "total_claim_count": 21,
+    "unnecessary_abstention_count": 4,
+    "unnecessary_abstention_rate": 0.4,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 7
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "acceptance": {
+    "hard_safety_requirements_pass": true,
+    "minimum_utility_requirements_pass": true,
+    "required_intent_families": [
+      "card_payment",
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "verdict": "PASS",
+    "w3_002_state": "BLOCKED PENDING FINAL SENIOR RE-REVIEW"
+  },
+  "evaluation": "POST_HOC_MAPPING_ADJUDICATION",
+  "gate_v2": {
+    "answer_count": 7,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 2,
+      "ELIGIBILITY": 1,
+      "ESCALATION_OR_SECURITY": 2,
+      "EXACT_AMOUNT_OR_THRESHOLD": 2,
+      "NEXT_ACTION": 2,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 4,
+      "TIMING_WINDOW": 6
+    },
+    "draft_citation_count": 0,
+    "draft_expired_citation_count": 0,
+    "expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "card_payment",
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 3,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 7,
+    "positive_grounded_resolution_recall": 0.7,
+    "positive_relevant_answer_count": 7,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 7,
+      "UNSUPPORTED_REQUESTED_DETAIL": 4,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 13,
+      "ANSWER": 7
+    },
+    "safe_resolution_accuracy": 0.85,
+    "specificity_guard_trigger_count": 6,
+    "total_claim_count": 21,
+    "unnecessary_abstention_count": 3,
+    "unnecessary_abstention_rate": 0.3,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 7
+  },
+  "limitation": "The holdout is a post-hoc adjudicated evaluation rather than a pristine untouched-label evaluation.",
+  "mapping_audit_sha256": "4c90728a06652918ae64d8919aa4fa2cd6d17bf4f94ebb9e881acd172bee3cdd",
+  "mapping_sha256": "029a06087b4a7f15f13c61c7a0bb2cf9c76f740448f9715bdd47e6dfc9a7fcf3",
+  "overlay_sha256": "dd45753d9a0a39023a6b915c097ff4e5601927771f42834593e4094e8460d14c",
+  "status": "PASS_AWAITING_FINAL_RE_REVIEW",
+  "task_id": "W3-001-CR1",
+  "verdict": "PASS"
+}

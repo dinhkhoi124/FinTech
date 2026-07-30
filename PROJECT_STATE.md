@@ -8,13 +8,16 @@
 - Current week: Week 3
 - P0 gate status: IN PROGRESS
 - Active task: none
-- Next task: none active; W3-001-CR1 is recommended but NOT STARTED, and W3-002 is blocked
-- Last updated: 2026-07-29 by Codex
+- Next task: W3-002 — QUEUED / NOT STARTED; open only through a separate reviewed task contract
+- Last updated: 2026-07-30 by Codex
 
 ## Active objective
-Preserve the accepted W3-001 partial baseline and its evidence limitations. Keep
-W3-001-CR1, W3-002 critical evaluation, Week 4 API/UI, and all P1 work closed
-until a separate reviewed task contract activates them.
+Preserve the qualified W3-001-CR1 result accepted by Senior review. The original
+frozen-mapping evaluation FAILED and was invalidated by an incomplete relevance
+mapping. An exhaustive ten-positive audit found exactly three clerical omissions;
+the approved three-row post-holdout overlay recomputes Gate-v2 to PASS with zero
+observed safety violations. W3-002 is queued but not started; keep Week 4 API/UI
+and all P1 work closed.
 
 ## Current versions
 - Pre-W3-001 committed code baseline: W2-003 commit
@@ -61,6 +64,21 @@ until a separate reviewed task contract activates them.
     `97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486` /
     `73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa` /
     `4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c`
+- Evidence Gate v2: `W3-001-CR1/grounded_pipeline_v2` — UTILITY RECOVERED WITH ZERO OBSERVED SAFETY VIOLATIONS / REVIEWED / ACCEPTED
+  - selected policy: `S0.40_C0.20` (top-1 0.40, canonical support 0.20,
+    ambiguity gap 0.03)
+  - pipeline config SHA-256:
+    `9319799a704ddbc82e824f7351adc3852672e4b277efea2fc0bc552ef4f518f2`
+  - selection SHA-256:
+    `b17cee0c976552d14eec940f9bb81d95bb2ba9731b615295ab6be10313606469`
+  - holdout raw/membership/mapping SHA-256:
+    `6ea54ec1dd79987dcee329a200d6258629050944eabc238d8527581a2b968af8` /
+    `1b7c149a9c0f1eb4cbe524ef820e5cc4985d9c6cc5e6e7604463f41a5147ee2f` /
+    `42ae758031d1fb682f4fb20da0060a92e5a69905830a5be1a4b578beb7d5f178`
+  - mapping audit/overlay/adjudicated mapping SHA-256:
+    `4c90728a06652918ae64d8919aa4fa2cd6d17bf4f94ebb9e881acd172bee3cdd` /
+    `dd45753d9a0a39023a6b915c097ff4e5601927771f42834593e4094e8460d14c` /
+    `029a06087b4a7f15f13c61c7a0bb2cf9c76f740448f9715bdd47e6dfc9a7fcf3`
 
 ## Completed
 - [x] Repository bootstrap and reporting workflow
@@ -74,8 +92,10 @@ until a separate reviewed task contract activates them.
 - [x] W2-003 retrieval R0/R1 — DONE / REVIEWED / COMMITTED / PUSHED
 - [x] Week 2 P0 gate passed
 - [x] W3-001 implementation — DONE / REVIEWED / ACCEPTED; overall — PARTIAL / REVIEWED / ACCEPTED
-- [ ] W3-001-CR1 Evidence Gate Utility Recovery v2 — NOT STARTED
-- [ ] W3-002 critical safety evaluation + ablations — TODO / BLOCKED / NOT STARTED
+- [x] DOC-002 mentor sprint-report Markdown draft — DONE; no technical gate changed
+- [x] DOC-003 mentor sprint-report XLSX — DONE; source template preserved and no technical gate changed
+- [x] W3-001-CR1 implementation — DONE / REVIEWED / ACCEPTED; post-hoc adjudicated evaluation — PASS / REVIEWED / ACCEPTED
+- [ ] W3-002 critical safety evaluation + ablations — QUEUED / NOT STARTED
 
 ## Latest verified evidence
 - Official test contains 3,080 rows, all 77 intents, exactly 40 rows per intent.
@@ -169,6 +189,26 @@ until a separate reviewed task contract activates them.
   claim/citation verifier, and tracked evaluation infrastructure are accepted.
   The selected evidence gate is not accepted as a useful production candidate
   because it answered zero of ten positive development queries.
+- W3-001-CR1 recovered holdout utility relative to gate v1: positive grounded
+  recall 0.10 → 0.60 and safe resolution 0.55 → 0.80. Gate v2 answered 7/20,
+  resolved six positive cases, covered transfer/card-payment/cash-withdrawal,
+  retained negative abstention 1.00, and had zero unsafe answers, unsupported
+  claims, DRAFT/EXPIRED citations, or citation metadata failures.
+- The original CR1 frozen-mapping evaluation remains `FAILED`: 7 answers, six
+  relevant positive answers, one wrong-evidence answer, positive recall 0.60,
+  safe resolution 0.80, and zero unsafe answers.
+- The exhaustive audit reviewed all ten positives against all 52 eligible approved
+  sections and found exactly three omitted direct-support sections (3/10).
+- The Senior-approved overlay changes relevance labels only. Frozen queries,
+  rankings, outputs, citations, policy, thresholds, and primary/reproduction bytes
+  remain unchanged; no encoder, retrieval, or generation rerun occurred.
+- Adjudicated Gate v2 has seven relevant positive answers, zero wrong-evidence
+  answers, positive recall 0.70, safe resolution 0.85, negative abstention 1.00,
+  and zero unsafe answers, unsupported claims, DRAFT/EXPIRED citations, or citation
+  metadata failures. Status is `PASS / REVIEWED / ACCEPTED`.
+- Senior final verdict: `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`.
+- Final adjudication verification passed: focused tests 65/65, full repository
+  tests 289/289, all tracked validators, project-doc validation, and diff check.
 
 ## Risks / limitations
 - Seven normalized train/test overlaps remain in the canonical official boundary.
@@ -189,11 +229,17 @@ until a separate reviewed task contract activates them.
   a calibrated deployment estimate.
 - The selected W3-001 gate abstains on all 20 development cases. This follows the
   frozen safety-first rule but has no demonstrated development utility.
+- The holdout is now a post-hoc adjudicated evaluation rather than a pristine
+  untouched-label evaluation. This limitation remains explicit even though the
+  exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Verify, stage, commit, and push only the accepted W3-001 partial baseline.
-2. Keep W3-001-CR1 and W3-002 closed after the W3-001 commit.
-3. Open W3-001-CR1 through a separate reviewed task contract when authorized.
+1. Open W3-002 through a separate reviewed task contract; do not implement it in
+   the W3-001-CR1 commit step.
+2. Before critical evaluation, author and freeze the critical set, audit every
+   positive against all 52 eligible approved sections, freeze the complete
+   direct-support set, and record its pre-evaluation audit SHA-256.
+3. Do not execute W3-002 while any mapping omission remains; keep Week 4 not started.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen
@@ -209,6 +255,11 @@ W2-003 is DONE / REVIEWED / ACCEPTED and the Week 2 P0 gate is PASSED. The
 W3-001 implementation is DONE / REVIEWED / ACCEPTED, while the preregistered
 gate-v1 result remains PARTIAL — UTILITY NOT DEMONSTRATED because it abstains on
 all ten positive development cases. Senior verdict is `APPROVE_COMMIT — PARTIAL
-BASELINE`; W3-001 overall is PARTIAL / REVIEWED / ACCEPTED. W3-001-CR1 is NOT
-STARTED. W3-002 is BLOCKED / NOT STARTED, its critical set does not exist, and
-the Week 3 P0 gate remains IN PROGRESS. Week 4 is NOT STARTED.
+BASELINE`; W3-001 overall is PARTIAL / REVIEWED / ACCEPTED. W3-001-CR1
+implementation is COMPLETE. Its original frozen-mapping result remains FAILED and
+is explicitly invalidated by incomplete relevance mapping; the Senior-approved
+three-row adjudication passes safety and utility and is REVIEWED / ACCEPTED under
+Senior verdict `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. This is not a pristine
+holdout pass or final Week 3 safety pass. W3-002 is QUEUED / NOT STARTED, its
+critical set does not exist, and the Week 3 P0 gate remains IN PROGRESS. Week 4
+is NOT STARTED.

@@ -1,0 +1,32 @@
+{
+  "dataset_name": "payresolve_evidence_gate_v2_design",
+  "version": "evidence_gate_v2_design",
+  "source_gate_config": "configs/evaluation/evidence_gate_dev_v1.json",
+  "source_scenario_sha256": "9163eefdd164150d5b9df5445cddcf7809109ec0aceb7c8e15736c2dacc1b67e",
+  "source_dataset_sha256": "5101f5d337ea85c9b71b284485b871ec55c4eabaae43088bd5da65bb9c8f0ebb",
+  "observed_for_design": true,
+  "unbiased_validation": false,
+  "expected": {"total": 20, "answer": 10, "abstain_escalate": 10},
+  "expected_dimensions": {
+    "Q_DEV_CARD_DECL_001": "CHECKS",
+    "Q_DEV_CARD_PEND_001": "STATE_OR_MEANING",
+    "Q_DEV_CARD_REVERT_001": "TIMING_WINDOW",
+    "Q_DEV_CASH_DECL_001": "NEXT_ACTION",
+    "Q_DEV_CASH_PEND_001": "NEXT_ACTION",
+    "Q_DEV_CASH_UNREC_001": "NEXT_ACTION",
+    "Q_DEV_TR_DECL_001": "NEXT_ACTION",
+    "Q_DEV_TR_FAIL_001": "RETRY",
+    "Q_DEV_TR_PEND_001": "NEXT_ACTION",
+    "Q_DEV_TR_RECIP_001": "NEXT_ACTION",
+    "Q_GATE_DEV_SAFE_001": "SPECIFIC_INTERNAL_DETAIL",
+    "Q_GATE_DEV_SAFE_002": "SPECIFIC_INTERNAL_DETAIL",
+    "Q_GATE_DEV_SAFE_003": "SPECIFIC_INTERNAL_DETAIL",
+    "Q_GATE_DEV_SAFE_004": "SPECIFIC_INTERNAL_DETAIL",
+    "Q_GATE_DEV_SAFE_005": "SPECIFIC_INTERNAL_DETAIL",
+    "Q_GATE_DEV_SAFE_006": "SPECIFIC_INTERNAL_DETAIL",
+    "Q_GATE_DEV_SAFE_007": "UNKNOWN",
+    "Q_GATE_DEV_SAFE_008": "SPECIFIC_INTERNAL_DETAIL",
+    "Q_GATE_DEV_SAFE_009": "EXACT_AMOUNT_OR_THRESHOLD",
+    "Q_GATE_DEV_SAFE_010": "NEXT_ACTION"
+  }
+}

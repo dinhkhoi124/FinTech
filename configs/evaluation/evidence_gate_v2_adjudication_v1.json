@@ -1,0 +1,38 @@
+{
+  "task_id": "W3-001-CR1",
+  "adjudication_version": "evidence_gate_v2_holdout_adjudication_v1",
+  "pipeline_config": "configs/generation/grounded_pipeline_v2.json",
+  "mapping_audit": "reports/week_03/results/evidence_gate_v2_holdout_mapping_audit.csv",
+  "overlay": "data/evaluation/evidence_gate_v2_holdout_adjudication_v1.jsonl",
+  "application_stage": "POST_HOLDOUT_RELEVANCE_METRICS_ONLY",
+  "frozen": {
+    "scenario_raw_sha256": "312bd916bfef34a85e0463019cf745edfba08a00e213ea80597a7d4ff2a18108",
+    "dataset_raw_sha256": "6ea54ec1dd79987dcee329a200d6258629050944eabc238d8527581a2b968af8",
+    "membership_sha256": "1b7c149a9c0f1eb4cbe524ef820e5cc4985d9c6cc5e6e7604463f41a5147ee2f",
+    "original_mapping_sha256": "42ae758031d1fb682f4fb20da0060a92e5a69905830a5be1a4b578beb7d5f178",
+    "mapping_audit_sha256": "4c90728a06652918ae64d8919aa4fa2cd6d17bf4f94ebb9e881acd172bee3cdd",
+    "overlay_sha256": "dd45753d9a0a39023a6b915c097ff4e5601927771f42834593e4094e8460d14c",
+    "primary_output_sha256": "06fe9075650f463b9e9c019c4fef73ce3f1e91fc94e7c430dc69819b702c37fe",
+    "reproduction_output_sha256": "06fe9075650f463b9e9c019c4fef73ce3f1e91fc94e7c430dc69819b702c37fe",
+    "original_metrics_sha256": "861441a6419cdeb0ad014f9b6f83a1cc5242708e1cb2219a097665751a3ab591"
+  },
+  "approved_omissions": {
+    "Q_V2_HOLD_TR_PEND_001": "RUN_TRANSFER_PENDING_001#action",
+    "Q_V2_HOLD_TR_RECIP_001": "ESC_TRANSFER_RECIPIENT_001#trigger",
+    "Q_V2_HOLD_CASH_UNREC_001": "ESC_CASH_UNRECOG_001#safe_handoff"
+  },
+  "expected": {
+    "audit_rows": 10,
+    "audit_unique_positive_query_ids": 10,
+    "audit_defect_rows": 3,
+    "overlay_rows": 3,
+    "original_verdict": "FAILED",
+    "adjudicated_verdict": "PASS"
+  },
+  "outputs": {
+    "original_metrics": "reports/week_03/results/evidence_gate_v2_holdout_original_metrics.json",
+    "adjudicated_metrics": "reports/week_03/results/evidence_gate_v2_holdout_adjudicated_metrics.json",
+    "adjudicated_comparison": "reports/week_03/results/evidence_gate_v2_holdout_adjudicated_comparison.json",
+    "adjudication_manifest": "reports/week_03/results/evidence_gate_v2_adjudication_manifest.json"
+  }
+}

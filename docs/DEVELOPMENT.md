@@ -288,7 +288,50 @@ ANSWER citing frozen gold/acceptable evidence; multi-document cases require all
 strict gold evidence. The implementation is complete, but the gate-v1 result is
 `PARTIAL — UTILITY NOT DEMONSTRATED`. Senior verdict is `APPROVE_COMMIT — PARTIAL
 BASELINE`: the implementation is DONE / REVIEWED / ACCEPTED and W3-001 overall
-is PARTIAL / REVIEWED / ACCEPTED. Week 3 P0 remains IN PROGRESS. W3-001-CR1
-Evidence Gate Utility Recovery v2 is recommended but NOT STARTED. W3-002 remains
-BLOCKED / NOT STARTED; Week 4, critical evaluation, ablations, API/UI, and
-external LLM work have not started.
+is PARTIAL / REVIEWED / ACCEPTED. Week 3 P0 remains IN PROGRESS.
+
+## W3-001-CR1 Evidence Gate Utility Recovery v2
+
+CR1 preregistered deterministic canonical support, requested-dimension matching,
+and an unsupported-specificity guard while preserving R0, approved/effective-only
+context, the extractive generator, citation verification, ambiguity handling, and
+override protection. Selection used only the frozen design set and chose
+`S0.40_C0.20`; zero holdout IDs entered selection.
+
+The post-restart preflight recovered the frozen selection and holdout hashes before
+evaluation. The initial post-restart launch exposed a runtime adapter defect:
+the reused W2 ranker required a `split` diagnostic field that the frozen holdout
+schema intentionally omitted. No holdout artifact had been written. The adapter
+now adds `split=holdout` to an in-memory copy, with a regression test proving the
+frozen JSONL remains byte-identical.
+
+The formal primary and single reproduction then completed and were byte-identical.
+The original frozen mapping produced Gate-v2 recall 0.60, safe resolution 0.80,
+and one wrong-evidence answer, so that original verdict remains `FAILED`.
+
+Senior subsequently authorized a bounded mapping adjudication after an exhaustive
+audit of all ten positives against all 52 eligible approved sections found exactly
+three clerical omissions. The three-row overlay is applied only while recomputing
+relevance metrics from frozen outputs; it never enters selection, retrieval,
+generation, gate decisions, claims, or citation verification. No encoder/model is
+loaded by routine adjudication verification.
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/generation/week3_gate_utility_recovery.py --root . --config configs/generation/grounded_pipeline_v2.json validate-adjudication
+.\.venv-semantic\Scripts\python.exe scripts/generation/week3_gate_utility_recovery.py --root . --config configs/generation/grounded_pipeline_v2.json verify-results
+.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_evidence_gate_v2.py" -v
+```
+
+Adjudicated Gate v2 answers seven positives with relevant evidence, has recall
+0.70, safe resolution 0.85, negative abstention 1.00, and zero wrong-evidence,
+unsafe, unsupported-claim, metadata, DRAFT, or EXPIRED citation failures. The
+adjudicated verdict is `PASS / REVIEWED / ACCEPTED`; Senior verdict is
+`APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. The original FAILED history remains
+separately tracked. The holdout is post-hoc adjudicated rather than a pristine
+untouched-label evaluation, a final Week 3 safety pass, or a production-ready
+gate. W3-002 is QUEUED / NOT STARTED and Week 3 P0 remains IN PROGRESS.
+
+Before any W3-002 execution, author and freeze its critical set, audit every
+positive query against all 52 eligible approved sections, freeze the complete
+direct-support evidence set, record a pre-evaluation mapping-audit SHA-256, and
+stop while any mapping omission remains.
