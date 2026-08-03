@@ -1,0 +1,20 @@
+{
+  "additional_positive_answers": 9,
+  "always_answer_ineligible_for_production": true,
+  "answer_rate_delta": 0.45,
+  "negative_abstention_delta": -0.9,
+  "positive_grounded_recall_delta": 0.17500000000000004,
+  "prevented_by_v0_reason_codes": {
+    "AMBIGUOUS_EVIDENCE": 5,
+    "LOW_CANONICAL_SENTENCE_SUPPORT": 9,
+    "LOW_RETRIEVAL_SUPPORT": 3,
+    "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+    "SUFFICIENT_APPROVED_EVIDENCE": 31,
+    "UNKNOWN_REQUESTED_DIMENSION": 2,
+    "UNSUPPORTED_REQUESTED_DETAIL": 7,
+    "UNTRUSTED_OVERRIDE_REQUEST": 2
+  },
+  "safe_resolution_delta": -0.18333333333333335,
+  "unsafe_answer_delta": 18,
+  "unsupported_claim_delta": 0
+}

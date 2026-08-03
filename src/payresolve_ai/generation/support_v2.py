@@ -203,6 +203,7 @@ def decide_gate_v2(
     candidate: dict[str, float],
     *,
     extractable: bool,
+    mode: str = "EVIDENCE_GATED",
 ) -> dict[str, Any]:
     top1 = evidence[0].score if evidence else None
     dimension = detect_requested_dimension(query)
@@ -216,23 +217,24 @@ def decide_gate_v2(
         decision, reason = "FAIL", "UNTRUSTED_OVERRIDE_REQUEST"
     elif not evidence:
         decision, reason = "FAIL", "NO_ELIGIBLE_EVIDENCE"
-    elif ambiguous:
+    elif mode != "ALWAYS_ANSWER" and ambiguous:
         decision, reason = "FAIL", "AMBIGUOUS_EVIDENCE"
-    elif specificity["triggered"]:
+    elif mode != "ALWAYS_ANSWER" and specificity["triggered"]:
         decision, reason = "FAIL", "UNSUPPORTED_REQUESTED_DETAIL"
-    elif top1 is None or top1 < candidate["min_top1_score"]:
+    elif mode != "ALWAYS_ANSWER" and (top1 is None or top1 < candidate["min_top1_score"]):
         decision, reason = "FAIL", "LOW_RETRIEVAL_SUPPORT"
-    elif dimension["dimension"] == "UNKNOWN":
+    elif mode != "ALWAYS_ANSWER" and dimension["dimension"] == "UNKNOWN":
         decision, reason = "FAIL", "UNKNOWN_REQUESTED_DIMENSION"
-    elif not support["dimension_match"]:
+    elif mode != "ALWAYS_ANSWER" and not support["dimension_match"]:
         decision, reason = "FAIL", "REQUESTED_DIMENSION_NOT_SUPPORTED"
-    elif support["best_sentence_support_coverage"] < candidate["min_best_sentence_support_coverage"]:
+    elif mode != "ALWAYS_ANSWER" and support["best_sentence_support_coverage"] < candidate["min_best_sentence_support_coverage"]:
         decision, reason = "FAIL", "LOW_CANONICAL_SENTENCE_SUPPORT"
     elif not extractable:
         decision, reason = "FAIL", "NO_VALID_EXTRACTIVE_CLAIM"
     return {
         "decision": decision,
         "reason_code": reason,
+        "mode": mode,
         "top1_score": top1,
         "weighted_query_coverage_v1_diagnostic": weighted_coverage(query, evidence, raw_idf, stopwords) if evidence else 0.0,
         "requested_dimension": dimension,

@@ -1,0 +1,13 @@
+{
+  "primary_reproduction_identical": true,
+  "run_label": "reproducibility_rerun",
+  "stable_hashes": {
+    "predictions": "7e636207d18e423db0d4fb59c9c37a9b3444453e349d999a3ad8ad443acc115a",
+    "r0_rankings": "1142296c99f9055db3f7120813df8581847b8246f307dc01957f48292088408d",
+    "r1_rankings": "8578b709f0eb0e3efc58fc2865a291e7ef1b687e94e2adf00f773e78fba147de",
+    "v0_outputs": "de8b327f83547e43cda6afac3fb95316a4b803ba3b80250cca1faa88b20d8350",
+    "v1_outputs": "9855b2bb283bc810368d7e324f582bc799c4432990c4960e98020ede22ae89bc",
+    "v2_outputs": "3a42b1b9f8de33d7311d86850ae3917ded34090ccf014fb0b4860c5386220264"
+  },
+  "status": "PASS"
+}

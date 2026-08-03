@@ -6,18 +6,39 @@
 - Project: PayResolve AI
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
-- P0 gate status: IN PROGRESS
+- P0 gate status: BLOCKED / IN PROGRESS
 - Active task: none
-- Next task: W3-002 — QUEUED / NOT STARTED; open only through a separate reviewed task contract
-- Last updated: 2026-07-30 by Codex
+- Next task: none; W3-002-CR1 requires a separate reviewed contract before activation
+- Last updated: 2026-08-03 by Codex
 
 ## Active objective
-Preserve the qualified W3-001-CR1 result accepted by Senior review. The original
-frozen-mapping evaluation FAILED and was invalidated by an incomplete relevance
-mapping. An exhaustive ten-positive audit found exactly three clerical omissions;
-the approved three-row post-holdout overlay recomputes Gate-v2 to PASS with zero
-observed safety violations. W3-002 is queued but not started; keep Week 4 API/UI
-and all P1 work closed.
+Preserve the accepted W3-002 critical-set integrity incident evidence. The
+original runtime outputs are internally consistent and retained as historical
+diagnostic evidence, but the critical labels and pre-evaluation mapping audit are
+invalid. They cannot establish a model/pipeline PASS or FAIL verdict. Week 3 P0
+remains BLOCKED / IN PROGRESS and Week 4 remains BLOCKED / NOT STARTED.
+
+## W3-002 integrity incident evidence
+
+- Senior review verdict: APPROVE_COMMIT — INTEGRITY INCIDENT EVIDENCE
+- Implementation: DONE / REVIEWED / ACCEPTED
+- Original numerical run: DONE / PRESERVED AS HISTORICAL DIAGNOSTIC EVIDENCE
+- Original evaluator-reported result: FAILED UNDER INVALID MAPPING CONTRACT
+- Critical-set integrity: INVALIDATED — PRE-EVALUATION MAPPING AUDIT WAS SELF-REFERENTIAL
+- Model/pipeline verdict: NOT ESTABLISHED
+- Independent post-hoc scope audit: 40 positives and 20 negatives, each with 52
+  unique eligible-section judgments
+- Positive mapping defects: 20
+- Hard negatives that directly support their query: 2
+- Over-constrained original exact-ID/document mappings: 6
+  - single section sufficient: `Q_CRIT_A_003`, `Q_CRIT_A_020`, `Q_CRIT_A_040`
+  - two semantic sections required but one approved escalation document sufficient:
+    `Q_CRIT_A_016`, `Q_CRIT_A_028`, `Q_CRIT_A_036`
+- Semantically multi-document necessary: 0; no reviewed critical query was proven
+  to require evidence from two distinct documents
+- False ABSTAIN labels: 8
+- Integrity incident analysis: DONE / REVIEWED / ACCEPTED
+- Replacement critical evaluation: NOT CREATED
 
 ## Current versions
 - Pre-W3-001 committed code baseline: W2-003 commit
@@ -95,7 +116,7 @@ and all P1 work closed.
 - [x] DOC-002 mentor sprint-report Markdown draft — DONE; no technical gate changed
 - [x] DOC-003 mentor sprint-report XLSX — DONE; source template preserved and no technical gate changed
 - [x] W3-001-CR1 implementation — DONE / REVIEWED / ACCEPTED; post-hoc adjudicated evaluation — PASS / REVIEWED / ACCEPTED
-- [ ] W3-002 critical safety evaluation + ablations — QUEUED / NOT STARTED
+- [x] W3-002 execution package and integrity incident — DONE / REVIEWED / ACCEPTED; critical set INVALIDATED; model verdict NOT ESTABLISHED
 
 ## Latest verified evidence
 - Official test contains 3,080 rows, all 77 intents, exactly 40 rows per intent.
@@ -234,12 +255,9 @@ and all P1 work closed.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Open W3-002 through a separate reviewed task contract; do not implement it in
-   the W3-001-CR1 commit step.
-2. Before critical evaluation, author and freeze the critical set, audit every
-   positive against all 52 eligible approved sections, freeze the complete
-   direct-support set, and record its pre-evaluation audit SHA-256.
-3. Do not execute W3-002 while any mapping omission remains; keep Week 4 not started.
+1. Preserve the Senior-accepted W3-002 execution and integrity-incident evidence.
+2. Do not create `critical_eval_v2` without a separate reviewed W3-002-CR1 contract.
+3. Keep Week 4 blocked while Week 3 P0 remains BLOCKED / IN PROGRESS.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen
@@ -260,6 +278,9 @@ implementation is COMPLETE. Its original frozen-mapping result remains FAILED an
 is explicitly invalidated by incomplete relevance mapping; the Senior-approved
 three-row adjudication passes safety and utility and is REVIEWED / ACCEPTED under
 Senior verdict `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. This is not a pristine
-holdout pass or final Week 3 safety pass. W3-002 is QUEUED / NOT STARTED, its
-critical set does not exist, and the Week 3 P0 gate remains IN PROGRESS. Week 4
-is NOT STARTED.
+holdout pass or final Week 3 safety pass. W3-002's numerical run is preserved,
+but its critical set is INVALIDATED because the pre-evaluation mapping audit was
+self-referential. The model/pipeline verdict is NOT ESTABLISHED. Week 3 P0 is
+BLOCKED / IN PROGRESS and Week 4 is BLOCKED / NOT STARTED. Senior final verdict
+for the incident evidence is `APPROVE_COMMIT — INTEGRITY INCIDENT EVIDENCE`;
+W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.

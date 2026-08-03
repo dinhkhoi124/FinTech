@@ -288,7 +288,8 @@ ANSWER citing frozen gold/acceptable evidence; multi-document cases require all
 strict gold evidence. The implementation is complete, but the gate-v1 result is
 `PARTIAL — UTILITY NOT DEMONSTRATED`. Senior verdict is `APPROVE_COMMIT — PARTIAL
 BASELINE`: the implementation is DONE / REVIEWED / ACCEPTED and W3-001 overall
-is PARTIAL / REVIEWED / ACCEPTED. Week 3 P0 remains IN PROGRESS.
+is PARTIAL / REVIEWED / ACCEPTED. W3-002 later ran, but its self-referential
+mapping audit invalidated the critical set; Week 3 P0 is BLOCKED / IN PROGRESS.
 
 ## W3-001-CR1 Evidence Gate Utility Recovery v2
 
@@ -329,9 +330,55 @@ adjudicated verdict is `PASS / REVIEWED / ACCEPTED`; Senior verdict is
 `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. The original FAILED history remains
 separately tracked. The holdout is post-hoc adjudicated rather than a pristine
 untouched-label evaluation, a final Week 3 safety pass, or a production-ready
-gate. W3-002 is QUEUED / NOT STARTED and Week 3 P0 remains IN PROGRESS.
+gate. W3-002's numerical run is preserved, but its critical set is INVALIDATED and
+the model verdict is NOT ESTABLISHED; Week 3 P0 is BLOCKED / IN PROGRESS.
 
 Before any W3-002 execution, author and freeze its critical set, audit every
 positive query against all 52 eligible approved sections, freeze the complete
 direct-support evidence set, record a pre-evaluation mapping-audit SHA-256, and
 stop while any mapping omission remains.
+
+## W3-002 critical safety evaluation
+
+The critical set was frozen before inference and must not be changed. Routine
+verification is offline and recomputes mappings, distributions, overlap evidence,
+variant metrics, outcome partitions, ablations, and hashes from tracked files:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_evaluation.py --root . --config configs/evaluation/critical_eval_v1.json verify-results
+.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_critical_safety_evaluation.py" -v
+```
+
+The original runtime artifacts remain internally consistent, but the result is not
+a pristine evaluation: the pre-evaluation mapping audit copied the mapping's own
+roles and self-certified 52-section review. The critical set is `INVALIDATED`, the
+model verdict is `NOT ESTABLISHED`, and historical numerical metrics must not be
+used to select a production variant. Do not rerun selection, tune from this set,
+or begin Week 4.
+
+Senior final verdict is `APPROVE_COMMIT — INTEGRITY INCIDENT EVIDENCE`. W3-002
+implementation and integrity analysis are DONE / REVIEWED / ACCEPTED. The original
+evaluator reported FAILED under the invalid mapping contract; this is diagnostic
+history, not a current model/pipeline FAIL verdict.
+
+Integrity verification is offline and does not load the encoder:
+
+```powershell
+.\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_evaluation.py --root . --config configs/evaluation/critical_eval_v1.json verify-integrity-incident
+```
+
+Future critical evaluation should use semantic evidence obligations. Every
+obligation may list several independently reviewed acceptable evidence IDs; a
+multi-part response succeeds when each obligation is supported, rather than only
+when exact preselected document IDs are cited.
+
+The integrity verifier enumerates every subset of independently direct-supporting
+sections that covers every required obligation. It reports two independent minima:
+the number of section IDs and the number of distinct parsed document IDs. Multiple
+sections are necessary when the first minimum is at least two; multiple documents
+are necessary only when the second minimum is at least two. For W3-002, three
+original multi-document queries need one section and three need two sections from
+one approved escalation document; none was proven to need two documents. The
+verifier rejects malformed `DOCUMENT#SECTION` identities, metadata disagreement,
+empty/duplicate obligations, non-direct/ineligible evidence, section/document flag
+conflation, hard-negative intersection drift, and stale summary subgroups.

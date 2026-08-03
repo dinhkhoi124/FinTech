@@ -1,0 +1,99 @@
+{
+  "critical_mapping_integrity": "INVALID",
+  "eligible_sections_judged_per_query": 52,
+  "encoder_or_pipeline_rerun": false,
+  "evidence_obligation_recommendation": "Future evaluation should require every semantic obligation to be satisfied by any independently reviewed acceptable evidence ID; never require exact preselected IDs when equivalent evidence satisfies the same obligation.",
+  "exact_id_or_document_overconstrained_count": 6,
+  "exact_id_or_document_overconstrained_query_ids": [
+    "Q_CRIT_A_003",
+    "Q_CRIT_A_016",
+    "Q_CRIT_A_020",
+    "Q_CRIT_A_028",
+    "Q_CRIT_A_036",
+    "Q_CRIT_A_040"
+  ],
+  "false_abstain_label_count": 8,
+  "false_abstain_label_query_ids": [
+    "Q_CRIT_N_008",
+    "Q_CRIT_N_009",
+    "Q_CRIT_N_010",
+    "Q_CRIT_N_011",
+    "Q_CRIT_N_012",
+    "Q_CRIT_N_013",
+    "Q_CRIT_N_014",
+    "Q_CRIT_N_015"
+  ],
+  "final_model_verdict": "NOT_ESTABLISHED",
+  "hard_negative_direct_support_count": 2,
+  "hard_negative_direct_support_query_ids": [
+    "Q_CRIT_A_004",
+    "Q_CRIT_A_030"
+  ],
+  "invalid_reason": "PRE_EVALUATION_MAPPING_AUDIT_WAS_SELF_REFERENTIAL",
+  "multi_section_single_document_sufficient_count": 3,
+  "multi_section_single_document_sufficient_query_ids": [
+    "Q_CRIT_A_016",
+    "Q_CRIT_A_028",
+    "Q_CRIT_A_036"
+  ],
+  "negative_audit_sha256": "93acffe5a4e933b8287cb2adf0dc60b0fa5fc740009c456a58a05d4333923959",
+  "negative_queries_reviewed": 20,
+  "original_hashes": {
+    "dataset_canonical_sha256": "aa169c4e60d10defb70a88ab7b03c79306c2e37e109c6c78e9505acfd832b800",
+    "dataset_raw_sha256": "4d99a272dcb3a8fa0c6d860c0fd244dbaf35a9c190d7d194466f1f3d38c1f54d",
+    "mapping_sha256": "3689dc801c4deb20ecdb93c4a4da0a5f3c871f83c196ecb215aa89d8f5fa0205",
+    "membership_sha256": "d52e3f35fbe0287c2045a26e57db05a784e247fd72fb14304b2c3b7915ada4cb",
+    "pre_evaluation_manifest_sha256": "b9183f41aed54c343da54f0bd97b8196c9c2788333ba8fcce4a1447843ce6c22",
+    "query_sha256": "c8d8ab91adf277da8485ee2c57df6bdf1010c511b68e18adc94a4d10abd32104",
+    "scenario_raw_sha256": "9e0249a9fd6e2c1bf6d28013189228a5809d6c8bbbfa366e4747918632b8e370"
+  },
+  "original_runtime_artifact_sha256": {
+    "claim_audit": "f647442bf9134aa4b6cfe4827f67d4cd2657fc4bb6a02e23fa80669aa794f00b",
+    "outcome_classes": "7c8f5c5f93b6153b3bbefb3a530152096a297568d53d7638c44170faa837e594",
+    "r0_rankings": "010791275fe4b253fc102aa1330ea1035cf80d70382a1f72ed7584072a39dee1",
+    "r1_rankings": "f1658cb1a996408a0e96a629e399196495f14a357a11d72a8a2279c5cd8e5c34",
+    "reproduction": "4895ae47a81665b317eb849bf56b86264572207f9c59c9fe0d0a5e1542b9a7d1",
+    "v0_outputs": "75d51bf2357df900c422e08d70f545c233e2ce38da0b75365ca7c65287dfc418",
+    "v1_outputs": "84be3c0c19d367b1207121950de680015a320ecd93e66315a496d3708e654bff",
+    "v2_outputs": "8717707ddcc6d28f36e90285c6cf181e8f176ed468c1906e1f7c170a3974e49b",
+    "variant_metrics": "d8cfcd13774a3b8dc91ad3500525da29f8b416bf638d4ae572332bad5b7c9af3"
+  },
+  "positive_audit_sha256": "89b2f7454e28f6b33db15b24843b4d1e9c55d4777e7e821772f98b0e9a1ea4fc",
+  "positive_mapping_defect_count": 20,
+  "positive_mapping_defect_query_ids": [
+    "Q_CRIT_A_003",
+    "Q_CRIT_A_004",
+    "Q_CRIT_A_005",
+    "Q_CRIT_A_006",
+    "Q_CRIT_A_008",
+    "Q_CRIT_A_010",
+    "Q_CRIT_A_014",
+    "Q_CRIT_A_015",
+    "Q_CRIT_A_016",
+    "Q_CRIT_A_020",
+    "Q_CRIT_A_023",
+    "Q_CRIT_A_024",
+    "Q_CRIT_A_027",
+    "Q_CRIT_A_028",
+    "Q_CRIT_A_029",
+    "Q_CRIT_A_030",
+    "Q_CRIT_A_033",
+    "Q_CRIT_A_036",
+    "Q_CRIT_A_039",
+    "Q_CRIT_A_040"
+  ],
+  "positive_queries_reviewed": 40,
+  "replacement_critical_evaluation_created": false,
+  "runtime_artifacts_internally_consistent": true,
+  "semantically_multi_document_necessary_count": 0,
+  "semantically_multi_document_necessary_query_ids": [],
+  "single_section_sufficient_count": 3,
+  "single_section_sufficient_query_ids": [
+    "Q_CRIT_A_003",
+    "Q_CRIT_A_020",
+    "Q_CRIT_A_040"
+  ],
+  "status": "BLOCKED_CRITICAL_SET_INVALIDATED",
+  "support_judgments_sha256": "861d19e2cdb5ff937d3f4e2c9eb69f94efbd3b3599531adcb143bb91aa443f81",
+  "task_id": "W3-002"
+}

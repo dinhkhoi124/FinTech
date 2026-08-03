@@ -1,0 +1,5 @@
+﻿captured_at=2026-08-03T10:44:31.2347032+07:00
+total_physical_memory_bytes=17057714176
+available_physical_memory_bytes=1228775424
+powershell_working_set_bytes=69898240
+encoder_processes_before_run=0

@@ -1,0 +1,1559 @@
+﻿=== KB validator ===
+{
+  "canonical_dataset_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+  "eligible_document_ids": [
+    "ESC_CARD_REVERT_001",
+    "ESC_CASH_DECLINED_001",
+    "ESC_CASH_UNRECOG_001",
+    "ESC_TRANSFER_RECIPIENT_001",
+    "FAQ_CARD_DECLINED_001",
+    "FAQ_CARD_PENDING_001",
+    "FAQ_CASH_PENDING_001",
+    "FAQ_TRANSFER_DECLINED_001",
+    "FAQ_TRANSFER_FAILED_001",
+    "FAQ_TRANSFER_PENDING_001",
+    "FAQ_TRANSFER_RECIPIENT_002",
+    "POL_CARD_PENDING_001",
+    "POL_CARD_REVERT_002",
+    "POL_CASH_DECLINED_001",
+    "POL_CASH_UNRECOG_001",
+    "POL_TRANSFER_DECLINED_001",
+    "POL_TRANSFER_FAILED_001",
+    "POL_TRANSFER_PENDING_002",
+    "POL_TRANSFER_RECIPIENT_001",
+    "RUN_CARD_DECLINED_001",
+    "RUN_CARD_PENDING_001",
+    "RUN_CASH_PENDING_001",
+    "RUN_CASH_UNRECOG_002",
+    "RUN_TRANSFER_DECLINED_001",
+    "RUN_TRANSFER_FAILED_001",
+    "RUN_TRANSFER_PENDING_001"
+  ],
+  "errors": [],
+  "first_28_quality_gate": {
+    "complete_version_families": [
+      "FAQ_TRANSFER_RECIPIENT",
+      "POL_CARD_REVERT",
+      "POL_TRANSFER_PENDING",
+      "RUN_CASH_UNRECOG"
+    ],
+    "document_count": 28,
+    "eligible_approved_count": 20,
+    "errors": [],
+    "expansion_decision": {
+      "decision": "EXPAND_TO_36",
+      "fixed_variables": [
+        "ten canonical intents",
+        "English language",
+        "fictional organization",
+        "schema",
+        "eligibility date",
+        "status semantics",
+        "no retrieval or gold queries"
+      ],
+      "reason": "The first 28 already satisfy minimum coverage and lifecycle quality. Eight controlled records add agent runbook depth for three transfer/card states, high-risk escalation depth, one explicit attractive future draft, and one retired escalation trap without adding intents or weakening mappings."
+    },
+    "fully_resolved_hard_negative_relationship_ids": [
+      "HN_TRANSFER_02",
+      "HN_TRANSFER_03",
+      "HN_TRANSFER_04",
+      "HN_CARD_01",
+      "HN_CARD_03",
+      "HN_CASH_01",
+      "HN_CASH_03",
+      "HN_CROSS_RAIL_01",
+      "HN_CROSS_RAIL_02"
+    ],
+    "intent_coverage": {
+      "cash_withdrawal_not_recognised": {
+        "document_types": [
+          "policy",
+          "runbook"
+        ],
+        "eligible_approved_count": 2
+      },
+      "declined_card_payment": {
+        "document_types": [
+          "faq",
+          "runbook"
+        ],
+        "eligible_approved_count": 2
+      },
+      "declined_cash_withdrawal": {
+        "document_types": [
+          "escalation_guide",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "declined_transfer": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "failed_transfer": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "pending_card_payment": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "pending_cash_withdrawal": {
+        "document_types": [
+          "faq",
+          "runbook"
+        ],
+        "eligible_approved_count": 2
+      },
+      "pending_transfer": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "reverted_card_payment?": {
+        "document_types": [
+          "escalation_guide",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      },
+      "transfer_not_received_by_recipient": {
+        "document_types": [
+          "faq",
+          "policy"
+        ],
+        "eligible_approved_count": 2
+      }
+    },
+    "result": "PASS"
+  },
+  "intent_coverage": {
+    "cash_withdrawal_not_recognised": {
+      "document_ids": [
+        "ESC_CASH_UNRECOG_001",
+        "POL_CASH_UNRECOG_001",
+        "RUN_CASH_UNRECOG_002"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "escalation_guide",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "declined_card_payment": {
+      "document_ids": [
+        "FAQ_CARD_DECLINED_001",
+        "RUN_CARD_DECLINED_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "faq",
+        "runbook"
+      ],
+      "eligible_approved_count": 2
+    },
+    "declined_cash_withdrawal": {
+      "document_ids": [
+        "ESC_CASH_DECLINED_001",
+        "POL_CASH_DECLINED_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "escalation_guide",
+        "policy"
+      ],
+      "eligible_approved_count": 2
+    },
+    "declined_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_DECLINED_001",
+        "POL_TRANSFER_DECLINED_001",
+        "RUN_TRANSFER_DECLINED_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "failed_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_FAILED_001",
+        "POL_TRANSFER_FAILED_001",
+        "RUN_TRANSFER_FAILED_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "pending_card_payment": {
+      "document_ids": [
+        "FAQ_CARD_PENDING_001",
+        "POL_CARD_PENDING_001",
+        "RUN_CARD_PENDING_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "pending_cash_withdrawal": {
+      "document_ids": [
+        "FAQ_CASH_PENDING_001",
+        "RUN_CASH_PENDING_001"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "faq",
+        "runbook"
+      ],
+      "eligible_approved_count": 2
+    },
+    "pending_transfer": {
+      "document_ids": [
+        "FAQ_TRANSFER_PENDING_001",
+        "POL_TRANSFER_PENDING_002",
+        "RUN_TRANSFER_PENDING_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "faq",
+        "policy",
+        "runbook"
+      ],
+      "eligible_approved_count": 3
+    },
+    "reverted_card_payment?": {
+      "document_ids": [
+        "ESC_CARD_REVERT_001",
+        "POL_CARD_REVERT_002"
+      ],
+      "document_type_count": 2,
+      "document_types": [
+        "escalation_guide",
+        "policy"
+      ],
+      "eligible_approved_count": 2
+    },
+    "transfer_not_received_by_recipient": {
+      "document_ids": [
+        "ESC_TRANSFER_RECIPIENT_001",
+        "FAQ_TRANSFER_RECIPIENT_002",
+        "POL_TRANSFER_RECIPIENT_001"
+      ],
+      "document_type_count": 3,
+      "document_types": [
+        "escalation_guide",
+        "faq",
+        "policy"
+      ],
+      "eligible_approved_count": 3
+    }
+  },
+  "near_duplicate": {
+    "candidates": [],
+    "manual_review_required": false,
+    "method": "normalized token-set Jaccard",
+    "threshold": 0.72
+  },
+  "summary": {
+    "complete_version_families": [
+      "FAQ_TRANSFER_RECIPIENT",
+      "POL_CARD_REVERT",
+      "POL_TRANSFER_PENDING",
+      "RUN_CASH_UNRECOG"
+    ],
+    "complete_version_family_count": 4,
+    "document_count": 36,
+    "document_type_counts": {
+      "escalation_guide": 5,
+      "faq": 10,
+      "policy": 12,
+      "runbook": 9
+    },
+    "eligible_document_count": 26,
+    "exact_or_normalized_duplicate_group_count": 0,
+    "hard_negative_relationship_count": 12,
+    "locked_intent_count": 10,
+    "near_duplicate_candidate_count": 0,
+    "status_counts": {
+      "APPROVED": 26,
+      "DRAFT": 5,
+      "EXPIRED": 5
+    }
+  },
+  "validation_result": "PASS",
+  "warnings": []
+}
+exit_code=0
+=== Gold mapping validator ===
+{
+  "counts": {
+    "case_tags_locked_answer": {
+      "hard_negative": 10,
+      "multi_document": 4,
+      "normal": 26,
+      "short_query": 3,
+      "version_sensitive": 4
+    },
+    "queries": 60,
+    "response_types": {
+      "ABSTAIN_ESCALATE": 10,
+      "ANSWER": 50
+    },
+    "splits": {
+      "development": 10,
+      "locked_test": 50
+    },
+    "valid_locked_multi_document": 4
+  },
+  "coverage": {
+    "eligible_documents": 26,
+    "eligible_documents_required": 26,
+    "ineligible_documents_required": 10,
+    "ineligible_forbidden_documents": 10
+  },
+  "dataset_name": "payresolve_gold_evidence_mapping",
+  "errors": [],
+  "hashes": {
+    "development_membership_sha256": "15ee4de30609e67d65208a2d13fffb801964bc52a46288fa2e2c3bed43cab458",
+    "locked_test_membership_sha256": "5682d314c17cae0d4c58274cc51b9e6e75dbec56d5be16e9bac712e709dc09b8",
+    "mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+    "query_dataset_sha256": "73d65c1209beac734123b9d1421f1fdefe32330712e4fe9359f26b7c620345aa",
+    "scenario_plan_sha256": "97cdf1ae69b280af14043e987452040db925c3e93acb869c1072dfb4cb32c486"
+  },
+  "valid": true,
+  "version": "gold_mapping_v1",
+  "warnings": []
+}
+exit_code=0
+=== W2 retrieval tracked verifier ===
+{
+  "answer_error_analysis_rows": 28,
+  "answer_queries": 40,
+  "checks": {
+    "accepted_locked_artifact_hashes": "PASS",
+    "answer_error_analysis": "PASS",
+    "candidate_status_from_frozen_kb": "PASS",
+    "corpus_rebuilt_from_frozen_kb": "PASS",
+    "decision_rule": "PASS",
+    "development_rankings_and_metrics": "PASS",
+    "frozen_contract": "PASS",
+    "locked_membership_rankings_and_metrics": "PASS",
+    "multi_document_diagnostics": "PASS",
+    "paired_outcomes": "PASS",
+    "safety_diagnostics": "PASS",
+    "version_manifest_hashes": "PASS"
+  },
+  "development_rankings": {
+    "rows": 50,
+    "variants_per_query": 5
+  },
+  "multi_document_query_count": 4,
+  "official_banking77_test_accessed": false,
+  "requires_local_cache_or_model": false,
+  "safety_diagnostic_rows": 10,
+  "safety_queries": 10,
+  "selected_lambda": 0.15,
+  "selected_retriever": "R0",
+  "status": "PASS",
+  "task_id": "W2-003",
+  "verification_scope": "tracked_evidence_only"
+}
+exit_code=0
+=== W3-001 tracked verifier ===
+{
+  "candidate_policies": 12,
+  "citation_contract": "PASS",
+  "contract": {
+    "official_banking77_test_accessed": false,
+    "selected_retriever": "R0",
+    "status": "PASS",
+    "w2_contract": "PASS"
+  },
+  "development_dataset": {
+    "banking77_overlap": {
+      "official_test": {
+        "contents_manually_inspected": false,
+        "exact_overlap": 0,
+        "normalized_overlap": 0
+      },
+      "train": {
+        "contents_manually_inspected": false,
+        "exact_overlap": 0,
+        "normalized_overlap": 0
+      }
+    },
+    "cases": 20,
+    "dataset_sha256": "5101f5d337ea85c9b71b284485b871ec55c4eabaae43088bd5da65bb9c8f0ebb",
+    "negative": 10,
+    "negative_case_types": {
+      "ambiguous_insufficient_context": 1,
+      "draft_only_unsupported_detail": 2,
+      "expired_only_unsupported_detail": 2,
+      "missing_knowledge": 2,
+      "out_of_scope_banking_support": 1,
+      "policy_override_injection": 2
+    },
+    "official_test_contents_manually_inspected": false,
+    "positive": 10,
+    "scenario_sha256": "9163eefdd164150d5b9df5445cddcf7809109ec0aceb7c8e15736c2dacc1b67e",
+    "status": "PASS",
+    "w2_locked_exact_text_overlap": 0,
+    "w2_locked_normalized_text_overlap": 0,
+    "w2_locked_query_id_overlap": 0
+  },
+  "development_metrics": {
+    "answer_count": 0,
+    "cases": 20,
+    "citation_correctness_on_answered": null,
+    "citation_correctness_status": "NOT_APPLICABLE_NO_ANSWERS",
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 0,
+    "positive_grounded_resolution_recall": 0.0,
+    "positive_relevant_answer_count": 0,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 2,
+      "LOW_QUERY_EVIDENCE_COVERAGE": 15,
+      "LOW_RETRIEVAL_SUPPORT": 1,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 20
+    },
+    "safe_resolution_accuracy": 0.5,
+    "total_claim_count": 0,
+    "unnecessary_abstention_count": 10,
+    "unnecessary_abstention_rate": 1.0,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": null,
+    "unsupported_claim_status": "NOT_APPLICABLE_NO_CLAIMS",
+    "verified_answer_count": 0
+  },
+  "lifecycle_status": "PARTIAL_UTILITY_NOT_DEMONSTRATED",
+  "primary_reproduction_identical": true,
+  "requires_model_cache_or_network": false,
+  "selected_policy": {
+    "ambiguity_score_gap": 0.03,
+    "min_top1_score": 0.4,
+    "min_weighted_query_coverage": 0.45
+  },
+  "selected_retriever": "R0",
+  "status": "PASS",
+  "task_id": "W3-001",
+  "unsupported_claim_count": 0,
+  "verification_scope": "tracked_evidence_only",
+  "w3_002_started": false,
+  "week3_critical_set_created": false
+}
+exit_code=0
+=== W3-001-CR1 tracked verifier ===
+{
+  "adjudicated_verdict": "PASS",
+  "adjudication_manifest": {
+    "adjudicated_mapping_sha256": "029a06087b4a7f15f13c61c7a0bb2cf9c76f740448f9715bdd47e6dfc9a7fcf3",
+    "adjudicated_verdict": "PASS",
+    "adjudication_config_sha256": "218f066575f6946e7fb0b7a7c5bc3268ddca6367aebd50a5a50e50e0829f8c21",
+    "application_stage": "POST_HOLDOUT_RELEVANCE_METRICS_ONLY",
+    "artifact_sha256": {
+      "adjudicated_comparison": "c4b93ee22b458c3e5a522e4a80210fda0709f25f5babcf98438208669d0ba870",
+      "adjudicated_metrics": "39400f35fd083c1d1f09544939b93ded5be7a6db9546f7ac984ab0849d2b7ea1",
+      "original_metrics": "f0706503a6d3019680a9bd45bedf306ba8791fcacb6920f4eb178def96d594c2"
+    },
+    "audit_defect_rows": 3,
+    "audit_rows": 10,
+    "created_at": "2026-07-30T03:02:21.600379+00:00",
+    "encoder_retrieval_generation_rerun": false,
+    "limitation": "The holdout remains a post-hoc adjudicated evaluation rather than a pristine untouched-label evaluation.",
+    "mapping_audit_sha256": "4c90728a06652918ae64d8919aa4fa2cd6d17bf4f94ebb9e881acd172bee3cdd",
+    "original_mapping_sha256": "42ae758031d1fb682f4fb20da0060a92e5a69905830a5be1a4b578beb7d5f178",
+    "original_output_sha256": "06fe9075650f463b9e9c019c4fef73ce3f1e91fc94e7c430dc69819b702c37fe",
+    "original_outputs_immutable": true,
+    "original_verdict": "FAILED",
+    "overlay_rows": 3,
+    "overlay_sha256": "dd45753d9a0a39023a6b915c097ff4e5601927771f42834593e4094e8460d14c",
+    "reproduction_output_sha256": "06fe9075650f463b9e9c019c4fef73ce3f1e91fc94e7c430dc69819b702c37fe",
+    "status": "PASS_AWAITING_FINAL_RE_REVIEW",
+    "task_id": "W3-001-CR1",
+    "w3_002_state": "BLOCKED PENDING FINAL SENIOR RE-REVIEW"
+  },
+  "candidate_count": 9,
+  "contract": {
+    "gate_v1_preserved": true,
+    "official_banking77_test_accessed": false,
+    "selected_retriever": "R0",
+    "status": "PASS",
+    "task_id": "W3-001-CR1"
+  },
+  "design_metrics": {
+    "answer_count": 3,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 1,
+      "EXACT_AMOUNT_OR_THRESHOLD": 1,
+      "NEXT_ACTION": 7,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 7,
+      "STATE_OR_MEANING": 1,
+      "TIMING_WINDOW": 1,
+      "UNKNOWN": 1
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 2,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 3,
+    "positive_grounded_resolution_recall": 0.3,
+    "positive_relevant_answer_count": 3,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 2,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 6,
+      "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+      "SUFFICIENT_APPROVED_EVIDENCE": 3,
+      "UNSUPPORTED_REQUESTED_DETAIL": 6,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 17,
+      "ANSWER": 3
+    },
+    "safe_resolution_accuracy": 0.65,
+    "specificity_guard_trigger_count": 8,
+    "total_claim_count": 9,
+    "unnecessary_abstention_count": 7,
+    "unnecessary_abstention_rate": 0.7,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 3
+  },
+  "encoder_retrieval_generation_rerun": false,
+  "gate_v1_holdout_metrics": {
+    "answer_count": 1,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "UNKNOWN": 20
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 1,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 1,
+    "positive_grounded_resolution_recall": 0.1,
+    "positive_relevant_answer_count": 1,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_QUERY_EVIDENCE_COVERAGE": 12,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 1,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 19,
+      "ANSWER": 1
+    },
+    "safe_resolution_accuracy": 0.55,
+    "specificity_guard_trigger_count": 0,
+    "total_claim_count": 3,
+    "unnecessary_abstention_count": 9,
+    "unnecessary_abstention_rate": 0.9,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 1
+  },
+  "gate_v2_adjudicated_holdout_metrics": {
+    "answer_count": 7,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 2,
+      "ELIGIBILITY": 1,
+      "ESCALATION_OR_SECURITY": 2,
+      "EXACT_AMOUNT_OR_THRESHOLD": 2,
+      "NEXT_ACTION": 2,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 4,
+      "TIMING_WINDOW": 6
+    },
+    "draft_citation_count": 0,
+    "draft_expired_citation_count": 0,
+    "expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "card_payment",
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 3,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 7,
+    "positive_grounded_resolution_recall": 0.7,
+    "positive_relevant_answer_count": 7,
+    "positive_wrong_evidence_answer_count": 0,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 7,
+      "UNSUPPORTED_REQUESTED_DETAIL": 4,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 13,
+      "ANSWER": 7
+    },
+    "safe_resolution_accuracy": 0.85,
+    "specificity_guard_trigger_count": 6,
+    "total_claim_count": 21,
+    "unnecessary_abstention_count": 3,
+    "unnecessary_abstention_rate": 0.3,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 7
+  },
+  "gate_v2_original_holdout_metrics": {
+    "answer_count": 7,
+    "cases": 20,
+    "citation_correctness_on_answered": 1.0,
+    "citation_correctness_status": "APPLICABLE",
+    "citation_metadata_failure_count": 0,
+    "dimension_counts": {
+      "CHECKS": 2,
+      "ELIGIBILITY": 1,
+      "ESCALATION_OR_SECURITY": 2,
+      "EXACT_AMOUNT_OR_THRESHOLD": 2,
+      "NEXT_ACTION": 2,
+      "RETRY": 1,
+      "SPECIFIC_INTERNAL_DETAIL": 4,
+      "TIMING_WINDOW": 6
+    },
+    "draft_expired_citation_count": 0,
+    "intent_families_with_positive_resolution": [
+      "card_payment",
+      "cash_withdrawal",
+      "transfer"
+    ],
+    "intent_family_positive_coverage": 3,
+    "negative_abstention_accuracy": 1.0,
+    "positive_answer_count": 7,
+    "positive_grounded_resolution_recall": 0.6,
+    "positive_relevant_answer_count": 6,
+    "positive_wrong_evidence_answer_count": 1,
+    "reason_code_counts": {
+      "AMBIGUOUS_EVIDENCE": 3,
+      "LOW_CANONICAL_SENTENCE_SUPPORT": 2,
+      "LOW_RETRIEVAL_SUPPORT": 2,
+      "SUFFICIENT_APPROVED_EVIDENCE": 7,
+      "UNSUPPORTED_REQUESTED_DETAIL": 4,
+      "UNTRUSTED_OVERRIDE_REQUEST": 2
+    },
+    "response_counts": {
+      "ABSTAIN_ESCALATE": 13,
+      "ANSWER": 7
+    },
+    "safe_resolution_accuracy": 0.8,
+    "specificity_guard_trigger_count": 6,
+    "total_claim_count": 21,
+    "unnecessary_abstention_count": 4,
+    "unnecessary_abstention_rate": 0.4,
+    "unsafe_answer_count": 0,
+    "unsafe_answer_rate": 0.0,
+    "unsupported_claim_count": 0,
+    "unsupported_claim_rate_on_claims": 0.0,
+    "unsupported_claim_status": "APPLICABLE",
+    "verified_answer_count": 7
+  },
+  "holdout_validation": {
+    "abstain_escalate": 10,
+    "answer": 10,
+    "banking77_overlap": {
+      "official_test": {
+        "contents_manually_inspected": false,
+        "exact_overlap": 0,
+        "normalized_overlap": 0
+      },
+      "train": {
+        "contents_manually_inspected": false,
+        "exact_overlap": 0,
+        "normalized_overlap": 0
+      }
+    },
+    "cases": 20,
+    "correction_ledger_entries": 4,
+    "dataset_name": "evidence_gate_v2_holdout_v1",
+    "exact_overlap": 0,
+    "hashes": {
+      "correction_ledger_raw_sha256": "2aaec1d0500b46b0b7e5be24596c84d335e2aa3e6ab437438362febf7b7ebbcd",
+      "dataset_canonical_sha256": "0e760418e269a0e4354091932226bfe5238cafa4dc23da62ca202e8911716cb1",
+      "dataset_raw_sha256": "6ea54ec1dd79987dcee329a200d6258629050944eabc238d8527581a2b968af8",
+      "mapping_sha256": "42ae758031d1fb682f4fb20da0060a92e5a69905830a5be1a4b578beb7d5f178",
+      "membership_sha256": "1b7c149a9c0f1eb4cbe524ef820e5cc4985d9c6cc5e6e7604463f41a5147ee2f",
+      "scenario_raw_sha256": "312bd916bfef34a85e0463019cf745edfba08a00e213ea80597a7d4ff2a18108"
+    },
+    "holdout_evaluated": false,
+    "near_duplicate_candidates": 0,
+    "negative_case_types": {
+      "ambiguous_insufficient_context": 1,
+      "draft_expired_only_workflow": 2,
+      "out_of_scope_banking_query": 1,
+      "policy_override_injection": 2,
+      "unsupported_exact_amount_threshold": 2,
+      "unsupported_internal_identifier": 2
+    },
+    "normalized_overlap": 0,
+    "official_test_contents_manually_inspected": false,
+    "positive_intents": 10,
+    "status": "PASS"
+  },
+  "original_verdict": "FAILED",
+  "primary_reproduction_identical": true,
+  "requires_model_cache_or_network": false,
+  "selected_policy": {
+    "ambiguity_score_gap": 0.03,
+    "min_best_sentence_support_coverage": 0.2,
+    "min_top1_score": 0.4
+  },
+  "status": "PASS",
+  "task_id": "W3-001-CR1",
+  "verification_scope": "tracked_frozen_outputs_plus_post_hoc_relevance_adjudication",
+  "w3_002_state": "BLOCKED PENDING FINAL SENIOR RE-REVIEW",
+  "week4_started": false
+}
+exit_code=0
+=== W3-002 tracked verifier ===
+{
+  "api_key_required": false,
+  "network_required": false,
+  "pre_evaluation": {
+    "critical_evaluated": true,
+    "hashes": {
+      "correction_ledger_sha256": "6878f18358d43df5e2802ae1adb41943a8e5b422e9b8a7d19f364153cd5faca1",
+      "critical_config_sha256": "9a219e530f5060709a274a8fed3097bb9dceadc6aacf515ec056197d966d1385",
+      "dataset_canonical_sha256": "aa169c4e60d10defb70a88ab7b03c79306c2e37e109c6c78e9505acfd832b800",
+      "dataset_raw_sha256": "4d99a272dcb3a8fa0c6d860c0fd244dbaf35a9c190d7d194466f1f3d38c1f54d",
+      "mapping_sha256": "3689dc801c4deb20ecdb93c4a4da0a5f3c871f83c196ecb215aa89d8f5fa0205",
+      "mapping_summary_sha256": "5c3ea3bef027021e99f3e811fd0b9ac6f61ddd90cfef0eecb09d56b88a212171",
+      "membership_sha256": "d52e3f35fbe0287c2045a26e57db05a784e247fd72fb14304b2c3b7915ada4cb",
+      "negative_audit_sha256": "960221d5e0851728d923b3f431bccf53ba179ee3620fe12a3a3c56501cd59d32",
+      "overlap_audit_sha256": "1b7e35c38077c92e4b713c278370b6004d0f39731bb7e7304647839f03f3db62",
+      "positive_audit_sha256": "49ad15a1e50389421bc5c58252209617128bd5cc9f935368c5a3d6cbb1d8501f",
+      "scenario_canonical_sha256": "a4fdacf6fabf4181723357c6d4c1793f74ba8aa9583f7d01600d6dc7490251e4",
+      "scenario_raw_sha256": "9e0249a9fd6e2c1bf6d28013189228a5809d6c8bbbfa366e4747918632b8e370",
+      "variant_config_sha256": "6f4f5f33a06d5ea748f5afde482047135c0efd5f7ba381ff3274ec7c7c8bd78d"
+    },
+    "mapping_audit_passed": true,
+    "status": "PASS",
+    "unresolved_mapping_omissions": 0
+  },
+  "primary_reproduction_identical": true,
+  "runtime_cache_required": false,
+  "status": "PASS",
+  "task_verdict": "FAILED",
+  "tracked_verification": true
+}
+exit_code=0
+=== W3-002 focused tests ===
+python.exe : test_all_20_negatives_have_52_section_sufficiency_audit (test_critical_safety_evaluation.CriticalSafetyEva
+luationTests.test_all_20_negatives_have_52_section_sufficiency_audit) ... ok
+At line:2 char:1630
++ ... ed tests' { & $py -m unittest discover -s "$root\tests" -p 'test_crit ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_all_20_neg...y_audit) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_all_40_positives_have_52_section_audit 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_all_40_positives_have_52_section_audit) ... ok
+test_always_answer_bypasses_sufficiency_gate 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_bypasses_sufficiency_gate) ... ok
+test_always_answer_cannot_be_selected 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_cannot_be_selected) ... ok
+test_always_answer_keeps_approved_filter 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_keeps_approved_filter) ... ok
+test_always_answer_keeps_citation_verifier 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_keeps_citation_verifier) ... ok
+test_any_unsafe_answer_fails_week3_gate 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_any_unsafe_answer_fails_week3_gate) ... ok
+test_citation_metric_uses_answer_denominator 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_citation_metric_uses_answer_denominator) ... ok
+test_claim_metric_uses_claim_denominator 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_claim_metric_uses_claim_denominator) ... ok
+test_critical_normalized_texts_are_unique 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_normalized_texts_are_unique) ... ok
+test_critical_query_ids_are_unique 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_query_ids_are_unique) ... ok
+test_critical_set_has_40_answer_and_20_abstain 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_set_has_40_answer_and_20_abstain) ... ok
+test_critical_set_has_exact_60_queries 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_set_has_exact_60_queries) ... ok
+test_every_intent_has_exact_four_positive_queries 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_every_intent_has_exact_four_positive_queries) ... 
+ok
+test_exact_three_variants (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_exact_three_variants) 
+... ok
+test_exact_tie_prefers_r0 (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_exact_tie_prefers_r0) 
+... ok
+test_false_no_answer_label_blocks_evaluation 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_false_no_answer_label_blocks_evaluation) ... ok
+test_family_slice_metrics_recompute 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_family_slice_metrics_recompute) ... ok
+test_full_requirements_pass_week3_gate 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_full_requirements_pass_week3_gate) ... ok
+test_metric_tampering_is_detected 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_metric_tampering_is_detected) ... ok
+test_multi_document_requires_all_strict_gold 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_multi_document_requires_all_strict_gold) ... ok
+test_negative_answer_is_unsafe 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_negative_answer_is_unsafe) ... ok
+test_negative_case_distribution_is_exact 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_negative_case_distribution_is_exact) ... ok
+test_output_tampering_is_detected 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_output_tampering_is_detected) ... ok
+test_positive_wrong_evidence_is_wrong_answer 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_positive_wrong_evidence_is_wrong_answer) ... ok
+test_post_eval_mapping_change_invalidates_critical_set 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_post_eval_mapping_change_invalidates_critical_set) 
+... ok
+test_pre_eval_manifest_requires_mapping_audit_pass 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_pre_eval_manifest_requires_mapping_audit_pass) ... 
+ok
+test_primary_and_rerun_match_all_three_variants 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_primary_and_rerun_match_all_three_variants) ... ok
+test_prior_eval_overlap_is_zero 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_prior_eval_overlap_is_zero) ... ok
+test_r0_and_r1_differ_only_in_retrieval_scores 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r0_and_r1_differ_only_in_retrieval_scores) ... ok
+test_r0_gated_uses_frozen_gate_v2 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r0_gated_uses_frozen_gate_v2) ... ok
+test_r1_gated_uses_lambda_015 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r1_gated_uses_lambda_015) ... ok
+test_r1_safety_regression_retains_r0 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r1_safety_regression_retains_r0) ... ok
+test_safe_resolution_partition_totals_60 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_safe_resolution_partition_totals_60) ... ok
+test_tracked_verify_requires_no_runtime_cache 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_tracked_verify_requires_no_runtime_cache) ... ok
+test_unresolved_positive_omission_blocks_evaluation 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_unresolved_positive_omission_blocks_evaluation) 
+... ok
+test_zero_safety_but_low_utility_is_partial 
+(test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_zero_safety_but_low_utility_is_partial) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.034s
+
+OK
+exit_code=0
+=== Controlled full suite excluding preserved conflicting ignored directory ===
+python.exe : test_mutable_branch_is_rejected 
+(tests.test_banking77.Banking77ConfigTests.test_mutable_branch_is_rejected) ... ok
+At line:2 char:1943
++ ... irectory' { & $py -c "import os,sys,unittest; os.chdir(r'E:\merged_pa ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_mutable_br...ejected) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_invalid_label_prevents_locking (tests.test_banking77.Banking77SplitTests.test_invalid_label_prevents_locking) ... 
+ok
+test_label_mapping_and_duplicate_audit_are_consistent 
+(tests.test_banking77.Banking77SplitTests.test_label_mapping_and_duplicate_audit_are_consistent) ... ok
+test_normalized_cross_split_overlap_is_evidenced_without_removal 
+(tests.test_banking77.Banking77SplitTests.test_normalized_cross_split_overlap_is_evidenced_without_removal) ... ok
+test_split_is_deterministic_stratified_and_disjoint 
+(tests.test_banking77.Banking77SplitTests.test_split_is_deterministic_stratified_and_disjoint) ... ok
+test_locked_manifest_declares_77_labels_and_frozen_test 
+(tests.test_banking77.LockedRepositoryArtifactTests.test_locked_manifest_declares_77_labels_and_frozen_test) ... ok
+test_all_20_negatives_have_52_section_sufficiency_audit (tests.test_critical_safety_evaluation.CriticalSafetyEvaluation
+Tests.test_all_20_negatives_have_52_section_sufficiency_audit) ... ok
+test_all_40_positives_have_52_section_audit 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_all_40_positives_have_52_section_audit) ... 
+ok
+test_always_answer_bypasses_sufficiency_gate 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_bypasses_sufficiency_gate) ... 
+ok
+test_always_answer_cannot_be_selected 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_cannot_be_selected) ... ok
+test_always_answer_keeps_approved_filter 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_keeps_approved_filter) ... ok
+test_always_answer_keeps_citation_verifier 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_keeps_citation_verifier) ... ok
+test_any_unsafe_answer_fails_week3_gate 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_any_unsafe_answer_fails_week3_gate) ... ok
+test_citation_metric_uses_answer_denominator 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_citation_metric_uses_answer_denominator) ... 
+ok
+test_claim_metric_uses_claim_denominator 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_claim_metric_uses_claim_denominator) ... ok
+test_critical_normalized_texts_are_unique 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_normalized_texts_are_unique) ... ok
+test_critical_query_ids_are_unique 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_query_ids_are_unique) ... ok
+test_critical_set_has_40_answer_and_20_abstain 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_set_has_40_answer_and_20_abstain) 
+... ok
+test_critical_set_has_exact_60_queries 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_set_has_exact_60_queries) ... ok
+test_every_intent_has_exact_four_positive_queries (tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.
+test_every_intent_has_exact_four_positive_queries) ... ok
+test_exact_three_variants 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_exact_three_variants) ... ok
+test_exact_tie_prefers_r0 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_exact_tie_prefers_r0) ... ok
+test_false_no_answer_label_blocks_evaluation 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_false_no_answer_label_blocks_evaluation) ... 
+ok
+test_family_slice_metrics_recompute 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_family_slice_metrics_recompute) ... ok
+test_full_requirements_pass_week3_gate 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_full_requirements_pass_week3_gate) ... ok
+test_metric_tampering_is_detected 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_metric_tampering_is_detected) ... ok
+test_multi_document_requires_all_strict_gold 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_multi_document_requires_all_strict_gold) ... 
+ok
+test_negative_answer_is_unsafe 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_negative_answer_is_unsafe) ... ok
+test_negative_case_distribution_is_exact 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_negative_case_distribution_is_exact) ... ok
+test_output_tampering_is_detected 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_output_tampering_is_detected) ... ok
+test_positive_wrong_evidence_is_wrong_answer 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_positive_wrong_evidence_is_wrong_answer) ... 
+ok
+test_post_eval_mapping_change_invalidates_critical_set (tests.test_critical_safety_evaluation.CriticalSafetyEvaluationT
+ests.test_post_eval_mapping_change_invalidates_critical_set) ... ok
+test_pre_eval_manifest_requires_mapping_audit_pass (tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests
+.test_pre_eval_manifest_requires_mapping_audit_pass) ... ok
+test_primary_and_rerun_match_all_three_variants 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_primary_and_rerun_match_all_three_variants) 
+... ok
+test_prior_eval_overlap_is_zero 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_prior_eval_overlap_is_zero) ... ok
+test_r0_and_r1_differ_only_in_retrieval_scores 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r0_and_r1_differ_only_in_retrieval_scores) 
+... ok
+test_r0_gated_uses_frozen_gate_v2 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r0_gated_uses_frozen_gate_v2) ... ok
+test_r1_gated_uses_lambda_015 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r1_gated_uses_lambda_015) ... ok
+test_r1_safety_regression_retains_r0 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r1_safety_regression_retains_r0) ... ok
+test_safe_resolution_partition_totals_60 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_safe_resolution_partition_totals_60) ... ok
+test_tracked_verify_requires_no_runtime_cache 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_tracked_verify_requires_no_runtime_cache) 
+... ok
+test_unresolved_positive_omission_blocks_evaluation (tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTest
+s.test_unresolved_positive_omission_blocks_evaluation) ... ok
+test_zero_safety_but_low_utility_is_partial 
+(tests.test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_zero_safety_but_low_utility_is_partial) ... 
+ok
+test_action_dimension (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_action_dimension) ... ok
+test_adjudicated_metrics_recompute_to_pass 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_adjudicated_metrics_recompute_to_pass) ... ok
+test_all_three_families_required (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_all_three_families_required) ... 
+ok
+test_best_sentence_support_uses_top3_only 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_best_sentence_support_uses_top3_only) ... ok
+test_canonical_paraphrase_improves_support 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_canonical_paraphrase_improves_support) ... ok
+test_cash_unrecognized_safe_handoff_is_acceptable_security_support 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_cash_unrecognized_safe_handoff_is_acceptable_security_support) 
+... ok
+test_checks_dimension (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_checks_dimension) ... ok
+test_dimension_mismatch_has_zero_support 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_dimension_mismatch_has_zero_support) ... ok
+test_dimension_precedence_is_deterministic 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_dimension_precedence_is_deterministic) ... ok
+test_dimension_rule_drift_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_dimension_rule_drift_is_rejected) ... ok
+test_frozen_holdout_validator_passes 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_frozen_holdout_validator_passes) ... ok
+test_gate_v1_output_tamper_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_gate_v1_output_tamper_is_rejected) ... ok
+test_gate_v2_output_tamper_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_gate_v2_output_tamper_is_rejected) ... ok
+test_generic_word_code_does_not_always_abstain 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_generic_word_code_does_not_always_abstain) ... ok
+test_holdout_cannot_enter_selection 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_holdout_cannot_enter_selection) ... ok
+test_holdout_membership_contamination_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_holdout_membership_contamination_is_rejected) ... ok
+test_holdout_primary_and_rerun_match 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_holdout_primary_and_rerun_match) ... ok
+test_holdout_requires_preselection_manifest 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_holdout_requires_preselection_manifest) ... ok
+test_holdout_runtime_adds_split_without_mutating_frozen_data 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_holdout_runtime_adds_split_without_mutating_frozen_data) ... ok
+test_holdout_selection_contamination_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_holdout_selection_contamination_is_rejected) ... ok
+test_holdout_terms_do_not_mutate_frozen_lexicon 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_holdout_terms_do_not_mutate_frozen_lexicon) ... ok
+test_lexicon_drift_is_rejected (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_lexicon_drift_is_rejected) ... ok
+test_longest_phrase_match_is_deterministic 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_longest_phrase_match_is_deterministic) ... ok
+test_mapping_audit_has_exact_ten_positive_rows 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_mapping_audit_has_exact_ten_positive_rows) ... ok
+test_mapping_audit_has_exact_three_omissions 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_mapping_audit_has_exact_three_omissions) ... ok
+test_mapping_audit_incomplete_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_mapping_audit_incomplete_is_rejected) ... ok
+test_meaning_dimension (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_meaning_dimension) ... ok
+test_missing_specificity_slot_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_missing_specificity_slot_is_rejected) ... ok
+test_no_encoder_retrieval_or_generation_rerun_is_required 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_no_encoder_retrieval_or_generation_rerun_is_required) ... ok
+test_no_safe_candidate_returns_failed 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_no_safe_candidate_returns_failed) ... ok
+test_original_holdout_dataset_remains_byte_identical 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_original_holdout_dataset_remains_byte_identical) ... ok
+test_original_metrics_remain_failed 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_original_metrics_remain_failed) ... ok
+test_overlay_can_only_add_acceptable_evidence 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_can_only_add_acceptable_evidence) ... ok
+test_overlay_cannot_change_gold (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_cannot_change_gold) ... ok
+test_overlay_cannot_change_query_metadata 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_cannot_change_query_metadata) ... ok
+test_overlay_has_exact_three_rows (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_has_exact_three_rows) 
+... ok
+test_overlay_quote_must_match_source 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_quote_must_match_source) ... ok
+test_overlay_rejects_draft_or_expired_evidence 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_rejects_draft_or_expired_evidence) ... ok
+test_overlay_rejects_non_audited_evidence 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_rejects_non_audited_evidence) ... ok
+test_overlay_row_count_tamper_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_overlay_row_count_tamper_is_rejected) ... ok
+test_pending_transfer_action_is_direct_timing_support 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_pending_transfer_action_is_direct_timing_support) ... ok
+test_positive_recall_below_half_is_partial 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_positive_recall_below_half_is_partial) ... ok
+test_processing_normalizes_to_pending 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_processing_normalizes_to_pending) ... ok
+test_recipient_escalation_trigger_is_acceptable_timing_support 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_recipient_escalation_trigger_is_acceptable_timing_support) ... ok
+test_recipient_no_credit_normalizes_correctly 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_recipient_no_credit_normalizes_correctly) ... ok
+test_refused_normalizes_to_declined 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_refused_normalizes_to_declined) ... ok
+test_retry_dimension (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_retry_dimension) ... ok
+test_selection_obeys_frozen_tie_break 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_selection_obeys_frozen_tie_break) ... ok
+test_selection_uses_design_set_only 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_selection_uses_design_set_only) ... ok
+test_specific_internal_detail_dimension 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_specific_internal_detail_dimension) ... ok
+test_successful_recovery_passes (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_successful_recovery_passes) ... ok
+test_support_score_is_deterministic 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_support_score_is_deterministic) ... ok
+test_supported_specific_detail_can_pass 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_supported_specific_detail_can_pass) ... ok
+test_threshold_drift_is_rejected (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_threshold_drift_is_rejected) ... 
+ok
+test_timing_dimension (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_timing_dimension) ... ok
+test_two_non_metric_affecting_omissions_do_not_change_outputs 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_two_non_metric_affecting_omissions_do_not_change_outputs) ... ok
+test_undone_normalizes_to_reverted (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_undone_normalizes_to_reverted) 
+... ok
+test_unknown_dimension_abstains (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_unknown_dimension_abstains) ... ok
+test_unsafe_answer_fails_cr1 (tests.test_evidence_gate_v2.EvidenceGateV2Test.test_unsafe_answer_fails_cr1) ... ok
+test_unsafe_answer_hidden_in_metrics_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_unsafe_answer_hidden_in_metrics_is_rejected) ... ok
+test_unsupported_exact_amount_abstains 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_unsupported_exact_amount_abstains) ... ok
+test_unsupported_queue_code_abstains 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_unsupported_queue_code_abstains) ... ok
+test_v2_grid_has_exact_nine_candidates 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_v2_grid_has_exact_nine_candidates) ... ok
+test_wrong_evidence_answer_fails_cr1 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_wrong_evidence_answer_fails_cr1) ... ok
+test_wrong_evidence_positive_hidden_in_metrics_is_rejected 
+(tests.test_evidence_gate_v2.EvidenceGateV2Test.test_wrong_evidence_positive_hidden_in_metrics_is_rejected) ... ok
+test_answer_query_without_gold_evidence_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_answer_query_without_gold_evidence_fails) ... ok
+test_canonical_slug_mismatch_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_canonical_slug_mismatch_fails) ... ok
+test_dataset_hash_is_deterministic 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_dataset_hash_is_deterministic) ... ok
+test_duplicate_query_id_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_duplicate_query_id_fails) ... ok
+test_duplicate_scenario_id_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_duplicate_scenario_id_fails) ... ok
+test_empty_query_text_fails (tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_empty_query_text_fails) 
+... ok
+test_forbidden_evidence_overlapping_gold_evidence_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_forbidden_evidence_overlapping_gold_evidence_fails) 
+... ok
+test_gold_evidence_referencing_draft_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_gold_evidence_referencing_draft_fails) ... ok
+test_gold_evidence_referencing_expired_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_gold_evidence_referencing_expired_fails) ... ok
+test_gold_evidence_referencing_missing_section_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_gold_evidence_referencing_missing_section_fails) ... ok
+test_hard_negative_cannot_support_gold_intent 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_hard_negative_cannot_support_gold_intent) ... ok
+test_hard_negative_must_support_confusing_intent 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_hard_negative_must_support_confusing_intent) ... ok
+test_hard_negative_overlapping_gold_evidence_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_hard_negative_overlapping_gold_evidence_fails) ... ok
+test_insufficient_per_intent_coverage_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_insufficient_per_intent_coverage_fails) ... ok
+test_invalid_multi_document_mapping_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_invalid_multi_document_mapping_fails) ... ok
+test_invalid_query_id_fails (tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_invalid_query_id_fails) 
+... ok
+test_invalid_review_status_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_invalid_review_status_fails) ... ok
+test_invalid_scenario_count_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_invalid_scenario_count_fails) ... ok
+test_invalid_scenario_field_type_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_invalid_scenario_field_type_fails) ... ok
+test_invalid_split_count_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_invalid_split_count_fails) ... ok
+test_invalid_target_forbidden_document_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_invalid_target_forbidden_document_fails) ... ok
+test_kb_canonical_hash_mismatch_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_kb_canonical_hash_mismatch_fails) ... ok
+test_mapping_hash_changes_for_mapping_change 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_mapping_hash_changes_for_mapping_change) ... ok
+test_membership_hash_ignores_mapping_fields 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_membership_hash_ignores_mapping_fields) ... ok
+test_missing_confusing_intent_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_missing_confusing_intent_fails) ... ok
+test_missing_eligible_document_coverage_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_missing_eligible_document_coverage_fails) ... ok
+test_missing_ineligible_forbidden_coverage_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_missing_ineligible_forbidden_coverage_fails) ... ok
+test_missing_scenario_required_field_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_missing_scenario_required_field_fails) ... ok
+test_non_empty_rationale_is_required 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_non_empty_rationale_is_required) ... ok
+test_non_string_evidence_id_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_non_string_evidence_id_fails) ... ok
+test_normalized_duplicate_query_text_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_normalized_duplicate_query_text_fails) ... ok
+test_normalizer_ignores_case_and_punctuation 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_normalizer_ignores_case_and_punctuation) ... ok
+test_numeric_mapping_rationale_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_numeric_mapping_rationale_fails) ... ok
+test_numeric_review_notes_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_numeric_review_notes_fails) ... ok
+test_reverted_card_payment_round_trips_correctly 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_reverted_card_payment_round_trips_correctly) ... ok
+test_safety_query_with_gold_evidence_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_safety_query_with_gold_evidence_fails) ... ok
+test_scenario_confusing_intent_contract_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_scenario_confusing_intent_contract_fails) ... ok
+test_scenario_hash_mismatch_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_scenario_hash_mismatch_fails) ... ok
+test_scenario_plan_hash_is_deterministic 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_scenario_plan_hash_is_deterministic) ... ok
+test_scenario_query_drift_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_scenario_query_drift_fails) ... ok
+test_unknown_gold_intent_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_unknown_gold_intent_fails) ... ok
+test_valid_full_gold_mapping_passes 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_valid_full_gold_mapping_passes) ... ok
+test_wrong_intent_family_mapping_fails 
+(tests.test_gold_evidence_mapping.GoldEvidenceMappingTests.test_wrong_intent_family_mapping_fails) ... ok
+test_abstain_contains_no_factual_claims 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_abstain_contains_no_factual_claims) ... ok
+test_all_abstain_has_null_citation_correctness 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_all_abstain_has_null_citation_correctness) ... ok
+test_all_abstain_has_null_unsupported_claim_rate 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_all_abstain_has_null_unsupported_claim_rate) ... ok
+test_always_answer_bypasses_only_sufficiency_gate 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_always_answer_bypasses_only_sufficiency_gate) ... ok
+test_always_answer_still_rejects_forbidden_status 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_always_answer_still_rejects_forbidden_status) ... ok
+test_candidate_outcome_count_is_recomputed 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_candidate_outcome_count_is_recomputed) ... ok
+test_citation_document_metadata_mismatch_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_document_metadata_mismatch_fails) ... ok
+test_citation_document_type_metadata_mismatch_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_document_type_metadata_mismatch_fails) ... ok
+test_citation_must_reference_selected_evidence 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_must_reference_selected_evidence) ... ok
+test_citation_section_metadata_mismatch_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_section_metadata_mismatch_fails) ... ok
+test_citation_status_metadata_mismatch_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_status_metadata_mismatch_fails) ... ok
+test_citation_title_metadata_mismatch_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_title_metadata_mismatch_fails) ... ok
+test_citation_to_draft_fails (tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_to_draft_fails) ... ok
+test_citation_to_expired_fails (tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_to_expired_fails) ... 
+ok
+test_citation_version_metadata_mismatch_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_citation_version_metadata_mismatch_fails) ... ok
+test_claim_evidence_quote_alias_lengths_must_match 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_claim_evidence_quote_alias_lengths_must_match) ... ok
+test_default_mode_is_evidence_gated 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_default_mode_is_evidence_gated) ... ok
+test_disjoint_intents_with_small_margin_abstain 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_disjoint_intents_with_small_margin_abstain) ... ok
+test_draft_chunk_never_enters_context 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_draft_chunk_never_enters_context) ... ok
+test_duplicate_citation_alias_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_duplicate_citation_alias_fails) ... ok
+test_duplicate_claim_id_fails (tests.test_grounded_pipeline.GroundedPipelineTest.test_duplicate_claim_id_fails) ... ok
+test_expired_chunk_never_enters_context 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_expired_chunk_never_enters_context) ... ok
+test_extractive_claim_is_exact_evidence_quote 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_extractive_claim_is_exact_evidence_quote) ... ok
+test_extractive_generator_uses_configured_weights 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_extractive_generator_uses_configured_weights) ... ok
+test_future_effective_chunk_never_enters_context 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_future_effective_chunk_never_enters_context) ... ok
+test_gate_dev_contains_only_w2_development_positive_ids 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_gate_dev_contains_only_w2_development_positive_ids) ... ok
+test_gate_dev_has_10_answer_and_10_abstain 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_gate_dev_has_10_answer_and_10_abstain) ... ok
+test_gate_dev_has_exact_20_cases (tests.test_grounded_pipeline.GroundedPipelineTest.test_gate_dev_has_exact_20_cases) 
+... ok
+test_gate_dev_normalized_texts_are_unique 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_gate_dev_normalized_texts_are_unique) ... ok
+test_gate_dev_overlap_audit_is_zero 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_gate_dev_overlap_audit_is_zero) ... ok
+test_gate_dev_query_ids_are_unique 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_gate_dev_query_ids_are_unique) ... ok
+test_gate_grid_is_frozen (tests.test_grounded_pipeline.GroundedPipelineTest.test_gate_grid_is_frozen) ... ok
+test_generator_exception_fails_closed 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_generator_exception_fails_closed) ... ok
+test_generator_is_deterministic (tests.test_grounded_pipeline.GroundedPipelineTest.test_generator_is_deterministic) 
+... ok
+test_generator_weight_config_drift_is_detected 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_generator_weight_config_drift_is_detected) ... ok
+test_invalid_answer_renders_abstain 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_invalid_answer_renders_abstain) ... ok
+test_invalid_extractive_weight_sum_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_invalid_extractive_weight_sum_fails) ... ok
+test_locked_query_id_cannot_enter_gate_selection 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_locked_query_id_cannot_enter_gate_selection) ... ok
+test_low_top1_score_abstains (tests.test_grounded_pipeline.GroundedPipelineTest.test_low_top1_score_abstains) ... ok
+test_low_weighted_coverage_abstains 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_low_weighted_coverage_abstains) ... ok
+test_max_three_claims (tests.test_grounded_pipeline.GroundedPipelineTest.test_max_three_claims) ... ok
+test_metric_tampering_is_detected 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_metric_tampering_is_detected) ... ok
+test_multi_chunk_claims_preserve_rank_order 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_multi_chunk_claims_preserve_rank_order) ... ok
+test_multi_document_positive_requires_all_gold_evidence 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_multi_document_positive_requires_all_gold_evidence) ... ok
+test_non_string_claim_id_fails (tests.test_grounded_pipeline.GroundedPipelineTest.test_non_string_claim_id_fails) ... 
+ok
+test_non_string_evidence_id_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_non_string_evidence_id_fails) ... ok
+test_non_string_support_quote_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_non_string_support_quote_fails) ... ok
+test_override_request_abstains (tests.test_grounded_pipeline.GroundedPipelineTest.test_override_request_abstains) ... 
+ok
+test_pipeline_output_tampering_is_detected 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_pipeline_output_tampering_is_detected) ... ok
+test_pipeline_rejects_kb_hash_mismatch 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_pipeline_rejects_kb_hash_mismatch) ... ok
+test_pipeline_rejects_mapping_hash_mismatch 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_pipeline_rejects_mapping_hash_mismatch) ... ok
+test_positive_answer_with_acceptable_evidence_is_success 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_positive_answer_with_acceptable_evidence_is_success) ... ok
+test_positive_answer_with_gold_evidence_is_success 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_positive_answer_with_gold_evidence_is_success) ... ok
+test_positive_answer_with_wrong_approved_evidence_is_not_success 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_positive_answer_with_wrong_approved_evidence_is_not_success) 
+... ok
+test_predicted_intent_does_not_change_r0_rankings 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_predicted_intent_does_not_change_r0_rankings) ... ok
+test_primary_and_rerun_are_identical 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_primary_and_rerun_are_identical) ... ok
+test_response_schema_contains_version_trace 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_response_schema_contains_version_trace) ... ok
+test_selected_gate_follows_tie_break_contract 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_selected_gate_follows_tie_break_contract) ... ok
+test_selected_gate_manifest_tampering_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_selected_gate_manifest_tampering_fails) ... ok
+test_selected_retriever_is_r0 (tests.test_grounded_pipeline.GroundedPipelineTest.test_selected_retriever_is_r0) ... ok
+test_selection_uses_development_only 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_selection_uses_development_only) ... ok
+test_sentence_tie_break_is_deterministic 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_sentence_tie_break_is_deterministic) ... ok
+test_sufficient_evidence_answers (tests.test_grounded_pipeline.GroundedPipelineTest.test_sufficient_evidence_answers) 
+... ok
+test_support_quote_must_exist_verbatim 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_support_quote_must_exist_verbatim) ... ok
+test_uncited_claim_fails_closed (tests.test_grounded_pipeline.GroundedPipelineTest.test_uncited_claim_fails_closed) 
+... ok
+test_unexpected_citation_metadata_fails 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_unexpected_citation_metadata_fails) ... ok
+test_unsupported_claim_count_is_claim_level 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_unsupported_claim_count_is_claim_level) ... ok
+test_unused_citation_fails (tests.test_grounded_pipeline.GroundedPipelineTest.test_unused_citation_fails) ... ok
+test_verify_results_does_not_require_model_cache 
+(tests.test_grounded_pipeline.GroundedPipelineTest.test_verify_results_does_not_require_model_cache) ... ok
+test_canonical_label_slug_mismatch_fails 
+(tests.test_kb_validation.KBValidationTests.test_canonical_label_slug_mismatch_fails) ... ok
+test_cyclic_supersession_fails (tests.test_kb_validation.KBValidationTests.test_cyclic_supersession_fails) ... ok
+test_deterministic_dataset_hash_is_stable 
+(tests.test_kb_validation.KBValidationTests.test_deterministic_dataset_hash_is_stable) ... ok
+test_disconnected_complete_version_family_fails 
+(tests.test_kb_validation.KBValidationTests.test_disconnected_complete_version_family_fails) ... ok
+test_draft_is_ineligible (tests.test_kb_validation.KBValidationTests.test_draft_is_ineligible) ... ok
+test_duplicate_document_id_fails (tests.test_kb_validation.KBValidationTests.test_duplicate_document_id_fails) ... ok
+test_expired_is_ineligible (tests.test_kb_validation.KBValidationTests.test_expired_is_ineligible) ... ok
+test_future_effective_approved_is_ineligible 
+(tests.test_kb_validation.KBValidationTests.test_future_effective_approved_is_ineligible) ... ok
+test_hard_negative_document_sets_must_be_disjoint 
+(tests.test_kb_validation.KBValidationTests.test_hard_negative_document_sets_must_be_disjoint) ... ok
+test_hard_negative_empty_shared_vocabulary_fails 
+(tests.test_kb_validation.KBValidationTests.test_hard_negative_empty_shared_vocabulary_fails) ... ok
+test_hard_negative_missing_required_field_fails 
+(tests.test_kb_validation.KBValidationTests.test_hard_negative_missing_required_field_fails) ... ok
+test_hard_negative_same_source_and_confusing_intent_fails 
+(tests.test_kb_validation.KBValidationTests.test_hard_negative_same_source_and_confusing_intent_fails) ... ok
+test_intent_family_product_mismatch_fails 
+(tests.test_kb_validation.KBValidationTests.test_intent_family_product_mismatch_fails) ... ok
+test_invalid_date_order_fails (tests.test_kb_validation.KBValidationTests.test_invalid_date_order_fails) ... ok
+test_invalid_intent_family_fails (tests.test_kb_validation.KBValidationTests.test_invalid_intent_family_fails) ... ok
+test_invalid_product_fails (tests.test_kb_validation.KBValidationTests.test_invalid_product_fails) ... ok
+test_invalid_supersedes_type_fails (tests.test_kb_validation.KBValidationTests.test_invalid_supersedes_type_fails) ... 
+ok
+test_jsonl_is_strict_utf8_without_bom 
+(tests.test_kb_validation.KBValidationTests.test_jsonl_is_strict_utf8_without_bom) ... ok
+test_missing_required_coverage_fails (tests.test_kb_validation.KBValidationTests.test_missing_required_coverage_fails) 
+... ok
+test_non_monotonic_version_chain_fails 
+(tests.test_kb_validation.KBValidationTests.test_non_monotonic_version_chain_fails) ... ok
+test_non_string_title_fails (tests.test_kb_validation.KBValidationTests.test_non_string_title_fails) ... ok
+test_question_mark_intent_round_trips_with_safe_slug 
+(tests.test_kb_validation.KBValidationTests.test_question_mark_intent_round_trips_with_safe_slug) ... ok
+test_short_or_empty_approved_by_fails 
+(tests.test_kb_validation.KBValidationTests.test_short_or_empty_approved_by_fails) ... ok
+test_two_active_approved_versions_in_one_family_fail 
+(tests.test_kb_validation.KBValidationTests.test_two_active_approved_versions_in_one_family_fail) ... ok
+test_unknown_intent_fails (tests.test_kb_validation.KBValidationTests.test_unknown_intent_fails) ... ok
+test_valid_approved_current_document_is_eligible 
+(tests.test_kb_validation.KBValidationTests.test_valid_approved_current_document_is_eligible) ... ok
+test_valid_full_kb_passes (tests.test_kb_validation.KBValidationTests.test_valid_full_kb_passes) ... ok
+test_version_plan_reference_mismatch_fails 
+(tests.test_kb_validation.KBValidationTests.test_version_plan_reference_mismatch_fails) ... ok
+test_wrong_lifecycle_status_fails (tests.test_kb_validation.KBValidationTests.test_wrong_lifecycle_status_fails) ... ok
+test_config_rejects_a_third_candidate 
+(tests.test_lexical_baseline.LexicalBaselineTests.test_config_rejects_a_third_candidate) ... ok
+test_partition_rejects_test_leakage_and_preserves_alignment 
+(tests.test_lexical_baseline.LexicalBaselineTests.test_partition_rejects_test_leakage_and_preserves_alignment) ... ok
+test_validation_run_is_aligned_and_deterministic 
+(tests.test_lexical_baseline.LexicalBaselineTests.test_validation_run_is_aligned_and_deterministic) ... ok
+test_chunk_intent_metadata_is_preserved 
+(tests.test_retrieval_benchmark.CorpusTests.test_chunk_intent_metadata_is_preserved) ... ok
+test_draft_document_cannot_enter_corpus 
+(tests.test_retrieval_benchmark.CorpusTests.test_draft_document_cannot_enter_corpus) ... ok
+test_duplicate_chunk_id_fails (tests.test_retrieval_benchmark.CorpusTests.test_duplicate_chunk_id_fails) ... ok
+test_eligible_section_corpus_is_deterministic 
+(tests.test_retrieval_benchmark.CorpusTests.test_eligible_section_corpus_is_deterministic) ... ok
+test_expired_document_cannot_enter_corpus 
+(tests.test_retrieval_benchmark.CorpusTests.test_expired_document_cannot_enter_corpus) ... ok
+test_future_effective_document_cannot_enter_corpus 
+(tests.test_retrieval_benchmark.CorpusTests.test_future_effective_document_cannot_enter_corpus) ... ok
+test_missing_sections_yields_no_chunks 
+(tests.test_retrieval_benchmark.CorpusTests.test_missing_sections_yields_no_chunks) ... ok
+test_embedding_chunk_alignment_mismatch_fails 
+(tests.test_retrieval_benchmark.DenseTests.test_embedding_chunk_alignment_mismatch_fails) ... ok
+test_encoder_revision_mismatch_fails (tests.test_retrieval_benchmark.DenseTests.test_encoder_revision_mismatch_fails) 
+... ok
+test_lambda_outside_frozen_grid_fails 
+(tests.test_retrieval_benchmark.DenseTests.test_lambda_outside_frozen_grid_fails) ... ok
+test_prediction_outside_subset_produces_no_boost 
+(tests.test_retrieval_benchmark.DenseTests.test_prediction_outside_subset_produces_no_boost) ... ok
+test_r0_ignores_predicted_intent (tests.test_retrieval_benchmark.DenseTests.test_r0_ignores_predicted_intent) ... ok
+test_r0_score_equals_cosine_similarity 
+(tests.test_retrieval_benchmark.DenseTests.test_r0_score_equals_cosine_similarity) ... ok
+test_r1_applies_boost_only_on_matching_scope 
+(tests.test_retrieval_benchmark.DenseTests.test_r1_applies_boost_only_on_matching_scope) ... ok
+test_r1_does_not_hard_filter_nonmatching_chunks 
+(tests.test_retrieval_benchmark.DenseTests.test_r1_does_not_hard_filter_nonmatching_chunks) ... ok
+test_rank_tie_breaks_by_chunk_id (tests.test_retrieval_benchmark.DenseTests.test_rank_tie_breaks_by_chunk_id) ... ok
+test_category_f_requires_non_gold_sibling_section 
+(tests.test_retrieval_benchmark.ErrorTaxonomyTests.test_category_f_requires_non_gold_sibling_section) ... ok
+test_category_f_requires_sibling_to_outrank_gold 
+(tests.test_retrieval_benchmark.ErrorTaxonomyTests.test_category_f_requires_sibling_to_outrank_gold) ... ok
+test_gold_chunk_itself_does_not_trigger_category_f 
+(tests.test_retrieval_benchmark.ErrorTaxonomyTests.test_gold_chunk_itself_does_not_trigger_category_f) ... ok
+test_hard_negative_above_gold_is_category_e 
+(tests.test_retrieval_benchmark.ErrorTaxonomyTests.test_hard_negative_above_gold_is_category_e) ... ok
+test_wrong_classifier_with_gold_retained_is_category_d 
+(tests.test_retrieval_benchmark.ErrorTaxonomyTests.test_wrong_classifier_with_gold_retained_is_category_d) ... ok
+test_complete_coverage_requires_every_gold_section 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_complete_coverage_requires_every_gold_section) ... ok
+test_dev_selection_uses_development_ids_only 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_dev_selection_uses_development_ids_only) ... ok
+test_locked_config_cannot_change_after_freeze 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_locked_config_cannot_change_after_freeze) ... ok
+test_locked_evaluation_requires_frozen_selection_manifest 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_locked_evaluation_requires_frozen_selection_manifest) ... ok
+test_locked_membership_cannot_enter_dev_selection 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_locked_membership_cannot_enter_dev_selection) ... ok
+test_metric_artifact_tampering_is_detected_by_recompute 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_metric_artifact_tampering_is_detected_by_recompute) ... ok
+test_multi_document_recall_is_calculated_correctly 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_multi_document_recall_is_calculated_correctly) ... ok
+test_paired_outcomes_partition_all_answer_queries 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_paired_outcomes_partition_all_answer_queries) ... ok
+test_primary_and_reproducibility_rankings_must_match 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_primary_and_reproducibility_rankings_must_match) ... ok
+test_relaxed_metrics_include_acceptable_evidence 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_relaxed_metrics_include_acceptable_evidence) ... ok
+test_safety_queries_are_excluded_from_answer_mrr 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_safety_queries_are_excluded_from_answer_mrr) ... ok
+test_selected_lambda_follows_metric_rule 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_selected_lambda_follows_metric_rule) ... ok
+test_strict_metrics_use_only_gold_evidence 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_strict_metrics_use_only_gold_evidence) ... ok
+test_wrong_status_leakage_is_detected 
+(tests.test_retrieval_benchmark.ProtocolMetricTests.test_wrong_status_leakage_is_detected) ... ok
+test_answer_error_analysis_contains_only_answer_queries 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_answer_error_analysis_contains_only_answer_queries) 
+... ok
+test_category_tampering_with_same_aggregate_counts_fails (tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.
+test_category_tampering_with_same_aggregate_counts_fails) ... ok
+test_dev_metric_and_selected_lambda_consistent_tampering_fails (tests.test_retrieval_benchmark.ReviewCorrectionArtifact
+Tests.test_dev_metric_and_selected_lambda_consistent_tampering_fails) ... ok
+test_dev_metric_tampering_fails 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_dev_metric_tampering_fails) ... ok
+test_dev_metrics_recompute_from_rankings 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_dev_metrics_recompute_from_rankings) ... ok
+test_dev_rankings_have_exact_five_variants_per_query 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_dev_rankings_have_exact_five_variants_per_query) 
+... ok
+test_dev_rankings_reject_duplicate_variant 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_dev_rankings_reject_duplicate_variant) ... ok
+test_dev_rankings_reject_locked_query_id 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_dev_rankings_reject_locked_query_id) ... ok
+test_dev_rankings_reject_missing_lambda_variant 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_dev_rankings_reject_missing_lambda_variant) ... ok
+test_dev_selected_lambda_tampering_fails 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_dev_selected_lambda_tampering_fails) ... ok
+test_error_categories_reject_safety_query 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_error_categories_reject_safety_query) ... ok
+test_error_row_category_is_recomputed_from_rankings 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_error_row_category_is_recomputed_from_rankings) ... 
+ok
+test_locked_rankings_reject_development_membership 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_locked_rankings_reject_development_membership) ... 
+ok
+test_paired_outcome_tampering_fails 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_paired_outcome_tampering_fails) ... ok
+test_ranking_rejects_draft_or_expired_chunk 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_ranking_rejects_draft_or_expired_chunk) ... ok
+test_ranking_rejects_noneligible_chunk 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_ranking_rejects_noneligible_chunk) ... ok
+test_safety_diagnostics_contains_all_ten_queries 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_safety_diagnostics_contains_all_ten_queries) ... ok
+test_safety_queries_are_excluded_from_error_categories 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_safety_queries_are_excluded_from_error_categories) 
+... ok
+test_tracked_verify_does_not_require_local_cache 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_tracked_verify_does_not_require_local_cache) ... ok
+test_version_manifest_detects_corpus_manifest_hash_change (tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests
+.test_version_manifest_detects_corpus_manifest_hash_change) ... ok
+test_version_manifest_detects_dev_selection_hash_change 
+(tests.test_retrieval_benchmark.ReviewCorrectionArtifactTests.test_version_manifest_detects_dev_selection_hash_change) 
+... ok
+test_cache_key_changes_with_revision_normalization_and_protocol 
+(tests.test_semantic_baseline.SemanticBaselineTests.test_cache_key_changes_with_revision_normalization_and_protocol) 
+... ok
+test_cache_round_trip_rejects_stale_ids_and_invalid_shape 
+(tests.test_semantic_baseline.SemanticBaselineTests.test_cache_round_trip_rejects_stale_ids_and_invalid_shape) ... ok
+test_config_requires_exact_revision_frozen_encoder_and_one_model 
+(tests.test_semantic_baseline.SemanticBaselineTests.test_config_requires_exact_revision_frozen_encoder_and_one_model) 
+... ok
+test_run_aligns_predictions_and_declares_frozen_test_isolation 
+(tests.test_semantic_baseline.SemanticBaselineTests.test_run_aligns_predictions_and_declares_frozen_test_isolation) 
+... ok
+test_final_manifest_records_frozen_access_and_reproduction (tests.test_week1_final_evaluation.LockedWeek1FinalArtifactT
+ests.test_final_manifest_records_frozen_access_and_reproduction) ... ok
+test_overlap_and_selected_model_follow_preregistered_contract (tests.test_week1_final_evaluation.LockedWeek1FinalArtifa
+ctTests.test_overlap_and_selected_model_follow_preregistered_contract) ... ok
+test_test_predictions_and_per_class_support_are_complete (tests.test_week1_final_evaluation.LockedWeek1FinalArtifactTes
+ts.test_test_predictions_and_per_class_support_are_complete) ... ok
+test_paired_rows_align_one_to_one_and_partition_all_outcomes (tests.test_week1_final_evaluation.Week1FinalAlignmentTest
+s.test_paired_rows_align_one_to_one_and_partition_all_outcomes) ... ok
+test_per_class_support_and_error_deltas_cover_all_3080_rows (tests.test_week1_final_evaluation.Week1FinalAlignmentTests
+.test_per_class_support_and_error_deltas_cover_all_3080_rows) ... ok
+test_config_rejects_revision_scope_and_candidate_overrides 
+(tests.test_week1_final_evaluation.Week1FinalConfigTests.test_config_rejects_revision_scope_and_candidate_overrides) 
+... ok
+test_preregistered_repository_config_is_frozen_to_two_candidates (tests.test_week1_final_evaluation.Week1FinalConfigTes
+ts.test_preregistered_repository_config_is_frozen_to_two_candidates) ... ok
+
+----------------------------------------------------------------------
+Ran 319 tests in 32.417s
+
+OK
+exit_code=0
+=== Project docs validator ===
+VALIDATION PASSED
+Required project/report structure, Week 1 plan, and public-safety checks passed.
+exit_code=0
+=== git diff --check ===
+git.exe : warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+At line:2 char:2271
++ ...  }; Run-Step 'git diff --check' { & git -C $root diff --check }; $lin ...
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'PROJECT_STATE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TASKS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/DEVELOPMENT.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'reports/week_03/week_03_summary.md', LF will be replaced by CRLF the next time Git 
+touches it
+warning: in the working copy of 'src/payresolve_ai/generation/pipeline.py', LF will be replaced by CRLF the next time 
+Git touches it
+warning: in the working copy of 'src/payresolve_ai/generation/support_v2.py', LF will be replaced by CRLF the next 
+time Git touches it
+exit_code=0
+NOTE: default unittest discovery is obstructed by preserved ignored tests/test_reporting/ colliding with tracked tests/test_reporting.py; controlled full suite covers every tracked test plus W3-002 tests.

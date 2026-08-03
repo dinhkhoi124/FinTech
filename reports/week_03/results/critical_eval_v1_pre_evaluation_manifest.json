@@ -1,0 +1,56 @@
+{
+  "correction_ledger_sha256": "6878f18358d43df5e2802ae1adb41943a8e5b422e9b8a7d19f364153cd5faca1",
+  "created_at": "2026-08-03T03:43:57.223997+00:00",
+  "critical_config_sha256": "9a219e530f5060709a274a8fed3097bb9dceadc6aacf515ec056197d966d1385",
+  "critical_evaluated": false,
+  "dataset_canonical_sha256": "aa169c4e60d10defb70a88ab7b03c79306c2e37e109c6c78e9505acfd832b800",
+  "dataset_raw_sha256": "4d99a272dcb3a8fa0c6d860c0fd244dbaf35a9c190d7d194466f1f3d38c1f54d",
+  "false_no_answer_labels": 0,
+  "frozen_upstream": {
+    "gate_v2_config_sha256": "9319799a704ddbc82e824f7351adc3852672e4b277efea2fc0bc552ef4f518f2",
+    "kb_canonical_sha256": "e54a21529c516659265f82ca4818e1c844c05e8e7d7a692b02154115869d4c88",
+    "kb_raw_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "lexicon_sha256": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+    "r0_locked_sha256": "c60dd4b7bd23fcb468aa7d72d4216c52dee1a19aebf95c10e56ff26139c19ccb",
+    "r1_locked_sha256": "4b98c7073356f7e3da640a42ed05046b7dc58d05ce15c0bac1d4c9821ab3761d",
+    "w2_mapping_sha256": "4ed85198ac1929ea40356fb86d0e959ea81d8c3630aff405ac04e6540160069c",
+    "w2_metrics_sha256": "bebc9e1f354e5a5ceb539afb452683cb99dbaa7d20c0a4122f4a578d3c2dacd1"
+  },
+  "mapping_audit_passed": true,
+  "mapping_sha256": "3689dc801c4deb20ecdb93c4a4da0a5f3c871f83c196ecb215aa89d8f5fa0205",
+  "mapping_summary_sha256": "5c3ea3bef027021e99f3e811fd0b9ac6f61ddd90cfef0eecb09d56b88a212171",
+  "membership_sha256": "d52e3f35fbe0287c2045a26e57db05a784e247fd72fb14304b2c3b7915ada4cb",
+  "negative_audit_sha256": "960221d5e0851728d923b3f431bccf53ba179ee3620fe12a3a3c56501cd59d32",
+  "overlap_audit_sha256": "1b7e35c38077c92e4b713c278370b6004d0f39731bb7e7304647839f03f3db62",
+  "positive_audit_sha256": "49ad15a1e50389421bc5c58252209617128bd5cc9f935368c5a3d6cbb1d8501f",
+  "query_sha256": "c8d8ab91adf277da8485ee2c57df6bdf1010c511b68e18adc94a4d10abd32104",
+  "scenario_canonical_sha256": "a4fdacf6fabf4181723357c6d4c1793f74ba8aa9583f7d01600d6dc7490251e4",
+  "scenario_raw_sha256": "9e0249a9fd6e2c1bf6d28013189228a5809d6c8bbbfa366e4747918632b8e370",
+  "status": "PRE_EVALUATION_FROZEN",
+  "task_id": "W3-002",
+  "unresolved_mapping_omissions": 0,
+  "validation": {
+    "abstain_escalate": 20,
+    "answer": 40,
+    "cases": 60,
+    "family_counts": {
+      "card_payment": 12,
+      "cash_withdrawal": 12,
+      "transfer": 16
+    },
+    "multi_document_by_family": {
+      "card_payment": 2,
+      "cash_withdrawal": 2,
+      "transfer": 2
+    },
+    "status": "PASS",
+    "tag_counts": {
+      "hard_negative": 17,
+      "intent_confusion": 23,
+      "multi_document": 6,
+      "short_answerable": 7,
+      "version_sensitive": 13
+    }
+  },
+  "variant_config_sha256": "6f4f5f33a06d5ea748f5afde482047135c0efd5f7ba381ff3274ec7c7c8bd78d"
+}

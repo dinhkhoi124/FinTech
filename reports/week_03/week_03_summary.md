@@ -6,12 +6,13 @@ Grounded generation/evidence gate plus critical safety evaluation.
 
 ## Status
 
-IN PROGRESS. W3-001 implementation is DONE / REVIEWED / ACCEPTED and W3-001
+BLOCKED / IN PROGRESS. W3-001 implementation is DONE / REVIEWED / ACCEPTED and W3-001
 overall is PARTIAL / REVIEWED / ACCEPTED. W3-001-CR1 implementation is COMPLETE.
 Its original frozen-mapping result remains FAILED and is invalidated by incomplete
 relevance labels; the Senior-approved post-holdout adjudication is PASS / REVIEWED
 / ACCEPTED. Senior verdict is `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. W3-002
-is QUEUED / NOT STARTED; Week 4 is NOT STARTED.
+has an internally consistent numerical run, but its critical set is INVALIDATED
+and model verdict is NOT ESTABLISHED; Week 4 is BLOCKED / NOT STARTED.
 
 ## Deliverables completed
 
@@ -54,8 +55,9 @@ is QUEUED / NOT STARTED; Week 4 is NOT STARTED.
 
 ## P0 exit criteria
 
-Not passed. W3-001-CR1 is accepted, but W3-002 critical safety evaluation and
-ablations are queued/not started and remain required for the Week 3 P0 exit.
+Not passed. W3-001-CR1 is accepted. W3-002 implementation and integrity incident
+analysis are DONE / REVIEWED / ACCEPTED, but the critical set is invalidated and
+the model verdict is not established.
 
 ## Risks / limitations
 
@@ -77,6 +79,44 @@ the selected gate is not a useful production candidate because it answered zero
 of ten positive development queries. CR1 subsequently selected `S0.40_C0.20` on
 design only. Preserve its original FAILED result alongside the exhaustive
 three-row adjudicated PASS evidence. Senior final verdict is `APPROVE_COMMIT —
-QUALIFIED POST-HOC PASS`. W3-002 is queued but must be opened under a separate
-reviewed contract with its exhaustive mapping audit before any evaluation. Do not
-mark the Week 3 P0 gate passed.
+QUALIFIED POST-HOC PASS`. W3-002's original numerical run is preserved, but the
+self-referential mapping audit invalidates its model verdict. Do not mark the Week
+3 P0 gate passed.
+
+## W3-002 pristine critical evaluation — 2026-08-03
+
+The scenario-first freeze contains 60 new queries (40 ANSWER and 20
+ABSTAIN_ESCALATE), four positives per intent, family counts 16/12/12, and exactly
+six strict multi-document cases (two per family). All 40 positives and 20
+negatives were audited against all 52 eligible approved sections before inference.
+There are zero unresolved mapping omissions, false-no-answer labels, exact or
+normalized overlaps, and unresolved near duplicates.
+
+The historical evaluator reported V0 positive grounded recall 0.625, safe resolution
+0.750, negative abstention 1.000, and zero unsafe negative answers, unsupported
+claims, status leaks, metadata failures, or system errors. It nevertheless emitted
+six positive wrong-evidence answers and completed 0/6 strict multi-document cases.
+Those numbers are preserved but cannot establish a model verdict. V1 recall/safe resolution are
+0.575/0.717 with the same six failures. V2 gains nine positive answers but creates
+18 unsafe answers and lowers safe resolution by 0.183.
+
+Primary and reproduction match exactly, but the pre-evaluation audit was
+self-referential. Post-hoc integrity review found 20 positive mapping defects,
+two hard negatives that directly support their query, six over-constrained
+multi-document mappings, and eight false ABSTAIN labels. W3-002 critical-set
+integrity is `INVALIDATED`, its model verdict is `NOT ESTABLISHED`, Week 3 P0 is
+`BLOCKED / IN PROGRESS`, and Week 4 remains blocked. The set must not be tuned or
+post-hoc adjudicated into a PASS/FAIL model verdict.
+
+Obligation-cover recomputation splits the six exact-ID defects correctly:
+`Q_CRIT_A_003`, `Q_CRIT_A_020`, and `Q_CRIT_A_040` do not semantically require
+multiple sections; `Q_CRIT_A_016`, `Q_CRIT_A_028`, and `Q_CRIT_A_036` do require
+two semantic sections, but same-document trigger/handoff covers exist in their
+approved escalation documents. All six original multi-document labels are
+over-constrained. No reviewed critical query was proven to require evidence from
+two distinct documents. Integrity incident analysis is DONE / REVIEWED / ACCEPTED.
+
+Senior final verdict is `APPROVE_COMMIT — INTEGRITY INCIDENT EVIDENCE`. The
+original numerical run is DONE / PRESERVED AS HISTORICAL DIAGNOSTIC EVIDENCE;
+its evaluator-reported FAILED result applies only under the invalid mapping
+contract and cannot establish a model/pipeline PASS or FAIL verdict.

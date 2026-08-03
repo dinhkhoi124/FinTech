@@ -1,0 +1,372 @@
+{
+  "counts": {
+    "BOTH_ABSTAIN_CORRECTLY": 20,
+    "BOTH_ABSTAIN_INCORRECTLY": 9,
+    "BOTH_CORRECT": 23,
+    "OTHER_POSITIVE": 6,
+    "R1_BREAKS_R0_CORRECT_ANSWER": 2
+  },
+  "rows": [
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_001",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "R1_BREAKS_R0_CORRECT_ANSWER",
+      "query_id": "Q_CRIT_A_002",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "OTHER_POSITIVE",
+      "query_id": "Q_CRIT_A_003",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "OTHER_POSITIVE",
+      "query_id": "Q_CRIT_A_004",
+      "r0_response": "ANSWER",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_005",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "R1_BREAKS_R0_CORRECT_ANSWER",
+      "query_id": "Q_CRIT_A_006",
+      "r0_response": "ANSWER",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_007",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_008",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_009",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_010",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_011",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_012",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_013",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_014",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_015",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_016",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_017",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_018",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_019",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "OTHER_POSITIVE",
+      "query_id": "Q_CRIT_A_020",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_021",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_022",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_023",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_024",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_025",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_026",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_027",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_028",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_029",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_030",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_031",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "OTHER_POSITIVE",
+      "query_id": "Q_CRIT_A_032",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_033",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_034",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_035",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "OTHER_POSITIVE",
+      "query_id": "Q_CRIT_A_036",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_037",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_INCORRECTLY",
+      "query_id": "Q_CRIT_A_038",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_CORRECT",
+      "query_id": "Q_CRIT_A_039",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "OTHER_POSITIVE",
+      "query_id": "Q_CRIT_A_040",
+      "r0_response": "ANSWER",
+      "r1_response": "ANSWER"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_001",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_002",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_003",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_004",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_005",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_006",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_007",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_008",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_009",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_010",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_011",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_012",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_013",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_014",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_015",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_016",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_017",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_018",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_019",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    },
+    {
+      "category": "BOTH_ABSTAIN_CORRECTLY",
+      "query_id": "Q_CRIT_N_020",
+      "r0_response": "ABSTAIN_ESCALATE",
+      "r1_response": "ABSTAIN_ESCALATE"
+    }
+  ],
+  "selected_production_variant": null
+}

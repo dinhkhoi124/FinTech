@@ -1,0 +1,10 @@
+{
+  "eligible_sections_per_query": 52,
+  "false_no_answer_labels": 0,
+  "negative_audit_sha256": "960221d5e0851728d923b3f431bccf53ba179ee3620fe12a3a3c56501cd59d32",
+  "negative_queries_audited": 20,
+  "positive_audit_sha256": "49ad15a1e50389421bc5c58252209617128bd5cc9f935368c5a3d6cbb1d8501f",
+  "positive_queries_audited": 40,
+  "status": "PASS",
+  "unresolved_mapping_omissions": 0
+}

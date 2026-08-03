@@ -1,0 +1,25 @@
+{
+  "api_key_required": false,
+  "critical_mapping_integrity": "INVALID",
+  "final_model_verdict": "NOT_ESTABLISHED",
+  "historical_evaluator_reported_verdict": "FAILED",
+  "historical_runtime_artifacts_internally_consistent": true,
+  "integrity_incident": {
+    "critical_mapping_integrity": "INVALID",
+    "exact_id_or_document_overconstrained": 6,
+    "false_abstain_labels": 8,
+    "final_model_verdict": "NOT_ESTABLISHED",
+    "hard_negative_direct_support": 2,
+    "original_hashes_preserved": true,
+    "positive_mapping_defects": 20,
+    "runtime_artifacts_internally_consistent": true,
+    "status": "PASS"
+  },
+  "network_required": false,
+  "original_pre_evaluation_manifest_hash_consistent": true,
+  "primary_reproduction_identical": true,
+  "runtime_cache_required": false,
+  "status": "PASS",
+  "tracked_verification": true,
+  "week3_p0": "BLOCKED / IN PROGRESS"
+}

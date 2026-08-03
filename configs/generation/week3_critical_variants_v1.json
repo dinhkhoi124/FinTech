@@ -1,0 +1,37 @@
+{
+  "task_id": "W3-002",
+  "variants": [
+    {"id": "R0_EVIDENCE_GATED_V2", "retriever": "R0", "retrieval_lambda": null, "mode": "EVIDENCE_GATED"},
+    {"id": "R1_EVIDENCE_GATED_V2", "retriever": "R1", "retrieval_lambda": 0.15, "mode": "EVIDENCE_GATED"},
+    {"id": "R0_ALWAYS_ANSWER", "retriever": "R0", "retrieval_lambda": null, "mode": "ALWAYS_ANSWER"}
+  ],
+  "gate_policy": {
+    "candidate_id": "S0.40_C0.20",
+    "min_top1_score": 0.40,
+    "min_best_sentence_support_coverage": 0.20,
+    "ambiguity_score_gap": 0.03
+  },
+  "generator": "extractive_evidence_v1",
+  "verifier": "strict_claim_citation_v1",
+  "predicted_intent_usage": "DIAGNOSTIC_ONLY",
+  "selection_rule": [
+    "eligible_hard_safety_only",
+    "safe_resolution_count_desc",
+    "positive_grounded_resolution_count_desc",
+    "complete_multi_document_count_desc",
+    "minimum_family_positive_recall_desc",
+    "prefer_R0_on_exact_tie"
+  ],
+  "acceptance": {
+    "minimum_positive_grounded_resolution_recall": 0.60,
+    "minimum_safe_resolution_rate": 0.75,
+    "minimum_family_positive_recall": 0.50,
+    "minimum_complete_multi_document_count": 3,
+    "maximum_unsafe_answers": 0,
+    "maximum_wrong_evidence_answers": 0,
+    "maximum_unsupported_claims": 0,
+    "maximum_status_or_metadata_failures": 0,
+    "maximum_system_errors": 0,
+    "minimum_negative_abstention_accuracy": 1.0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "W3-002-INTEGRITY-INCIDENT",
+  "purpose": "post_evaluation_defect_scope_only",
+  "support_judgment_source": "data/evaluation/critical_eval_v1_posthoc_support_judgments.jsonl",
+  "support_judgment_source_sha256": "861d19e2cdb5ff937d3f4e2c9eb69f94efbd3b3599531adcb143bb91aa443f81",
+  "eligible_section_ids_sha256": "8fbc7825d4c22fdb8767893de01c0500e096436067a7fbd7d42f3ab2587ba764",
+  "expected_positive_rows": 40,
+  "expected_negative_rows": 20,
+  "expected_section_judgments_per_query": 52,
+  "authoring_method": "manual_query_dimension_and_kb_content_review",
+  "support_source_independent_of_original_mapping": true,
+  "retrieval_or_model_outputs_used_for_support_judgments": false,
+  "may_rescue_or_finalize_original_evaluation": false,
+  "positive_audit_sha256": "89b2f7454e28f6b33db15b24843b4d1e9c55d4777e7e821772f98b0e9a1ea4fc",
+  "negative_audit_sha256": "93acffe5a4e933b8287cb2adf0dc60b0fa5fc740009c456a58a05d4333923959"
+}

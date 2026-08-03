@@ -22,7 +22,7 @@ Priority: `P0 | P1 | P2`
 | W2-003 | 2 | P0 | R0 vs R1 retrieval benchmark | Controlled metrics + error analysis | DONE |
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
-| W3-002 | 3 | P0 | Critical safety evaluation + ablations | Eval artifacts + tables + regressions | QUEUED / NOT_STARTED |
+| W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -253,9 +253,10 @@ DONE / REVIEWED / COMMITTED / PUSHED.
   → config-driven generator weights → Senior `APPROVE_COMMIT — PARTIAL BASELINE`.
 - **Status:** implementation `DONE / REVIEWED / ACCEPTED`; evidence-gate result
   `PARTIAL — UTILITY NOT DEMONSTRATED`; overall `PARTIAL / REVIEWED / ACCEPTED`.
-  Week 3 P0 remains `IN PROGRESS`; W3-001-CR1 is `DONE / REVIEWED / ACCEPTED`
-  with a qualified post-hoc PASS; W3-002 is `QUEUED / NOT STARTED`; Week 4 is
-  `NOT STARTED`.
+  W3-001-CR1 is `DONE / REVIEWED / ACCEPTED` with a qualified post-hoc PASS.
+  W3-002's numerical run was subsequently preserved but its critical-set integrity
+  was invalidated; the model verdict is not established. Week 3 P0 is `BLOCKED /
+  IN PROGRESS` and Week 4 is `BLOCKED / NOT STARTED`.
 
 ### W3-001-CR1 — Evidence Gate Utility Recovery v2
 
@@ -285,12 +286,42 @@ DONE / REVIEWED / COMMITTED / PUSHED.
   overlay applied only to post-holdout relevance metrics yields PASS.
 - **Senior verdict:** `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`.
 - **Status:** implementation DONE / REVIEWED / ACCEPTED; adjudicated evaluation
-  PASS / REVIEWED / ACCEPTED. W3-002 is QUEUED / NOT STARTED.
+  PASS / REVIEWED / ACCEPTED. W3-002's original run is preserved, but the
+  critical set is invalidated and its model verdict is not established.
 
 ### W3-002 prerequisite — mapping-quality gate
 
 Before critical evaluation: (1) author and freeze the critical set; (2) audit every
 positive query against all 52 eligible approved sections; (3) freeze the complete
 direct-support evidence set; (4) record a pre-evaluation mapping-audit SHA-256;
-and (5) do not execute while any mapping omission remains. This safeguard is
-recorded only; W3-002 has not been implemented or run.
+and (5) do not execute while any mapping omission remains. This safeguard passed
+before inference: 40/40 positive and 20/20 negative audits covered all 52 eligible
+sections with zero unresolved omissions or false-no-answer labels. The frozen
+evaluation's reported numerical verdict was subsequently invalidated because the
+audit itself was self-referential. No replacement evaluation is authorized; Week
+4 remains blocked.
+
+### W3-002 integrity incident containment
+
+- **Senior verdict:** `APPROVE_COMMIT — INTEGRITY INCIDENT EVIDENCE`.
+- **Implementation:** DONE / REVIEWED / ACCEPTED.
+- **Original numerical run:** DONE / PRESERVED AS HISTORICAL DIAGNOSTIC EVIDENCE;
+  primary and reproduction remain internally consistent.
+- **Original evaluator-reported result:** FAILED UNDER INVALID MAPPING CONTRACT.
+- **Critical-set integrity:** INVALIDATED — pre-evaluation mapping audit was
+  self-referential.
+- **Model/pipeline verdict:** NOT ESTABLISHED.
+- **Post-hoc scope:** 20 positive mapping defects, two hard negatives providing
+  direct support, six over-constrained exact-ID multi-document mappings, and
+  eight false ABSTAIN labels.
+- **Obligation-cover correction:** all six original multi-document labels are
+  over-constrained. `A_003`, `A_020`, and `A_040` need one section. `A_016`,
+  `A_028`, and `A_036` need two semantic sections but can be answered entirely
+  within one approved escalation document. No reviewed query was proven to need
+  two distinct documents.
+- **Audit repair:** original self-certifying path rejects execution; independent
+  support judgments, 52-section row validation, valid-cover enumeration, and
+  recomputed hard-negative/summary consistency are required.
+- **Integrity incident analysis:** DONE / REVIEWED / ACCEPTED.
+- **Boundary:** no `critical_eval_v2`, encoder/retrieval/pipeline rerun, model
+  selection, or Week 4 work is authorized.

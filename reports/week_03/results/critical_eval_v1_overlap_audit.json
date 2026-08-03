@@ -1,0 +1,14 @@
+{
+  "comparison_counts": {
+    "banking77_official_test": 3080,
+    "banking77_train": 10003,
+    "prior_evaluation": 100
+  },
+  "exact_duplicates": 0,
+  "near_duplicate_candidates": 0,
+  "near_duplicate_reviews": [],
+  "normalized_duplicates": 0,
+  "official_test_contents_manually_inspected": false,
+  "status": "PASS",
+  "unresolved_near_duplicates": 0
+}

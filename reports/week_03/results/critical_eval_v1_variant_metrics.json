@@ -1,0 +1,215 @@
+{
+  "production_candidate_acceptance": {
+    "hard_safety_pass": false,
+    "utility_pass": false,
+    "verdict": "FAILED"
+  },
+  "selected_production_variant": null,
+  "task_id": "W3-002",
+  "variants": {
+    "R0_ALWAYS_ANSWER": {
+      "abstain_count": 2,
+      "answer_count": 58,
+      "case_count": 60,
+      "citation_correctness_on_answered": 1.0,
+      "citation_correctness_status": "APPLICABLE",
+      "citation_metadata_failure_count": 0,
+      "draft_citation_count": 0,
+      "expired_citation_count": 0,
+      "intent_family_positive_recall": {
+        "card_payment": 0.8333333333333334,
+        "cash_withdrawal": 0.75,
+        "transfer": 0.8125
+      },
+      "negative_abstention_accuracy": 0.1,
+      "negative_case_type_abstention_accuracy": {
+        "ambiguous_insufficient_context": 0.0,
+        "draft_only_entitlement_workflow": 0.0,
+        "expired_only_entitlement_workflow": 0.0,
+        "out_of_scope_banking_support": 0.0,
+        "policy_conflict_superseded_instruction": 0.0,
+        "policy_override_injection": 1.0,
+        "unsupported_exact_amount_threshold": 0.0,
+        "unsupported_internal_identifier": 0.0
+      },
+      "outcome_class_distribution": {
+        "SAFE_ABSTAIN_ESCALATE": 2,
+        "SAFE_CORRECT_ANSWER": 32,
+        "WRONG_ANSWER": 26
+      },
+      "positive_answer_count": 40,
+      "positive_complete_multi_document_count": 0,
+      "positive_complete_multi_document_rate": 0.0,
+      "positive_grounded_resolution_recall": 0.8,
+      "positive_relevant_answer_count": 32,
+      "positive_unnecessary_abstention_count": 8,
+      "positive_unnecessary_abstention_rate": 0.2,
+      "positive_wrong_evidence_answer_count": 8,
+      "positive_wrong_evidence_answer_rate": 0.2,
+      "reason_code_distribution": {
+        "SUFFICIENT_APPROVED_EVIDENCE": 58,
+        "UNTRUSTED_OVERRIDE_REQUEST": 2
+      },
+      "requested_dimension_positive_recall": {
+        "CHECKS": 1.0,
+        "ELIGIBILITY": 1.0,
+        "ESCALATION_OR_SECURITY": 0.42857142857142855,
+        "NEXT_ACTION": 0.3333333333333333,
+        "RETRY": 0.5,
+        "STATE_OR_MEANING": 1.0,
+        "TIMING_WINDOW": 0.8
+      },
+      "safe_resolution_count": 34,
+      "safe_resolution_rate": 0.5666666666666667,
+      "system_error_count": 0,
+      "total_claim_count": 174,
+      "unsafe_answer_count": 18,
+      "unsafe_answer_rate": 0.9,
+      "unsupported_claim_status": "APPLICABLE",
+      "unsupported_factual_claim_count": 0,
+      "unsupported_factual_claim_rate": 0.0,
+      "wrong_status_context_count": 0
+    },
+    "R0_EVIDENCE_GATED_V2": {
+      "abstain_count": 29,
+      "answer_count": 31,
+      "case_count": 60,
+      "citation_correctness_on_answered": 1.0,
+      "citation_correctness_status": "APPLICABLE",
+      "citation_metadata_failure_count": 0,
+      "draft_citation_count": 0,
+      "expired_citation_count": 0,
+      "intent_family_positive_recall": {
+        "card_payment": 0.5833333333333334,
+        "cash_withdrawal": 0.5,
+        "transfer": 0.75
+      },
+      "negative_abstention_accuracy": 1.0,
+      "negative_case_type_abstention_accuracy": {
+        "ambiguous_insufficient_context": 1.0,
+        "draft_only_entitlement_workflow": 1.0,
+        "expired_only_entitlement_workflow": 1.0,
+        "out_of_scope_banking_support": 1.0,
+        "policy_conflict_superseded_instruction": 1.0,
+        "policy_override_injection": 1.0,
+        "unsupported_exact_amount_threshold": 1.0,
+        "unsupported_internal_identifier": 1.0
+      },
+      "outcome_class_distribution": {
+        "SAFE_ABSTAIN_ESCALATE": 20,
+        "SAFE_CORRECT_ANSWER": 25,
+        "WRONG_ABSTAIN_ESCALATE": 9,
+        "WRONG_ANSWER": 6
+      },
+      "positive_answer_count": 31,
+      "positive_complete_multi_document_count": 0,
+      "positive_complete_multi_document_rate": 0.0,
+      "positive_grounded_resolution_recall": 0.625,
+      "positive_relevant_answer_count": 25,
+      "positive_unnecessary_abstention_count": 15,
+      "positive_unnecessary_abstention_rate": 0.375,
+      "positive_wrong_evidence_answer_count": 6,
+      "positive_wrong_evidence_answer_rate": 0.15,
+      "reason_code_distribution": {
+        "AMBIGUOUS_EVIDENCE": 5,
+        "LOW_CANONICAL_SENTENCE_SUPPORT": 9,
+        "LOW_RETRIEVAL_SUPPORT": 3,
+        "REQUESTED_DIMENSION_NOT_SUPPORTED": 1,
+        "SUFFICIENT_APPROVED_EVIDENCE": 31,
+        "UNKNOWN_REQUESTED_DIMENSION": 2,
+        "UNSUPPORTED_REQUESTED_DETAIL": 7,
+        "UNTRUSTED_OVERRIDE_REQUEST": 2
+      },
+      "requested_dimension_positive_recall": {
+        "CHECKS": 0.75,
+        "ELIGIBILITY": 0.4,
+        "ESCALATION_OR_SECURITY": 0.42857142857142855,
+        "NEXT_ACTION": 0.0,
+        "RETRY": 0.5,
+        "STATE_OR_MEANING": 0.9,
+        "TIMING_WINDOW": 0.8
+      },
+      "safe_resolution_count": 45,
+      "safe_resolution_rate": 0.75,
+      "system_error_count": 0,
+      "total_claim_count": 93,
+      "unsafe_answer_count": 0,
+      "unsafe_answer_rate": 0.0,
+      "unsupported_claim_status": "APPLICABLE",
+      "unsupported_factual_claim_count": 0,
+      "unsupported_factual_claim_rate": 0.0,
+      "wrong_status_context_count": 0
+    },
+    "R1_EVIDENCE_GATED_V2": {
+      "abstain_count": 31,
+      "answer_count": 29,
+      "case_count": 60,
+      "citation_correctness_on_answered": 1.0,
+      "citation_correctness_status": "APPLICABLE",
+      "citation_metadata_failure_count": 0,
+      "draft_citation_count": 0,
+      "expired_citation_count": 0,
+      "intent_family_positive_recall": {
+        "card_payment": 0.5833333333333334,
+        "cash_withdrawal": 0.5,
+        "transfer": 0.625
+      },
+      "negative_abstention_accuracy": 1.0,
+      "negative_case_type_abstention_accuracy": {
+        "ambiguous_insufficient_context": 1.0,
+        "draft_only_entitlement_workflow": 1.0,
+        "expired_only_entitlement_workflow": 1.0,
+        "out_of_scope_banking_support": 1.0,
+        "policy_conflict_superseded_instruction": 1.0,
+        "policy_override_injection": 1.0,
+        "unsupported_exact_amount_threshold": 1.0,
+        "unsupported_internal_identifier": 1.0
+      },
+      "outcome_class_distribution": {
+        "SAFE_ABSTAIN_ESCALATE": 20,
+        "SAFE_CORRECT_ANSWER": 23,
+        "WRONG_ABSTAIN_ESCALATE": 11,
+        "WRONG_ANSWER": 6
+      },
+      "positive_answer_count": 29,
+      "positive_complete_multi_document_count": 0,
+      "positive_complete_multi_document_rate": 0.0,
+      "positive_grounded_resolution_recall": 0.575,
+      "positive_relevant_answer_count": 23,
+      "positive_unnecessary_abstention_count": 17,
+      "positive_unnecessary_abstention_rate": 0.425,
+      "positive_wrong_evidence_answer_count": 6,
+      "positive_wrong_evidence_answer_rate": 0.15,
+      "reason_code_distribution": {
+        "AMBIGUOUS_EVIDENCE": 3,
+        "LOW_CANONICAL_SENTENCE_SUPPORT": 8,
+        "LOW_RETRIEVAL_SUPPORT": 3,
+        "REQUESTED_DIMENSION_NOT_SUPPORTED": 4,
+        "SUFFICIENT_APPROVED_EVIDENCE": 29,
+        "UNKNOWN_REQUESTED_DIMENSION": 3,
+        "UNSUPPORTED_REQUESTED_DETAIL": 8,
+        "UNTRUSTED_OVERRIDE_REQUEST": 2
+      },
+      "requested_dimension_positive_recall": {
+        "CHECKS": 0.5,
+        "ELIGIBILITY": 0.4,
+        "ESCALATION_OR_SECURITY": 0.42857142857142855,
+        "NEXT_ACTION": 0.0,
+        "RETRY": 0.5,
+        "STATE_OR_MEANING": 0.9,
+        "TIMING_WINDOW": 0.8
+      },
+      "safe_resolution_count": 43,
+      "safe_resolution_rate": 0.7166666666666667,
+      "system_error_count": 0,
+      "total_claim_count": 87,
+      "unsafe_answer_count": 0,
+      "unsafe_answer_rate": 0.0,
+      "unsupported_claim_status": "APPLICABLE",
+      "unsupported_factual_claim_count": 0,
+      "unsupported_factual_claim_rate": 0.0,
+      "wrong_status_context_count": 0
+    }
+  },
+  "week3_p0_verdict": "FAILED_BLOCKED"
+}

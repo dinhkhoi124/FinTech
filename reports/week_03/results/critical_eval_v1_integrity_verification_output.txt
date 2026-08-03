@@ -1,0 +1,224 @@
+=== build integrity audit ===
+command=E:\merged_partition_content\Khoi_Project\VinSmartFuture\FinTech\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_evaluation.py --root . --config configs/evaluation/critical_eval_v1.json build-integrity-audit
+{
+  "critical_mapping_integrity": "INVALID",
+  "eligible_sections_judged_per_query": 52,
+  "encoder_or_pipeline_rerun": false,
+  "evidence_obligation_recommendation": "Future evaluation should require every semantic obligation to be satisfied by any independently reviewed acceptable evidence ID; never require exact preselected IDs when equivalent evidence satisfies the same obligation.",
+  "exact_id_or_document_overconstrained_count": 6,
+  "exact_id_or_document_overconstrained_query_ids": [
+    "Q_CRIT_A_003",
+    "Q_CRIT_A_016",
+    "Q_CRIT_A_020",
+    "Q_CRIT_A_028",
+    "Q_CRIT_A_036",
+    "Q_CRIT_A_040"
+  ],
+  "false_abstain_label_count": 8,
+  "false_abstain_label_query_ids": [
+    "Q_CRIT_N_008",
+    "Q_CRIT_N_009",
+    "Q_CRIT_N_010",
+    "Q_CRIT_N_011",
+    "Q_CRIT_N_012",
+    "Q_CRIT_N_013",
+    "Q_CRIT_N_014",
+    "Q_CRIT_N_015"
+  ],
+  "final_model_verdict": "NOT_ESTABLISHED",
+  "hard_negative_direct_support_count": 2,
+  "hard_negative_direct_support_query_ids": [
+    "Q_CRIT_A_004",
+    "Q_CRIT_A_030"
+  ],
+  "invalid_reason": "PRE_EVALUATION_MAPPING_AUDIT_WAS_SELF_REFERENTIAL",
+  "multi_section_single_document_sufficient_count": 3,
+  "multi_section_single_document_sufficient_query_ids": [
+    "Q_CRIT_A_016",
+    "Q_CRIT_A_028",
+    "Q_CRIT_A_036"
+  ],
+  "negative_audit_sha256": "93acffe5a4e933b8287cb2adf0dc60b0fa5fc740009c456a58a05d4333923959",
+  "negative_queries_reviewed": 20,
+  "original_hashes": {
+    "dataset_canonical_sha256": "aa169c4e60d10defb70a88ab7b03c79306c2e37e109c6c78e9505acfd832b800",
+    "dataset_raw_sha256": "4d99a272dcb3a8fa0c6d860c0fd244dbaf35a9c190d7d194466f1f3d38c1f54d",
+    "mapping_sha256": "3689dc801c4deb20ecdb93c4a4da0a5f3c871f83c196ecb215aa89d8f5fa0205",
+    "membership_sha256": "d52e3f35fbe0287c2045a26e57db05a784e247fd72fb14304b2c3b7915ada4cb",
+    "pre_evaluation_manifest_sha256": "b9183f41aed54c343da54f0bd97b8196c9c2788333ba8fcce4a1447843ce6c22",
+    "query_sha256": "c8d8ab91adf277da8485ee2c57df6bdf1010c511b68e18adc94a4d10abd32104",
+    "scenario_raw_sha256": "9e0249a9fd6e2c1bf6d28013189228a5809d6c8bbbfa366e4747918632b8e370"
+  },
+  "original_runtime_artifact_sha256": {
+    "claim_audit": "f647442bf9134aa4b6cfe4827f67d4cd2657fc4bb6a02e23fa80669aa794f00b",
+    "outcome_classes": "7c8f5c5f93b6153b3bbefb3a530152096a297568d53d7638c44170faa837e594",
+    "r0_rankings": "010791275fe4b253fc102aa1330ea1035cf80d70382a1f72ed7584072a39dee1",
+    "r1_rankings": "f1658cb1a996408a0e96a629e399196495f14a357a11d72a8a2279c5cd8e5c34",
+    "reproduction": "4895ae47a81665b317eb849bf56b86264572207f9c59c9fe0d0a5e1542b9a7d1",
+    "v0_outputs": "75d51bf2357df900c422e08d70f545c233e2ce38da0b75365ca7c65287dfc418",
+    "v1_outputs": "84be3c0c19d367b1207121950de680015a320ecd93e66315a496d3708e654bff",
+    "v2_outputs": "8717707ddcc6d28f36e90285c6cf181e8f176ed468c1906e1f7c170a3974e49b",
+    "variant_metrics": "d8cfcd13774a3b8dc91ad3500525da29f8b416bf638d4ae572332bad5b7c9af3"
+  },
+  "positive_audit_sha256": "89b2f7454e28f6b33db15b24843b4d1e9c55d4777e7e821772f98b0e9a1ea4fc",
+  "positive_mapping_defect_count": 20,
+  "positive_mapping_defect_query_ids": [
+    "Q_CRIT_A_003",
+    "Q_CRIT_A_004",
+    "Q_CRIT_A_005",
+    "Q_CRIT_A_006",
+    "Q_CRIT_A_008",
+    "Q_CRIT_A_010",
+    "Q_CRIT_A_014",
+    "Q_CRIT_A_015",
+    "Q_CRIT_A_016",
+    "Q_CRIT_A_020",
+    "Q_CRIT_A_023",
+    "Q_CRIT_A_024",
+    "Q_CRIT_A_027",
+    "Q_CRIT_A_028",
+    "Q_CRIT_A_029",
+    "Q_CRIT_A_030",
+    "Q_CRIT_A_033",
+    "Q_CRIT_A_036",
+    "Q_CRIT_A_039",
+    "Q_CRIT_A_040"
+  ],
+  "positive_queries_reviewed": 40,
+  "replacement_critical_evaluation_created": false,
+  "runtime_artifacts_internally_consistent": true,
+  "semantically_multi_document_necessary_count": 0,
+  "semantically_multi_document_necessary_query_ids": [],
+  "single_section_sufficient_count": 3,
+  "single_section_sufficient_query_ids": [
+    "Q_CRIT_A_003",
+    "Q_CRIT_A_020",
+    "Q_CRIT_A_040"
+  ],
+  "status": "BLOCKED_CRITICAL_SET_INVALIDATED",
+  "support_judgments_sha256": "861d19e2cdb5ff937d3f4e2c9eb69f94efbd3b3599531adcb143bb91aa443f81",
+  "task_id": "W3-002"
+}
+exit_code=0
+
+=== verify integrity incident ===
+command=E:\merged_partition_content\Khoi_Project\VinSmartFuture\FinTech\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_evaluation.py --root . --config configs/evaluation/critical_eval_v1.json verify-integrity-incident
+{
+  "critical_mapping_integrity": "INVALID",
+  "exact_id_or_document_overconstrained": 6,
+  "false_abstain_labels": 8,
+  "final_model_verdict": "NOT_ESTABLISHED",
+  "hard_negative_direct_support": 2,
+  "original_hashes_preserved": true,
+  "positive_mapping_defects": 20,
+  "runtime_artifacts_internally_consistent": true,
+  "status": "PASS"
+}
+exit_code=0
+
+=== focused critical safety tests ===
+command=E:\merged_partition_content\Khoi_Project\VinSmartFuture\FinTech\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p test_critical_safety_evaluation.py -v
+test_a016_has_two_section_cover_but_one_document_cover (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_a016_has_two_section_cover_but_one_document_cover) ... ok
+test_a028_has_two_section_cover_but_one_document_cover (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_a028_has_two_section_cover_but_one_document_cover) ... ok
+test_a036_has_two_section_cover_but_one_document_cover (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_a036_has_two_section_cover_but_one_document_cover) ... ok
+test_all_20_negatives_have_52_section_sufficiency_audit (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_all_20_negatives_have_52_section_sufficiency_audit) ... ok
+test_all_40_positives_have_52_section_audit (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_all_40_positives_have_52_section_audit) ... ok
+test_all_six_original_multi_document_labels_are_overconstrained (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_all_six_original_multi_document_labels_are_overconstrained) ... ok
+test_always_answer_bypasses_sufficiency_gate (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_bypasses_sufficiency_gate) ... ok
+test_always_answer_cannot_be_selected (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_cannot_be_selected) ... ok
+test_always_answer_keeps_approved_filter (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_keeps_approved_filter) ... ok
+test_always_answer_keeps_citation_verifier (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_always_answer_keeps_citation_verifier) ... ok
+test_any_unsafe_answer_fails_week3_gate (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_any_unsafe_answer_fails_week3_gate) ... ok
+test_citation_metric_uses_answer_denominator (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_citation_metric_uses_answer_denominator) ... ok
+test_claim_metric_uses_claim_denominator (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_claim_metric_uses_claim_denominator) ... ok
+test_critical_normalized_texts_are_unique (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_normalized_texts_are_unique) ... ok
+test_critical_query_ids_are_unique (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_query_ids_are_unique) ... ok
+test_critical_set_has_40_answer_and_20_abstain (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_set_has_40_answer_and_20_abstain) ... ok
+test_critical_set_has_exact_60_queries (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_critical_set_has_exact_60_queries) ... ok
+test_current_policy_corrective_answer_invalidates_false_abstain_label (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_current_policy_corrective_answer_invalidates_false_abstain_label) ... ok
+test_equivalent_acceptable_evidence_can_satisfy_an_obligation (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_equivalent_acceptable_evidence_can_satisfy_an_obligation) ... ok
+test_every_intent_has_exact_four_positive_queries (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_every_intent_has_exact_four_positive_queries) ... ok
+test_exact_three_variants (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_exact_three_variants) ... ok
+test_exact_tie_prefers_r0 (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_exact_tie_prefers_r0) ... ok
+test_false_no_answer_label_blocks_evaluation (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_false_no_answer_label_blocks_evaluation) ... ok
+test_family_slice_metrics_recompute (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_family_slice_metrics_recompute) ... ok
+test_full_requirements_pass_week3_gate (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_full_requirements_pass_week3_gate) ... ok
+test_hard_negative_support_set_must_match_original_intersection (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_hard_negative_support_set_must_match_original_intersection) ... ok
+test_hard_negative_that_directly_answers_query_is_rejected (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_hard_negative_that_directly_answers_query_is_rejected) ... ok
+test_invalid_evidence_identity_fails (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_invalid_evidence_identity_fails) ... ok
+test_invalid_mapping_audit_invalidates_critical_evaluation (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_invalid_mapping_audit_invalidates_critical_evaluation) ... ok
+test_mandatory_strict_gold_is_not_replaceable (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_mandatory_strict_gold_is_not_replaceable) ... ok
+test_mapping_audit_cannot_derive_support_set_from_mapping (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_mapping_audit_cannot_derive_support_set_from_mapping) ... ok
+test_metric_tampering_is_detected (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_metric_tampering_is_detected) ... ok
+test_minimum_cover_one_means_multi_document_not_necessary (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_minimum_cover_one_means_multi_document_not_necessary) ... ok
+test_minimum_section_cover_and_document_cover_are_reported_separately (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_minimum_section_cover_and_document_cover_are_reported_separately) ... ok
+test_multi_document_label_alone_does_not_imply_overconstraint (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_multi_document_label_alone_does_not_imply_overconstraint) ... ok
+test_multi_document_requires_all_strict_gold (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_multi_document_requires_all_strict_gold) ... ok
+test_negative_answer_is_unsafe (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_negative_answer_is_unsafe) ... ok
+test_negative_audit_requires_52_unique_section_judgments (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_negative_audit_requires_52_unique_section_judgments) ... ok
+test_negative_case_distribution_is_exact (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_negative_case_distribution_is_exact) ... ok
+test_no_reviewed_query_semantically_requires_two_distinct_documents (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_no_reviewed_query_semantically_requires_two_distinct_documents) ... ok
+test_obligation_evidence_must_be_direct_support (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_obligation_evidence_must_be_direct_support) ... ok
+test_obligation_evidence_must_be_eligible (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_obligation_evidence_must_be_eligible) ... ok
+test_obligation_ids_must_be_unique (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_obligation_ids_must_be_unique) ... ok
+test_obligations_must_be_non_empty (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_obligations_must_be_non_empty) ... ok
+test_output_tampering_is_detected (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_output_tampering_is_detected) ... ok
+test_positive_audit_requires_52_unique_section_judgments (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_positive_audit_requires_52_unique_section_judgments) ... ok
+test_positive_audit_requires_row_specific_rationale (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_positive_audit_requires_row_specific_rationale) ... ok
+test_positive_wrong_evidence_is_wrong_answer (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_positive_wrong_evidence_is_wrong_answer) ... ok
+test_post_eval_mapping_change_invalidates_critical_set (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_post_eval_mapping_change_invalidates_critical_set) ... ok
+test_pre_eval_manifest_requires_mapping_audit_pass (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_pre_eval_manifest_requires_mapping_audit_pass) ... ok
+test_pre_evaluation_manifest_rejects_self_certified_audit (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_pre_evaluation_manifest_rejects_self_certified_audit) ... ok
+test_primary_and_rerun_match_all_three_variants (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_primary_and_rerun_match_all_three_variants) ... ok
+test_prior_eval_overlap_is_zero (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_prior_eval_overlap_is_zero) ... ok
+test_r0_and_r1_differ_only_in_retrieval_scores (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r0_and_r1_differ_only_in_retrieval_scores) ... ok
+test_r0_gated_uses_frozen_gate_v2 (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r0_gated_uses_frozen_gate_v2) ... ok
+test_r1_gated_uses_lambda_015 (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r1_gated_uses_lambda_015) ... ok
+test_r1_safety_regression_retains_r0 (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_r1_safety_regression_retains_r0) ... ok
+test_replaceable_strict_gold_makes_exact_id_contract_overconstrained (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_replaceable_strict_gold_makes_exact_id_contract_overconstrained) ... ok
+test_reviewed_multi_document_flag_must_match_recomputed_cover (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_reviewed_multi_document_flag_must_match_recomputed_cover) ... ok
+test_safe_resolution_partition_totals_60 (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_safe_resolution_partition_totals_60) ... ok
+test_same_document_cover_mutation_invalidates_multi_document_claim (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_same_document_cover_mutation_invalidates_multi_document_claim) ... ok
+test_summary_subgroups_recompute_from_document_covers (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_summary_subgroups_recompute_from_document_covers) ... ok
+test_superseded_instruction_query_can_be_answerable_from_current_policy (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_superseded_instruction_query_can_be_answerable_from_current_policy) ... ok
+test_tracked_verify_requires_no_runtime_cache (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_tracked_verify_requires_no_runtime_cache) ... ok
+test_two_sections_different_documents_can_be_multi_document (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_two_sections_different_documents_can_be_multi_document) ... ok
+test_two_sections_same_document_are_not_multi_document (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_two_sections_same_document_are_not_multi_document) ... ok
+test_unresolved_positive_omission_blocks_evaluation (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_unresolved_positive_omission_blocks_evaluation) ... ok
+test_zero_safety_but_low_utility_is_partial (test_critical_safety_evaluation.CriticalSafetyEvaluationTests.test_zero_safety_but_low_utility_is_partial) ... ok
+
+----------------------------------------------------------------------
+Ran 68 tests in 0.064s
+
+OK
+exit_code=0
+
+=== isolated full tracked tests ===
+source=reports/week_03/results/critical_eval_v1_fresh_clone_test_output.txt
+test_per_class_support_and_error_deltas_cover_all_3080_rows (test_week1_final_evaluation.Week1FinalAlignmentTests.test_per_class_support_and_error_deltas_cover_all_3080_rows) ... ok
+test_config_rejects_revision_scope_and_candidate_overrides (test_week1_final_evaluation.Week1FinalConfigTests.test_config_rejects_revision_scope_and_candidate_overrides) ... ok
+test_preregistered_repository_config_is_frozen_to_two_candidates (test_week1_final_evaluation.Week1FinalConfigTests.test_preregistered_repository_config_is_frozen_to_two_candidates) ... ok
+
+----------------------------------------------------------------------
+Ran 357 tests in 57.763s
+
+OK
+exit_code=0
+
+=== project docs validator ===
+command=E:\merged_partition_content\Khoi_Project\VinSmartFuture\FinTech\.venv-semantic\Scripts\python.exe scripts/reporting/validate_project_docs.py --root .
+VALIDATION PASSED
+Required project/report structure, Week 1 plan, and public-safety checks passed.
+exit_code=0
+
+=== git diff --check ===
+command=C:\Program Files\Git\cmd\git.exe -C E:\merged_partition_content\Khoi_Project\VinSmartFuture\FinTech diff --check
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'PROJECT_STATE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TASKS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/DEVELOPMENT.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'reports/week_03/week_03_summary.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/payresolve_ai/generation/pipeline.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/payresolve_ai/generation/support_v2.py', LF will be replaced by CRLF the next time Git touches it
+exit_code=0
+
