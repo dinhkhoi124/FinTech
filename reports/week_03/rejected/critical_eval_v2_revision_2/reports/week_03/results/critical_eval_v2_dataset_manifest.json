@@ -1,0 +1,29 @@
+{
+  "abstain_escalate_count": 20,
+  "answer_count": 40,
+  "candidate_revision": 2,
+  "eligible_sections_per_query": 52,
+  "evaluation_as_of_date": "2026-07-28",
+  "evaluation_version": "critical_eval_v2",
+  "false_abstain_candidate_count": 0,
+  "forbidden_audit_rows": 1200,
+  "hard_negative_count": 16,
+  "intended_derived_mismatch_count": 0,
+  "judgment_rows": 3120,
+  "multi_document_query_ids": [],
+  "multi_section_query_ids": [
+    "Q_V2_A_TRP01",
+    "Q_V2_A_TRR04"
+  ],
+  "negative_audit_rows": 20,
+  "overlap_unresolved_findings": 0,
+  "query_count": 60,
+  "support_class_counts": {
+    "CONTEXTUAL_BUT_INSUFFICIENT": 1390,
+    "CONTRADICTION_OR_OUTDATED": 9,
+    "DIRECT_SUPPORT": 92,
+    "IRRELEVANT": 1609,
+    "PARTIAL_SUPPORT": 20
+  },
+  "task_id": "W3-002-CR1"
+}

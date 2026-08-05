@@ -1,0 +1,36 @@
+{
+  "task_id": "W3-002-CR1",
+  "candidate_revision": 4,
+  "pass_b_rows": 3120,
+  "rows_missing_reviewer_status": 1040,
+  "rows_with_revision_1_reviewer_status": 0,
+  "rows_with_revision_2_reviewer_status": 0,
+  "rows_with_revision_3_reviewer_status": 2080,
+  "rows_with_revision_4_reviewer_status": 0,
+  "authoring_source_counts": {"STANDALONE_SECTION_CONTENT_REVIEW_REVISION_4":3120},
+  "reason_code_distribution": {
+    "ACTUAL_QUERY_OBLIGATION_SECTION_REVIEW_REVISION_3": 2074,
+    "CATEGORY_TARGET_NOT_SUPPORTED": 412,
+    "REVISION_4_NARROW_SEMANTIC_ADJUDICATION": 6,
+    "UNRELATED_TO_CATEGORY_TARGET": 628
+  },
+  "material_rows_marked_as_revision_4_narrow_adjudication": 6,
+  "material_rows_with_valid_revision_4_reviewer_provenance": 0,
+  "material_row_ids": [
+    "Q_V2_A_TRP03/FAQ_TRANSFER_DECLINED_001#answer",
+    "Q_V2_A_TRP03/FAQ_TRANSFER_FAILED_001#answer",
+    "Q_V2_A_CAR01/ESC_CARD_REVERT_001#trigger",
+    "Q_V2_A_CSP03/RUN_CASH_UNRECOG_002#recognition_gate",
+    "Q_V2_A_CSD02/ESC_CASH_DECLINED_001#trigger",
+    "Q_V2_A_CSD04/RUN_CASH_UNRECOG_002#recognition_gate"
+  ],
+  "finding": "FAIL — reviewer provenance is missing for all 1,040 negative rows and stale revision-3 metadata remains on all 2,080 positive rows, including the six material revision-4 adjudications.",
+  "validator_root_cause": "validate_pass_b requires authoring_source=STANDALONE_SECTION_CONTENT_REVIEW_REVISION_4 but never requires reviewer_status and never checks that reviewer_status matches candidate revision 4. The revision-4 transform updated authoring_source and selected reason codes while retaining stale positive reviewer_status and omitting negative reviewer_status.",
+  "required_validator_correction": [
+    "Require reviewer_status on every Pass B row.",
+    "Require reviewer_status to match the active candidate revision.",
+    "Fail stale revision metadata.",
+    "Require explicit provenance for every material semantic adjudication."
+  ],
+  "pass_b_rewritten_in_this_run": false
+}

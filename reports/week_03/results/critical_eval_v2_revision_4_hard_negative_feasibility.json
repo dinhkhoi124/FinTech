@@ -1,0 +1,16 @@
+{
+  "task_id": "W3-002-CR1",
+  "candidate_revision": 4,
+  "revision_4_assigned_hard_negative_count": 0,
+  "nonzero_hard_negative_slice_feasible": true,
+  "candidate_count": 5,
+  "candidates": [
+    {"query_id":"Q_V2_A_TRP02","evidence_id":"FAQ_TRANSFER_RECIPIENT_002#current_window","current_support_class":"CONTEXTUAL_BUT_INSUFFICIENT","retrieval_attraction":"transfer + current window + post-window workflow","unsupported_inference":"Recipient-side completed-transfer posting does not establish the sender-side pending-transfer two-day window or pending-review action.","absent_from_all_complete_covers":true,"approved_and_effective":true},
+    {"query_id":"Q_V2_A_TRR02","evidence_id":"POL_TRANSFER_PENDING_002#current_window","current_support_class":"CONTEXTUAL_BUT_INSUFFICIENT","retrieval_attraction":"transfer + current window + post-window action","unsupported_inference":"Sender-side pending handling does not establish recipient posting after sender completion or when recipient tracing may open.","absent_from_all_complete_covers":true,"approved_and_effective":true},
+    {"query_id":"Q_V2_A_CAR02","evidence_id":"POL_CARD_PENDING_001#review_window","current_support_class":"CONTEXTUAL_BUT_INSUFFICIENT","retrieval_attraction":"card + multi-day review window + no-promise boundary","unsupported_inference":"Pending-authorization review does not establish a confirmed reversal's five-business-day ledger-return window or reversal escalation trigger.","absent_from_all_complete_covers":true,"approved_and_effective":true},
+    {"query_id":"Q_V2_A_CAP02","evidence_id":"POL_CARD_REVERT_002#return_window","current_support_class":"CONTEXTUAL_BUT_INSUFFICIENT","retrieval_attraction":"card + multi-day window + post-window escalation","unsupported_inference":"Reversal ledger return does not establish the three-calendar-day pending-authorization window or pending release boundary.","absent_from_all_complete_covers":true,"approved_and_effective":true},
+    {"query_id":"Q_V2_A_TRF02","evidence_id":"POL_TRANSFER_DECLINED_001#review_rule","current_support_class":"CONTEXTUAL_BUT_INSUFFICIENT","retrieval_attraction":"transfer + repeated event + review route","unsupported_inference":"A repeated pre-processing decline rule does not establish the post-submission failed-transfer retry rule or active-duplicate check.","absent_from_all_complete_covers":true,"approved_and_effective":true}
+  ],
+  "adjudication_boundary": "These are proposed feasibility pairs only. They are not assigned to revision 4 and require explicit semantic review before any amended candidate uses them.",
+  "candidate_mapping_modified": false
+}

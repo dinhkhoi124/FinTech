@@ -46,7 +46,7 @@ and model verdict is NOT ESTABLISHED; Week 4 is BLOCKED / NOT STARTED.
 | CR1 selection isolation | 9-policy design grid | `S0.40_C0.20`; zero holdout IDs used | PASS |
 | CR1 holdout utility | v1 → v2 | positive recall 0.10 → 0.60; safe resolution 0.55 → 0.80 | UTILITY TARGET MET |
 | CR1 family coverage | v2 positive resolutions | transfer, card_payment, cash_withdrawal | PASS |
-| CR1 abstention safety | 10 negative cases | accuracy 1.00; unsafe answers 0 | PASS |
+| CR1 abstention safety | 10 safety challenge cases | accuracy 1.00; unsafe answers 0 | PASS |
 | CR1 original grounding | frozen incomplete mapping | 1 positive wrong-evidence answer | FAILED / RETAINED |
 | CR1 mapping audit | 10 positives × 52 eligible sections | exactly 3 omitted direct-support sections | COMPLETE |
 | CR1 adjudicated utility | frozen outputs + overlay | recall 0.70; safe resolution 0.85; 7 relevant positives | PASS |
@@ -120,3 +120,140 @@ Senior final verdict is `APPROVE_COMMIT — INTEGRITY INCIDENT EVIDENCE`. The
 original numerical run is DONE / PRESERVED AS HISTORICAL DIAGNOSTIC EVIDENCE;
 its evaluator-reported FAILED result applies only under the invalid mapping
 contract and cannot establish a model/pipeline PASS or FAIL verdict.
+
+## W3-002-CR1 revision-2 candidate milestone — 2026-08-05
+
+Senior rejected candidate revision 1 because its Pass B was generated from
+embedded evidence roles and intent/family heuristics. That manifest and its five
+semantic/derived artifacts remain byte-preserved as rejected history. Candidate
+revision 2 removes the canonical support plan and supplies a standalone 3,120-row
+Pass B whose rows are bound to the actual query, obligations, and eligible
+section content. Pass C is derived only from Pass A and that frozen artifact.
+
+Revision 2 has 92 DIRECT, 20 PARTIAL, 1,390 CONTEXTUAL, 9
+CONTRADICTION/OUTDATED, and 1,609 IRRELEVANT judgments. Compared with revision 1,
+11 direct-support pairs were added and none removed; outcomes did not change.
+The recomputed result has 16 explicitly reviewed hard negatives, two
+multi-section cases, zero multi-document cases, and zero structurally detected
+false-abstain candidates. The forbidden audit now covers the full 60×20 matrix.
+
+The package status is `FROZEN_CANDIDATE / AWAITING_SENIOR_SEMANTIC_REVIEW`.
+Structural pre-evaluation integrity passed, but semantic approval and evaluation authorization
+remain false. No encoder, classifier, retrieval, gate, generation, Always Answer,
+or critical evaluation ran. The model verdict remains NOT_ESTABLISHED; Week 3 P0
+remains BLOCKED / IN PROGRESS and Week 4 remains BLOCKED / NOT STARTED.
+
+## W3-002-CR1 revision-3 correction — 2026-08-05
+
+Senior semantic review rejected revision 2 for self-certified false-abstain
+logic, invalid hard negatives, semantic omissions/overclaims, non-recomputable
+overlap evidence, and a non-executable standalone bundle. Revision 2 remains
+byte-preserved with manifest SHA-256
+`668992392f3e0f4addeb017a0028f6bc676614910d0e1c03fb8f3e3c51a20834`.
+
+Frozen revision 3 derives requested and safe-corrective covers independently.
+Seventeen answerable revision-2 negatives were recorded and replaced while the
+fixed negative-category distribution was preserved. The candidate has 40
+answers, 20 abstentions, 98 direct judgments, two hard negatives, three
+multi-section cases, and zero multi-document cases. Deterministic overlap
+recomputation found zero unresolved flags across all required prior sources.
+Focused revision-3 tests pass 60/60, related integrity tests pass 68/68, and the
+isolated full suite passes 417/417. The extracted review bundle independently
+verifies all 94 inventory files and recomputes the candidate successfully.
+
+The package remains structural evidence only: `FROZEN_CANDIDATE /
+AWAITING_SENIOR_SEMANTIC_REVIEW`. No inference or critical evaluation ran;
+semantic approval and evaluation authorization are false, the model verdict is
+NOT_ESTABLISHED, Week 3 P0 remains BLOCKED / IN PROGRESS, and Week 4 remains
+BLOCKED / NOT STARTED.
+
+## W3-002-CR1 revision-4 correction — 2026-08-05
+
+Senior rejected revision 3 because runtime inputs were not frozen, non-ambiguity
+negative categories were weakened by missing-context confounding, forbidden
+lexical attraction was mislabeled as semantic support, positive support was
+over-credited, and both remaining hard negatives contained legitimate partial
+support. Revision 3 remains byte-preserved.
+
+Revision 4 freezes `model_input_text` as the sole future runtime input, rewrites
+all 20 negatives with isolated primary reason codes, and preserves ambiguity as
+primary only for the two registered ambiguity probes. The full forbidden matrix
+now has 26 semantic-attraction rows rather than 823, with zero false attraction
+for the cryptocurrency query. Four direct-support assignments were narrowed and
+the two former hard negatives were removed; hard-negative count is zero.
+
+The candidate derives 40 answers and 20 abstentions with no mismatch. Focused,
+related, and isolated full suites pass 64/64, 68/68, and 421/421. The extracted
+review bundle independently verifies all 115 inventory files and recomputes
+revision 4 successfully. This remains a structural candidate awaiting Senior
+semantic review: evaluation authorization
+is false, no inference ran, model verdict is NOT_ESTABLISHED, Week 3 P0 remains
+BLOCKED / IN PROGRESS, and Week 4 remains BLOCKED / NOT STARTED.
+
+## W3-002-CR1 contract-amendment gate — 2026-08-05
+
+Senior subsequently rejected revision 4 with `BLOCKED — CONTRACT AMENDMENT
+REQUIRED`. The revision is preserved byte-for-byte as rejected review history;
+manifest SHA-256 is
+`b2b021c78f11ff4cf5d023044b464b43d806f0c0217fd8e3b196dfc736bb52af`
+and review-bundle SHA-256 is
+`a081e909113a682e7790b758f2b90bea3eea26025103e7209dc1c32e8f04fa5e`.
+
+The independent 20-query feasibility audit found 15 complete safe-corrective
+answers and only five true abstain/escalate cases. The fixed 40-answer/20-abstain
+and per-category distribution is therefore not semantically feasible with the
+frozen KB. Option A is recommended: amend the taxonomy to 40
+`ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, and 5
+`ABSTAIN_ESCALATE`. `SAFE_CORRECTIVE` is an answer subtype rather than a third
+top-level response type.
+
+Pass B contains 1,040 missing and 2,080 stale revision-3 reviewer statuses, with
+zero valid revision-4 reviewer statuses. The audit also confirms one positive
+support overclaim, two direct-support omissions, and a feasible proposed
+five-pair hard-negative slice. These findings are contract-decision evidence,
+not a new candidate.
+
+W3-002-CR1 is `BLOCKED / CONTRACT_AMENDMENT_REQUIRED`. Structural integrity,
+pre-evaluation integrity, semantic approval, evaluation authorization, and
+critical evaluation are false; the model verdict is `NOT_ESTABLISHED`. Week 3
+P0 remains `BLOCKED / IN PROGRESS`, Week 4 remains `BLOCKED / NOT STARTED`, and
+no candidate revision 5 or inference execution exists.
+
+The non-inference feasibility validator passes; focused tests pass 14/14 and the
+corrected isolated full suite passes 435/435. Project-doc validation, all 18
+historical W3-002 hashes, both rejected revision-4 preservation hashes, and
+`git diff --check` pass.
+
+The contract-feasibility Senior review bundle is now prepared outside the
+repository. It proposes top-level `ANSWER`/`ABSTAIN_ESCALATE` with
+`answer_subtype=STANDARD|SAFE_CORRECTIVE`, persists explicit minimal corrective
+covers and all cover evidence, and independently verifies 20 safety challenges,
+five hard-negative proposals, 19 rejected revision-4 artifacts, and 18
+historical W3-002 artifacts. Bundle preparation does not change the blocked
+lifecycle or authorize a new candidate/evaluation.
+
+## W3-002-CR1 Option A contract amendment — 2026-08-05
+
+Senior approved Option A. The formalized contract retains top-level `ANSWER` and
+`ABSTAIN_ESCALATE`, adds `STANDARD|SAFE_CORRECTIVE` only as answer subtypes, and
+sets the future distribution to 40/15/5. The 20-case slice is now correctly
+reported as safety challenge cases: 15 safe-corrective challenges and five true
+no-answer/abstain challenges.
+
+The contract separates control-plane refusal/source/status boundaries from
+evidence-cited factual banking-policy claims, defines eleven evaluator outcomes,
+and locks case denominators at 40, 15, 5, 60, 60, 15, 55, 60, and 60 for the
+registered case metrics. Citation correctness remains answered-output based and
+unsupported-claim rate remains claim based.
+
+This is contract evidence, not a candidate. Revision 5 does not exist; the exact
+3,120-row Pass B, positive-support, corrective-wording, and five-pair
+hard-negative requirements are future acceptance checks only. Semantic approval,
+evaluation authorization, and critical evaluation remain false. The model
+verdict remains `NOT_ESTABLISHED`; Week 3 P0 remains `BLOCKED / IN PROGRESS` and
+Week 4 remains `BLOCKED / NOT STARTED`.
+
+The external Option A review bundle was independently extracted and verified:
+99/99 payload hashes, 5/5 bundle-only tests, 11/11 bundled contract tests, and
+standalone verification before and after tests all passed. This packaging
+evidence does not advance candidate or evaluation lifecycle.

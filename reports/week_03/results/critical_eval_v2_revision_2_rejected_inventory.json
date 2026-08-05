@@ -1,0 +1,31 @@
+{
+  "artifact_sha256": {
+    "reports/week_03/rejected/critical_eval_v2_revision_2/configs/evaluation/critical_eval_v2.json": "b8a7265f20ab4fdc669a5466480acc7021fadc76371cdf3ca3e090a5433325bf",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/data/evaluation/critical_eval_v2_mapping.jsonl": "f4815c52807980c2f78b685662b0838fb7a526e163e4269dd886ce94a8e01449",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/data/evaluation/critical_eval_v2_pass_a.jsonl": "16a97450a1411b77b7ebbc8ba91559c741a154e30e40bffcbd29cfb010210cad",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/data/evaluation/critical_eval_v2_scenarios.jsonl": "16d4694a23bb750d22939c3a6d726469e1071f86fc068f9f068707c37270cfa9",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/data/evaluation/critical_eval_v2_support_judgments.jsonl": "c61384f14e6db8c958483c213b7d9cee2c530b0b1cd4241ffc74b89bd7eb3cc1",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_candidate_manifest.json": "668992392f3e0f4addeb017a0028f6bc676614910d0e1c03fb8f3e3c51a20834",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_dataset_manifest.json": "5686d2654740f59f52283bdd66aa8fb5864b1249215efbccfcfe004169a3857b",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_forbidden_evidence_audit.jsonl": "08e7203940165daca505d9253c76061714bbce4ca08afcc509d4a404afc66998",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_hard_negative_audit.jsonl": "4b1c4e11d6ab849b7b201d38be34637b2f51dbcf9726668c473c155ad8dfa066",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_historical_hash_verification.json": "420a7dacbf10c936aef252fd63e084cae77b5879f8e124e93360b590dfbd4cbb",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_negative_audit.jsonl": "b40b87d80db4e46bad655e95afd750df7bbd5c78d97f9b2cbd8808bb473bf011",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_overlap_audit.json": "376fc22adc288bf828e1846baccc40881e4ca216c8a37de0b55d2bfbde68bfde",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_overlap_manual_review.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_revision_comparison.json": "ec12e88d5268cd7a0075271d4eff9b4fb6baaa67f6a4bca0e56221384bc1b3fa",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_revision_history.json": "e243b9ba81596a5306c0a5b054d99ed2af68db4d09f447ac76a4ff68afa81a12",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_test_output.txt": "54b26c5da78c57c4d23e7144b9622173be1971f354fab3c42654292f6d1df669",
+    "reports/week_03/rejected/critical_eval_v2_revision_2/reports/week_03/results/critical_eval_v2_verification_output.txt": "5bc32b8dd3c9dd15b7a05aafb43ccab82cb2455667d983c6fcde1c7d310c7311"
+  },
+  "file_count": 17,
+  "revision_2_manifest_sha256": "668992392f3e0f4addeb017a0028f6bc676614910d0e1c03fb8f3e3c51a20834",
+  "revision_2_review_bundle_sha256": "e0a447f7a71f6dc125d87dad088889d779de2c3c8892e7167d11b9a8b3b38a56",
+  "senior_findings": [
+    "false-abstain detection was self-certified rather than derived",
+    "at least one hard negative directly satisfied an obligation",
+    "direct-support omissions and overclaims remained",
+    "overlap/leakage PASS was not reproducible from code and evidence",
+    "review bundle was not independently executable"
+  ]
+}

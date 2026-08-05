@@ -1,0 +1,24 @@
+{
+  "candidate_revision": 2,
+  "critical_evaluated": false,
+  "evaluation_authorized": false,
+  "hard_negative_count": 16,
+  "judgment_rows": 3120,
+  "model_verdict": "NOT_ESTABLISHED",
+  "multi_document_query_ids": [],
+  "multi_section_query_ids": [
+    "Q_V2_A_TRP01",
+    "Q_V2_A_TRR04"
+  ],
+  "package_status": "FROZEN_CANDIDATE / AWAITING_SENIOR_SEMANTIC_REVIEW",
+  "queries": 60,
+  "senior_semantic_review_approved": false,
+  "status": "PASS",
+  "support_class_counts": {
+    "CONTEXTUAL_BUT_INSUFFICIENT": 1390,
+    "CONTRADICTION_OR_OUTDATED": 9,
+    "DIRECT_SUPPORT": 92,
+    "IRRELEVANT": 1609,
+    "PARTIAL_SUPPORT": 20
+  }
+}

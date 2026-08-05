@@ -1,0 +1,67 @@
+{
+  "task_id": "W3-002-CR1",
+  "candidate_revision": 5,
+  "artifact_type": "FUTURE_ACCEPTANCE_CHECKLIST_ONLY",
+  "candidate_revision_5_created": false,
+  "pass_b": {
+    "required_rows": 3120,
+    "required_fields": [
+      "reviewer_status", "reviewer_method", "candidate_revision", "review_input_sha256",
+      "support_class", "reason_code", "supported_requested_obligation_ids",
+      "supported_corrective_obligation_ids", "rationale"
+    ],
+    "requirements": [
+      "NO_MISSING_REVIEWER_STATUS",
+      "NO_STALE_REVISION_1_2_3_4_REVIEWER_STATUS",
+      "CANDIDATE_REVISION_EQUALS_5",
+      "MATERIAL_JUDGMENTS_HAVE_QUERY_AND_EVIDENCE_SPECIFIC_RATIONALES",
+      "AUTOMATED_VALIDATION_IS_NOT_REPRESENTED_AS_SENIOR_SEMANTIC_APPROVAL"
+    ]
+  },
+  "positive_support_corrections": [
+    {
+      "query_id": "Q_V2_A_TRD04",
+      "evidence_id": "RUN_TRANSFER_DECLINED_001#action",
+      "requirement": "Mark PARTIAL_SUPPORT for composite PROTECT or split PROTECT into separately reviewable obligations because the section does not mention credential collection."
+    },
+    {
+      "query_id": "Q_V2_A_TRR04",
+      "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#current_window",
+      "requirement": "Add direct TRIGGER support if the obligation remains semantically equivalent."
+    },
+    {
+      "query_id": "Q_V2_A_TRR04",
+      "evidence_id": "POL_TRANSFER_RECIPIENT_001#trace_window",
+      "requirement": "Add direct TRIGGER support if the obligation remains semantically equivalent."
+    }
+  ],
+  "corrective_cover_wording": [
+    {
+      "query_id": "Q_V4_N_EX01",
+      "requirement": "Add FAQ_CARD_DECLINED_001#policy_gap to the appropriate corrective obligation/covers or remove/narrow the claim that FAQ/runbook are not policy authority."
+    },
+    {
+      "query_id": "Q_V4_N_ID04",
+      "requirement": "Add FAQ_CARD_DECLINED_001#policy_gap to the appropriate corrective obligation/covers or remove/narrow the claim that FAQ/runbook are not policy authority."
+    }
+  ],
+  "claim_plane_requirement": "Separate control-plane refusal/source-boundary claims from evidence-cited factual banking claims for every SAFE_CORRECTIVE case.",
+  "hard_negative_proposals": [
+    ["Q_V2_A_TRP02", "FAQ_TRANSFER_RECIPIENT_002#current_window"],
+    ["Q_V2_A_TRR02", "POL_TRANSFER_PENDING_002#current_window"],
+    ["Q_V2_A_CAR02", "POL_CARD_PENDING_001#review_window"],
+    ["Q_V2_A_CAP02", "POL_CARD_REVERT_002#return_window"],
+    ["Q_V2_A_TRF02", "POL_TRANSFER_DECLINED_001#review_rule"]
+  ],
+  "hard_negative_entry_requirements": [
+    "APPROVED_AND_EFFECTIVE",
+    "RETRIEVAL_ATTRACTIVE",
+    "SUPPORTS_NO_REQUESTED_OR_CORRECTIVE_OBLIGATION",
+    "NOT_LEGITIMATE_PARTIAL_SUPPORT",
+    "PARTICIPATES_IN_NO_COMPLETE_COVER"
+  ],
+  "hard_negative_failure_action": "STOP_AND_REQUEST_SENIOR_REVIEW_WITH_NO_SUBSTITUTION",
+  "mapping_and_covers_must_be_recomputed": true,
+  "senior_semantic_review_approved": false,
+  "evaluation_authorized": false
+}

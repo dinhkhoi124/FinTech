@@ -7,16 +7,109 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: none
-- Next task: none; W3-002-CR1 requires a separate reviewed contract before activation
-- Last updated: 2026-08-03 by Codex
+- Active task: W3-002-CR1 — CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW
+- Next task: submit the standalone W3-002-CR1 contract-amendment review bundle for Senior commit review
+- Last updated: 2026-08-05 by Codex
 
 ## Active objective
-Preserve the accepted W3-002 critical-set integrity incident evidence. The
-original runtime outputs are internally consistent and retained as historical
-diagnostic evidence, but the critical labels and pre-evaluation mapping audit are
-invalid. They cannot establish a model/pipeline PASS or FAIL verdict. Week 3 P0
-remains BLOCKED / IN PROGRESS and Week 4 remains BLOCKED / NOT STARTED.
+Senior rejected candidate revision 4 and blocked further candidate authoring
+pending a contract amendment. Senior has now approved contract Option A. The
+fixed 40/20 contract is not semantically
+feasible with the frozen KB: 15 of the 20 proposed negatives admit a useful,
+approved safe correction and only five remain true abstain/escalate cases.
+Revision 4 is byte-preserved as rejected review history. W3-002-CR1 is
+`CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW`; structural
+integrity and pre-evaluation integrity are false for the rejected candidate. Semantic approval, evaluation
+authorization, and critical evaluation remain false. The model verdict is
+NOT_ESTABLISHED, Week 3 P0 remains BLOCKED / IN PROGRESS, and Week 4 remains
+BLOCKED / NOT STARTED.
+
+The Senior-approved decision bundle has SHA-256
+`bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786`.
+The approved contract keeps `ANSWER` and `ABSTAIN_ESCALATE` as top-level response
+types and adds `answer_subtype=STANDARD|SAFE_CORRECTIVE`. The distribution is 40
+`ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, and 5
+`ABSTAIN_ESCALATE`. This package does not create or authorize candidate revision
+5.
+
+## W3-002-CR1 authoring boundary
+
+- Task: CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW
+- Evaluation version: `critical_eval_v2`
+- Evaluation as-of date: `2026-07-28`
+- Candidate objective: 60 new queries, 3,120 independent eligible-section
+  judgments, obligation-derived mappings, and pre-evaluation integrity evidence
+- Candidate revision 1: REJECTED — PASS B WAS GENERATED FROM EMBEDDED ANSWER KEYS
+- Candidate revision 2: REJECTED / SEMANTIC_AND_VERIFIER_CORRECTION_REQUIRED
+- Candidate revision 3: REJECTED / SEMANTIC_DESIGN_CORRECTION_REQUIRED
+- Candidate revision 4: REJECTED / PRESERVED AS REVIEW HISTORY
+- Contract amendment: OPTION A / SENIOR APPROVED
+- Contract distribution: 40 STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN
+- Candidate revision 5 created: false
+- Candidate package: NOT CREATED
+- Candidate bytes frozen: true
+- Structural integrity verified: false
+- Pre-evaluation integrity passed: false
+- Senior semantic review approved: false
+- Evaluation authorized: false
+- Critical evaluated: false
+- Model/pipeline verdict: NOT ESTABLISHED
+- Week 3 P0: BLOCKED / IN PROGRESS
+- Week 4: BLOCKED / NOT STARTED
+
+Revision 1 manifest SHA-256 is
+`39af29f929ef9a9287808c26d62787079e376a8b7ac05847fa10729d27374b99`.
+Its support plan, judgments, mapping, negative audit, and forbidden audit remain
+byte-preserved under explicit `revision_1_rejected` paths. Revision 2 contains
+3,120 content-bound standalone judgments: 92 DIRECT, 20 PARTIAL, 1,390
+CONTEXTUAL, 9 CONTRADICTION/OUTDATED, and 1,609 IRRELEVANT. It derives 16 hard
+negatives, two multi-section cases, zero multi-document cases, zero outcome
+changes, and zero false-abstain findings. These remain candidate semantics until
+Senior review.
+
+Revision 2 rejected manifest SHA-256 is
+`668992392f3e0f4addeb017a0028f6bc676614910d0e1c03fb8f3e3c51a20834`;
+its external review bundle SHA-256 is
+`e0a447f7a71f6dc125d87dad088889d779de2c3c8892e7167d11b9a8b3b38a56`.
+All 17 preserved revision-2 files live under
+`reports/week_03/rejected/critical_eval_v2_revision_2/`.
+
+Revision 3 rejected manifest SHA-256 is
+`650a8a5847d83211c96941e549bc4379df89e1ae91c857a59c65160a6ed0f688`;
+its review bundle SHA-256 is
+`6e32aa4081c609fb8e2767c099af419f046cd6c6261aec39ddd11368a426603a`.
+All 18 revision-3 files are byte-preserved under
+`reports/week_03/rejected/critical_eval_v2_revision_3/`.
+
+Revision 4 rejected manifest SHA-256 is
+`b2b021c78f11ff4cf5d023044b464b43d806f0c0217fd8e3b196dfc736bb52af`;
+its rejected review bundle SHA-256 is
+`a081e909113a682e7790b758f2b90bea3eea26025103e7209dc1c32e8f04fa5e`.
+All 19 candidate artifacts are byte-preserved under
+`reports/week_03/rejected/critical_eval_v2_revision_4/`. No candidate revision 5
+exists.
+
+## W3-002-CR1 approved contract amendment
+
+- Senior verdict: `APPROVE_CONTRACT_AMENDMENT — OPTION A`
+- `senior_contract_amendment_approved=true`
+- `contract_amendment_option=OPTION_A`
+- `contract_amendment_distribution=40_STANDARD_15_SAFE_CORRECTIVE_5_ABSTAIN`
+- Contract decision bundle SHA-256:
+  `bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786`
+- Revision 4: REJECTED / PRESERVED AS REVIEW HISTORY
+- Revision 5 created: false
+- Senior semantic review approved: false
+- Evaluation authorized: false
+- Critical evaluated: false
+- Model verdict: NOT_ESTABLISHED
+- Week 3 P0: BLOCKED / IN PROGRESS
+- Week 4: BLOCKED / NOT STARTED
+
+The amended taxonomy has top-level `ANSWER` and `ABSTAIN_ESCALATE`, with
+`STANDARD` and `SAFE_CORRECTIVE` subtypes only for answers. The 20-case slice is
+named **safety challenge cases**, not negative abstention. Contract approval is
+not candidate semantic approval.
 
 ## W3-002 integrity incident evidence
 
@@ -255,9 +348,9 @@ remains BLOCKED / IN PROGRESS and Week 4 remains BLOCKED / NOT STARTED.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Preserve the Senior-accepted W3-002 execution and integrity-incident evidence.
-2. Do not create `critical_eval_v2` without a separate reviewed W3-002-CR1 contract.
-3. Keep Week 4 blocked while Week 3 P0 remains BLOCKED / IN PROGRESS.
+1. Submit the W3-002-CR1 Option A contract-amendment review bundle for Senior commit review.
+2. Do not create candidate revision 5 until a separate reviewed authoring task is opened.
+3. Keep evaluation and Week 4 blocked while Week 3 P0 remains BLOCKED / IN PROGRESS.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen

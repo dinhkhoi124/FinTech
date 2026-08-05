@@ -1,0 +1,186 @@
+{
+  "candidate_revision_2": 2,
+  "corrections": [
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "RUN_TRANSFER_FAILED_001#action"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID01",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_ID01"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_TRANSFER_RECIPIENT_001#trace_window",
+        "ESC_TRANSFER_RECIPIENT_001#handoff"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID02",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_ID02"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "ESC_CASH_DECLINED_001#handoff"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID03",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_ID03"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "RUN_CARD_DECLINED_001#action"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID04",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_ID04"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "ESC_CARD_REVERT_001#handoff"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_AM01",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_AM01"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_TRANSFER_PENDING_002#current_window"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_AM02",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_AM02"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "ESC_CASH_UNRECOG_001#safe_handoff"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_AM03",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_AM03"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_CARD_REVERT_002#return_window",
+        "ESC_CARD_REVERT_001#handoff"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_DR01",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_DR01"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_TRANSFER_PENDING_002#current_window",
+        "RUN_TRANSFER_PENDING_001#action"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_DR02",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_DR02"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_CASH_UNRECOG_001#security_rule",
+        "RUN_CASH_UNRECOG_002#safe_handoff"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_DR03",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_DR03"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "FAQ_CARD_DECLINED_001#policy_gap",
+        "RUN_CARD_DECLINED_001#action"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_EX01",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_EX01"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "FAQ_TRANSFER_RECIPIENT_002#current_window",
+        "POL_TRANSFER_RECIPIENT_001#trace_window"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_EX02",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_EX02"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_CASH_UNRECOG_001#security_rule",
+        "RUN_CASH_UNRECOG_002#safe_handoff"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_EX03",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_EX03"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_TRANSFER_PENDING_002#current_window",
+        "RUN_TRANSFER_PENDING_001#action"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_CF01",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_CF01"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_CARD_REVERT_002#return_window",
+        "ESC_CARD_REVERT_001#trigger"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_CF02",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_CF02"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "RUN_TRANSFER_FAILED_001#action"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_IN01",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_IN01"
+    },
+    {
+      "answer_mode": "SAFE_CORRECTIVE",
+      "corrective_evidence_ids": [
+        "POL_TRANSFER_PENDING_002#current_window",
+        "RUN_TRANSFER_PENDING_001#action"
+      ],
+      "derived_revision_2_outcome_with_safe_correction": "ANSWER",
+      "replacement_query_id": "Q_V3_N_IN02",
+      "replacement_reason": "Original query has a complete approved corrective workflow; replacement with missing rail/state facts has no complete requested or corrective cover.",
+      "revision_2_query_id": "Q_V2_N_IN02"
+    }
+  ],
+  "false_abstain_count": 17
+}

@@ -1,0 +1,263 @@
+{
+  "candidate_revision_3_manifest_sha256": "650a8a5847d83211c96941e549bc4379df89e1ae91c857a59c65160a6ed0f688",
+  "candidate_revision_4": "critical_eval_v2_candidate_revision_4",
+  "cover_changes": [
+    {
+      "query_id": "Q_V2_A_CAR01",
+      "revision_3_complete_requested_covers": [
+        [
+          "ESC_CARD_REVERT_001#trigger"
+        ],
+        [
+          "POL_CARD_REVERT_002#state_rule"
+        ]
+      ],
+      "revision_3_sections_documents": [
+        1,
+        1
+      ],
+      "revision_4_complete_requested_covers": [
+        [
+          "POL_CARD_REVERT_002#state_rule"
+        ]
+      ],
+      "revision_4_sections_documents": [
+        1,
+        1
+      ]
+    },
+    {
+      "query_id": "Q_V2_A_CSD02",
+      "revision_3_complete_requested_covers": [
+        [
+          "ESC_CASH_DECLINED_001#trigger"
+        ],
+        [
+          "POL_CASH_DECLINED_001#review_rule"
+        ]
+      ],
+      "revision_3_sections_documents": [
+        1,
+        1
+      ],
+      "revision_4_complete_requested_covers": [
+        [
+          "POL_CASH_DECLINED_001#review_rule"
+        ]
+      ],
+      "revision_4_sections_documents": [
+        1,
+        1
+      ]
+    },
+    {
+      "query_id": "Q_V2_A_CSP03",
+      "revision_3_complete_requested_covers": [
+        [
+          "FAQ_CASH_PENDING_001#answer"
+        ],
+        [
+          "RUN_CASH_PENDING_001#recognition_check"
+        ],
+        [
+          "RUN_CASH_UNRECOG_002#recognition_gate"
+        ]
+      ],
+      "revision_3_sections_documents": [
+        1,
+        1
+      ],
+      "revision_4_complete_requested_covers": [
+        [
+          "FAQ_CASH_PENDING_001#answer"
+        ],
+        [
+          "RUN_CASH_PENDING_001#recognition_check"
+        ]
+      ],
+      "revision_4_sections_documents": [
+        1,
+        1
+      ]
+    }
+  ],
+  "direct_support_changes": [
+    {
+      "evidence_id": "ESC_CARD_REVERT_001#trigger",
+      "query_id": "Q_V2_A_CAR01",
+      "revision_3_obligation_ids": [
+        "STATE",
+        "BOUNDARY"
+      ],
+      "revision_4_obligation_ids": [
+        "BOUNDARY"
+      ]
+    },
+    {
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "query_id": "Q_V2_A_CSD02",
+      "revision_3_obligation_ids": [
+        "THRESHOLD",
+        "SECURITY"
+      ],
+      "revision_4_obligation_ids": [
+        "THRESHOLD"
+      ]
+    },
+    {
+      "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate",
+      "query_id": "Q_V2_A_CSD04",
+      "revision_3_obligation_ids": [
+        "SECURITY"
+      ],
+      "revision_4_obligation_ids": []
+    },
+    {
+      "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate",
+      "query_id": "Q_V2_A_CSP03",
+      "revision_3_obligation_ids": [
+        "GATE",
+        "REDIRECT"
+      ],
+      "revision_4_obligation_ids": [
+        "GATE"
+      ]
+    }
+  ],
+  "final_outcome_changes": [],
+  "hard_negative_additions": [],
+  "hard_negative_removals": [
+    {
+      "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer",
+      "query_id": "Q_V2_A_TRP03"
+    },
+    {
+      "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+      "query_id": "Q_V2_A_TRP03"
+    }
+  ],
+  "negative_replacements": [
+    {
+      "revision_3_query_id": "Q_V3_N_ID01",
+      "revision_4_query_id": "Q_V4_N_ID01"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_ID02",
+      "revision_4_query_id": "Q_V4_N_ID02"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_ID03",
+      "revision_4_query_id": "Q_V4_N_ID03"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_ID04",
+      "revision_4_query_id": "Q_V4_N_ID04"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_AM01",
+      "revision_4_query_id": "Q_V4_N_AM01"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_AM02",
+      "revision_4_query_id": "Q_V4_N_AM02"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_AM03",
+      "revision_4_query_id": "Q_V4_N_AM03"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_DR01",
+      "revision_4_query_id": "Q_V4_N_DR01"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_DR02",
+      "revision_4_query_id": "Q_V4_N_DR02"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_DR03",
+      "revision_4_query_id": "Q_V4_N_DR03"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_EX01",
+      "revision_4_query_id": "Q_V4_N_EX01"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_EX02",
+      "revision_4_query_id": "Q_V4_N_EX02"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_EX03",
+      "revision_4_query_id": "Q_V4_N_EX03"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_CF01",
+      "revision_4_query_id": "Q_V4_N_CF01"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_CF02",
+      "revision_4_query_id": "Q_V4_N_CF02"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_IN01",
+      "revision_4_query_id": "Q_V4_N_IN01"
+    },
+    {
+      "revision_3_query_id": "Q_V3_N_IN02",
+      "revision_4_query_id": "Q_V4_N_IN02"
+    },
+    {
+      "revision_3_query_id": "Q_V2_N_OS01",
+      "revision_4_query_id": "Q_V4_N_OS01"
+    },
+    {
+      "revision_3_query_id": "Q_V2_N_AB01",
+      "revision_4_query_id": "Q_V4_N_AB01"
+    },
+    {
+      "revision_3_query_id": "Q_V2_N_AB02",
+      "revision_4_query_id": "Q_V4_N_AB02"
+    }
+  ],
+  "positive_model_inputs_frozen": [
+    "Q_V2_A_TRP01",
+    "Q_V2_A_TRP02",
+    "Q_V2_A_TRP03",
+    "Q_V2_A_TRP04",
+    "Q_V2_A_TRF01",
+    "Q_V2_A_TRF02",
+    "Q_V2_A_TRF03",
+    "Q_V2_A_TRF04",
+    "Q_V2_A_TRD01",
+    "Q_V2_A_TRD02",
+    "Q_V2_A_TRD03",
+    "Q_V2_A_TRD04",
+    "Q_V2_A_TRR01",
+    "Q_V2_A_TRR02",
+    "Q_V2_A_TRR03",
+    "Q_V2_A_TRR04",
+    "Q_V2_A_CAP01",
+    "Q_V2_A_CAP02",
+    "Q_V2_A_CAP03",
+    "Q_V2_A_CAP04",
+    "Q_V2_A_CAD01",
+    "Q_V2_A_CAD02",
+    "Q_V2_A_CAD03",
+    "Q_V2_A_CAD04",
+    "Q_V2_A_CAR01",
+    "Q_V2_A_CAR02",
+    "Q_V2_A_CAR03",
+    "Q_V2_A_CAR04",
+    "Q_V2_A_CSP01",
+    "Q_V2_A_CSP02",
+    "Q_V2_A_CSP03",
+    "Q_V2_A_CSP04",
+    "Q_V2_A_CSD01",
+    "Q_V2_A_CSD02",
+    "Q_V2_A_CSD03",
+    "Q_V2_A_CSD04",
+    "Q_V2_A_CSU01",
+    "Q_V2_A_CSU02",
+    "Q_V2_A_CSU03",
+    "Q_V2_A_CSU04"
+  ]
+}

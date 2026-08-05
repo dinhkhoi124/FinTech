@@ -1,0 +1,55 @@
+W3-002-CR1 OPTION A CONTRACT AMENDMENT VERIFICATION
+Date: 2026-08-05
+Execution class: non-inference contract and preservation checks only
+
+Git preflight
+- branch: main
+- HEAD: eb6c76d672d0800aef34f81fb134e0cf7088baab
+- origin/main: eb6c76d672d0800aef34f81fb134e0cf7088baab
+- staged files: 0
+- git diff --check: PASS (line-ending warnings only)
+
+Approved decision evidence
+- SHA-256: bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786
+- 67 inventoried payload files + 1 detached inventory = 68 ZIP entries
+- hash verification: PASS
+
+Contract validation
+- amended-contract schema: PASS
+- taxonomy: PASS
+- distribution 40 STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN: PASS
+- metric denominators: PASS
+- revision-5 acceptance checklist: PASS
+- candidate revision 5 created: false
+- semantic review approved: false
+- evaluation authorized: false
+
+Preservation validation
+- rejected revision 2: 17/17 files PASS
+- rejected revision 3: 18/18 files PASS
+- rejected revision 4: 19/19 files PASS
+- historical W3-002: 18/18 files PASS
+- active revision-4 candidate: 19/19 files byte-identical to rejected inventory
+
+Tests and validators
+- test_critical_v2_contract.py: 11/11 PASS
+- test_critical_v2_feasibility.py: 14/14 PASS
+- isolated application suite: 446/446 PASS in 105.231 seconds
+- project document validator: PASS
+
+Extracted amendment review bundle
+- inventory payload hashes: 99/99 PASS
+- total ZIP entries: 100 (99 payload + detached self-excluding inventory)
+- standalone verifier before tests: PASS
+- bundle-only tests: 5/5 PASS
+- bundled contract tests: 11/11 PASS
+- standalone verifier after tests: PASS
+
+Isolation harness history
+- attempt 1: discovery stopped before tests due shadow tests/test_reporting directory
+- attempt 2: 445/446 passed; missing artifacts directory caused reporting-only failure
+- attempt 3: invalid broad models exclusion removed configs/models; harness-only failures
+- attempt 4: 446/446 PASS with path-specific cache/model exclusions
+
+No model load, retrieval, generation, inference, critical evaluation, stage,
+commit, or push occurred.

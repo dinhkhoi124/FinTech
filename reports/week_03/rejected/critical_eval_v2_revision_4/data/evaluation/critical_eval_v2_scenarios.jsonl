@@ -1,0 +1,60 @@
+{"query_id": "Q_V2_A_TRP01", "scenario_id": "S_V2_A_TRP01", "scenario_text": "A payroll transfer submitted yesterday remains visibly processing."}
+{"query_id": "Q_V2_A_TRP02", "scenario_id": "S_V2_A_TRP02", "scenario_text": "A recognized transfer has just crossed the active handling window without completing."}
+{"query_id": "Q_V2_A_TRP03", "scenario_id": "S_V2_A_TRP03", "scenario_text": "The screen shows processing, while the customer calls it failed."}
+{"query_id": "Q_V2_A_TRP04", "scenario_id": "S_V2_A_TRP04", "scenario_text": "A customer wants to send the same transfer again before the active window expires."}
+{"query_id": "Q_V2_A_TRF01", "scenario_id": "S_V2_A_TRF01", "scenario_text": "A submitted transfer now displays a terminal technical failure."}
+{"query_id": "Q_V2_A_TRF02", "scenario_id": "S_V2_A_TRF02", "scenario_text": "The first transfer is terminally failed and the customer asks to try once more."}
+{"query_id": "Q_V2_A_TRF03", "scenario_id": "S_V2_A_TRF03", "scenario_text": "The customer reports both an error message and another transfer still processing."}
+{"query_id": "Q_V2_A_TRF04", "scenario_id": "S_V2_A_TRF04", "scenario_text": "A second controlled attempt has also reached terminal failure."}
+{"query_id": "Q_V2_A_TRD01", "scenario_id": "S_V2_A_TRD01", "scenario_text": "A bank transfer was explicitly refused before processing began."}
+{"query_id": "Q_V2_A_TRD02", "scenario_id": "S_V2_A_TRD02", "scenario_text": "A customer describes a refusal but does not identify the payment rail."}
+{"query_id": "Q_V2_A_TRD03", "scenario_id": "S_V2_A_TRD03", "scenario_text": "Two recognized bank-transfer refusals occurred during the same fictional day."}
+{"query_id": "Q_V2_A_TRD04", "scenario_id": "S_V2_A_TRD04", "scenario_text": "The customer requests the bank's hidden reason for a transfer refusal."}
+{"query_id": "Q_V2_A_TRR01", "scenario_id": "S_V2_A_TRR01", "scenario_text": "The sender sees completed, but the named recipient reports no credit."}
+{"query_id": "Q_V2_A_TRR02", "scenario_id": "S_V2_A_TRR02", "scenario_text": "A completed transfer has not appeared for the recipient by the end of the active posting window."}
+{"query_id": "Q_V2_A_TRR03", "scenario_id": "S_V2_A_TRR03", "scenario_text": "The sender wants recipient tracing before confirming completion."}
+{"query_id": "Q_V2_A_TRR04", "scenario_id": "S_V2_A_TRR04", "scenario_text": "The recipient still has no credit after the approved period and masked references are available."}
+{"query_id": "Q_V2_A_CAP01", "scenario_id": "S_V2_A_CAP01", "scenario_text": "A recognized merchant authorization remains open and has not posted."}
+{"query_id": "Q_V2_A_CAP02", "scenario_id": "S_V2_A_CAP02", "scenario_text": "A merchant authorization is still pending on the second calendar day."}
+{"query_id": "Q_V2_A_CAP03", "scenario_id": "S_V2_A_CAP03", "scenario_text": "A customer recognizes the merchant but calls the authorization a cash withdrawal."}
+{"query_id": "Q_V2_A_CAP04", "scenario_id": "S_V2_A_CAP04", "scenario_text": "The authorization has crossed the review window and the customer asks for a second dispute."}
+{"query_id": "Q_V2_A_CAD01", "scenario_id": "S_V2_A_CAD01", "scenario_text": "A merchant authorization was refused immediately at checkout."}
+{"query_id": "Q_V2_A_CAD02", "scenario_id": "S_V2_A_CAD02", "scenario_text": "The customer reports a merchant refusal but asks for the hidden policy reason."}
+{"query_id": "Q_V2_A_CAD03", "scenario_id": "S_V2_A_CAD03", "scenario_text": "A support note cites the declined-card FAQ as if it were an approved policy."}
+{"query_id": "Q_V2_A_CAD04", "scenario_id": "S_V2_A_CAD04", "scenario_text": "A merchant refusal is being routed through a bank-transfer decline workflow."}
+{"query_id": "Q_V2_A_CAR01", "scenario_id": "S_V2_A_CAR01", "scenario_text": "A merchant card amount first appeared and was later marked reversed."}
+{"query_id": "Q_V2_A_CAR02", "scenario_id": "S_V2_A_CAR02", "scenario_text": "A confirmed reversal has not returned to the ledger after several days."}
+{"query_id": "Q_V2_A_CAR03", "scenario_id": "S_V2_A_CAR03", "scenario_text": "The event is still pending and has never been marked reversed."}
+{"query_id": "Q_V2_A_CAR04", "scenario_id": "S_V2_A_CAR04", "scenario_text": "A confirmed reversal is overdue and support must create a safe ledger-review handoff."}
+{"query_id": "Q_V2_A_CSP01", "scenario_id": "S_V2_A_CSP01", "scenario_text": "A customer recognizes an ATM attempt and the ledger entry remains pending."}
+{"query_id": "Q_V2_A_CSP02", "scenario_id": "S_V2_A_CSP02", "scenario_text": "A recognized ATM entry is still pending within its active ledger period."}
+{"query_id": "Q_V2_A_CSP03", "scenario_id": "S_V2_A_CSP03", "scenario_text": "The customer denies making the ATM withdrawal even though the display says pending."}
+{"query_id": "Q_V2_A_CSP04", "scenario_id": "S_V2_A_CSP04", "scenario_text": "A recognized pending ATM entry has crossed the approved ledger window."}
+{"query_id": "Q_V2_A_CSD01", "scenario_id": "S_V2_A_CSD01", "scenario_text": "The customer recognizes an ATM attempt, no cash was dispensed, and the ATM refused it."}
+{"query_id": "Q_V2_A_CSD02", "scenario_id": "S_V2_A_CSD02", "scenario_text": "Two recognized ATM refusals occurred today without dispensing cash."}
+{"query_id": "Q_V2_A_CSD03", "scenario_id": "S_V2_A_CSD03", "scenario_text": "An ATM refusal is recognized, but the case note proposes collecting internal control details."}
+{"query_id": "Q_V2_A_CSD04", "scenario_id": "S_V2_A_CSD04", "scenario_text": "A customer calls an unrecognized ATM event a routine decline."}
+{"query_id": "Q_V2_A_CSU01", "scenario_id": "S_V2_A_CSU01", "scenario_text": "A customer denies an ATM withdrawal shown in the ledger."}
+{"query_id": "Q_V2_A_CSU02", "scenario_id": "S_V2_A_CSU02", "scenario_text": "The customer does not recognize the ATM event and an agent wants to continue ordinary troubleshooting."}
+{"query_id": "Q_V2_A_CSU03", "scenario_id": "S_V2_A_CSU03", "scenario_text": "A support agent asks the customer for a PIN to investigate an unrecognized ATM event."}
+{"query_id": "Q_V2_A_CSU04", "scenario_id": "S_V2_A_CSU04", "scenario_text": "An unrecognized ATM event is being delayed until its ledger state changes."}
+{"query_id": "Q_V4_N_ID01", "scenario_id": "S_V4_N_ID01", "scenario_text": "A terminally failed bank transfer is confirmed with no active duplicate; the customer requests a private routing token rather than handling advice."}
+{"query_id": "Q_V4_N_ID02", "scenario_id": "S_V4_N_ID02", "scenario_text": "Sender completion, missing recipient credit, and elapsed posting window are all observable; only the private trace identifier is requested."}
+{"query_id": "Q_V4_N_ID03", "scenario_id": "S_V4_N_ID03", "scenario_text": "ATM non-recognition is explicit and the security boundary is established; only the controller-only incident code is requested."}
+{"query_id": "Q_V4_N_ID04", "scenario_id": "S_V4_N_ID04", "scenario_text": "The merchant-card rail and immediate declined state are explicit; only a processor-private reason reference is requested."}
+{"query_id": "Q_V4_N_AM01", "scenario_id": "S_V4_N_AM01", "scenario_text": "A confirmed overdue reversal is explicit; the unsupported monetary entitlement and approval matrix are the only requested details."}
+{"query_id": "Q_V4_N_AM02", "scenario_id": "S_V4_N_AM02", "scenario_text": "The transfer rail, terminal state, and retry history are explicit; the requested reimbursement threshold is not a missing-case-fact problem."}
+{"query_id": "Q_V4_N_AM03", "scenario_id": "S_V4_N_AM03", "scenario_text": "Recognition, ATM refusal, no-dispense state, and event count are explicit; only the unpublished monetary matrix is requested."}
+{"query_id": "Q_V4_N_DR01", "scenario_id": "S_V4_N_DR01", "scenario_text": "The reversal state and timing are explicit; the request isolates the future draft provisional-credit entitlement."}
+{"query_id": "Q_V4_N_DR02", "scenario_id": "S_V4_N_DR02", "scenario_text": "The transfer rail, recognized pending state, and elapsed time are explicit; the request isolates the future draft queue entitlement."}
+{"query_id": "Q_V4_N_DR03", "scenario_id": "S_V4_N_DR03", "scenario_text": "ATM non-recognition is explicit; the request isolates the future draft device-signal automation rather than missing recognition context."}
+{"query_id": "Q_V4_N_EX01", "scenario_id": "S_V4_N_EX01", "scenario_text": "The card rail, declined state, and event count are explicit; the request isolates an expired automatic escalation entitlement."}
+{"query_id": "Q_V4_N_EX02", "scenario_id": "S_V4_N_EX02", "scenario_text": "Sender completion, recipient non-credit, and elapsed duration are explicit; the request isolates the expired four-day workflow."}
+{"query_id": "Q_V4_N_EX03", "scenario_id": "S_V4_N_EX03", "scenario_text": "ATM non-recognition is explicit; the request isolates the expired wait-before-security workflow."}
+{"query_id": "Q_V4_N_CF01", "scenario_id": "S_V4_N_CF01", "scenario_text": "The rail and state are explicit; the unresolved issue is legal precedence between approved support policy and an external claimed authority."}
+{"query_id": "Q_V4_N_CF02", "scenario_id": "S_V4_N_CF02", "scenario_text": "The reversal state and timing are explicit; the unresolved issue is contractual precedence not established by the banking KB."}
+{"query_id": "Q_V4_N_IN01", "scenario_id": "S_V4_N_IN01", "scenario_text": "The transfer state is explicit; the request primarily attacks source and instruction boundaries."}
+{"query_id": "Q_V4_N_IN02", "scenario_id": "S_V4_N_IN02", "scenario_text": "ATM non-recognition is explicit; the request primarily attacks effective-date and approved-source controls."}
+{"query_id": "Q_V4_N_OS01", "scenario_id": "S_V4_N_OS01", "scenario_text": "The request is a complete investment-prediction task outside banking-support scope."}
+{"query_id": "Q_V4_N_AB01", "scenario_id": "S_V4_N_AB01", "scenario_text": "The displayed word failed is known, but the transaction rail and corresponding observable terminal state are absent."}
+{"query_id": "Q_V4_N_AB02", "scenario_id": "S_V4_N_AB02", "scenario_text": "The missing-money report is explicit but cannot identify the relevant banking event or observable state."}

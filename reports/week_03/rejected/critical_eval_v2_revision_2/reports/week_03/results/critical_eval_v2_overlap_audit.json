@@ -1,0 +1,21 @@
+{
+  "automated_screening_not_semantic_approval": true,
+  "exact_overlap_count": 0,
+  "flagged_for_manual_review": 0,
+  "normalized_exact_overlap_count": 0,
+  "resolved_manual_reviews": 0,
+  "sources": {
+    "banking77_official_test": 3080,
+    "banking77_train": 8998,
+    "banking77_validation": 1005,
+    "critical_eval_v1_queries": 60,
+    "critical_eval_v1_scenarios": 60,
+    "w2_development_queries": 60,
+    "w2_locked_queries": 60,
+    "w3_001_cr1_design_queries": 10,
+    "w3_001_cr1_holdout_queries": 20,
+    "w3_001_development_queries": 10
+  },
+  "status": "PASS",
+  "unresolved_findings": 0
+}

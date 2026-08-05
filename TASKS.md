@@ -23,6 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Option A contract approved and formalized; revisions 1–4 preserved; revision 5 not created; semantic/evaluation approval false | CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -325,3 +326,33 @@ audit itself was self-referential. No replacement evaluation is authorized; Week
 - **Integrity incident analysis:** DONE / REVIEWED / ACCEPTED.
 - **Boundary:** no `critical_eval_v2`, encoder/retrieval/pipeline rerun, model
   selection, or Week 4 work is authorized.
+
+### W3-002-CR1 contract-amendment gate — 2026-08-05
+
+- **Senior verdict:** `APPROVE_CONTRACT_AMENDMENT — OPTION A`.
+- **Task status:** `CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW`.
+- **Candidate revision 4:** `REJECTED / PRESERVED AS REVIEW HISTORY`.
+- **Feasibility result:** 15 `ANSWER / SAFE_CORRECTIVE`, 5
+  `ABSTAIN_ESCALATE`; fixed 40/20 distribution is not semantically feasible
+  with the frozen KB.
+- **Integrity:** `structural_integrity_verified=false`,
+  `pre_evaluation_integrity_passed=false`, semantic approval=false,
+  evaluation authorization=false, critical evaluated=false.
+- **Approved decision:** retain top-level `ANSWER`/`ABSTAIN_ESCALATE`, add
+  `answer_subtype=STANDARD|SAFE_CORRECTIVE`, and use the audited 40/15/5
+  distribution.
+- **Boundary:** no candidate revision 5, inference, evaluation, staging, commit,
+  push, W3-002 execution, or Week 4 work is authorized.
+- **Decision-review bundle:** PREPARED outside the repository with a 20-row
+  safety-challenge contract, explicit minimal corrective covers, approved/effective
+  evidence catalog, five enriched hard-negative proposals, preservation payload,
+  detached inventory, and a standard-library standalone verifier. Its approved
+  SHA-256 is
+  `bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786`.
+
+The formalized contract separates control-plane from evidence-cited factual
+claims, defines the evaluator outcomes and denominators, and records a future
+revision-5 checklist without creating candidate data. Rejected revisions 2/3/4
+remain byte-preserved. Senior semantic approval, evaluation authorization, and
+critical evaluation remain false; model verdict is `NOT_ESTABLISHED`; Week 3 P0
+and Week 4 remain blocked.

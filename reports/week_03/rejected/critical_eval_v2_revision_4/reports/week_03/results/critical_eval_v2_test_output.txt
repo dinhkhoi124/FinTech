@@ -1,0 +1,36 @@
+W3-002-CR1 candidate revision 4 structural verification
+date=2026-08-05
+environment=Windows PowerShell; project .venv-semantic Python; no model/encoder/retrieval/generation execution
+
+command=.\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_v2.py --root . verify-pass-b
+result=PASS; queries=60; judgments=3120; eligible_sections_per_query=52
+
+command=.\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_v2.py --root . verify-candidate
+result=PASS; candidate_revision=4; package_status=FROZEN_CANDIDATE / AWAITING_SENIOR_SEMANTIC_REVIEW
+
+command=.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_critical_eval_v2.py" -q
+result=PASS; Ran 64 tests in 89.580s; OK
+failure_converted_to_evidence=initial run found scenario metadata changed overlap audit hash; runtime-only candidate hashing fixed; regression now PASS
+
+command=.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_critical_safety_evaluation.py" -v
+result=PASS; Ran 68 tests in 0.417s; OK
+
+isolated_command=.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -q
+isolated_result=PASS; Ran 421 tests in 121.404s; OK
+
+standalone_bundle_command=python scripts/evaluation/verify_review_bundle.py --root .
+standalone_bundle_result=PASS; inventory_files_verified=115; candidate_revision=4; original repository not imported
+
+command=.\.venv-semantic\Scripts\python.exe scripts/reporting/validate_project_docs.py --root .
+result=PASS
+
+command=git diff --check
+result=PASS; LF-to-CRLF working-copy warnings only; no whitespace findings
+
+negative_authorization_test=scripts/evaluation/week3_critical_v2.py ... run-critical
+result=EXPECTED FAIL; STOP — critical_eval_v2 execution is not authorized
+
+senior_semantic_review_approved=false
+evaluation_authorized=false
+critical_evaluated=false
+model_verdict=NOT_ESTABLISHED

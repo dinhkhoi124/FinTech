@@ -1,0 +1,39 @@
+{
+  "task_id": "W3-002-CR1",
+  "candidate_revision": 4,
+  "status": "REJECTED / PRESERVED AS REVIEW HISTORY",
+  "senior_verdict": "BLOCKED — CONTRACT AMENDMENT REQUIRED",
+  "preserved_at": "2026-08-05",
+  "revision_4_manifest_sha256": "b2b021c78f11ff4cf5d023044b464b43d806f0c0217fd8e3b196dfc736bb52af",
+  "revision_4_review_bundle_sha256": "a081e909113a682e7790b758f2b90bea3eea26025103e7209dc1c32e8f04fa5e",
+  "review_bundle_history_path": "E:/merged_partition_content/Khoi_Project/VinSmartFuture/W3-002-CR1_revision_4_rejected_review_bundle.zip",
+  "artifact_count": 19,
+  "artifacts": [
+    {"path":"configs/evaluation/critical_eval_v2.json","size_bytes":7978,"sha256":"1f191028ee049484c868e4bc141f53de5d13e702a293edc123b642e20c3870d3"},
+    {"path":"data/evaluation/critical_eval_v2_mapping.jsonl","size_bytes":100768,"sha256":"9bcbc2d427266b30e1713b5df8b2fe212033a3c51abc175a670701dc180711aa"},
+    {"path":"data/evaluation/critical_eval_v2_pass_a.jsonl","size_bytes":70865,"sha256":"ecd0beeaaa13a32dafb5a262c3ec7a3e973e0b8fa68a17c1e398f5f38c8825c7"},
+    {"path":"data/evaluation/critical_eval_v2_scenarios.jsonl","size_bytes":10245,"sha256":"6e2c1020ad212cc2050ca4b691a170e97eb03e5ceab7782969c351c9a05945e7"},
+    {"path":"data/evaluation/critical_eval_v2_support_judgments.jsonl","size_bytes":3757745,"sha256":"b6979a52a54761954549084bb16696a7aec101792bc7b57e4d1c9c71b6308168"},
+    {"path":"reports/week_03/results/critical_eval_v2_candidate_manifest.json","size_bytes":14301,"sha256":"b2b021c78f11ff4cf5d023044b464b43d806f0c0217fd8e3b196dfc736bb52af"},
+    {"path":"reports/week_03/results/critical_eval_v2_dataset_manifest.json","size_bytes":949,"sha256":"ef62de1a18c5136200e89794054cf1601510b4c6db6415d126f2399a7c0b97b6"},
+    {"path":"reports/week_03/results/critical_eval_v2_forbidden_evidence_audit.jsonl","size_bytes":1046358,"sha256":"b014133656cc9b0d818ff68818d98bf9c17ff692dce82ae912f7937eb1e964ee"},
+    {"path":"reports/week_03/results/critical_eval_v2_hard_negative_audit.jsonl","size_bytes":0,"sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"path":"reports/week_03/results/critical_eval_v2_historical_hash_verification.json","size_bytes":2436,"sha256":"420a7dacbf10c936aef252fd63e084cae77b5879f8e124e93360b590dfbd4cbb"},
+    {"path":"reports/week_03/results/critical_eval_v2_negative_audit.jsonl","size_bytes":22046,"sha256":"2ad124fd4e6b97440f7a06cbfba32f38af01739a74b0779b6a65ce1fb7329123"},
+    {"path":"reports/week_03/results/critical_eval_v2_negative_category_quality_audit.jsonl","size_bytes":11530,"sha256":"220984caf7ab82815f2e678835e88808be76937e8a1313795ecdfb9078ceb070"},
+    {"path":"reports/week_03/results/critical_eval_v2_overlap_audit.json","size_bytes":1924,"sha256":"559f8b344d1ba5c4aed9c98ea260f76d54b62de9eb6f24c199dd6d71b4c7e8d9"},
+    {"path":"reports/week_03/results/critical_eval_v2_overlap_manual_review.jsonl","size_bytes":0,"sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"path":"reports/week_03/results/critical_eval_v2_revision_4_corrections.json","size_bytes":22707,"sha256":"d963238730f9fa740f1af2a06401057491faca4cc8745afe398c73b9cac367f9"},
+    {"path":"reports/week_03/results/critical_eval_v2_revision_comparison.json","size_bytes":5996,"sha256":"b4410c9962c0455f3e57fa91337019eebc8fde61e3a33273935c946f32b83e26"},
+    {"path":"reports/week_03/results/critical_eval_v2_revision_history.json","size_bytes":7865,"sha256":"86f87e4d12ee5ccabd967dd503438b23874bf8871d1e00b25d0bc447309747e9"},
+    {"path":"reports/week_03/results/critical_eval_v2_test_output.txt","size_bytes":1869,"sha256":"26fcc1fc74e555f5ae6ae0a45518f4e8daddb1a161a88c1eb8d4fb93036e098a"},
+    {"path":"reports/week_03/results/critical_eval_v2_verification_output.txt","size_bytes":766,"sha256":"188cabe2d73271c2195451325070f0da346b6a0eba31bb631d9891d79c347a9c"}
+  ],
+  "senior_findings": [
+    "Safe-corrective obligations were artificial exact substitutes or equivalent entitlements.",
+    "Pass B reviewer provenance was missing or stale.",
+    "Hard-negative coverage was zero.",
+    "Positive direct-support omissions and overclaims remained.",
+    "The fixed negative contract may not be semantically feasible with the frozen KB."
+  ]
+}

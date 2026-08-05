@@ -1,0 +1,20 @@
+{
+  "configs/evaluation/critical_eval_v1_integrity_audit.json": "6bd25570bd233bfa72203b354ae1164f43d3f8bbaa0d9e246727c6e5550dc753",
+  "data/evaluation/critical_eval_v1.jsonl": "4d99a272dcb3a8fa0c6d860c0fd244dbaf35a9c190d7d194466f1f3d38c1f54d",
+  "data/evaluation/critical_eval_v1_posthoc_support_judgments.jsonl": "861d19e2cdb5ff937d3f4e2c9eb69f94efbd3b3599531adcb143bb91aa443f81",
+  "data/evaluation/critical_eval_v1_scenarios.jsonl": "9e0249a9fd6e2c1bf6d28013189228a5809d6c8bbbfa366e4747918632b8e370",
+  "reports/week_03/results/critical_eval_v1_claim_audit.jsonl": "f647442bf9134aa4b6cfe4827f67d4cd2657fc4bb6a02e23fa80669aa794f00b",
+  "reports/week_03/results/critical_eval_v1_integrity_incident_summary.json": "8684d91a948d2763efea0b59ec7e2add97434d26e55738e55069a4f34dafec54",
+  "reports/week_03/results/critical_eval_v1_integrity_verification_output.txt": "3bc3c9bc4c719a02b72aa47e0a8e398fb7c7820d62f7b0e3f08885eef0cea905",
+  "reports/week_03/results/critical_eval_v1_outcome_classes.jsonl": "7c8f5c5f93b6153b3bbefb3a530152096a297568d53d7638c44170faa837e594",
+  "reports/week_03/results/critical_eval_v1_posthoc_negative_integrity_audit.csv": "93acffe5a4e933b8287cb2adf0dc60b0fa5fc740009c456a58a05d4333923959",
+  "reports/week_03/results/critical_eval_v1_posthoc_positive_integrity_audit.csv": "89b2f7454e28f6b33db15b24843b4d1e9c55d4777e7e821772f98b0e9a1ea4fc",
+  "reports/week_03/results/critical_eval_v1_pre_evaluation_manifest.json": "b9183f41aed54c343da54f0bd97b8196c9c2788333ba8fcce4a1447843ce6c22",
+  "reports/week_03/results/critical_eval_v1_r0_rankings.jsonl": "010791275fe4b253fc102aa1330ea1035cf80d70382a1f72ed7584072a39dee1",
+  "reports/week_03/results/critical_eval_v1_r1_rankings.jsonl": "f1658cb1a996408a0e96a629e399196495f14a357a11d72a8a2279c5cd8e5c34",
+  "reports/week_03/results/critical_eval_v1_reproduction.json": "4895ae47a81665b317eb849bf56b86264572207f9c59c9fe0d0a5e1542b9a7d1",
+  "reports/week_03/results/critical_eval_v1_v0_outputs.jsonl": "75d51bf2357df900c422e08d70f545c233e2ce38da0b75365ca7c65287dfc418",
+  "reports/week_03/results/critical_eval_v1_v1_outputs.jsonl": "84be3c0c19d367b1207121950de680015a320ecd93e66315a496d3708e654bff",
+  "reports/week_03/results/critical_eval_v1_v2_outputs.jsonl": "8717707ddcc6d28f36e90285c6cf181e8f176ed468c1906e1f7c170a3974e49b",
+  "reports/week_03/results/critical_eval_v1_variant_metrics.json": "d8cfcd13774a3b8dc91ad3500525da29f8b416bf638d4ae572332bad5b7c9af3"
+}

@@ -1,0 +1,36 @@
+W3-002-CR1 candidate revision 2 structural verification
+date=2026-08-05
+environment=Windows PowerShell; project .venv-semantic Python; no model/encoder/retrieval/generation execution
+
+command=.\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_v2.py --root . --config configs/evaluation/critical_eval_v2.json verify-pass-b
+result=PASS; queries=60; judgments=3120; eligible_sections_per_query=52
+
+command=.\.venv-semantic\Scripts\python.exe scripts/evaluation/week3_critical_v2.py --root . --config configs/evaluation/critical_eval_v2.json verify-candidate
+result=PASS; candidate_revision=2; package_status=FROZEN_CANDIDATE / AWAITING_SENIOR_SEMANTIC_REVIEW
+
+command=.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_critical_eval_v2.py" -v
+result=PASS; Ran 52 tests in 1.031s; OK
+
+command=.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_critical_safety_evaluation.py" -v
+result=PASS; Ran 68 tests in 0.172s; OK
+
+isolated_attempt_1=STOPPED before tests; ignored tests/test_reporting directory was not excluded by relative robocopy /XD path
+isolated_attempt_2=Ran 409 tests in 50.478s; 1 repository-contract failure because artifacts/README.md was excluded with runtime artifacts
+root_cause=isolated-copy harness exclusions, not candidate behavior
+correction=absolute ignored-directory exclusion; restore only tracked artifacts/README.md; keep model/cache artifacts excluded
+final_isolated_command=.\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -v
+final_isolated_result=PASS; Ran 409 tests in 51.294s; OK
+
+command=.\.venv-semantic\Scripts\python.exe scripts/reporting/validate_project_docs.py --root .
+result=PASS
+
+command=git diff --check
+result=PASS; LF-to-CRLF working-copy warnings only; no whitespace findings
+
+negative_authorization_test=scripts/evaluation/week3_critical_v2.py ... run-critical
+result=EXPECTED FAIL; STOP — critical_eval_v2 execution is not authorized
+
+senior_semantic_review_approved=false
+evaluation_authorized=false
+critical_evaluated=false
+model_verdict=NOT_ESTABLISHED

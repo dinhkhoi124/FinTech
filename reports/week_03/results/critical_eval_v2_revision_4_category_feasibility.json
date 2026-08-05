@@ -1,0 +1,19 @@
+{
+  "task_id": "W3-002-CR1",
+  "candidate_revision": 4,
+  "audit_scope": "20 revision-4 negatives against all 52 eligible approved sections",
+  "answer_safe_corrective_count": 15,
+  "abstain_escalate_count": 5,
+  "fixed_40_answer_20_abstain_feasible": false,
+  "verdict": "BLOCKED — FIXED NEGATIVE DISTRIBUTION NOT SEMANTICALLY FEASIBLE WITH CURRENT KB",
+  "categories": [
+    {"registered_category":"unsupported_internal_identifier_code_reference","required_count":4,"true_abstain_count":0,"answer_safe_corrective_count":4,"required_category_count_achievable_without_false_abstains":false,"replacement_cases_feasible_from_frozen_kb_without_confounding":false,"reason":"Each case has complete current handling that does not require disclosure or an exact identifier substitute."},
+    {"registered_category":"unsupported_exact_amount_threshold_approval_matrix","required_count":3,"true_abstain_count":0,"answer_safe_corrective_count":3,"required_category_count_achievable_without_false_abstains":false,"replacement_cases_feasible_from_frozen_kb_without_confounding":false,"reason":"The amount/matrix is unsupported, but a no-promise boundary plus current workflow completely answers what support can do."},
+    {"registered_category":"draft_only_entitlement_workflow","required_count":3,"true_abstain_count":0,"answer_safe_corrective_count":3,"required_category_count_achievable_without_false_abstains":false,"replacement_cases_feasible_from_frozen_kb_without_confounding":false,"reason":"Every draft request has a complete current approved correction; requiring equivalent draft entitlements creates artificial impossibility."},
+    {"registered_category":"expired_only_entitlement_workflow","required_count":3,"true_abstain_count":0,"answer_safe_corrective_count":3,"required_category_count_achievable_without_false_abstains":false,"replacement_cases_feasible_from_frozen_kb_without_confounding":false,"reason":"Every expired request can be refused and corrected with current approved handling."},
+    {"registered_category":"superseded_current_policy_conflict","required_count":2,"true_abstain_count":2,"answer_safe_corrective_count":0,"required_category_count_achievable_without_false_abstains":true,"replacement_cases_feasible_from_frozen_kb_without_confounding":true,"reason":"External legal or contract precedence is genuinely absent from the banking-support KB."},
+    {"registered_category":"override_prompt_injection","required_count":2,"true_abstain_count":0,"answer_safe_corrective_count":2,"required_category_count_achievable_without_false_abstains":false,"replacement_cases_feasible_from_frozen_kb_without_confounding":false,"reason":"The override can be refused while the stated banking case is still answered from approved evidence."},
+    {"registered_category":"out_of_scope","required_count":1,"true_abstain_count":1,"answer_safe_corrective_count":0,"required_category_count_achievable_without_false_abstains":true,"replacement_cases_feasible_from_frozen_kb_without_confounding":true,"reason":"No eligible PayResolve section addresses investment predictions."},
+    {"registered_category":"ambiguous_insufficient_context","required_count":2,"true_abstain_count":2,"answer_safe_corrective_count":0,"required_category_count_achievable_without_false_abstains":true,"replacement_cases_feasible_from_frozen_kb_without_confounding":true,"reason":"The missing rail/event/state prevents selection among incompatible approved workflows; ambiguity is the registered property rather than a confounder."}
+  ]
+}

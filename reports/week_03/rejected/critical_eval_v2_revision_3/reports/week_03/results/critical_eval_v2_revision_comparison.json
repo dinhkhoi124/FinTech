@@ -1,0 +1,303 @@
+{
+  "candidate_revision_2_manifest_sha256": "668992392f3e0f4addeb017a0028f6bc676614910d0e1c03fb8f3e3c51a20834",
+  "candidate_revision_3": "critical_eval_v2_candidate_revision_3",
+  "common_query_outcome_changes": [],
+  "cover_changes": [
+    {
+      "query_id": "Q_V2_A_CSU02",
+      "revision_2": {
+        "minimum_documents": 1,
+        "minimum_sections": 1,
+        "multi_document_required": false
+      },
+      "revision_3": {
+        "minimum_documents": 1,
+        "minimum_sections": 2,
+        "multi_document_required": false
+      }
+    }
+  ],
+  "direct_support_changes": [
+    {
+      "evidence_id": "FAQ_CARD_PENDING_001#answer",
+      "query_id": "Q_V2_A_CAP01",
+      "revision_2_obligation_ids": [
+        "BOUNDARY",
+        "STATE"
+      ],
+      "revision_3_obligation_ids": [
+        "STATE"
+      ]
+    },
+    {
+      "evidence_id": "ESC_CARD_REVERT_001#trigger",
+      "query_id": "Q_V2_A_CAR01",
+      "revision_2_obligation_ids": [],
+      "revision_3_obligation_ids": [
+        "BOUNDARY",
+        "STATE"
+      ]
+    },
+    {
+      "evidence_id": "ESC_CARD_REVERT_001#trigger",
+      "query_id": "Q_V2_A_CAR03",
+      "revision_2_obligation_ids": [],
+      "revision_3_obligation_ids": [
+        "ELIGIBILITY"
+      ]
+    },
+    {
+      "evidence_id": "ESC_CASH_UNRECOG_001#immediate_trigger",
+      "query_id": "Q_V2_A_CSP03",
+      "revision_2_obligation_ids": [],
+      "revision_3_obligation_ids": [
+        "REDIRECT"
+      ]
+    },
+    {
+      "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate",
+      "query_id": "Q_V2_A_CSU02",
+      "revision_2_obligation_ids": [
+        "GATE",
+        "ROUTE"
+      ],
+      "revision_3_obligation_ids": [
+        "GATE"
+      ]
+    },
+    {
+      "evidence_id": "RUN_CASH_UNRECOG_002#safe_handoff",
+      "query_id": "Q_V2_A_CSU03",
+      "revision_2_obligation_ids": [
+        "MINIMAL",
+        "PROHIBIT"
+      ],
+      "revision_3_obligation_ids": [
+        "MINIMAL"
+      ]
+    },
+    {
+      "evidence_id": "RUN_TRANSFER_PENDING_001#action",
+      "query_id": "Q_V2_A_TRP01",
+      "revision_2_obligation_ids": [],
+      "revision_3_obligation_ids": [
+        "NO_DUPLICATE"
+      ]
+    },
+    {
+      "evidence_id": "RUN_TRANSFER_PENDING_001#checks",
+      "query_id": "Q_V2_A_TRP01",
+      "revision_2_obligation_ids": [],
+      "revision_3_obligation_ids": [
+        "STATE"
+      ]
+    },
+    {
+      "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+      "query_id": "Q_V2_A_TRR01",
+      "revision_2_obligation_ids": [],
+      "revision_3_obligation_ids": [
+        "STATE"
+      ]
+    }
+  ],
+  "hard_negative_additions": [],
+  "hard_negative_removals": [
+    {
+      "evidence_id": "ESC_CASH_UNRECOG_001#immediate_trigger",
+      "query_id": "Q_V2_A_CSP03"
+    },
+    {
+      "evidence_id": "ESC_CARD_REVERT_001#handoff",
+      "query_id": "Q_V2_N_AM01"
+    },
+    {
+      "evidence_id": "POL_TRANSFER_PENDING_002#current_window",
+      "query_id": "Q_V2_N_AM02"
+    },
+    {
+      "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff",
+      "query_id": "Q_V2_N_AM03"
+    },
+    {
+      "evidence_id": "POL_CARD_REVERT_002#return_window",
+      "query_id": "Q_V2_N_DR01"
+    },
+    {
+      "evidence_id": "POL_TRANSFER_PENDING_002#current_window",
+      "query_id": "Q_V2_N_DR02"
+    },
+    {
+      "evidence_id": "RUN_CASH_UNRECOG_002#safe_handoff",
+      "query_id": "Q_V2_N_DR03"
+    },
+    {
+      "evidence_id": "RUN_CARD_DECLINED_001#action",
+      "query_id": "Q_V2_N_EX01"
+    },
+    {
+      "evidence_id": "POL_TRANSFER_RECIPIENT_001#trace_window",
+      "query_id": "Q_V2_N_EX02"
+    },
+    {
+      "evidence_id": "ESC_CASH_UNRECOG_001#immediate_trigger",
+      "query_id": "Q_V2_N_EX03"
+    },
+    {
+      "evidence_id": "RUN_TRANSFER_FAILED_001#action",
+      "query_id": "Q_V2_N_ID01"
+    },
+    {
+      "evidence_id": "POL_TRANSFER_RECIPIENT_001#trace_window",
+      "query_id": "Q_V2_N_ID02"
+    },
+    {
+      "evidence_id": "ESC_CASH_DECLINED_001#handoff",
+      "query_id": "Q_V2_N_ID03"
+    },
+    {
+      "evidence_id": "RUN_CARD_DECLINED_001#action",
+      "query_id": "Q_V2_N_ID04"
+    }
+  ],
+  "multi_document_query_ids_revision_3": [],
+  "multi_section_query_ids_revision_3": [
+    "Q_V2_A_TRP01",
+    "Q_V2_A_TRR04",
+    "Q_V2_A_CSU02"
+  ],
+  "revision_2_false_abstain_outcome_changes": [
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID01",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_ID01",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID02",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_ID02",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID03",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_ID03",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_ID04",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_ID04",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_AM01",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_AM01",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_AM02",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_AM02",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_AM03",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_AM03",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_DR01",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_DR01",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_DR02",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_DR02",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_DR03",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_DR03",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_EX01",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_EX01",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_EX02",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_EX02",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_EX03",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_EX03",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_CF01",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_CF01",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_CF02",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_CF02",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_IN01",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_IN01",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    },
+    {
+      "derived_with_corrective_obligations": "ANSWER",
+      "replacement_query_id": "Q_V3_N_IN02",
+      "revision_2_intended": "ABSTAIN_ESCALATE",
+      "revision_2_query_id": "Q_V2_N_IN02",
+      "revision_3_final": "ABSTAIN_ESCALATE"
+    }
+  ],
+  "support_class_counts_revision_2": {
+    "CONTEXTUAL_BUT_INSUFFICIENT": 1390,
+    "CONTRADICTION_OR_OUTDATED": 9,
+    "DIRECT_SUPPORT": 92,
+    "IRRELEVANT": 1609,
+    "PARTIAL_SUPPORT": 20
+  },
+  "support_class_counts_revision_3": {
+    "CONTEXTUAL_BUT_INSUFFICIENT": 1871,
+    "DIRECT_SUPPORT": 98,
+    "IRRELEVANT": 1146,
+    "PARTIAL_SUPPORT": 5
+  }
+}

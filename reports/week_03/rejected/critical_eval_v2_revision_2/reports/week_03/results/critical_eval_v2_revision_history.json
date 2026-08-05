@@ -1,0 +1,20 @@
+{
+  "files_superseded": [
+    "data/evaluation/critical_eval_v2_revision_1_rejected_support_plan.jsonl",
+    "data/evaluation/critical_eval_v2_revision_1_rejected_support_judgments.jsonl",
+    "data/evaluation/critical_eval_v2_revision_1_rejected_mapping.jsonl",
+    "reports/week_03/results/critical_eval_v2_revision_1_rejected_negative_audit.jsonl",
+    "reports/week_03/results/critical_eval_v2_revision_1_rejected_forbidden_audit.jsonl"
+  ],
+  "new_revision": 2,
+  "rejected_artifact_sha256": {
+    "rejected_revision_1_forbidden_audit": "73cb6bf752740237c29891a2e0dd74ce82ca29ef60c586a3dfce5da340569f30",
+    "rejected_revision_1_mapping": "7773ce76687adcd7b3e4e6029d798e48a73c2e85fe1f021366017a523251c519",
+    "rejected_revision_1_negative_audit": "bc1852f94f222fc68b3a99c16ad92bd47a2e0ebfabd1f3fdc69a814f0b6e808c",
+    "rejected_revision_1_support_judgments": "ce6ed81fb5cb2c0f2fa7d2367f0bf95d42f92bcb2bc6991d8bece12dc94862cf",
+    "rejected_revision_1_support_plan": "d63db8e0ccce60023f5b1c80d19aa5dbb63b8029870e546de96c17d4a3f4baff"
+  },
+  "rejected_manifest_sha256": "39af29f929ef9a9287808c26d62787079e376a8b7ac05847fa10729d27374b99",
+  "rejected_revision": 1,
+  "senior_finding": "Revision 1 generated Pass B from hidden evidence-role assignments and intent/family heuristics; it was not independent."
+}

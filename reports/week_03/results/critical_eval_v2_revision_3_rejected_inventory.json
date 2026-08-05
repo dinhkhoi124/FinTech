@@ -1,0 +1,106 @@
+{
+  "artifact_count": 18,
+  "artifacts": [
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/configs/evaluation/critical_eval_v2.json",
+      "sha256": "a52f94a8c01c68c6bc5d2b4bfa410633af38bef5085d4e1f17585384e9dad68b",
+      "size_bytes": 7584
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/data/evaluation/critical_eval_v2_mapping.jsonl",
+      "sha256": "f18b2f79a415e4a5d0b67c9b74e2e3bf18a9cfb639e89fc8d09f1d6230fa695f",
+      "size_bytes": 82381
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/data/evaluation/critical_eval_v2_pass_a.jsonl",
+      "sha256": "08b17a7f2a394b4261812a4292243c29c578edc2659bf084e7618d09c6711eb1",
+      "size_bytes": 45343
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/data/evaluation/critical_eval_v2_scenarios.jsonl",
+      "sha256": "f2d8dea6b1d0065d1f295379c43c2c6b06116abe8c9b07b5f4fc4b3696cffb69",
+      "size_bytes": 10240
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/data/evaluation/critical_eval_v2_support_judgments.jsonl",
+      "sha256": "5bad9b40661fa5289207d17f50d781ba205a7d28a2a06c215a59be4b1d878f22",
+      "size_bytes": 3659385
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_candidate_manifest.json",
+      "sha256": "650a8a5847d83211c96941e549bc4379df89e1ae91c857a59c65160a6ed0f688",
+      "size_bytes": 10276
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_dataset_manifest.json",
+      "sha256": "4487528d1bc11b62ef21f618670b47cb88e2f4a7d44d4a6fb9737bd7f6db1178",
+      "size_bytes": 781
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_false_abstain_corrections.json",
+      "sha256": "00090e2558405d19c70fdeb73ae91d1ee3e7b1e4f9b15d20d0d85ea37945123b",
+      "size_bytes": 8628
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_forbidden_evidence_audit.jsonl",
+      "sha256": "0df0fe81842e835425056165891d21f15713b0ec27dd356af06cc70a9ed5e8a2",
+      "size_bytes": 1085506
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_hard_negative_audit.jsonl",
+      "sha256": "fd7b4136692382f7bc773cf1f6dcb220ca8028fa53a936f741d59009d19266e9",
+      "size_bytes": 1574
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_historical_hash_verification.json",
+      "sha256": "420a7dacbf10c936aef252fd63e084cae77b5879f8e124e93360b590dfbd4cbb",
+      "size_bytes": 2436
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_negative_audit.jsonl",
+      "sha256": "5587200b317496d4ed7dcca571e578fc364fb4608bb2f6087d0d5a7046b4d68f",
+      "size_bytes": 22595
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_overlap_audit.json",
+      "sha256": "b1742d6a4d5d107b4474e0dc0e8375ae6ea10144e224e996029ef5786fb26f27",
+      "size_bytes": 1844
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_overlap_manual_review.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_revision_comparison.json",
+      "sha256": "f0d77fced77d37afca68fe1180859e034e674fb5dc8ebf30f78c2be719dca541",
+      "size_bytes": 8938
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_revision_history.json",
+      "sha256": "865d70c5c7d922cf8149741adda1f018be220695b1b92195beee05c2438453dd",
+      "size_bytes": 4195
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_test_output.txt",
+      "sha256": "eb6cc91b002b4e93b6c8130918dd704f2b79db93604a85f9a04b5a61a96da288",
+      "size_bytes": 2016
+    },
+    {
+      "path": "reports/week_03/rejected/critical_eval_v2_revision_3/reports/week_03/results/critical_eval_v2_verification_output.txt",
+      "sha256": "ca2cef92205e42106e2fc10ccf0b8528fa05fbbd7d124f843fa0bafba98c85d7",
+      "size_bytes": 678
+    }
+  ],
+  "candidate_revision": 3,
+  "manifest_sha256": "650a8a5847d83211c96941e549bc4379df89e1ae91c857a59c65160a6ed0f688",
+  "review_bundle_sha256": "6e32aa4081c609fb8e2767c099af419f046cd6c6261aec39ddd11368a426603a",
+  "senior_findings": [
+    "seventeen negative replacements were confounded with missing-context ambiguity",
+    "forbidden-evidence attraction judgments were semantically invalid",
+    "several positive sections were over-credited as complete direct support",
+    "the two remaining hard negatives overlap legitimate semantic support",
+    "the exact runtime model input was not frozen"
+  ],
+  "status": "REJECTED / SEMANTIC_DESIGN_CORRECTION_REQUIRED"
+}
