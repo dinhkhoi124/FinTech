@@ -7,8 +7,9 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: none; W3-002-CR1 candidate revision 6 awaits commit review
-- Next task: commit frozen revision 6 only after explicit commit authorization
+- Active task: none — revision-6 candidate commit completed
+- Next task: W3-002-CR1 evaluation authorization — NOT STARTED / REQUIRES
+  SEPARATE SENIOR AUTHORIZATION
 - Last updated: 2026-08-06 by Codex
 
 ## Active objective
@@ -28,7 +29,8 @@ BLOCKED / NOT STARTED.
 Senior semantic review returned `FIX_REQUIRED` for revision 5. Revision 5 is now
 `REJECTED / PRESERVED AS REVIEW HISTORY`; its 19-artifact archive is frozen under
 `reports/week_03/rejected/critical_eval_v2_revision_5/`. Candidate revision 6 is
-now `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`.
+now `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED` at
+commit `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`.
 The unchanged Option A candidate contract has
 40 `ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, and 5
 `ABSTAIN_ESCALATE` cases, with all 60 model-input byte tuples unchanged from
@@ -63,7 +65,8 @@ authoring contract was the sole authorization for revision 5, while the Senior
 - Contract amendment: OPTION A / SENIOR APPROVED
 - Contract distribution: 40 STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN
 - Candidate revision 5: REJECTED / PRESERVED AS REVIEW HISTORY
-- Candidate revision 6: FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT
+- Candidate revision 6: FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED
+- Candidate commit: `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`
 - Candidate package: FROZEN / STRUCTURAL ONLY
 - Candidate bytes frozen: true
 - Structural integrity verified: true
@@ -140,7 +143,8 @@ All 19 revision-5 artifacts are byte-preserved under
 - Revision 4: REJECTED / PRESERVED AS REVIEW HISTORY
 - Revision 5 at contract-amendment commit: NOT CREATED
 - Current revision 5: REJECTED / PRESERVED AS REVIEW HISTORY
-- Current revision 6: FROZEN_CANDIDATE / SENIOR SEMANTIC REVIEW APPROVED / AWAITING COMMIT
+- Current revision 6: FROZEN_CANDIDATE / SENIOR SEMANTIC REVIEW APPROVED / COMMITTED / PUSHED
+- Candidate commit: `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`
 - Candidate manifest SHA-256: `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`
 - Senior semantic review approved: true
 - Evaluation authorized: false
@@ -391,9 +395,11 @@ not candidate semantic approval.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Submit exact frozen revision-6 paths and approval records for commit review.
-2. Preserve the approved manifest hash and prohibit every candidate-byte change.
-3. Keep evaluation and Week 4 blocked while evaluation authorization remains false.
+1. Open W3-002-CR1 evaluation authorization only through a separate
+   Senior-reviewed task; it is not started.
+2. Preserve the committed candidate bytes and approved manifest hash without any
+   candidate/config/data/code/test change.
+3. Keep Week 3 P0 and Week 4 blocked while evaluation authorization remains false.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen

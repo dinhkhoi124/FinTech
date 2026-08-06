@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 6 semantic integrity approved; frozen bytes await commit review | BLOCKED / AWAITING COMMIT |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 6 frozen candidate committed and pushed at `d27de98`; evaluation remains separately unauthorized | BLOCKED / AWAITING EVALUATION AUTHORIZATION |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -408,7 +408,8 @@ and Week 4 remain blocked.
 
 - **Senior verdict:** `APPROVE_SEMANTIC_INTEGRITY — REVISION 6`.
 - **Current state:** `FROZEN_CANDIDATE /
-  SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`.
+  SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED`.
+- **Candidate commit:** `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`.
 - **Candidate manifest SHA-256:**
   `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`.
 - **Approval scope:** `FROZEN_CANDIDATE_BYTES_ONLY`; candidate revision 6 may be
@@ -418,3 +419,7 @@ and Week 4 remain blocked.
   `model_verdict=NOT_ESTABLISHED`.
 - **Boundary:** evaluation requires a separate authorization task and model
   performance remains not established.
+- **Next task:** W3-002-CR1 evaluation authorization — `NOT STARTED / REQUIRES A
+  SEPARATE SENIOR-REVIEWED TASK`.
+- **Phase gates:** Week 3 P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains
+  `BLOCKED / NOT STARTED`.

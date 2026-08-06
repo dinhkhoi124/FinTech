@@ -14,9 +14,9 @@ relevance labels; the Senior-approved post-holdout adjudication is PASS / REVIEW
 has an internally consistent numerical run, but its critical set is INVALIDATED
 and model verdict is NOT ESTABLISHED. The W3-002-CR1 Option A contract amendment
 is DONE / REVIEWED / COMMITTED / PUSHED at `22e8b38`. Under the subsequent
-Senior-reviewed authoring contract, revision 5 was authored and then rejected
-by semantic review. Narrowly corrected revision 6 is now `FROZEN_CANDIDATE /
-SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`. Week 4 is
+  Senior-reviewed authoring contract, revision 5 was authored and then rejected
+  by semantic review. Narrowly corrected revision 6 is now `FROZEN_CANDIDATE /
+  SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED` at `d27de98`. Week 4 is
 BLOCKED / NOT STARTED.
 
 ## Deliverables completed
@@ -349,9 +349,12 @@ bundle SHA-256
 The approved bundle independently verified 169/169 inventory entries, the
 40/15/5 distribution, all 3,120 Pass-B rows, and the five hard negatives.
 
-Revision 6 is `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED /
-AWAITING_COMMIT`. Approval scope is `FROZEN_CANDIDATE_BYTES_ONLY`; the candidate
-may be committed but may not be changed. `senior_semantic_review_approved=true`,
+Revision 6 is `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED /
+PUSHED` at commit `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`. Approval scope is
+`FROZEN_CANDIDATE_BYTES_ONLY`; the committed candidate may not be changed.
+`senior_semantic_review_approved=true`,
 while `evaluation_authorized=false`, `critical_evaluated=false`, and
 `model_verdict=NOT_ESTABLISHED`. Evaluation requires a separate authorization
-task and no model-performance conclusion has been established.
+task that is `NOT STARTED`; no model-performance conclusion has been established.
+Week 3 P0 remains `BLOCKED / IN PROGRESS`, and Week 4 remains `BLOCKED / NOT
+STARTED`.
