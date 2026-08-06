@@ -1,0 +1,116 @@
+{
+    "task_id":  "W3-002-CR1",
+    "candidate_revision":  5,
+    "status":  "REJECTED / PRESERVED AS REVIEW HISTORY",
+    "senior_verdict":  "FIX_REQUIRED",
+    "preserved_at":  "2026-08-06",
+    "revision_5_manifest_sha256":  "342e5652fb03f249eeb999f7b2c4452668b82ce83d28d65b9a3d452745cc2d32",
+    "revision_5_review_bundle_sha256":  "9599c09bac7d1b46c9d4893c546993958f40f64805db1b7fb8a97625b966debf",
+    "review_bundle_history_path":  "E:/merged_partition_content/Khoi_Project/VinSmartFuture/W3-002-CR1_revision_5_pre_eval_review_bundle.zip",
+    "artifact_count":  19,
+    "artifacts":  [
+                      {
+                          "path":  "configs/evaluation/critical_eval_v2.json",
+                          "size_bytes":  9407,
+                          "sha256":  "1f1353f55012dbe9a7cad1069bd6eaf324902436264a731490e0c40d2c3d2e7a"
+                      },
+                      {
+                          "path":  "data/evaluation/critical_eval_v2_mapping.jsonl",
+                          "size_bytes":  171701,
+                          "sha256":  "491dab248a31a84e161f82bfa39e1faa021c6d6ca9514901fcdf0f9a87e00533"
+                      },
+                      {
+                          "path":  "data/evaluation/critical_eval_v2_pass_a.jsonl",
+                          "size_bytes":  134899,
+                          "sha256":  "096e05601865c1c0a913091e0735ae4897e5b70381e10d3e63d2abd10165458f"
+                      },
+                      {
+                          "path":  "data/evaluation/critical_eval_v2_scenarios.jsonl",
+                          "size_bytes":  38095,
+                          "sha256":  "836be0070cf7da037b4e40f00a27f7f5d5d744d715db3ec946c024f32c8cc743"
+                      },
+                      {
+                          "path":  "data/evaluation/critical_eval_v2_support_judgments.jsonl",
+                          "size_bytes":  5027552,
+                          "sha256":  "fa2d936159e231fc549178dea13d178f0c6a3708d2ba905d1aa0c505660d6767"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_candidate_manifest.json",
+                          "size_bytes":  18095,
+                          "sha256":  "342e5652fb03f249eeb999f7b2c4452668b82ce83d28d65b9a3d452745cc2d32"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_dataset_manifest.json",
+                          "size_bytes":  1731,
+                          "sha256":  "d16993e38ebac5b4d1c168068b9a3c28e1558b15c9c57196dca6aa86a512eac4"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_forbidden_evidence_audit.jsonl",
+                          "size_bytes":  1168594,
+                          "sha256":  "9aaf0e2821ac2d6af3bb83e08aefe11df10fd4011b743e5dfb322de29cee4748"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_hard_negative_audit.jsonl",
+                          "size_bytes":  4163,
+                          "sha256":  "8c559082dcf3e38ca9d1454d86ad2b70be66cab9d196ceacda22922ff9250387"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_historical_hash_verification.json",
+                          "size_bytes":  2436,
+                          "sha256":  "420a7dacbf10c936aef252fd63e084cae77b5879f8e124e93360b590dfbd4cbb"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_negative_audit.jsonl",
+                          "size_bytes":  9933,
+                          "sha256":  "e395334a29c8f320b1a941eac1c07ac1d964af9df3c33af5a3e7402fc41f6d62"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_negative_category_quality_audit.jsonl",
+                          "size_bytes":  12378,
+                          "sha256":  "3c11b0f49820bf76da8c01410b8c8ca7ddeaa0382a453f9dbe7c2334b3b3a908"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_overlap_audit.json",
+                          "size_bytes":  2559,
+                          "sha256":  "fa23106a0569465317c263c5dd6284bf93cfbe7abe074e8214d34a78424b6677"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_overlap_manual_review.jsonl",
+                          "size_bytes":  124593,
+                          "sha256":  "2d59f7d71dff718692509152962cf6fa5dd8a2e19add42a7800c02ae74d79d3e"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_revision_5_corrections.json",
+                          "size_bytes":  2293,
+                          "sha256":  "8faef65b69c1838ac2554940d56d08226a05e1199b1444a7f5d80b918625b607"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_revision_comparison.json",
+                          "size_bytes":  1370,
+                          "sha256":  "46b9f677f6b17a90dba60d4310154bda1d531a44a206841994cb3df46becbdf5"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_revision_history.json",
+                          "size_bytes":  10732,
+                          "sha256":  "bf74355cdf1d92a8b602a9d8f80bedb3ac32ff5f0cbb117b9e7c5ce4ad979f48"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_test_output.txt",
+                          "size_bytes":  29870,
+                          "sha256":  "c5109a7c5f04f41c783b9341fc31529dbbc313bc2d629f12e97ab0c4ac614873"
+                      },
+                      {
+                          "path":  "reports/week_03/results/critical_eval_v2_verification_output.txt",
+                          "size_bytes":  1342,
+                          "sha256":  "888067525d5dd936bd455b9dd440670856015d4d00dbdd6acd90e804dbcc1533"
+                      }
+                  ],
+    "senior_findings":  [
+                            "SAFE_CORRECTIVE audit rows falsely denied complete corrective covers and retained abstention semantics.",
+                            "CF01 and CF02 outlines required unmapped factual policy claims.",
+                            "CSD04 omitted direct SECURITY support from ESC_CASH_UNRECOG_001#immediate_trigger.",
+                            "Hard-negative validation did not prove absence of legitimate partial support.",
+                            "Candidate lifecycle manifest/verifier omitted or hard-coded model_verdict.",
+                            "Prohibited-target review was an unbound hard-coded false value."
+                        ]
+}

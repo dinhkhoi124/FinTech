@@ -1,0 +1,74 @@
+{
+  "candidate_query_count": 60,
+  "candidate_revision": 6,
+  "candidate_rows_sha256": "4536e0a61ef008c0b43b44dc3d6e5222dea20f34f1a0a8db4fce90d09ba38cff",
+  "flag_count": 332,
+  "flag_type_counts": {
+    "EXACT_OVERLAP": 40,
+    "HIGH_LEXICAL_OVERLAP": 52,
+    "NORMALIZED_EXACT_OVERLAP": 40,
+    "REUSED_ID": 200
+  },
+  "flags_sha256": "43bdbbfc2c50b28031dfa49504947d81f040f27d053ffb02559464adca3a9f64",
+  "model_input_contract_version": "critical_eval_v2_model_input_query_only_v1",
+  "overlap_threshold": 0.72,
+  "recomputed_from_source_rows": true,
+  "sources": {
+    "banking77_official_test": {
+      "row_count": 3080,
+      "rows_sha256": "3bc91d0c5a2cb5655b2869f0ba9d40b08595d5db2e2d6abd463549a1e1939d3e"
+    },
+    "banking77_train": {
+      "row_count": 8998,
+      "rows_sha256": "6407ccf928e4cd6b7e3e41875fcdad882ce322ec83efe96c7c7b4fb7bf69f7f4"
+    },
+    "banking77_validation": {
+      "row_count": 1005,
+      "rows_sha256": "f1898a6325e8d31c029e7c5b69d0dd0963c6956688b8e6e752059dd267e5f644"
+    },
+    "critical_eval_v1_queries": {
+      "row_count": 60,
+      "rows_sha256": "1899dc5fa9c308db94572b63aa969d8f19a81b2c195164c55145a5a852b370df"
+    },
+    "critical_eval_v1_scenarios": {
+      "row_count": 60,
+      "rows_sha256": "f8435cc4d9d508f02fa9117b0659f351dc31456f454113a5ee319e63a4528464"
+    },
+    "critical_eval_v2_rejected_revision_2_lineage": {
+      "row_count": 60,
+      "rows_sha256": "074da72af1c0a208450d7d67e24f53c1cc17c855a36b3475dc2fbd5656761566"
+    },
+    "critical_eval_v2_rejected_revision_3_lineage": {
+      "row_count": 60,
+      "rows_sha256": "af310085b8b5bc107de9f6c6331a1b3cce68673c0f28e424bedf992835917baf"
+    },
+    "critical_eval_v2_rejected_revision_4_lineage": {
+      "row_count": 60,
+      "rows_sha256": "7a74cc18b7d629cb01d9f7c8fc3e2de742fe6ca22aca711f60244e223b22c76e"
+    },
+    "critical_eval_v2_rejected_revision_5_lineage": {
+      "row_count": 60,
+      "rows_sha256": "a2b1b302346fde8e15d2e3c268d710831c8a677fe5e0e00731187f8df8463907"
+    },
+    "w2_development": {
+      "row_count": 10,
+      "rows_sha256": "bdb656a49b25eed56c507b027365bcd4f3fea24132cb167309a6b1dfbc5d2f8b"
+    },
+    "w2_locked": {
+      "row_count": 50,
+      "rows_sha256": "1ade2e6880d75dc1cb66c2e3563c8d1071e81f9e5dfcd59c05556a2a0f64aa0c"
+    },
+    "w3_001_cr1_design": {
+      "row_count": 20,
+      "rows_sha256": "ed18011b39c93aa709ac90941c691285fb19c987380834dbfad296efd99a92ee"
+    },
+    "w3_001_cr1_holdout": {
+      "row_count": 20,
+      "rows_sha256": "ffe89575a428a6aac0e3cdb1f6dec1b3497ecaa5f8dfed932548143079a7511b"
+    },
+    "w3_001_development": {
+      "row_count": 20,
+      "rows_sha256": "25edbfd6c05061ef6560e8e618f7f19e017d12dba4a52c8811425e0dbe029f14"
+    }
+  }
+}

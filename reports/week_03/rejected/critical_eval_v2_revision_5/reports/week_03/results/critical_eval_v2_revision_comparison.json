@@ -1,0 +1,36 @@
+{
+  "from_revision": 4,
+  "hard_negative_count_change": {
+    "revision_4": 0,
+    "revision_5": 5
+  },
+  "model_input_changed_count": 0,
+  "positive_support_changes": [
+    {
+      "change": "DIRECT_SUPPORT(PROTECT) -> PARTIAL_SUPPORT",
+      "evidence_id": "RUN_TRANSFER_DECLINED_001#action",
+      "query_id": "Q_V2_A_TRD04",
+      "reason": "Section protects internal logic but does not mention credential collection."
+    },
+    {
+      "change": "CONTEXTUAL_BUT_INSUFFICIENT -> DIRECT_SUPPORT(TRIGGER)",
+      "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#current_window",
+      "query_id": "Q_V2_A_TRR04",
+      "reason": "Section directly states the one-business-day trace trigger."
+    },
+    {
+      "change": "CONTEXTUAL_BUT_INSUFFICIENT -> DIRECT_SUPPORT(TRIGGER)",
+      "evidence_id": "POL_TRANSFER_RECIPIENT_001#trace_window",
+      "query_id": "Q_V2_A_TRR04",
+      "reason": "Section directly states the one-business-day trace trigger."
+    }
+  ],
+  "response_contract_change": {
+    "revision_4": "40 ANSWER / 20 ABSTAIN_ESCALATE",
+    "revision_5": "40 ANSWER/STANDARD / 15 ANSWER/SAFE_CORRECTIVE / 5 ABSTAIN_ESCALATE"
+  },
+  "revision_4_status": "REJECTED / PRESERVED AS REVIEW HISTORY",
+  "semantic_review_scope": "All 3,120 query/evidence rows carry revision-5 content-bound author-review provenance.",
+  "task_id": "W3-002-CR1",
+  "to_revision": 5
+}

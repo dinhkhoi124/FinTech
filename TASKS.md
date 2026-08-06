@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Option A contract committed/pushed at `22e8b38`; revisions 1–4 preserved; revision 5 not created; semantic/evaluation approval false | CONTRACT AMENDMENT DONE / REVIEWED / COMMITTED / PUSHED |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 6 semantic integrity approved; frozen bytes await commit review | BLOCKED / AWAITING COMMIT |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -342,10 +342,11 @@ audit itself was self-referential. No replacement evaluation is authorized; Week
 - **Approved decision:** retain top-level `ANSWER`/`ABSTAIN_ESCALATE`, add
   `answer_subtype=STANDARD|SAFE_CORRECTIVE`, and use the audited 40/15/5
   distribution.
-- **Next task:** candidate revision 5 authoring is `NOT STARTED / REQUIRES A
-  SEPARATE SENIOR-REVIEWED CONTRACT`.
-- **Boundary:** no candidate revision 5, inference, evaluation, W3-002 execution,
-  or Week 4 work is authorized by the completed contract-amendment commit.
+- **State at contract-amendment commit:** candidate revision 5 was `NOT CREATED`;
+  authoring required a separate Senior-reviewed contract.
+- **Current boundary:** the separately authorized revision-5 candidate is now
+  structurally frozen, but inference, evaluation, W3-002 execution, and Week 4
+  remain unauthorized.
 - **Decision-review bundle:** PREPARED outside the repository with a 20-row
   safety-challenge contract, explicit minimal corrective covers, approved/effective
   evidence catalog, five enriched hard-negative proposals, preservation payload,
@@ -359,3 +360,61 @@ revision-5 checklist without creating candidate data. Rejected revisions 2/3/4
 remain byte-preserved. Senior semantic approval, evaluation authorization, and
 critical evaluation remain false; model verdict is `NOT_ESTABLISHED`; Week 3 P0
 and Week 4 remain blocked.
+
+### W3-002-CR1 candidate revision 5 authoring — 2026-08-06
+
+- **Senior task verdict:** `APPROVE_OPEN_TASK — CANDIDATE REVISION 5 AUTHORING`.
+- **Task status:** `AUTHORED / FROZEN / STRUCTURALLY VERIFIED / AWAITING SENIOR
+  SEMANTIC REVIEW`.
+- **Authorized:** candidate authoring and structural-only verification.
+- **Not authorized:** Senior semantic approval, model/encoder loading, retrieval,
+  generation, critical evaluation, staging, commit, push, or Week 4 work.
+- **Lifecycle:** `senior_semantic_review_approved=false`,
+  `evaluation_authorized=false`, `critical_evaluated=false`, model verdict
+  `NOT_ESTABLISHED`, Week 3 P0 `BLOCKED / IN PROGRESS`, Week 4 `BLOCKED / NOT
+  STARTED`.
+- **Frozen candidate:** 60 query rows, 3,120 independent Pass-B judgments,
+  distribution 40 `ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, 5
+  `ABSTAIN_ESCALATE`; model-input byte changes from revision 4: 0/60.
+- **Structural evidence:** focused revision-5 tests 84/84 PASS; contract tests
+  11/11 PASS; feasibility source tests 14/14 PASS; related integrity tests 68/68
+  PASS; isolated application suite 471/471 PASS with 5 skips.
+- **Next task:** independent Senior semantic review of the frozen revision-5
+  candidate and review bundle. Evaluation remains prohibited until separately
+  authorized after approval.
+
+### W3-002-CR1 candidate revision 6 semantic correction — 2026-08-06
+
+- **Senior verdict on revision 5:** `FIX_REQUIRED`.
+- **Revision 5:** `REJECTED / PRESERVED AS REVIEW HISTORY`; 19/19 archived
+  artifacts verified byte-for-byte.
+- **Revision 6:** `FROZEN_CANDIDATE / AWAITING_SENIOR_SEMANTIC_REVIEW`.
+- **Scope:** structural-only correction; 60 model inputs and the Option A 40/15/5
+  distribution remain frozen.
+- **Structural evidence:** focused tests 99/99 PASS; Option A contract tests
+  11/11 PASS; feasibility source tests 14/14 PASS; related integrity tests 68/68
+  PASS; isolated tracked application suite 486/486 PASS with 5 skips.
+- **Semantic delta:** one Pass-B semantic row changed: `Q_V2_A_CSD04` ×
+  `ESC_CASH_UNRECOG_001#immediate_trigger`, `PARTIAL_SUPPORT` to
+  `DIRECT_SUPPORT`, adding requested obligation `SECURITY`.
+- **Lifecycle:** candidate bytes frozen, structural and pre-evaluation integrity
+  verified with scope `STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING`;
+  `senior_semantic_review_approved=false`, `evaluation_authorized=false`,
+  `critical_evaluated=false`, `model_verdict=NOT_ESTABLISHED`.
+- **Next task:** independent Senior semantic review of revision 6. Inference and
+  evaluation remain prohibited.
+
+### W3-002-CR1 revision 6 semantic approval — 2026-08-06
+
+- **Senior verdict:** `APPROVE_SEMANTIC_INTEGRITY — REVISION 6`.
+- **Current state:** `FROZEN_CANDIDATE /
+  SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`.
+- **Candidate manifest SHA-256:**
+  `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`.
+- **Approval scope:** `FROZEN_CANDIDATE_BYTES_ONLY`; candidate revision 6 may be
+  committed, but no candidate byte may change after approval.
+- **Lifecycle:** `senior_semantic_review_approved=true`,
+  `evaluation_authorized=false`, `critical_evaluated=false`,
+  `model_verdict=NOT_ESTABLISHED`.
+- **Boundary:** evaluation requires a separate authorization task and model
+  performance remains not established.

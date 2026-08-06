@@ -1,0 +1,39 @@
+{
+  "task_id": "W3-002-CR1",
+  "from_revision": 5,
+  "to_revision": 6,
+  "revision_5_status": "REJECTED / PRESERVED AS REVIEW HISTORY",
+  "model_input_changed_count": 0,
+  "response_contract_change": {
+    "revision_5": "40 ANSWER/STANDARD / 15 ANSWER/SAFE_CORRECTIVE / 5 ABSTAIN_ESCALATE",
+    "revision_6": "40 ANSWER/STANDARD / 15 ANSWER/SAFE_CORRECTIVE / 5 ABSTAIN_ESCALATE"
+  },
+  "pass_b_semantic_changes": [
+    {
+      "query_id": "Q_V2_A_CSD04",
+      "evidence_id": "ESC_CASH_UNRECOG_001#immediate_trigger",
+      "change": "PARTIAL_SUPPORT -> DIRECT_SUPPORT(SECURITY)",
+      "cover_impact": "SECURITY gains one acceptable evidence section; the existing one-section minimal complete cover ESC_CASH_DECLINED_001#trigger remains unchanged."
+    }
+  ],
+  "all_other_pass_b_semantics_preserved": true,
+  "support_class_counts": {
+    "revision_5": {
+      "DIRECT_SUPPORT": 178,
+      "PARTIAL_SUPPORT": 7,
+      "CONTEXTUAL_BUT_INSUFFICIENT": 1452,
+      "IRRELEVANT": 1483
+    },
+    "revision_6": {
+      "DIRECT_SUPPORT": 179,
+      "PARTIAL_SUPPORT": 6,
+      "CONTEXTUAL_BUT_INSUFFICIENT": 1452,
+      "IRRELEVANT": 1483
+    }
+  },
+  "hard_negative_count": {
+    "revision_5": 5,
+    "revision_6": 5
+  },
+  "semantic_review_scope": "All 3,120 rows are rebound to revision-6 author-review provenance; exactly one support-class judgment changed semantically."
+}

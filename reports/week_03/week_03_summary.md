@@ -13,9 +13,11 @@ relevance labels; the Senior-approved post-holdout adjudication is PASS / REVIEW
 / ACCEPTED. Senior verdict is `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. W3-002
 has an internally consistent numerical run, but its critical set is INVALIDATED
 and model verdict is NOT ESTABLISHED. The W3-002-CR1 Option A contract amendment
-is DONE / REVIEWED / COMMITTED / PUSHED at `22e8b38`; candidate revision 5 is
-NOT STARTED and requires a separate Senior-reviewed contract. Week 4 is BLOCKED /
-NOT STARTED.
+is DONE / REVIEWED / COMMITTED / PUSHED at `22e8b38`. Under the subsequent
+Senior-reviewed authoring contract, revision 5 was authored and then rejected
+by semantic review. Narrowly corrected revision 6 is now `FROZEN_CANDIDATE /
+SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`. Week 4 is
+BLOCKED / NOT STARTED.
 
 ## Deliverables completed
 
@@ -268,3 +270,88 @@ CREATED / NOT STARTED` and requires a separate Senior-reviewed authoring
 contract. Senior semantic approval, evaluation authorization, and critical
 evaluation remain false; model verdict remains `NOT_ESTABLISHED`. Week 3 P0
 remains `BLOCKED / IN PROGRESS`, and Week 4 remains `BLOCKED / NOT STARTED`.
+
+The statements in this Option A milestone describe the lifecycle at the
+contract-amendment commit. Revision 5 was subsequently opened by a separate
+Senior-reviewed authoring contract.
+
+## W3-002-CR1 candidate revision 5 authoring — 2026-08-06
+
+Candidate revision 5 is `AUTHORED / FROZEN / STRUCTURALLY VERIFIED / AWAITING
+SENIOR SEMANTIC REVIEW`. It freezes 60 unchanged model inputs with the approved
+40 `ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, and 5
+`ABSTAIN_ESCALATE` distribution. Pass B contains 3,120 independently reviewed
+query-section rows. The structural verifier confirms 178 direct, 7 partial,
+1,452 contextual-but-insufficient, and 1,483 irrelevant judgments; the exact
+five-pair hard-negative slice passes without substitution.
+
+All 15 safe-corrective cases have no complete requested-answer cover and at
+least one complete corrective-answer cover. The five abstain cases have neither
+kind of complete cover. The `EX01` and `ID04` correction uses the authorized
+choice to include `FAQ_CARD_DECLINED_001#policy_gap` as a factual corrective
+obligation. Overlap recomputation produced 209 expected rejected-revision
+lineage flags and zero unresolved leakage findings.
+
+Focused revision-5 tests pass 84/84; Option A contract tests pass 11/11;
+feasibility source tests pass 14/14; related integrity tests pass 68/68; and the
+isolated full application suite passes 471/471 with 5 skips. The unauthorized
+`run-critical` path fails before model loading. No classifier, encoder,
+retriever, generator, inference, or critical evaluation ran.
+
+Senior semantic approval, evaluation authorization, and critical evaluation
+remain false; model verdict remains `NOT_ESTABLISHED`. Week 3 P0 remains
+`BLOCKED / IN PROGRESS`, and Week 4 remains `BLOCKED / NOT STARTED`.
+
+## W3-002-CR1 candidate revision 6 semantic correction — 2026-08-06
+
+Senior rejected revision 5 for conflated safe-corrective/abstention audit
+semantics, factual requirements in two control-plane abstain outlines, one
+omitted direct support relation, insufficient hard-negative mutation checks, an
+implicit model verdict, and an unbound prohibited-target review flag. Revision 5
+is preserved byte-for-byte as 19 rejected-history artifacts; its manifest and
+review-bundle SHA-256 values are `342e5652...2d32` and `9599c09b...debf`.
+
+Revision 6 preserves all 60 model-input texts, hashes, and contract versions and
+the 40 `ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, 5
+`ABSTAIN_ESCALATE` distribution. Safe-corrective audits now explicitly separate
+the unavailable prohibited target from an existing complete corrective cover;
+the five abstain cases alone retain no-complete-correction semantics. CF01 and
+CF02 now require control-plane decline/refusal/escalation only. The sole Pass-B
+semantic change is `Q_V2_A_CSD04` ×
+`ESC_CASH_UNRECOG_001#immediate_trigger`, from partial to direct support for
+`SECURITY`. Support totals are 179 direct, 6 partial, 1,452 contextual, and 1,483
+irrelevant. The five approved hard negatives remain unchanged and pass strict
+value, obligation, and cover checks.
+
+Candidate verification and overlap recomputation pass with 3,120 revision-6
+Pass-B rows, 332 expected lineage flags, and zero unresolved findings. Focused
+tests pass 99/99; Option A contract tests 11/11; feasibility source tests 14/14;
+related integrity tests 68/68; isolated tracked application tests 486/486 with 5
+skips. The first two isolated attempts were harness setup failures (missing the
+committed `.gitignore`, then missing the revision-5 archive), not source
+failures. Unauthorized `run-critical` remains fail-closed before model loading.
+
+Revision 6 is `FROZEN_CANDIDATE / AWAITING_SENIOR_SEMANTIC_REVIEW` with
+`candidate_bytes_frozen=true`, `structural_integrity_verified=true`, and
+`pre_evaluation_integrity_passed=true` under
+`STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING`. Semantic approval, evaluation
+authorization, and critical evaluation remain false; model verdict is
+`NOT_ESTABLISHED`. No model, encoder, retrieval, generation, inference, staging,
+commit, or push occurred.
+
+## W3-002-CR1 revision 6 semantic approval — 2026-08-06
+
+Senior verdict is `APPROVE_SEMANTIC_INTEGRITY — REVISION 6`. Approval is bound
+to candidate manifest SHA-256
+`2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad` and review
+bundle SHA-256
+`6111440a21c9c5aef03643104c023a640d4cd369f02f4bdd1b0abb1ae1900519`.
+The approved bundle independently verified 169/169 inventory entries, the
+40/15/5 distribution, all 3,120 Pass-B rows, and the five hard negatives.
+
+Revision 6 is `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED /
+AWAITING_COMMIT`. Approval scope is `FROZEN_CANDIDATE_BYTES_ONLY`; the candidate
+may be committed but may not be changed. `senior_semantic_review_approved=true`,
+while `evaluation_authorized=false`, `critical_evaluated=false`, and
+`model_verdict=NOT_ESTABLISHED`. Evaluation requires a separate authorization
+task and no model-performance conclusion has been established.

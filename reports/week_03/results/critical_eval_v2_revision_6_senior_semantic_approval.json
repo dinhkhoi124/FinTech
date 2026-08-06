@@ -1,0 +1,17 @@
+{
+  "approval_scope": "FROZEN_CANDIDATE_BYTES_ONLY",
+  "candidate_manifest_sha256": "2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad",
+  "candidate_may_be_committed": true,
+  "candidate_revision": 6,
+  "candidate_revision_id": "critical_eval_v2_candidate_revision_6",
+  "candidate_bytes_may_change_after_approval": false,
+  "critical_evaluated": false,
+  "evaluation_authorized": false,
+  "evaluation_requires_separate_authorization_task": true,
+  "model_performance_established": false,
+  "model_verdict": "NOT_ESTABLISHED",
+  "review_bundle_sha256": "6111440a21c9c5aef03643104c023a640d4cd369f02f4bdd1b0abb1ae1900519",
+  "senior_semantic_review_approved": true,
+  "senior_semantic_review_verdict": "APPROVED",
+  "task_id": "W3-002-CR1"
+}

@@ -7,9 +7,9 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: none — W3-002-CR1 contract amendment closed
-- Next task: W3-002-CR1 candidate revision 5 authoring — NOT STARTED / REQUIRES A SEPARATE SENIOR-REVIEWED CONTRACT
-- Last updated: 2026-08-05 by Codex
+- Active task: none; W3-002-CR1 candidate revision 6 awaits commit review
+- Next task: commit frozen revision 6 only after explicit commit authorization
+- Last updated: 2026-08-06 by Codex
 
 ## Active objective
 Senior rejected candidate revision 4 and blocked further candidate authoring
@@ -25,13 +25,28 @@ authorization, and critical evaluation remain false. The model verdict is
 NOT_ESTABLISHED, Week 3 P0 remains BLOCKED / IN PROGRESS, and Week 4 remains
 BLOCKED / NOT STARTED.
 
+Senior semantic review returned `FIX_REQUIRED` for revision 5. Revision 5 is now
+`REJECTED / PRESERVED AS REVIEW HISTORY`; its 19-artifact archive is frozen under
+`reports/week_03/rejected/critical_eval_v2_revision_5/`. Candidate revision 6 is
+now `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`.
+The unchanged Option A candidate contract has
+40 `ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, and 5
+`ABSTAIN_ESCALATE` cases, with all 60 model-input byte tuples unchanged from
+rejected revision 4.
+Senior semantic approval has been granted for the frozen revision-6 candidate
+bytes. Evaluation authorization, critical evaluation, model loading, encoder
+loading, retrieval, generation, inference, and critical-pipeline execution
+remain prohibited.
+
 The Senior-approved decision bundle has SHA-256
 `bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786`.
 The approved contract keeps `ANSWER` and `ABSTAIN_ESCALATE` as top-level response
 types and adds `answer_subtype=STANDARD|SAFE_CORRECTIVE`. The distribution is 40
 `ANSWER / STANDARD`, 15 `ANSWER / SAFE_CORRECTIVE`, and 5
-`ABSTAIN_ESCALATE`. This package does not create or authorize candidate revision
-5.
+`ABSTAIN_ESCALATE`. At the contract-amendment milestone this package did not
+create or authorize candidate revision 5; the later, separately reviewed
+authoring contract was the sole authorization for revision 5, while the Senior
+`FIX_REQUIRED` correction contract separately authorized revision 6.
 
 ## W3-002-CR1 authoring boundary
 
@@ -47,17 +62,31 @@ types and adds `answer_subtype=STANDARD|SAFE_CORRECTIVE`. The distribution is 40
 - Candidate revision 4: REJECTED / PRESERVED AS REVIEW HISTORY
 - Contract amendment: OPTION A / SENIOR APPROVED
 - Contract distribution: 40 STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN
-- Candidate revision 5: NOT CREATED / NOT STARTED / REQUIRES A SEPARATE SENIOR-REVIEWED CONTRACT
-- Candidate package: NOT CREATED
+- Candidate revision 5: REJECTED / PRESERVED AS REVIEW HISTORY
+- Candidate revision 6: FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT
+- Candidate package: FROZEN / STRUCTURAL ONLY
 - Candidate bytes frozen: true
-- Structural integrity verified: false
-- Pre-evaluation integrity passed: false
-- Senior semantic review approved: false
+- Structural integrity verified: true
+- Pre-evaluation integrity passed: true
+- Pre-evaluation integrity scope: STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING
+- Candidate manifest SHA-256: `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`
+- Senior semantic review approved: true
 - Evaluation authorized: false
 - Critical evaluated: false
 - Model/pipeline verdict: NOT ESTABLISHED
+- `senior_semantic_review_approved=true`
+- `evaluation_authorized=false`
+- `critical_evaluated=false`
+- `model_verdict=NOT_ESTABLISHED`
 - Week 3 P0: BLOCKED / IN PROGRESS
 - Week 4: BLOCKED / NOT STARTED
+
+The frozen candidate manifest retains
+`pre_evaluation_integrity_scope=STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING`
+because that field records the structural authoring boundary at candidate
+freeze. Current Senior semantic approval is established separately by
+`critical_eval_v2_revision_6_senior_semantic_approval.json` and does not
+authorize evaluation.
 
 Revision 1 manifest SHA-256 is
 `39af29f929ef9a9287808c26d62787079e376a8b7ac05847fa10729d27374b99`.
@@ -87,9 +116,16 @@ Revision 4 rejected manifest SHA-256 is
 `b2b021c78f11ff4cf5d023044b464b43d806f0c0217fd8e3b196dfc736bb52af`;
 its rejected review bundle SHA-256 is
 `a081e909113a682e7790b758f2b90bea3eea26025103e7209dc1c32e8f04fa5e`.
-All 19 candidate artifacts are byte-preserved under
-`reports/week_03/rejected/critical_eval_v2_revision_4/`. No candidate revision 5
-exists.
+All 19 revision-4 artifacts remain byte-preserved under
+`reports/week_03/rejected/critical_eval_v2_revision_4/`. Candidate revision 5 now
+exists separately at active-root paths and does not modify that archive.
+
+Revision 5 rejected manifest SHA-256 is
+`342e5652fb03f249eeb999f7b2c4452668b82ce83d28d65b9a3d452745cc2d32`;
+its rejected review bundle SHA-256 is
+`9599c09bac7d1b46c9d4893c546993958f40f64805db1b7fb8a97625b966debf`.
+All 19 revision-5 artifacts are byte-preserved under
+`reports/week_03/rejected/critical_eval_v2_revision_5/`.
 
 ## W3-002-CR1 approved contract amendment
 
@@ -102,8 +138,11 @@ exists.
 - Contract decision bundle SHA-256:
   `bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786`
 - Revision 4: REJECTED / PRESERVED AS REVIEW HISTORY
-- Revision 5 created: false
-- Senior semantic review approved: false
+- Revision 5 at contract-amendment commit: NOT CREATED
+- Current revision 5: REJECTED / PRESERVED AS REVIEW HISTORY
+- Current revision 6: FROZEN_CANDIDATE / SENIOR SEMANTIC REVIEW APPROVED / AWAITING COMMIT
+- Candidate manifest SHA-256: `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`
+- Senior semantic review approved: true
 - Evaluation authorized: false
 - Critical evaluated: false
 - Model verdict: NOT_ESTABLISHED
@@ -352,9 +391,9 @@ not candidate semantic approval.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Open W3-002-CR1 candidate revision 5 authoring only through a separate Senior-reviewed contract.
-2. Preserve all rejected revisions and the committed Option A contract amendment.
-3. Keep evaluation and Week 4 blocked while Week 3 P0 remains BLOCKED / IN PROGRESS.
+1. Submit exact frozen revision-6 paths and approval records for commit review.
+2. Preserve the approved manifest hash and prohibit every candidate-byte change.
+3. Keep evaluation and Week 4 blocked while evaluation authorization remains false.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen
