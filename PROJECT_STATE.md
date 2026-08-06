@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: W3-002-CR1 — CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW
-- Next task: submit the standalone W3-002-CR1 contract-amendment review bundle for Senior commit review
+- Active task: none — W3-002-CR1 contract amendment closed
+- Next task: W3-002-CR1 candidate revision 5 authoring — NOT STARTED / REQUIRES A SEPARATE SENIOR-REVIEWED CONTRACT
 - Last updated: 2026-08-05 by Codex
 
 ## Active objective
@@ -17,9 +17,10 @@ pending a contract amendment. Senior has now approved contract Option A. The
 fixed 40/20 contract is not semantically
 feasible with the frozen KB: 15 of the 20 proposed negatives admit a useful,
 approved safe correction and only five remain true abstain/escalate cases.
-Revision 4 is byte-preserved as rejected review history. W3-002-CR1 is
-`CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW`; structural
-integrity and pre-evaluation integrity are false for the rejected candidate. Semantic approval, evaluation
+Revision 4 is byte-preserved as rejected review history. The W3-002-CR1 Option A
+contract amendment is `DONE / REVIEWED / COMMITTED / PUSHED` at commit
+`22e8b38ae28e86537ece8aa892f39c35b517e74b`. Structural integrity and
+pre-evaluation integrity are false for the rejected candidate. Semantic approval, evaluation
 authorization, and critical evaluation remain false. The model verdict is
 NOT_ESTABLISHED, Week 3 P0 remains BLOCKED / IN PROGRESS, and Week 4 remains
 BLOCKED / NOT STARTED.
@@ -34,7 +35,8 @@ types and adds `answer_subtype=STANDARD|SAFE_CORRECTIVE`. The distribution is 40
 
 ## W3-002-CR1 authoring boundary
 
-- Task: CONTRACT AMENDMENT APPROVED / AWAITING SENIOR COMMIT REVIEW
+- Contract-amendment task: DONE / REVIEWED / COMMITTED / PUSHED
+- Contract-amendment commit: `22e8b38ae28e86537ece8aa892f39c35b517e74b`
 - Evaluation version: `critical_eval_v2`
 - Evaluation as-of date: `2026-07-28`
 - Candidate objective: 60 new queries, 3,120 independent eligible-section
@@ -45,7 +47,7 @@ types and adds `answer_subtype=STANDARD|SAFE_CORRECTIVE`. The distribution is 40
 - Candidate revision 4: REJECTED / PRESERVED AS REVIEW HISTORY
 - Contract amendment: OPTION A / SENIOR APPROVED
 - Contract distribution: 40 STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN
-- Candidate revision 5 created: false
+- Candidate revision 5: NOT CREATED / NOT STARTED / REQUIRES A SEPARATE SENIOR-REVIEWED CONTRACT
 - Candidate package: NOT CREATED
 - Candidate bytes frozen: true
 - Structural integrity verified: false
@@ -92,6 +94,8 @@ exists.
 ## W3-002-CR1 approved contract amendment
 
 - Senior verdict: `APPROVE_CONTRACT_AMENDMENT — OPTION A`
+- Lifecycle: DONE / REVIEWED / COMMITTED / PUSHED
+- Committed SHA: `22e8b38ae28e86537ece8aa892f39c35b517e74b`
 - `senior_contract_amendment_approved=true`
 - `contract_amendment_option=OPTION_A`
 - `contract_amendment_distribution=40_STANDARD_15_SAFE_CORRECTIVE_5_ABSTAIN`
@@ -348,8 +352,8 @@ not candidate semantic approval.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Submit the W3-002-CR1 Option A contract-amendment review bundle for Senior commit review.
-2. Do not create candidate revision 5 until a separate reviewed authoring task is opened.
+1. Open W3-002-CR1 candidate revision 5 authoring only through a separate Senior-reviewed contract.
+2. Preserve all rejected revisions and the committed Option A contract amendment.
 3. Keep evaluation and Week 4 blocked while Week 3 P0 remains BLOCKED / IN PROGRESS.
 
 ## Handoff note

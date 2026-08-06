@@ -12,7 +12,10 @@ Its original frozen-mapping result remains FAILED and is invalidated by incomple
 relevance labels; the Senior-approved post-holdout adjudication is PASS / REVIEWED
 / ACCEPTED. Senior verdict is `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. W3-002
 has an internally consistent numerical run, but its critical set is INVALIDATED
-and model verdict is NOT ESTABLISHED; Week 4 is BLOCKED / NOT STARTED.
+and model verdict is NOT ESTABLISHED. The W3-002-CR1 Option A contract amendment
+is DONE / REVIEWED / COMMITTED / PUSHED at `22e8b38`; candidate revision 5 is
+NOT STARTED and requires a separate Senior-reviewed contract. Week 4 is BLOCKED /
+NOT STARTED.
 
 ## Deliverables completed
 
@@ -257,3 +260,11 @@ The external Option A review bundle was independently extracted and verified:
 99/99 payload hashes, 5/5 bundle-only tests, 11/11 bundled contract tests, and
 standalone verification before and after tests all passed. This packaging
 evidence does not advance candidate or evaluation lifecycle.
+
+Lifecycle closure: the contract amendment is `DONE / REVIEWED / COMMITTED /
+PUSHED` at commit
+`22e8b38ae28e86537ece8aa892f39c35b517e74b`. Candidate revision 5 remains `NOT
+CREATED / NOT STARTED` and requires a separate Senior-reviewed authoring
+contract. Senior semantic approval, evaluation authorization, and critical
+evaluation remain false; model verdict remains `NOT_ESTABLISHED`. Week 3 P0
+remains `BLOCKED / IN PROGRESS`, and Week 4 remains `BLOCKED / NOT STARTED`.
