@@ -1,0 +1,259 @@
+{
+  "derived_mechanically_from_corrected_pass_b": true,
+  "from_revision": 6,
+  "rows": [
+    {
+      "query_id": "Q_V2_A_TRD01",
+      "revision_6": {
+        "all_minimal_covers": [
+          [
+            "FAQ_TRANSFER_DECLINED_001#answer"
+          ],
+          [
+            "POL_TRANSFER_DECLINED_001#eligibility"
+          ],
+          [
+            "RUN_TRANSFER_DECLINED_001#checks"
+          ]
+        ],
+        "complete_requested_answer_covers": [
+          [
+            "FAQ_TRANSFER_DECLINED_001#answer"
+          ],
+          [
+            "POL_TRANSFER_DECLINED_001#eligibility"
+          ],
+          [
+            "RUN_TRANSFER_DECLINED_001#checks"
+          ]
+        ],
+        "minimum_distinct_document_cover_size": 1,
+        "minimum_evidence_section_cover_size": 1,
+        "query_id": "Q_V2_A_TRD01",
+        "requested_obligations": [
+          {
+            "acceptable_evidence_ids": [
+              "FAQ_TRANSFER_DECLINED_001#answer",
+              "POL_TRANSFER_DECLINED_001#eligibility",
+              "RUN_TRANSFER_DECLINED_001#checks"
+            ],
+            "description": "Explain explicit pre-processing refusal.",
+            "obligation_id": "STATE"
+          },
+          {
+            "acceptable_evidence_ids": [
+              "FAQ_TRANSFER_DECLINED_001#answer",
+              "POL_TRANSFER_DECLINED_001#eligibility",
+              "RUN_TRANSFER_DECLINED_001#checks"
+            ],
+            "description": "Exclude a post-submission technical failure.",
+            "obligation_id": "BOUNDARY"
+          }
+        ]
+      },
+      "revision_7": {
+        "all_minimal_covers": [
+          [
+            "FAQ_TRANSFER_DECLINED_001#answer"
+          ]
+        ],
+        "complete_requested_answer_covers": [
+          [
+            "FAQ_TRANSFER_DECLINED_001#answer"
+          ]
+        ],
+        "minimum_distinct_document_cover_size": 1,
+        "minimum_evidence_section_cover_size": 1,
+        "query_id": "Q_V2_A_TRD01",
+        "requested_obligations": [
+          {
+            "acceptable_evidence_ids": [
+              "FAQ_TRANSFER_DECLINED_001#answer",
+              "POL_TRANSFER_DECLINED_001#eligibility",
+              "RUN_TRANSFER_DECLINED_001#checks"
+            ],
+            "description": "Explain explicit pre-processing refusal.",
+            "obligation_id": "STATE"
+          },
+          {
+            "acceptable_evidence_ids": [
+              "FAQ_TRANSFER_DECLINED_001#answer"
+            ],
+            "description": "Exclude a post-submission technical failure.",
+            "obligation_id": "BOUNDARY"
+          }
+        ]
+      }
+    },
+    {
+      "query_id": "Q_V2_A_TRR02",
+      "revision_6": {
+        "all_minimal_covers": [
+          [
+            "ESC_TRANSFER_RECIPIENT_001#trigger"
+          ],
+          [
+            "FAQ_TRANSFER_RECIPIENT_002#current_window"
+          ],
+          [
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ]
+        ],
+        "complete_requested_answer_covers": [
+          [
+            "ESC_TRANSFER_RECIPIENT_001#trigger"
+          ],
+          [
+            "FAQ_TRANSFER_RECIPIENT_002#current_window"
+          ],
+          [
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ]
+        ],
+        "minimum_distinct_document_cover_size": 1,
+        "minimum_evidence_section_cover_size": 1,
+        "query_id": "Q_V2_A_TRR02",
+        "requested_obligations": [
+          {
+            "acceptable_evidence_ids": [
+              "ESC_TRANSFER_RECIPIENT_001#trigger",
+              "FAQ_TRANSFER_RECIPIENT_002#current_window",
+              "POL_TRANSFER_RECIPIENT_001#trace_window"
+            ],
+            "description": "State the one-business-day posting window.",
+            "obligation_id": "WINDOW"
+          },
+          {
+            "acceptable_evidence_ids": [
+              "ESC_TRANSFER_RECIPIENT_001#trigger",
+              "FAQ_TRANSFER_RECIPIENT_002#current_window",
+              "POL_TRANSFER_RECIPIENT_001#trace_window"
+            ],
+            "description": "State when tracing may begin.",
+            "obligation_id": "TRACE"
+          }
+        ]
+      },
+      "revision_7": {
+        "all_minimal_covers": [
+          [
+            "FAQ_TRANSFER_RECIPIENT_002#current_window"
+          ],
+          [
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ]
+        ],
+        "complete_requested_answer_covers": [
+          [
+            "FAQ_TRANSFER_RECIPIENT_002#current_window"
+          ],
+          [
+            "POL_TRANSFER_RECIPIENT_001#trace_window"
+          ]
+        ],
+        "minimum_distinct_document_cover_size": 1,
+        "minimum_evidence_section_cover_size": 1,
+        "query_id": "Q_V2_A_TRR02",
+        "requested_obligations": [
+          {
+            "acceptable_evidence_ids": [
+              "ESC_TRANSFER_RECIPIENT_001#trigger",
+              "FAQ_TRANSFER_RECIPIENT_002#current_window",
+              "POL_TRANSFER_RECIPIENT_001#trace_window"
+            ],
+            "description": "State the one-business-day posting window.",
+            "obligation_id": "WINDOW"
+          },
+          {
+            "acceptable_evidence_ids": [
+              "FAQ_TRANSFER_RECIPIENT_002#current_window",
+              "POL_TRANSFER_RECIPIENT_001#trace_window"
+            ],
+            "description": "State when tracing may begin.",
+            "obligation_id": "TRACE"
+          }
+        ]
+      }
+    },
+    {
+      "query_id": "Q_V2_A_CSU03",
+      "revision_6": {
+        "all_minimal_covers": [
+          [
+            "ESC_CASH_UNRECOG_001#safe_handoff"
+          ]
+        ],
+        "complete_requested_answer_covers": [
+          [
+            "ESC_CASH_UNRECOG_001#safe_handoff"
+          ]
+        ],
+        "minimum_distinct_document_cover_size": 1,
+        "minimum_evidence_section_cover_size": 1,
+        "query_id": "Q_V2_A_CSU03",
+        "requested_obligations": [
+          {
+            "acceptable_evidence_ids": [
+              "ESC_CASH_UNRECOG_001#safe_handoff",
+              "POL_CASH_UNRECOG_001#prohibited_actions"
+            ],
+            "description": "Forbid PINs, passwords, one-time codes, and full card details.",
+            "obligation_id": "PROHIBIT"
+          },
+          {
+            "acceptable_evidence_ids": [
+              "ESC_CASH_UNRECOG_001#safe_handoff",
+              "RUN_CASH_UNRECOG_002#safe_handoff"
+            ],
+            "description": "Collect only a masked event reference.",
+            "obligation_id": "MINIMAL"
+          }
+        ]
+      },
+      "revision_7": {
+        "all_minimal_covers": [
+          [
+            "ESC_CASH_UNRECOG_001#safe_handoff",
+            "POL_CASH_UNRECOG_001#prohibited_actions"
+          ],
+          [
+            "POL_CASH_UNRECOG_001#prohibited_actions",
+            "RUN_CASH_UNRECOG_002#safe_handoff"
+          ]
+        ],
+        "complete_requested_answer_covers": [
+          [
+            "ESC_CASH_UNRECOG_001#safe_handoff",
+            "POL_CASH_UNRECOG_001#prohibited_actions"
+          ],
+          [
+            "POL_CASH_UNRECOG_001#prohibited_actions",
+            "RUN_CASH_UNRECOG_002#safe_handoff"
+          ]
+        ],
+        "minimum_distinct_document_cover_size": 2,
+        "minimum_evidence_section_cover_size": 2,
+        "query_id": "Q_V2_A_CSU03",
+        "requested_obligations": [
+          {
+            "acceptable_evidence_ids": [
+              "POL_CASH_UNRECOG_001#prohibited_actions"
+            ],
+            "description": "Forbid PINs, passwords, one-time codes, and full card details.",
+            "obligation_id": "PROHIBIT"
+          },
+          {
+            "acceptable_evidence_ids": [
+              "ESC_CASH_UNRECOG_001#safe_handoff",
+              "RUN_CASH_UNRECOG_002#safe_handoff"
+            ],
+            "description": "Collect only a masked event reference.",
+            "obligation_id": "MINIMAL"
+          }
+        ]
+      }
+    }
+  ],
+  "task_id": "W3-002-CR1",
+  "to_revision": 7
+}

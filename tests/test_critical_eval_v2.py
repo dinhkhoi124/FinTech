@@ -50,7 +50,7 @@ from payresolve_ai.evaluation.critical_v2 import (  # noqa: E402
 )
 
 
-class CriticalEvalV2Revision6Tests(unittest.TestCase):
+class CriticalEvalV2Revision7Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.config_path = ROOT / "configs/evaluation/critical_eval_v2.json"
@@ -65,7 +65,7 @@ class CriticalEvalV2Revision6Tests(unittest.TestCase):
         cls.prohibited_reviews = load_jsonl(ROOT / cls.config["outputs"]["prohibited_target_review"])
         cls.forbidden_rows = load_jsonl(ROOT / cls.config["outputs"]["forbidden_audit"])
         cls.manifest = json.loads((ROOT / cls.config["outputs"]["candidate_manifest"]).read_text(encoding="utf-8"))
-        cls.corrections = json.loads((ROOT / cls.config["outputs"]["revision_6_corrections"]).read_text(encoding="utf-8"))
+        cls.corrections = json.loads((ROOT / cls.config["outputs"]["revision_7_corrections"]).read_text(encoding="utf-8"))
         cls.comparison = json.loads((ROOT / cls.config["outputs"]["revision_comparison"]).read_text(encoding="utf-8"))
         cls.eligible, cls.forbidden = _catalog(ROOT, cls.config)
         cls.by_query = {row["query_id"]: row for row in cls.pass_a}
@@ -74,8 +74,8 @@ class CriticalEvalV2Revision6Tests(unittest.TestCase):
         cls.judgments = {(row["query_id"], row["evidence_id"]): row for row in cls.pass_b}
         cls.recomputed_overlap, cls.recomputed_overlap_flags = recompute_overlap(ROOT, cls.config)
 
-    def test_01_revision_is_six(self):
-        self.assertEqual(self.config["candidate_revision"], 6)
+    def test_01_revision_is_seven(self):
+        self.assertEqual(self.config["candidate_revision"], 7)
 
     def test_02_pass_a_has_60_unique_queries(self):
         self.assertEqual((len(self.pass_a), len(self.by_query)), (60, 60))
@@ -299,7 +299,7 @@ class CriticalEvalV2Revision6Tests(unittest.TestCase):
         self.assertEqual({r["query_id"] for r in self.pass_a if r.get("intended_answer_subtype") == "SAFE_CORRECTIVE"}, SAFE_CORRECTIVE_IDS)
         self.assertEqual({r["query_id"] for r in self.pass_a if r["intended_response_type"] == "ABSTAIN_ESCALATE"}, ABSTAIN_ESCALATE_IDS)
 
-    def test_59_model_inputs_are_unchanged_from_rejected_revision_five(self):
+    def test_59_model_inputs_are_unchanged_from_committed_revision_six(self):
         self.assertTrue(verify_model_input_freeze(ROOT, self.config, self.pass_a)["unchanged"])
 
     def test_60_model_input_is_present_in_final_mapping(self):
@@ -314,15 +314,15 @@ class CriticalEvalV2Revision6Tests(unittest.TestCase):
     def test_63_all_direct_rows_were_rereviewed(self):
         self.assertTrue(all(r["direct_support_re_reviewed"] is True for r in self.pass_b if r["support_class"] == "DIRECT_SUPPORT"))
 
-    def test_64_revision_six_model_verdict_is_not_established(self):
+    def test_64_revision_seven_model_verdict_is_not_established(self):
         self.assertFalse(self.manifest["senior_semantic_review_approved"] or self.manifest["evaluation_authorized"] or self.manifest["critical_evaluated"])
         self.assertEqual(self.manifest["model_verdict"], "NOT_ESTABLISHED")
 
-    def test_65_pass_b_has_exact_revision_six_provenance(self):
-        self.assertEqual(Counter((r["candidate_revision"], r["reviewer_status"], r["reviewer_method"]) for r in self.pass_b), Counter({(6, PASS_B_REVIEWER_STATUS, PASS_B_REVIEWER_METHOD): 3120}))
+    def test_65_pass_b_has_exact_revision_seven_provenance(self):
+        self.assertEqual(Counter((r["candidate_revision"], r["reviewer_status"], r["reviewer_method"]) for r in self.pass_b), Counter({(7, PASS_B_REVIEWER_STATUS, PASS_B_REVIEWER_METHOD): 3120}))
 
     def test_66_no_stale_reviewer_or_reason_provenance(self):
-        stale = ("REVISION_1", "REVISION_2", "REVISION_3", "REVISION_4", "REVISION_5")
+        stale = ("REVISION_1", "REVISION_2", "REVISION_3", "REVISION_4", "REVISION_5", "REVISION_6")
         self.assertFalse([r["evidence_id"] for r in self.pass_b if any(value in r["reviewer_status"] or value in r["reason_code"] for value in stale)])
 
     def test_67_review_hash_binds_query_obligations_evidence_and_content(self):
@@ -393,7 +393,7 @@ class CriticalEvalV2Revision6Tests(unittest.TestCase):
         self.assertFalse(forbidden & used)
 
     def test_81_overlap_audit_records_expected_rejected_lineage(self):
-        self.assertEqual(self.recomputed_overlap["candidate_revision"], 6)
+        self.assertEqual(self.recomputed_overlap["candidate_revision"], 7)
         self.assertTrue(all(name in self.recomputed_overlap["sources"] for name in ("critical_eval_v2_rejected_revision_2_lineage", "critical_eval_v2_rejected_revision_3_lineage", "critical_eval_v2_rejected_revision_4_lineage", "critical_eval_v2_rejected_revision_5_lineage")))
 
     def test_82_revision_four_archive_is_byte_preserved(self):
@@ -494,12 +494,10 @@ class CriticalEvalV2Revision6Tests(unittest.TestCase):
             manifest = copy.deepcopy(self.manifest); manifest[field] = True
             with self.assertRaises(CriticalV2Error): validate_candidate_lifecycle(manifest)
 
-    def test_99_exactly_one_pass_b_semantic_row_changed_from_revision_five(self):
-        old = load_jsonl(ROOT / self.config["revision_history"]["rejected_revision_5_archive_root"] / "data/evaluation/critical_eval_v2_support_judgments.jsonl")
-        old_by_key = {(row["query_id"], row["evidence_id"]): row for row in old}
-        semantic_fields = ("support_class", "supported_requested_obligation_ids", "supported_corrective_obligation_ids", "hard_negative_review")
-        changed = [key for key, row in self.judgments.items() if any(row.get(field) != old_by_key[key].get(field) for field in semantic_fields)]
-        self.assertEqual(changed, [("Q_V2_A_CSD04", "ESC_CASH_UNRECOG_001#immediate_trigger")])
+    def test_99_exactly_four_pass_b_semantic_rows_changed_from_revision_six(self):
+        delta = json.loads((ROOT / self.config["outputs"]["revision_7_semantic_delta"]).read_text(encoding="utf-8"))
+        self.assertEqual(delta["changed_semantic_pass_b_rows"], 4)
+        self.assertEqual(delta["unexpected_semantic_pass_b_rows"], 0)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,17 @@
+{
+  "candidate_revision": 7,
+  "invalid_revision_6_covers_absent": {
+    "CSU03_ESC_SINGLE": true,
+    "TRD01_POL": true,
+    "TRD01_RUN": true,
+    "TRR02_ESC": true
+  },
+  "replacement_covers_present": {
+    "CSU03_POL_ESC": true,
+    "CSU03_POL_RUN": true,
+    "TRD01_FAQ": true,
+    "TRR02_FAQ": true,
+    "TRR02_POL": true
+  },
+  "total_complete_covers": 92
+}

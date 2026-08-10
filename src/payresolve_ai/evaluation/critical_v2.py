@@ -1,4 +1,4 @@
-"""Structural validator/deriver for critical_eval_v2 candidate revision 6.
+"""Structural validator/deriver for critical_eval_v2 candidate revision 7.
 
 Semantic decisions live only in the standalone Pass B JSONL.  This module
 validates frozen inputs, derives requested/corrective covers, recomputes overlap
@@ -27,8 +27,11 @@ class CriticalV2Error(RuntimeError):
 
 
 AS_OF = "2026-07-28"
-REVISION_NUMBER = 6
-REVISION = "critical_eval_v2_candidate_revision_6"
+REVISION_NUMBER = 7
+REVISION = "critical_eval_v2_candidate_revision_7"
+PREDECESSOR_COMMIT = "d27de987d0eb7a942c88590eec9a30bdd6ee33d8"
+PREDECESSOR_MANIFEST_SHA256 = "2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad"
+COV1_BUNDLE_SHA256 = "b804fa12a4bc6f12e3852552358a29af9e071e916c92b22959fefc6ff8a629ff"
 REJECTED_REV1_MANIFEST_SHA256 = "39af29f929ef9a9287808c26d62787079e376a8b7ac05847fa10729d27374b99"
 REJECTED_REV2_MANIFEST_SHA256 = "668992392f3e0f4addeb017a0028f6bc676614910d0e1c03fb8f3e3c51a20834"
 REJECTED_REV2_BUNDLE_SHA256 = "e0a447f7a71f6dc125d87dad088889d779de2c3c8892e7167d11b9a8b3b38a56"
@@ -39,7 +42,7 @@ REJECTED_REV4_BUNDLE_SHA256 = "a081e909113a682e7790b758f2b90bea3eea26025103e7209
 REJECTED_REV5_MANIFEST_SHA256 = "342e5652fb03f249eeb999f7b2c4452668b82ce83d28d65b9a3d452745cc2d32"
 REJECTED_REV5_BUNDLE_SHA256 = "9599c09bac7d1b46c9d4893c546993958f40f64805db1b7fb8a97625b966debf"
 MODEL_INPUT_CONTRACT_VERSION = "critical_eval_v2_model_input_query_only_v1"
-PASS_B_REVIEWER_STATUS = "CANDIDATE_REVISION_6_AUTHOR_REVIEW_COMPLETE_AWAITING_SENIOR"
+PASS_B_REVIEWER_STATUS = "CANDIDATE_REVISION_7_AUTHOR_REVIEW_COMPLETE_AWAITING_SENIOR"
 PASS_B_REVIEWER_METHOD = "QUERY_OBLIGATION_SECTION_CONTENT_REVIEW"
 PROHIBITED_TARGET_REVIEWER_METHOD = "BOUND_EXPECTED_OUTLINE_PROHIBITED_TARGET_AUTHOR_REVIEW"
 SAFE_CORRECTIVE_IDS = {
@@ -109,7 +112,7 @@ def _stable_hash(value: Any) -> str:
 def load_config(path: Path) -> dict[str, Any]:
     config = _read_json(path)
     if config.get("evaluation_as_of_date") != AS_OF or config.get("candidate_revision") != REVISION_NUMBER:
-        raise CriticalV2Error("revision-6 config/date contract mismatch")
+        raise CriticalV2Error("revision-7 config/date contract mismatch")
     lifecycle = config.get("lifecycle")
     expected_lifecycle = {
         "senior_semantic_review_approved": False,
@@ -235,12 +238,28 @@ def validate_pass_a(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def verify_model_input_freeze(root: Path, config: dict[str, Any], rows: list[dict[str, Any]]) -> dict[str, Any]:
-    rejected = load_jsonl(root / config["revision_history"]["rejected_revision_5_pass_a"])
-    expected = {row["query_id"]: (row["model_input_text"], row["model_input_sha256"], row["model_input_contract_version"]) for row in rejected}
+    comparison = _read_json(root / config["outputs"]["revision_7_model_input_comparison"])
+    if (
+        comparison.get("predecessor_candidate_commit") != PREDECESSOR_COMMIT
+        or comparison.get("predecessor_manifest_sha256") != PREDECESSOR_MANIFEST_SHA256
+        or comparison.get("query_count") != 60
+        or comparison.get("changed_count") != 0
+        or comparison.get("all_identical") is not True
+    ):
+        raise CriticalV2Error("revision-7 predecessor model-input comparison contract mismatch")
+    predecessor_rows = comparison.get("rows", [])
+    expected = {
+        row["query_id"]: (
+            row["revision_6_model_input_text"],
+            row["revision_6_model_input_sha256"],
+            row["model_input_contract_version"],
+        )
+        for row in predecessor_rows
+    }
     actual = {row["query_id"]: (row["model_input_text"], row["model_input_sha256"], row["model_input_contract_version"]) for row in rows}
     if actual != expected:
-        raise CriticalV2Error("revision-6 model-input bytes differ from rejected revision 5")
-    return {"query_count": 60, "unchanged": True, "source_revision": 5}
+        raise CriticalV2Error("revision-7 model-input bytes differ from committed revision 6")
+    return {"query_count": 60, "unchanged": True, "source_revision": 6, "source_commit": PREDECESSOR_COMMIT}
 
 
 def review_input_sha256(query: dict[str, Any], evidence: dict[str, Any]) -> str:
@@ -275,10 +294,10 @@ def validate_pass_b(pass_a: list[dict[str, Any]], judgments: list[dict[str, Any]
         if row.get("support_class") not in SUPPORT_CLASSES or not row.get("reason_code") or not row.get("rationale"):
             raise CriticalV2Error(f"incomplete Pass B judgment: {query_id}/{evidence_id}")
         if row.get("candidate_revision") != REVISION_NUMBER or row.get("reviewer_status") != PASS_B_REVIEWER_STATUS or row.get("reviewer_method") != PASS_B_REVIEWER_METHOD:
-            raise CriticalV2Error("Pass B lacks revision-6 author-review provenance")
-        if row.get("authoring_source") != "STANDALONE_SECTION_CONTENT_REVIEW_REVISION_6":
-            raise CriticalV2Error("Pass B is not standalone revision-6 semantic data")
-        if re.search(r"REVISION[_ -]?[1-5]", row.get("reason_code", ""), re.IGNORECASE):
+            raise CriticalV2Error("Pass B lacks revision-7 author-review provenance")
+        if row.get("authoring_source") != "STANDALONE_SECTION_CONTENT_REVIEW_REVISION_7_COV1":
+            raise CriticalV2Error("Pass B is not standalone revision-7 semantic data")
+        if re.search(r"REVISION[_ -]?[1-6]", row.get("reason_code", ""), re.IGNORECASE):
             raise CriticalV2Error("Pass B carries stale reason-code provenance")
         if row.get("generated_from_support_plan") is not False or row.get("mapping_roles_used") is not False:
             raise CriticalV2Error("Pass B used an answer key or mapping roles")
@@ -315,7 +334,7 @@ def validate_pass_b(pass_a: list[dict[str, Any]], judgments: list[dict[str, Any]
         if query_id not in row["rationale"] or evidence_id not in row["rationale"]:
             raise CriticalV2Error("Pass B rationale is not query/evidence specific")
         if row["support_class"] == "DIRECT_SUPPORT" and row.get("direct_support_re_reviewed") is not True:
-            raise CriticalV2Error("direct support was not re-reviewed in revision 6")
+            raise CriticalV2Error("direct support lacks retained/re-reviewed revision-7 provenance")
         if row["support_class"] in {"DIRECT_SUPPORT", "PARTIAL_SUPPORT", "CONTRADICTION_OR_OUTDATED"} or hard_review:
             rationale = normalize_query(row["rationale"])
             if rationale in material_rationales:
@@ -328,7 +347,7 @@ def validate_pass_b(pass_a: list[dict[str, Any]], judgments: list[dict[str, Any]
         if len(rows) != 52 or {row["evidence_id"] for row in rows} != set(eligible):
             raise CriticalV2Error(f"{query_id} lacks 52 unique judgments")
     provenance = Counter((row["reviewer_status"], row["reviewer_method"], row["candidate_revision"]) for row in judgments)
-    return {"queries": 60, "judgment_rows": 3120, "eligible_sections_per_query": 52, "provenance_counts": {"revision_6_complete_author_review": provenance[(PASS_B_REVIEWER_STATUS, PASS_B_REVIEWER_METHOD, REVISION_NUMBER)]}}
+    return {"queries": 60, "judgment_rows": 3120, "eligible_sections_per_query": 52, "provenance_counts": {"revision_7_complete_author_review": provenance[(PASS_B_REVIEWER_STATUS, PASS_B_REVIEWER_METHOD, REVISION_NUMBER)]}}
 
 
 def _minimal_covers(obligations: list[str], direct: dict[str, list[str]]) -> list[list[str]]:
@@ -532,7 +551,7 @@ def derive_pass_c(
     cover_rows = {(mapping["query_id"], evidence_id) for mapping in mappings for cover in mapping["all_minimal_covers"] for evidence_id in cover}
     judgments_by_key = {(row["query_id"], row["evidence_id"]): row for row in judgments}
     if any(judgments_by_key[key].get("minimal_cover_entry_re_reviewed") is not True for key in cover_rows):
-        raise CriticalV2Error("a minimal-cover row lacks revision-6 semantic re-review")
+        raise CriticalV2Error("a minimal-cover row lacks retained/re-reviewed revision-7 provenance")
     validate_hard_negative_audits(hard_audits, mappings)
     return mappings, negative_audits, hard_audits
 
@@ -574,7 +593,7 @@ def validate_forbidden_audit(rows: list[dict[str, Any]], forbidden: dict[str, di
     true_count = 0
     for row in rows:
         if row.get("candidate_revision") != REVISION_NUMBER or row.get("reviewer_status") != PASS_B_REVIEWER_STATUS:
-            raise CriticalV2Error("forbidden audit lacks revision-6 provenance")
+            raise CriticalV2Error("forbidden audit lacks revision-7 provenance")
         evidence_id = row.get("forbidden_evidence_id")
         if evidence_id not in forbidden or evidence_id in used:
             raise CriticalV2Error("forbidden evidence entered mapping or invalid audit")
@@ -876,7 +895,7 @@ def validate_candidate_lifecycle(manifest: dict[str, Any]) -> dict[str, Any]:
     return {"model_verdict": manifest["model_verdict"], **{key: manifest[key] for key in required_false}}
 
 
-def freeze_revision_6(root: Path, config_path: Path) -> dict[str, Any]:
+def freeze_revision_7(root: Path, config_path: Path) -> dict[str, Any]:
     config = load_config(config_path)
     historical, history = verify_historical_artifacts(root, config), validate_revision_history(root, config)
     pass_a = load_jsonl(root / config["outputs"]["pass_a"]); validate_pass_a(pass_a); model_inputs = verify_model_input_freeze(root, config, pass_a)
@@ -896,12 +915,19 @@ def freeze_revision_6(root: Path, config_path: Path) -> dict[str, Any]:
     _write_json(root / config["outputs"]["historical_hashes"], historical)
     _write_json(root / config["outputs"]["revision_history"], history)
     support_counts = Counter(row["support_class"] for row in pass_b)
+    complete_cover_count = sum(
+        len(row["complete_requested_answer_covers"]) + len(row["complete_corrective_answer_covers"])
+        for row in mappings
+    )
+    if complete_cover_count != 92:
+        raise CriticalV2Error(f"revision-7 complete-cover count differs from Senior expectation: {complete_cover_count}")
     dataset = {
         "task_id": "W3-002-CR1", "evaluation_version": "critical_eval_v2", "candidate_revision": REVISION_NUMBER,
         "model_input_contract_version": MODEL_INPUT_CONTRACT_VERSION,
         "evaluation_as_of_date": AS_OF, "query_count": 60, "answer_count": 55, "standard_answer_count": 40, "safe_corrective_answer_count": 15, "abstain_escalate_count": 5,
         "judgment_rows": 3120, "eligible_sections_per_query": 52,
         "support_class_counts": dict(support_counts), "hard_negative_count": len(hard),
+        "total_complete_cover_count": complete_cover_count,
         "corrective_answer_count": sum(row["answer_mode"] == "SAFE_CORRECTIVE" for row in mappings),
         "multi_section_query_ids": [row["query_id"] for row in mappings if row["multi_section_required"]],
         "multi_document_query_ids": [row["query_id"] for row in mappings if row["multi_document_required"]],
@@ -916,6 +942,10 @@ def freeze_revision_6(root: Path, config_path: Path) -> dict[str, Any]:
     artifact_hashes = _artifact_hashes(root, config)
     manifest = {
         **dataset, **history, "candidate_revision_id": REVISION,
+        "predecessor_candidate_revision": 6,
+        "predecessor_candidate_commit": PREDECESSOR_COMMIT,
+        "predecessor_manifest_sha256": PREDECESSOR_MANIFEST_SHA256,
+        "cov1_bundle_sha256": COV1_BUNDLE_SHA256,
         "candidate_bytes_frozen": True, "structural_integrity_verified": True,
         "pre_evaluation_integrity_passed": True,
         "pre_evaluation_integrity_scope": "STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING",
@@ -937,7 +967,7 @@ def verify_candidate(root: Path, config_path: Path) -> dict[str, Any]:
     config = load_config(config_path); verify_historical_artifacts(root, config); validate_revision_history(root, config)
     manifest = _read_json(root / config["outputs"]["candidate_manifest"])
     if manifest.get("artifact_sha256") != _artifact_hashes(root, config):
-        raise CriticalV2Error("candidate revision-6 byte mutation or stale hash")
+        raise CriticalV2Error("candidate revision-7 byte mutation or stale hash")
     pass_a = load_jsonl(root / config["outputs"]["pass_a"]); validate_pass_a(pass_a); verify_model_input_freeze(root, config, pass_a)
     eligible, forbidden = _catalog(root, config)
     pass_b = load_jsonl(root / config["outputs"]["pass_b"]); validate_pass_b(pass_a, pass_b, eligible)
@@ -957,6 +987,7 @@ def verify_candidate(root: Path, config_path: Path) -> dict[str, Any]:
     result = {
         "status": "PASS", "candidate_revision": REVISION_NUMBER, "queries": 60, "judgment_rows": 3120,
         "support_class_counts": manifest["support_class_counts"], "hard_negative_count": len(hard),
+        "total_complete_cover_count": manifest["total_complete_cover_count"],
         "corrective_answer_count": manifest["corrective_answer_count"],
         "multi_section_query_ids": manifest["multi_section_query_ids"],
         "multi_document_query_ids": manifest["multi_document_query_ids"],

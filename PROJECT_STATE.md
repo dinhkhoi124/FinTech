@@ -7,10 +7,9 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: none — revision-6 candidate commit completed
-- Next task: W3-002-CR1 evaluation authorization — NOT STARTED / REQUIRES
-  SEPARATE SENIOR AUTHORIZATION
-- Last updated: 2026-08-06 by Codex
+- Active task: W3-002-CR1 candidate revision 7 commit review
+- Next task: commit and push frozen candidate revision 7 after separate Senior commit approval
+- Last updated: 2026-08-10 by Codex
 
 ## Active objective
 Senior rejected candidate revision 4 and blocked further candidate authoring
@@ -40,6 +39,18 @@ bytes. Evaluation authorization, critical evaluation, model loading, encoder
 loading, retrieval, generation, inference, and critical-pipeline execution
 remain prohibited.
 
+COV1 subsequently reviewed all 94 frozen complete covers and found 84 consistent
+and ten inconsistent with the then-current EA1 sentence evaluator. Senior
+adjudicated six as evaluator-rule gaps and confirmed four candidate-cover
+semantic defects. Revision 6 remains immutable historical evidence and is
+`SEMANTICALLY_APPROVED_AT_THE_TIME / SUPERSEDED_PRE_EVALUATION_BY_COV1`; it was
+never evaluation-authorized. Candidate revision 7 removes only the four confirmed
+obligation assignments, mechanically re-derives 92 complete covers, preserves all
+60 model inputs and the 40/15/5 distribution. Senior verdict
+`APPROVE_SEMANTIC_INTEGRITY — CANDIDATE REVISION 7` establishes external
+semantic approval for the frozen bytes; revision 7 is now `FROZEN_CANDIDATE /
+SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`.
+
 The Senior-approved decision bundle has SHA-256
 `bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786`.
 The approved contract keeps `ANSWER` and `ABSTAIN_ESCALATE` as top-level response
@@ -65,15 +76,17 @@ authoring contract was the sole authorization for revision 5, while the Senior
 - Contract amendment: OPTION A / SENIOR APPROVED
 - Contract distribution: 40 STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN
 - Candidate revision 5: REJECTED / PRESERVED AS REVIEW HISTORY
-- Candidate revision 6: FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED
+- Candidate revision 6: HISTORICALLY_SEMANTICALLY_APPROVED / SUPERSEDED_FOR_EVALUATION_BY_COV1
+- Candidate revision 7: FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT
+- EA1: BLOCKED_PENDING_REVISION_7_COMMIT
 - Candidate commit: `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`
 - Candidate package: FROZEN / STRUCTURAL ONLY
 - Candidate bytes frozen: true
 - Structural integrity verified: true
 - Pre-evaluation integrity passed: true
 - Pre-evaluation integrity scope: STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING
-- Candidate manifest SHA-256: `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`
-- Senior semantic review approved: true
+- Candidate manifest SHA-256: `f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef`
+- Senior semantic review approved: true for candidate revision 7 via separate Senior record
 - Evaluation authorized: false
 - Critical evaluated: false
 - Model/pipeline verdict: NOT ESTABLISHED
@@ -84,11 +97,11 @@ authoring contract was the sole authorization for revision 5, while the Senior
 - Week 3 P0: BLOCKED / IN PROGRESS
 - Week 4: BLOCKED / NOT STARTED
 
-The frozen candidate manifest retains
+The frozen revision-7 candidate manifest retains its author-time
+`senior_semantic_review_approved=false` and
 `pre_evaluation_integrity_scope=STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING`
-because that field records the structural authoring boundary at candidate
-freeze. Current Senior semantic approval is established separately by
-`critical_eval_v2_revision_6_senior_semantic_approval.json` and does not
+fields. Current Senior semantic approval is established separately by
+`critical_eval_v2_revision_7_senior_semantic_approval.json`; it does not
 authorize evaluation.
 
 Revision 1 manifest SHA-256 is
@@ -395,10 +408,10 @@ not candidate semantic approval.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Open W3-002-CR1 evaluation authorization only through a separate
-   Senior-reviewed task; it is not started.
-2. Preserve the committed candidate bytes and approved manifest hash without any
-   candidate/config/data/code/test change.
+1. Submit the frozen candidate revision-7 commit-review bundle for separate
+   Senior commit approval.
+2. Do not reopen EA1 or request evaluation authorization until revision 7 is
+   committed and pushed.
 3. Keep Week 3 P0 and Week 4 blocked while evaluation authorization remains false.
 
 ## Handoff note

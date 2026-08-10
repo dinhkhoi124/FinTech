@@ -1,5 +1,5 @@
 {
-  "candidate_revision": 6,
+  "candidate_revision": 7,
   "corrective_answer_count": 15,
   "critical_evaluated": false,
   "evaluation_authorized": false,
@@ -8,6 +8,7 @@
   "judgment_rows": 3120,
   "model_verdict": "NOT_ESTABLISHED",
   "multi_document_query_ids": [
+    "Q_V2_A_CSU03",
     "Q_V4_N_ID01",
     "Q_V4_N_ID02",
     "Q_V4_N_ID03",
@@ -28,6 +29,7 @@
     "Q_V2_A_TRP01",
     "Q_V2_A_TRR04",
     "Q_V2_A_CSU02",
+    "Q_V2_A_CSU03",
     "Q_V4_N_ID01",
     "Q_V4_N_ID02",
     "Q_V4_N_ID03",
@@ -55,5 +57,6 @@
     "DIRECT_SUPPORT": 179,
     "IRRELEVANT": 1483,
     "PARTIAL_SUPPORT": 6
-  }
+  },
+  "total_complete_cover_count": 92
 }

@@ -12,7 +12,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path("."))
     parser.add_argument("--config", type=Path, default=Path("configs/evaluation/critical_eval_v2.json"))
-    parser.add_argument("command", choices=("verify-pass-b", "recompute-overlap", "freeze-revision-6", "verify-candidate", "run-critical"))
+    parser.add_argument("command", choices=("verify-pass-b", "recompute-overlap", "freeze-revision-7", "verify-candidate", "run-critical"))
     args = parser.parse_args()
     root = args.root.resolve()
     config = (root / args.config).resolve() if not args.config.is_absolute() else args.config
@@ -21,7 +21,7 @@ def main() -> int:
         CriticalV2Error,
         _catalog,
         assert_evaluation_execution_authorized,
-        freeze_revision_6,
+        freeze_revision_7,
         load_config,
         load_jsonl,
         recompute_overlap,
@@ -39,8 +39,8 @@ def main() -> int:
         elif args.command == "recompute-overlap":
             loaded = load_config(config)
             result, _ = recompute_overlap(root, loaded)
-        elif args.command == "freeze-revision-6":
-            result = freeze_revision_6(root, config)
+        elif args.command == "freeze-revision-7":
+            result = freeze_revision_7(root, config)
         elif args.command == "verify-candidate":
             result = verify_candidate(root, config)
         else:

@@ -1,13 +1,5 @@
 {
-  "all_other_pass_b_semantics_preserved": true,
-  "changed_semantic_pass_b_rows": 4,
-  "from_revision": 6,
-  "hard_negative_count": {
-    "revision_6": 5,
-    "revision_7": 5
-  },
-  "model_input_changed_count": 0,
-  "pass_b_semantic_changes": [
+  "candidate_defect_rows": [
     {
       "evidence_id": "POL_TRANSFER_DECLINED_001#eligibility",
       "query_id": "Q_V2_A_TRD01",
@@ -97,27 +89,19 @@
       "senior_adjudication": "CANDIDATE_COVER_SEMANTIC_DEFECT_CONFIRMED"
     }
   ],
-  "response_contract": "40 ANSWER/STANDARD / 15 ANSWER/SAFE_CORRECTIVE / 5 ABSTAIN_ESCALATE",
-  "revision_6_status": "SEMANTICALLY_APPROVED_AT_THE_TIME / SUPERSEDED_PRE_EVALUATION_BY_COV1",
-  "support_class_counts": {
-    "revision_6": {
-      "CONTEXTUAL_BUT_INSUFFICIENT": 1452,
-      "DIRECT_SUPPORT": 179,
-      "IRRELEVANT": 1483,
-      "PARTIAL_SUPPORT": 6
-    },
-    "revision_7": {
-      "CONTEXTUAL_BUT_INSUFFICIENT": 1452,
-      "DIRECT_SUPPORT": 179,
-      "IRRELEVANT": 1483,
-      "PARTIAL_SUPPORT": 6
-    }
+  "candidate_revision_7_authoring_authorized": true,
+  "candidate_revision_7_senior_approved": false,
+  "consistent": 84,
+  "cov1_bundle_sha256": "b804fa12a4bc6f12e3852552358a29af9e071e916c92b22959fefc6ff8a629ff",
+  "inconsistent": 10,
+  "revision_6_evaluation_authorization_eligibility": "SUPERSEDED_BY_COV1",
+  "revision_6_evaluation_authorized": false,
+  "revision_6_historical_semantic_approval": true,
+  "senior_adjudication_counts": {
+    "AMBIGUOUS": 0,
+    "CANDIDATE_COVER_SEMANTIC_DEFECT_CONFIRMED": 4,
+    "EVALUATOR_RULE_INCOMPLETE": 6
   },
-  "task_id": "W3-002-CR1",
-  "to_revision": 7,
-  "total_complete_covers": {
-    "revision_6": 94,
-    "revision_7": 92
-  },
-  "unexpected_semantic_pass_b_rows": 0
+  "task_id": "W3-002-CR1-COV1",
+  "total_complete_covers_reviewed": 94
 }

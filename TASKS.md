@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 6 frozen candidate committed and pushed at `d27de98`; evaluation remains separately unauthorized | BLOCKED / AWAITING EVALUATION AUTHORIZATION |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 7 frozen candidate is Senior-semantically approved and awaiting commit; evaluation remains separately unauthorized | BLOCKED / PENDING REVISION 7 COMMIT |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -423,3 +423,30 @@ and Week 4 remain blocked.
   SEPARATE SENIOR-REVIEWED TASK`.
 - **Phase gates:** Week 3 P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains
   `BLOCKED / NOT STARTED`.
+
+### W3-002-CR1 candidate revision 7 semantic correction — 2026-08-10
+
+- **Senior trigger:** COV1 reopened candidate semantics; revision 6 is
+  `SEMANTICALLY_APPROVED_AT_THE_TIME / SUPERSEDED_PRE_EVALUATION_BY_COV1`.
+- **Senior verdict:** `APPROVE_SEMANTIC_INTEGRITY — CANDIDATE REVISION 7`.
+- **Task status:** `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED /
+  AWAITING_COMMIT`.
+- **Exact semantic delta:** four Pass-B obligation assignments changed and zero
+  unexpected semantic rows changed: TRD01 POL/RUN lose `BOUNDARY`, TRR02 ESC
+  loses `TRACE`, and CSU03 ESC loses `PROHIBIT`; each retains its remaining
+  direct obligation.
+- **Derived mapping:** 92 complete covers. Invalid TRD01 POL/RUN, TRR02 ESC, and
+  CSU03 ESC-only covers are absent; the Senior-required replacement covers exist.
+- **Frozen invariants:** 60/60 model inputs unchanged; distribution remains 40
+  STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN; support classes remain 179 direct,
+  6 partial, 1,452 contextual, and 1,483 irrelevant; five hard negatives remain.
+- **Lifecycle:** `senior_semantic_review_approved=true` via the separate Senior
+  approval record,
+  `evaluation_authorized=false`, `critical_evaluated=false`,
+  `model_verdict=NOT_ESTABLISHED`.
+- **EA1:** `BLOCKED_PENDING_REVISION_7_COMMIT`.
+- **Boundary:** no model, retrieval, generation, inference, evaluation, staging,
+  commit, push, EA1 restart, or Week 4 work is authorized.
+- **Next task:** separate Senior commit review of candidate revision 7. EA1 and
+  evaluation remain unauthorized until revision 7 is committed and pushed and a
+  separate authorization task is approved.

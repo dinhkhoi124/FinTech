@@ -1,7 +1,7 @@
 {
   "abstain_escalate_count": 5,
   "answer_count": 55,
-  "candidate_revision": 6,
+  "candidate_revision": 7,
   "corrective_answer_count": 15,
   "eligible_sections_per_query": 52,
   "evaluation_as_of_date": "2026-07-28",
@@ -14,10 +14,12 @@
   "model_input_contract_version": "critical_eval_v2_model_input_query_only_v1",
   "model_input_freeze": {
     "query_count": 60,
-    "source_revision": 5,
+    "source_commit": "d27de987d0eb7a942c88590eec9a30bdd6ee33d8",
+    "source_revision": 6,
     "unchanged": true
   },
   "multi_document_query_ids": [
+    "Q_V2_A_CSU03",
     "Q_V4_N_ID01",
     "Q_V4_N_ID02",
     "Q_V4_N_ID03",
@@ -38,6 +40,7 @@
     "Q_V2_A_TRP01",
     "Q_V2_A_TRR04",
     "Q_V2_A_CSU02",
+    "Q_V2_A_CSU03",
     "Q_V4_N_ID01",
     "Q_V4_N_ID02",
     "Q_V4_N_ID03",
@@ -68,5 +71,6 @@
     "IRRELEVANT": 1483,
     "PARTIAL_SUPPORT": 6
   },
-  "task_id": "W3-002-CR1"
+  "task_id": "W3-002-CR1",
+  "total_complete_cover_count": 92
 }

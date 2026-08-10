@@ -1,13 +1,15 @@
 {
-  "all_other_pass_b_semantics_preserved": true,
+  "candidate_id": "critical_eval_v2_candidate_revision_7",
+  "candidate_revision": 7,
   "changed_semantic_pass_b_rows": 4,
-  "from_revision": 6,
-  "hard_negative_count": {
-    "revision_6": 5,
-    "revision_7": 5
-  },
-  "model_input_changed_count": 0,
-  "pass_b_semantic_changes": [
+  "complete_cover_derivation_sha256": "7f005fc6815e6423fca378339466410d2e293966ed109ba4c7b95bf5b0b2f470",
+  "cov1_bundle_sha256": "b804fa12a4bc6f12e3852552358a29af9e071e916c92b22959fefc6ff8a629ff",
+  "critical_evaluated": false,
+  "derived_mapping_comparison_sha256": "abb76223cc1d45545da001786d2fbd293603170348aae16a33dc484b095afbdd",
+  "distribution_unchanged": "40 ANSWER_STANDARD / 15 ANSWER_SAFE_CORRECTIVE / 5 ABSTAIN_ESCALATE",
+  "evaluation_authorized": false,
+  "evaluation_executed": false,
+  "exact_four_pass_b_semantic_changes": [
     {
       "evidence_id": "POL_TRANSFER_DECLINED_001#eligibility",
       "query_id": "Q_V2_A_TRD01",
@@ -97,27 +99,52 @@
       "senior_adjudication": "CANDIDATE_COVER_SEMANTIC_DEFECT_CONFIRMED"
     }
   ],
-  "response_contract": "40 ANSWER/STANDARD / 15 ANSWER/SAFE_CORRECTIVE / 5 ABSTAIN_ESCALATE",
-  "revision_6_status": "SEMANTICALLY_APPROVED_AT_THE_TIME / SUPERSEDED_PRE_EVALUATION_BY_COV1",
-  "support_class_counts": {
-    "revision_6": {
-      "CONTEXTUAL_BUT_INSUFFICIENT": 1452,
-      "DIRECT_SUPPORT": 179,
-      "IRRELEVANT": 1483,
-      "PARTIAL_SUPPORT": 6
-    },
-    "revision_7": {
-      "CONTEXTUAL_BUT_INSUFFICIENT": 1452,
-      "DIRECT_SUPPORT": 179,
-      "IRRELEVANT": 1483,
-      "PARTIAL_SUPPORT": 6
-    }
+  "forbidden_evidence_semantic_projection_sha256": "4dd22ebaadb4481b488a1b1e60337880a5e04e3542b3c6a4c0f72d05e4d7ea1a",
+  "forbidden_evidence_semantics_unchanged": true,
+  "generation_executed": false,
+  "hard_negative_count": 5,
+  "hard_negative_pairs": [
+    [
+      "Q_V2_A_CAP02",
+      "POL_CARD_REVERT_002#return_window"
+    ],
+    [
+      "Q_V2_A_CAR02",
+      "POL_CARD_PENDING_001#review_window"
+    ],
+    [
+      "Q_V2_A_TRF02",
+      "POL_TRANSFER_DECLINED_001#review_rule"
+    ],
+    [
+      "Q_V2_A_TRP02",
+      "FAQ_TRANSFER_RECIPIENT_002#current_window"
+    ],
+    [
+      "Q_V2_A_TRR02",
+      "POL_TRANSFER_PENDING_002#current_window"
+    ]
+  ],
+  "hard_negative_set_unchanged": true,
+  "inference_executed": false,
+  "model_input_comparison_sha256": "1fd88747dc1a135f6a11c6c8e1345ed4aa472f6539d72e4582a3b43e952913c4",
+  "model_inputs_unchanged": "60/60",
+  "model_loaded": false,
+  "pass_a_semantic_projection_sha256": "b6298e56169c83b581a5d0562e8c30334a6c772c3c5ac7a62c6712022f523684",
+  "pass_a_semantics_unchanged": true,
+  "predecessor_candidate_commit": "d27de987d0eb7a942c88590eec9a30bdd6ee33d8",
+  "predecessor_candidate_revision": 6,
+  "predecessor_manifest_sha256": "2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad",
+  "retrieval_executed": false,
+  "scenario_semantic_projection_sha256": "9b27adc252b2fb45bf22971f40024ae0b20fb5227f08bd62007e73ce016f6992",
+  "scenario_semantics_unchanged": true,
+  "senior_adjudication_record_sha256": "a65fe906a52a3310263db69e48afa7829cdf6c9d0c7c6d8c38863e02fdd4f736",
+  "support_class_distribution_unchanged": {
+    "CONTEXTUAL_BUT_INSUFFICIENT": 1452,
+    "DIRECT_SUPPORT": 179,
+    "IRRELEVANT": 1483,
+    "PARTIAL_SUPPORT": 6
   },
   "task_id": "W3-002-CR1",
-  "to_revision": 7,
-  "total_complete_covers": {
-    "revision_6": 94,
-    "revision_7": 92
-  },
   "unexpected_semantic_pass_b_rows": 0
 }

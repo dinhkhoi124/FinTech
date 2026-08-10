@@ -358,3 +358,31 @@ while `evaluation_authorized=false`, `critical_evaluated=false`, and
 task that is `NOT STARTED`; no model-performance conclusion has been established.
 Week 3 P0 remains `BLOCKED / IN PROGRESS`, and Week 4 remains `BLOCKED / NOT
 STARTED`.
+
+## W3-002-CR1 candidate revision 7 semantic correction — 2026-08-10
+
+COV1 independently examined all 94 revision-6 complete covers. Senior adjudicated
+84 covers as consistent, six inconsistencies as deferred evaluator-rule gaps, and
+four as confirmed candidate-cover semantic defects. Revision 6 remains immutable
+historical evidence but is `SUPERSEDED_PRE_EVALUATION_BY_COV1`; it was never
+evaluation-authorized.
+
+Revision 7 removes exactly four unsupported obligation assignments: `BOUNDARY`
+from the TRD01 policy/runbook rows, `TRACE` from the TRR02 escalation trigger, and
+`PROHIBIT` from the CSU03 escalation handoff. All four rows remain direct support
+for their retained obligations. Pass C is mechanically re-derived to 92 complete
+covers; the four invalid single-section covers disappear and all required
+replacement covers remain.
+
+The candidate preserves 60/60 model-input tuples, the 40 STANDARD / 15
+SAFE_CORRECTIVE / 5 ABSTAIN distribution, support totals 179/6/1,452/1,483, the
+five hard negatives, and forbidden-evidence semantics. Senior verdict
+`APPROVE_SEMANTIC_INTEGRITY — CANDIDATE REVISION 7` approves the frozen bytes.
+Candidate revision 7 is `FROZEN_CANDIDATE /
+SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`, with external lifecycle
+`senior_semantic_review_approved=true`, `evaluation_authorized=false`,
+`critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`. The frozen
+candidate manifest remains unchanged with its author-time semantic-approval
+flag false. No model, retrieval, generation, inference, or evaluation ran.
+Week 3 P0 and Week 4 remain blocked; EA1 is
+`BLOCKED_PENDING_REVISION_7_COMMIT`.
