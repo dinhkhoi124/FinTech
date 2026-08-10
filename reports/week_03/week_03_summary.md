@@ -379,10 +379,15 @@ SAFE_CORRECTIVE / 5 ABSTAIN distribution, support totals 179/6/1,452/1,483, the
 five hard negatives, and forbidden-evidence semantics. Senior verdict
 `APPROVE_SEMANTIC_INTEGRITY — CANDIDATE REVISION 7` approves the frozen bytes.
 Candidate revision 7 is `FROZEN_CANDIDATE /
-SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`, with external lifecycle
+SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED` at commit
+`18a1840f39fef8f07337ff357f7991292389bae9`, with external lifecycle
 `senior_semantic_review_approved=true`, `evaluation_authorized=false`,
 `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`. The frozen
 candidate manifest remains unchanged with its author-time semantic-approval
 flag false. No model, retrieval, generation, inference, or evaluation ran.
-Week 3 P0 and Week 4 remain blocked; EA1 is
-`BLOCKED_PENDING_REVISION_7_COMMIT`.
+Revision 6 remains historical and superseded for evaluation eligibility. Its
+rejected EA1 work must not be resumed; EA1 is `REVISION_7_REBIND_REQUIRED /
+NOT_STARTED` and must rebuild/rebind execution readiness to revision 7 while
+addressing the six known COV1 evaluator-only gaps. Evaluation remains
+unauthorized, Week 3 P0 remains `BLOCKED / IN PROGRESS`, and Week 4 remains
+`BLOCKED / NOT STARTED`.

@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: W3-002-CR1 candidate revision 7 commit review
-- Next task: commit and push frozen candidate revision 7 after separate Senior commit approval
+- Active task: none — candidate revision 7 is committed and pushed
+- Next task: W3-002-CR1-EA1 execution-readiness rebuild/rebind for candidate revision 7
 - Last updated: 2026-08-10 by Codex
 
 ## Active objective
@@ -48,8 +48,10 @@ never evaluation-authorized. Candidate revision 7 removes only the four confirme
 obligation assignments, mechanically re-derives 92 complete covers, preserves all
 60 model inputs and the 40/15/5 distribution. Senior verdict
 `APPROVE_SEMANTIC_INTEGRITY — CANDIDATE REVISION 7` establishes external
-semantic approval for the frozen bytes; revision 7 is now `FROZEN_CANDIDATE /
-SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT`.
+semantic approval for the frozen bytes. Those exact 37 reviewed paths were
+committed and pushed at `18a1840f39fef8f07337ff357f7991292389bae9`;
+revision 7 is now `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED /
+COMMITTED / PUSHED`.
 
 The Senior-approved decision bundle has SHA-256
 `bc7317000005859f2e4b215cf0c4f687e5e284a4a004270d81f9f5abd0074786`.
@@ -77,9 +79,9 @@ authoring contract was the sole authorization for revision 5, while the Senior
 - Contract distribution: 40 STANDARD / 15 SAFE_CORRECTIVE / 5 ABSTAIN
 - Candidate revision 5: REJECTED / PRESERVED AS REVIEW HISTORY
 - Candidate revision 6: HISTORICALLY_SEMANTICALLY_APPROVED / SUPERSEDED_FOR_EVALUATION_BY_COV1
-- Candidate revision 7: FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / AWAITING_COMMIT
-- EA1: BLOCKED_PENDING_REVISION_7_COMMIT
-- Candidate commit: `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`
+- Candidate revision 7: FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED
+- Candidate revision 7 commit: `18a1840f39fef8f07337ff357f7991292389bae9`
+- EA1: REVISION_7_REBIND_REQUIRED / NOT_STARTED
 - Candidate package: FROZEN / STRUCTURAL ONLY
 - Candidate bytes frozen: true
 - Structural integrity verified: true
@@ -103,6 +105,12 @@ The frozen revision-7 candidate manifest retains its author-time
 fields. Current Senior semantic approval is established separately by
 `critical_eval_v2_revision_7_senior_semantic_approval.json`; it does not
 authorize evaluation.
+
+The rejected revision-6 EA1 work must not be resumed as-is. Execution readiness
+must be rebuilt and rebound to the committed revision-7 candidate. The six known
+COV1 evaluator-only gaps remain unresolved and belong to that separate next EA1
+task. EA1 is not approved, committed, or started, and execution readiness is not
+complete.
 
 Revision 1 manifest SHA-256 is
 `39af29f929ef9a9287808c26d62787079e376a8b7ac05847fa10729d27374b99`.
@@ -156,10 +164,10 @@ All 19 revision-5 artifacts are byte-preserved under
 - Revision 4: REJECTED / PRESERVED AS REVIEW HISTORY
 - Revision 5 at contract-amendment commit: NOT CREATED
 - Current revision 5: REJECTED / PRESERVED AS REVIEW HISTORY
-- Current revision 6: FROZEN_CANDIDATE / SENIOR SEMANTIC REVIEW APPROVED / COMMITTED / PUSHED
-- Candidate commit: `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`
-- Candidate manifest SHA-256: `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`
-- Senior semantic review approved: true
+- Revision 6 historical milestone: FROZEN_CANDIDATE / SENIOR SEMANTIC REVIEW APPROVED / COMMITTED / PUSHED
+- Revision 6 commit: `d27de987d0eb7a942c88590eec9a30bdd6ee33d8`
+- Revision 6 manifest SHA-256: `2f42fb4ff7159ef2735ce88418b0dbfcc414b0091476f1882a83d13e807002ad`
+- Revision 6 semantic review approved at that milestone: true
 - Evaluation authorized: false
 - Critical evaluated: false
 - Model verdict: NOT_ESTABLISHED
@@ -408,10 +416,10 @@ not candidate semantic approval.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Submit the frozen candidate revision-7 commit-review bundle for separate
-   Senior commit approval.
-2. Do not reopen EA1 or request evaluation authorization until revision 7 is
-   committed and pushed.
+1. Open a separate Senior-reviewed contract to rebuild/rebind W3-002-CR1-EA1
+   execution readiness against committed candidate revision 7.
+2. Resolve the six known COV1 evaluator-only gaps inside that EA1 task without
+   changing the frozen revision-7 candidate bytes.
 3. Keep Week 3 P0 and Week 4 blocked while evaluation authorization remains false.
 
 ## Handoff note

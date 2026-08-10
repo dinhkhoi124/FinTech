@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 7 frozen candidate is Senior-semantically approved and awaiting commit; evaluation remains separately unauthorized | BLOCKED / PENDING REVISION 7 COMMIT |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 7 frozen candidate committed/pushed at `18a1840`; separate semantic approval recorded; EA1 readiness must be rebound to revision 7; evaluation remains unauthorized | BLOCKED / EA1 REVISION-7 REBIND REQUIRED |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -430,7 +430,9 @@ and Week 4 remain blocked.
   `SEMANTICALLY_APPROVED_AT_THE_TIME / SUPERSEDED_PRE_EVALUATION_BY_COV1`.
 - **Senior verdict:** `APPROVE_SEMANTIC_INTEGRITY — CANDIDATE REVISION 7`.
 - **Task status:** `FROZEN_CANDIDATE / SENIOR_SEMANTIC_REVIEW_APPROVED /
-  AWAITING_COMMIT`.
+  COMMITTED / PUSHED`.
+- **Candidate commit:** `18a1840f39fef8f07337ff357f7991292389bae9`;
+  exactly 37 Senior-reviewed paths were committed and pushed.
 - **Exact semantic delta:** four Pass-B obligation assignments changed and zero
   unexpected semantic rows changed: TRD01 POL/RUN lose `BOUNDARY`, TRR02 ESC
   loses `TRACE`, and CSU03 ESC loses `PROHIBIT`; each retains its remaining
@@ -444,9 +446,11 @@ and Week 4 remain blocked.
   approval record,
   `evaluation_authorized=false`, `critical_evaluated=false`,
   `model_verdict=NOT_ESTABLISHED`.
-- **EA1:** `BLOCKED_PENDING_REVISION_7_COMMIT`.
-- **Boundary:** no model, retrieval, generation, inference, evaluation, staging,
-  commit, push, EA1 restart, or Week 4 work is authorized.
-- **Next task:** separate Senior commit review of candidate revision 7. EA1 and
-  evaluation remain unauthorized until revision 7 is committed and pushed and a
-  separate authorization task is approved.
+- **EA1:** `REVISION_7_REBIND_REQUIRED / NOT_STARTED`. The rejected revision-6
+  EA1 must not be resumed; readiness must be rebuilt/rebound to revision 7 and
+  address the six known COV1 evaluator-only gaps.
+- **Boundary:** no model, retrieval, generation, inference, evaluation, EA1
+  restart, or Week 4 work is authorized. Execution readiness is not complete.
+- **Next task:** `W3-002-CR1-EA1` execution-readiness rebuild/rebind for candidate
+  revision 7 through a separate Senior-reviewed contract. Evaluation remains
+  unauthorized.
