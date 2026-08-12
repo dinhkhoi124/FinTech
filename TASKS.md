@@ -539,6 +539,29 @@ and Week 4 remain blocked.
 - **Lifecycle:** `evaluation_authorized=false`, `critical_evaluated=false`,
   `model_verdict=NOT_ESTABLISHED`; Week 3 and Week 4 remain blocked.
 
+## W3-002-CR1-EA1-REV12-AUTH-DATE — Week 3 P0
+
+- **Description:** amend only the reviewed authorization daily-report path from
+  `reports/week_03/daily/2026-08-11.md` to
+  `reports/week_03/daily/2026-08-12.md`.
+- **Priority:** P0.
+- **Status:** `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW`.
+- **Reason:** `AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER`.
+- **Candidate Revision 7:** `FROZEN / SENIOR SEMANTIC APPROVED / COMMITTED /
+  PUSHED`; no Candidate Revision 8/9/10/11/12 exists.
+- **EA1 Revision 11:** `SENIOR_EXECUTION_READINESS_APPROVED / COMMITTED /
+  PUSHED / SUPERSEDED_ONLY_BY_AUTHORIZATION_DATE_TOPOLOGY_AMENDMENT` at
+  `c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd`; not rejected.
+- **Scope:** exact five-path authorization allowlist, focused AUTH-DATE-01…05,
+  and mechanical readiness hash rebinding only. F1/F2/F3 semantics remain
+  closed and immutable.
+- **Lifecycle:** `evaluation_authorized=false`, `critical_evaluated=false`,
+  `model_verdict=NOT_ESTABLISHED`; Week 3 is `BLOCKED / IN PROGRESS`; Week 4 is
+  `BLOCKED / NOT STARTED`.
+- **Next:** separate Senior review and, only if approved, a readiness-amendment
+  commit `R2`. Authorization commit A remains a later separate task with
+  `parent(A)=R2`.
+
 ### Deferred — Hybrid / structured disclosure hardening
 
 - `DEFERRED / NOT A WEEK-3 P0 BLOCKER`.

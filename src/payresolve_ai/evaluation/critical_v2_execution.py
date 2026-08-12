@@ -96,10 +96,13 @@ READINESS_HASH_PATHS = (
     "scripts/evaluation/build_critical_v2_ea1_revision8_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision10_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision11_review_bundle.py",
+    "scripts/evaluation/build_critical_v2_ea1_revision12_auth_date_review_bundle.py",
     "scripts/evaluation/verify_critical_v2_execution_readiness_bundle.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision12_auth_date_bundle.py",
     "tests/test_critical_v2_execution_readiness.py",
     "tests/test_critical_v2_execution_revision10.py",
     "tests/test_critical_v2_execution_revision11.py",
+    "tests/test_critical_v2_execution_revision12.py",
 )
 
 STATE_SEQUENCE = (
@@ -177,8 +180,8 @@ def load_execution_config(path: Path) -> dict[str, Any]:
         raise CriticalV2ExecutionError("execution task ID mismatch")
     if config.get("candidate_revision") != 7:
         raise CriticalV2ExecutionError("candidate revision mismatch")
-    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 11:
-        raise CriticalV2ExecutionError("EA1 readiness revision 11 contract required")
+    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 12:
+        raise CriticalV2ExecutionError("EA1 readiness revision 12 contract required")
     if config.get("readiness_commit_binding") != "DEFERRED_TO_SEPARATE_AUTHORIZATION_RECORD":
         raise CriticalV2ExecutionError("readiness commit binding must be deferred to authorization")
     if "readiness_code_commit" in config:
@@ -229,7 +232,7 @@ def load_execution_config(path: Path) -> dict[str, Any]:
         raise CriticalV2ExecutionError("frozen gate-v2 threshold drift")
     lifecycle = config.get("lifecycle", {})
     expected = {
-        "execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW",
+        "execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW",
         "senior_semantic_review_approved": True,
         "evaluation_authorized": False,
         "critical_evaluated": False,
@@ -2314,6 +2317,7 @@ def _classify_revision6_occurrence(relative: str, line: str) -> str:
         "reports/week_03/results/critical_eval_v2_revision_9_ea1_failed_attempts.json",
         "reports/week_03/results/critical_eval_v2_revision_10_ea1_failed_attempts.json",
         "reports/week_03/results/critical_eval_v2_revision_11_ea1_failed_attempts.json",
+        "reports/week_03/results/critical_eval_v2_revision_12_ea1_failed_attempts.json",
         "reports/week_03/results/critical_eval_v2_ea1_revision10_finding_closure.json",
         "reports/week_03/results/critical_eval_v2_ea1_revision10_provenance_regressions.json",
         "reports/week_03/results/critical_eval_v2_ea1_revision7_rejection_lineage.json",
@@ -2447,7 +2451,7 @@ def validate_authorization_daily_path_topology(config: dict[str, Any]) -> dict[s
         "PROJECT_STATE.md",
         "TASKS.md",
         "reports/week_03/week_03_summary.md",
-        "reports/week_03/daily/2026-08-11.md",
+        "reports/week_03/daily/2026-08-12.md",
     }
     actual = set(config.get("authorization", {}).get("allowed_authorization_commit_paths", []))
     if actual != expected:
@@ -3028,10 +3032,27 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
     _write_json(root / config["readiness_outputs"]["runtime_payload_manifest"], runtime_manifest)
     _write_json(root / config["readiness_outputs"]["future_command_plan"], commands)
     _write_json(root / config["authorization"]["candidate"], authorization_candidate)
-    mutation_campaign = run_revision9_mutation_campaign(
-        root, config_path, config, safety_rules
-    )
-    _require_settled_json(root / config["readiness_outputs"]["mutation_campaign"], mutation_campaign, "revision-9 mutation campaign")
+    if config["readiness_revision"] >= 12:
+        # Revision 12 changes only the reviewed authorization date. The settled
+        # Revision-9 mutation row that added 2026-08-12 is historical evidence,
+        # not an active mutation to reinterpret after that date becomes valid.
+        mutation_campaign = _read_json(
+            root / config["readiness_outputs"]["mutation_campaign"]
+        )
+        if (
+            mutation_campaign.get("registered_mutations") != 30
+            or mutation_campaign.get("unexpected_passes") != 0
+        ):
+            raise CriticalV2ExecutionError("settled revision-9 mutation evidence drift")
+    else:
+        mutation_campaign = run_revision9_mutation_campaign(
+            root, config_path, config, safety_rules
+        )
+        _require_settled_json(
+            root / config["readiness_outputs"]["mutation_campaign"],
+            mutation_campaign,
+            "revision-9 mutation campaign",
+        )
     self_adversarial = run_revision9_final_self_adversarial_review(
         root, config_path, config, safety_rules, boundary_rules
     )
@@ -3219,6 +3240,21 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
                 "stage": "revision-11 review-bundle attempt 2",
                 "failure": "the second Revision-11 bundle build reached the 642-test isolated suite but seven tests failed because the exact snapshot omitted the untracked Revision-10 disclosure literal registry",
                 "resolution": "made the Revision-11 pathspec inherit the complete Revision-10 path set before adding Revision-11-only files, preserving every active dependency in the exact snapshot",
+            },
+            {
+                "stage": "revision-12 prepare-readiness attempt 1",
+                "failure": "the inherited Revision-9 mutation campaign produced one unexpected pass because its historical forbidden-date probe added 2026-08-12, which is the newly reviewed Revision-12 authorization date",
+                "resolution": "preserved the settled 30/30 Revision-9 mutation artifact without reinterpretation and limited Revision-12 verification to the five explicit AUTH-DATE topology cases",
+            },
+            {
+                "stage": "revision-12 prepare-readiness attempt 2",
+                "failure": "the occurrence-level stale-binding audit classified inherited Revision-6 text inside the new Revision-12 failed-attempt log as an active binding",  # ALLOWED_MUTATION_FIXTURE_REVISION6
+                "resolution": "registered only the exact Revision-12 failed-attempt evidence path as historical provenance; production source/runtime bindings remain fail-closed",
+            },
+            {
+                "stage": "revision-12 prepare-readiness attempt 3",
+                "failure": "the source occurrence audit then classified the new Revision-6 failure-description literal itself as an active binding",  # ALLOWED_MUTATION_FIXTURE_REVISION6
+                "resolution": "marked only those exact detector/evidence literals with the existing ALLOWED_MUTATION_FIXTURE_REVISION6 annotation; runtime assignments remain unmarked and forbidden",
             }
         ]}.values()),
     })
@@ -3245,7 +3281,7 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
     )
     validation = {
         **verified,
-        "execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW",
+        "execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW",
         "readiness_revision": config["readiness_revision"],
         "authorization_status": "AWAITING_SENIOR_REVIEW",
         "readiness_artifact_hash_count": len(source_hashes),
@@ -4116,7 +4152,7 @@ def verify_readiness(root: Path, config_path: Path) -> dict[str, Any]:
     _assert_readiness_output_boundary(root, config)
     return {
         **verified,
-        "execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW",
+        "execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW",
         "authorization_status": "AWAITING_SENIOR_REVIEW",
         "readiness_revision": config["readiness_revision"],
         "canonical_cover_count": 92,

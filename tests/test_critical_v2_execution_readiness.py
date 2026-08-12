@@ -952,7 +952,8 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
     def test_authorization_daily_path_rejects_stale_arbitrary_and_task_files(self) -> None:
         forbidden = [
             "reports/week_03/daily/2026-08-10.md",
-            "reports/week_03/daily/2026-08-12.md",
+            "reports/week_03/daily/2026-08-11.md",
+            "reports/week_03/daily/2026-08-13.md",
             "data/evaluation/critical_eval_v2_mapping.jsonl",
             "src/payresolve_ai/evaluation/critical_v2_execution.py",
         ]

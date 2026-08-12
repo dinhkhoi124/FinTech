@@ -1,6 +1,6 @@
 {
   "schema_version": "4.0",
-  "readiness_revision": 11,
+  "readiness_revision": 12,
   "task_id": "W3-002-CR1-EA1",
   "candidate_revision": 7,
   "candidate_revision_id": "critical_eval_v2_candidate_revision_7",
@@ -75,7 +75,7 @@
       "PROJECT_STATE.md",
       "TASKS.md",
       "reports/week_03/week_03_summary.md",
-      "reports/week_03/daily/2026-08-11.md"
+      "reports/week_03/daily/2026-08-12.md"
     ]
   },
   "state_machine": {
@@ -114,12 +114,12 @@
     "disclosure_target_classification": "reports/week_03/results/critical_eval_v2_revision_9_disclosure_target_classification.json",
     "fixture_quality": "reports/week_03/results/critical_eval_v2_revision_9_disclosure_fixture_quality.json",
     "cross_target_coverage": "reports/week_03/results/critical_eval_v2_revision_9_cross_target_disclosure_coverage.json",
-    "stale_binding_audit": "reports/week_03/results/critical_eval_v2_ea1_revision11_stale_binding_audit.json",
+    "stale_binding_audit": "reports/week_03/results/critical_eval_v2_ea1_revision12_stale_binding_audit.json",
     "independent_cover_reference": "reports/week_03/results/critical_eval_v2_revision_7_independent_cover_reference.json",
     "mutation_campaign": "reports/week_03/results/critical_eval_v2_revision_9_readiness_mutation_campaign.json",
-    "reuse_rebind_report": "reports/week_03/results/critical_eval_v2_revision_11_ea1_reuse_rebind_report.json",
+    "reuse_rebind_report": "reports/week_03/results/critical_eval_v2_revision_12_ea1_reuse_rebind_report.json",
     "final_self_adversarial_review": "reports/week_03/results/critical_eval_v2_revision_9_final_self_adversarial_review.json",
-    "failed_attempts": "reports/week_03/results/critical_eval_v2_revision_11_ea1_failed_attempts.json",
+    "failed_attempts": "reports/week_03/results/critical_eval_v2_revision_12_ea1_failed_attempts.json",
     "revision_8_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision8_rejection_lineage.json",
     "revision_10_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision10_lineage.json",
     "finding_closure": "reports/week_03/results/critical_eval_v2_ea1_revision11_finding_closure.json",
@@ -166,5 +166,5 @@
     "reproduction_comparison": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json",
     "final_summary": "reports/week_03/results/critical_eval_v2_revision_7_final_summary.json"
   },
-  "lifecycle": {"execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW", "senior_semantic_review_approved": true, "evaluation_authorized": false, "critical_evaluated": false, "model_verdict": "NOT_ESTABLISHED"}
+  "lifecycle": {"execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW", "senior_semantic_review_approved": true, "evaluation_authorized": false, "critical_evaluated": false, "model_verdict": "NOT_ESTABLISHED"}
 }

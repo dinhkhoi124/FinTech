@@ -1,0 +1,31 @@
+{
+  "task_id": "W3-002-CR1-EA1-REV12-AUTH-DATE",
+  "status": "PASS",
+  "readiness_revision": 12,
+  "candidate_revision": 7,
+  "reason": "AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER",
+  "readiness_commit_R": "c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd",
+  "old_daily_path": "reports/week_03/daily/2026-08-11.md",
+  "new_daily_path": "reports/week_03/daily/2026-08-12.md",
+  "allowed_authorization_commit_paths": [
+    "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+    "PROJECT_STATE.md",
+    "TASKS.md",
+    "reports/week_03/week_03_summary.md",
+    "reports/week_03/daily/2026-08-12.md"
+  ],
+  "auth_date_results": {
+    "AUTH-DATE-01": "PASS",
+    "AUTH-DATE-02": "PASS",
+    "AUTH-DATE-03": "PASS",
+    "AUTH-DATE-04": "PASS",
+    "AUTH-DATE-05": "PASS"
+  },
+  "revision_11_status": "SENIOR_EXECUTION_READINESS_APPROVED / COMMITTED / PUSHED / SUPERSEDED_ONLY_BY_AUTHORIZATION_DATE_TOPOLOGY_AMENDMENT",
+  "revision_12_status": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW",
+  "candidate_bytes_changed": false,
+  "evaluator_semantics_changed": false,
+  "evaluation_authorized": false,
+  "critical_evaluated": false,
+  "model_verdict": "NOT_ESTABLISHED"
+}

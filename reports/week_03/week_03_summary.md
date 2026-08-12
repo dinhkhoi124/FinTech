@@ -428,6 +428,20 @@ critical evaluation remains false, and model verdict remains `NOT_ESTABLISHED`.
 No model, encoder, retrieval, generation, inference, or evaluation ran. Week 3
 P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains `BLOCKED / NOT STARTED`.
 
+## W3-002-CR1-EA1 readiness revision-12 authorization-date amendment
+
+Revision 11 was Senior-approved, committed, and pushed as readiness commit R
+`c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd`. It is superseded only because its
+future authorization allowlist froze the daily report at 2026-08-11. Revision
+12 changes that single reviewed path to `daily/2026-08-12.md`, bumps active
+readiness metadata, updates exact topology tests, and mechanically rebinds
+dependent hashes. F1/F2/F3 and Candidate Revision 7 semantics remain unchanged.
+
+Revision 12 is `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW`.
+`evaluation_authorized=false`, `critical_evaluated=false`, and
+`model_verdict=NOT_ESTABLISHED`; Week 3 remains `BLOCKED / IN PROGRESS` and
+Week 4 remains `BLOCKED / NOT STARTED`.
+
 ## W3-002-CR1-EA1 readiness revision-8 hardening — 2026-08-11
 
 Senior rejected readiness revision 7, not Candidate Revision 7. The rejected

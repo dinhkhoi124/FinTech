@@ -1,0 +1,49 @@
+TASK: W3-002-CR1-EA1-REV12-AUTH-DATE
+BASELINE_R: c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd
+
+AUTH-DATE focused command:
+.venv-semantic/Scripts/python.exe -m unittest tests.test_critical_v2_execution_revision12 -v
+RESULT: PASS — 5/5
+
+AUTH-DATE-01 exact Revision-12 allowlist: PASS
+AUTH-DATE-02 add daily/2026-08-11.md: REJECTED / PASS
+AUTH-DATE-03 add daily/2026-08-10.md: REJECTED / PASS
+AUTH-DATE-04 add daily/2026-08-13.md: REJECTED / PASS
+AUTH-DATE-05 add Candidate and execution/source paths: REJECTED / PASS
+
+Combined focused command:
+.venv-semantic/Scripts/python.exe -m unittest tests.test_critical_v2_execution_revision12 tests.test_critical_v2_execution_revision11 tests.test_critical_v2_execution_revision10 tests.test_critical_v2_execution_readiness -q
+RESULT: PASS — 148/148
+
+Candidate verifier: PASS — 23/23 artifacts; manifest/mapping/Pass-B hashes exact
+Execution-readiness verifier: PASS — readiness_revision=12; allowed daily=2026-08-12 only
+Project-doc validator: PASS
+Changed Python compile: PASS
+git diff --check: PASS; LF-to-CRLF working-copy warnings only
+
+Full-suite attempt 1:
+.venv-semantic/Scripts/python.exe -m unittest discover -s tests -v
+RESULT: HARNESS FAILURE BEFORE COLLECTION — test_reporting module collision
+
+Full-suite attempt 2:
+.venv-semantic/Scripts/python.exe -m unittest discover -s tests -t . -v
+RESULT: HARNESS FAILURE BEFORE COLLECTION — namespace tests directory is not importable
+
+Corrected repository-harness full suite:
+.venv-semantic/Scripts/python.exe -m unittest <all top-level tests.test_* modules except two bundle-context-only modules> -v
+RESULT: PASS — 640/640
+
+Readiness rebind attempts:
+1. FAIL — historical Revision-9 2026-08-12 mutation became a no-op after rollover.
+2. FAIL — new failed-attempt artifact contained historical Revision-6 prose.
+3. FAIL — source detector found the new Revision-6 evidence literal itself.
+4. PASS — historical mutation preserved; exact historical/detector classifications applied.
+
+FINAL: PASS
+evaluation_authorized=false
+critical_evaluated=false
+model_verdict=NOT_ESTABLISHED
+model_loaded=false
+retrieval_executed=false
+generation_executed=false
+evaluation_outputs_created=false

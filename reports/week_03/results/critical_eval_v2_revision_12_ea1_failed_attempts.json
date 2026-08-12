@@ -1,0 +1,217 @@
+{
+  "attempts": [
+    {
+      "failure": "first PowerShell import serialized objects as [object Object]; second attempt lost blank lines",
+      "resolution": "removed only malformed imported copies and reapplied exact reference content before revision-7 rebind",
+      "stage": "reference import"
+    },
+    {
+      "failure": "initial implementation compared 92 frozen minimum-cardinality covers with 96 inclusion-minimal covers",
+      "resolution": "Senior definition adjudication applied; canonical comparison is now minimum-cardinality 92/92 and four larger covers remain diagnostic",
+      "stage": "cover equivalence"
+    },
+    {
+      "failure": "initial mention-only construction appended an action-like suffix for seven disclosure targets",
+      "resolution": "corrected the harness input to a raw target mention; production safety semantics were not weakened",
+      "stage": "safety adversarial harness"
+    },
+    {
+      "failure": "13 missing runtime-asset errors plus stale revision-6 count assertions (18 vs 23 artifacts; 209 vs 219 requirements; 3 vs 7 composites)",
+      "resolution": "ran prepare-readiness in the required order and rebound assertions to observed frozen revision-7 evidence",
+      "stage": "focused tests before readiness generation"
+    },
+    {
+      "failure": "detached-verifier detector strings and predecessor reuse prose were initially classified as active bindings",
+      "resolution": "classified those exact paths as detector or historical provenance; active paths remain forbidden",
+      "stage": "stale-binding audit"
+    },
+    {
+      "failure": "orchestration command timed out after 124 seconds without a reportable result",
+      "resolution": "split validators and tests into separate commands; candidate validator, contract/feasibility validators, and 210 related tests then passed",
+      "stage": "combined related verification"
+    },
+    {
+      "failure": "472 tests ran with 29 dependency/setup errors and 8 skips because ignored frozen Banking77 raw data and Git metadata were absent",
+      "resolution": "copied only the frozen raw dependency into the temp harness; no production files changed",
+      "stage": "isolated exact-byte harness attempt 1"
+    },
+    {
+      "failure": "600 tests ran with 7 Git-context errors and 8 skips after the raw dependency fix",
+      "resolution": "initialized and committed the exact temp snapshot only; the source repository was untouched",
+      "stage": "isolated exact-byte harness attempt 2"
+    },
+    {
+      "failure": null,
+      "resolution": "600/600 application tests passed with 8 honest context/runtime-asset skips",
+      "stage": "isolated exact-byte harness attempt 3"
+    },
+    {
+      "failure": "payload-before-target forms PB_01/PB_02/PB_03/RD_01 were initially missed because prefix stripping invalidated the anchored grammar; COV1_E/F refusal expectations were also incorrect",
+      "resolution": "corrected occurrence-local prefix anchors and explicit COV refusal expectations; rerun 5/5 targeted tests PASS",
+      "stage": "revision-8 targeted safety regression attempt 1"
+    },
+    {
+      "failure": "occurrence-level stale audit rejected legitimate detector constants, test fixtures, and the observed mutation error row",
+      "resolution": "added explicit per-line detector/mutation markers while retaining forbidden classification for unmarked production runtime bindings",
+      "stage": "revision-8 prepare-readiness attempt 1"
+    },
+    {
+      "failure": "candidate-revision-8 absence guard used a broad *revision_8* glob and rejected legitimate EA1 readiness revision-8 evidence",
+      "resolution": "restricted absence detection to candidate revision-8 namespaces and candidate metadata; readiness revision 8 remains allowed",
+      "stage": "revision-8 prepare-readiness attempt 2"
+    },
+    {
+      "failure": "occurrence-level audit still rejected five exact detector-definition lines inside the classifier itself",
+      "resolution": "added exact detector-definition markers only; unmarked production runtime assignment remains forbidden",
+      "stage": "revision-8 prepare-readiness attempt 3"
+    },
+    {
+      "failure": "the detector-marker strings themselves were split across physical source lines and were therefore re-detected",
+      "resolution": "annotated each exact detector-definition occurrence with ALLOWED_MUTATION_FIXTURE_REVISION6; active runtime code receives no such marker",
+      "stage": "revision-8 prepare-readiness attempt 4"
+    },
+    {
+      "failure": "110 tests ran with seven failures: legacy target-first patterns that already included the binding verb or colon were classified as mention-only",
+      "resolution": "made verb/colon-bearing target patterns treat a following non-negative payload as affirmative disclosure; negative predicates still take precedence",
+      "stage": "revision-8 focused suite attempt 1"
+    },
+    {
+      "failure": "the reused isolated root was an incomplete subset: it lacked the canonical KB and historical contract artifacts, and its editable install resolved payresolve_ai from the active repository",
+      "resolution": "changed the builder to create a fresh git-archive HEAD snapshot, overlay only the exact EA1 task paths, initialize a local evidence commit, and force PYTHONPATH to the isolated snapshot source",
+      "stage": "revision-8 review-bundle build attempt 1"
+    },
+    {
+      "failure": "the fresh tracked HEAD snapshot omitted the intentionally git-ignored frozen Banking77 raw directory required by the exact-byte application suite",
+      "resolution": "copied the existing immutable Banking77 raw snapshot into the isolated test root as a read-only test dependency; it remains outside the task pathspec and review-bundle payload",
+      "stage": "revision-8 review-bundle build attempt 2"
+    },
+    {
+      "failure": "the complete isolated suite still returned nonzero after the frozen raw copy, but the temporary evidence directory was removed before the builder exception exposed the unittest failure details",
+      "resolution": "changed command-evidence failures to retain the final 16000 characters of captured stdout/stderr in the raised diagnostic; no result was inferred or converted to PASS",
+      "stage": "revision-8 review-bundle build attempt 3"
+    },
+    {
+      "failure": "525 isolated tests produced 11 failures and 20 errors because git archive emitted repository LF blobs instead of the Windows checkout bytes used by frozen SHA guards; representative failures were the Candidate manifest byte mismatch and Week-1 frozen manifest hash mismatch",
+      "resolution": "replaced git-archive extraction with a local no-hardlinks git clone plus detached HEAD checkout so working-tree filters reproduce frozen bytes before task overlay; retained the ignored raw dependency copy and isolated PYTHONPATH",
+      "stage": "revision-8 review-bundle build attempt 4"
+    },
+    {
+      "failure": "the local clone reproduced the same 525-test 11-failure/20-error result because checkout conversion changed LF object bytes to CRLF; direct comparison proved the Candidate working file and HEAD blob hash were f912798a while Git filtered output had a different hash",
+      "resolution": "changed snapshot construction to write every tracked HEAD object via git cat-file blob without checkout filters, then overlay exact current task bytes; this preserves frozen object bytes deterministically",
+      "stage": "revision-8 review-bundle build attempt 5"
+    },
+    {
+      "failure": "the first exact-blob builder invocation stopped at Python parse time because the new subprocess.check_output call was missing its closing parenthesis",
+      "resolution": "restored the closing parenthesis and reran readiness generation before any verification or packaging occurred",
+      "stage": "revision-8 review-bundle build attempt 6"
+    },
+    {
+      "failure": "the 611-test exact-blob suite produced 7 failures and 34 errors because frozen runtime contracts intentionally mix object-byte and checked-out-byte hashes: Candidate manifest requires LF f912798a, while Evidence Gate holdout outputs require current CRLF working bytes 06fe9075 instead of LF blob 84f62c09",
+      "resolution": "build the isolated baseline from exact current bytes for every clean tracked path, fall back to HEAD blobs only for unrelated modified paths, then overlay exact EA1 task paths; this preserves runtime frozen hashes without importing user-owned edits",
+      "stage": "revision-8 review-bundle build attempt 7"
+    },
+    {
+      "failure": "the first Revision-9 prepare stopped at the retained load-config guard requiring readiness revision 8",
+      "resolution": "migrated the active execution, topology, state-machine, and metric-contract guards to readiness revision 9; Candidate revision remains 7",
+      "stage": "revision-9 prepare-readiness attempt 1"
+    },
+    {
+      "failure": "30 mutation rows contained one unexpected pass because removing only the first ID04 target still left a non-empty target list",
+      "resolution": "made target validation require the exact preregistered per-query canonical target set, so deletion of any ID02/ID03/ID04 target fails at DISCLOSURE_TARGET_COVERAGE",
+      "stage": "revision-9 prepare-readiness attempt 2"
+    },
+    {
+      "failure": "the occurrence-level Revision-6 audit initially treated new Revision-9 mutation and inherited failed-attempt evidence as active bindings",
+      "resolution": "added exact Revision-9 evidence-path/field allowances while preserving forbidden classification for unmarked production runtime bindings",
+      "stage": "revision-9 prepare-readiness attempt 3"
+    },
+    {
+      "failure": "unittest received an absolute E-drive file while the process cwd was C-drive and failed before collection with ntpath.relpath ValueError",
+      "resolution": "reran with unittest discover using the absolute tests directory and exact focused filename",
+      "stage": "revision-9 focused command attempt 1"
+    },
+    {
+      "failure": "118 tests ran with two failures because the mixed IN01 target uses plural 'are: VALUE' while the target-first binding grammar accepted only singular 'is'",
+      "resolution": "extended the deterministic local binding to is|are with optional colon; all canonical disclosure rules remained occurrence-local",
+      "stage": "revision-9 focused suite attempt 1"
+    },
+    {
+      "failure": "118 tests ran with one legacy helper failure because the synthetic helper still provided only forbidden_disclosure_patterns and omitted disclosure_target_patterns",
+      "resolution": "migrated the test helper to the explicit DISCLOSURE_CAPABLE_TARGET contract with canonical private-token target",
+      "stage": "revision-9 focused suite attempt 2"
+    },
+    {
+      "failure": "the first extracted bundle verifier stopped with KeyError safety_rules because it addressed the safety-evaluator config by a nonexistent key",
+      "resolution": "changed the detached verifier to inspect the actual generated rules path through the registered safety_evaluator.rules key",
+      "stage": "revision-9 detached verification attempt 1"
+    },
+    {
+      "failure": "the second extracted verifier counted all 20 safety rows as SAFE_CORRECTIVE and failed the explicit 15-row target-class assertion",
+      "resolution": "independently loaded all 20 rules, filtered the 15 SAFE_CORRECTIVE rows by expected_answer_subtype, and retained both total-count assertions",
+      "stage": "revision-9 detached verification attempt 2"
+    },
+    {
+      "failure": "the patched verifier selected all 256 matrix rows because action-only fixtures also persist fixture_target metadata",
+      "resolution": "attempted to select disclosure fixtures by fixture_grammar, then retained the failure when action-only rows proved that field is shared",
+      "stage": "revision-9 detached verification attempt 3"
+    },
+    {
+      "failure": "the next verifier still selected all 256 rows because fixture_grammar is also machine-readable for the action-only matrix",
+      "resolution": "selected the 176 disclosure fixtures by their disclosure-specific expected_structure contract before independently checking every canonical target",
+      "stage": "revision-9 detached verification attempt 4"
+    },
+    {
+      "failure": "18 focused tests produced seven failures and one error because the abstain fixture used an empty response while authoritative binding enforces the configured abstain response",
+      "resolution": "bound the fixture to the exact configured abstain response; rerun 18/18 PASS, then expanded the suite to 20 tests",
+      "stage": "revision-10 focused suite attempt 1"
+    },
+    {
+      "failure": "118 historical tests produced four failures and five errors before active Revision-10 manifests and the literal registry had been generated",
+      "resolution": "ran non-inference prepare-readiness to produce active Revision-10 artifacts while verifying historical Revision-7/9 JSON without rewriting it; rerun 118/118 PASS",
+      "stage": "revision-10 historical suite attempt 1"
+    },
+    {
+      "failure": "stale-binding audit initially classified inherited Revision-6 text inside the new Revision-10 failed-attempt log as an active runtime binding",
+      "resolution": "registered the exact Revision-10 failed-attempt evidence path as historical provenance; rerun prepare-readiness PASS with zero active stale bindings",
+      "stage": "revision-10 prepare-readiness attempt 1"
+    },
+    {
+      "failure": "the first Revision-11 focused discovery imported the Revision-10 TestCase into module globals, so unittest collected 25 tests and exposed the old 60-duplicate fixture before reaching its intended execution-ID assertion",
+      "resolution": "kept the imported module under one alias and corrected the historical execution-ID fixture to use 60 unique query IDs; Revision-11 5/5 and Revision-10 20/20 then passed independently",
+      "stage": "revision-11 focused suite attempt 1"
+    },
+    {
+      "failure": "the first 118-test readiness run occurred after the active config revision was bumped but before the generated runtime-asset manifest was rebound, producing four failures and four errors at readiness-revision validation",
+      "resolution": "rebound the non-inference runtime-asset manifest to Revision 11, ran prepare-readiness, and reran the settled suite 118/118 PASS",
+      "stage": "revision-11 settled readiness attempt 1"
+    },
+    {
+      "failure": "the first Revision-11 bundle build passed the readiness suite but failed to import the REV10 fixture helper when unittest used the tests.* module path",
+      "resolution": "added a narrow import fallback supporting both discover-mode and repository-root module-mode execution; no production logic changed",
+      "stage": "revision-11 review-bundle attempt 1"
+    },
+    {
+      "failure": "the second Revision-11 bundle build reached the 642-test isolated suite but seven tests failed because the exact snapshot omitted the untracked Revision-10 disclosure literal registry",
+      "resolution": "made the Revision-11 pathspec inherit the complete Revision-10 path set before adding Revision-11-only files, preserving every active dependency in the exact snapshot",
+      "stage": "revision-11 review-bundle attempt 2"
+    },
+    {
+      "failure": "the inherited Revision-9 mutation campaign produced one unexpected pass because its historical forbidden-date probe added 2026-08-12, which is the newly reviewed Revision-12 authorization date",
+      "resolution": "preserved the settled 30/30 Revision-9 mutation artifact without reinterpretation and limited Revision-12 verification to the five explicit AUTH-DATE topology cases",
+      "stage": "revision-12 prepare-readiness attempt 1"
+    },
+    {
+      "failure": "the occurrence-level stale-binding audit classified inherited Revision-6 text inside the new Revision-12 failed-attempt log as an active binding",
+      "resolution": "registered only the exact Revision-12 failed-attempt evidence path as historical provenance; production source/runtime bindings remain fail-closed",
+      "stage": "revision-12 prepare-readiness attempt 2"
+    },
+    {
+      "failure": "the source occurrence audit then classified the new Revision-6 failure-description literal itself as an active binding",
+      "resolution": "marked only those exact detector/evidence literals with the existing ALLOWED_MUTATION_FIXTURE_REVISION6 annotation; runtime assignments remain unmarked and forbidden",
+      "stage": "revision-12 prepare-readiness attempt 3"
+    }
+  ],
+  "failures_hidden_or_converted_to_pass": false,
+  "readiness_revision": 12,
+  "status": "RECORDED"
+}

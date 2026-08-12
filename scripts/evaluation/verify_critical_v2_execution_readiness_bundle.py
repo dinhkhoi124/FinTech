@@ -43,7 +43,7 @@ EXPECTED_LARGER = {
 EXPECTED_AUTH_PATHS = {
     "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
     "PROJECT_STATE.md", "TASKS.md", "reports/week_03/week_03_summary.md",
-    "reports/week_03/daily/2026-08-11.md",
+    "reports/week_03/daily/2026-08-12.md",
 }
 
 
@@ -329,7 +329,7 @@ def main() -> None:
             for path in actual
         )
 
-    if readiness_revision == 11:
+    if readiness_revision >= 11:
         revision10 = load(task / config["readiness_outputs"]["revision_10_lineage"])
         assert revision10["status"] == "SENIOR_REVIEWED / F3_BATCH_MEMBERSHIP_DEFECT_FOUND"
         assert revision10["reason"] == "RAW_BATCH_EXACT_MEMBERSHIP_NOT_ENFORCED_PRE_PERSISTENCE"
@@ -378,11 +378,12 @@ def main() -> None:
         print("PASS: F1 raw subtype null-only; final subtype post-freeze evaluator-derived")
         print("PASS: F2 registry=8 queries/11 targets; enumerated literals=0; parser OR guard verified")
         print("PASS: F3 authoritative provenance validator enforced at persistence/freeze/pre-gold")
-    if readiness_revision == 11:
+    if readiness_revision >= 11:
         print("PASS: F3 batch validator=validate_raw_run_binding; invariant rows=60 unique=60 exact frozen set")
         print("PASS: independent 60-duplicate=REJECT; 59+duplicate=REJECT; exact-60=PASS")
         print("PASS: batch validator reused at persistence/freeze/pre-gold")
-    print("PASS: authorization daily=2026-08-11 only; evaluation_authorized=false; critical_evaluated=false")
+    expected_daily = "2026-08-12" if readiness_revision >= 12 else "2026-08-11"
+    print(f"PASS: authorization daily={expected_daily} only; evaluation_authorized=false; critical_evaluated=false")
     print("PASS: model_verdict=NOT_ESTABLISHED; no evaluation outputs")
 
 

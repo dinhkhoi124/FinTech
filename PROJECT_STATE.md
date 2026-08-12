@@ -7,9 +7,9 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: W3-002-CR1-EA1 readiness revision 11 — FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW
-- Next task: independent Senior authorization review of the readiness revision-11 bundle; evaluation remains unauthorized
-- Last updated: 2026-08-11 by Codex
+- Active task: W3-002-CR1-EA1 readiness revision 12 — FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW
+- Next task: independent Senior review of the narrow Revision-12 authorization-date topology bundle; evaluation remains unauthorized
+- Last updated: 2026-08-12 by Codex
 
 ## Active objective
 Senior rejected candidate revision 4 and blocked further candidate authoring
@@ -513,6 +513,29 @@ not candidate semantic approval.
   Week 4 remains `BLOCKED / NOT STARTED`.
 - **Forbidden work not performed:** no inference, retrieval, generation,
   critical evaluation, staging, commit, or push.
+
+## W3-002-CR1-EA1 readiness revision 12 — 2026-08-12
+
+- **Task:** `W3-002-CR1-EA1-REV12-AUTH-DATE` (Week 3, P0), limited to the
+  authorization daily-report topology rollover from 2026-08-11 to 2026-08-12.
+- **Candidate Revision 7:** `FROZEN / SENIOR SEMANTIC APPROVED / COMMITTED /
+  PUSHED`; manifest, mapping, and Pass-B bytes remain unchanged.
+- **EA1 Revision 11:** `SENIOR_EXECUTION_READINESS_APPROVED / COMMITTED /
+  PUSHED / SUPERSEDED_ONLY_BY_AUTHORIZATION_DATE_TOPOLOGY_AMENDMENT` at
+  readiness commit `c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd`; it is not rejected.
+- **EA1 Revision 12:** `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW`;
+  reason `AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER`.
+- **Exact future A allowlist:** authorization record, `PROJECT_STATE.md`,
+  `TASKS.md`, Week-3 summary, and `daily/2026-08-12.md` only. The prior
+  `daily/2026-08-11.md` path is rejected for A.
+- **Closed semantics preserved:** F1, F2, F3 row provenance, and F3 batch
+  membership provenance remain closed and unchanged.
+- **Lifecycle:** `evaluation_authorized=false`, `critical_evaluated=false`,
+  `model_verdict=NOT_ESTABLISHED`; Week 3 remains `BLOCKED / IN PROGRESS` and
+  Week 4 remains `BLOCKED / NOT STARTED`.
+- **Forbidden work not performed:** no authorization record A, model/encoder
+  loading, retrieval, generation, inference, critical evaluation, staging,
+  commit, or push.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen

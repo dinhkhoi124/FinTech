@@ -146,3 +146,18 @@ No inference or critical evaluation ran. Revision 11 is
 `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW` with
 `evaluation_authorized=false`, `critical_evaluated=false`, and
 `model_verdict=NOT_ESTABLISHED`.
+
+## Revision 12 — authorization daily-path rollover
+
+The committed Revision-11 readiness package remains Senior-approved at
+`c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd` for all F1/F2/F3 semantics. A
+narrow calendar-topology conflict was reproduced: the production contract and
+validator allowed only `daily/2026-08-11.md` and rejected the now-reviewed
+`daily/2026-08-12.md` path.
+
+Revision 12 changes only the active readiness revision, exact authorization
+allowlist, its validator/tests, and mechanically dependent hashes. AUTH-DATE-01
+through AUTH-DATE-05 pass. No evaluator, disclosure, provenance, batch,
+Candidate, metric, model, retrieval, generation, inference, or evaluation
+semantics changed. The status is `FROZEN_READINESS_PACKAGE /
+AWAITING_SENIOR_REVIEW`; authorization remains false.

@@ -86,3 +86,22 @@ F1 and F2 remain closed and regression-only.
 Status is `FROZEN_READINESS_PACKAGE /
 AWAITING_SENIOR_AUTHORIZATION_REVIEW`. `evaluation_authorized=false`,
 `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`.
+
+## Readiness Revision 12 — authorization date topology only
+
+Revision 11 was Senior-approved, committed, and pushed at
+`c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd`. It remains accepted for F1, F2,
+F3 row provenance, and F3 batch membership provenance. Revision 12 supersedes
+it only because authorization commit A is now planned for 2026-08-12 while the
+committed topology allowed only the prior daily report.
+
+The authoritative allowlist now contains exactly the authorization record,
+`PROJECT_STATE.md`, `TASKS.md`, the Week-3 summary, and
+`reports/week_03/daily/2026-08-12.md`. The 2026-08-11, 2026-08-10,
+2026-08-13, arbitrary daily, Candidate, and execution/source paths are rejected.
+The amendment is explicit and contains no wall-clock routing.
+
+Revision 12 is `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW` with reason
+`AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER`. `evaluation_authorized=false`,
+`critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`; no
+authorization record A or evaluation output exists.
