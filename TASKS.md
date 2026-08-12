@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Revision 7 frozen candidate committed/pushed at `18a1840`; separate semantic approval recorded; EA1 readiness must be rebound to revision 7; evaluation remains unauthorized | BLOCKED / EA1 REVISION-7 REBIND REQUIRED |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 remains frozen/Senior-approved; EA1 readiness revision 9 closes disclosure-target coverage and fixture-construction gaps and awaits separate Senior authorization review | BLOCKED / AWAITING SENIOR AUTHORIZATION REVIEW |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -446,11 +446,102 @@ and Week 4 remain blocked.
   approval record,
   `evaluation_authorized=false`, `critical_evaluated=false`,
   `model_verdict=NOT_ESTABLISHED`.
-- **EA1:** `REVISION_7_REBIND_REQUIRED / NOT_STARTED`. The rejected revision-6
-  EA1 must not be resumed; readiness must be rebuilt/rebound to revision 7 and
-  address the six known COV1 evaluator-only gaps.
-- **Boundary:** no model, retrieval, generation, inference, evaluation, EA1
-  restart, or Week 4 work is authorized. Execution readiness is not complete.
-- **Next task:** `W3-002-CR1-EA1` execution-readiness rebuild/rebind for candidate
-  revision 7 through a separate Senior-reviewed contract. Evaluation remains
-  unauthorized.
+- **EA1:** `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW`.
+  Senior clarified that the candidate freezes minimum-cardinality canonical
+  covers. Production and independent brute-force derivations now match all 55
+  answerable queries and all 92 frozen canonical covers. Four valid larger
+  inclusion-minimal covers remain explicit noncanonical diagnostic evidence.
+- **Safety evidence:** six COV1 cases pass 6/6; the 150-case target-specific
+  matrix has zero false positives and zero false negatives.
+- **Boundary:** candidate revision 7 remains immutable; no model, retrieval,
+  generation, inference, evaluation, staging, commit, push, or Week 4 work is
+  authorized by this readiness task.
+- **Next task:** independent Senior review of the frozen EA1 readiness package.
+  `evaluation_authorized=false`, `critical_evaluated=false`, and
+  `model_verdict=NOT_ESTABLISHED` remain authoritative.
+
+### W3-002-CR1-EA1 readiness revision 8 — 2026-08-11
+
+- **Senior verdict on readiness revision 7:** `FIX_REQUIRED`; the package is
+  `REJECTED_BY_SENIOR / SAFETY_AND_AUTHORIZATION_HARDENING_REQUIRED` and its ZIP
+  hash is `dc72ab6d074c3dd3eb3391586ec783c8b287abbb44114e872e048c4cf5c9757c`.
+- **Candidate boundary:** Candidate Revision 7 remains frozen, Senior-approved,
+  committed, and pushed. Candidate Revision 8 is absent.
+- **Revision-8 correction:** deterministic safe-negative morphology,
+  target/value ordering in both directions, negative-status payload detection,
+  occurrence-local precedence, current-day authorization topology, and
+  occurrence-level stale-binding classification.
+- **Evidence:** 22/22 exact Senior cases, 206-case expanded matrix with zero
+  FP/FN, 27/27 observed mutations rejected at expected layers, and eight of
+  eight real self-adversarial categories pass.
+- **Status:** `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW`.
+  Evaluation remains unauthorized and the model verdict remains not established.
+
+### W3-002-CR1-EA1 readiness revision 9 — 2026-08-11
+
+- **Senior verdict on readiness revision 8:** `FIX_REQUIRED`; the readiness
+  package is `REJECTED_BY_SENIOR / DISCLOSURE_TARGET_COVERAGE_INCOMPLETE /
+  ADVERSARIAL_FIXTURE_TARGET_CONSTRUCTION_INVALID`. Its ZIP SHA-256 is
+  `3291975173dff7e8afb0da4ab368d32e8f1913020bc9951f5e56b3b8686fe218`.
+- **Candidate boundary:** Candidate Revision 7 remains frozen, Senior-approved,
+  committed, and pushed. Candidate revisions 8 and 9 are absent.
+- **Revision-9 correction:** all 15 SAFE_CORRECTIVE rows have explicit target
+  classes; eight disclosure-capable queries expose 11 canonical disclosure
+  targets to an occurrence-local grammar.
+- **Evidence:** 38/38 Senior regressions pass; the 256-case matrix has zero
+  FP/FN; 176 disclosure fixtures have zero malformed constructions; every
+  disclosure-capable query has target-first, payload-first, refusal-plus-payload,
+  and negative-status-plus-payload coverage; 30/30 mutations are rejected; all
+  eight self-adversarial categories pass.
+- **Status:** `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW`.
+  `evaluation_authorized=false`, `critical_evaluated=false`, and
+  `model_verdict=NOT_ESTABLISHED` remain authoritative.
+
+## W3-002-CR1-EA1-REV10 — Week 3 P0
+
+- **Description:** Close EA1 post-freeze subtype separation, narrow disclosure
+  guard, and raw execution provenance before evaluation authorization.
+- **Priority:** P0.
+- **Status:** `SENIOR_REVIEWED / F3_BATCH_MEMBERSHIP_DEFECT_FOUND`.
+- **Findings:** `F1_POST_FREEZE_SUBTYPE_SEPARATION=CLOSED`,
+  `F2_NARROW_DISCLOSURE_GUARD=CLOSED`,
+  `F3_ROW_PROVENANCE=CLOSED`; batch membership remained incomplete.
+- **Evidence:** focused 20/20 PASS; settled readiness 118/118 PASS; exact registry
+  8 queries/11 targets with zero enumerated literals; provenance enforced at
+  persistence/freeze/pre-gold boundaries; active readiness verifier PASS.
+- **Candidate:** Revision 7 remains frozen, Senior-approved, committed, pushed,
+  and byte-verified 23/23. Candidate revisions 8/9/10 were not created.
+- **Lifecycle:** EA1 Revision 10 is `SENIOR_REVIEWED /
+  F3_BATCH_MEMBERSHIP_DEFECT_FOUND`; reason
+  `RAW_BATCH_EXACT_MEMBERSHIP_NOT_ENFORCED_PRE_PERSISTENCE`;
+  `evaluation_authorized=false`,
+  `critical_evaluated=false`, `model_verdict=NOT_ESTABLISHED`.
+- **Blocked:** Week 3 P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains
+  `BLOCKED / NOT STARTED`.
+
+## W3-002-CR1-EA1-REV11 — Week 3 P0
+
+- **Description:** close only exact raw batch membership at persistence, freeze,
+  and pre-gold boundaries.
+- **Priority:** P0.
+- **Status:** `FROZEN_READINESS_PACKAGE /
+  AWAITING_SENIOR_AUTHORIZATION_REVIEW`.
+- **Findings:** `F1_POST_FREEZE_SUBTYPE_SEPARATION=CLOSED`,
+  `F2_NARROW_DISCLOSURE_GUARD=CLOSED`, `F3_ROW_PROVENANCE=CLOSED`, and
+  `F3_BATCH_MEMBERSHIP_PROVENANCE=CLOSED`.
+- **Invariant:** rows=60, unique query IDs=60, and raw query-ID set equals the
+  frozen runtime-payload query-ID set; accepted batches then reuse the existing
+  per-row provenance validator.
+- **Evidence:** F3-J…N 5/5 PASS; REV10 20/20 PASS; settled readiness 118/118
+  PASS; active readiness verifier PASS. No inference or evaluation ran.
+- **Candidate:** Revision 7 remains immutable and byte-verified 23/23. Candidate
+  revisions 8/9/10/11 were not created.
+- **Lifecycle:** `evaluation_authorized=false`, `critical_evaluated=false`,
+  `model_verdict=NOT_ESTABLISHED`; Week 3 and Week 4 remain blocked.
+
+### Deferred — Hybrid / structured disclosure hardening
+
+- `DEFERRED / NOT A WEEK-3 P0 BLOCKER`.
+- Possible future scope: richer structured metadata, evidence-status-driven
+  disclosure semantics, generalized relation handling, and a public structured
+  API only if Week-4 requirements separately authorize it.

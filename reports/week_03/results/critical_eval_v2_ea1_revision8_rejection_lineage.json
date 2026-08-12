@@ -1,0 +1,16 @@
+{
+  "artifact_kind": "EA1_READINESS_PACKAGE",
+  "candidate_rejected": false,
+  "candidate_revision": 7,
+  "readiness_revision": 8,
+  "reason_codes": [
+    "DISCLOSURE_TARGET_COVERAGE_INCOMPLETE",
+    "ID02_PAYLOAD_ORDER_DISCLOSURE_MISSED",
+    "ID03_PAYLOAD_ORDER_DISCLOSURE_MISSED",
+    "ID04_PAYLOAD_ORDER_DISCLOSURE_MISSED",
+    "ADVERSARIAL_FIXTURE_TARGET_CONSTRUCTION_INVALID"
+  ],
+  "review_zip": "W3-002-CR1_EA1_revision_8_readiness_review_bundle.zip",
+  "review_zip_sha256": "3291975173dff7e8afb0da4ab368d32e8f1913020bc9951f5e56b3b8686fe218",
+  "status": "REJECTED_BY_SENIOR / DISCLOSURE_TARGET_COVERAGE_INCOMPLETE / ADVERSARIAL_FIXTURE_TARGET_CONSTRUCTION_INVALID"
+}

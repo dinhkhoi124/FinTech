@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "implementation": "independent brute-force reference in tests/test_critical_v2_execution_readiness.py",
+  "production_helper_called_by_reference": false,
+  "answerable_queries_compared": 55,
+  "exact_query_agreements": 55,
+  "candidate_canonical_covers": 92,
+  "reference_minimum_cardinality_covers": 92,
+  "production_minimum_cardinality_covers": 92,
+  "valid_noncanonical_larger_inclusion_minimal_covers": 4,
+  "missing_canonical_covers": 0,
+  "extra_same_cardinality_covers": 0,
+  "smaller_than_candidate_minimum_covers": 0
+}

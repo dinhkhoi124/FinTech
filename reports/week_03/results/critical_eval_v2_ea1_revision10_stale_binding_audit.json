@@ -1,0 +1,557 @@
+{
+  "allowed_detector_occurrences": 61,
+  "allowed_historical_occurrences": 14,
+  "candidate_commit": "18a1840f39fef8f07337ff357f7991292389bae9",
+  "candidate_manifest_sha256": "f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef",
+  "candidate_revision": 7,
+  "classified_occurrence_count": 75,
+  "findings": [
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 42,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision10_finding_closure.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 8,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision10_provenance_regressions.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 44,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_obligation_revision_7_semantic_delta.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 160,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_obligation_sentence_semantic_audit.jsonl"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 161,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_obligation_sentence_semantic_audit.jsonl"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 162,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_obligation_sentence_semantic_audit.jsonl"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 19,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_revision_10_ea1_failed_attempts.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 70,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_revision_10_ea1_failed_attempts.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 124,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_revision_10_ea1_failed_attempts.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 174,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_revision_10_ea1_failed_attempts.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 11,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_revision_10_ea1_reuse_rebind_report.json"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 346,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_revision_9_readiness_mutation_campaign.json"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 352,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "reports/week_03/results/critical_eval_v2_revision_9_readiness_mutation_campaign.json"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 153,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "scripts/evaluation/rebind_critical_v2_ea1_revision7.py"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 172,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "scripts/evaluation/rebind_critical_v2_ea1_revision7.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 246,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "scripts/evaluation/verify_critical_v2_execution_readiness_bundle.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 250,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "scripts/evaluation/verify_critical_v2_execution_readiness_bundle.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 307,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "scripts/evaluation/verify_critical_v2_execution_readiness_bundle.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 332,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "scripts/evaluation/verify_critical_v2_execution_readiness_bundle.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 264,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 308,
+      "matched_revision6_text": false,
+      "matched_stale_tokens": [
+        "revision_6_commit"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 309,
+      "matched_revision6_text": false,
+      "matched_stale_tokens": [
+        "revision_6_manifest"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 310,
+      "matched_revision6_text": false,
+      "matched_stale_tokens": [
+        "revision_6_mapping"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 311,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 312,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 313,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 317,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 977,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2267,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2285,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2288,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2289,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2292,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2293,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2294,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2295,
+      "matched_revision6_text": false,
+      "matched_stale_tokens": [
+        "revision_6_commit"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2296,
+      "matched_revision6_text": false,
+      "matched_stale_tokens": [
+        "revision_6_manifest"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2297,
+      "matched_revision6_text": false,
+      "matched_stale_tokens": [
+        "revision_6_mapping"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2308,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2309,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2310,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2311,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2312,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2317,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2342,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [
+        "revision_6_commit"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2343,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [
+        "revision_6_manifest"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2344,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [
+        "revision_6_mapping"
+      ],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2369,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2375,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2382,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2399,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2433,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2464,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2500,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 2507,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 3056,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 3110,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 3160,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_HISTORICAL_PROVENANCE",
+      "line": 3172,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 3218,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 3983,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 843,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 849,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 855,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 859,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 868,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 877,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 881,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 967,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 969,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 976,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 978,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 187,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_revision10.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 188,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_revision10.py"
+    },
+    {
+      "classification": "ALLOWED_DETECTOR_OR_MUTATION_FIXTURE",
+      "line": 219,
+      "matched_revision6_text": true,
+      "matched_stale_tokens": [],
+      "path": "tests/test_critical_v2_execution_revision10.py"
+    }
+  ],
+  "forbidden_active_revision6_bindings": 0,
+  "readiness_revision": 10,
+  "scanned_file_count": 46,
+  "status": "PASS"
+}

@@ -1,0 +1,20 @@
+TASK: W3-002-CR1-EA1-REV11 — F3 batch membership closure only
+EXIT_CODE: 0
+
+COMMAND: .venv-semantic/Scripts/python.exe -m unittest discover -s tests -p "test_critical_v2_execution_revision11.py" -v
+RESULT: 5/5 PASS
+SENIOR_REPRODUCER: 60 duplicate copies of one valid query -> REJECTED BEFORE PERSISTENCE
+F3_K: 59 unique plus one duplicate -> REJECTED BEFORE PERSISTENCE
+F3_L: exact 60 unique frozen membership -> PASS
+F3_M: duplicate tamper before freeze -> REJECTED; manifest=0; state transitions=0
+F3_N: duplicate tamper before gold/evaluator load -> REJECTED
+
+COMMAND: .venv-semantic/Scripts/python.exe -m unittest discover -s tests -p "test_critical_v2_execution_revision10.py" -v
+REV10_RESULT: 20/20 PASS
+
+COMMAND: .venv-semantic/Scripts/python.exe -m unittest discover -s tests -p "test_critical_v2_execution_readiness.py" -v
+SETTLED_READINESS_RESULT: 118/118 PASS
+
+INFERENCE_EXECUTED: false
+CRITICAL_EVALUATION_EXECUTED: false
+EVALUATION_AUTHORIZED: false

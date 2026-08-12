@@ -1,0 +1,15 @@
+{
+  "candidate_revision": 7,
+  "critical_evaluated": false,
+  "evaluation_authorized": false,
+  "findings": [
+    {"finding_id": "F1_POST_FREEZE_SUBTYPE_SEPARATION", "result": "CLOSED", "review_scope": "REGRESSION_ONLY"},
+    {"finding_id": "F2_NARROW_DISCLOSURE_GUARD", "result": "CLOSED", "review_scope": "REGRESSION_ONLY"},
+    {"finding_id": "F3_ROW_PROVENANCE", "authoritative_validator": "validate_raw_execution_binding", "result": "CLOSED"},
+    {"finding_id": "F3_BATCH_MEMBERSHIP_PROVENANCE", "authoritative_validator": "validate_raw_run_binding", "result": "CLOSED"}
+  ],
+  "model_verdict": "NOT_ESTABLISHED",
+  "readiness_revision": 11,
+  "status": "PASS",
+  "task_id": "W3-002-CR1-EA1-REV11"
+}

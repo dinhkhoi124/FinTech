@@ -1,0 +1,50 @@
+{
+  "candidate_mapping_modified": false,
+  "candidate_revision": 7,
+  "cov1_evaluator_only_fix_count": 6,
+  "fixes": [
+    {
+      "atomic_sentence_count": 2,
+      "evidence_id": "FAQ_TRANSFER_PENDING_001#answer",
+      "obligation_id": "CHECKS",
+      "query_id": "Q_V2_A_TRP03"
+    },
+    {
+      "atomic_sentence_count": 2,
+      "evidence_id": "RUN_TRANSFER_FAILED_001#checks",
+      "obligation_id": "BOUNDARY",
+      "query_id": "Q_V2_A_TRF01"
+    },
+    {
+      "atomic_sentence_count": 1,
+      "evidence_id": "POL_CARD_REVERT_002#return_window",
+      "obligation_id": "TRIGGER",
+      "query_id": "Q_V2_A_CAR02"
+    },
+    {
+      "atomic_sentence_count": 2,
+      "evidence_id": "ESC_CARD_REVERT_001#trigger",
+      "obligation_id": "ELIGIBILITY",
+      "query_id": "Q_V2_A_CAR03"
+    },
+    {
+      "atomic_sentence_count": 2,
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "obligation_id": "GATE",
+      "query_id": "Q_V2_A_CSP03"
+    },
+    {
+      "atomic_sentence_count": 1,
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "obligation_id": "DECLINE",
+      "query_id": "Q_V2_A_CSD04"
+    }
+  ],
+  "pass_b_modified": false,
+  "preserved_revision_6_semantic_rejects": 2,
+  "readiness_revision_from": 6,
+  "readiness_revision_to": 7,
+  "review_status": "CANDIDATE_AWAITING_SENIOR_REVIEW",
+  "rules_reviewed": 148,
+  "task_id": "W3-002-CR1-EA1"
+}

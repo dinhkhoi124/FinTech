@@ -391,3 +391,126 @@ NOT_STARTED` and must rebuild/rebind execution readiness to revision 7 while
 addressing the six known COV1 evaluator-only gaps. Evaluation remains
 unauthorized, Week 3 P0 remains `BLOCKED / IN PROGRESS`, and Week 4 remains
 `BLOCKED / NOT STARTED`.
+
+## W3-002-CR1-EA1 revision-7 readiness rebuild — initial consistency stop
+
+The pre-authorization EA1 rebuild verified and rebound the reference readiness
+architecture to frozen candidate revision 7 and authored the six COV1
+evaluator-only alternatives without changing candidate bytes. A newly mandatory
+bidirectional equivalence check found 96 evaluator-derived minimal complete
+covers against the frozen mapping's 92. Four additional covers occur for
+`Q_V2_A_TRF02`, `Q_V2_A_CSP03`, `Q_V2_A_CSD04`, and `Q_V2_A_CSU04`; every
+component is an exact frozen KB sentence with revision-7 Pass-B direct support
+for its obligation. Per the stop rule, the evaluator was not force-fit, the
+readiness package was not frozen or packaged, and evaluation remains
+unauthorized. EA1 is `BLOCKED / CANDIDATE_EVALUATOR_COVER_EQUIVALENCE_FAILED`
+pending separate Senior adjudication. Week 3 P0 and Week 4 remain blocked.
+
+## W3-002-CR1-EA1 revision-7 readiness rebuild — corrected frozen package
+
+Senior clarified that revision 7 freezes minimum-cardinality canonical covers,
+not every inclusion-minimal cover. The corrected production derivation and an
+independent brute-force test agree on 55/55 answerable queries and 92/92 frozen
+canonical covers. Four valid larger inclusion-minimal alternatives for TRF02,
+CSP03, CSD04, and CSU04 remain explicit diagnostic evidence rather than mapping
+defects.
+
+All six original COV1 safety counterexamples pass. The complete 15-rule,
+150-example target-specific safety matrix reports zero false positives and zero
+false negatives. All active generated readiness/runtime provenance binds
+candidate revision 7, and the classified audit reports zero forbidden active
+revision-6 bindings.
+
+EA1 is `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW`.
+Candidate revision 7 remains byte-frozen and Senior semantically approved at
+commit `18a1840f39fef8f07337ff357f7991292389bae9`. Evaluation remains unauthorized,
+critical evaluation remains false, and model verdict remains `NOT_ESTABLISHED`.
+No model, encoder, retrieval, generation, inference, or evaluation ran. Week 3
+P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains `BLOCKED / NOT STARTED`.
+
+## W3-002-CR1-EA1 readiness revision-8 hardening — 2026-08-11
+
+Senior rejected readiness revision 7, not Candidate Revision 7. The rejected
+package is preserved externally with SHA-256
+`dc72ab6d074c3dd3eb3391586ec783c8b287abbb44114e872e048c4cf5c9757c`.
+Readiness revision 8 preserves canonical cover agreement at 92/92 and all four
+larger diagnostics while adding deterministic safe-negative morphology,
+payload disclosures on either side of a target, negative-status payload
+detection, occurrence-local overlap handling, and a current-day authorization
+allowlist. Evidence records 22/22 Senior safety rows, a 206-case expanded matrix
+with zero FP/FN, 27 observed mutation rows with zero unexpected passes, and eight
+concrete self-adversarial categories. Focused and related suites pass 112/112
+and 210/210; the isolated exact-byte application suite passes 611/611 with eight
+skips. Candidate Revision 8 is absent; evaluation authorization and critical
+evaluation remain false.
+
+## W3-002-CR1-EA1 readiness revision-9 correction — 2026-08-11
+
+Senior rejected readiness revision 8 for incomplete disclosure-target coverage
+on ID02/ID03/ID04 and invalid adversarial fixture construction. The rejected ZIP
+is preserved at SHA-256
+`3291975173dff7e8afb0da4ab368d32e8f1913020bc9951f5e56b3b8686fe218`.
+Readiness revision 9 preserves Candidate Revision 7 and the verified 92/92
+canonical covers, four larger diagnostics, and 148/212/219/7 obligation
+contract. It explicitly classifies all 15 SAFE_CORRECTIVE queries, binds eight
+disclosure-capable queries to 11 canonical targets, validates 176 disclosure
+fixtures with zero malformed constructions, and passes 38/38 Senior rows plus a
+256-case matrix with zero FP/FN. The 30-row mutation campaign has zero unexpected
+passes and all eight self-adversarial categories pass. Candidate revisions 8 and
+9 are absent. Focused, related, and isolated suites pass 118/118, 210/210, and
+617/617 respectively (eight isolated skips); evaluation remains unauthorized,
+critical evaluation remains false, and the model verdict remains NOT_ESTABLISHED.
+
+## W3-002-CR1-EA1 readiness revision-10 closure
+
+Revision 10 closes exactly three P0 readiness findings without changing frozen
+Candidate Revision 7 or running evaluation. Amendment 1 corrected the earlier
+runtime-subtype assumption: production exposes only `ANSWER/ABSTAIN_ESCALATE`,
+raw subtype is null-only by enforced contract, and the evaluator derives
+`STANDARD/SAFE_CORRECTIVE` only after raw freeze. F1 focused evidence passes 8/8
+with zero pre-freeze gold-loader calls.
+
+The F2 guard is intentionally bounded to the settled Revision-9 registry: eight
+disclosure-capable queries and 11 canonical targets. Existing authoritative
+artifacts enumerate no literal prohibited values, so all 11 targets record
+`NO_ENUMERATED_LITERAL_VALUE`; no secret value was invented. The Revision-9
+parser remains active and combines fail-closed with the guard by OR. Generalized
+or hybrid disclosure detection is deferred and is not a Week-3 P0 blocker.
+
+F3 consolidates provenance into one validator reused before raw persistence,
+before raw freeze, and before evaluator/gold load. It binds Candidate Revision 7,
+execution ID, run, variant, query membership, model-input SHA, and active config
+SHA. Nine tamper/boundary regressions pass without unauthorized writes or state
+advancement. Focused REV10 tests pass 20/20, historical readiness tests remain
+118/118 PASS, and the active readiness verifier passes while preserving the
+settled 38/38 Senior cases, 256-case zero-FP/FN matrix, 30/30 mutations, and 8/8
+self-adversarial categories. Combined focused tests pass 138/138, related suites
+pass 210/210, and the isolated exact-byte application suite passes 637/637 with
+eight explicit context/runtime-asset skips. The detached verifier independently
+passes inventory, candidate hashes, F1/F2/F3 evidence, lifecycle, and absence of
+critical evaluation outputs.
+
+EA1 Revision 10 is `FROZEN_READINESS_PACKAGE /
+AWAITING_SENIOR_AUTHORIZATION_REVIEW`. Evaluation remains unauthorized, critical
+evaluation remains false, and model verdict remains `NOT_ESTABLISHED`. Week 3 P0
+is still `BLOCKED / IN PROGRESS`; Week 4 is `BLOCKED / NOT STARTED`.
+
+## W3-002-CR1-EA1 readiness revision-11 F3 closure
+
+Senior review found one remaining REV10 defect: independent row validation did
+not enforce exact run-level membership before persistence. REV10 is recorded as
+`SENIOR_REVIEWED / F3_BATCH_MEMBERSHIP_DEFECT_FOUND`, reason
+`RAW_BATCH_EXACT_MEMBERSHIP_NOT_ENFORCED_PRE_PERSISTENCE`.
+
+REV11 adds one authoritative batch validator requiring 60 rows, 60 unique query
+IDs, and exact equality with frozen runtime membership, then reuses the settled
+row-provenance validator. The same guard protects persistence, freeze, and
+pre-gold boundaries. The Senior 60-duplicate reproducer, 59+duplicate case,
+valid 60-unique case, freeze tamper, and pre-gold tamper all behave as required
+(5/5 PASS). F1/F2 remain closed and regression-only.
+
+EA1 Revision 11 is `FROZEN_READINESS_PACKAGE /
+AWAITING_SENIOR_AUTHORIZATION_REVIEW`. Candidate Revision 7 remains immutable;
+`evaluation_authorized=false`, `critical_evaluated=false`, and
+`model_verdict=NOT_ESTABLISHED`. No inference or critical evaluation ran. Week 3
+P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains `BLOCKED / NOT STARTED`.

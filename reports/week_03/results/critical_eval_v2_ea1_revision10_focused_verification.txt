@@ -1,0 +1,13 @@
+COMMAND: .\.venv-semantic\Scripts\python.exe -m unittest discover -s tests -p "test_critical_v2_execution_revision10.py" -v
+EXIT_CODE: 0
+
+RESULT: 20/20 PASS
+F1: 8/8 PASS
+F2: 2/2 test methods PASS, including 11/11 per-target subtests and 4/4 parser-OR-guard truth-table subtests
+F3: 10/10 PASS
+gold_loader_calls before freeze: 0
+raw persistence calls after provenance tamper: 0
+state transitions after provenance tamper: 0
+freeze manifest created after provenance tamper: false
+
+The first 18-test attempt failed because the abstain fixture did not match the configured response. That failure is retained in critical_eval_v2_revision_10_ea1_failed_attempts.json. The corrected and expanded 20-test run passed.

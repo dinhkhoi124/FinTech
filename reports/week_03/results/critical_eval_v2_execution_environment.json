@@ -1,0 +1,72 @@
+{
+  "cache_paths_committed": false,
+  "candidate_commit": "18a1840f39fef8f07337ff357f7991292389bae9",
+  "candidate_manifest_sha256": "f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef",
+  "candidate_revision": 7,
+  "created_at": "2026-08-11T17:14:26.898166+00:00",
+  "deterministic_environment": {
+    "MKL_NUM_THREADS": "NOT_SET",
+    "OMP_NUM_THREADS": "NOT_SET",
+    "PYTHONHASHSEED": "NOT_SET",
+    "TOKENIZERS_PARALLELISM": "NOT_SET"
+  },
+  "environment_kind": "READINESS_EXPECTATION_NOT_RUNTIME_EXECUTION",
+  "evaluation_as_of_date": "2026-07-28",
+  "gpu": {
+    "available": false,
+    "devices": [],
+    "probe": "nvidia-smi"
+  },
+  "installed_distribution_count": 35,
+  "installed_package_fingerprint_sha256": "4e50c8155459b9c01305feb611dff1794aa2588935d4514ccd2efdad467859fa",
+  "local_runtime_assets": {
+    "classifier_parameters": {
+      "available": true,
+      "expected_sha256": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2",
+      "path": "artifacts/models/w1-004/semantic_classifier_parameters.json.gz"
+    },
+    "retrieval_corpus_cache": {
+      "available": true,
+      "path": "artifacts/cache/w2-003/corpus.jsonl"
+    },
+    "retrieval_embedding_cache": {
+      "available": true,
+      "path": "artifacts/cache/w2-003/corpus_embeddings.npy"
+    }
+  },
+  "logical_cpu_count": 4,
+  "model_loaded": false,
+  "os": "nt",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python_implementation": "CPython",
+  "python_version": "3.11.9",
+  "readiness_observed_head": "9db82747bec2a63c920f6fd3f9cba8932342eede",
+  "readiness_revision": 11,
+  "required_runtime_environment": {
+    "manifest": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+    "pythonhashseed_rationale": "Runtime payload ordering, stable sorting, serialized hashes, and metric aggregation do not depend on Python hash iteration order.",
+    "pythonhashseed_required": false,
+    "required_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1"
+    },
+    "torch_thread_contract": "Set OMP_NUM_THREADS=1 and MKL_NUM_THREADS=1 before process launch; the lazy CPU-only torch runtime inherits these limits before import. No post-import torch setting is claimed by this contract."
+  },
+  "runtime_dependency_sha256": {
+    "artifacts/models/w1-004/semantic_classifier_parameters.json.gz": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2",
+    "configs/generation/banking_support_lexicon_v2.json": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+    "configs/generation/grounded_pipeline_v1.json": "3d9f7841e42634375fe548f691bdea8fe17535c50cb05d3a005f80290ed78988",
+    "configs/generation/grounded_pipeline_v2.json": "9319799a704ddbc82e824f7351adc3852672e4b277efea2fc0bc552ef4f518f2",
+    "configs/generation/week3_critical_variants_v1.json": "6f4f5f33a06d5ea748f5afde482047135c0efd5f7ba381ff3274ec7c7c8bd78d",
+    "configs/kb/kb_document_schema_v1.json": "ee9f959cef795b35482db4f0a9868f5981ec8291e3f228d63a289fddeae3dc29",
+    "configs/kb/kb_v1.json": "d6ff1adc158c41cd6e9c9a418aa22bd2696cd0be80343a174b3f74146f74a909",
+    "configs/models/banking77_semantic_w1.json": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+    "configs/retrieval/kb_v1_r0_r1.json": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
+    "data/kb/kb_v1.jsonl": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "reports/week_03/results/evidence_gate_v2_selection.json": "b17cee0c976552d14eec940f9bb81d95bb2ba9731b615295ab6be10313606469"
+  },
+  "runtime_manifest_created": false,
+  "runtime_manifest_path": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+  "secrets_recorded": false,
+  "task_id": "W3-002-CR1-EA1"
+}

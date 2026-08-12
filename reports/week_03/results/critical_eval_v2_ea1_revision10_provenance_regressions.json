@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "readiness_revision": 10,
+  "authoritative_validator": "validate_raw_execution_binding",
+  "validation_boundaries": ["BEFORE_RAW_PERSISTENCE", "BEFORE_RAW_FREEZE", "BEFORE_GOLD_EVALUATOR_LOAD"],
+  "candidate_revision": 7,
+  "rows": [
+    {"test_id": "test_f3_stale_revision6_execution_id_is_rejected", "tamper": "execution_id revision 6", "reason_code": "RAW_PROVENANCE_EXECUTION_ID_MISMATCH", "result": "PASS"},
+    {"test_id": "test_f3_wrong_run_is_rejected", "tamper": "run_label", "reason_code": "RAW_PROVENANCE_RUN_LABEL_MISMATCH", "result": "PASS"},
+    {"test_id": "test_f3_wrong_variant_is_rejected", "tamper": "variant_id", "reason_code": "RAW_PROVENANCE_VARIANT_MISMATCH", "result": "PASS"},
+    {"test_id": "test_f3_wrong_query_membership_is_rejected", "tamper": "query membership", "reason_code": "RAW_PROVENANCE_QUERY_MEMBERSHIP_MISMATCH", "result": "PASS"},
+    {"test_id": "test_f3_wrong_model_input_hash_is_rejected", "tamper": "model_input_sha256", "reason_code": "RAW_PROVENANCE_MODEL_INPUT_SHA_MISMATCH", "result": "PASS"},
+    {"test_id": "test_f3_wrong_active_config_hash_is_rejected", "tamper": "execution_contract_sha256", "reason_code": "RAW_PROVENANCE_ACTIVE_CONFIG_SHA_MISMATCH", "result": "PASS"},
+    {"test_id": "test_f3_pre_persistence_tamper_blocks_write_and_state_advance", "tamper": "pre-persistence execution_id", "write_calls": 0, "state_transition_calls": 0, "result": "PASS"},
+    {"test_id": "test_f3_freeze_tamper_blocks_manifest_and_state_advance", "tamper": "pre-freeze active config hash", "manifest_created": false, "state_transition_calls": 0, "result": "PASS"},
+    {"test_id": "test_f3_pre_gold_tamper_is_rejected_before_mapping_load", "tamper": "post-freeze active config hash", "gold_load_allowed": false, "result": "PASS"}
+  ]
+}

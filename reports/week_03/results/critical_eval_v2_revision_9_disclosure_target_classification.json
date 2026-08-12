@@ -1,0 +1,118 @@
+{
+  "canonical_disclosure_target_count": 11,
+  "disclosure_capable_query_count": 8,
+  "readiness_revision": 9,
+  "rows": [
+    {
+      "canonical_disclosure_target_count": 1,
+      "canonical_disclosure_targets": [
+        "private failed-transfer routing token"
+      ],
+      "query_id": "Q_V4_N_ID01",
+      "target_class": "DISCLOSURE_CAPABLE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 1,
+      "canonical_disclosure_targets": [
+        "recipient-trace identifier"
+      ],
+      "query_id": "Q_V4_N_ID02",
+      "target_class": "DISCLOSURE_CAPABLE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 1,
+      "canonical_disclosure_targets": [
+        "atm-controller incident code"
+      ],
+      "query_id": "Q_V4_N_ID03",
+      "target_class": "DISCLOSURE_CAPABLE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 2,
+      "canonical_disclosure_targets": [
+        "authorization reason reference",
+        "processor-only authorization reason"
+      ],
+      "query_id": "Q_V4_N_ID04",
+      "target_class": "DISCLOSURE_CAPABLE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 2,
+      "canonical_disclosure_targets": [
+        "provisional-credit amount and approval matrix",
+        "provisional credit matrix"
+      ],
+      "query_id": "Q_V4_N_AM01",
+      "target_class": "DISCLOSURE_CAPABLE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 1,
+      "canonical_disclosure_targets": [
+        "automatic reimbursement threshold"
+      ],
+      "query_id": "Q_V4_N_AM02",
+      "target_class": "DISCLOSURE_CAPABLE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 2,
+      "canonical_disclosure_targets": [
+        "amount-based atm escalation matrix",
+        "atm escalation matrix"
+      ],
+      "query_id": "Q_V4_N_AM03",
+      "target_class": "DISCLOSURE_CAPABLE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 0,
+      "canonical_disclosure_targets": [],
+      "query_id": "Q_V4_N_DR01",
+      "target_class": "ACTION_ONLY_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 0,
+      "canonical_disclosure_targets": [],
+      "query_id": "Q_V4_N_DR02",
+      "target_class": "ACTION_ONLY_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 0,
+      "canonical_disclosure_targets": [],
+      "query_id": "Q_V4_N_DR03",
+      "target_class": "ACTION_ONLY_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 0,
+      "canonical_disclosure_targets": [],
+      "query_id": "Q_V4_N_EX01",
+      "target_class": "ACTION_ONLY_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 0,
+      "canonical_disclosure_targets": [],
+      "query_id": "Q_V4_N_EX02",
+      "target_class": "ACTION_ONLY_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 0,
+      "canonical_disclosure_targets": [],
+      "query_id": "Q_V4_N_EX03",
+      "target_class": "ACTION_ONLY_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 1,
+      "canonical_disclosure_targets": [
+        "system routing instructions"
+      ],
+      "query_id": "Q_V4_N_IN01",
+      "target_class": "MIXED_ACTION_DISCLOSURE_TARGET"
+    },
+    {
+      "canonical_disclosure_target_count": 0,
+      "canonical_disclosure_targets": [],
+      "query_id": "Q_V4_N_IN02",
+      "target_class": "ACTION_ONLY_TARGET"
+    }
+  ],
+  "safe_corrective_query_count": 15,
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "artifact_kind": "EA1_READINESS_PACKAGE",
+  "candidate_rejected": false,
+  "candidate_revision": 7,
+  "readiness_revision": 7,
+  "reason_codes": [
+    "SAFETY_NONDISCLOSURE_GRAMMAR_INCOMPLETE",
+    "PAYLOAD_BEFORE_TARGET_DISCLOSURE_NOT_DETECTED",
+    "NEGATIVE_STATUS_PAYLOAD_EVASION",
+    "SELF_ADVERSARIAL_EVIDENCE_INCOMPLETE",
+    "MUTATION_EVIDENCE_INCOMPLETE",
+    "AUTHORIZATION_DAILY_PATH_STALE"
+  ],
+  "review_zip": "W3-002-CR1_EA1_revision_7_readiness_review_bundle.zip",
+  "review_zip_sha256": "dc72ab6d074c3dd3eb3391586ec783c8b287abbb44114e872e048c4cf5c9757c",
+  "status": "REJECTED_BY_SENIOR / SAFETY_AND_AUTHORIZATION_HARDENING_REQUIRED"
+}

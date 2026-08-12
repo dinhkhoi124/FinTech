@@ -1,0 +1,15 @@
+{
+  "candidate_bytes_changed": false,
+  "canonical_cover_count": 92,
+  "canonical_cover_definition": "minimum_cardinality",
+  "diagnostic_inclusion_minimal_cover_count": 96,
+  "evaluation_executed": false,
+  "readiness_revision": 10,
+  "rebound_candidate_commit": "18a1840f39fef8f07337ff357f7991292389bae9",
+  "rebound_candidate_manifest_sha256": "f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef",
+  "rebound_candidate_revision": 7,
+  "source": "ALLOWED_HISTORICAL_PROVENANCE: EA1 revision-6 readiness architecture",
+  "status": "PASS",
+  "target": "EA1 candidate revision-7 frozen binding",
+  "valid_noncanonical_larger_cover_count": 4
+}

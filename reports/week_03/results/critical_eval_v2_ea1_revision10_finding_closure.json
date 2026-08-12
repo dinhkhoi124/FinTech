@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "task_id": "W3-002-CR1-EA1-REV10",
+  "readiness_revision": 10,
+  "candidate_revision": 7,
+  "findings": [
+    {
+      "finding_id": "F1_POST_FREEZE_SUBTYPE_SEPARATION",
+      "problem": "The prior contract assumed runtime already knew STANDARD versus SAFE_CORRECTIVE.",
+      "root_cause": "INVALID_ASSUMPTION: production runtime decides ANSWER versus ABSTAIN_ESCALATE only.",
+      "adjudication": "INVALID_ASSUMPTION",
+      "final_design": "RAW_SUBTYPE_NULL_BY_CONTRACT / POST_FREEZE_EVALUATOR_DERIVATION",
+      "changed_files": ["configs/evaluation/schemas/critical_eval_v2_raw_output.schema.json", "src/payresolve_ai/evaluation/critical_v2_execution.py", "tests/test_critical_v2_execution_revision10.py"],
+      "changed_symbols_or_line_ranges": ["validate_raw_output:1031", "evaluate_observed_semantics:1944", "CriticalV2ExecutionRevision10Tests.test_f1_a_* through test_f1_h_*"],
+      "regression_test_ids": ["test_f1_a_runtime_answer_remains_subtype_null", "test_f1_b_runtime_abstain_remains_subtype_null", "test_f1_c_premature_standard_is_rejected", "test_f1_d_premature_safe_corrective_is_rejected", "test_f1_e_gold_loader_calls_zero_before_freeze", "test_f1_f_post_freeze_standard_is_evaluator_derived", "test_f1_g_post_freeze_safe_corrective_is_evaluator_derived", "test_f1_h_post_freeze_true_abstain_subtype_is_null"],
+      "test_output_reference": "reports/week_03/results/critical_eval_v2_ea1_revision10_focused_verification.txt",
+      "production_generator_has_runtime_subtype_branch": false,
+      "raw_subtype_contract": "NULL_ONLY",
+      "public_api_changed": false,
+      "result": "CLOSED"
+    },
+    {
+      "finding_id": "F2_NARROW_DISCLOSURE_GUARD",
+      "problem": "Disclosure assessment depended only on the Revision-9 free-text parser.",
+      "root_cause": "No production-bounded literal/evidence defense-in-depth layer existed.",
+      "changed_files": ["data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json", "src/payresolve_ai/evaluation/critical_v2_execution.py", "tests/test_critical_v2_execution_revision10.py", "reports/week_03/results/critical_eval_v2_ea1_revision10_disclosure_guard_results.json"],
+      "changed_symbols_or_line_ranges": ["build_disclosure_literal_registry:1653", "evaluate_narrow_literal_disclosure_guard:1693", "combine_prohibited_disclosure_decisions:1741", "evaluate_observed_semantics:1944"],
+      "regression_test_ids": ["test_f2_registry_is_exact_and_contains_no_invented_literals", "test_f2_parser_or_guard_truth_table_fails_closed"],
+      "test_output_reference": "reports/week_03/results/critical_eval_v2_ea1_revision10_focused_verification.txt",
+      "registered_queries": 8,
+      "registered_targets": 11,
+      "enumerated_literal_targets": 0,
+      "limitation": "Registered-literal bounded only; the Revision-9 parser remains the fallback and generalized disclosure detection is deferred.",
+      "result": "CLOSED"
+    },
+    {
+      "finding_id": "F3_RAW_EXECUTION_PROVENANCE",
+      "problem": "Raw validation did not strictly bind execution_id, query, model input, and active configuration at every lifecycle boundary.",
+      "root_cause": "Provenance checks were duplicated and incomplete.",
+      "changed_files": ["src/payresolve_ai/evaluation/critical_v2_execution.py", "tests/test_critical_v2_execution_revision10.py", "reports/week_03/results/critical_eval_v2_ea1_revision10_provenance_regressions.json"],
+      "changed_symbols_or_line_ranges": ["validate_raw_execution_binding:1090", "run_critical:3423", "freeze_raw_run:3651", "assert_evaluator_load_allowed:3696"],
+      "regression_test_ids": ["test_f3_stale_revision6_execution_id_is_rejected", "test_f3_wrong_run_is_rejected", "test_f3_wrong_variant_is_rejected", "test_f3_wrong_query_membership_is_rejected", "test_f3_wrong_model_input_hash_is_rejected", "test_f3_wrong_active_config_hash_is_rejected", "test_f3_pre_persistence_tamper_blocks_write_and_state_advance", "test_f3_freeze_tamper_blocks_manifest_and_state_advance", "test_f3_pre_gold_tamper_is_rejected_before_mapping_load"],
+      "test_output_reference": "reports/week_03/results/critical_eval_v2_ea1_revision10_focused_verification.txt",
+      "result": "CLOSED"
+    }
+  ],
+  "finding_code_test_table": [
+    {"finding": "F1", "production_symbol": "validate_raw_output / evaluate_observed_semantics", "change": "raw subtype null-only; subtype evaluator-derived after freeze", "tests": "F1-A through F1-H", "result": "PASS"},
+    {"finding": "F2", "production_symbol": "build_disclosure_literal_registry / evaluate_narrow_literal_disclosure_guard / combine_prohibited_disclosure_decisions", "change": "8-query/11-target bounded inventory and parser OR guard", "tests": "11 target subtests plus OR truth table", "result": "PASS"},
+    {"finding": "F3", "production_symbol": "validate_raw_execution_binding at run_critical / freeze_raw_run / assert_evaluator_load_allowed", "change": "strict authoritative provenance validator at three boundaries", "tests": "nine provenance regressions", "result": "PASS"}
+  ],
+  "evaluation_authorized": false,
+  "critical_evaluated": false,
+  "model_verdict": "NOT_ESTABLISHED"
+}

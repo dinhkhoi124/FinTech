@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "task_id": "W3-002-CR1-EA1",
+  "readiness_revision": 11,
+  "topology": "R_THEN_A",
+  "readiness_commit_symbol": "R",
+  "authorization_commit_symbol": "A",
+  "required_relationship": "parent(A)=R",
+  "runtime_head": "A",
+  "runtime_head_parent": "R",
+  "authorization_record_location": "HEAD:reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+  "self_referential_commit_hash_forbidden": true,
+  "readiness_commit_binding": "DEFERRED_TO_SEPARATE_AUTHORIZATION_RECORD"
+}

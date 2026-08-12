@@ -1,0 +1,23 @@
+{
+  "authoritative_batch_validator": "validate_raw_run_binding",
+  "authoritative_row_validator": "validate_raw_execution_binding",
+  "batch_invariant": {
+    "row_count": 60,
+    "set_equality_with_frozen_runtime_payload": true,
+    "unique_query_id_count": 60
+  },
+  "candidate_revision": 7,
+  "critical_evaluated": false,
+  "evaluation_authorized": false,
+  "model_verdict": "NOT_ESTABLISHED",
+  "readiness_revision": 11,
+  "rows": [
+    {"test_id": "test_f3_j_sixty_duplicate_valid_queries_rejected_before_persistence", "result": "PASS", "raw_writer_calls": 0, "state_transition_calls": 0},
+    {"test_id": "test_f3_k_fifty_nine_unique_plus_one_duplicate_rejected_before_persistence", "result": "PASS", "raw_writer_calls": 0, "state_transition_calls": 0},
+    {"test_id": "test_f3_l_exact_sixty_unique_membership_passes", "result": "PASS", "raw_writer_calls": 1, "state_transition_calls": 1},
+    {"test_id": "test_f3_m_duplicate_tamper_rejected_before_freeze", "result": "PASS", "manifest_created": false, "state_transition_calls": 0},
+    {"test_id": "test_f3_n_duplicate_tamper_rejected_before_gold_load", "result": "PASS", "gold_evaluator_load_allowed": false}
+  ],
+  "status": "PASS",
+  "validation_boundaries": ["BEFORE_RAW_PERSISTENCE", "BEFORE_RAW_FREEZE", "BEFORE_GOLD_EVALUATOR_LOAD"]
+}

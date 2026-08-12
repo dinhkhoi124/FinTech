@@ -1,0 +1,170 @@
+{
+  "schema_version": "4.0",
+  "readiness_revision": 11,
+  "task_id": "W3-002-CR1-EA1",
+  "candidate_revision": 7,
+  "candidate_revision_id": "critical_eval_v2_candidate_revision_7",
+  "candidate_commit": "18a1840f39fef8f07337ff357f7991292389bae9",
+  "readiness_commit_binding": "DEFERRED_TO_SEPARATE_AUTHORIZATION_RECORD",
+  "evaluation_as_of_date": "2026-07-28",
+  "candidate": {
+    "config": "configs/evaluation/critical_eval_v2.json",
+    "manifest": "reports/week_03/results/critical_eval_v2_candidate_manifest.json",
+    "manifest_sha256": "f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef",
+    "pass_a": "data/evaluation/critical_eval_v2_pass_a.jsonl",
+    "pass_a_sha256": "375ad24f0a0a5e4cdd54a5cd199e2336b78fda3e4121c04cf8405b2edad58e46",
+    "model_input_count": 60,
+    "ordered_model_input_hash_pairs_sha256": "78a9dc232cdfb841dd97f5688ac9d0e2aa0473dc9bd05c6e2903ae4a76ab740f"
+  },
+  "semantic_approval": {
+    "path": "reports/week_03/results/critical_eval_v2_revision_7_senior_semantic_approval.json",
+    "sha256": "5084fe09694d52541f80d3a4cf96328874df2acb35d8e16dfcd600271fb8701f",
+    "review_zip_sha256": "c91555a58f77ae845beffa1ff11734a8cc3c47e6d88f87279ba08ffb52bd5109",
+    "cov1_bundle_sha256": "b804fa12a4bc6f12e3852552358a29af9e071e916c92b22959fefc6ff8a629ff"
+  },
+  "option_a_contract": {
+    "path": "configs/evaluation/critical_eval_v2_contract_option_a.json",
+    "sha256": "0bd14c4cf7f5924936c5d5b7c1ece967b5d177f142896ced5eda9199d9f3ef2c"
+  },
+  "runtime_dependencies": {
+    "classifier_config": {"path": "configs/models/banking77_semantic_w1.json", "sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b"},
+    "classifier_parameters": {"path": "artifacts/models/w1-004/semantic_classifier_parameters.json.gz", "sha256": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2"},
+    "classifier": {"id": "semantic_all_minilm_l6_v2", "model_id": "sentence-transformers/all-MiniLM-L6-v2", "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"},
+    "encoder": {"id": "sentence-transformers/all-MiniLM-L6-v2", "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41", "dimension": 384, "normalize_embeddings": true, "device": "cpu"},
+    "retrieval_config": {"path": "configs/retrieval/kb_v1_r0_r1.json", "sha256": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d"},
+    "gate_v1_config": {"path": "configs/generation/grounded_pipeline_v1.json", "sha256": "3d9f7841e42634375fe548f691bdea8fe17535c50cb05d3a005f80290ed78988"},
+    "gate_v2_config": {"path": "configs/generation/grounded_pipeline_v2.json", "sha256": "9319799a704ddbc82e824f7351adc3852672e4b277efea2fc0bc552ef4f518f2"},
+    "variant_config": {"path": "configs/generation/week3_critical_variants_v1.json", "sha256": "6f4f5f33a06d5ea748f5afde482047135c0efd5f7ba381ff3274ec7c7c8bd78d"},
+    "lexicon_config": {"path": "configs/generation/banking_support_lexicon_v2.json", "sha256": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8"},
+    "gate_selection": {"path": "reports/week_03/results/evidence_gate_v2_selection.json", "sha256": "b17cee0c976552d14eec940f9bb81d95bb2ba9731b615295ab6be10313606469"},
+    "kb_config": {"path": "configs/kb/kb_v1.json", "sha256": "d6ff1adc158c41cd6e9c9a418aa22bd2696cd0be80343a174b3f74146f74a909"},
+    "kb_schema": {"path": "configs/kb/kb_document_schema_v1.json", "sha256": "ee9f959cef795b35482db4f0a9868f5981ec8291e3f228d63a289fddeae3dc29"},
+    "kb_dataset": {"path": "data/kb/kb_v1.jsonl", "sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4"}
+  },
+  "invariants": {
+    "approved_effective_filtering": true,
+    "r1_is_soft_boost_only": true,
+    "r1_lambda": 0.15,
+    "top_k": 3,
+    "predicted_intent_usage": "DIAGNOSTIC_ONLY",
+    "gold_fields_forbidden_at_runtime": true
+  },
+  "gate_v2": {"candidate_id": "S0.40_C0.20", "min_top1_score": 0.4, "min_best_sentence_support_coverage": 0.2, "ambiguity_score_gap": 0.03},
+  "generator": {"id": "extractive_evidence_v1", "max_claims": 3, "sentence_overlap_weight": 0.7, "chunk_score_weight": 0.3, "deterministic": true, "external_llm": false},
+  "variants": [
+    {"id": "V0", "retriever": "R0", "retrieval_lambda": null, "response_policy": "EVIDENCE_GATE_V2"},
+    {"id": "V1", "retriever": "R1_SOFT_BOOST_ONLY", "retrieval_lambda": 0.15, "response_policy": "EVIDENCE_GATE_V2"},
+    {"id": "V2", "retriever": "R0", "retrieval_lambda": null, "response_policy": "ALWAYS_ANSWER"}
+  ],
+  "determinism": {"seed": 20260723, "numerical_thread_limit": 1, "variant_order": ["V0", "V1", "V2"], "query_order": "pass_a_file_order", "allowed_run_labels": ["primary", "reproducibility_rerun"]},
+  "schemas": {
+    "raw_output": "configs/evaluation/schemas/critical_eval_v2_raw_output.schema.json",
+    "evaluated_outcome": "configs/evaluation/schemas/critical_eval_v2_evaluation.schema.json",
+    "evaluator_version": "critical_eval_v2_option_a_deterministic_v9",
+    "metric_contract": "configs/evaluation/critical_eval_v2_metric_contract.json",
+    "option_a_contract": "configs/evaluation/critical_eval_v2_contract_option_a.json"
+  },
+  "authorization": {
+    "candidate": "reports/week_03/results/critical_eval_v2_evaluation_authorization_candidate.json",
+    "committed_record": "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+    "required_verdict": "APPROVE_EXECUTION",
+    "evaluation_authorized": false,
+    "topology_spec": "configs/evaluation/critical_eval_v2_authorization_topology.json",
+    "allowed_authorization_commit_paths": [
+      "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+      "PROJECT_STATE.md",
+      "TASKS.md",
+      "reports/week_03/week_03_summary.md",
+      "reports/week_03/daily/2026-08-11.md"
+    ]
+  },
+  "state_machine": {
+    "spec": "configs/evaluation/critical_eval_v2_execution_state_machine.json",
+    "initial_state": "AUTHORIZED",
+    "transitions": [
+      "AUTHORIZED", "PRIMARY_V0_COMPLETE", "PRIMARY_V1_COMPLETE",
+      "PRIMARY_V2_COMPLETE", "PRIMARY_FROZEN", "PRIMARY_EVALUATED",
+      "REPRO_V0_COMPLETE", "REPRO_V1_COMPLETE", "REPRO_V2_COMPLETE",
+      "REPRO_FROZEN", "REPRO_EVALUATED", "REPRO_VERIFIED", "FINALIZED"
+    ]
+  },
+  "safety_evaluator": {
+    "rules": "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+    "rule_version": "critical_eval_v2_option_a_safety_v9",
+    "boundary_rules": "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl",
+    "boundary_rule_version": "critical_eval_v2_option_a_boundary_v1",
+    "obligation_rules": "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+    "obligation_rule_version": "critical_eval_v2_option_a_obligation_alternatives_v7",
+    "obligation_audit": "reports/week_03/results/critical_eval_v2_obligation_sentence_semantic_audit.jsonl",
+    "obligation_semantic_delta": "reports/week_03/results/critical_eval_v2_obligation_revision_7_semantic_delta.json",
+    "source_mapping": "data/evaluation/critical_eval_v2_mapping.jsonl",
+    "disclosure_literal_registry": "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json"
+  },
+  "readiness_outputs": {
+    "environment_manifest": "reports/week_03/results/critical_eval_v2_execution_environment.json",
+    "runtime_payload_manifest": "reports/week_03/results/critical_eval_v2_runtime_payload_manifest.json",
+    "future_command_plan": "reports/week_03/results/critical_eval_v2_future_command_plan.json",
+    "validation": "reports/week_03/results/critical_eval_v2_execution_readiness_validation.json",
+    "runtime_asset_manifest": "reports/week_03/results/critical_eval_v2_runtime_asset_manifest.json",
+    "cover_equivalence": "reports/week_03/results/critical_eval_v2_revision_7_evaluator_cover_equivalence.json",
+    "noncanonical_larger_covers": "reports/week_03/results/critical_eval_v2_revision_7_noncanonical_larger_covers.json",
+    "cov1_safety_regressions": "reports/week_03/results/critical_eval_v2_revision_7_cov1_safety_regressions.json",
+    "senior_safety_regressions": "reports/week_03/results/critical_eval_v2_ea1_revision9_senior_safety_regressions.json",
+    "safety_adversarial_matrix": "reports/week_03/results/critical_eval_v2_revision_9_safety_adversarial_matrix.json",
+    "disclosure_target_classification": "reports/week_03/results/critical_eval_v2_revision_9_disclosure_target_classification.json",
+    "fixture_quality": "reports/week_03/results/critical_eval_v2_revision_9_disclosure_fixture_quality.json",
+    "cross_target_coverage": "reports/week_03/results/critical_eval_v2_revision_9_cross_target_disclosure_coverage.json",
+    "stale_binding_audit": "reports/week_03/results/critical_eval_v2_ea1_revision11_stale_binding_audit.json",
+    "independent_cover_reference": "reports/week_03/results/critical_eval_v2_revision_7_independent_cover_reference.json",
+    "mutation_campaign": "reports/week_03/results/critical_eval_v2_revision_9_readiness_mutation_campaign.json",
+    "reuse_rebind_report": "reports/week_03/results/critical_eval_v2_revision_11_ea1_reuse_rebind_report.json",
+    "final_self_adversarial_review": "reports/week_03/results/critical_eval_v2_revision_9_final_self_adversarial_review.json",
+    "failed_attempts": "reports/week_03/results/critical_eval_v2_revision_11_ea1_failed_attempts.json",
+    "revision_8_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision8_rejection_lineage.json",
+    "revision_10_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision10_lineage.json",
+    "finding_closure": "reports/week_03/results/critical_eval_v2_ea1_revision11_finding_closure.json",
+    "disclosure_guard_results": "reports/week_03/results/critical_eval_v2_ea1_revision10_disclosure_guard_results.json",
+    "provenance_regressions": "reports/week_03/results/critical_eval_v2_ea1_revision11_provenance_regressions.json",
+    "focused_verification": "reports/week_03/results/critical_eval_v2_ea1_revision11_focused_verification.txt"
+  },
+  "runtime_environment": {
+    "manifest": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+    "required_environment": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "pythonhashseed_required": false,
+    "pythonhashseed_rationale": "Runtime payload ordering, stable sorting, serialized hashes, and metric aggregation do not depend on Python hash iteration order.",
+    "torch_thread_contract": "Set OMP_NUM_THREADS=1 and MKL_NUM_THREADS=1 before process launch; the lazy CPU-only torch runtime inherits these limits before import. No post-import torch setting is claimed by this contract."
+  },
+  "abstain_contract": {
+    "response_text": "I do not have enough approved evidence to answer this safely. Please escalate this case to an authorized support or policy owner.",
+    "claim_records": [],
+    "citation_records": [],
+    "cited_evidence_ids": []
+  },
+  "evaluation_outputs": {
+    "execution_state": "reports/week_03/results/critical_eval_v2_execution_state.json",
+    "primary": {
+      "V0_raw": "reports/week_03/results/critical_eval_v2_revision_7_primary_v0_raw_outputs.jsonl",
+      "V1_raw": "reports/week_03/results/critical_eval_v2_revision_7_primary_v1_raw_outputs.jsonl",
+      "V2_raw": "reports/week_03/results/critical_eval_v2_revision_7_primary_v2_raw_outputs.jsonl",
+      "raw_manifest": "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json",
+      "outcomes": "reports/week_03/results/critical_eval_v2_revision_7_primary_outcomes.jsonl",
+      "metrics": "reports/week_03/results/critical_eval_v2_revision_7_primary_metrics.json",
+      "claim_audit": "reports/week_03/results/critical_eval_v2_revision_7_primary_claim_audit.jsonl"
+    },
+    "reproducibility_rerun": {
+      "V0_raw": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v0_raw_outputs.jsonl",
+      "V1_raw": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v1_raw_outputs.jsonl",
+      "V2_raw": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v2_raw_outputs.jsonl",
+      "raw_manifest": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json",
+      "outcomes": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_outcomes.jsonl",
+      "metrics": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_metrics.json",
+      "claim_audit": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_claim_audit.jsonl"
+    },
+    "reproduction_comparison": "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json",
+    "final_summary": "reports/week_03/results/critical_eval_v2_revision_7_final_summary.json"
+  },
+  "lifecycle": {"execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW", "senior_semantic_review_approved": true, "evaluation_authorized": false, "critical_evaluated": false, "model_verdict": "NOT_ESTABLISHED"}
+}

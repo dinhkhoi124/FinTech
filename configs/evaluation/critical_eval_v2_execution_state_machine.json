@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "task_id": "W3-002-CR1-EA1",
+  "readiness_revision": 11,
+  "candidate_revision": 7,
+  "candidate_commit": "18a1840f39fef8f07337ff357f7991292389bae9",
+  "candidate_manifest_sha256": "f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef",
+  "initial_state": "AUTHORIZED",
+  "terminal_state": "FINALIZED",
+  "transitions": [
+    {"from": "AUTHORIZED", "action": "run-primary-V0", "to": "PRIMARY_V0_COMPLETE"},
+    {"from": "PRIMARY_V0_COMPLETE", "action": "run-primary-V1", "to": "PRIMARY_V1_COMPLETE"},
+    {"from": "PRIMARY_V1_COMPLETE", "action": "run-primary-V2", "to": "PRIMARY_V2_COMPLETE"},
+    {"from": "PRIMARY_V2_COMPLETE", "action": "freeze-primary", "to": "PRIMARY_FROZEN"},
+    {"from": "PRIMARY_FROZEN", "action": "evaluate-primary", "to": "PRIMARY_EVALUATED"},
+    {"from": "PRIMARY_EVALUATED", "action": "run-repro-V0", "to": "REPRO_V0_COMPLETE"},
+    {"from": "REPRO_V0_COMPLETE", "action": "run-repro-V1", "to": "REPRO_V1_COMPLETE"},
+    {"from": "REPRO_V1_COMPLETE", "action": "run-repro-V2", "to": "REPRO_V2_COMPLETE"},
+    {"from": "REPRO_V2_COMPLETE", "action": "freeze-repro", "to": "REPRO_FROZEN"},
+    {"from": "REPRO_FROZEN", "action": "evaluate-repro", "to": "REPRO_EVALUATED"},
+    {"from": "REPRO_EVALUATED", "action": "verify-reproducibility", "to": "REPRO_VERIFIED"},
+    {"from": "REPRO_VERIFIED", "action": "finalize", "to": "FINALIZED"}
+  ],
+  "guards": [
+    "valid_committed_authorization", "expected_prior_state",
+    "direct_input_hashes_match", "target_absent", "no_overwrite"
+  ]
+}

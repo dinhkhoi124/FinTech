@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "payresolve://critical_eval_v2/raw_output/v1",
+  "title": "Critical evaluation v2 raw runtime output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "execution_id", "run_label", "variant_id", "query_id",
+    "model_input_sha256", "classifier_prediction", "retrieval_strategy",
+    "retrieved_evidence", "gate_inputs", "gate_decision", "response",
+    "observed_response_type", "observed_answer_subtype_candidate",
+    "cited_evidence_ids", "citation_records", "claim_records",
+    "eligible_evidence_records", "latency_ms",
+    "determinism", "execution_environment_reference",
+    "execution_environment_sha256", "system_error"
+  ],
+  "properties": {
+    "execution_id": {"type": "string", "minLength": 1},
+    "run_label": {"enum": ["primary", "reproducibility_rerun"]},
+    "variant_id": {"enum": ["V0", "V1", "V2"]},
+    "query_id": {"type": "string", "minLength": 1},
+    "model_input_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "classifier_prediction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predicted_intent", "top_k"],
+      "properties": {
+        "predicted_intent": {"type": "string"},
+        "top_k": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "retrieval_strategy": {"enum": ["R0", "R1_SOFT_BOOST_ONLY"]},
+    "retrieved_evidence": {"type": "array", "items": {"type": "object"}},
+    "gate_inputs": {"type": "object"},
+    "gate_decision": {"type": "object"},
+    "response": {"type": "string"},
+    "observed_response_type": {"enum": ["ANSWER", "ABSTAIN_ESCALATE", "SYSTEM_ERROR"]},
+    "observed_answer_subtype_candidate": {"type": "null"},
+    "cited_evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "citation_records": {"type": "array", "items": {"type": "object"}},
+    "claim_records": {"type": "array", "items": {"type": "object"}},
+    "eligible_evidence_records": {"type": "array", "items": {"type": "object"}},
+    "latency_ms": {"type": "object"},
+    "determinism": {"type": "object"},
+    "execution_environment_reference": {"type": "string"},
+    "execution_environment_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "system_error": {"type": ["object", "null"]}
+  }
+}

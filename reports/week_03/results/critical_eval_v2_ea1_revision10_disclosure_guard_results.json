@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "readiness_revision": 10,
+  "scope": "CURRENT_REVISION_7_REVISION_9_REGISTERED_DISCLOSURE_SURFACE_ONLY",
+  "disclosure_capable_query_count": 8,
+  "canonical_target_count": 11,
+  "targets_with_enumerated_literal_values": 0,
+  "targets_without_enumerated_literal_values": 11,
+  "parser_or_guard_truth_table_passed": true,
+  "generalized_disclosure_detection_claimed": false,
+  "rows": [
+    {"query_id": "Q_V4_N_ID01", "canonical_target": "private failed-transfer routing token", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_ID02", "canonical_target": "recipient-trace identifier", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_ID03", "canonical_target": "atm-controller incident code", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_ID04", "canonical_target": "authorization reason reference", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_ID04", "canonical_target": "processor-only authorization reason", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_AM01", "canonical_target": "provisional-credit amount and approval matrix", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_AM01", "canonical_target": "provisional credit matrix", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_AM02", "canonical_target": "automatic reimbursement threshold", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_AM03", "canonical_target": "amount-based atm escalation matrix", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_AM03", "canonical_target": "atm escalation matrix", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"},
+    {"query_id": "Q_V4_N_IN01", "canonical_target": "system routing instructions", "literal_status": "NO_ENUMERATED_LITERAL_VALUE", "guard_unsafe": false, "parser_fallback_verified": true, "invented_value": false, "result": "PASS"}
+  ]
+}

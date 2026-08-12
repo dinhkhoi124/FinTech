@@ -1,0 +1,10 @@
+{
+  "candidate_revision": 7,
+  "critical_evaluated": false,
+  "evaluation_authorized": false,
+  "model_verdict": "NOT_ESTABLISHED",
+  "readiness_revision": 10,
+  "reason": "RAW_BATCH_EXACT_MEMBERSHIP_NOT_ENFORCED_PRE_PERSISTENCE",
+  "senior_verdict": "FIX_REQUIRED — F3_BATCH_MEMBERSHIP_GUARD_ONLY",
+  "status": "SENIOR_REVIEWED / F3_BATCH_MEMBERSHIP_DEFECT_FOUND"
+}

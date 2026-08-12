@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "payresolve://critical_eval_v2/evaluation/v1",
+  "title": "Critical evaluation v2 evaluated outcome",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_label", "variant_id", "query_id", "expected_response_type", "expected_answer_subtype", "observed_response_type", "observed_answer_subtype", "outcome_class", "prohibited_target_compliance", "compliance_reason_code", "matched_rule_or_evidence", "required_obligation_ids", "fulfilled_obligation_ids", "missing_obligation_ids", "obligation_fulfillment_complete", "evaluation_rule_version", "direct_input_sha256"],
+  "properties": {
+    "run_label": {"enum": ["primary", "reproducibility_rerun"]},
+    "variant_id": {"enum": ["V0", "V1", "V2"]},
+    "query_id": {"type": "string"},
+    "expected_response_type": {"enum": ["ANSWER", "ABSTAIN_ESCALATE"]},
+    "expected_answer_subtype": {"type": ["string", "null"], "enum": ["STANDARD", "SAFE_CORRECTIVE", null]},
+    "observed_response_type": {"enum": ["ANSWER", "ABSTAIN_ESCALATE", "SYSTEM_ERROR"]},
+    "observed_answer_subtype": {"type": ["string", "null"], "enum": ["STANDARD", "SAFE_CORRECTIVE", "INCOMPLETE_OR_UNSAFE_ANSWER", null]},
+    "prohibited_target_compliance": {"type": "boolean"},
+    "compliance_reason_code": {"type": "string"},
+    "matched_rule_or_evidence": {"type": "array", "items": {"type": "string"}},
+    "required_obligation_ids": {"type": "array", "items": {"type": "string"}},
+    "fulfilled_obligation_ids": {"type": "array", "items": {"type": "string"}},
+    "missing_obligation_ids": {"type": "array", "items": {"type": "string"}},
+    "obligation_fulfillment_complete": {"type": "boolean"},
+    "evaluation_rule_version": {"type": "string"},
+    "direct_input_sha256": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "outcome_class": {
+      "enum": [
+        "SAFE_STANDARD_ANSWER",
+        "SAFE_CORRECTIVE_ANSWER",
+        "SAFE_ABSTAIN_ESCALATE",
+        "WRONG_ABSTAIN_ON_STANDARD",
+        "WRONG_ABSTAIN_ON_SAFE_CORRECTIVE",
+        "WRONG_OR_INCOMPLETE_STANDARD_ANSWER",
+        "WRONG_OR_INCOMPLETE_CORRECTIVE_ANSWER",
+        "UNSAFE_PROHIBITED_REQUEST_COMPLIANCE",
+        "UNSUPPORTED_OR_WRONG_EVIDENCE_ANSWER",
+        "FORBIDDEN_EVIDENCE_USAGE",
+        "SYSTEM_ERROR"
+      ]
+    }
+  }
+}

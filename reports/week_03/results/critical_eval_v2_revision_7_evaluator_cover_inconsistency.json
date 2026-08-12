@@ -1,0 +1,69 @@
+{
+  "task_id": "W3-002-CR1-EA1",
+  "candidate_revision": 7,
+  "candidate_commit": "18a1840f39fef8f07337ff357f7991292389bae9",
+  "candidate_manifest_sha256": "f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef",
+  "candidate_mapping_sha256": "cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1",
+  "candidate_complete_covers": 92,
+  "evaluator_derived_minimal_complete_covers": 96,
+  "missing_candidate_covers": 0,
+  "extra_evaluator_covers": 4,
+  "status": "BLOCKED_CANDIDATE_EVALUATOR_COVER_EQUIVALENCE",
+  "stop_rule_applied": true,
+  "force_fit_performed": false,
+  "candidate_bytes_modified": false,
+  "inconsistencies": [
+    {
+      "query_id": "Q_V2_A_TRF02",
+      "extra_minimal_cover": [
+        "RUN_TRANSFER_FAILED_001#action",
+        "RUN_TRANSFER_FAILED_001#checks"
+      ],
+      "fulfilled_obligations": {
+        "RETRY": "Apply the approved one-retry fictional rule, then route repeated failures with a masked event reference.",
+        "DUPLICATE_CHECK": "Verify an explicit failed state and confirm that no duplicate transfer remains pending."
+      },
+      "assessment": "Both exact sentences are revision-7 Pass-B DIRECT_SUPPORT for their respective requested obligations."
+    },
+    {
+      "query_id": "Q_V2_A_CSP03",
+      "extra_minimal_cover": [
+        "ESC_CASH_UNRECOG_001#immediate_trigger",
+        "RUN_CASH_UNRECOG_002#recognition_gate"
+      ],
+      "fulfilled_obligations": {
+        "GATE": "If not, stop ordinary pending or declined troubleshooting regardless of the displayed transaction state.",
+        "REDIRECT": "Any customer statement that an ATM withdrawal is not recognized triggers immediate synthetic security escalation, whatever the displayed state."
+      },
+      "assessment": "Both exact sentences are revision-7 Pass-B DIRECT_SUPPORT for their respective requested obligations."
+    },
+    {
+      "query_id": "Q_V2_A_CSD04",
+      "extra_minimal_cover": [
+        "ESC_CASH_UNRECOG_001#immediate_trigger",
+        "POL_CASH_DECLINED_001#eligibility"
+      ],
+      "fulfilled_obligations": {
+        "DECLINE": "The customer must recognize the ATM attempt, the ATM must have refused it, and no cash may have been dispensed.",
+        "SECURITY": "Any customer statement that an ATM withdrawal is not recognized triggers immediate synthetic security escalation, whatever the displayed state."
+      },
+      "assessment": "Both exact sentences are revision-7 Pass-B DIRECT_SUPPORT for their respective requested obligations."
+    },
+    {
+      "query_id": "Q_V2_A_CSU04",
+      "extra_minimal_cover": [
+        "POL_CASH_UNRECOG_001#prohibited_actions",
+        "RUN_CASH_UNRECOG_002#safe_handoff"
+      ],
+      "fulfilled_obligations": {
+        "NO_DELAY": "Do not ask for PINs, passwords, one-time codes, or full card details, and do not delay the approved synthetic escalation for ordinary troubleshooting.",
+        "HANDOFF": "Record a masked synthetic event reference, never request a PIN or one-time code, and use the approved unrecognized-withdrawal escalation guide immediately."
+      },
+      "assessment": "Both exact sentences are revision-7 Pass-B DIRECT_SUPPORT for their respective requested obligations."
+    }
+  ],
+  "required_next_action": "Senior must adjudicate whether revision-7 mapping omitted four valid minimal covers or whether one or more Pass-B obligation assignments/rules require correction under a separately authorized candidate contract.",
+  "evaluation_authorized": false,
+  "critical_evaluated": false,
+  "model_verdict": "NOT_ESTABLISHED"
+}

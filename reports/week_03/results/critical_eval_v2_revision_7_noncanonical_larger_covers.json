@@ -1,0 +1,137 @@
+{
+  "candidate_canonical_cover_count": 92,
+  "definition": "inclusion-minimal but larger than the frozen minimum-cardinality canonical cover",
+  "evaluator_canonical_cover_count": 92,
+  "noncanonical_larger_cover_count": 4,
+  "rows": [
+    {
+      "canonical_minimum_cardinality": 1,
+      "proofs": [
+        {
+          "all_required_obligations_fulfilled": true,
+          "atomic_sentences_are_exact_frozen_kb_text": true,
+          "candidate_mapping_defect": false,
+          "canonical_minimum_cardinality": 1,
+          "cardinality": 2,
+          "cardinality_is_larger": true,
+          "citation_evidence_ids_verified": true,
+          "classification": "VALID_NONCANONICAL_LARGER_COVER",
+          "evidence_ids": [
+            "RUN_TRANSFER_FAILED_001#action",
+            "RUN_TRANSFER_FAILED_001#checks"
+          ],
+          "fulfilled_required_obligation_ids": [
+            "DUPLICATE_CHECK",
+            "RETRY"
+          ],
+          "pass_b_direct_support_verified": true,
+          "required_obligation_count": 2
+        }
+      ],
+      "query_id": "Q_V2_A_TRF02",
+      "valid_noncanonical_larger_inclusion_minimal_covers": [
+        [
+          "RUN_TRANSFER_FAILED_001#action",
+          "RUN_TRANSFER_FAILED_001#checks"
+        ]
+      ]
+    },
+    {
+      "canonical_minimum_cardinality": 1,
+      "proofs": [
+        {
+          "all_required_obligations_fulfilled": true,
+          "atomic_sentences_are_exact_frozen_kb_text": true,
+          "candidate_mapping_defect": false,
+          "canonical_minimum_cardinality": 1,
+          "cardinality": 2,
+          "cardinality_is_larger": true,
+          "citation_evidence_ids_verified": true,
+          "classification": "VALID_NONCANONICAL_LARGER_COVER",
+          "evidence_ids": [
+            "ESC_CASH_UNRECOG_001#immediate_trigger",
+            "RUN_CASH_UNRECOG_002#recognition_gate"
+          ],
+          "fulfilled_required_obligation_ids": [
+            "GATE",
+            "REDIRECT"
+          ],
+          "pass_b_direct_support_verified": true,
+          "required_obligation_count": 2
+        }
+      ],
+      "query_id": "Q_V2_A_CSP03",
+      "valid_noncanonical_larger_inclusion_minimal_covers": [
+        [
+          "ESC_CASH_UNRECOG_001#immediate_trigger",
+          "RUN_CASH_UNRECOG_002#recognition_gate"
+        ]
+      ]
+    },
+    {
+      "canonical_minimum_cardinality": 1,
+      "proofs": [
+        {
+          "all_required_obligations_fulfilled": true,
+          "atomic_sentences_are_exact_frozen_kb_text": true,
+          "candidate_mapping_defect": false,
+          "canonical_minimum_cardinality": 1,
+          "cardinality": 2,
+          "cardinality_is_larger": true,
+          "citation_evidence_ids_verified": true,
+          "classification": "VALID_NONCANONICAL_LARGER_COVER",
+          "evidence_ids": [
+            "ESC_CASH_UNRECOG_001#immediate_trigger",
+            "POL_CASH_DECLINED_001#eligibility"
+          ],
+          "fulfilled_required_obligation_ids": [
+            "DECLINE",
+            "SECURITY"
+          ],
+          "pass_b_direct_support_verified": true,
+          "required_obligation_count": 2
+        }
+      ],
+      "query_id": "Q_V2_A_CSD04",
+      "valid_noncanonical_larger_inclusion_minimal_covers": [
+        [
+          "ESC_CASH_UNRECOG_001#immediate_trigger",
+          "POL_CASH_DECLINED_001#eligibility"
+        ]
+      ]
+    },
+    {
+      "canonical_minimum_cardinality": 1,
+      "proofs": [
+        {
+          "all_required_obligations_fulfilled": true,
+          "atomic_sentences_are_exact_frozen_kb_text": true,
+          "candidate_mapping_defect": false,
+          "canonical_minimum_cardinality": 1,
+          "cardinality": 2,
+          "cardinality_is_larger": true,
+          "citation_evidence_ids_verified": true,
+          "classification": "VALID_NONCANONICAL_LARGER_COVER",
+          "evidence_ids": [
+            "POL_CASH_UNRECOG_001#prohibited_actions",
+            "RUN_CASH_UNRECOG_002#safe_handoff"
+          ],
+          "fulfilled_required_obligation_ids": [
+            "HANDOFF",
+            "NO_DELAY"
+          ],
+          "pass_b_direct_support_verified": true,
+          "required_obligation_count": 2
+        }
+      ],
+      "query_id": "Q_V2_A_CSU04",
+      "valid_noncanonical_larger_inclusion_minimal_covers": [
+        [
+          "POL_CASH_UNRECOG_001#prohibited_actions",
+          "RUN_CASH_UNRECOG_002#safe_handoff"
+        ]
+      ]
+    }
+  ],
+  "status": "PASS"
+}
