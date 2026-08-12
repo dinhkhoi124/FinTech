@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 remains frozen/Senior-approved; EA1 readiness revision 9 closes disclosure-target coverage and fixture-construction gaps and awaits separate Senior authorization review | BLOCKED / AWAITING SENIOR AUTHORIZATION REVIEW |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 and EA1 Revision 12 are committed/pushed; authorization is approved for primary execution pending independent committed-topology verification | BLOCKED / AUTHORIZED FOR PRIMARY EXECUTION |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -545,7 +545,8 @@ and Week 4 remain blocked.
   `reports/week_03/daily/2026-08-11.md` to
   `reports/week_03/daily/2026-08-12.md`.
 - **Priority:** P0.
-- **Status:** `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW`.
+- **Status:** `SENIOR EXECUTION READINESS APPROVED / COMMITTED / PUSHED` as R2
+  `cec29477e3c75d132b54f787ba602a0a1b33f578`.
 - **Reason:** `AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER`.
 - **Candidate Revision 7:** `FROZEN / SENIOR SEMANTIC APPROVED / COMMITTED /
   PUSHED`; no Candidate Revision 8/9/10/11/12 exists.
@@ -558,9 +559,25 @@ and Week 4 remain blocked.
 - **Lifecycle:** `evaluation_authorized=false`, `critical_evaluated=false`,
   `model_verdict=NOT_ESTABLISHED`; Week 3 is `BLOCKED / IN PROGRESS`; Week 4 is
   `BLOCKED / NOT STARTED`.
-- **Next:** separate Senior review and, only if approved, a readiness-amendment
-  commit `R2`. Authorization commit A remains a later separate task with
+- **Next:** review the separately authored exact five-file authorization commit
+  A candidate. Any real A commit remains a separate task and must satisfy
   `parent(A)=R2`.
+
+## W3-002-CR1-EA1-AUTH-A — Week 3 P0
+
+- **Description:** authorize exact Candidate Revision-7 and EA1 Revision-12
+  committed execution bytes through separate commit A.
+- **Priority:** P0.
+- **R2:** `cec29477e3c75d132b54f787ba602a0a1b33f578`; EA1 Revision 12 is
+  `SENIOR EXECUTION READINESS APPROVED / COMMITTED / PUSHED`.
+- **Exact authorization scope:** authorization record, `PROJECT_STATE.md`, `TASKS.md`,
+  Week-3 summary, and `daily/2026-08-12.md` only.
+- **Authorization:** `AUTHORIZED_FOR_PRIMARY_EXECUTION`;
+  `evaluation_authorized=true`, `critical_evaluated=false`, and
+  `model_verdict=NOT_ESTABLISHED`.
+- **Boundary:** do not mark W3-002-CR1 done. Primary execution must wait for
+  Senior to independently verify committed `HEAD=A` and `HEAD^=R2`; no inference
+  or critical evaluation has occurred.
 
 ### Deferred — Hybrid / structured disclosure hardening
 

@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: W3-002-CR1-EA1 readiness revision 12 — FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW
-- Next task: independent Senior review of the narrow Revision-12 authorization-date topology bundle; evaluation remains unauthorized
+- Active task: none — authorization is AUTHORIZED_FOR_PRIMARY_EXECUTION; primary execution has not started
+- Next task: Senior independently verifies committed topology `HEAD=A` and `HEAD^=R2` before primary V0/V1/V2 execution
 - Last updated: 2026-08-12 by Codex
 
 ## Active objective
@@ -84,6 +84,7 @@ authoring contract was the sole authorization for revision 5, while the Senior
 - EA1 readiness revision 7: REJECTED_BY_SENIOR / SAFETY_AND_AUTHORIZATION_HARDENING_REQUIRED
 - EA1 readiness revision 8: REJECTED_BY_SENIOR / DISCLOSURE_TARGET_COVERAGE_INCOMPLETE / ADVERSARIAL_FIXTURE_TARGET_CONSTRUCTION_INVALID
 - EA1 readiness revision 9: FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_AUTHORIZATION_REVIEW
+- EA1 readiness revision 12: SENIOR EXECUTION READINESS APPROVED / COMMITTED / PUSHED
 - Candidate package: FROZEN / STRUCTURAL ONLY
 - Candidate bytes frozen: true
 - Structural integrity verified: true
@@ -91,11 +92,11 @@ authoring contract was the sole authorization for revision 5, while the Senior
 - Pre-evaluation integrity scope: STRUCTURAL_ONLY_SEMANTIC_APPROVAL_PENDING
 - Candidate manifest SHA-256: `f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef`
 - Senior semantic review approved: true for candidate revision 7 via separate Senior record
-- Evaluation authorized: false
+- Evaluation authorized: true for the exact committed Candidate Revision-7 and reviewed R2 execution bytes
 - Critical evaluated: false
 - Model/pipeline verdict: NOT ESTABLISHED
 - `senior_semantic_review_approved=true`
-- `evaluation_authorized=false`
+- `evaluation_authorized=true`
 - `critical_evaluated=false`
 - `model_verdict=NOT_ESTABLISHED`
 - Week 3 P0: BLOCKED / IN PROGRESS
@@ -523,8 +524,9 @@ not candidate semantic approval.
 - **EA1 Revision 11:** `SENIOR_EXECUTION_READINESS_APPROVED / COMMITTED /
   PUSHED / SUPERSEDED_ONLY_BY_AUTHORIZATION_DATE_TOPOLOGY_AMENDMENT` at
   readiness commit `c7bc68bbef51684f6ff4ab7a672ca78af4cbbadd`; it is not rejected.
-- **EA1 Revision 12:** `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW`;
-  reason `AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER`.
+- **EA1 Revision 12:** `SENIOR EXECUTION READINESS APPROVED / COMMITTED /
+  PUSHED` as R2 `cec29477e3c75d132b54f787ba602a0a1b33f578`; reason
+  `AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER`.
 - **Exact future A allowlist:** authorization record, `PROJECT_STATE.md`,
   `TASKS.md`, Week-3 summary, and `daily/2026-08-12.md` only. The prior
   `daily/2026-08-11.md` path is rejected for A.
@@ -533,9 +535,30 @@ not candidate semantic approval.
 - **Lifecycle:** `evaluation_authorized=false`, `critical_evaluated=false`,
   `model_verdict=NOT_ESTABLISHED`; Week 3 remains `BLOCKED / IN PROGRESS` and
   Week 4 remains `BLOCKED / NOT STARTED`.
-- **Forbidden work not performed:** no authorization record A, model/encoder
-  loading, retrieval, generation, inference, critical evaluation, staging,
-  commit, or push.
+- **Forbidden work not performed during Revision 12:** no authorization record
+  A, model/encoder loading, retrieval, generation, inference, or critical
+  evaluation.
+
+## W3-002-CR1-EA1 authorization commit A — 2026-08-12
+
+- **Task:** `W3-002-CR1-EA1-AUTH-A` (Week 3, P0), limited to the exact
+  five-file authorization transition.
+- **Candidate Revision 7:** `FROZEN / SENIOR SEMANTIC APPROVED / COMMITTED /
+  PUSHED`; Candidate manifest, mapping, and Pass-B bytes remain unchanged.
+- **EA1 Revision 12:** `SENIOR EXECUTION READINESS APPROVED / COMMITTED /
+  PUSHED` as R2 `cec29477e3c75d132b54f787ba602a0a1b33f578`.
+- **Authorization scope:**
+  `EXACT_COMMITTED_CANDIDATE_AND_REVIEWED_EXECUTION_BYTES_ONLY`; Senior verdict
+  `APPROVE_EXECUTION`.
+- **Authorization:** `AUTHORIZED_FOR_PRIMARY_EXECUTION` with
+  `evaluation_authorized=true`.
+- **Lifecycle:** `critical_evaluated=false`, `model_verdict=NOT_ESTABLISHED`;
+  Week 3 remains `BLOCKED / IN PROGRESS` and Week 4 remains `BLOCKED / NOT
+  STARTED`.
+- **Execution boundary:** primary execution must not start until Senior
+  independently verifies the committed topology `HEAD=A` and `HEAD^=R2`. No
+  model/encoder loading, retrieval, generation, inference, V0/V1/V2,
+  gold/evaluator loading, or critical evaluation has occurred.
 
 ## Handoff note
 Week 1 is complete and defensible. The exact semantic model/config above is frozen

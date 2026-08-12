@@ -437,10 +437,28 @@ future authorization allowlist froze the daily report at 2026-08-11. Revision
 readiness metadata, updates exact topology tests, and mechanically rebinds
 dependent hashes. F1/F2/F3 and Candidate Revision 7 semantics remain unchanged.
 
-Revision 12 is `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW`.
+Revision 12 is `SENIOR EXECUTION READINESS APPROVED / COMMITTED / PUSHED` as R2
+`cec29477e3c75d132b54f787ba602a0a1b33f578`. At committed R2,
 `evaluation_authorized=false`, `critical_evaluated=false`, and
 `model_verdict=NOT_ESTABLISHED`; Week 3 remains `BLOCKED / IN PROGRESS` and
 Week 4 remains `BLOCKED / NOT STARTED`.
+
+## W3-002-CR1-EA1 authorization A
+
+Candidate Revision 7 remains frozen, Senior semantic approved, committed, and
+pushed without byte changes. EA1 Revision 12 is Senior execution-readiness
+approved, committed, and pushed as R2
+`cec29477e3c75d132b54f787ba602a0a1b33f578`.
+
+Authorization is `AUTHORIZED_FOR_PRIMARY_EXECUTION` and binds only committed
+Candidate Revision-7 and reviewed R2 execution bytes under
+`EXACT_COMMITTED_CANDIDATE_AND_REVIEWED_EXECUTION_BYTES_ONLY`.
+`evaluation_authorized=true`, while `critical_evaluated=false` and
+`model_verdict=NOT_ESTABLISHED`. No critical execution or V0/V1/V2 metrics exist.
+
+Primary execution must not start until Senior independently verifies the
+committed topology `HEAD=A` and `HEAD^=R2`. Week 3 remains `BLOCKED / IN
+PROGRESS`; Week 4 remains `BLOCKED / NOT STARTED`.
 
 ## W3-002-CR1-EA1 readiness revision-8 hardening — 2026-08-11
 
