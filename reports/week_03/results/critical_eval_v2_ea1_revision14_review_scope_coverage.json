@@ -1,0 +1,578 @@
+{
+  "dirty_path_count": 133,
+  "r14_task_owned_count": 36,
+  "r14_task_owned_paths": [
+    "PROJECT_STATE.md",
+    "TASKS.md",
+    "configs/evaluation/critical_eval_v2_authorization_topology.json",
+    "configs/evaluation/critical_eval_v2_execution.json",
+    "configs/evaluation/critical_eval_v2_execution_state_machine.json",
+    "configs/evaluation/critical_eval_v2_metric_contract.json",
+    "docs/evaluation/W3-002-CR1-EA1_execution_readiness.md",
+    "reports/week_03/daily/2026-08-13.md",
+    "reports/week_03/experiments/W3-002-CR1-EA1_execution_readiness.md",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_active_control_plane_absence.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_authorization_field_enforcement.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_environment_recheck.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_exact_five_topology_enforcement.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_hash_rebinding.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_offline_encoder_probe.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_review_scope_coverage.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_synthetic_authorization.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_verification_summary.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_verifier_gap_lineage.json",
+    "reports/week_03/results/critical_eval_v2_evaluation_authorization_candidate.json",
+    "reports/week_03/results/critical_eval_v2_execution_environment.json",
+    "reports/week_03/results/critical_eval_v2_execution_readiness_validation.json",
+    "reports/week_03/results/critical_eval_v2_future_command_plan.json",
+    "reports/week_03/results/critical_eval_v2_runtime_asset_manifest.json",
+    "reports/week_03/results/critical_eval_v2_runtime_payload_manifest.json",
+    "reports/week_03/week_03_summary.md",
+    "scripts/evaluation/build_critical_v2_ea1_revision14_review_bundle.py",
+    "scripts/evaluation/prepare_critical_v2_ea1_revision14_evidence.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision14_bundle.py",
+    "src/payresolve_ai/evaluation/critical_v2_execution.py",
+    "tests/test_critical_v2_auth_date_closure.py",
+    "tests/test_critical_v2_binding_fix.py",
+    "tests/test_critical_v2_execution_readiness.py",
+    "tests/test_critical_v2_execution_revision13.py",
+    "tests/test_critical_v2_execution_revision14.py"
+  ],
+  "rows": [
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": ".gitignore"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "AGENTS.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "ANTIGRAVITY_BOOTSTRAP_PROMPT.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "CHATGPT_SUCCESSION_PROMPT.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "CODEX_BOOTSTRAP_PROMPT.md"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "PROJECT_STATE.md"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "TASKS.md"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "configs/evaluation/critical_eval_v2_authorization_topology.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "configs/evaluation/critical_eval_v2_execution.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "configs/evaluation/critical_eval_v2_execution_state_machine.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "configs/evaluation/critical_eval_v2_metric_contract.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "docs/evaluation/W3-002-CR1-EA1_execution_readiness.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/00_PRODUCT_V2_INDEX.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/01_PRODUCT_SCOPE.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/02_CURRENT_STATE_AND_TRANSITION.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/03_TARGET_ARCHITECTURE.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/04_DELIVERY_PLAN_2026-08-05_TO_2026-08-26.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/05_TASK_BOARD.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/06_API_AND_RESPONSE_CONTRACT.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/07_DATA_RELEASE_AND_AUDIT_CONTRACT.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/08_EXECUTION_RULES_FOR_AGENTS.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/09_AGENT_OWNERSHIP_AND_WORKSTREAMS.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/10_TEST_AND_RELEASE_GATES.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/11_REPORTING_AND_HANDOFF.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/12_DECISIONS_AND_OPEN_QUESTIONS.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "docs/product_v2/13_IMPLEMENTATION_ADDENDUM.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "outputs/mentor-sprint-2026-07-30/Sprint_Final_PayResolve.xlsx"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "outputs/mentor-sprint-2026-07-30/Sprint_Final_PayResolve.xlsx.inspect.ndjson"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Presentation.html"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Presentation_REVISED.html"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Presentation_REVISED_V2.html"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Presentation_VISUAL_METHODS_V3.html"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Presentation_VISUAL_METHODS_V4.html"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Presentation_VISUAL_METHODS_V5.html"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Progress_Report.pptx"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/PayResolve_AI_Sprint3_Slides.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/README.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_01_project_progress.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_classification.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_confusion_pairs.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_gate.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_kb_status.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_kb_types.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_paired_outcomes.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_perclass_delta.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_perclass_summary.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_retrieval.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/data/chart_data_retrieval_paired.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/mentor_visuals_index.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/00_executive_dashboard.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/01_project_progress_snapshot.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/02_intent_classification_benchmark.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/03_classification_paired_outcomes.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/04_per_class_f1_impact.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/05_synthetic_kb_composition.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/06_retrieval_r0_vs_r1.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/07_retrieval_win_loss_tie.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/08_evidence_gate_evolution.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/09_mapping_audit_and_adjudication.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/10_safety_invariant_scorecard.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/A01_per_class_f1_delta.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/png/A03_top_confusion_pairs.png"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/reporting/__init__.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/reporting/extract_report_metrics.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/reporting/generate_report_visuals.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/reporting/style_config.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/reporting/validate_report_metrics.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/sprint_workbook_correction_note.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/00_executive_dashboard.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/01_project_progress_snapshot.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/02_intent_classification_benchmark.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/03_classification_paired_outcomes.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/04_per_class_f1_impact.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/05_synthetic_kb_composition.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/06_retrieval_r0_vs_r1.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/07_retrieval_win_loss_tie.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/08_evidence_gate_evolution.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/09_mapping_audit_and_adjudication.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/10_safety_invariant_scorecard.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/A01_per_class_f1_delta.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/svg/A03_top_confusion_pairs.svg"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/visuals_metric_provenance.csv"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/visuals_metric_provenance.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_progress_visuals/visuals_validation_report.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/mentor_sprint_report_2026-07-30.md"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/daily/2026-08-13.md"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/experiments/W3-002-CR1-EA1_execution_readiness.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_drift_stop.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_active_control_plane_absence.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_authorization_field_enforcement.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_environment_recheck.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_exact_five_topology_enforcement.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_hash_rebinding.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_offline_encoder_probe.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_review_scope_coverage.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_synthetic_authorization.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_verification_summary.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision14_verifier_gap_lineage.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_ea1_revision7_stale_binding_audit.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_evaluation_authorization_candidate.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_execution_environment.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_execution_readiness_validation.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_future_command_plan.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_revision_4_corrections.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_revision_5_corrections.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_revision_7_ea1_failed_attempts.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_revision_7_ea1_reuse_rebind_report.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_revision_7_final_self_adversarial_review.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_revision_7_readiness_mutation_campaign.json"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "reports/week_03/results/critical_eval_v2_revision_7_safety_adversarial_matrix.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_runtime_asset_manifest.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/results/critical_eval_v2_runtime_payload_manifest.json"
+    },
+    {
+      "category": "PRESERVED_INCIDENT_HISTORY_EXCLUDE",
+      "path": "reports/week_03/results/incident_history/w3-002-cr1-ea1-a12-e1/critical_eval_v2_execution_state.json"
+    },
+    {
+      "category": "PRESERVED_INCIDENT_HISTORY_EXCLUDE",
+      "path": "reports/week_03/results/incident_history/w3-002-cr1-ea1-a12-e1/critical_eval_v2_runtime_execution_environment.json"
+    },
+    {
+      "category": "PRESERVED_INCIDENT_HISTORY_EXCLUDE",
+      "path": "reports/week_03/results/incident_history/w3-002-cr1-ea1-a12-e1/preauthorization_reset_receipt.json"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "reports/week_03/week_03_summary.md"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "review/build_revision_7_commit_review_bundle.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "review/exact_commit_pathspec.txt"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "review/exact_revision_7_commit_pathspec.txt"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "review/verify_revision_7_commit_review_bundle.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "scripts/evaluation/build_critical_v2_ea1_revision14_review_bundle.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "scripts/evaluation/prepare_critical_v2_ea1_revision14_evidence.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "scripts/evaluation/verify_critical_v2_ea1_revision14_bundle.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "scripts/generate_slide_deck.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "tests/test_critical_v2_auth_date_closure.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "tests/test_critical_v2_binding_fix.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "tests/test_critical_v2_execution_readiness.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "tests/test_critical_v2_execution_revision13.py"
+    },
+    {
+      "category": "R14_TASK_OWNED_REVIEWED",
+      "path": "tests/test_critical_v2_execution_revision14.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "tests/test_reporting/__init__.py"
+    },
+    {
+      "category": "USER_OWNED_EXCLUDE",
+      "path": "tests/test_reporting/test_extraction.py"
+    }
+  ],
+  "status": "PASS",
+  "unclassified_path_count": 0
+}

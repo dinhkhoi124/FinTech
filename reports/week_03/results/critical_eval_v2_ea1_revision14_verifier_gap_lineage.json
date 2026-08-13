@@ -1,0 +1,12 @@
+{
+  "a13_created": false,
+  "future_authorization": "A14",
+  "gaps": [
+    "FINAL_AUTHORIZATION_LIFECYCLE_FIELDS_NOT_COMPLETE",
+    "AUTHORIZATION_COMMIT_SUBSET_ACCEPTED"
+  ],
+  "r13_commit": "5d862e708f972b2fa73403fef390f2ac7b432435",
+  "readiness_revision": 14,
+  "reason": "PRODUCTION_AUTHORIZATION_VERIFIER_HARDENING",
+  "status": "REMEDIATED"
+}

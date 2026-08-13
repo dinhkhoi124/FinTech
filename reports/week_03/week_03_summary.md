@@ -1,5 +1,15 @@
 # Week 03 Summary
 
+## Revision 14 readiness hardening
+
+R13 remains Senior-approved, committed, and pushed, but is superseded for future
+execution after isolated A13 authoring proved two production verifier gaps.
+Revision 14 binds the complete final authorization lifecycle identity and exact
+five-path authorization commit topology. Candidate Revision 7 and the reviewed
+environment remain unchanged. A13 was not created; A14 remains not created;
+critical evaluation and PRIMARY remain unauthorized. Week 3 is still blocked/in
+progress and Week 4 remains blocked/not started.
+
 ## P0 objective
 
 Grounded generation/evidence gate plus critical safety evaluation.
@@ -586,3 +596,7 @@ Active Revision 13 now binds the exact five future-A13 paths with `daily/2026-08
 ### R13 review coverage correction — 2026-08-13
 
 The omitted R13-owned retrieval regression test is now part of the readiness/authorization hash surface and final review package. Its only change strengthens frozen Week-2 provenance checking; retrieval semantics remain unchanged and 56/56 retrieval tests pass. A deterministic dirty-path coverage audit plus exact-byte proposed-commit dry run prevents future reviewed-file omissions. All ordered suites and the corrected 694/694 full harness pass; R13 remains unauthorized and no primary evaluation ran.
+
+### R14 authorization-verifier hardening — 2026-08-13
+
+R13 remains historically Senior-approved/committed/pushed but is superseded for future execution by R14. Production now enforces the complete final authorization lifecycle identity and exact equality with the five reviewed authorization paths. Eleven field mutations and eleven negative topology cases reject pre-model; the isolated exact-five positive passes. Ordered regressions, 118 readiness tests, 68 safety tests, 56 retrieval tests, and the corrected 703-test repository harness pass. The final offline probe took 17.945591 seconds with zero network attempts. R14 is ready for Senior review; A14 and PRIMARY do not exist and evaluation remains unauthorized.

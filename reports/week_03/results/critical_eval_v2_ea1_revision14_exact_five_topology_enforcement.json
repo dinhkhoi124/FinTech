@@ -1,0 +1,68 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case": "AUTH-TOPO-01",
+      "status": "PASS"
+    },
+    {
+      "case": "AUTH-TOPO-02",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-03",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-04",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-05",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-06",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-07",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-08",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-09",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-10",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-11",
+      "error": "authorization commit contains unexpected paths",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-TOPO-12",
+      "error": "authorization parent is not the reviewed readiness commit",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    }
+  ],
+  "evaluator_calls": 0,
+  "gold_loader_calls": 0,
+  "model_loader_calls": 0,
+  "status": "PASS"
+}

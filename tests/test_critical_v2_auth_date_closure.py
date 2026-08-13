@@ -118,6 +118,9 @@ class CriticalV2AuthDateClosureTests(unittest.TestCase):
             (ROOT / self.config["authorization"]["candidate"]).read_text(encoding="utf-8")
         )
         candidate["evaluation_authorized"] = True
+        candidate["authorization_status"] = "AUTHORIZED_FOR_PRIMARY_EXECUTION"
+        candidate["readiness_commit_binding"] = "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT"
+        candidate["senior_authorization_claimed"] = True
         candidate["senior_authorization_verdict"] = self.config["authorization"]["required_verdict"]
         with tempfile.TemporaryDirectory(prefix="ea1_r13_auth_date_") as temporary:
             isolated = Path(temporary)

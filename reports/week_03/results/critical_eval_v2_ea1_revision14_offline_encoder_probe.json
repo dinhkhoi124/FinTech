@@ -1,0 +1,15 @@
+{
+  "candidate_inference": false,
+  "diagnostic_text": "EA1_OFFLINE_ENCODER_DIAGNOSTIC_DO_NOT_SCORE",
+  "dtype": "float32",
+  "elapsed_seconds": 17.945591300005617,
+  "embedding_sha256": "83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e",
+  "l2_norm": 1.0,
+  "local_files_only": true,
+  "network_attempts": [],
+  "shape": [
+    1,
+    384
+  ],
+  "status": "PASS"
+}

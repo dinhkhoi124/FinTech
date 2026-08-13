@@ -27,7 +27,9 @@ class CriticalV2ExecutionRevision13Tests(unittest.TestCase):
         return json.loads((ROOT / self.config["readiness_outputs"][key]).read_text(encoding="utf-8"))
 
     def test_r13_01_exact_offline_environment_contract(self) -> None:
-        self.assertEqual(self.config["readiness_revision"], 13)
+        contract = self.evidence("environment_contract")
+        self.assertEqual(contract["readiness_revision"], 13)
+        self.assertEqual(self.config["readiness_revision"], 14)
         self.assertEqual(self.config["runtime_environment"]["required_environment"], {
             "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "HF_HUB_OFFLINE": "1"
         })
@@ -80,6 +82,9 @@ class CriticalV2ExecutionRevision13Tests(unittest.TestCase):
     def test_r13_09_isolated_transitive_source_tamper_is_rejected(self) -> None:
         candidate = json.loads((ROOT / self.config["authorization"]["candidate"]).read_text(encoding="utf-8"))
         candidate["evaluation_authorized"] = True
+        candidate["authorization_status"] = "AUTHORIZED_FOR_PRIMARY_EXECUTION"
+        candidate["readiness_commit_binding"] = "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT"
+        candidate["senior_authorization_claimed"] = True
         candidate["senior_authorization_verdict"] = self.config["authorization"]["required_verdict"]
         with tempfile.TemporaryDirectory(prefix="ea1_r13_tamper_") as temporary:
             isolated = Path(temporary)

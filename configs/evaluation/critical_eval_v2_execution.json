@@ -1,6 +1,6 @@
 {
   "schema_version": "4.0",
-  "readiness_revision": 13,
+  "readiness_revision": 14,
   "task_id": "W3-002-CR1-EA1",
   "candidate_revision": 7,
   "candidate_revision_id": "critical_eval_v2_candidate_revision_7",
@@ -130,17 +130,18 @@
     "runtime_incident_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_incident_lineage.json",
     "preauthorization_reset_plan": "reports/week_03/results/critical_eval_v2_ea1_revision13_preauthorization_reset_plan.json",
     "offline_encoder_probe": "reports/week_03/results/critical_eval_v2_ea1_revision13_offline_encoder_probe.json",
-    "transitive_runtime_source_binding": "reports/week_03/results/critical_eval_v2_ea1_revision13_transitive_runtime_source_binding.json",
+    "transitive_runtime_source_binding": "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json",
     "runtime_asset_comparison": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_asset_comparison.json",
     "runtime_payload_comparison": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_payload_comparison.json",
     "a12_negative_control": "reports/week_03/results/critical_eval_v2_ea1_revision13_a12_negative_control.json",
     "environment_reconciliation": "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_reconciliation.json",
     "environment_contract": "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_contract.json",
-    "runtime_source_closure": "reports/week_03/results/critical_eval_v2_ea1_revision13_transitive_runtime_source_binding.json",
+    "runtime_source_closure": "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json",
     "binding_negative_controls": "reports/week_03/results/critical_eval_v2_ea1_revision13_binding_negative_controls.json"
   },
   "runtime_environment": {
     "manifest": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+    "reviewed_environment_contract_revision": 13,
     "required_environment": {
       "OMP_NUM_THREADS": "1",
       "MKL_NUM_THREADS": "1",

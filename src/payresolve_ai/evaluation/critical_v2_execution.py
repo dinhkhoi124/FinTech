@@ -100,7 +100,7 @@ READINESS_HASH_PATHS = (
     "reports/week_03/results/critical_eval_v2_runtime_asset_manifest.json",
     "reports/week_03/results/critical_eval_v2_execution_environment.json",
     "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_contract.json",
-    "reports/week_03/results/critical_eval_v2_ea1_revision13_transitive_runtime_source_binding.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json",
     "src/payresolve_ai/evaluation/critical_v2_execution.py",
     "scripts/evaluation/week3_critical_v2_execution.py",
     "scripts/evaluation/rebind_critical_v2_ea1_revision7.py",
@@ -119,6 +119,7 @@ READINESS_HASH_PATHS = (
     "tests/test_critical_v2_execution_revision11.py",
     "tests/test_critical_v2_execution_revision12.py",
     "tests/test_critical_v2_execution_revision13.py",
+    "tests/test_critical_v2_execution_revision14.py",
     "tests/test_critical_v2_environment_provenance.py",
     "tests/test_critical_v2_binding_fix.py",
     "tests/test_critical_v2_auth_date_closure.py",
@@ -266,8 +267,8 @@ def load_execution_config(path: Path) -> dict[str, Any]:
         raise CriticalV2ExecutionError("execution task ID mismatch")
     if config.get("candidate_revision") != 7:
         raise CriticalV2ExecutionError("candidate revision mismatch")
-    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 13:
-        raise CriticalV2ExecutionError("EA1 readiness revision 13 contract required")
+    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 14:
+        raise CriticalV2ExecutionError("EA1 readiness revision 14 contract required")
     if config.get("readiness_commit_binding") != "DEFERRED_TO_SEPARATE_AUTHORIZATION_RECORD":
         raise CriticalV2ExecutionError("readiness commit binding must be deferred to authorization")
     if "readiness_code_commit" in config:
@@ -2504,7 +2505,8 @@ def load_environment_contract(root: Path, config: dict[str, Any]) -> dict[str, A
         not isinstance(identity, dict)
         or payload.get("environment_identity_sha256") != stable_sha256(identity)
         or payload.get("authorization_bound") is not True
-        or payload.get("readiness_revision") != 13
+        or payload.get("readiness_revision")
+        != config["runtime_environment"]["reviewed_environment_contract_revision"]
     ):
         raise CriticalV2ExecutionError("reviewed environment contract is invalid")
     return payload
@@ -2560,7 +2562,7 @@ def runtime_source_closure_payload(root: Path, config: dict[str, Any]) -> dict[s
     return {
         "schema_version": "1.0",
         "task_id": config["task_id"],
-        "readiness_revision": 13,
+        "readiness_revision": config["readiness_revision"],
         "root_runtime_entrypoint": "payresolve_ai.evaluation.critical_v2_execution.execute_variant_runtime",
         "scope": "LOCAL_PAYRESOLVE_AI_MODULES_MATERIALLY_AFFECTING_60_ROW_RAW_BATCH",
         "modules": modules,
@@ -2832,6 +2834,7 @@ def validate_authorization_daily_path_topology(config: dict[str, Any]) -> dict[s
     reviewed_by_revision = {
         12: "reports/week_03/daily/2026-08-12.md",
         13: "reports/week_03/daily/2026-08-13.md",
+        14: "reports/week_03/daily/2026-08-13.md",
     }
     revision = config.get("readiness_revision")
     reviewed = config.get("authorization", {}).get("reviewed_daily_report_path")
@@ -3780,8 +3783,18 @@ def _validate_authorization_payload(
     authorization: dict[str, Any],
 ) -> None:
     required = {
+        "task_id": config["task_id"],
+        "candidate_revision": config["candidate_revision"],
         "candidate_commit": EXPECTED_CANDIDATE_COMMIT,
         "candidate_manifest_sha256": EXPECTED_CANDIDATE_MANIFEST_SHA256,
+        "readiness_revision": config["readiness_revision"],
+        "authorization_status": "AUTHORIZED_FOR_PRIMARY_EXECUTION",
+        "authorization_topology": "parent(A)=R; HEAD=A; HEAD^=R",
+        "readiness_commit_binding": (
+            "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT"
+        ),
+        "semantic_review_approved": True,
+        "senior_authorization_claimed": True,
         "execution_contract_sha256": sha256_file(config_path),
         "semantic_approval_record_sha256": config["semantic_approval"]["sha256"],
         "evaluation_authorized": True,
@@ -3823,11 +3836,16 @@ def _verify_authorization_topology(
     except subprocess.CalledProcessError as error:
         raise CriticalV2ExecutionError("authorization HEAD has no readiness parent") from error
     readiness = authorization.get("readiness_implementation_commit")
-    if not isinstance(readiness, str) or readiness != parent:
+    if (
+        not isinstance(readiness, str)
+        or len(readiness) != 40
+        or any(character not in "0123456789abcdef" for character in readiness)
+        or readiness != parent
+    ):
         raise CriticalV2ExecutionError("authorization parent is not the reviewed readiness commit")
     changed = set(git_output(root, "diff", "--name-only", f"{readiness}..{head}").splitlines())
     allowed = set(config["authorization"]["allowed_authorization_commit_paths"])
-    if not changed or relative not in changed or not changed <= allowed:
+    if not allowed or relative not in allowed or relative not in changed or changed != allowed:
         raise CriticalV2ExecutionError("authorization commit contains unexpected paths")
     approved = authorization.get("execution_artifact_sha256", {})
     for path, expected in approved.items():

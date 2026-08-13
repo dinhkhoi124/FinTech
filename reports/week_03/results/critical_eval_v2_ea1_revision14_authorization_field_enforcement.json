@@ -1,0 +1,76 @@
+{
+  "case_count": 11,
+  "cases": [
+    {
+      "case": "AUTH-FIELD-01",
+      "error": "authorization mismatch: readiness_revision",
+      "field": "readiness_revision",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-02",
+      "error": "authorization mismatch: readiness_revision",
+      "field": "readiness_revision",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-03",
+      "error": "authorization mismatch: authorization_status",
+      "field": "authorization_status",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-04",
+      "error": "authorization mismatch: readiness_commit_binding",
+      "field": "readiness_commit_binding",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-05",
+      "error": "authorization mismatch: senior_authorization_claimed",
+      "field": "senior_authorization_claimed",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-06",
+      "error": "authorization mismatch: semantic_review_approved",
+      "field": "semantic_review_approved",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-07",
+      "error": "authorization mismatch: candidate_revision",
+      "field": "candidate_revision",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-08",
+      "error": "authorization mismatch: task_id",
+      "field": "task_id",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-09",
+      "error": "authorization mismatch: authorization_topology",
+      "field": "authorization_topology",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-10",
+      "error": "authorization mismatch: senior_authorization_verdict",
+      "field": "senior_authorization_verdict",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "AUTH-FIELD-11",
+      "error": "authorization mismatch: evaluation_authorized",
+      "field": "evaluation_authorized",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    }
+  ],
+  "evaluator_calls": 0,
+  "gold_loader_calls": 0,
+  "model_loader_calls": 0,
+  "positive": "PASS",
+  "status": "PASS"
+}

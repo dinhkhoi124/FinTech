@@ -1,0 +1,11 @@
+{
+  "canonical_distribution_count": 298,
+  "canonical_package_fingerprint_sha256": "39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a",
+  "environment_identity_sha256": "17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97",
+  "required_environment": {
+    "HF_HUB_OFFLINE": "1",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "status": "PASS"
+}

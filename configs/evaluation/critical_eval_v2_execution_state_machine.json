@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "task_id": "W3-002-CR1-EA1",
-  "readiness_revision": 13,
+  "readiness_revision": 14,
   "candidate_revision": 7,
   "candidate_commit": "18a1840f39fef8f07337ff357f7991292389bae9",
   "candidate_manifest_sha256": "f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef",

@@ -421,7 +421,7 @@
   "python_implementation": "CPython",
   "python_version": "3.13.3",
   "readiness_observed_head": "e3e9588e5f9e12745ef70fe67e03deaa1731b35d",
-  "readiness_revision": 13,
+  "readiness_revision": 14,
   "required_runtime_environment": {
     "manifest": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
     "pythonhashseed_rationale": "Runtime payload ordering, stable sorting, serialized hashes, and metric aggregation do not depend on Python hash iteration order.",
@@ -431,6 +431,7 @@
       "MKL_NUM_THREADS": "1",
       "OMP_NUM_THREADS": "1"
     },
+    "reviewed_environment_contract_revision": 13,
     "torch_thread_contract": "Set OMP_NUM_THREADS=1, MKL_NUM_THREADS=1, and HF_HUB_OFFLINE=1 before process launch; the lazy CPU-only torch runtime inherits the numerical limits before import and the encoder is forbidden from contacting the Hugging Face Hub. No post-import torch setting is claimed by this contract."
   },
   "reviewed_environment_identity": {

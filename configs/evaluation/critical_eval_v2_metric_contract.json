@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "task_id": "W3-002-CR1-EA1",
-  "readiness_revision": 13,
+  "readiness_revision": 14,
   "denominators": {
     "standard_answer_success_rate": 40,
     "safe_corrective_success_rate": 15,

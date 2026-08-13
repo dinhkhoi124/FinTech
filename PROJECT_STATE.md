@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: `W3-002-CR1-EA1-R13-REVIEW-COVERAGE-FIX-01` — READY FOR SENIOR REVIEW
-- Next task: independent Senior review of the Revision-13 review-coverage correction bundle; no primary execution is authorized
+- Active task: `W3-002-CR1-EA1-R14-AUTH-VERIFIER-HARDENING` — AUTHORING / VERIFICATION
+- Next task: independent Senior review of the Revision-14 authorization-verifier hardening bundle; no A14 authorization or primary execution is authorized
 - Last updated: 2026-08-13 by Codex
 
 ## Active objective
@@ -644,3 +644,11 @@ W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
 - Canonical identity: PEP-503-normalized unique third-party rows excluding local `payresolve-ai`; 298 rows, SHA-256 `39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a` across C1/C2/C3/C4. Version conflicts fail closed; core-five metadata is explicitly bound.
 - Verification: ENV 12/12, R13 15/15, readiness 118/118, REV10 20/20, REV11 5/5, REV12 5/5, safety 68/68, retrieval 56/56, and full repository harness 667/667 in 239.332 seconds. The final lineage-bound offline probe passed in 14.159185 seconds with zero network attempts and the locked embedding SHA.
 - Lifecycle: Candidate Revision 7 remains unchanged/frozen/Senior approved; Revision 12 and A12 are historical only; R13 is ready for Senior readiness review. Primary is not run, `evaluation_authorized=false`, `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`. Week 3 remains blocked/in progress; Week 4 remains blocked/not started.
+
+## W3-002-CR1-EA1 readiness revision 14 — 2026-08-13
+
+- **Task:** `W3-002-CR1-EA1-R14-AUTH-VERIFIER-HARDENING` (Week 3, P0).
+- **History:** R13 remains Senior readiness approved, committed, and pushed at `5d862e708f972b2fa73403fef390f2ac7b432435`, but is superseded for future execution after fail-closed A13 authoring exposed incomplete final-field validation and subset-only authorization topology validation. A13 was not created.
+- **R14 remediation:** final authorization validation now binds the complete lifecycle identity, and authorization commits must change exactly the reviewed five paths. R14 regressions cover 11 field mutations and 11 negative topology cases plus the exact-five positive case.
+- **Verification:** ordered matrix 88/88 in 23.562s; execution-readiness 118/118 in 68.984s; Senior safety 68/68 in 0.545s; retrieval 56/56 in 0.632s; corrected full harness 703/703 in 289.873s unittest / 293.8s process (5 unrelated skips). Offline probe passed in 17.945591s with zero network attempts and unchanged embedding SHA.
+- **Lifecycle:** Candidate Revision 7 remains frozen/Senior approved. The reset archive and receipt remain exact; active runtime environment/state remain absent. R14 is `R14_READY_FOR_SENIOR_REVIEW`; A14 is not created, `evaluation_authorized=false`, `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`. PRIMARY is not authorized. Week 3 remains blocked/in progress and Week 4 blocked/not started.

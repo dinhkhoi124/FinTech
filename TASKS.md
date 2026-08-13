@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 unchanged; EA1 Revision 13 canonical environment remediation passes and awaits Senior readiness review | BLOCKED / IN PROGRESS |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 unchanged; R13 committed/pushed then superseded for future execution by R14 authorization-verifier hardening | BLOCKED / IN PROGRESS |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -632,3 +632,11 @@ and Week 4 remain blocked.
 - **Coverage guard:** deterministic classification and commit dry-run require every R13-reviewed dirty byte to exist identically in bundle `task_files`; protected E1, review ZIP, and user-owned paths are excluded.
 - **Verification:** coverage 6/6, retrieval 56/56, final exact-byte full harness 694/694 in 237.471 seconds, final regenerated offline diagnostic 45.061138 seconds with zero network attempts.
 - **Boundary:** staged 0; commit/push none; no Candidate/E1/runtime semantic mutation, reset, authorization, or primary/evaluation.
+
+## W3-002-CR1-EA1-R14-AUTH-VERIFIER-HARDENING — Week 3 P0
+
+- **Reason:** post-R13 A13 authoring aborted fail-closed after proving the production verifier accepted a wrong `readiness_revision` and a non-empty subset of the exact five authorization paths.
+- **Scope:** enforce complete final-authorization lifecycle fields, require exact five-path equality, add R14 field/topology regressions, regenerate active R14 readiness bindings/evidence, and build a detached review bundle.
+- **Preserved:** Candidate Revision 7, R13 history, A12/E1 incident archive and reset receipt, reviewed environment identity, and all primary/evaluation absences.
+- **Verification:** exact-field/topology controls PASS; ordered matrix 88/88 in 23.562s; readiness 118/118 in 68.984s; Senior safety 68/68; retrieval 56/56; corrected repository harness 703/703 in 293.8s process time; offline probe 17.945591s with zero network attempts.
+- **State:** DONE / `R14_READY_FOR_SENIOR_REVIEW`; A13 not created; A14 not created; `evaluation_authorized=false`; PRIMARY not authorized.

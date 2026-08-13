@@ -25,8 +25,16 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         contract_path = ROOT / self.config["readiness_outputs"]["environment_contract"]
         contract = execution.load_environment_contract(ROOT, self.config)
         return {
+            "task_id": self.config["task_id"],
+            "candidate_revision": self.config["candidate_revision"],
             "candidate_commit": execution.EXPECTED_CANDIDATE_COMMIT,
             "candidate_manifest_sha256": execution.EXPECTED_CANDIDATE_MANIFEST_SHA256,
+            "readiness_revision": self.config["readiness_revision"],
+            "authorization_status": "AUTHORIZED_FOR_PRIMARY_EXECUTION",
+            "authorization_topology": "parent(A)=R; HEAD=A; HEAD^=R",
+            "readiness_commit_binding": "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT",
+            "semantic_review_approved": True,
+            "senior_authorization_claimed": True,
             "execution_contract_sha256": execution.sha256_file(CONFIG_PATH),
             "semantic_approval_record_sha256": self.config["semantic_approval"]["sha256"],
             "evaluation_authorized": True,
@@ -786,9 +794,9 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         auth = {"status": "PASS", "authorization_commit": "a", "readiness_implementation_commit": "r"}
         with mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
                 mock.patch.object(execution, "freeze_or_verify_runtime_environment", return_value={"path": CONFIG_PATH}):
-            # R13 deliberately preserves the A12 AUTHORIZED state as incident
-            # evidence, so the first fail-closed boundary is its stale binding.
-            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "execution state authorization binding mismatch"):
+            # R14 preserves the A12 state only in incident history; the active
+            # state remains absent until a future authorized PRIMARY V0.
+            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "execution state is absent"):
                 execution.run_critical(ROOT, CONFIG_PATH, "reproducibility_rerun", "V0", model_loader=lambda: counter.update(loads=1), executor=self._counted_executor(counter))
         self.assertEqual(counter, {"loads": 0, "executions": 0})
 

@@ -71,7 +71,7 @@
     "snapshot_logical_root": "HF_CACHE/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
   },
   "model_or_encoder_loaded": false,
-  "readiness_revision": 13,
+  "readiness_revision": 14,
   "retrieval_cache_semantic_contract": {
     "chunk_alignment_sha256": "8fbc7825d4c22fdb8767893de01c0500e096436067a7fbd7d42f3ab2587ba764",
     "chunk_count": 52,

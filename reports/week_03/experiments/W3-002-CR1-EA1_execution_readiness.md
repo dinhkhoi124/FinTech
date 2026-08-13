@@ -1,5 +1,21 @@
 # W3-002-CR1-EA1 — Readiness Revision 9
 
+## Revision 14 controlled verifier-hardening experiment
+
+- **Hypothesis:** complete final-field equality plus exact-five topology equality rejects the two post-R13 gaps without changing Candidate, environment, runtime source closure, or evaluation behavior.
+- **Changed variables:** final authorization payload enforcement and authorization commit set comparison only.
+- **Fixed variables:** Candidate Revision 7, 2026-08-13 authorization date, 18-module runtime closure, canonical environment identity, V0/V1/V2 contracts, evaluation outputs, and offline encoder bytes.
+- **Controls:** 11 final-field mutations, exact-five positive topology, 11 negative topology cases, synthetic production-verifier A14 authorization, and the fixed offline encoder diagnostic. No Candidate inference or evaluation is run.
+- **Decision:** R13 remains historical approved evidence but is superseded for future execution by R14. A13 was never created; future authorization is A14.
+
+## R14 production authorization-verifier hardening — final result
+
+- Hypothesis: complete final-record identity checks plus exact-set topology equality close both post-R13 authorization gaps before any model/gold/evaluator load.
+- Result: 11/11 field mutations and 11/11 negative topology mutations reject; the isolated exact-five A14-shaped positive passes the production authorization verifier. Runtime source closure remains 18 modules and stable environment identity remains `17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97`.
+- Runtime result: offline diagnostic 17.945591 seconds, zero network attempts, exact frozen embedding identity. Ordered matrix 88/88, readiness 118/118, safety 68/68, retrieval 56/56, and corrected repository harness 703/703 in 293.8 seconds process time.
+- Failure history: initial 708-test run (321.368s) exposed incomplete active-contract/fixture migration; subsequent 206-test run (73.774s) exposed the remaining metric-contract identity. Corrections migrated R14 identities and fixtures without weakening verifier behavior.
+- Boundary: Candidate Revision 7 and historical R13/A12 evidence unchanged; A14/PRIMARY/evaluation absent. Status `R14_READY_FOR_SENIOR_REVIEW`.
+
 ## Hypothesis
 
 The rejected EA1 architecture can be safely rebound to frozen candidate revision

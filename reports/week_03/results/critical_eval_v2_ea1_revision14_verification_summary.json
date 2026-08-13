@@ -1,0 +1,83 @@
+{
+  "task_id": "W3-002-CR1-EA1-R14-AUTH-VERIFIER-HARDENING",
+  "readiness_revision": 14,
+  "status": "R14_READY_FOR_SENIOR_REVIEW",
+  "focused_r14_tests": {
+    "tests_run": 4,
+    "embedded_authorization_field_cases": 11,
+    "embedded_topology_cases": 12,
+    "status": "PASS"
+  },
+  "ordered_binding_and_historical_tests": {
+    "tests_run": 88,
+    "elapsed_seconds": 23.562,
+    "status": "PASS"
+  },
+  "execution_readiness": {
+    "tests_run": 118,
+    "elapsed_seconds": 68.984,
+    "status": "PASS"
+  },
+  "senior_safety": {
+    "tests_run": 68,
+    "elapsed_seconds": 0.545,
+    "status": "PASS"
+  },
+  "retrieval_regressions": {
+    "tests_run": 56,
+    "elapsed_seconds": 0.632,
+    "status": "PASS"
+  },
+  "full_repository_harness": {
+    "tests_run": 703,
+    "skipped": 5,
+    "unittest_elapsed_seconds": 289.873,
+    "process_elapsed_seconds": 293.8,
+    "excluded_bundle_context_module": "tests.test_feasibility_review_bundle",
+    "status": "PASS"
+  },
+  "honest_failed_runs": [
+    {
+      "scope": "all top-level test modules before fixture migration",
+      "tests_run": 708,
+      "failures": 6,
+      "errors": 8,
+      "skipped": 5,
+      "unittest_elapsed_seconds": 321.368,
+      "process_elapsed_seconds": 326.0,
+      "resolution": "Migrated active R14 contract artifacts and historical-compatible authorization fixtures without weakening production validation; five errors were from a detached-bundle-only feasibility module invoked outside its bundle."
+    },
+    {
+      "scope": "execution-readiness plus R10-R14 regressions after first migration",
+      "tests_run": 206,
+      "errors": 3,
+      "unittest_elapsed_seconds": 73.774,
+      "process_elapsed_seconds": 77.8,
+      "resolution": "Migrated the remaining active metric contract identity from revision 13 to revision 14 and rebound hashes."
+    }
+  ],
+  "offline_encoder_probe_elapsed_seconds": 17.945591300005617,
+  "review_scope": {
+    "task_owned_path_count": 36,
+    "unclassified_path_count": 0,
+    "status": "PASS"
+  },
+  "detached_bundle_verifier": {
+    "files_verified": 102,
+    "readiness_hash_count": 58,
+    "runtime_source_count": 18,
+    "status": "PASS"
+  },
+  "detached_mutation_controls": {
+    "case_count": 6,
+    "rejected_as_expected": 6,
+    "status": "PASS"
+  },
+  "docs_validator": "PASS",
+  "compileall": "PASS",
+  "git_diff_check": "PASS",
+  "model_loader_calls": 0,
+  "gold_loader_calls": 0,
+  "evaluator_calls": 0,
+  "primary_executed": false
+}

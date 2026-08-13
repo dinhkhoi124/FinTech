@@ -1,6 +1,22 @@
 # W3-002-CR1-EA1 Execution Readiness
 
-Active readiness revision: **13**. Candidate revision: **7**.
+Active readiness revision: **14**. Candidate revision: **7**.
+
+## Revision 14 authorization-verifier hardening
+
+R13 remains historically Senior-approved, committed, and pushed at
+`5d862e708f972b2fa73403fef390f2ac7b432435`. During isolated A13 authoring,
+two fail-closed gaps were proven before any package was created: incomplete
+final-authorization lifecycle-field validation and subset acceptance for the
+five-path authorization topology. Revision 14 supersedes R13 only for future
+execution readiness.
+
+R14 requires exact equality for all final authorization fields and requires the
+authorization commit diff to equal—rather than be a subset of—the exact five
+reviewed paths. The authorization date remains `2026-08-13`. Candidate Revision
+7 and the R13-reviewed environment identity remain unchanged. The real R14
+candidate is non-authorized; A14 and PRIMARY remain forbidden pending separate
+Senior review and commit/topology verification.
 
 ## Purpose
 

@@ -1,0 +1,25 @@
+{
+  "changed_path_count": 5,
+  "changed_paths": [
+    "PROJECT_STATE.md",
+    "TASKS.md",
+    "reports/week_03/daily/2026-08-13.md",
+    "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+    "reports/week_03/week_03_summary.md"
+  ],
+  "evaluator_calls": 0,
+  "gold_loader_calls": 0,
+  "model_loader_calls": 0,
+  "production_verifier": {
+    "authorization_commit": "a8fe7e91cb052cb1c39f32c324c149a9acaae3b3",
+    "authorization_record": "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+    "evaluation_authorized": true,
+    "readiness_implementation_commit": "6556ddbb90d6b4edd8df81fec186661405ef0077",
+    "reviewed_environment_identity_sha256": "17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97",
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "synthetic_authorization_commit": "a8fe7e91cb052cb1c39f32c324c149a9acaae3b3",
+  "synthetic_parent": "6556ddbb90d6b4edd8df81fec186661405ef0077",
+  "synthetic_readiness_commit": "6556ddbb90d6b4edd8df81fec186661405ef0077"
+}

@@ -1,0 +1,296 @@
+{
+  "authorization_bound": true,
+  "modules": [
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "CLI/run_critical",
+      "module": "payresolve_ai.evaluation.critical_v2_execution",
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py",
+      "reason_included": "root runtime entrypoint, package canonicalization, reviewed environment identity, authorization payload enforcement, runtime environment equality enforcement, authorization daily-path topology, state-machine execution entry, and raw serialization/binding",
+      "runtime_used_symbols": [
+        "canonical_package_inventory",
+        "stable_environment_identity",
+        "environment_contract_payload",
+        "load_environment_contract",
+        "_validate_authorization_payload",
+        "verify_execution_authorization",
+        "freeze_or_verify_runtime_environment",
+        "validate_authorization_daily_path_topology",
+        "run_critical",
+        "execute_variant_runtime",
+        "validate_raw_output"
+      ],
+      "sha256": "b59543d55841a92d0a809939c27dafdeff3e3b0a777824be08dcab5c9e7c3fc7"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime",
+      "module": "payresolve_ai.retrieval.benchmark",
+      "path": "src/payresolve_ai/retrieval/benchmark.py",
+      "reason_included": "runtime retrieval config, cache and encoder adapter",
+      "runtime_used_symbols": [
+        "load_config",
+        "_load_runtime",
+        "_encoder"
+      ],
+      "sha256": "5f1dd5e3e2bf149d21afeb37d83631672677fd0b50371f562ca0dcd80b12393a"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "retrieval.benchmark",
+      "module": "payresolve_ai.baselines.semantic",
+      "path": "src/payresolve_ai/baselines/semantic.py",
+      "reason_included": "production SentenceTransformer construction and local model binding",
+      "runtime_used_symbols": [
+        "_load_encoder",
+        "LoadedEncoder"
+      ],
+      "sha256": "18f751b6bd20422fcd4b55e563fd1b058c40e0553369de4aa9580111dca0575c"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "baselines.semantic",
+      "module": "payresolve_ai.baselines.lexical",
+      "path": "src/payresolve_ai/baselines/lexical.py",
+      "reason_included": "semantic module initialization imports locked-data contracts",
+      "runtime_used_symbols": [
+        "LockedDevelopmentData"
+      ],
+      "sha256": "cc5359d68b4e3caf408ca2421d9be4fa9b3ffcd4cb8f4d3ceff8e8101590b741"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "baselines.semantic",
+      "module": "payresolve_ai.data.banking77",
+      "path": "src/payresolve_ai/data/banking77.py",
+      "reason_included": "model path resolution and file hashing used during encoder load",
+      "runtime_used_symbols": [
+        "resolve_repo_path",
+        "sha256_file"
+      ],
+      "sha256": "f6b0a8dcd1dc1463d461299ccb2eba812add6e1b795fcec64c96a45ffd6b1b68"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime/generation.context",
+      "module": "payresolve_ai.retrieval.corpus",
+      "path": "src/payresolve_ai/retrieval/corpus.py",
+      "reason_included": "KB loading, approved/effective corpus materialization and validation",
+      "runtime_used_symbols": [
+        "load_jsonl",
+        "build_corpus",
+        "validate_corpus"
+      ],
+      "sha256": "cd2a0a1dafa49dafc6b93bfb98e3b8f36deaff6c5e50a4f7b8251699ff7bc67e"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime/retrieval.benchmark",
+      "module": "payresolve_ai.retrieval.dense",
+      "path": "src/payresolve_ai/retrieval/dense.py",
+      "reason_included": "embedding validation, R0/R1 scoring and deterministic ranking",
+      "runtime_used_symbols": [
+        "validate_embeddings",
+        "r0_scores",
+        "r1_scores",
+        "rank"
+      ],
+      "sha256": "974d8e23922c1016a5667f175bd7e4cd65201d9f19672b945a5f1fdf32ce4034"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime",
+      "module": "payresolve_ai.generation.verification_v2",
+      "path": "src/payresolve_ai/generation/verification_v2.py",
+      "reason_included": "V2 runtime configuration loading",
+      "runtime_used_symbols": [
+        "load_v2_configuration"
+      ],
+      "sha256": "f41cbd31633995d882a4ca2a6715879c0a610a6840b8df4a86aebfd55ac28e2f"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "generation.verification_v2",
+      "module": "payresolve_ai.generation.verification",
+      "path": "src/payresolve_ai/generation/verification.py",
+      "reason_included": "base gate configuration loading called by V2 loader",
+      "runtime_used_symbols": [
+        "load_configuration"
+      ],
+      "sha256": "c0a420bd2b6a648dab46c2ae0070608fbf2e98b56b2a693cff6e05b93c0a334f"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime/generation.pipeline",
+      "module": "payresolve_ai.generation.context",
+      "path": "src/payresolve_ai/generation/context.py",
+      "reason_included": "eligible evidence filtering and context attachment",
+      "runtime_used_symbols": [
+        "eligible_chunks",
+        "attach_ranked_evidence",
+        "render_context"
+      ],
+      "sha256": "2a4df880345a9606ab3a8932b422f0622829fa93a50a0af872d853915388a1a7"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime/generation.pipeline",
+      "module": "payresolve_ai.generation.gate",
+      "path": "src/payresolve_ai/generation/gate.py",
+      "reason_included": "IDF construction and V1 gate behavior",
+      "runtime_used_symbols": [
+        "build_idf",
+        "decide_gate"
+      ],
+      "sha256": "53412a2d6f7c25cb6ca6dcde1ff86717158770e26147a11a3ea20a2597d70a6f"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime/generation.pipeline",
+      "module": "payresolve_ai.generation.support_v2",
+      "path": "src/payresolve_ai/generation/support_v2.py",
+      "reason_included": "canonical support scoring and V2 gate behavior",
+      "runtime_used_symbols": [
+        "build_canonical_idf",
+        "decide_gate_v2"
+      ],
+      "sha256": "5f71bd203665c5109293144139527aaf8895e100dc455749815eb5b1b3e926e1"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "execute_variant_runtime",
+      "module": "payresolve_ai.generation.pipeline",
+      "path": "src/payresolve_ai/generation/pipeline.py",
+      "reason_included": "grounded generation orchestration and response construction",
+      "runtime_used_symbols": [
+        "run_case_v2"
+      ],
+      "sha256": "6d073a7982d4be6990536c9f2ac70052708b47885fe2b1562c17151ccd9a44fd"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "generation.pipeline/support_v2",
+      "module": "payresolve_ai.generation.extractive",
+      "path": "src/payresolve_ai/generation/extractive.py",
+      "reason_included": "extractable sentence selection and claim generation",
+      "runtime_used_symbols": [
+        "ExtractiveEvidenceGenerator",
+        "split_sentences"
+      ],
+      "sha256": "e2982fa3c6eee4fc35a7d437b43f9e98d88c0ebfca5f8d4030ec3e21d8111880"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "generation.pipeline",
+      "module": "payresolve_ai.generation.citations",
+      "path": "src/payresolve_ai/generation/citations.py",
+      "reason_included": "citation rendering and draft verification",
+      "runtime_used_symbols": [
+        "verify_draft",
+        "render_answer"
+      ],
+      "sha256": "1ade5dad4fa7eda8e76862466517410095c29d8798f83d86170920a7ac7dfc25"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "generation modules",
+      "module": "payresolve_ai.generation.types",
+      "path": "src/payresolve_ai/generation/types.py",
+      "reason_included": "runtime evidence/context/draft data contracts",
+      "runtime_used_symbols": [
+        "EvidenceChunk",
+        "GenerationContext",
+        "GenerationDraft"
+      ],
+      "sha256": "78857b1e3e9b7e4e16508af977f0850ca99eda25762f0e7e8cc09fec51b961be"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "generation.verification_v2/retrieval.benchmark",
+      "module": "payresolve_ai.evaluation.gold_mapping",
+      "path": "src/payresolve_ai/evaluation/gold_mapping.py",
+      "reason_included": "module initialization dependency of runtime config/retrieval modules",
+      "runtime_used_symbols": [
+        "normalize_query",
+        "canonical_rows_sha256"
+      ],
+      "sha256": "85cd81493bda9f9dc80e3090203e2c97ddb3b47a4578811574ff81352667927a"
+    },
+    {
+      "authorization_bound": true,
+      "direct_caller_or_importer": "evaluation.gold_mapping/retrieval.benchmark",
+      "module": "payresolve_ai.kb.validation",
+      "path": "src/payresolve_ai/kb/validation.py",
+      "reason_included": "module initialization and canonical KB identity dependency",
+      "runtime_used_symbols": [
+        "canonical_dataset_sha256",
+        "is_document_eligible"
+      ],
+      "sha256": "35d8bed2d950012363cc888482fb2eace53f656a2fc33a0bcb02a1aef4f93fc5"
+    }
+  ],
+  "readiness_revision": 14,
+  "reviewed_exclusions": [
+    {
+      "path": "src/payresolve_ai/__init__.py",
+      "reason_excluded": "package initializer contains no runtime-affecting logic",
+      "reviewed": true
+    },
+    {
+      "path": "src/payresolve_ai/evaluation/__init__.py",
+      "reason_excluded": "package initializer contains no runtime-affecting logic",
+      "reviewed": true
+    },
+    {
+      "path": "src/payresolve_ai/retrieval/__init__.py",
+      "reason_excluded": "package initializer contains no runtime-affecting logic",
+      "reviewed": true
+    },
+    {
+      "path": "src/payresolve_ai/baselines/__init__.py",
+      "reason_excluded": "package initializer contains no runtime-affecting logic",
+      "reviewed": true
+    },
+    {
+      "path": "src/payresolve_ai/data/__init__.py",
+      "reason_excluded": "package initializer contains no runtime-affecting logic",
+      "reviewed": true
+    },
+    {
+      "path": "src/payresolve_ai/generation/__init__.py",
+      "reason_excluded": "package initializer contains no runtime-affecting logic",
+      "reviewed": true
+    },
+    {
+      "path": "src/payresolve_ai/kb/__init__.py",
+      "reason_excluded": "package initializer contains no runtime-affecting logic",
+      "reviewed": true
+    }
+  ],
+  "root_runtime_entrypoint": "payresolve_ai.evaluation.critical_v2_execution.execute_variant_runtime",
+  "schema_version": "1.0",
+  "scope": "LOCAL_PAYRESOLVE_AI_MODULES_MATERIALLY_AFFECTING_60_ROW_RAW_BATCH",
+  "silent_omissions": 0,
+  "source_count": 18,
+  "source_sha256": {
+    "src/payresolve_ai/baselines/lexical.py": "cc5359d68b4e3caf408ca2421d9be4fa9b3ffcd4cb8f4d3ceff8e8101590b741",
+    "src/payresolve_ai/baselines/semantic.py": "18f751b6bd20422fcd4b55e563fd1b058c40e0553369de4aa9580111dca0575c",
+    "src/payresolve_ai/data/banking77.py": "f6b0a8dcd1dc1463d461299ccb2eba812add6e1b795fcec64c96a45ffd6b1b68",
+    "src/payresolve_ai/evaluation/critical_v2_execution.py": "b59543d55841a92d0a809939c27dafdeff3e3b0a777824be08dcab5c9e7c3fc7",
+    "src/payresolve_ai/evaluation/gold_mapping.py": "85cd81493bda9f9dc80e3090203e2c97ddb3b47a4578811574ff81352667927a",
+    "src/payresolve_ai/generation/citations.py": "1ade5dad4fa7eda8e76862466517410095c29d8798f83d86170920a7ac7dfc25",
+    "src/payresolve_ai/generation/context.py": "2a4df880345a9606ab3a8932b422f0622829fa93a50a0af872d853915388a1a7",
+    "src/payresolve_ai/generation/extractive.py": "e2982fa3c6eee4fc35a7d437b43f9e98d88c0ebfca5f8d4030ec3e21d8111880",
+    "src/payresolve_ai/generation/gate.py": "53412a2d6f7c25cb6ca6dcde1ff86717158770e26147a11a3ea20a2597d70a6f",
+    "src/payresolve_ai/generation/pipeline.py": "6d073a7982d4be6990536c9f2ac70052708b47885fe2b1562c17151ccd9a44fd",
+    "src/payresolve_ai/generation/support_v2.py": "5f71bd203665c5109293144139527aaf8895e100dc455749815eb5b1b3e926e1",
+    "src/payresolve_ai/generation/types.py": "78857b1e3e9b7e4e16508af977f0850ca99eda25762f0e7e8cc09fec51b961be",
+    "src/payresolve_ai/generation/verification.py": "c0a420bd2b6a648dab46c2ae0070608fbf2e98b56b2a693cff6e05b93c0a334f",
+    "src/payresolve_ai/generation/verification_v2.py": "f41cbd31633995d882a4ca2a6715879c0a610a6840b8df4a86aebfd55ac28e2f",
+    "src/payresolve_ai/kb/validation.py": "35d8bed2d950012363cc888482fb2eace53f656a2fc33a0bcb02a1aef4f93fc5",
+    "src/payresolve_ai/retrieval/benchmark.py": "5f1dd5e3e2bf149d21afeb37d83631672677fd0b50371f562ca0dcd80b12393a",
+    "src/payresolve_ai/retrieval/corpus.py": "cd2a0a1dafa49dafc6b93bfb98e3b8f36deaff6c5e50a4f7b8251699ff7bc67e",
+    "src/payresolve_ai/retrieval/dense.py": "974d8e23922c1016a5667f175bd7e4cd65201d9f19672b945a5f1fdf32ce4034"
+  },
+  "task_id": "W3-002-CR1-EA1"
+}
