@@ -600,3 +600,7 @@ The omitted R13-owned retrieval regression test is now part of the readiness/aut
 ### R14 authorization-verifier hardening — 2026-08-13
 
 R13 remains historically Senior-approved/committed/pushed but is superseded for future execution by R14. Production now enforces the complete final authorization lifecycle identity and exact equality with the five reviewed authorization paths. Eleven field mutations and eleven negative topology cases reject pre-model; the isolated exact-five positive passes. Ordered regressions, 118 readiness tests, 68 safety tests, 56 retrieval tests, and the corrected 703-test repository harness pass. The final offline probe took 17.945591 seconds with zero network attempts. R14 is ready for Senior review; A14 and PRIMARY do not exist and evaluation remains unauthorized.
+
+### Proposed A14 authorization — 2026-08-13
+
+A14 binds exactly to R14 `c0afb7ba74cbcb778a5952399f1db628166df40d` and transitions only authorization lifecycle state. Candidate Revision 7 remains frozen and Senior-approved; R13 is historical/superseded and A13 was not created. A14 is `AUTHORIZED_FOR_PRIMARY_EXECUTION`, while `critical_evaluated=false` and `model_verdict=NOT_ESTABLISHED`; PRIMARY is NOT YET RUN. Week 3 remains blocked/in progress and Week 4 blocked/not started. Next, Senior verifies committed A14 topology before PRIMARY.

@@ -640,3 +640,10 @@ and Week 4 remain blocked.
 - **Preserved:** Candidate Revision 7, R13 history, A12/E1 incident archive and reset receipt, reviewed environment identity, and all primary/evaluation absences.
 - **Verification:** exact-field/topology controls PASS; ordered matrix 88/88 in 23.562s; readiness 118/118 in 68.984s; Senior safety 68/68; retrieval 56/56; corrected repository harness 703/703 in 293.8s process time; offline probe 17.945591s with zero network attempts.
 - **State:** DONE / `R14_READY_FOR_SENIOR_REVIEW`; A13 not created; A14 not created; `evaluation_authorized=false`; PRIMARY not authorized.
+
+### W3-002-CR1-EA1-A14-AUTHORIZATION — proposed transition
+
+- **R14 binding:** `c0afb7ba74cbcb778a5952399f1db628166df40d`; R14 is Senior readiness-approved, committed, and pushed.
+- **State:** `AUTHORIZED_FOR_PRIMARY_EXECUTION`; Candidate Revision 7 remains frozen/Senior-approved/committed/pushed; A13 was not created.
+- **Boundary:** `evaluation_authorized=true`, `critical_evaluated=false`, `model_verdict=NOT_ESTABLISHED`; PRIMARY NOT YET RUN. Week 3 blocked/in progress; Week 4 blocked/not started.
+- **Next:** Senior verifies committed A14 topology before PRIMARY.

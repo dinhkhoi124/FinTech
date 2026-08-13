@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: `W3-002-CR1-EA1-R14-AUTH-VERIFIER-HARDENING` — AUTHORING / VERIFICATION
-- Next task: independent Senior review of the Revision-14 authorization-verifier hardening bundle; no A14 authorization or primary execution is authorized
+- Active task: `W3-002-CR1-EA1-A14-AUTHORIZATION` — PROPOSED / AWAITING SENIOR TOPOLOGY VERIFICATION
+- Next task: Senior verifies committed A14 topology before any PRIMARY execution
 - Last updated: 2026-08-13 by Codex
 
 ## Active objective
@@ -652,3 +652,12 @@ W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
 - **R14 remediation:** final authorization validation now binds the complete lifecycle identity, and authorization commits must change exactly the reviewed five paths. R14 regressions cover 11 field mutations and 11 negative topology cases plus the exact-five positive case.
 - **Verification:** ordered matrix 88/88 in 23.562s; execution-readiness 118/118 in 68.984s; Senior safety 68/68 in 0.545s; retrieval 56/56 in 0.632s; corrected full harness 703/703 in 289.873s unittest / 293.8s process (5 unrelated skips). Offline probe passed in 17.945591s with zero network attempts and unchanged embedding SHA.
 - **Lifecycle:** Candidate Revision 7 remains frozen/Senior approved. The reset archive and receipt remain exact; active runtime environment/state remain absent. R14 is `R14_READY_FOR_SENIOR_REVIEW`; A14 is not created, `evaluation_authorized=false`, `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`. PRIMARY is not authorized. Week 3 remains blocked/in progress and Week 4 blocked/not started.
+
+## Proposed A14 authorization lifecycle — 2026-08-13
+
+- Candidate Revision 7: frozen, Senior-approved, committed, and pushed.
+- R13: historical and superseded for future execution; A13 was not created and authoring aborted fail-closed.
+- R14: Senior readiness-approved, committed, and pushed at `c0afb7ba74cbcb778a5952399f1db628166df40d`.
+- A14: `AUTHORIZED_FOR_PRIMARY_EXECUTION`; `evaluation_authorized=true`; `critical_evaluated=false`; `model_verdict=NOT_ESTABLISHED`.
+- PRIMARY: NOT YET RUN. Week 3 remains blocked/in progress; Week 4 remains blocked/not started.
+- Next: Senior verifies committed A14 topology before PRIMARY.
