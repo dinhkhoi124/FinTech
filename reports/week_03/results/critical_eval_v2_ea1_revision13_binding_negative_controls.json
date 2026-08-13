@@ -1,0 +1,119 @@
+{
+  "authorization_date_controls": {
+    "active_case_count": 7,
+    "exact_allowed_paths": [
+      "PROJECT_STATE.md",
+      "TASKS.md",
+      "reports/week_03/daily/2026-08-13.md",
+      "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+      "reports/week_03/week_03_summary.md"
+    ],
+    "historical_revision12_fixture": "PASS",
+    "reviewed_daily_report_path": "reports/week_03/daily/2026-08-13.md",
+    "status": "PASS"
+  },
+  "detached_auth_date_controls": {
+    "case_count": 3,
+    "status": "PASS",
+    "cases": [
+      {"case": "STALE_REVISION12", "status": "REJECTED_AS_EXPECTED"},
+      {"case": "BOTH_REVISION12_AND_REVISION13", "status": "REJECTED_AS_EXPECTED"},
+      {"case": "UNREVIEWED_REVISION14", "status": "REJECTED_AS_EXPECTED"}
+    ]
+  },
+  "detached_bundle_controls": {
+    "case_count": 2,
+    "status": "PASS",
+    "cases": [
+      {"case": "ENVIRONMENT_CONTRACT_ONLY", "status": "REJECTED_AS_EXPECTED"},
+      {"case": "AUTHORIZATION_BINDING_ONLY", "status": "REJECTED_AS_EXPECTED"}
+    ]
+  },
+  "detached_review_scope_controls": {
+    "case_count": 2,
+    "status": "PASS",
+    "cases": [
+      {"case": "OMITTED_RETRIEVAL_TEST", "status": "REJECTED_AS_EXPECTED"},
+      {"case": "UNREVIEWED_TASK_OWNED_DIRTY_PATH", "status": "REJECTED_AS_EXPECTED"}
+    ]
+  },
+  "environment_control_count": 7,
+  "environment_controls": [
+    {
+      "case": "ENV-AUTH-01",
+      "error": "AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH",
+      "model_loader_calls": 0,
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "ENV-AUTH-02",
+      "error": "AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH",
+      "model_loader_calls": 0,
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "ENV-AUTH-03",
+      "error": "AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH",
+      "model_loader_calls": 0,
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "ENV-AUTH-04",
+      "error": "AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH",
+      "model_loader_calls": 0,
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "ENV-AUTH-05",
+      "error": "AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH",
+      "model_loader_calls": 0,
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "ENV-AUTH-06",
+      "error": "AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH",
+      "model_loader_calls": 0,
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "case": "ENV-AUTH-07",
+      "error": "AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH",
+      "model_loader_calls": 0,
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    }
+  ],
+  "evaluator_calls": 0,
+  "gold_loader_calls": 0,
+  "model_loader_calls": 0,
+  "readiness_revision": 13,
+  "schema_version": "1.0",
+  "source_tamper_control_count": 4,
+  "source_tamper_controls": [
+    {
+      "error": "authorization execution source/config/test hash mismatch",
+      "model_loader_calls": 0,
+      "path": "src/payresolve_ai/generation/verification.py",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "error": "authorization execution source/config/test hash mismatch",
+      "model_loader_calls": 0,
+      "path": "src/payresolve_ai/data/banking77.py",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "error": "authorization execution source/config/test hash mismatch",
+      "model_loader_calls": 0,
+      "path": "src/payresolve_ai/generation/citations.py",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    },
+    {
+      "error": "authorization execution source/config/test hash mismatch",
+      "model_loader_calls": 0,
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py",
+      "status": "REJECTED_BEFORE_MODEL_LOAD"
+    }
+  ],
+  "status": "PASS",
+  "task_id": "W3-002-CR1-EA1"
+}

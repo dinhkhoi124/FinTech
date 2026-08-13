@@ -1,0 +1,34 @@
+{
+  "candidate_query_loaded": false,
+  "diagnostic_text_sha256": "78d8fadb7a64e7cd277e0c315e0c1761e62e4a8e656a3f43c0cecd7645d8930f",
+  "dtype": "float32",
+  "elapsed_seconds": 45.061138,
+  "embedding_ndarray_sha256": "83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e",
+  "expected_embedding_ndarray_sha256": "83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e",
+  "gold_or_evaluator_loaded": false,
+  "inference_or_evaluation_run": false,
+  "l2_norm": 1.0,
+  "network_attempt_count": 0,
+  "network_attempts": [],
+  "package_versions": {
+    "huggingface-hub": "1.4.0",
+    "numpy": "2.2.6",
+    "sentence-transformers": "5.2.2",
+    "torch": "2.9.0",
+    "transformers": "5.0.0"
+  },
+  "probe_scope": "PRODUCTION_RETRIEVAL_ENCODER_LOAD_PLUS_ONE_FIXED_DIAGNOSTIC_STRING",
+  "production_local_files_only": true,
+  "readiness_revision": 13,
+  "required_environment": {
+    "HF_HUB_OFFLINE": "1",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "shape": [
+    1,
+    384
+  ],
+  "status": "PASS",
+  "task_id": "W3-002-CR1-EA1"
+}

@@ -43,6 +43,15 @@ EXPECTED_COV1_BUNDLE_SHA256 = (
 )
 EXPECTED_PASS_B_SHA256 = "585469d850a9e2d5514248709658e574dbfff7f54a0f13c99bcbb8cd2653017e"
 EXPECTED_MAPPING_SHA256 = "cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1"
+CANONICAL_ENVIRONMENT_ALGORITHM = "pep503-unique-third-party-name-version-v1"
+LOCAL_PROJECT_DISTRIBUTION = "payresolve-ai"
+CORE_ML_DEPENDENCY_VERSIONS = {
+    "huggingface-hub": "1.4.0",
+    "numpy": "2.2.6",
+    "sentence-transformers": "5.2.2",
+    "torch": "2.9.0",
+    "transformers": "5.0.0",
+}
 EXPECTED_REJECTED_READINESS_REVISION7_ZIP_SHA256 = (
     "dc72ab6d074c3dd3eb3391586ec783c8b287abbb44114e872e048c4cf5c9757c"
 )
@@ -89,6 +98,9 @@ READINESS_HASH_PATHS = (
     "reports/week_03/results/critical_eval_v2_obligation_sentence_semantic_audit.jsonl",
     "reports/week_03/results/critical_eval_v2_obligation_revision_7_semantic_delta.json",
     "reports/week_03/results/critical_eval_v2_runtime_asset_manifest.json",
+    "reports/week_03/results/critical_eval_v2_execution_environment.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_contract.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision13_transitive_runtime_source_binding.json",
     "src/payresolve_ai/evaluation/critical_v2_execution.py",
     "scripts/evaluation/week3_critical_v2_execution.py",
     "scripts/evaluation/rebind_critical_v2_ea1_revision7.py",
@@ -97,12 +109,86 @@ READINESS_HASH_PATHS = (
     "scripts/evaluation/build_critical_v2_ea1_revision10_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision11_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision12_auth_date_review_bundle.py",
+    "scripts/evaluation/build_critical_v2_ea1_revision13_review_bundle.py",
+    "scripts/evaluation/prepare_critical_v2_ea1_revision13_evidence.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision13_bundle.py",
     "scripts/evaluation/verify_critical_v2_execution_readiness_bundle.py",
     "scripts/evaluation/verify_critical_v2_ea1_revision12_auth_date_bundle.py",
     "tests/test_critical_v2_execution_readiness.py",
     "tests/test_critical_v2_execution_revision10.py",
     "tests/test_critical_v2_execution_revision11.py",
     "tests/test_critical_v2_execution_revision12.py",
+    "tests/test_critical_v2_execution_revision13.py",
+    "tests/test_critical_v2_environment_provenance.py",
+    "tests/test_critical_v2_binding_fix.py",
+    "tests/test_critical_v2_auth_date_closure.py",
+    "tests/test_critical_v2_review_scope_coverage.py",
+    "tests/test_retrieval_benchmark.py",
+    "src/payresolve_ai/retrieval/benchmark.py",
+    "src/payresolve_ai/baselines/semantic.py",
+    "src/payresolve_ai/generation/context.py",
+    "src/payresolve_ai/generation/gate.py",
+    "src/payresolve_ai/generation/pipeline.py",
+    "src/payresolve_ai/generation/support_v2.py",
+    "src/payresolve_ai/generation/verification_v2.py",
+    "src/payresolve_ai/generation/verification.py",
+    "src/payresolve_ai/generation/extractive.py",
+    "src/payresolve_ai/generation/citations.py",
+    "src/payresolve_ai/generation/types.py",
+    "src/payresolve_ai/baselines/lexical.py",
+    "src/payresolve_ai/data/banking77.py",
+    "src/payresolve_ai/evaluation/gold_mapping.py",
+    "src/payresolve_ai/kb/validation.py",
+    "src/payresolve_ai/retrieval/corpus.py",
+    "src/payresolve_ai/retrieval/dense.py",
+)
+
+TRANSITIVE_RUNTIME_SOURCE_PATHS = (
+    "src/payresolve_ai/retrieval/benchmark.py",
+    "src/payresolve_ai/baselines/semantic.py",
+    "src/payresolve_ai/generation/context.py",
+    "src/payresolve_ai/generation/gate.py",
+    "src/payresolve_ai/generation/pipeline.py",
+    "src/payresolve_ai/generation/support_v2.py",
+    "src/payresolve_ai/generation/verification_v2.py",
+    "src/payresolve_ai/generation/verification.py",
+    "src/payresolve_ai/generation/extractive.py",
+    "src/payresolve_ai/generation/citations.py",
+    "src/payresolve_ai/generation/types.py",
+    "src/payresolve_ai/baselines/lexical.py",
+    "src/payresolve_ai/data/banking77.py",
+    "src/payresolve_ai/evaluation/gold_mapping.py",
+    "src/payresolve_ai/kb/validation.py",
+    "src/payresolve_ai/retrieval/corpus.py",
+    "src/payresolve_ai/retrieval/dense.py",
+)
+
+RUNTIME_SOURCE_CLOSURE = (
+    ("src/payresolve_ai/evaluation/critical_v2_execution.py", "root runtime entrypoint, package canonicalization, reviewed environment identity, authorization payload enforcement, runtime environment equality enforcement, authorization daily-path topology, state-machine execution entry, and raw serialization/binding", "CLI/run_critical", ("canonical_package_inventory", "stable_environment_identity", "environment_contract_payload", "load_environment_contract", "_validate_authorization_payload", "verify_execution_authorization", "freeze_or_verify_runtime_environment", "validate_authorization_daily_path_topology", "run_critical", "execute_variant_runtime", "validate_raw_output")),
+    ("src/payresolve_ai/retrieval/benchmark.py", "runtime retrieval config, cache and encoder adapter", "execute_variant_runtime", ("load_config", "_load_runtime", "_encoder")),
+    ("src/payresolve_ai/baselines/semantic.py", "production SentenceTransformer construction and local model binding", "retrieval.benchmark", ("_load_encoder", "LoadedEncoder")),
+    ("src/payresolve_ai/baselines/lexical.py", "semantic module initialization imports locked-data contracts", "baselines.semantic", ("LockedDevelopmentData",)),
+    ("src/payresolve_ai/data/banking77.py", "model path resolution and file hashing used during encoder load", "baselines.semantic", ("resolve_repo_path", "sha256_file")),
+    ("src/payresolve_ai/retrieval/corpus.py", "KB loading, approved/effective corpus materialization and validation", "execute_variant_runtime/generation.context", ("load_jsonl", "build_corpus", "validate_corpus")),
+    ("src/payresolve_ai/retrieval/dense.py", "embedding validation, R0/R1 scoring and deterministic ranking", "execute_variant_runtime/retrieval.benchmark", ("validate_embeddings", "r0_scores", "r1_scores", "rank")),
+    ("src/payresolve_ai/generation/verification_v2.py", "V2 runtime configuration loading", "execute_variant_runtime", ("load_v2_configuration",)),
+    ("src/payresolve_ai/generation/verification.py", "base gate configuration loading called by V2 loader", "generation.verification_v2", ("load_configuration",)),
+    ("src/payresolve_ai/generation/context.py", "eligible evidence filtering and context attachment", "execute_variant_runtime/generation.pipeline", ("eligible_chunks", "attach_ranked_evidence", "render_context")),
+    ("src/payresolve_ai/generation/gate.py", "IDF construction and V1 gate behavior", "execute_variant_runtime/generation.pipeline", ("build_idf", "decide_gate")),
+    ("src/payresolve_ai/generation/support_v2.py", "canonical support scoring and V2 gate behavior", "execute_variant_runtime/generation.pipeline", ("build_canonical_idf", "decide_gate_v2")),
+    ("src/payresolve_ai/generation/pipeline.py", "grounded generation orchestration and response construction", "execute_variant_runtime", ("run_case_v2",)),
+    ("src/payresolve_ai/generation/extractive.py", "extractable sentence selection and claim generation", "generation.pipeline/support_v2", ("ExtractiveEvidenceGenerator", "split_sentences")),
+    ("src/payresolve_ai/generation/citations.py", "citation rendering and draft verification", "generation.pipeline", ("verify_draft", "render_answer")),
+    ("src/payresolve_ai/generation/types.py", "runtime evidence/context/draft data contracts", "generation modules", ("EvidenceChunk", "GenerationContext", "GenerationDraft")),
+    ("src/payresolve_ai/evaluation/gold_mapping.py", "module initialization dependency of runtime config/retrieval modules", "generation.verification_v2/retrieval.benchmark", ("normalize_query", "canonical_rows_sha256")),
+    ("src/payresolve_ai/kb/validation.py", "module initialization and canonical KB identity dependency", "evaluation.gold_mapping/retrieval.benchmark", ("canonical_dataset_sha256", "is_document_eligible")),
+)
+
+PRESERVED_A12_RUNTIME_ENVIRONMENT_SHA256 = (
+    "228a2f23c168092e41d0abebff7af468dc106b27a88e1bb6eef995af5f9739ca"
+)
+PRESERVED_A12_EXECUTION_STATE_SHA256 = (
+    "3908034af37fcdc11fa64d9f6024e775d24d435030246ee08ec4f48816f184ca"
 )
 
 STATE_SEQUENCE = (
@@ -180,8 +266,8 @@ def load_execution_config(path: Path) -> dict[str, Any]:
         raise CriticalV2ExecutionError("execution task ID mismatch")
     if config.get("candidate_revision") != 7:
         raise CriticalV2ExecutionError("candidate revision mismatch")
-    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 12:
-        raise CriticalV2ExecutionError("EA1 readiness revision 12 contract required")
+    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 13:
+        raise CriticalV2ExecutionError("EA1 readiness revision 13 contract required")
     if config.get("readiness_commit_binding") != "DEFERRED_TO_SEPARATE_AUTHORIZATION_RECORD":
         raise CriticalV2ExecutionError("readiness commit binding must be deferred to authorization")
     if "readiness_code_commit" in config:
@@ -193,6 +279,12 @@ def load_execution_config(path: Path) -> dict[str, Any]:
         raise CriticalV2ExecutionError("candidate manifest contract mismatch")
     if candidate.get("model_input_count") != 60:
         raise CriticalV2ExecutionError("model-input count mismatch")
+    if config.get("runtime_environment", {}).get("required_environment") != {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "HF_HUB_OFFLINE": "1",
+    }:
+        raise CriticalV2ExecutionError("EA1 Revision 13 offline runtime environment required")
     if config.get("semantic_approval", {}).get("review_zip_sha256") != EXPECTED_SEMANTIC_REVIEW_ZIP_SHA256:
         raise CriticalV2ExecutionError("semantic review ZIP contract mismatch")
     if config.get("semantic_approval", {}).get("sha256") != EXPECTED_SEMANTIC_APPROVAL_SHA256:
@@ -2073,10 +2165,34 @@ def _evaluation_output_paths(config: dict[str, Any]) -> list[str]:
 
 def _assert_readiness_output_boundary(root: Path, config: dict[str, Any]) -> None:
     existing = [path for path in _evaluation_output_paths(config) if (root / path).exists()]
-    if existing:
+    preserved = {
+        config["runtime_environment"]["manifest"],
+        config["evaluation_outputs"]["execution_state"],
+    }
+    unexpected = [path for path in existing if path not in preserved]
+    if unexpected:
         raise CriticalV2ExecutionError(
-            "unregistered partial or prior evaluation output exists: " + ", ".join(existing)
+            "unregistered partial or prior evaluation output exists: " + ", ".join(unexpected)
         )
+    if existing:
+        if set(existing) != preserved:
+            raise CriticalV2ExecutionError("incomplete preserved E1 evidence pair")
+        runtime_path = root / config["runtime_environment"]["manifest"]
+        state_path = root / config["evaluation_outputs"]["execution_state"]
+        if (
+            sha256_file(runtime_path) != PRESERVED_A12_RUNTIME_ENVIRONMENT_SHA256
+            or sha256_file(state_path) != PRESERVED_A12_EXECUTION_STATE_SHA256
+        ):
+            raise CriticalV2ExecutionError("preserved E1 evidence hash mismatch")
+        state = _read_json(state_path)
+        if state != {
+            "authorization_commit": "e3e9588e5f9e12745ef70fe67e03deaa1731b35d",
+            "history": [],
+            "readiness_implementation_commit": "cec29477e3c75d132b54f787ba602a0a1b33f578",
+            "state": "AUTHORIZED",
+            "task_id": "W3-002-CR1-EA1",
+        }:
+            raise CriticalV2ExecutionError("preserved E1 execution-state content mismatch")
 
 
 def verify_execution_contract(root: Path, config_path: Path) -> dict[str, Any]:
@@ -2197,12 +2313,263 @@ def verify_execution_contract(root: Path, config_path: Path) -> dict[str, Any]:
     }
 
 
-def _package_fingerprint() -> tuple[int, str]:
-    rows = sorted(
-        f"{dist.metadata.get('Name', '')}=={dist.version}"
-        for dist in importlib.metadata.distributions()
+def normalize_distribution_name(name: str) -> str:
+    """Return the PEP-503-equivalent identity used by the runtime contract."""
+    return re.sub(r"[-_.]+", "-", name.strip().lower())
+
+
+def _distribution_file_sha256(distribution: Any, filename: str) -> str | None:
+    """Hash installed metadata content without exposing machine-specific paths."""
+    text = distribution.read_text(filename)
+    if text is None:
+        return None
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def canonical_package_inventory(
+    distributions: Iterable[Any] | None = None,
+    required_core_versions: dict[str, str] | None = CORE_ML_DEPENDENCY_VERSIONS,
+) -> dict[str, Any]:
+    """Build the shared readiness/runtime package identity and fail on conflicts.
+
+    Raw importlib discovery is retained only as diagnostic evidence.  The
+    authoritative identity is the sorted, unique third-party name/version set.
+    """
+    discovered = list(importlib.metadata.distributions() if distributions is None else distributions)
+    occurrences: list[dict[str, Any]] = []
+    grouped: dict[str, dict[str, list[dict[str, Any]]]] = {}
+    raw_rows: list[str] = []
+    for distribution in discovered:
+        original_name = str(distribution.metadata.get("Name", "")).strip()
+        version = str(distribution.version).strip()
+        normalized_name = normalize_distribution_name(original_name)
+        if not normalized_name or not version:
+            raise CriticalV2ExecutionError("distribution metadata is missing Name or version")
+        metadata_root = Path(str(getattr(distribution, "_path", "UNKNOWN"))).name
+        bind_metadata = normalized_name in (required_core_versions or {})
+        occurrence = {
+            "normalized_name": normalized_name,
+            "version": version,
+            "metadata_container": metadata_root,
+            "metadata_sha256": (
+                _distribution_file_sha256(distribution, "METADATA")
+                or _distribution_file_sha256(distribution, "PKG-INFO")
+            ) if bind_metadata else None,
+            "record_sha256": _distribution_file_sha256(distribution, "RECORD")
+            if bind_metadata else None,
+        }
+        occurrences.append(occurrence)
+        raw_rows.append(f"{original_name}=={version}")
+        grouped.setdefault(normalized_name, {}).setdefault(version, []).append(occurrence)
+
+    conflicts = {
+        name: sorted(versions)
+        for name, versions in grouped.items()
+        if len(versions) > 1
+    }
+    if conflicts:
+        raise CriticalV2ExecutionError(
+            f"CONFLICTING_DISTRIBUTION_VERSIONS: {json.dumps(conflicts, sort_keys=True)}"
+        )
+
+    duplicate_details: list[dict[str, Any]] = []
+    duplicate_occurrences = 0
+    for name, versions in sorted(grouped.items()):
+        version, rows = next(iter(versions.items()))
+        if len(rows) > 1:
+            duplicate_occurrences += len(rows) - 1
+            duplicate_details.append(
+                {
+                    "normalized_name": name,
+                    "version": version,
+                    "occurrence_count": len(rows),
+                    "additional_occurrence_count": len(rows) - 1,
+                    "metadata_containers": sorted(row["metadata_container"] for row in rows),
+                }
+            )
+
+    local_occurrences = sum(
+        len(rows)
+        for rows in grouped.get(LOCAL_PROJECT_DISTRIBUTION, {}).values()
     )
-    return len(rows), hashlib.sha256(("\n".join(rows) + "\n").encode()).hexdigest()
+    canonical_rows = sorted(
+        f"{name}=={next(iter(versions))}"
+        for name, versions in grouped.items()
+        if name != LOCAL_PROJECT_DISTRIBUTION
+    )
+    canonical_sha256 = hashlib.sha256(
+        ("\n".join(canonical_rows) + "\n").encode("utf-8")
+    ).hexdigest()
+    raw_rows.sort()
+
+    core_dependencies: dict[str, dict[str, Any]] = {}
+    for name, expected_version in (required_core_versions or {}).items():
+        versions = grouped.get(name)
+        if versions is None:
+            raise CriticalV2ExecutionError(f"required core dependency absent: {name}")
+        actual_version = next(iter(versions))
+        if actual_version != expected_version:
+            raise CriticalV2ExecutionError(
+                f"core dependency version mismatch: {name} expected={expected_version} actual={actual_version}"
+            )
+        rows = versions[actual_version]
+        metadata_hashes = sorted({row["metadata_sha256"] for row in rows})
+        record_hashes = sorted({row["record_sha256"] for row in rows if row["record_sha256"]})
+        if len(metadata_hashes) != 1:
+            raise CriticalV2ExecutionError(f"core dependency metadata conflict: {name}")
+        if len(record_hashes) > 1:
+            raise CriticalV2ExecutionError(f"core dependency RECORD conflict: {name}")
+        core_dependencies[name] = {
+            "normalized_name": name,
+            "version": actual_version,
+            "metadata_sha256": metadata_hashes[0],
+            "record_sha256": record_hashes[0] if record_hashes else None,
+            "metadata_container": sorted({row["metadata_container"] for row in rows}),
+        }
+
+    return {
+        "canonicalization_algorithm": CANONICAL_ENVIRONMENT_ALGORITHM,
+        "canonical_rows": canonical_rows,
+        "canonical_distribution_count": len(canonical_rows),
+        "canonical_package_fingerprint_sha256": canonical_sha256,
+        "raw_discovery_row_count": len(raw_rows),
+        "raw_package_fingerprint_sha256": hashlib.sha256(
+            ("\n".join(raw_rows) + "\n").encode("utf-8")
+        ).hexdigest(),
+        "raw_unique_normalized_name_count": len(grouped),
+        "duplicate_same_version_occurrence_count": duplicate_occurrences,
+        "duplicate_distribution_details": duplicate_details,
+        "conflicting_version_count": 0,
+        "excluded_local_project_distribution_occurrences": local_occurrences,
+        "core_ml_dependencies": core_dependencies,
+    }
+
+
+def stable_environment_identity(
+    config: dict[str, Any],
+    package_identity: dict[str, Any] | None = None,
+    *,
+    required_environment: dict[str, str] | None = None,
+    python_identity: dict[str, str] | None = None,
+) -> dict[str, Any]:
+    """Build the portable environment identity reviewed before authorization."""
+    packages = package_identity or canonical_package_inventory()
+    core = {
+        name: {
+            key: row[key]
+            for key in ("normalized_name", "version", "metadata_sha256", "record_sha256")
+        }
+        for name, row in sorted(packages["core_ml_dependencies"].items())
+    }
+    return {
+        "schema_version": "1.0",
+        "canonicalization_algorithm": packages["canonicalization_algorithm"],
+        "canonical_distribution_count": packages["canonical_distribution_count"],
+        "canonical_package_fingerprint_sha256": packages[
+            "canonical_package_fingerprint_sha256"
+        ],
+        "required_environment": dict(sorted(
+            (required_environment or config["runtime_environment"]["required_environment"]).items()
+        )),
+        "python": python_identity or {
+            "implementation": platform.python_implementation(),
+            "version": platform.python_version(),
+        },
+        "core_ml_dependencies": core,
+    }
+
+
+def environment_contract_payload(
+    config: dict[str, Any], package_identity: dict[str, Any] | None = None
+) -> dict[str, Any]:
+    identity = stable_environment_identity(config, package_identity)
+    return {
+        "schema_version": "1.0",
+        "task_id": config["task_id"],
+        "readiness_revision": config["readiness_revision"],
+        "environment_identity": identity,
+        "environment_identity_sha256": stable_sha256(identity),
+        "authorization_bound": True,
+        "machine_local_paths_in_identity": False,
+    }
+
+
+def load_environment_contract(root: Path, config: dict[str, Any]) -> dict[str, Any]:
+    path = root / config["readiness_outputs"]["environment_contract"]
+    if not path.is_file():
+        raise CriticalV2ExecutionError("reviewed environment contract is absent")
+    payload = _read_json(path)
+    identity = payload.get("environment_identity")
+    if (
+        not isinstance(identity, dict)
+        or payload.get("environment_identity_sha256") != stable_sha256(identity)
+        or payload.get("authorization_bound") is not True
+        or payload.get("readiness_revision") != 13
+    ):
+        raise CriticalV2ExecutionError("reviewed environment contract is invalid")
+    return payload
+
+
+def assert_authorized_environment_identity(
+    actual_identity: dict[str, Any],
+    reviewed_identity: dict[str, Any],
+    authorized_identity_sha256: str | None,
+) -> None:
+    reviewed_sha256 = stable_sha256(reviewed_identity)
+    if (
+        authorized_identity_sha256 != reviewed_sha256
+        or actual_identity != reviewed_identity
+        or stable_sha256(actual_identity) != reviewed_sha256
+    ):
+        raise CriticalV2ExecutionError("AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH")
+
+
+def runtime_source_closure_payload(root: Path, config: dict[str, Any]) -> dict[str, Any]:
+    closure_paths = {row[0] for row in RUNTIME_SOURCE_CLOSURE}
+    if not closure_paths <= set(READINESS_HASH_PATHS):
+        raise CriticalV2ExecutionError("runtime source closure is not authorization-bound")
+    modules = [
+        {
+            "module": relative.removeprefix("src/").removesuffix(".py").replace("/", "."),
+            "path": relative,
+            "reason_included": reason,
+            "direct_caller_or_importer": caller,
+            "runtime_used_symbols": list(symbols),
+            "sha256": sha256_file(root / relative),
+            "authorization_bound": True,
+        }
+        for relative, reason, caller, symbols in RUNTIME_SOURCE_CLOSURE
+    ]
+    exclusions = [
+        {
+            "path": relative,
+            "reason_excluded": "package initializer contains no runtime-affecting logic",
+            "reviewed": True,
+        }
+        for relative in (
+            "src/payresolve_ai/__init__.py",
+            "src/payresolve_ai/evaluation/__init__.py",
+            "src/payresolve_ai/retrieval/__init__.py",
+            "src/payresolve_ai/baselines/__init__.py",
+            "src/payresolve_ai/data/__init__.py",
+            "src/payresolve_ai/generation/__init__.py",
+            "src/payresolve_ai/kb/__init__.py",
+        )
+        if (root / relative).is_file()
+    ]
+    return {
+        "schema_version": "1.0",
+        "task_id": config["task_id"],
+        "readiness_revision": 13,
+        "root_runtime_entrypoint": "payresolve_ai.evaluation.critical_v2_execution.execute_variant_runtime",
+        "scope": "LOCAL_PAYRESOLVE_AI_MODULES_MATERIALLY_AFFECTING_60_ROW_RAW_BATCH",
+        "modules": modules,
+        "source_count": len(modules),
+        "source_sha256": {row["path"]: row["sha256"] for row in modules},
+        "reviewed_exclusions": exclusions,
+        "silent_omissions": 0,
+        "authorization_bound": True,
+    }
 
 
 def _gpu_summary() -> dict[str, Any]:
@@ -2218,7 +2585,7 @@ def _gpu_summary() -> dict[str, Any]:
 def _runtime_environment_static(
     root: Path, config_path: Path, config: dict[str, Any], authorization: dict[str, Any]
 ) -> dict[str, Any]:
-    package_count, package_fingerprint = _package_fingerprint()
+    package_identity = canonical_package_inventory()
     required = config["runtime_environment"]["required_environment"]
     actual = {name: os.environ.get(name, "NOT_SET") for name in required}
     drift = {name: {"required": value, "actual": actual[name]} for name, value in required.items() if actual[name] != value}
@@ -2227,6 +2594,19 @@ def _runtime_environment_static(
         raise CriticalV2ExecutionError(
             f"deterministic runtime environment mismatch: {drift}; relaunch with {launch}"
         )
+    contract = load_environment_contract(root, config)
+    actual_identity = stable_environment_identity(
+        config,
+        package_identity,
+        required_environment=actual,
+    )
+    reviewed_identity = contract["environment_identity"]
+    reviewed_sha256 = contract["environment_identity_sha256"]
+    assert_authorized_environment_identity(
+        actual_identity,
+        reviewed_identity,
+        authorization.get("reviewed_environment_identity_sha256"),
+    )
     return {
         "schema_version": "1.0",
         "environment_kind": "AUTHORIZED_RUNTIME_EXECUTION",
@@ -2240,10 +2620,12 @@ def _runtime_environment_static(
             "implementation": platform.python_implementation(),
             "version": platform.python_version(),
         },
-        "installed_packages": {
-            "distribution_count": package_count,
-            "fingerprint_sha256": package_fingerprint,
-        },
+        "installed_packages": package_identity,
+        "authorized_environment_identity": actual_identity,
+        "authorized_environment_identity_sha256": reviewed_sha256,
+        "environment_reconciliation_reference": config["readiness_outputs"].get(
+            "environment_reconciliation"
+        ),
         "platform": {
             "description": platform.platform(),
             "os_name": os.name,
@@ -2318,6 +2700,7 @@ def _classify_revision6_occurrence(relative: str, line: str) -> str:
         "reports/week_03/results/critical_eval_v2_revision_10_ea1_failed_attempts.json",
         "reports/week_03/results/critical_eval_v2_revision_11_ea1_failed_attempts.json",
         "reports/week_03/results/critical_eval_v2_revision_12_ea1_failed_attempts.json",
+        "reports/week_03/results/critical_eval_v2_revision_13_ea1_failed_attempts.json",
         "reports/week_03/results/critical_eval_v2_ea1_revision10_finding_closure.json",
         "reports/week_03/results/critical_eval_v2_ea1_revision10_provenance_regressions.json",
         "reports/week_03/results/critical_eval_v2_ea1_revision7_rejection_lineage.json",
@@ -2446,12 +2829,25 @@ def audit_revision7_stale_bindings(root: Path, config: dict[str, Any]) -> dict[s
 
 
 def validate_authorization_daily_path_topology(config: dict[str, Any]) -> dict[str, Any]:
+    reviewed_by_revision = {
+        12: "reports/week_03/daily/2026-08-12.md",
+        13: "reports/week_03/daily/2026-08-13.md",
+    }
+    revision = config.get("readiness_revision")
+    reviewed = config.get("authorization", {}).get("reviewed_daily_report_path")
+    expected_reviewed = reviewed_by_revision.get(revision)
+    if expected_reviewed is None or reviewed != expected_reviewed:
+        raise CriticalV2ExecutionError(
+            "authorization daily-path topology mismatch: "
+            f"readiness_revision={revision!r} reviewed={reviewed!r} "
+            f"expected_reviewed={expected_reviewed!r}"
+        )
     expected = {
         "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
         "PROJECT_STATE.md",
         "TASKS.md",
         "reports/week_03/week_03_summary.md",
-        "reports/week_03/daily/2026-08-12.md",
+        reviewed,
     }
     actual = set(config.get("authorization", {}).get("allowed_authorization_commit_paths", []))
     if actual != expected:
@@ -2461,7 +2857,9 @@ def validate_authorization_daily_path_topology(config: dict[str, Any]) -> dict[s
         )
     return {
         "status": "PASS", "allowed_paths": sorted(actual),
-        "today_daily_allowed": True, "stale_daily_allowed": False,
+        "reviewed_daily_report_path": reviewed,
+        "reviewed_daily_allowed": True,
+        "stale_daily_allowed": False,
     }
 
 
@@ -2910,7 +3308,17 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
         "revision-9 cross-target coverage",
     )
     payloads = build_runtime_payloads(root, config)
-    package_count, package_fingerprint = _package_fingerprint()
+    package_identity = canonical_package_inventory()
+    environment_contract = environment_contract_payload(config, package_identity)
+    source_closure = runtime_source_closure_payload(root, config)
+    _write_json(
+        root / config["readiness_outputs"]["environment_contract"],
+        environment_contract,
+    )
+    _write_json(
+        root / config["readiness_outputs"]["runtime_source_closure"],
+        source_closure,
+    )
     environment = {
         "environment_kind": "READINESS_EXPECTATION_NOT_RUNTIME_EXECUTION",
         "task_id": config["task_id"],
@@ -2922,12 +3330,17 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
         "os": os.name,
         "logical_cpu_count": os.cpu_count(),
         "gpu": _gpu_summary(),
-        "installed_distribution_count": package_count,
-        "installed_package_fingerprint_sha256": package_fingerprint,
+        "installed_packages": package_identity,
+        "reviewed_environment_identity": environment_contract["environment_identity"],
+        "reviewed_environment_identity_sha256": environment_contract[
+            "environment_identity_sha256"
+        ],
+        "environment_contract_reference": config["readiness_outputs"]["environment_contract"],
         "deterministic_environment": {
             "PYTHONHASHSEED": os.environ.get("PYTHONHASHSEED", "NOT_SET"),
             "OMP_NUM_THREADS": os.environ.get("OMP_NUM_THREADS", "NOT_SET"),
             "MKL_NUM_THREADS": os.environ.get("MKL_NUM_THREADS", "NOT_SET"),
+            "HF_HUB_OFFLINE": os.environ.get("HF_HUB_OFFLINE", "NOT_SET"),
             "TOKENIZERS_PARALLELISM": os.environ.get("TOKENIZERS_PARALLELISM", "NOT_SET"),
         },
         "readiness_observed_head": git_output(root, "rev-parse", "HEAD"),
@@ -2962,6 +3375,7 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
         "runtime_manifest_created": False,
         "required_runtime_environment": config["runtime_environment"],
     }
+    _write_json(root / config["readiness_outputs"]["environment_manifest"], environment)
     runtime_manifest = {
         "task_id": config["task_id"],
         "readiness_revision": config["readiness_revision"],
@@ -3023,12 +3437,17 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
         "execution_contract_sha256": sha256_file(config_path),
         "execution_artifact_sha256": source_hashes,
         "runtime_asset_manifest_sha256": sha256_file(root / config["readiness_outputs"]["runtime_asset_manifest"]),
+        "reviewed_environment_identity_sha256": environment_contract[
+            "environment_identity_sha256"
+        ],
+        "environment_contract_artifact_sha256": sha256_file(
+            root / config["readiness_outputs"]["environment_contract"]
+        ),
         "authorization_topology": "parent(A)=R; HEAD=A; HEAD^=R",
         "variants": config["variants"],
         "evaluation_output_paths": _evaluation_output_paths(config),
         "senior_authorization_claimed": False,
     }
-    _write_json(root / config["readiness_outputs"]["environment_manifest"], environment)
     _write_json(root / config["readiness_outputs"]["runtime_payload_manifest"], runtime_manifest)
     _write_json(root / config["readiness_outputs"]["future_command_plan"], commands)
     _write_json(root / config["authorization"]["candidate"], authorization_candidate)
@@ -3255,6 +3674,36 @@ def prepare_readiness(root: Path, config_path: Path) -> dict[str, Any]:
                 "stage": "revision-12 prepare-readiness attempt 3",
                 "failure": "the source occurrence audit then classified the new Revision-6 failure-description literal itself as an active binding",  # ALLOWED_MUTATION_FIXTURE_REVISION6
                 "resolution": "marked only those exact detector/evidence literals with the existing ALLOWED_MUTATION_FIXTURE_REVISION6 annotation; runtime assignments remain unmarked and forbidden",
+            },
+            {
+                "stage": "revision-13 prepare-readiness attempt 1",
+                "failure": "the first authoring command placed global --root and --config options after the prepare-readiness subcommand, so argparse rejected the invocation before readiness code ran",
+                "resolution": "reran with global options before the subcommand; no readiness or evaluation result was inferred from the rejected invocation",
+            },
+            {
+                "stage": "revision-13 prepare-readiness attempt 2",
+                "failure": "the stale-binding audit classified inherited Revision-6 text inside the new Revision-13 failed-attempt log as an active binding",  # ALLOWED_MUTATION_FIXTURE_REVISION6
+                "resolution": "registered only the exact Revision-13 failed-attempt evidence path as historical provenance; production runtime bindings remain fail-closed",
+            },
+            {
+                "stage": "revision-13 focused suite attempt 1",
+                "failure": "14/15 tests passed; the isolated tamper fixture reused the intentionally unauthorized candidate and therefore failed at evaluation_authorized before reaching the source-hash guard",
+                "resolution": "promoted only the isolated in-memory fixture to the required synthetic authorization fields, retained the real candidate as unauthorized, and reran to exercise the exact source-hash mismatch",
+            },
+            {
+                "stage": "revision-13 execution-readiness suite attempt 1",
+                "failure": "115/118 tests passed; three historical fixtures assumed the A12 authorization/runtime/state files were absent, conflicting with the R13 requirement to preserve the exact E1 evidence pair",
+                "resolution": "made the absent-authorization test use an actually absent temp path and excluded only the exact preserved E1 pair from the no-evaluation-output assertion; the stale A12 state continues to fail closed before model loading",
+            },
+            {
+                "stage": "revision-13 full-suite attempt 1",
+                "failure": "default unittest discovery stopped before collection because the preserved ignored tests/test_reporting directory collides with tracked tests/test_reporting.py",
+                "resolution": "used the established repository module-list harness that covers every top-level tracked test except the two bundle-context-only modules",
+            },
+            {
+                "stage": "revision-13 full-suite repository-harness attempt 1",
+                "failure": "654/655 tests passed; the frozen Week-2 verification test expected the old benchmark.py implementation hash even though R13 intentionally changes that production module for local-only loading",
+                "resolution": "preserved the frozen Week-2 manifest and adapted the historical test to require fail-closed implementation-hash drift without loading cache, model, or encoder",
             }
         ]}.values()),
     })
@@ -3346,6 +3795,17 @@ def _validate_authorization_payload(
         raise CriticalV2ExecutionError("authorization variant mismatch")
     if authorization.get("evaluation_output_paths") != _evaluation_output_paths(config):
         raise CriticalV2ExecutionError("authorization output-path mismatch")
+    contract = load_environment_contract(root, config)
+    contract_path = root / config["readiness_outputs"]["environment_contract"]
+    reviewed_sha256 = contract["environment_identity_sha256"]
+    environment = _read_json(root / config["readiness_outputs"]["environment_manifest"])
+    if (
+        authorization.get("reviewed_environment_identity_sha256") != reviewed_sha256
+        or authorization.get("environment_contract_artifact_sha256") != sha256_file(contract_path)
+        or environment.get("reviewed_environment_identity") != contract["environment_identity"]
+        or environment.get("reviewed_environment_identity_sha256") != reviewed_sha256
+    ):
+        raise CriticalV2ExecutionError("AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH")
     expected_hashes = _readiness_artifact_hashes(root)
     if authorization.get("execution_artifact_sha256") != expected_hashes:
         raise CriticalV2ExecutionError("authorization execution source/config/test hash mismatch")
@@ -3416,6 +3876,9 @@ def verify_execution_authorization(
         "status": "PASS", "authorization_record": relative,
         "authorization_commit": head, "readiness_implementation_commit": parent,
         "evaluation_authorized": True,
+        "reviewed_environment_identity_sha256": authorization[
+            "reviewed_environment_identity_sha256"
+        ],
     }
 
 
@@ -4051,6 +4514,10 @@ def verify_readiness(root: Path, config_path: Path) -> dict[str, Any]:
         outputs["revision_10_lineage"],
         outputs["finding_closure"], outputs["disclosure_guard_results"],
         outputs["provenance_regressions"], outputs["focused_verification"],
+        outputs["runtime_incident_lineage"], outputs["preauthorization_reset_plan"],
+        outputs["offline_encoder_probe"], outputs["transitive_runtime_source_binding"],
+        outputs["runtime_asset_comparison"], outputs["runtime_payload_comparison"],
+        outputs["a12_negative_control"],
         config["authorization"]["candidate"],
         config["safety_evaluator"]["rules"], config["safety_evaluator"]["boundary_rules"],
         config["safety_evaluator"]["obligation_rules"],

@@ -1,0 +1,55 @@
+{
+  "authorization_bound": true,
+  "environment_identity": {
+    "canonical_distribution_count": 298,
+    "canonical_package_fingerprint_sha256": "39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a",
+    "canonicalization_algorithm": "pep503-unique-third-party-name-version-v1",
+    "core_ml_dependencies": {
+      "huggingface-hub": {
+        "metadata_sha256": "c8c57cf0f5b2e2de4f8c3e2596d7dbbd212f9036937c83c5d62fd0cb23e587cb",
+        "normalized_name": "huggingface-hub",
+        "record_sha256": "4a107e4fd2c112291134f1977adc95b7d47c2f40dc3064bb95b09f356c8c0a2d",
+        "version": "1.4.0"
+      },
+      "numpy": {
+        "metadata_sha256": "229f3544b02805e0f6a12030e155d8a45fd3a4100b3291574175e6a76f20e1e1",
+        "normalized_name": "numpy",
+        "record_sha256": "b936997e8a6f793396cabfca8764d989d598209216290a6f3ae1ec4f0e9d52e5",
+        "version": "2.2.6"
+      },
+      "sentence-transformers": {
+        "metadata_sha256": "a10e693e27c40fc9703a73f13bc565c4f5675b3fe08cc4654ebb5c2259acce6b",
+        "normalized_name": "sentence-transformers",
+        "record_sha256": "75cc9154d2810a7978e6b588a3fbc22b43a2973efb6e101160c6005a95922541",
+        "version": "5.2.2"
+      },
+      "torch": {
+        "metadata_sha256": "977a43d37592986165d8ea2126b1c924d7195f863ec85b290c22785c96b6a683",
+        "normalized_name": "torch",
+        "record_sha256": "e379935f1ee7942d9ae815994a8260142d1820e8a4658c95a715ca3e73ba4caf",
+        "version": "2.9.0"
+      },
+      "transformers": {
+        "metadata_sha256": "4ed0c5b182e992d3479c7106d1a29fb0a3788f6ca65763e59640b06e7985ded3",
+        "normalized_name": "transformers",
+        "record_sha256": "260364cc0539b2f048de9d82f80927b2aaa7c5418bcea54158accd987f3a9109",
+        "version": "5.0.0"
+      }
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.13.3"
+    },
+    "required_environment": {
+      "HF_HUB_OFFLINE": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1"
+    },
+    "schema_version": "1.0"
+  },
+  "environment_identity_sha256": "17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97",
+  "machine_local_paths_in_identity": false,
+  "readiness_revision": 13,
+  "schema_version": "1.0",
+  "task_id": "W3-002-CR1-EA1"
+}

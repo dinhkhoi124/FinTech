@@ -387,6 +387,7 @@ def _load_encoder(root: Path, config: dict[str, Any]) -> LoadedEncoder:
             device=encoder_config["device"],
             cache_folder=str(cache_root),
             trust_remote_code=encoder_config["trust_remote_code"],
+            local_files_only=encoder_config.get("local_files_only", False),
         )
     except Exception as error:
         raise SemanticBaselineError(
@@ -444,6 +445,7 @@ def _load_encoder(root: Path, config: dict[str, Any]) -> LoadedEncoder:
         "encoder_frozen": True,
         "device": encoder_config["device"],
         "trust_remote_code": encoder_config["trust_remote_code"],
+        "local_files_only": encoder_config.get("local_files_only", False),
         "downloaded_snapshot_files": files,
         "snapshot_footprint_bytes": sum(item["bytes"] for item in files),
     }

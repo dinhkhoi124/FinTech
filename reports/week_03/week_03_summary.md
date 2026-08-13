@@ -428,6 +428,23 @@ critical evaluation remains false, and model verdict remains `NOT_ESTABLISHED`.
 No model, encoder, retrieval, generation, inference, or evaluation ran. Week 3
 P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains `BLOCKED / NOT STARTED`.
 
+## W3-002-CR1-EA1 readiness revision-13 runtime remediation — 2026-08-12
+
+Historical Revision 12/A12 reached primary startup but produced no raw output.
+Attempts ended after 120.817 seconds and 32.210 seconds; the latter exposed a
+blocked Hugging Face HEAD request. Revision 13 binds `HF_HUB_OFFLINE=1`,
+production `local_files_only=True`, and nine transitive runtime source hashes.
+The zero-network diagnostic reproduced the exact expected embedding SHA; assets
+pass 11/11 and payloads remain unchanged 60/60. All ordered suites and the
+655-test full harness pass. A12 fails closed; R13 remains unauthorized, reset
+is not executed, and model verdict is `NOT_ESTABLISHED`.
+
+Postflight environment verification stopped R13: the observed distribution
+count/fingerprint is `300/a3689c...`, not the locked `299/83b21c...`. Core ML
+versions match, but the strict environment gate fails. R13 is therefore not
+ready for Senior review; its pre-stop ZIP is non-deliverable pending environment
+reconciliation. No execution boundary changed.
+
 ## W3-002-CR1-EA1 readiness revision-12 authorization-date amendment
 
 Revision 11 was Senior-approved, committed, and pushed as readiness commit R
@@ -546,3 +563,26 @@ AWAITING_SENIOR_AUTHORIZATION_REVIEW`. Candidate Revision 7 remains immutable;
 `evaluation_authorized=false`, `critical_evaluated=false`, and
 `model_verdict=NOT_ESTABLISHED`. No inference or critical evaluation ran. Week 3
 P0 remains `BLOCKED / IN PROGRESS`; Week 4 remains `BLOCKED / NOT STARTED`.
+## W3-002-CR1-EA1 Revision-13 canonical environment remediation — 2026-08-12
+
+The environment stop was classified as `ENV_DISCOVERY_CONTEXT_DRIFT`, not
+installed-package drift. Raw discovery remains diagnostic; the shared
+readiness/runtime identity is the PEP-503-normalized unique third-party set,
+excluding local `payresolve-ai`. C1/C2/C3/C4 all bind 298 rows at
+`39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a`.
+Core-five metadata is explicitly bound and version conflicts fail closed. The
+offline probe and all ordered suites, including 667/667 full harness, pass. R13
+is ready for Senior readiness review but remains unauthorized; primary was not
+run and Week 3/Week 4 remain blocked.
+
+### R13 authorization/runtime closure binding — 2026-08-13
+
+The final R13 remediation binds the reviewed canonical environment identity directly into the authorization candidate and verifies the live identity before model construction. The identity covers 298 canonical third-party rows, required offline variables, CPython 3.13.3, and core-five version/METADATA/RECORD hashes; its canonical SHA-256 is `17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97`. The complete production source closure is 18 modules and is authorization-bound. Seven environment and three source negative controls fail closed pre-model. The offline probe passed in 131.649789 seconds with zero network attempts; the corrected full harness passed 679/679 in 299.132 seconds. Status is `R13_BINDING_FIX_READY_FOR_SENIOR_REVIEW`; no primary evaluation was run.
+
+### R13 final authorization-date topology closure — 2026-08-13
+
+Active Revision 13 now binds the exact five future-A13 paths with `daily/2026-08-13.md`; `daily/2026-08-12.md` is historical-only and rejected by active R13. Historical Revision-12 behavior is preserved through an isolated fixture. All nine environment/authorization enforcement symbols remain in the root execution module and the complete closure remains 18 modules. The offline probe passed in 9.976939 seconds with zero network attempts; all ordered suites and the corrected 688/688 full harness pass. Revision 13 is `R13_FINAL_READY_FOR_SENIOR_REVIEW`, remains unauthorized, and no primary evaluation ran.
+
+### R13 review coverage correction — 2026-08-13
+
+The omitted R13-owned retrieval regression test is now part of the readiness/authorization hash surface and final review package. Its only change strengthens frozen Week-2 provenance checking; retrieval semantics remain unchanged and 56/56 retrieval tests pass. A deterministic dirty-path coverage audit plus exact-byte proposed-commit dry run prevents future reviewed-file omissions. All ordered suites and the corrected 694/694 full harness pass; R13 remains unauthorized and no primary evaluation ran.

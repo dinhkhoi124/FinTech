@@ -24,6 +24,13 @@ EXPECTED_ALLOWLIST = {
 class CriticalV2ExecutionRevision12Tests(unittest.TestCase):
     def setUp(self) -> None:
         self.config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+        self.config["readiness_revision"] = 12
+        self.config["authorization"]["reviewed_daily_report_path"] = (
+            "reports/week_03/daily/2026-08-12.md"
+        )
+        self.config["authorization"]["allowed_authorization_commit_paths"] = sorted(
+            EXPECTED_ALLOWLIST
+        )
 
     def _assert_extra_path_rejected(self, path: str) -> None:
         config = copy.deepcopy(self.config)

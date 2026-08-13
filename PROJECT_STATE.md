@@ -7,11 +7,27 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: none — authorization is AUTHORIZED_FOR_PRIMARY_EXECUTION; primary execution has not started
-- Next task: Senior independently verifies committed topology `HEAD=A` and `HEAD^=R2` before primary V0/V1/V2 execution
-- Last updated: 2026-08-12 by Codex
+- Active task: `W3-002-CR1-EA1-R13-REVIEW-COVERAGE-FIX-01` — READY FOR SENIOR REVIEW
+- Next task: independent Senior review of the Revision-13 review-coverage correction bundle; no primary execution is authorized
+- Last updated: 2026-08-13 by Codex
 
 ## Active objective
+Candidate Revision 7 remains frozen and Senior semantic-approved. Real E1
+attempts under historical A12 exposed an offline encoder-binding defect before
+any raw output was persisted. EA1 Revision 12 and A12 remain historical
+committed evidence but are superseded for execution. Revision 13 binds
+`HF_HUB_OFFLINE=1`, production `local_files_only=True`, and hashes the complete
+18-module execution closure. Postflight found distribution count/fingerprint
+raw discovery multiplicity drift. The environment-provenance remediation now
+uses a canonical 298-package third-party identity (`39c1c4a0...`) that is equal
+across C1/C2/C3/C4 while retaining raw 299/300/302 history diagnostically. The
+authorization candidate now binds the stable environment-identity contract,
+and runtime compares the live identity with the reviewed/authorized identity
+before model construction. Seven environment and three source-tamper negative
+controls fail closed pre-model. R13 is
+`READY FOR SENIOR READINESS REVIEW`; `evaluation_authorized=false`,
+`critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`.
+
 Senior rejected candidate revision 4 and blocked further candidate authoring
 pending a contract amendment. Senior has now approved contract Option A. The
 fixed 40/20 contract is not semantically
@@ -585,3 +601,46 @@ self-referential. The model/pipeline verdict is NOT ESTABLISHED. Week 3 P0 is
 BLOCKED / IN PROGRESS and Week 4 is BLOCKED / NOT STARTED. Senior final verdict
 for the incident evidence is `APPROVE_COMMIT — INTEGRITY INCIDENT EVIDENCE`;
 W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
+
+## W3-002-CR1-EA1 readiness revision 13 — 2026-08-12
+
+- Task: `W3-002-CR1-EA1-READINESS-R13`, remediation authoring only.
+- Root cause: `EA1_RUNTIME_OFFLINE_ENCODER_BINDING_DEFECT`; Candidate Revision 7 is unchanged.
+- Remediation: require `OMP_NUM_THREADS=1`, `MKL_NUM_THREADS=1`, `HF_HUB_OFFLINE=1`; pass `local_files_only=True`; hash-bind nine transitive runtime modules.
+- Evidence: zero network attempts; `[1,384]` float32; norm 1.0; exact expected embedding SHA; snapshot 11/11; Candidate 23/23; payload 60/60 unchanged.
+- Verification: focused 15/15, readiness 118/118, Rev10/11/12 30/30, Senior safety 3/3, full harness 655/655 PASS.
+- Boundary: A12/E1 evidence remains byte-identical; reset is `NOT EXECUTED`; R13 is unauthorized and stopped on the environment gate. The pre-stop ZIP is non-deliverable. Week 3 is blocked/in progress; Week 4 is blocked/not started.
+
+## W3-002-CR1-EA1 Revision-13 authorization/runtime closure binding — 2026-08-13
+
+- Task: `W3-002-CR1-EA1-R13-BINDING-FIX-01` (Week 3, P0).
+- Stable environment identity: canonicalization algorithm, 298-row package identity, required offline variables, exact CPython `3.13.3`, and normalized core-five version/METADATA/RECORD hashes are serialized canonically and bound by SHA-256 `17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97`.
+- Runtime source closure: 18 production modules are reasoned, hashed, authorization-bound, and verified before model construction; empty package initializers are explicitly excluded.
+- Fail-closed evidence: ENV-AUTH 01–07 and three source-tamper controls all reject before model/gold/evaluator calls. The final lineage-bound offline probe passed in 131.649789 seconds with zero network attempts.
+- Verification: focused binding 12/12, ENV 12/12, R13 15/15, readiness 118/118, Rev10/11/12 30/30, safety 68/68, retrieval 56/56, and corrected full harness 679/679 in 299.132 seconds.
+- Boundary: Candidate Revision 7 and E1 hashes remain unchanged; A12 remains historical; no reset, authorization, primary/evaluation, stage, commit, or push. Status is `R13_BINDING_FIX_READY_FOR_SENIOR_REVIEW`.
+
+## W3-002-CR1-EA1 Revision-13 final authorization-date closure — 2026-08-13
+
+- Task: `W3-002-CR1-EA1-R13-AUTH-DATE-CLOSURE-01` (Week 3, P0).
+- Active R13 topology now deterministically derives the exact five future A13 paths from the reviewed config field `reports/week_03/daily/2026-08-13.md`; the 2026-08-12 path is stale/forbidden for active R13.
+- Historical Revision-12 semantics remain covered by an isolated Revision-12 fixture where 2026-08-12 is valid and 2026-08-13 is future/unreviewed.
+- All nine authorization/environment enforcement symbols remain defined in `src/payresolve_ai/evaluation/critical_v2_execution.py`, SHA-256 `983e99269fd006f2aa8dc3bf30e25558cda2d2c9a007218e2983ee1604af6a42`, within the 18-module closure, `READINESS_HASH_PATHS`, and the authorization candidate hash map. No new local enforcement module was introduced.
+- Verification: auth-date/closure 9/9, binding 12/12, environment 12/12, R13 15/15, readiness 118/118, historical Rev12 5/5, Rev10 20/20, Rev11 5/5, safety 68/68, retrieval 56/56, and corrected full harness 688/688 in 225.925 seconds. The offline probe passed in 9.976939 seconds with zero network attempts.
+- Boundary: Candidate Revision 7 and E1 evidence remain unchanged; A12 is historical only; reset remains `NOT EXECUTED`; `evaluation_authorized=false`, `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`. Status is `R13_FINAL_READY_FOR_SENIOR_REVIEW`.
+
+## W3-002-CR1-EA1 Revision-13 review coverage correction — 2026-08-13
+
+- `tests/test_retrieval_benchmark.py` is classified `R13_REGRESSION_COMPATIBILITY_TEST_CHANGE`: one test was renamed and strengthened to require frozen Week-2 provenance drift after the reviewed R13 local-only encoder change; no retrieval assertion/case was removed or weakened.
+- The test SHA-256 `87bceeb60fd079bd380b095cd6a76ec714d871b0303a8215b5cd9bf7cb358fb7` is now in `READINESS_HASH_PATHS`, the pre-authorization Candidate execution-artifact map, bundle `task_files`, and detached inventory. It remains outside the 18-module runtime closure because it is not runtime code.
+- A deterministic review-scope classifier and proposed-commit dry run now fail closed on unclassified dirty paths, omitted R13 paths, byte mismatches, protected E1 paths, review ZIPs, or user-owned paths.
+- Verification: coverage 6/6, retrieval 56/56, all ordered suites pass, Senior safety 68/68, and final exact-byte corrected full harness 694/694 in 237.471 seconds. Final regenerated offline probe passed in 45.061138 seconds with zero network attempts and unchanged embedding SHA.
+- Boundary: Candidate/E1/runtime/environment/auth-date semantics unchanged; reset `NOT EXECUTED`; no A13, primary/evaluation, stage, commit, or push. Status is `R13_REVIEW_COVERAGE_FIXED_READY_FOR_SENIOR_REVIEW`.
+
+## W3-002-CR1-EA1 Revision-13 environment provenance remediation — 2026-08-12
+
+- Task: `W3-002-CR1-EA1-R13-ENV-FP-FIX-01` (Week 3, P0).
+- Classification: `ENV_DISCOVERY_CONTEXT_DRIFT / REMEDIATED`; no package installation drift and no package mutation.
+- Canonical identity: PEP-503-normalized unique third-party rows excluding local `payresolve-ai`; 298 rows, SHA-256 `39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a` across C1/C2/C3/C4. Version conflicts fail closed; core-five metadata is explicitly bound.
+- Verification: ENV 12/12, R13 15/15, readiness 118/118, REV10 20/20, REV11 5/5, REV12 5/5, safety 68/68, retrieval 56/56, and full repository harness 667/667 in 239.332 seconds. The final lineage-bound offline probe passed in 14.159185 seconds with zero network attempts and the locked embedding SHA.
+- Lifecycle: Candidate Revision 7 remains unchanged/frozen/Senior approved; Revision 12 and A12 are historical only; R13 is ready for Senior readiness review. Primary is not run, `evaluation_authorized=false`, `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`. Week 3 remains blocked/in progress; Week 4 remains blocked/not started.

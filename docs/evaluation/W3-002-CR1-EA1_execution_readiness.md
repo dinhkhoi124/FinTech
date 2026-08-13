@@ -1,6 +1,6 @@
 # W3-002-CR1-EA1 Execution Readiness
 
-Active readiness revision: **9**. Candidate revision: **7**.
+Active readiness revision: **13**. Candidate revision: **7**.
 
 ## Purpose
 
@@ -105,3 +105,46 @@ Revision 12 is `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW` with reason
 `AUTHORIZATION_DAILY_REPORT_DATE_ROLLOVER`. `evaluation_authorized=false`,
 `critical_evaluated=false`, and `model_verdict=NOT_ESTABLISHED`; no
 authorization record A or evaluation output exists.
+
+## Readiness Revision 13 — offline runtime remediation
+
+Real E1 attempts under A12 stopped before raw persistence: 120.817-second
+watchdog timeout, then a 32.210-second failure caused by a Hugging Face HEAD
+attempt (`WinError 10013`). Revision 13 requires exactly `OMP_NUM_THREADS=1`,
+`MKL_NUM_THREADS=1`, and `HF_HUB_OFFLINE=1`; the critical retrieval path passes
+`local_files_only=True`. All nine transitive runtime modules are hash-bound.
+
+The bounded diagnostic observed zero network attempts and produced `[1,384]`
+float32, norm 1.0, SHA-256
+`83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e`.
+A12 cannot authorize R13. The E1 pair remains preserved; reset is not executed.
+
+### Revision-13 canonical environment provenance correction
+
+Raw `importlib.metadata.distributions()` multiplicity is diagnostic only because
+`.pth`, editable metadata, and repeated source roots alter it. Readiness and
+future runtime now share one authoritative identity: PEP-503-normalized unique
+third-party `name==version` rows, excluding local `payresolve-ai` whose sources
+remain explicitly hash-bound. Multiple versions of one normalized name fail
+closed. C1/C2/C3/C4 produced raw counts 300/301/302/301 but the same 298-row
+fingerprint `39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a`.
+Core-five ML metadata is separately bound. R13 is ready for Senior readiness
+review, remains unauthorized, and does not authorize primary execution.
+
+## Revision-13 binding closure — 2026-08-13
+
+`W3-002-CR1-EA1-R13-BINDING-FIX-01` closes the gap between reviewed environment provenance and execution authorization. A deterministic canonical environment contract binds the 298-package identity, required offline variables, CPython 3.13.3, and core-five version/METADATA/RECORD hashes under identity SHA-256 `17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97`. The authorization candidate and readiness hash map bind that contract, and runtime checks the live identity before model construction.
+
+The local production source closure contains 18 modules, including `generation/verification.py` and `data/banking77.py`; all are reasoned, hashed, and authorization-bound. ENV-AUTH 01–07, three source-tamper controls, and two detached bundle mutations fail closed. The offline probe passed in 131.649789 seconds with zero network attempts, and the corrected full harness passed 679/679 in 299.132 seconds. R13 remains unauthorized and primary was not run.
+
+## Revision-13 final authorization-date closure — 2026-08-13
+
+Active R13 now carries an explicit reviewed daily-report field and validates an exact five-path future-A13 allowlist containing `reports/week_03/daily/2026-08-13.md`. The validator does not use wall-clock time or filesystem discovery. Active use of 2026-08-12, older dates, 2026-08-14, both daily paths, a missing reviewed daily path, or any source/Candidate path fails closed. Revision-12 uses a constructed historical fixture so its original 2026-08-12 behavior remains regression-tested without constraining active R13.
+
+The nine environment/authorization enforcement functions remain in `src/payresolve_ai/evaluation/critical_v2_execution.py`; the closure row now names package canonicalization, stable environment identity, authorization payload enforcement, runtime equality, daily-path topology, and state-machine entry explicitly. The file is in the 18-module runtime closure, `READINESS_HASH_PATHS`, and authorization hash map. No module was added. All ordered suites and 688/688 corrected full-harness tests pass. R13 remains pre-authorization and no primary inference ran.
+
+## Revision-13 review coverage correction — 2026-08-13
+
+The commit dry run discovered that `tests/test_retrieval_benchmark.py` contained an R13 regression-compatibility change but was absent from the review package and readiness hash surface. Exact review confirmed one strengthened test only: the frozen Week-2 verifier must now expose the intentional post-Week-2 `benchmark.py` provenance drift without loading cache/model/encoder. No R0/R1 behavior, assertion, or regression case was weakened or removed.
+
+The test is now authorization/readiness hash-bound and included in bundle `task_files` and inventory, while remaining outside the 18-module runtime closure. A deterministic review-scope audit classifies every dirty path, requires byte equality for every proposed R13 commit path, and fails closed for omissions or unclassified paths. Focused coverage passes 6/6, retrieval 56/56, and the corrected full harness 694/694.

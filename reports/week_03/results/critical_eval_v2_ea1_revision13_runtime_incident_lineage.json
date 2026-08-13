@@ -1,0 +1,69 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "classification": "WATCHDOG_TIMEOUT_DURING_ENCODER_LOAD",
+      "elapsed_seconds": 120.817,
+      "exit_code": 124,
+      "persisted_raw": false,
+      "state_after": "AUTHORIZED"
+    },
+    {
+      "attempt": 2,
+      "classification": "HUGGING_FACE_HEAD_REQUEST_BLOCKED",
+      "elapsed_seconds": 32.21,
+      "error": "WinError 10013 during remote HEAD request",
+      "exit_code": 1,
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "persisted_raw": false,
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "state_after": "AUTHORIZED"
+    }
+  ],
+  "candidate_defect": false,
+  "candidate_revision": 7,
+  "candidate_revision_advanced": false,
+  "critical_evaluated": false,
+  "diagnostic": {
+    "encoder_snapshot_files_passed": 11,
+    "encoder_snapshot_files_total": 11,
+    "probe_a_embedding_ndarray_sha256": "83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e",
+    "probe_b_embedding_ndarray_sha256": "83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e",
+    "probe_embeddings_byte_identical": true
+  },
+  "evaluation_or_inference_run": false,
+  "evaluator_calls": 0,
+  "gold_loader_calls": 0,
+  "model_verdict": "NOT_ESTABLISHED",
+  "offline_probe_reference": "reports/week_03/results/critical_eval_v2_ea1_revision13_offline_encoder_probe.json",
+  "package_versions": {
+    "huggingface-hub": "1.4.0",
+    "numpy": "2.2.6",
+    "sentence-transformers": "5.2.2",
+    "torch": "2.9.0",
+    "transformers": "5.0.0"
+  },
+  "primary_executed_successfully": false,
+  "protected_e1_evidence_sha256": {
+    "reports/week_03/results/critical_eval_v2_execution_state.json": "3908034af37fcdc11fa64d9f6024e775d24d435030246ee08ec4f48816f184ca",
+    "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json": "228a2f23c168092e41d0abebff7af468dc106b27a88e1bb6eef995af5f9739ca"
+  },
+  "readiness_authoring_failures": [
+    {
+      "failure": "standalone evidence script was launched without PYTHONPATH=src and stopped at import with ModuleNotFoundError before the encoder probe",
+      "probe_executed": false,
+      "resolution": "rebind the changed evidence script, then relaunch with the repository src directory on PYTHONPATH",
+      "stage": "revision-13 offline evidence attempt 1"
+    }
+  ],
+  "readiness_revision": 13,
+  "remediation": "Production retrieval encoder now passes local_files_only=True and requires HF_HUB_OFFLINE=1 before process launch.",
+  "root_cause": "SentenceTransformer construction was not explicitly local-only; cached bytes were complete but a remote metadata path remained reachable.",
+  "selected_remediation": [
+    "HF_HUB_OFFLINE_BINDING",
+    "LOCAL_FILES_ONLY_CONSTRUCTOR",
+    "TRANSITIVE_RUNTIME_SOURCE_HASH_BINDING"
+  ],
+  "senior_classification": "EA1_RUNTIME_OFFLINE_ENCODER_BINDING_DEFECT",
+  "status": "ROOT_CAUSE_CONFIRMED_AND_REMEDIATED"
+}

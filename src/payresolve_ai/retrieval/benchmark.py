@@ -100,6 +100,7 @@ def verify_contract(root: Path, config_path: Path) -> dict[str, Any]:
 def _encoder(root: Path, config: dict[str, Any]):
     semantic = _json(root / config["classifier"]["config"])
     semantic["cache"]["huggingface_home"] = config["encoder"]["huggingface_home"]
+    semantic["encoder"]["local_files_only"] = True
     return _load_encoder(root, semantic)
 
 

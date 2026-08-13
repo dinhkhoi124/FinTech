@@ -1,0 +1,8 @@
+{
+  "evaluation_or_inference_run": false,
+  "failure": "authorization mismatch: execution_contract_sha256",
+  "model_loaded": false,
+  "readiness_revision": 13,
+  "status": "REJECTED_AS_EXPECTED",
+  "tested_authorization": "A12"
+}

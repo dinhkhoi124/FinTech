@@ -1,6 +1,6 @@
 {
   "schema_version": "4.0",
-  "readiness_revision": 12,
+  "readiness_revision": 13,
   "task_id": "W3-002-CR1-EA1",
   "candidate_revision": 7,
   "candidate_revision_id": "critical_eval_v2_candidate_revision_7",
@@ -70,12 +70,13 @@
     "required_verdict": "APPROVE_EXECUTION",
     "evaluation_authorized": false,
     "topology_spec": "configs/evaluation/critical_eval_v2_authorization_topology.json",
+    "reviewed_daily_report_path": "reports/week_03/daily/2026-08-13.md",
     "allowed_authorization_commit_paths": [
       "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
       "PROJECT_STATE.md",
       "TASKS.md",
       "reports/week_03/week_03_summary.md",
-      "reports/week_03/daily/2026-08-12.md"
+      "reports/week_03/daily/2026-08-13.md"
     ]
   },
   "state_machine": {
@@ -114,28 +115,40 @@
     "disclosure_target_classification": "reports/week_03/results/critical_eval_v2_revision_9_disclosure_target_classification.json",
     "fixture_quality": "reports/week_03/results/critical_eval_v2_revision_9_disclosure_fixture_quality.json",
     "cross_target_coverage": "reports/week_03/results/critical_eval_v2_revision_9_cross_target_disclosure_coverage.json",
-    "stale_binding_audit": "reports/week_03/results/critical_eval_v2_ea1_revision12_stale_binding_audit.json",
+    "stale_binding_audit": "reports/week_03/results/critical_eval_v2_ea1_revision13_stale_binding_audit.json",
     "independent_cover_reference": "reports/week_03/results/critical_eval_v2_revision_7_independent_cover_reference.json",
     "mutation_campaign": "reports/week_03/results/critical_eval_v2_revision_9_readiness_mutation_campaign.json",
-    "reuse_rebind_report": "reports/week_03/results/critical_eval_v2_revision_12_ea1_reuse_rebind_report.json",
+    "reuse_rebind_report": "reports/week_03/results/critical_eval_v2_revision_13_ea1_reuse_rebind_report.json",
     "final_self_adversarial_review": "reports/week_03/results/critical_eval_v2_revision_9_final_self_adversarial_review.json",
-    "failed_attempts": "reports/week_03/results/critical_eval_v2_revision_12_ea1_failed_attempts.json",
+    "failed_attempts": "reports/week_03/results/critical_eval_v2_revision_13_ea1_failed_attempts.json",
     "revision_8_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision8_rejection_lineage.json",
     "revision_10_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision10_lineage.json",
     "finding_closure": "reports/week_03/results/critical_eval_v2_ea1_revision11_finding_closure.json",
     "disclosure_guard_results": "reports/week_03/results/critical_eval_v2_ea1_revision10_disclosure_guard_results.json",
     "provenance_regressions": "reports/week_03/results/critical_eval_v2_ea1_revision11_provenance_regressions.json",
-    "focused_verification": "reports/week_03/results/critical_eval_v2_ea1_revision11_focused_verification.txt"
+    "focused_verification": "reports/week_03/results/critical_eval_v2_ea1_revision11_focused_verification.txt",
+    "runtime_incident_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_incident_lineage.json",
+    "preauthorization_reset_plan": "reports/week_03/results/critical_eval_v2_ea1_revision13_preauthorization_reset_plan.json",
+    "offline_encoder_probe": "reports/week_03/results/critical_eval_v2_ea1_revision13_offline_encoder_probe.json",
+    "transitive_runtime_source_binding": "reports/week_03/results/critical_eval_v2_ea1_revision13_transitive_runtime_source_binding.json",
+    "runtime_asset_comparison": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_asset_comparison.json",
+    "runtime_payload_comparison": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_payload_comparison.json",
+    "a12_negative_control": "reports/week_03/results/critical_eval_v2_ea1_revision13_a12_negative_control.json",
+    "environment_reconciliation": "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_reconciliation.json",
+    "environment_contract": "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_contract.json",
+    "runtime_source_closure": "reports/week_03/results/critical_eval_v2_ea1_revision13_transitive_runtime_source_binding.json",
+    "binding_negative_controls": "reports/week_03/results/critical_eval_v2_ea1_revision13_binding_negative_controls.json"
   },
   "runtime_environment": {
     "manifest": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
     "required_environment": {
       "OMP_NUM_THREADS": "1",
-      "MKL_NUM_THREADS": "1"
+      "MKL_NUM_THREADS": "1",
+      "HF_HUB_OFFLINE": "1"
     },
     "pythonhashseed_required": false,
     "pythonhashseed_rationale": "Runtime payload ordering, stable sorting, serialized hashes, and metric aggregation do not depend on Python hash iteration order.",
-    "torch_thread_contract": "Set OMP_NUM_THREADS=1 and MKL_NUM_THREADS=1 before process launch; the lazy CPU-only torch runtime inherits these limits before import. No post-import torch setting is claimed by this contract."
+    "torch_thread_contract": "Set OMP_NUM_THREADS=1, MKL_NUM_THREADS=1, and HF_HUB_OFFLINE=1 before process launch; the lazy CPU-only torch runtime inherits the numerical limits before import and the encoder is forbidden from contacting the Hugging Face Hub. No post-import torch setting is claimed by this contract."
   },
   "abstain_contract": {
     "response_text": "I do not have enough approved evidence to answer this safely. Please escalate this case to an authorized support or policy owner.",

@@ -319,9 +319,13 @@ class ReviewCorrectionArtifactTests(unittest.TestCase):
         with self.assertRaisesRegex(RetrievalBenchmarkError,"category-mismatch"):
             _validate_error_rows(rows,locked,self.predictions,self.r0,self.r1)
 
-    def test_tracked_verify_does_not_require_local_cache(self):
+    def test_tracked_verify_detects_post_week2_implementation_change_without_local_cache(self):
         with mock.patch("payresolve_ai.retrieval.benchmark._load_runtime", side_effect=AssertionError("cache used")), mock.patch("payresolve_ai.retrieval.benchmark._load_classifier", side_effect=AssertionError("model used")), mock.patch("payresolve_ai.retrieval.benchmark._encoder", side_effect=AssertionError("encoder used")):
-            self.assertEqual(verify_results(self.root,self.config_path,write=False)["status"],"PASS")
+            # R13 intentionally changes benchmark.py to force local-only encoder
+            # loading. The frozen Week-2 manifest must expose that provenance
+            # drift without loading cache/model/encoder; it must not be rewritten.
+            with self.assertRaisesRegex(RetrievalBenchmarkError, "implementation hash mismatch"):
+                verify_results(self.root,self.config_path,write=False)
 
 
 if __name__ == "__main__": unittest.main()

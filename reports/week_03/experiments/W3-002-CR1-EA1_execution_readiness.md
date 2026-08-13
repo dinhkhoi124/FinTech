@@ -161,3 +161,50 @@ through AUTH-DATE-05 pass. No evaluator, disclosure, provenance, batch,
 Candidate, metric, model, retrieval, generation, inference, or evaluation
 semantics changed. The status is `FROZEN_READINESS_PACKAGE /
 AWAITING_SENIOR_REVIEW`; authorization remains false.
+
+## Revision 13 — offline encoder and runtime-source provenance
+
+### Canonical environment fingerprint remediation
+
+Hypothesis: raw distribution drift is caused by discovery context, not package
+installation changes. Package installation state remained fixed while only
+`sys.path`/`PYTHONPATH` discovery contexts varied. C1/C2/C3/C4 raw counts were
+300/301/302/301, while all canonical third-party inventories remained 298 rows
+at `39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a`.
+Synthetic conflicting versions were rejected as
+`CONFLICTING_DISTRIBUTION_VERSIONS_REJECTED`, closing the provenance stop without
+package mutation.
+
+Two E1 failures established a runtime-readiness defect before raw persistence:
+120.817 seconds/exit 124, then 32.210 seconds/exit 1 with a blocked Hugging Face
+HEAD request. The A+B remediation binds `HF_HUB_OFFLINE=1` and
+`local_files_only=True` without changing model semantics and hash-binds the
+nine-module production chain. The diagnostic observed zero network attempts
+and reproduced the expected embedding SHA in 14.749808 seconds. Assets remain
+11/11; payloads remain identical 60/60; A12 is rejected; reset was not executed.
+All ordered suites pass, including the 655/655 full harness.
+
+## R13 authorization/runtime binding remediation — 2026-08-13
+
+- Hypothesis: binding a deterministic stable environment identity and the complete local source closure will make authorization and runtime equivalent at the pre-model boundary.
+- Stable identity result: 298 canonical third-party rows; package SHA-256 `39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a`; environment identity SHA-256 `17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97`.
+- Closure result: 18/18 modules are reasoned and authorization-bound; empty package initializers are reviewed exclusions.
+- Adversarial result: seven environment identity mutations and three source mutations all stop before model/gold/evaluator calls; detached verifier mutations are also rejected.
+- Runtime result: final offline encoder probe passed in 131.649789 seconds, zero network attempts, expected embedding identity preserved.
+- Test result: all focused/ordered suites pass and corrected full harness is 679/679 in 299.132 seconds. No primary inference or evaluation ran.
+
+## R13 final authorization-date topology closure — 2026-08-13
+
+- Controlled variable: only active authorization daily-path topology and its regression/verifier coverage changed; Candidate, environment identity, runtime semantics, payload, assets, and 18-module closure membership were held fixed.
+- Active result: exact-five allowlist binds `daily/2026-08-13.md`; 2026-08-12 is rejected as stale, 2026-08-11 as older, 2026-08-14 as unreviewed, and missing/dual/source-path mutations are rejected.
+- Historical result: Revision-12 2026-08-12 semantics pass using an explicit Revision-12 config fixture.
+- Enforcement result: nine trust-boundary symbols remain in the root execution module and are source/hash/authorization bound; root source SHA-256 is `983e99269fd006f2aa8dc3bf30e25558cda2d2c9a007218e2983ee1604af6a42`.
+- Runtime result: synthetic offline probe passed in 9.976939 seconds, zero network attempts, unchanged embedding SHA; no Candidate query or evaluator was loaded.
+- Test result: all ordered suites pass; corrected full harness is 688/688 in 225.925 seconds.
+
+## R13 review-package coverage correction — 2026-08-13
+
+- Diff classification: `R13_REGRESSION_COMPATIBILITY_TEST_CHANGE`; HEAD SHA `bb1b6d2051fa3dce9d7afe8624c133b17761bcbbda41a5a08a5eb228016ee984`, working SHA `87bceeb60fd079bd380b095cd6a76ec714d871b0303a8215b5cd9bf7cb358fb7`.
+- The changed test replaces a stale PASS expectation with a stricter `implementation hash mismatch` expectation while preserving mocks proving no cache/model/encoder load. No production or R0/R1 semantics changed.
+- The test is now readiness/authorization hash-bound and bundled. Review-scope omission and unreviewed-task-owned-path controls fail closed.
+- Final regenerated offline probe: 45.061138 seconds, zero network attempts, unchanged embedding identity. Final exact-byte full harness: 694/694 in 237.471 seconds process time.

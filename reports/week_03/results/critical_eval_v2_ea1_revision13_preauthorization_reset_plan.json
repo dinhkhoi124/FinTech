@@ -1,0 +1,48 @@
+{
+  "preserved_files_modified": false,
+  "readiness_revision": 13,
+  "requires_separate_senior_execution_authorization": true,
+  "status": "PLAN_ONLY_NOT_EXECUTED",
+  "steps": [
+    {
+      "action": "Verify both active A12 control-plane files against their original exact SHA-256 values.",
+      "ordinal": 1,
+      "state": "NOT_EXECUTED"
+    },
+    {
+      "action": "Verify no raw, evaluation, reproduction, comparison, or final-summary artifacts exist.",
+      "ordinal": 2,
+      "state": "NOT_EXECUTED"
+    },
+    {
+      "action": "Copy both active files byte-for-byte into immutable incident-history paths.",
+      "ordinal": 3,
+      "state": "NOT_EXECUTED"
+    },
+    {
+      "action": "Verify both archived hashes equal the original active-file hashes.",
+      "ordinal": 4,
+      "state": "NOT_EXECUTED"
+    },
+    {
+      "action": "Remove only the two active A12 control-plane files under the separate authorized reset contract.",
+      "ordinal": 5,
+      "state": "NOT_EXECUTED"
+    },
+    {
+      "action": "Verify all archived incident evidence still exists and matches its locked hashes.",
+      "ordinal": 6,
+      "state": "NOT_EXECUTED"
+    },
+    {
+      "action": "Verify staged files remain zero.",
+      "ordinal": 7,
+      "state": "NOT_EXECUTED"
+    },
+    {
+      "action": "Only after separate A13 authorization, launch with all three required environment values and initialize fresh runtime environment/state.",
+      "ordinal": 8,
+      "state": "NOT_EXECUTED"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+TASK: W3-002-CR1-EA1-R13-BINDING-FIX-01
+DATE: 2026-08-13
+STATUS: R13_BINDING_FIX_READY_FOR_SENIOR_REVIEW
+
+Stable authorization-bound environment identity:
+- algorithm: critical-v2-ea1-stable-environment-identity-v1
+- canonical package algorithm: pep503-unique-third-party-name-version-v1
+- canonical third-party count: 298
+- canonical package SHA-256: 39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a
+- environment identity SHA-256: 17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97
+- required environment: HF_HUB_OFFLINE=1, OMP_NUM_THREADS=1, MKL_NUM_THREADS=1
+- Python: CPython 3.13.3
+- core-five normalized name/version/METADATA/RECORD identity: bound
+- Candidate identity/artifact binding: PASS
+- pre-model live/reviewed/authorized comparison: PASS
+
+Runtime source closure:
+- documented closure: 18 modules
+- readiness/authorization source hashes: 18/18 PASS
+- reviewed exclusions: empty package initializers only
+- ENV-AUTH controls: PASS 7/7, model loader calls 0
+- source-tamper controls: PASS 3/3, model loader calls 0
+
+Final verification:
+- binding-focused: PASS 12/12 (7.070s)
+- environment-focused: PASS 12/12 (2.560s)
+- R13 focused: PASS 15/15 (3.826s)
+- execution readiness: PASS 118/118 (68.050s)
+- Revision 10: PASS 20/20 (8.096s)
+- Revision 11: PASS 5/5 (0.392s)
+- Revision 12: PASS 5/5 (0.004s)
+- Senior safety: PASS 68/68 (0.579s)
+- retrieval regressions: PASS 56/56 (1.386s)
+- corrected repository full harness: PASS 679/679 (295.979s unittest; 299.132s process)
+- project document validator: PASS
+- Python compile: PASS
+- git diff --check: PASS
+- final verify-execution-readiness: PASS
+
+Offline synthetic encoder probe:
+- elapsed_seconds: 131.649789
+- network_attempts: 0
+- shape: [1, 384]
+- dtype: float32
+- L2 norm: 1.0
+- embedding SHA-256: 83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e
+
+Honest failures retained:
+- first final matrix run had 116/118 readiness tests pass because two test fixtures omitted the newly mandatory environment bindings; production failed closed with AUTHORIZED_ENVIRONMENT_IDENTITY_MISMATCH. Fixtures were corrected without weakening production validation; rerun passed 118/118.
+- prior R13 environment-provenance remediation failures and corrective history remain in the 2026-08-12 report.
+
+Bundle lineage:
+- previous archive size: 674670 bytes
+- previous archive SHA-256: 4a7d8ae1524b50502be4b39b53ae69fffd6cffea12eac9051b4c1d4c91ab45f4
+- previous archive status: SUPERSEDED_BY_R13_BINDING_FIX_REVIEW_BUNDLE
+- final detached bundle integrity and two semantic mutation controls are executed after archive construction; the completion report records the archive size and SHA-256 without introducing a self-reference.
+
+Boundary:
+- Candidate Revision 7: unchanged; 23/23 PASS
+- runtime payload: 60/60 unchanged; forbidden fields 0
+- MiniLM snapshot: 11/11 PASS
+- E1 runtime environment bytes/SHA: unchanged
+- E1 execution state bytes/SHA: unchanged; authorization history remains empty
+- A12 negative control: REJECTED_AS_EXPECTED
+- reset plan: NOT EXECUTED
+- primary/reproduction/evaluation artifacts: absent
+- gold_loader_calls: 0
+- evaluator_calls: 0
+- evaluation_authorized: false
+- critical_evaluated: false
+- model_verdict: NOT_ESTABLISHED
+- no stage, commit, or push
+
+TASK: W3-002-CR1-EA1-R13-REVIEW-COVERAGE-FIX-01
+DATE: 2026-08-13
+STATUS: R13_REVIEW_COVERAGE_FIXED_READY_FOR_SENIOR_REVIEW
+
+Omitted test review:
+- path: tests/test_retrieval_benchmark.py
+- classification: R13_REGRESSION_COMPATIBILITY_TEST_CHANGE / R13_TASK_OWNED_TEST_ARTIFACT
+- HEAD SHA-256: bb1b6d2051fa3dce9d7afe8624c133b17761bcbbda41a5a08a5eb228016ee984
+- working SHA-256: 87bceeb60fd079bd380b095cd6a76ec714d871b0303a8215b5cd9bf7cb358fb7
+- exact change: rename tracked verifier test and require `implementation hash mismatch` after reviewed R13 `benchmark.py` local-only change
+- cache/model/encoder mocks retained: true
+- assertion weakened: false
+- regression removed: false
+- expected retrieval semantics changed: false
+- READINESS_HASH_PATHS binding: PASS
+- authorization candidate execution-artifact binding: PASS
+- bundle task_files/inventory binding: verified after bundle construction
+
+Review-scope coverage:
+- deterministic dirty-path categories: R13_TASK_OWNED_REVIEWED / UNCHANGED_REFERENCE / PROTECTED_E1_EXCLUDE / USER_OWNED_EXCLUDE / REVIEW_ZIP_EXCLUDE
+- unclassified paths fail closed: true
+- omitted R13 task-owned path fails closed: true
+- proposed commit byte equality is generated and verified inside the detached bundle
+- protected E1/review ZIP/user-owned paths excluded from proposed commit: true
+
+Final verification:
+- review-scope coverage focused: PASS 6/6 (0.002s)
+- retrieval regressions: PASS 56/56 (0.640s)
+- auth-date/enforcement closure: PASS 9/9 (0.740s)
+- binding: PASS 12/12 (4.963s)
+- environment: PASS 12/12 (2.891s)
+- R13 focused: PASS 15/15 (2.582s)
+- execution readiness: PASS 118/118 (45.050s)
+- Rev10/11/12: PASS 30/30 (10.947s)
+- Senior safety: PASS 68/68 (0.129s)
+- corrected full repository harness before CLI bundle-scope correction: PASS 694/694 (289.061s unittest; 291.891s process)
+- final exact-byte corrected full repository harness: PASS 694/694 (221.519s unittest; 237.471s process)
+- legitimate failures: first coverage-aware bundle build rejected omitted `scripts/evaluation/week3_critical_v2_execution.py` with `R13_REVIEW_SCOPE_COVERAGE_INCOMPLETE`; the already authorization-bound CLI adapter was added to bundle task_files without byte changes
+- docs validator / compile / git diff --check: run after lifecycle update
+
+Preserved identities and boundaries:
+- Candidate: 23/23; manifest/mapping/Pass-B unchanged
+- canonical environment: 298 / 39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a
+- environment identity SHA-256: 17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97
+- runtime closure: 18 modules
+- auth-date topology: exact five paths; daily/2026-08-13.md reviewed
+- final regenerated offline probe: PASS / 45.061138 seconds / zero network / embedding SHA unchanged
+- E1 environment/state exact hashes preserved; reset NOT EXECUTED
+- evaluation_authorized=false; critical_evaluated=false; model_verdict=NOT_ESTABLISHED
+- primary/reproduction/evaluation absent; gold/evaluator calls zero
+- prior 746881-byte bundle / 896a917679b7d0f1d8052a06c39ad6c62420f37af8fbdf23c716c6664b9c20f6: SUPERSEDED_BY_R13_REVIEW_COVERAGE_CORRECTION_BUNDLE
+- final ZIP bytes/SHA reported externally after archive construction
+- staged 0; commit none; push none
+
+TASK: W3-002-CR1-EA1-R13-AUTH-DATE-CLOSURE-01
+DATE: 2026-08-13
+STATUS: R13_FINAL_READY_FOR_SENIOR_REVIEW
+
+Active authorization-date topology:
+- reviewed deterministic field: reports/week_03/daily/2026-08-13.md
+- exact allowlist count: 5
+- active 2026-08-12: REJECTED_AS_STALE
+- active 2026-08-11: REJECTED_AS_STALE
+- active 2026-08-14: REJECTED_AS_UNREVIEWED
+- dual 2026-08-12 + 2026-08-13: REJECTED
+- missing 2026-08-13: REJECTED
+- source/Candidate path addition: REJECTED
+- historical Revision-12 2026-08-12 fixture: PASS 5/5
+
+Enforcement-symbol closure:
+- defining module: payresolve_ai.evaluation.critical_v2_execution
+- defining path: src/payresolve_ai/evaluation/critical_v2_execution.py
+- source SHA-256: 983e99269fd006f2aa8dc3bf30e25558cda2d2c9a007218e2983ee1604af6a42
+- runtime source closure membership: PASS
+- READINESS_HASH_PATHS membership: PASS
+- authorization execution-artifact membership: PASS
+- symbols: canonical_package_inventory; stable_environment_identity; environment_contract_payload; load_environment_contract; _validate_authorization_payload; verify_execution_authorization; freeze_or_verify_runtime_environment; validate_authorization_daily_path_topology; run_critical
+- complete runtime source closure: 18 modules; no newly introduced module
+- source tamper controls: verification.py, banking77.py, citations.py, critical_v2_execution.py all REJECTED_BEFORE_MODEL_LOAD
+
+Final ordered verification:
+- active auth-date and enforcement closure: PASS 9/9 (0.507s)
+- binding-focused: PASS 12/12 (4.063s)
+- environment provenance: PASS 12/12 (2.352s)
+- R13 focused: PASS 15/15 (2.304s)
+- execution readiness: PASS 118/118 (42.840s)
+- historical Revision 12: PASS 5/5 (0.006s)
+- Revision 10: PASS 20/20 (8.548s)
+- Revision 11: PASS 5/5 (0.234s)
+- Senior safety: PASS 68/68
+- retrieval regressions: PASS 56/56 (1.067s)
+- corrected repository full harness: PASS 688/688 (220.870s unittest; 225.925s process)
+- initial legitimate failures: NONE
+
+Offline synthetic encoder probe:
+- elapsed_seconds: 9.976939
+- network_attempts: 0
+- local_files_only: true
+- shape/dtype/norm: [1,384] / float32 / 1.0
+- embedding SHA-256: 83483507be7e9c48ca8caff139e15dc3e1f88509addd55793b7fc96e95f87f8e
+
+Candidate and environment:
+- Candidate verification: PASS 23/23
+- manifest/mapping/Pass-B: f912798ae5c02c774702ae97bee8b2b4f6c6ab12b6534e1b2a3817a969b905ef / cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1 / 585469d850a9e2d5514248709658e574dbfff7f54a0f13c99bcbb8cd2653017e
+- environment canonical identity: 298 / 39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a
+- reviewed environment identity SHA-256: 17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97
+- Candidate authorization file SHA-256: 337713f125fdff031a5052d0541c2c637109fed78e41388d57b4e82c0bfe361c
+- ENV-AUTH negative controls: PASS 7/7 before model load
+
+Preserved boundary:
+- E1 runtime environment: 1750 bytes / 228a2f23c168092e41d0abebff7af468dc106b27a88e1bb6eef995af5f9739ca
+- E1 state: 227 bytes / 3908034af37fcdc11fa64d9f6024e775d24d435030246ee08ec4f48816f184ca / AUTHORIZED / history=[]
+- payload: 60/60; forbidden fields 0
+- encoder assets: 11/11
+- A12: REJECTED_AS_EXPECTED
+- reset: NOT EXECUTED
+- evaluation_authorized: false
+- critical_evaluated: false
+- model_verdict: NOT_ESTABLISHED
+- primary/reproduction/evaluation outputs: absent
+- gold_loader_calls: 0
+- evaluator_calls: 0
+- prior 733294-byte bundle / 69132292774bfb09f03164e08a3d4e699392a3ac57ae2d1e7bca5d8d4c0249ae: SUPERSEDED_BY_R13_AUTH_DATE_CLOSURE_BUNDLE
+- final ZIP bytes/SHA are reported externally after archive construction to avoid self-reference
+- no stage, commit, or push

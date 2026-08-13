@@ -1,0 +1,9 @@
+{
+  "asset_bytes_and_semantics_unchanged": true,
+  "asset_file_count": 4,
+  "baseline": "HEAD_A12",
+  "encoder_file_count": 11,
+  "only_expected_manifest_metadata_change": true,
+  "readiness_revision": 13,
+  "status": "PASS"
+}

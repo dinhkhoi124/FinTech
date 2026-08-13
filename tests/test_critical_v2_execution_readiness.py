@@ -22,6 +22,8 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         self.config = execution.load_execution_config(CONFIG_PATH)
 
     def _valid_authorization(self) -> dict:
+        contract_path = ROOT / self.config["readiness_outputs"]["environment_contract"]
+        contract = execution.load_environment_contract(ROOT, self.config)
         return {
             "candidate_commit": execution.EXPECTED_CANDIDATE_COMMIT,
             "candidate_manifest_sha256": execution.EXPECTED_CANDIDATE_MANIFEST_SHA256,
@@ -35,6 +37,8 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
             "evaluation_output_paths": execution._evaluation_output_paths(self.config),
             "execution_artifact_sha256": execution._readiness_artifact_hashes(ROOT),
             "runtime_asset_manifest_sha256": execution.sha256_file(ROOT / self.config["readiness_outputs"]["runtime_asset_manifest"]),
+            "reviewed_environment_identity_sha256": contract["environment_identity_sha256"],
+            "environment_contract_artifact_sha256": execution.sha256_file(contract_path),
         }
 
     def _temp_authorization(self, payload: dict):
@@ -701,8 +705,10 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         counter = {"loads": 0, "executions": 0}
         def load():
             counter["loads"] += 1
-        with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "authorization record is absent"):
-            execution.run_critical(ROOT, CONFIG_PATH, "primary", "V0", model_loader=load, executor=self._counted_executor(counter))
+        with tempfile.TemporaryDirectory() as directory:
+            absent = Path(directory) / "absent-authorization.json"
+            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "authorization record is absent"):
+                execution.run_critical(ROOT, CONFIG_PATH, "primary", "V0", authorization_path=absent, model_loader=load, executor=self._counted_executor(counter))
         self.assertEqual(counter, {"loads": 0, "executions": 0})
 
     def test_false_authorization_fails_before_model_loading(self) -> None:
@@ -780,14 +786,24 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         auth = {"status": "PASS", "authorization_commit": "a", "readiness_implementation_commit": "r"}
         with mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
                 mock.patch.object(execution, "freeze_or_verify_runtime_environment", return_value={"path": CONFIG_PATH}):
-            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "primary V0"):
+            # R13 deliberately preserves the A12 AUTHORIZED state as incident
+            # evidence, so the first fail-closed boundary is its stale binding.
+            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "execution state authorization binding mismatch"):
                 execution.run_critical(ROOT, CONFIG_PATH, "reproducibility_rerun", "V0", model_loader=lambda: counter.update(loads=1), executor=self._counted_executor(counter))
         self.assertEqual(counter, {"loads": 0, "executions": 0})
 
     def test_readiness_contract_creates_no_evaluation_output(self) -> None:
         self._require_local_runtime_assets()
         execution.verify_execution_contract(ROOT, CONFIG_PATH)
-        self.assertFalse(any((ROOT / path).exists() for path in execution._evaluation_output_paths(self.config)))
+        preserved = {
+            self.config["runtime_environment"]["manifest"],
+            self.config["evaluation_outputs"]["execution_state"],
+        }
+        self.assertFalse(any(
+            (ROOT / path).exists()
+            for path in execution._evaluation_output_paths(self.config)
+            if path not in preserved
+        ))
 
     def test_authorization_candidate_remains_false(self) -> None:
         path = ROOT / self.config["authorization"]["candidate"]
@@ -946,14 +962,19 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
 
     def test_authorization_daily_path_allowlist_is_exact(self) -> None:
         result = execution.validate_authorization_daily_path_topology(self.config)
-        self.assertTrue(result["today_daily_allowed"])
+        self.assertTrue(result["reviewed_daily_allowed"])
+        self.assertEqual(
+            result["reviewed_daily_report_path"],
+            "reports/week_03/daily/2026-08-13.md",
+        )
         self.assertFalse(result["stale_daily_allowed"])
 
     def test_authorization_daily_path_rejects_stale_arbitrary_and_task_files(self) -> None:
         forbidden = [
             "reports/week_03/daily/2026-08-10.md",
             "reports/week_03/daily/2026-08-11.md",
-            "reports/week_03/daily/2026-08-13.md",
+            "reports/week_03/daily/2026-08-12.md",
+            "reports/week_03/daily/2026-08-14.md",
             "data/evaluation/critical_eval_v2_mapping.jsonl",
             "src/payresolve_ai/evaluation/critical_v2_execution.py",
         ]

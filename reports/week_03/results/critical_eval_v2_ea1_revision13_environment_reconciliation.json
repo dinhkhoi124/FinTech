@@ -1,0 +1,764 @@
+{
+  "actual_package_installation_drift": false,
+  "canonical_distribution_count": 298,
+  "canonical_inventory": [
+    "absl-py==2.3.1",
+    "aiofile==3.11.1",
+    "aiohappyeyeballs==2.6.1",
+    "aiohttp==3.13.1",
+    "aiosignal==1.4.0",
+    "aiosqlite==0.22.1",
+    "altair==6.2.2",
+    "annotated-doc==0.0.4",
+    "annotated-types==0.7.0",
+    "anyio==4.12.1",
+    "ast-serialize==0.5.0",
+    "asttokens==3.0.0",
+    "astunparse==1.6.3",
+    "attrs==25.4.0",
+    "audioop-lts==0.2.2",
+    "authlib==1.7.2",
+    "av==18.0.0",
+    "bcrypt==4.3.0",
+    "beartype==0.22.9",
+    "beautifulsoup4==4.15.0",
+    "blinker==1.9.0",
+    "blis==1.3.0",
+    "cachetools==7.1.4",
+    "caio==0.9.25",
+    "catalogue==2.0.10",
+    "certifi==2026.1.4",
+    "cffi==2.0.0",
+    "charset-normalizer==3.4.4",
+    "click==8.3.1",
+    "cloudpathlib==0.21.1",
+    "cobble==0.1.4",
+    "colorama==0.4.6",
+    "coloredlogs==15.0.1",
+    "comm==0.2.3",
+    "confection==0.1.5",
+    "contourpy==1.3.3",
+    "coverage==7.14.3",
+    "cryptography==46.0.4",
+    "ctranslate2==4.8.1",
+    "cycler==0.12.1",
+    "cyclopts==4.20.0",
+    "cymem==2.0.11",
+    "datasets==4.2.0",
+    "day08-langgraph-agent-lab==0.1.0",
+    "day10-reliability-agent-lab==0.1.0",
+    "debugpy==1.8.16",
+    "decorator==5.2.1",
+    "defusedxml==0.7.1",
+    "dill==0.4.0",
+    "distro==1.9.0",
+    "dnspython==2.7.0",
+    "docstring-parser==0.18.0",
+    "dotenv==0.9.9",
+    "ecdsa==0.19.1",
+    "editdistance==0.8.1",
+    "email-validator==2.2.0",
+    "en-core-web-sm==3.8.0",
+    "evaluate==0.4.6",
+    "exceptiongroup==1.3.1",
+    "executing==2.2.0",
+    "faiss-cpu==1.13.2",
+    "fastapi==0.128.0",
+    "faster-whisper==1.2.1",
+    "fastmcp-slim==3.4.2",
+    "fastmcp==3.4.2",
+    "filelock==3.20.3",
+    "flatbuffers==25.2.10",
+    "fonttools==4.59.2",
+    "fpdf==1.7.2",
+    "frozenlist==1.8.0",
+    "fsspec==2026.1.0",
+    "gast==0.6.0",
+    "gitdb==4.0.12",
+    "gitpython==3.1.50",
+    "google-pasta==0.2.0",
+    "greenlet==3.2.3",
+    "griffelib==2.1.0",
+    "grpcio==1.74.0",
+    "h11==0.16.0",
+    "h5py==3.14.0",
+    "hf-xet==1.2.0",
+    "httpcore==1.0.9",
+    "httptools==0.8.0",
+    "httpx-sse==0.4.3",
+    "httpx==0.28.1",
+    "huggingface-hub==1.4.0",
+    "humanfriendly==10.0",
+    "idna==3.11",
+    "imageio==2.37.0",
+    "iniconfig==2.3.0",
+    "ipykernel==6.30.1",
+    "ipython-pygments-lexers==1.1.1",
+    "ipython==9.4.0",
+    "itsdangerous==2.2.0",
+    "jaraco-classes==3.4.0",
+    "jaraco-context==6.1.2",
+    "jaraco-functools==4.5.0",
+    "jedi==0.19.2",
+    "jinja2==3.1.6",
+    "jiter==0.13.0",
+    "jiwer==4.0.0",
+    "joblib==1.5.3",
+    "joserfc==1.7.1",
+    "jsonpatch==1.33",
+    "jsonpointer==3.1.1",
+    "jsonref==1.1.0",
+    "jsonschema-path==0.5.0",
+    "jsonschema-specifications==2025.9.1",
+    "jsonschema==4.26.0",
+    "jupyter-client==8.6.3",
+    "jupyter-core==5.8.1",
+    "keras==3.11.3",
+    "keyring==25.7.0",
+    "kiwisolver==1.4.9",
+    "langchain-core==1.4.8",
+    "langchain-openai==1.3.3",
+    "langchain-protocol==0.0.18",
+    "langcodes==3.5.0",
+    "langgraph-checkpoint-sqlite==3.1.0",
+    "langgraph-checkpoint==4.1.1",
+    "langgraph-prebuilt==1.1.0",
+    "langgraph-sdk==0.4.2",
+    "langgraph==1.2.6",
+    "langsmith==0.9.3",
+    "language-data==1.3.0",
+    "lazy-loader==0.4",
+    "libclang==18.1.1",
+    "librt==0.11.0",
+    "lxml==6.1.1",
+    "magika==0.6.3",
+    "mammoth==1.12.0",
+    "marisa-trie==1.3.0",
+    "markdown-it-py==4.0.0",
+    "markdown==3.9",
+    "markdownify==1.2.2",
+    "markitdown==0.1.1",
+    "markupsafe==3.0.3",
+    "matplotlib-inline==0.1.7",
+    "matplotlib==3.10.6",
+    "maturin==1.9.1",
+    "mcp==1.28.1",
+    "mdurl==0.1.2",
+    "ml-dtypes==0.5.3",
+    "more-itertools==11.1.0",
+    "mpmath==1.3.0",
+    "multidict==6.7.0",
+    "multiprocess==0.70.16",
+    "murmurhash==1.0.13",
+    "mypy-extensions==1.1.0",
+    "mypy==2.1.0",
+    "namex==0.1.0",
+    "narwhals==2.22.1",
+    "nest-asyncio==1.6.0",
+    "networkx==3.6.1",
+    "ninja==1.13.0",
+    "nltk==3.9.1",
+    "numpy==2.2.6",
+    "onnxruntime==1.20.1",
+    "openai==2.44.0",
+    "openapi-pydantic==0.5.1",
+    "opencv-python==4.13.0.92",
+    "opentelemetry-api==1.43.0",
+    "opt-einsum==3.4.0",
+    "optree==0.17.0",
+    "orjson==3.11.9",
+    "ormsgpack==1.12.2",
+    "packaging==26.0",
+    "pageindex==0.2.8",
+    "pandas==2.3.0",
+    "parso==0.8.4",
+    "passlib==1.7.4",
+    "pathable==0.6.0",
+    "pathspec==1.1.1",
+    "pdfminer-six==20251230",
+    "pdfplumber==0.11.9",
+    "pillow==12.1.0",
+    "pip==25.2",
+    "platformdirs==4.3.8",
+    "pluggy==1.6.0",
+    "portalocker==3.2.0",
+    "preshed==3.0.10",
+    "prompt-toolkit==3.0.51",
+    "propcache==0.4.1",
+    "protobuf==6.32.0",
+    "psutil==7.0.0",
+    "pure-eval==0.2.3",
+    "py-key-value-aio==0.4.5",
+    "pyarrow==21.0.0",
+    "pyasn1==0.6.1",
+    "pyclipper==1.3.0.post6",
+    "pycparser==3.0",
+    "pydantic-core==2.41.5",
+    "pydantic-settings==2.14.2",
+    "pydantic==2.12.5",
+    "pydeck==0.9.2",
+    "pygments==2.19.2",
+    "pyjwt==2.13.0",
+    "pymysql==1.1.1",
+    "pyparsing==3.2.3",
+    "pypdfium2==5.3.0",
+    "pyperclip==1.11.0",
+    "pyreadline3==3.5.6",
+    "pytest-cov==7.1.0",
+    "pytest==9.0.3",
+    "python-bidi==0.6.6",
+    "python-dateutil==2.9.0.post0",
+    "python-dotenv==1.2.1",
+    "python-jose==3.5.0",
+    "python-multipart==0.0.32",
+    "python-pptx==1.0.2",
+    "pytz==2025.2",
+    "pywin32-ctypes==0.2.3",
+    "pywin32==311",
+    "pyyaml==6.0.3",
+    "pyzmq==27.0.1",
+    "rank-bm25==0.2.2",
+    "rapidfuzz==3.14.1",
+    "redis==8.0.1",
+    "referencing==0.37.0",
+    "regex==2026.1.15",
+    "requests-toolbelt==1.0.0",
+    "requests==2.32.4",
+    "rich-rst==2.0.2",
+    "rich==14.1.0",
+    "rpds-py==0.27.1",
+    "rsa==4.9.1",
+    "ruff==0.15.20",
+    "sacrebleu==2.6.0",
+    "sacremoses==0.1.1",
+    "safetensors==0.7.0",
+    "scikit-learn==1.8.0",
+    "scipy==1.17.0",
+    "seaborn==0.13.2",
+    "sentence-transformers==5.2.2",
+    "sentencepiece==0.2.2",
+    "setuptools==80.9.0",
+    "shapely==2.1.2",
+    "shellingham==1.5.4",
+    "six==1.17.0",
+    "smart-open==7.3.0.post1",
+    "smmap==5.0.3",
+    "sniffio==1.3.1",
+    "soundfile==0.14.0",
+    "soupsieve==2.8.4",
+    "spacy-legacy==3.0.12",
+    "spacy-loggers==1.0.5",
+    "spacy==3.8.7",
+    "sqlalchemy==2.0.41",
+    "sqlite-vec==0.1.9",
+    "srsly==2.5.1",
+    "sse-starlette==3.4.5",
+    "stack-data==0.6.3",
+    "starlette==1.3.1",
+    "streamlit==1.58.0",
+    "sympy==1.14.0",
+    "tabulate==0.9.0",
+    "tenacity==9.1.4",
+    "tensorboard-data-server==0.7.2",
+    "tensorboard==2.20.0",
+    "tensorflow==2.20.0",
+    "termcolor==3.1.0",
+    "tf-keras==2.20.1",
+    "thinc==8.3.6",
+    "threadpoolctl==3.6.0",
+    "tifffile==2025.10.16",
+    "tiktoken==0.13.0",
+    "tokenizers==0.22.1",
+    "toml==0.10.2",
+    "torch==2.9.0",
+    "tornado==6.5.2",
+    "tqdm==4.67.3",
+    "traitlets==5.14.3",
+    "transformers==5.0.0",
+    "typer-slim==0.21.1",
+    "typer==0.16.0",
+    "typing-extensions==4.15.0",
+    "typing-inspection==0.4.2",
+    "tzdata==2025.2",
+    "uncalled-for==0.3.2",
+    "urllib3==2.5.0",
+    "uuid-utils==0.16.2",
+    "uvicorn==0.40.0",
+    "validators==0.35.0",
+    "wasabi==1.1.3",
+    "watchdog==6.0.0",
+    "watchfiles==1.2.0",
+    "wcwidth==0.2.13",
+    "weasel==0.4.1",
+    "weaviate-client==4.21.3",
+    "websockets==15.0.1",
+    "werkzeug==3.1.3",
+    "wheel==0.45.1",
+    "wrapt==1.17.3",
+    "xgboost==3.3.0",
+    "xlsxwriter==3.2.9",
+    "xxhash==3.6.0",
+    "yarl==1.22.0",
+    "zstandard==0.25.0"
+  ],
+  "canonical_package_fingerprint_sha256": "39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a",
+  "canonicalization_algorithm": "pep503-unique-third-party-name-version-v1",
+  "classification": "ENV_DISCOVERY_CONTEXT_DRIFT",
+  "conflicting_version_negative_control": {
+    "error": "CONFLICTING_DISTRIBUTION_VERSIONS: {\"synthetic-conflict\": [\"1.0\", \"2.0\"]}",
+    "real_site_packages_mutated": false,
+    "status": "CONFLICTING_DISTRIBUTION_VERSIONS_REJECTED"
+  },
+  "context_invariance_results": [
+    {
+      "canonical_distribution_count": 298,
+      "canonical_package_fingerprint_sha256": "39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a",
+      "canonicalization_algorithm": "pep503-unique-third-party-name-version-v1",
+      "conflicting_version_count": 0,
+      "context_id": "C1",
+      "core_ml_dependencies": {
+        "huggingface-hub": {
+          "metadata_container": [
+            "huggingface_hub-1.4.0.dist-info"
+          ],
+          "metadata_sha256": "c8c57cf0f5b2e2de4f8c3e2596d7dbbd212f9036937c83c5d62fd0cb23e587cb",
+          "normalized_name": "huggingface-hub",
+          "record_sha256": "4a107e4fd2c112291134f1977adc95b7d47c2f40dc3064bb95b09f356c8c0a2d",
+          "version": "1.4.0"
+        },
+        "numpy": {
+          "metadata_container": [
+            "numpy-2.2.6.dist-info"
+          ],
+          "metadata_sha256": "229f3544b02805e0f6a12030e155d8a45fd3a4100b3291574175e6a76f20e1e1",
+          "normalized_name": "numpy",
+          "record_sha256": "b936997e8a6f793396cabfca8764d989d598209216290a6f3ae1ec4f0e9d52e5",
+          "version": "2.2.6"
+        },
+        "sentence-transformers": {
+          "metadata_container": [
+            "sentence_transformers-5.2.2.dist-info"
+          ],
+          "metadata_sha256": "a10e693e27c40fc9703a73f13bc565c4f5675b3fe08cc4654ebb5c2259acce6b",
+          "normalized_name": "sentence-transformers",
+          "record_sha256": "75cc9154d2810a7978e6b588a3fbc22b43a2973efb6e101160c6005a95922541",
+          "version": "5.2.2"
+        },
+        "torch": {
+          "metadata_container": [
+            "torch-2.9.0.dist-info"
+          ],
+          "metadata_sha256": "977a43d37592986165d8ea2126b1c924d7195f863ec85b290c22785c96b6a683",
+          "normalized_name": "torch",
+          "record_sha256": "e379935f1ee7942d9ae815994a8260142d1820e8a4658c95a715ca3e73ba4caf",
+          "version": "2.9.0"
+        },
+        "transformers": {
+          "metadata_container": [
+            "transformers-5.0.0.dist-info"
+          ],
+          "metadata_sha256": "4ed0c5b182e992d3479c7106d1a29fb0a3788f6ca65763e59640b06e7985ded3",
+          "normalized_name": "transformers",
+          "record_sha256": "260364cc0539b2f048de9d82f80927b2aaa7c5418bcea54158accd987f3a9109",
+          "version": "5.0.0"
+        }
+      },
+      "duplicate_distribution_details": [
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day08_langgraph_agent_lab-0.1.0.dist-info",
+            "day08_langgraph_agent_lab.egg-info"
+          ],
+          "normalized_name": "day08-langgraph-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        },
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day10_reliability_agent_lab-0.1.0.dist-info",
+            "day10_reliability_agent_lab.egg-info"
+          ],
+          "normalized_name": "day10-reliability-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        }
+      ],
+      "duplicate_same_version_occurrence_count": 2,
+      "excluded_local_project_distribution_occurrences": 0,
+      "raw_discovery_row_count": 300,
+      "raw_package_fingerprint_sha256": "f62e73de0de5c9ab4d89ddb07fe5636310ec038197a425735c498d9b8c29fd8b",
+      "raw_unique_normalized_name_count": 298
+    },
+    {
+      "canonical_distribution_count": 298,
+      "canonical_package_fingerprint_sha256": "39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a",
+      "canonicalization_algorithm": "pep503-unique-third-party-name-version-v1",
+      "conflicting_version_count": 0,
+      "context_id": "C2",
+      "core_ml_dependencies": {
+        "huggingface-hub": {
+          "metadata_container": [
+            "huggingface_hub-1.4.0.dist-info"
+          ],
+          "metadata_sha256": "c8c57cf0f5b2e2de4f8c3e2596d7dbbd212f9036937c83c5d62fd0cb23e587cb",
+          "normalized_name": "huggingface-hub",
+          "record_sha256": "4a107e4fd2c112291134f1977adc95b7d47c2f40dc3064bb95b09f356c8c0a2d",
+          "version": "1.4.0"
+        },
+        "numpy": {
+          "metadata_container": [
+            "numpy-2.2.6.dist-info"
+          ],
+          "metadata_sha256": "229f3544b02805e0f6a12030e155d8a45fd3a4100b3291574175e6a76f20e1e1",
+          "normalized_name": "numpy",
+          "record_sha256": "b936997e8a6f793396cabfca8764d989d598209216290a6f3ae1ec4f0e9d52e5",
+          "version": "2.2.6"
+        },
+        "sentence-transformers": {
+          "metadata_container": [
+            "sentence_transformers-5.2.2.dist-info"
+          ],
+          "metadata_sha256": "a10e693e27c40fc9703a73f13bc565c4f5675b3fe08cc4654ebb5c2259acce6b",
+          "normalized_name": "sentence-transformers",
+          "record_sha256": "75cc9154d2810a7978e6b588a3fbc22b43a2973efb6e101160c6005a95922541",
+          "version": "5.2.2"
+        },
+        "torch": {
+          "metadata_container": [
+            "torch-2.9.0.dist-info"
+          ],
+          "metadata_sha256": "977a43d37592986165d8ea2126b1c924d7195f863ec85b290c22785c96b6a683",
+          "normalized_name": "torch",
+          "record_sha256": "e379935f1ee7942d9ae815994a8260142d1820e8a4658c95a715ca3e73ba4caf",
+          "version": "2.9.0"
+        },
+        "transformers": {
+          "metadata_container": [
+            "transformers-5.0.0.dist-info"
+          ],
+          "metadata_sha256": "4ed0c5b182e992d3479c7106d1a29fb0a3788f6ca65763e59640b06e7985ded3",
+          "normalized_name": "transformers",
+          "record_sha256": "260364cc0539b2f048de9d82f80927b2aaa7c5418bcea54158accd987f3a9109",
+          "version": "5.0.0"
+        }
+      },
+      "duplicate_distribution_details": [
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day08_langgraph_agent_lab-0.1.0.dist-info",
+            "day08_langgraph_agent_lab.egg-info"
+          ],
+          "normalized_name": "day08-langgraph-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        },
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day10_reliability_agent_lab-0.1.0.dist-info",
+            "day10_reliability_agent_lab.egg-info"
+          ],
+          "normalized_name": "day10-reliability-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        }
+      ],
+      "duplicate_same_version_occurrence_count": 2,
+      "excluded_local_project_distribution_occurrences": 1,
+      "raw_discovery_row_count": 301,
+      "raw_package_fingerprint_sha256": "3100086794cb2c07a2df6451a1d2d9ef45f86975dfbe378748583370a9f4f243",
+      "raw_unique_normalized_name_count": 299
+    },
+    {
+      "canonical_distribution_count": 298,
+      "canonical_package_fingerprint_sha256": "39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a",
+      "canonicalization_algorithm": "pep503-unique-third-party-name-version-v1",
+      "conflicting_version_count": 0,
+      "context_id": "C3",
+      "core_ml_dependencies": {
+        "huggingface-hub": {
+          "metadata_container": [
+            "huggingface_hub-1.4.0.dist-info"
+          ],
+          "metadata_sha256": "c8c57cf0f5b2e2de4f8c3e2596d7dbbd212f9036937c83c5d62fd0cb23e587cb",
+          "normalized_name": "huggingface-hub",
+          "record_sha256": "4a107e4fd2c112291134f1977adc95b7d47c2f40dc3064bb95b09f356c8c0a2d",
+          "version": "1.4.0"
+        },
+        "numpy": {
+          "metadata_container": [
+            "numpy-2.2.6.dist-info"
+          ],
+          "metadata_sha256": "229f3544b02805e0f6a12030e155d8a45fd3a4100b3291574175e6a76f20e1e1",
+          "normalized_name": "numpy",
+          "record_sha256": "b936997e8a6f793396cabfca8764d989d598209216290a6f3ae1ec4f0e9d52e5",
+          "version": "2.2.6"
+        },
+        "sentence-transformers": {
+          "metadata_container": [
+            "sentence_transformers-5.2.2.dist-info"
+          ],
+          "metadata_sha256": "a10e693e27c40fc9703a73f13bc565c4f5675b3fe08cc4654ebb5c2259acce6b",
+          "normalized_name": "sentence-transformers",
+          "record_sha256": "75cc9154d2810a7978e6b588a3fbc22b43a2973efb6e101160c6005a95922541",
+          "version": "5.2.2"
+        },
+        "torch": {
+          "metadata_container": [
+            "torch-2.9.0.dist-info"
+          ],
+          "metadata_sha256": "977a43d37592986165d8ea2126b1c924d7195f863ec85b290c22785c96b6a683",
+          "normalized_name": "torch",
+          "record_sha256": "e379935f1ee7942d9ae815994a8260142d1820e8a4658c95a715ca3e73ba4caf",
+          "version": "2.9.0"
+        },
+        "transformers": {
+          "metadata_container": [
+            "transformers-5.0.0.dist-info"
+          ],
+          "metadata_sha256": "4ed0c5b182e992d3479c7106d1a29fb0a3788f6ca65763e59640b06e7985ded3",
+          "normalized_name": "transformers",
+          "record_sha256": "260364cc0539b2f048de9d82f80927b2aaa7c5418bcea54158accd987f3a9109",
+          "version": "5.0.0"
+        }
+      },
+      "duplicate_distribution_details": [
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day08_langgraph_agent_lab-0.1.0.dist-info",
+            "day08_langgraph_agent_lab.egg-info"
+          ],
+          "normalized_name": "day08-langgraph-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        },
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day10_reliability_agent_lab-0.1.0.dist-info",
+            "day10_reliability_agent_lab.egg-info"
+          ],
+          "normalized_name": "day10-reliability-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        },
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "payresolve_ai.egg-info",
+            "payresolve_ai.egg-info"
+          ],
+          "normalized_name": "payresolve-ai",
+          "occurrence_count": 2,
+          "version": "0.0.0"
+        }
+      ],
+      "duplicate_same_version_occurrence_count": 3,
+      "excluded_local_project_distribution_occurrences": 2,
+      "raw_discovery_row_count": 302,
+      "raw_package_fingerprint_sha256": "7316a76fa5d68aa2e3c1878691266d673c4f4880c439fe79ac545d6a33b8e45c",
+      "raw_unique_normalized_name_count": 299
+    },
+    {
+      "canonical_distribution_count": 298,
+      "canonical_package_fingerprint_sha256": "39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a",
+      "canonicalization_algorithm": "pep503-unique-third-party-name-version-v1",
+      "conflicting_version_count": 0,
+      "context_id": "C4",
+      "core_ml_dependencies": {
+        "huggingface-hub": {
+          "metadata_container": [
+            "huggingface_hub-1.4.0.dist-info"
+          ],
+          "metadata_sha256": "c8c57cf0f5b2e2de4f8c3e2596d7dbbd212f9036937c83c5d62fd0cb23e587cb",
+          "normalized_name": "huggingface-hub",
+          "record_sha256": "4a107e4fd2c112291134f1977adc95b7d47c2f40dc3064bb95b09f356c8c0a2d",
+          "version": "1.4.0"
+        },
+        "numpy": {
+          "metadata_container": [
+            "numpy-2.2.6.dist-info"
+          ],
+          "metadata_sha256": "229f3544b02805e0f6a12030e155d8a45fd3a4100b3291574175e6a76f20e1e1",
+          "normalized_name": "numpy",
+          "record_sha256": "b936997e8a6f793396cabfca8764d989d598209216290a6f3ae1ec4f0e9d52e5",
+          "version": "2.2.6"
+        },
+        "sentence-transformers": {
+          "metadata_container": [
+            "sentence_transformers-5.2.2.dist-info"
+          ],
+          "metadata_sha256": "a10e693e27c40fc9703a73f13bc565c4f5675b3fe08cc4654ebb5c2259acce6b",
+          "normalized_name": "sentence-transformers",
+          "record_sha256": "75cc9154d2810a7978e6b588a3fbc22b43a2973efb6e101160c6005a95922541",
+          "version": "5.2.2"
+        },
+        "torch": {
+          "metadata_container": [
+            "torch-2.9.0.dist-info"
+          ],
+          "metadata_sha256": "977a43d37592986165d8ea2126b1c924d7195f863ec85b290c22785c96b6a683",
+          "normalized_name": "torch",
+          "record_sha256": "e379935f1ee7942d9ae815994a8260142d1820e8a4658c95a715ca3e73ba4caf",
+          "version": "2.9.0"
+        },
+        "transformers": {
+          "metadata_container": [
+            "transformers-5.0.0.dist-info"
+          ],
+          "metadata_sha256": "4ed0c5b182e992d3479c7106d1a29fb0a3788f6ca65763e59640b06e7985ded3",
+          "normalized_name": "transformers",
+          "record_sha256": "260364cc0539b2f048de9d82f80927b2aaa7c5418bcea54158accd987f3a9109",
+          "version": "5.0.0"
+        }
+      },
+      "duplicate_distribution_details": [
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day08_langgraph_agent_lab-0.1.0.dist-info",
+            "day08_langgraph_agent_lab.egg-info"
+          ],
+          "normalized_name": "day08-langgraph-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        },
+        {
+          "additional_occurrence_count": 1,
+          "metadata_containers": [
+            "day10_reliability_agent_lab-0.1.0.dist-info",
+            "day10_reliability_agent_lab.egg-info"
+          ],
+          "normalized_name": "day10-reliability-agent-lab",
+          "occurrence_count": 2,
+          "version": "0.1.0"
+        }
+      ],
+      "duplicate_same_version_occurrence_count": 2,
+      "excluded_local_project_distribution_occurrences": 1,
+      "raw_discovery_row_count": 301,
+      "raw_package_fingerprint_sha256": "3100086794cb2c07a2df6451a1d2d9ef45f86975dfbe378748583370a9f4f243",
+      "raw_unique_normalized_name_count": 299
+    }
+  ],
+  "context_invariance_status": "PASS",
+  "core_ml_dependency_binding": {
+    "huggingface-hub": {
+      "metadata_container": [
+        "huggingface_hub-1.4.0.dist-info"
+      ],
+      "metadata_sha256": "c8c57cf0f5b2e2de4f8c3e2596d7dbbd212f9036937c83c5d62fd0cb23e587cb",
+      "normalized_name": "huggingface-hub",
+      "record_sha256": "4a107e4fd2c112291134f1977adc95b7d47c2f40dc3064bb95b09f356c8c0a2d",
+      "version": "1.4.0"
+    },
+    "numpy": {
+      "metadata_container": [
+        "numpy-2.2.6.dist-info"
+      ],
+      "metadata_sha256": "229f3544b02805e0f6a12030e155d8a45fd3a4100b3291574175e6a76f20e1e1",
+      "normalized_name": "numpy",
+      "record_sha256": "b936997e8a6f793396cabfca8764d989d598209216290a6f3ae1ec4f0e9d52e5",
+      "version": "2.2.6"
+    },
+    "sentence-transformers": {
+      "metadata_container": [
+        "sentence_transformers-5.2.2.dist-info"
+      ],
+      "metadata_sha256": "a10e693e27c40fc9703a73f13bc565c4f5675b3fe08cc4654ebb5c2259acce6b",
+      "normalized_name": "sentence-transformers",
+      "record_sha256": "75cc9154d2810a7978e6b588a3fbc22b43a2973efb6e101160c6005a95922541",
+      "version": "5.2.2"
+    },
+    "torch": {
+      "metadata_container": [
+        "torch-2.9.0.dist-info"
+      ],
+      "metadata_sha256": "977a43d37592986165d8ea2126b1c924d7195f863ec85b290c22785c96b6a683",
+      "normalized_name": "torch",
+      "record_sha256": "e379935f1ee7942d9ae815994a8260142d1820e8a4658c95a715ca3e73ba4caf",
+      "version": "2.9.0"
+    },
+    "transformers": {
+      "metadata_container": [
+        "transformers-5.0.0.dist-info"
+      ],
+      "metadata_sha256": "4ed0c5b182e992d3479c7106d1a29fb0a3788f6ca65763e59640b06e7985ded3",
+      "normalized_name": "transformers",
+      "record_sha256": "260364cc0539b2f048de9d82f80927b2aaa7c5418bcea54158accd987f3a9109",
+      "version": "5.0.0"
+    }
+  },
+  "duplicate_evidence": {
+    "day08": {
+      "additional_occurrence_count": 1,
+      "metadata_containers": [
+        "day08_langgraph_agent_lab-0.1.0.dist-info",
+        "day08_langgraph_agent_lab.egg-info"
+      ],
+      "normalized_name": "day08-langgraph-agent-lab",
+      "occurrence_count": 2,
+      "version": "0.1.0"
+    },
+    "day10": {
+      "additional_occurrence_count": 1,
+      "metadata_containers": [
+        "day10_reliability_agent_lab-0.1.0.dist-info",
+        "day10_reliability_agent_lab.egg-info"
+      ],
+      "normalized_name": "day10-reliability-agent-lab",
+      "occurrence_count": 2,
+      "version": "0.1.0"
+    },
+    "payresolve_ai": {
+      "additional_occurrence_count": 1,
+      "metadata_containers": [
+        "payresolve_ai.egg-info",
+        "payresolve_ai.egg-info"
+      ],
+      "normalized_name": "payresolve-ai",
+      "occurrence_count": 2,
+      "version": "0.0.0"
+    }
+  },
+  "local_project_source_hash_bindings_preserved": true,
+  "package_mutation_performed": false,
+  "primary_execution_authorized": false,
+  "raw_observation_lineage": {
+    "a12_historical": {
+      "fingerprint_sha256": "83b21ccf1fd73723b88e7e21744ab4fad6fb92f28c0e71c9d41ddf052b902d77",
+      "row_count": 299
+    },
+    "current_clean_reproduced": {
+      "fingerprint_sha256": "f62e73de0de5c9ab4d89ddb07fe5636310ec038197a425735c498d9b8c29fd8b",
+      "row_count": 300
+    },
+    "historical_a368": {
+      "contract_target": false,
+      "fingerprint_sha256": "a3689c3213536b7c57b8d1c7d1a72e27894983583cb19baabe19bd3fff186509",
+      "row_count": 300,
+      "status": "UNREPRODUCED_HISTORICAL_OBSERVATION"
+    },
+    "r13_duplicated_context_reproduced": {
+      "fingerprint_sha256": "7316a76fa5d68aa2e3c1878691266d673c4f4880c439fe79ac545d6a33b8e45c",
+      "row_count": 302
+    }
+  },
+  "readiness_revision": 13,
+  "review_bundle_lineage": {
+    "superseded_pre_stop": {
+      "bytes": 625958,
+      "deliverable": false,
+      "filename": "W3-002-CR1_EA1_revision_13_runtime_offline_remediation_review_bundle.zip",
+      "sha256": "f78f9ec4b15df5dada092f05d87dcde724da1bf2410120bf5688487e2a09ff88",
+      "status": "SUPERSEDED_PRE_STOP_ENVIRONMENT_PROVENANCE_EVIDENCE"
+    }
+  },
+  "schema_version": "1.0",
+  "senior_remediation_classification": "APPROVE_R13_ENVIRONMENT_FINGERPRINT_REMEDIATION",
+  "task_id": "W3-002-CR1-EA1"
+}

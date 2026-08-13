@@ -1,0 +1,9 @@
+{
+  "baseline": "HEAD_A12",
+  "forbidden_field_occurrences": 0,
+  "payload_bytes_semantics_and_order_unchanged": true,
+  "payload_count": 60,
+  "payload_sha256": "8698008d53fe987b609b7d43a507884f97ccf376b79b8e762ed00bf2e95890a0",
+  "readiness_revision": 13,
+  "status": "PASS"
+}

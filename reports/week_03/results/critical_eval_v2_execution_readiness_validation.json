@@ -1,16 +1,17 @@
 {
-  "authorization_candidate_sha256": "93c964345ae84ea19f6a929e7b992187344258c1265f748a8762085becd8757f",
+  "authorization_candidate_sha256": "ea2a3efb8770ec48a5b9a32144986a204faac123bafc4490063a867c44b897e8",
   "authorization_daily_path_topology": {
     "allowed_paths": [
       "PROJECT_STATE.md",
       "TASKS.md",
-      "reports/week_03/daily/2026-08-12.md",
+      "reports/week_03/daily/2026-08-13.md",
       "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
       "reports/week_03/week_03_summary.md"
     ],
+    "reviewed_daily_allowed": true,
+    "reviewed_daily_report_path": "reports/week_03/daily/2026-08-13.md",
     "stale_daily_allowed": false,
-    "status": "PASS",
-    "today_daily_allowed": true
+    "status": "PASS"
   },
   "authorization_status": "AWAITING_SENIOR_REVIEW",
   "candidate": {
@@ -29,13 +30,13 @@
   "disclosure_literal_registry_target_count": 11,
   "encoder_loaded": false,
   "encoder_snapshot_file_count": 11,
-  "environment_manifest_sha256": "35d828884cbcd1b7034142333a7ef066102406df9c13ba3d712bc385660dbea7",
+  "environment_manifest_sha256": "140cff9622d468d72f38070f5b2b57ad703ba492e84b63e7d24a23570d4095ff",
   "evaluation_authorized": false,
   "evaluation_outputs_created": false,
   "evaluator_canonical_cover_count": 92,
   "execution_readiness": "FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW",
   "forbidden_active_stale_bindings": 0,
-  "future_command_plan_sha256": "41ab093a948e9ee88373bf3821c7f3689881f0b805fc3511b158536078ef11e4",
+  "future_command_plan_sha256": "f771bb6ed2aa296a102259e063abf3099f99452c4958c4dcbd684a1a7b6a9af3",
   "generated_revision7_binding_artifacts": 6,
   "generation_executed": false,
   "gold_evaluator_field_count": 0,
@@ -47,8 +48,8 @@
   "noncanonical_larger_cover_count": 4,
   "obligation_evaluator_rule_count": 148,
   "obligation_semantic_reject_count": 13,
-  "readiness_artifact_hash_count": 28,
-  "readiness_revision": 12,
+  "readiness_artifact_hash_count": 57,
+  "readiness_revision": 13,
   "required_obligation_count": 148,
   "retrieval_executed": false,
   "revision7_binding": {
@@ -63,10 +64,10 @@
     "status": "PASS"
   },
   "runtime_asset_file_count": 4,
-  "runtime_asset_manifest_sha256": "8b71fa83899dc81f8725239340d02e553cf4d45d8cd1c5f6e21e3cd10bd32054",
+  "runtime_asset_manifest_sha256": "e19459a5b2182c8ed72f43064e0d14a7fbca7a388b7c38c4366a72e2d4878fa1",
   "runtime_dependency_hash_count": 11,
   "runtime_payload_count": 60,
-  "runtime_payload_manifest_sha256": "a9632bf183b77f1b877b9258e1e5c2ead3e76abebab63c53312f2b2e32538a57",
+  "runtime_payload_manifest_sha256": "d3d22c48c9adf5831ffdecd6a9fa5ad93670b138f0518453956d51b131157f0a",
   "runtime_payload_sha256": "8698008d53fe987b609b7d43a507884f97ccf376b79b8e762ed00bf2e95890a0",
   "safety_adversarial_cases": 256,
   "safety_evaluator_rule_count": 20,

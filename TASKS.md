@@ -23,7 +23,7 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 and EA1 Revision 12 are committed/pushed; authorization is approved for primary execution pending independent committed-topology verification | BLOCKED / AUTHORIZED FOR PRIMARY EXECUTION |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 unchanged; EA1 Revision 13 canonical environment remediation passes and awaits Senior readiness review | BLOCKED / IN PROGRESS |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -585,3 +585,50 @@ and Week 4 remain blocked.
 - Possible future scope: richer structured metadata, evidence-status-driven
   disclosure semantics, generalized relation handling, and a public structured
   API only if Week-4 requirements separately authorize it.
+
+## W3-002-CR1-EA1-READINESS-R13 — Week 3 P0
+
+- **Status:** `STOPPED / UNEXPECTED_ENVIRONMENT_DRIFT`; not ready for Senior review.
+- **Implemented:** `HF_HUB_OFFLINE=1`, production `local_files_only=True`, exact snapshot verification, and hash binding for nine transitive runtime modules.
+- **Evidence:** Candidate 23/23, snapshot 11/11, payload 60/60, focused 15/15, readiness 118/118, Rev10/11/12 30/30, Senior safety 3/3, full harness 655/655 PASS.
+- **Stop evidence:** expected 299 distributions/fingerprint `83b21cc...`; observed 300/fingerprint `a3689c...`. Core ML versions match, but the strict full-environment gate does not.
+- **Authorization:** R13 `evaluation_authorized=false`; A12 fails closed. Reset is `NOT EXECUTED`; no inference/evaluation ran. The pre-stop ZIP is non-deliverable. Week 3 and Week 4 remain blocked.
+
+### W3-002-CR1-EA1-R13-ENV-FP-FIX-01 — 2026-08-12
+
+- **Priority:** P0.
+- **Status:** DONE / READY FOR SENIOR READINESS REVIEW.
+- **Result:** shared readiness/runtime canonical third-party identity is invariant across C1/C2/C3/C4 at 298 rows and SHA-256 `39c1c4a09994f3ea0b7691c796b39085f95fb985efa73207057fa5f7c187f25a`.
+- **Safety:** conflicting versions fail closed; local `payresolve-ai` remains source-hash-bound but excluded from third-party identity; core five versions and metadata hashes are bound explicitly.
+- **Verification:** all ordered suites pass, including 667/667 full harness; offline synthetic probe has zero network attempts and exact expected embedding SHA.
+- **Boundary:** no package mutation, Candidate mutation, reset, authorization, primary/evaluation, stage, commit, or push.
+
+### W3-002-CR1-EA1-R13-BINDING-FIX-01 — 2026-08-13
+
+- **Priority:** P0.
+- **Status:** DONE / `R13_BINDING_FIX_READY_FOR_SENIOR_REVIEW`.
+- **Result:** authorization now binds the deterministic stable environment identity and its reviewed artifact; runtime verifies the live identity against both reviewed and authorized identities before constructing the model.
+- **Closure:** all 18 modules on the bounded local production path are documented, SHA-256-bound, and verified; exclusions are limited to empty package initializers.
+- **Negative controls:** ENV-AUTH 01–07 plus tampering of `generation/verification.py`, `data/banking77.py`, and `generation/citations.py` all fail closed pre-model; detached bundle verifier includes environment-contract-only and candidate-binding-only mutation cases.
+- **Verification:** offline probe 131.649789 seconds with zero network attempts; all ordered suites pass; corrected full repository harness 679/679 in 299.132 seconds.
+- **Boundary:** no Candidate/E1 mutation, reset, authorization, primary/evaluation, stage, commit, or push.
+
+### W3-002-CR1-EA1-R13-AUTH-DATE-CLOSURE-01 — 2026-08-13
+
+- **Priority:** P0.
+- **Status:** DONE / `R13_FINAL_READY_FOR_SENIOR_REVIEW`.
+- **Result:** active R13 future-A13 topology is exactly five paths and uses only `reports/week_03/daily/2026-08-13.md`; active 2026-08-12, older, future, missing, duplicate-date, and source/Candidate mutations fail closed.
+- **Historical boundary:** Revision-12 retains 2026-08-12 semantics through an explicit historical fixture, not the active R13 config.
+- **Closure:** all nine enforcement functions remain in the authorization-bound root execution module; complete runtime closure remains 18 modules with no new dependency.
+- **Verification:** ordered suites pass; corrected full harness 688/688 in 225.925 seconds; offline diagnostic 9.976939 seconds with zero network attempts and unchanged embedding SHA.
+- **Boundary:** no Candidate/E1 mutation, reset, A13 record, authorization, primary/evaluation, stage, commit, or push.
+
+### W3-002-CR1-EA1-R13-REVIEW-COVERAGE-FIX-01 — 2026-08-13
+
+- **Priority:** P0.
+- **Status:** DONE / `R13_REVIEW_COVERAGE_FIXED_READY_FOR_SENIOR_REVIEW`.
+- **Correction:** bind the omitted R13-owned `tests/test_retrieval_benchmark.py` into readiness/authorization review hashes and the final bundle without adding it to the 18-module runtime closure.
+- **Safety:** the single changed test is stricter, preserves all R0/R1 semantics, and detects frozen Week-2 implementation provenance drift without loading cache/model/encoder.
+- **Coverage guard:** deterministic classification and commit dry-run require every R13-reviewed dirty byte to exist identically in bundle `task_files`; protected E1, review ZIP, and user-owned paths are excluded.
+- **Verification:** coverage 6/6, retrieval 56/56, final exact-byte full harness 694/694 in 237.471 seconds, final regenerated offline diagnostic 45.061138 seconds with zero network attempts.
+- **Boundary:** staged 0; commit/push none; no Candidate/E1/runtime semantic mutation, reset, authorization, or primary/evaluation.

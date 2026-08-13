@@ -35,11 +35,19 @@ def parser() -> argparse.ArgumentParser:
     return result
 
 
+def ensure_source_root(root: Path) -> Path:
+    """Expose repository source once, using resolved paths for equality."""
+    source_root = (root / "src").resolve()
+    if all(Path(entry or ".").resolve() != source_root for entry in sys.path):
+        sys.path.insert(0, str(source_root))
+    return source_root
+
+
 def main() -> int:
     args = parser().parse_args()
     root = args.root.resolve()
     config_path = args.config if args.config.is_absolute() else root / args.config
-    sys.path.insert(0, str(root / "src"))
+    ensure_source_root(root)
     from payresolve_ai.evaluation.critical_v2_execution import (
         CriticalV2ExecutionError,
         assert_evaluator_load_allowed,
