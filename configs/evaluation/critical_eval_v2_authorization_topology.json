@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "task_id": "W3-002-CR1-EA1",
-  "readiness_revision": 14,
+  "readiness_revision": 15,
   "topology": "R_THEN_A",
   "readiness_commit_symbol": "R",
   "authorization_commit_symbol": "A",

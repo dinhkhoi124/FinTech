@@ -604,3 +604,13 @@ R13 remains historically Senior-approved/committed/pushed but is superseded for 
 ### Proposed A14 authorization — 2026-08-13
 
 A14 binds exactly to R14 `c0afb7ba74cbcb778a5952399f1db628166df40d` and transitions only authorization lifecycle state. Candidate Revision 7 remains frozen and Senior-approved; R13 is historical/superseded and A13 was not created. A14 is `AUTHORIZED_FOR_PRIMARY_EXECUTION`, while `critical_evaluated=false` and `model_verdict=NOT_ESTABLISHED`; PRIMARY is NOT YET RUN. Week 3 remains blocked/in progress and Week 4 blocked/not started. Next, Senior verifies committed A14 topology before PRIMARY.
+
+## R15 continuation-authority correction — 2026-08-14
+
+R15 retains the six-input evaluator closure and closes the migration trust boundary. Continuation now requires a committed, production-verified A15 record with exact legacy lineage fields; a one-shot CLI performs only repair/receipt transaction. Isolated committed topology and migration controls pass with zero runtime calls. Active PRIMARY/state/runtime evidence is unchanged and reproduction was not retried.
+
+### R15 synthetic Git-config isolation correction — 2026-08-14
+
+F2 reproduced the linked-worktree common-config mutation in a disposable repository, restored the real repository-local identity, and replaced persistent synthetic config writes with command-local commit identity and config overrides.
+
+Six phase guards and an explicit committed-topology regression preserve the real common config exactly. Local `core.autocrlf=false` remains unchanged pending Senior review. PRIMARY/state/runtime remain exact and reproduction was not retried.

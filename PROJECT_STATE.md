@@ -661,3 +661,25 @@ W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
 - A14: `AUTHORIZED_FOR_PRIMARY_EXECUTION`; `evaluation_authorized=true`; `critical_evaluated=false`; `model_verdict=NOT_ESTABLISHED`.
 - PRIMARY: NOT YET RUN. Week 3 remains blocked/in progress; Week 4 remains blocked/not started.
 - Next: Senior verifies committed A14 topology before PRIMARY.
+
+## W3-002-CR1-EA1 readiness revision 15 — 2026-08-13
+
+- PRIMARY completed and was evaluated under historical R14/A14; its seven artifacts remain exact. Reproduction was not retried during R15 authoring.
+- One canonical ordered six-input closure now drives evaluator evidence, transition recording, and validation at indexes 4 and 9; 12/12 transitions are exact.
+- Fail-closed continuation requires exact R14/A14/state/runtime/PRIMARY fingerprints, proves frozen six-input provenance, writes one receipt, and separates historical from future runtime manifests.
+- Isolated migration reaches pre-model Repro V0 with 0/0/0/0 runtime calls. Active state remains `PRIMARY_EVALUATED`, SHA-256 `6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd`.
+- Status: `R15_READY_FOR_SENIOR_REVIEW`; A15 is not created and R15 is not authorized.
+
+### R15 F1 continuation-authority correction — 2026-08-14
+
+- Production migration obtains authority only through committed A15 verification and exact continuation lineage fields.
+- One-shot CLI and fail-closed PREPARED/PASS transaction receipt are implemented; committed synthetic R15→A15 control passes with zero runtime calls.
+- Active state/runtime and PRIMARY evidence remain exact. Status: `R15_CORRECTED_READY_FOR_SENIOR_REVIEW`.
+
+### R15 F2 synthetic Git-config isolation correction — 2026-08-14
+
+- Classification: `R15_SYNTHETIC_WORKTREE_SHARED_CONFIG_MUTATION`, reproduced only in a disposable repository for `user.name`, `user.email`, and `core.autocrlf`.
+- Repository-local identity is restored to `dinhkhoi124` / `dinhkhoi1work@gmail.com`.
+- Synthetic commits use command-local identity and config overrides; six phase guards preserve the common Git config exactly.
+- Local `core.autocrlf=false` remains unchanged and requires Senior review before commit.
+- Active state/runtime and PRIMARY remain exact; reproduction was not retried. Status: `R15_F2_CORRECTED_READY_FOR_SENIOR_REVIEW`.

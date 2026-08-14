@@ -29,7 +29,7 @@ class CriticalV2ExecutionRevision13Tests(unittest.TestCase):
     def test_r13_01_exact_offline_environment_contract(self) -> None:
         contract = self.evidence("environment_contract")
         self.assertEqual(contract["readiness_revision"], 13)
-        self.assertEqual(self.config["readiness_revision"], 14)
+        self.assertEqual(self.config["readiness_revision"], 15)
         self.assertEqual(self.config["runtime_environment"]["required_environment"], {
             "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "HF_HUB_OFFLINE": "1"
         })
@@ -86,6 +86,7 @@ class CriticalV2ExecutionRevision13Tests(unittest.TestCase):
         candidate["readiness_commit_binding"] = "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT"
         candidate["senior_authorization_claimed"] = True
         candidate["senior_authorization_verdict"] = self.config["authorization"]["required_verdict"]
+        candidate.update(execution.CONTINUATION_AUTHORIZATION_FIELDS)
         with tempfile.TemporaryDirectory(prefix="ea1_r13_tamper_") as temporary:
             isolated = Path(temporary)
             required = list(execution.READINESS_HASH_PATHS) + [self.config["readiness_outputs"]["runtime_asset_manifest"]]
@@ -119,7 +120,11 @@ class CriticalV2ExecutionRevision13Tests(unittest.TestCase):
         self.assertEqual(execution.sha256_file(ROOT / "data/evaluation/critical_eval_v2_support_judgments.jsonl"), execution.EXPECTED_PASS_B_SHA256)
 
     def test_r13_14_all_primary_and_reproduction_outputs_remain_absent(self) -> None:
-        preserved = {self.config["runtime_environment"]["manifest"], self.config["evaluation_outputs"]["execution_state"]}
+        preserved = {
+            self.config["evaluation_outputs"]["execution_state"],
+            self.config["continuation"]["historical_runtime_environment"]["path"],
+            *self.config["evaluation_outputs"]["primary"].values(),
+        }
         existing = [path for path in execution._evaluation_output_paths(self.config) if path not in preserved and (ROOT / path).exists()]
         self.assertEqual(existing, [])
 

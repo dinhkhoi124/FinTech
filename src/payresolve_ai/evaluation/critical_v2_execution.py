@@ -41,6 +41,29 @@ EXPECTED_SEMANTIC_APPROVAL_SHA256 = (
 EXPECTED_COV1_BUNDLE_SHA256 = (
     "b804fa12a4bc6f12e3852552358a29af9e071e916c92b22959fefc6ff8a629ff"
 )
+LEGACY_R14_AUTHORIZATION_COMMIT = "1dd7e054f17f9aaf48dca87ba0e00611ca3f2094"
+LEGACY_R14_READINESS_COMMIT = "c0afb7ba74cbcb778a5952399f1db628166df40d"
+LEGACY_R14_STATE_SHA256 = "6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd"
+LEGACY_R14_RUNTIME_SHA256 = "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
+LEGACY_R14_EXECUTION_CONTRACT_SHA256 = "4af2357c3c24341b2c144978df1b967439f4ff0fed337f0513547618a62431cf"
+LOCKED_PRIMARY_SHA256 = {
+    "V0_raw": "c27ff7a80d3ed2214fca647ce46091a7ed2c8029ff0b8527fcad8d3e36844ab2",
+    "V1_raw": "dff680373ff943adfe6379eb59add82b95254670653646ffc4abd946e562a608",
+    "V2_raw": "943c4a7a1bc3e0d305962751256c1723d4e18ff8dd84b63fdd5b520532418a35",
+    "raw_manifest": "114d29ec72a561886a8effd393510f9365e62f1d3c8783aa9def919fee04e0b3",
+    "outcomes": "bb7715af1e22bbe1ce791f344c833358af7075ea6ae02adfc952f615dc1b64ce",
+    "metrics": "ef480aae3d4d0f30e306c5fd9c2fb97ce1fe3dafda44c5a5caf7a4e592296c3b",
+    "claim_audit": "3d6766797c65c876ce3070cef311587152b68655bd4ad7e88f8f753b754e80ae",
+}
+CONTINUATION_MIGRATION_ID = "R14_PRIMARY_EVALUATED_TO_R15_CONTINUATION"
+CONTINUATION_AUTHORIZATION_FIELDS = {
+    "continuation_authorized": True,
+    "continuation_migration": CONTINUATION_MIGRATION_ID,
+    "continuation_from_authorization_commit": LEGACY_R14_AUTHORIZATION_COMMIT,
+    "continuation_from_readiness_commit": LEGACY_R14_READINESS_COMMIT,
+    "continuation_legacy_state_sha256": LEGACY_R14_STATE_SHA256,
+    "continuation_legacy_runtime_environment_sha256": LEGACY_R14_RUNTIME_SHA256,
+}
 EXPECTED_PASS_B_SHA256 = "585469d850a9e2d5514248709658e574dbfff7f54a0f13c99bcbb8cd2653017e"
 EXPECTED_MAPPING_SHA256 = "cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1"
 CANONICAL_ENVIRONMENT_ALGORITHM = "pep503-unique-third-party-name-version-v1"
@@ -100,7 +123,7 @@ READINESS_HASH_PATHS = (
     "reports/week_03/results/critical_eval_v2_runtime_asset_manifest.json",
     "reports/week_03/results/critical_eval_v2_execution_environment.json",
     "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_contract.json",
-    "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision15_runtime_source_closure.json",
     "src/payresolve_ai/evaluation/critical_v2_execution.py",
     "scripts/evaluation/week3_critical_v2_execution.py",
     "scripts/evaluation/rebind_critical_v2_ea1_revision7.py",
@@ -110,6 +133,9 @@ READINESS_HASH_PATHS = (
     "scripts/evaluation/build_critical_v2_ea1_revision11_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision12_auth_date_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision13_review_bundle.py",
+    "scripts/evaluation/build_critical_v2_ea1_revision15_review_bundle.py",
+    "scripts/evaluation/prepare_critical_v2_ea1_revision15_evidence.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision15_bundle.py",
     "scripts/evaluation/prepare_critical_v2_ea1_revision13_evidence.py",
     "scripts/evaluation/verify_critical_v2_ea1_revision13_bundle.py",
     "scripts/evaluation/verify_critical_v2_execution_readiness_bundle.py",
@@ -120,6 +146,7 @@ READINESS_HASH_PATHS = (
     "tests/test_critical_v2_execution_revision12.py",
     "tests/test_critical_v2_execution_revision13.py",
     "tests/test_critical_v2_execution_revision14.py",
+    "tests/test_critical_v2_execution_revision15.py",
     "tests/test_critical_v2_environment_provenance.py",
     "tests/test_critical_v2_binding_fix.py",
     "tests/test_critical_v2_auth_date_closure.py",
@@ -186,10 +213,10 @@ RUNTIME_SOURCE_CLOSURE = (
 )
 
 PRESERVED_A12_RUNTIME_ENVIRONMENT_SHA256 = (
-    "228a2f23c168092e41d0abebff7af468dc106b27a88e1bb6eef995af5f9739ca"
+    "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
 )
 PRESERVED_A12_EXECUTION_STATE_SHA256 = (
-    "3908034af37fcdc11fa64d9f6024e775d24d435030246ee08ec4f48816f184ca"
+    "6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd"
 )
 
 STATE_SEQUENCE = (
@@ -223,6 +250,26 @@ def _write_json(path: Path, value: Any) -> None:
         encoding="utf-8",
         newline="\n",
     )
+
+
+def _json_bytes(value: Any) -> bytes:
+    return (json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode("utf-8")
+
+
+def _atomic_write_json(path: Path, value: Any) -> None:
+    """Replace one JSON file atomically within its destination directory."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    temporary_path = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            handle.write(_json_bytes(value))
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary_path, path)
+    finally:
+        if temporary_path.exists():
+            temporary_path.unlink()
 
 
 def _write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> None:
@@ -267,8 +314,8 @@ def load_execution_config(path: Path) -> dict[str, Any]:
         raise CriticalV2ExecutionError("execution task ID mismatch")
     if config.get("candidate_revision") != 7:
         raise CriticalV2ExecutionError("candidate revision mismatch")
-    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 14:
-        raise CriticalV2ExecutionError("EA1 readiness revision 14 contract required")
+    if config.get("schema_version") != "4.0" or config.get("readiness_revision") != 15:
+        raise CriticalV2ExecutionError("EA1 readiness revision 15 contract required")
     if config.get("readiness_commit_binding") != "DEFERRED_TO_SEPARATE_AUTHORIZATION_RECORD":
         raise CriticalV2ExecutionError("readiness commit binding must be deferred to authorization")
     if "readiness_code_commit" in config:
@@ -286,6 +333,8 @@ def load_execution_config(path: Path) -> dict[str, Any]:
         "HF_HUB_OFFLINE": "1",
     }:
         raise CriticalV2ExecutionError("EA1 Revision 13 offline runtime environment required")
+    if config.get("continuation", {}).get("authorization_fields") != CONTINUATION_AUTHORIZATION_FIELDS:
+        raise CriticalV2ExecutionError("R15 continuation authorization field contract mismatch")
     if config.get("semantic_approval", {}).get("review_zip_sha256") != EXPECTED_SEMANTIC_REVIEW_ZIP_SHA256:
         raise CriticalV2ExecutionError("semantic review ZIP contract mismatch")
     if config.get("semantic_approval", {}).get("sha256") != EXPECTED_SEMANTIC_APPROVAL_SHA256:
@@ -2159,6 +2208,11 @@ def _evaluation_output_paths(config: dict[str, Any]) -> list[str]:
         config["runtime_environment"]["manifest"],
         outputs["execution_state"], outputs["reproduction_comparison"], outputs["final_summary"],
     ]
+    historical_runtime = config.get("continuation", {}).get(
+        "historical_runtime_environment", {}
+    ).get("path")
+    if historical_runtime:
+        result.append(historical_runtime)
     for label in RUN_LABELS:
         result.extend(outputs[label].values())
     return result
@@ -2167,9 +2221,11 @@ def _evaluation_output_paths(config: dict[str, Any]) -> list[str]:
 def _assert_readiness_output_boundary(root: Path, config: dict[str, Any]) -> None:
     existing = [path for path in _evaluation_output_paths(config) if (root / path).exists()]
     preserved = {
-        config["runtime_environment"]["manifest"],
         config["evaluation_outputs"]["execution_state"],
+        config.get("continuation", {}).get("historical_runtime_environment", {}).get("path"),
+        *config["evaluation_outputs"]["primary"].values(),
     }
+    preserved.discard(None)
     unexpected = [path for path in existing if path not in preserved]
     if unexpected:
         raise CriticalV2ExecutionError(
@@ -2178,22 +2234,22 @@ def _assert_readiness_output_boundary(root: Path, config: dict[str, Any]) -> Non
     if existing:
         if set(existing) != preserved:
             raise CriticalV2ExecutionError("incomplete preserved E1 evidence pair")
-        runtime_path = root / config["runtime_environment"]["manifest"]
+        runtime_path = root / config["continuation"]["historical_runtime_environment"]["path"]
         state_path = root / config["evaluation_outputs"]["execution_state"]
         if (
             sha256_file(runtime_path) != PRESERVED_A12_RUNTIME_ENVIRONMENT_SHA256
             or sha256_file(state_path) != PRESERVED_A12_EXECUTION_STATE_SHA256
         ):
             raise CriticalV2ExecutionError("preserved E1 evidence hash mismatch")
-        state = _read_json(state_path)
-        if state != {
-            "authorization_commit": "e3e9588e5f9e12745ef70fe67e03deaa1731b35d",
-            "history": [],
-            "readiness_implementation_commit": "cec29477e3c75d132b54f787ba602a0a1b33f578",
-            "state": "AUTHORIZED",
-            "task_id": "W3-002-CR1-EA1",
-        }:
-            raise CriticalV2ExecutionError("preserved E1 execution-state content mismatch")
+            state = _read_json(state_path)
+            if (
+                state.get("authorization_commit") != LEGACY_R14_AUTHORIZATION_COMMIT
+                or state.get("readiness_implementation_commit") != LEGACY_R14_READINESS_COMMIT
+                or state.get("state") != "PRIMARY_EVALUATED"
+                or len(state.get("history", [])) != 5
+                or state.get("task_id") != "W3-002-CR1-EA1"
+            ):
+                raise CriticalV2ExecutionError("preserved E1 execution-state content mismatch")
 
 
 def verify_execution_contract(root: Path, config_path: Path) -> dict[str, Any]:
@@ -2835,6 +2891,7 @@ def validate_authorization_daily_path_topology(config: dict[str, Any]) -> dict[s
         12: "reports/week_03/daily/2026-08-12.md",
         13: "reports/week_03/daily/2026-08-13.md",
         14: "reports/week_03/daily/2026-08-13.md",
+        15: "reports/week_03/daily/2026-08-13.md",
     }
     revision = config.get("readiness_revision")
     reviewed = config.get("authorization", {}).get("reviewed_daily_report_path")
@@ -3804,6 +3861,9 @@ def _validate_authorization_payload(
     for key, expected in required.items():
         if authorization.get(key) != expected:
             raise CriticalV2ExecutionError(f"authorization mismatch: {key}")
+    for key, expected in CONTINUATION_AUTHORIZATION_FIELDS.items():
+        if authorization.get(key) != expected:
+            raise CriticalV2ExecutionError(f"continuation authorization mismatch: {key}")
     if authorization.get("variants") != config["variants"]:
         raise CriticalV2ExecutionError("authorization variant mismatch")
     if authorization.get("evaluation_output_paths") != _evaluation_output_paths(config):
@@ -3897,6 +3957,7 @@ def verify_execution_authorization(
         "reviewed_environment_identity_sha256": authorization[
             "reviewed_environment_identity_sha256"
         ],
+        **CONTINUATION_AUTHORIZATION_FIELDS,
     }
 
 
@@ -3922,10 +3983,6 @@ def _load_or_initialize_state(root: Path, config: dict[str, Any], authorization:
 
 def _expected_transition_paths(config: dict[str, Any], index: int) -> tuple[set[str], set[str]]:
     outputs = config["evaluation_outputs"]
-    mapping = config["safety_evaluator"]["source_mapping"]
-    safety = config["safety_evaluator"]["rules"]
-    obligations = config["safety_evaluator"]["obligation_rules"]
-    literal_registry = config["safety_evaluator"]["disclosure_literal_registry"]
     environment = config["runtime_environment"]["manifest"]
     if index in {0, 1, 2}:
         variant = VARIANT_IDS[index]
@@ -3933,7 +3990,7 @@ def _expected_transition_paths(config: dict[str, Any], index: int) -> tuple[set[
     if index == 3:
         return {outputs["primary"][f"{variant}_raw"] for variant in VARIANT_IDS}, {outputs["primary"]["raw_manifest"]}
     if index == 4:
-        return {outputs["primary"]["raw_manifest"], mapping, safety, obligations, literal_registry}, {
+        return set(evaluation_direct_input_references(config, "primary")), {
             outputs["primary"][key] for key in ("outcomes", "metrics", "claim_audit")
         }
     if index in {5, 6, 7}:
@@ -3942,7 +3999,7 @@ def _expected_transition_paths(config: dict[str, Any], index: int) -> tuple[set[
     if index == 8:
         return {outputs["reproducibility_rerun"][f"{variant}_raw"] for variant in VARIANT_IDS}, {outputs["reproducibility_rerun"]["raw_manifest"]}
     if index == 9:
-        return {outputs["reproducibility_rerun"]["raw_manifest"], mapping, safety, obligations, literal_registry}, {
+        return set(evaluation_direct_input_references(config, "reproducibility_rerun")), {
             outputs["reproducibility_rerun"][key] for key in ("outcomes", "metrics", "claim_audit")
         }
     if index == 10:
@@ -3953,6 +4010,155 @@ def _expected_transition_paths(config: dict[str, Any], index: int) -> tuple[set[
             *(outputs[label][key] for label in RUN_LABELS for key in ("outcomes", "metrics", "claim_audit")),
         }, {outputs["final_summary"]}
     raise CriticalV2ExecutionError("invalid state-history transition index")
+
+
+def evaluation_direct_input_references(config: dict[str, Any], run_label: str) -> tuple[str, ...]:
+    """Return the one canonical, ordered six-file evaluator dependency closure."""
+    if run_label not in RUN_LABELS:
+        raise CriticalV2ExecutionError("invalid evaluation run label")
+    evaluator = config["safety_evaluator"]
+    return (
+        config["evaluation_outputs"][run_label]["raw_manifest"],
+        evaluator["source_mapping"],
+        evaluator["rules"],
+        evaluator["boundary_rules"],
+        evaluator["obligation_rules"],
+        evaluator["disclosure_literal_registry"],
+    )
+
+
+def evaluation_direct_input_paths(root: Path, config: dict[str, Any], run_label: str) -> list[Path]:
+    return [root / relative for relative in evaluation_direct_input_references(config, run_label)]
+
+
+def _continuation_receipt(root: Path, config: dict[str, Any]) -> dict[str, Any] | None:
+    relative = config.get("continuation", {}).get("receipt")
+    if not relative or not (root / relative).is_file():
+        return None
+    return _read_json(root / relative)
+
+
+def _assert_primary_evaluation_provenance(root: Path, config: dict[str, Any]) -> dict[str, str]:
+    expected = {
+        relative: sha256_file(root / relative)
+        for relative in evaluation_direct_input_references(config, "primary")
+    }
+    primary = config["evaluation_outputs"]["primary"]
+    metric_inputs = _read_json(root / primary["metrics"]).get("direct_input_sha256")
+    if metric_inputs != expected:
+        raise CriticalV2ExecutionError("PRIMARY metrics do not prove the six-input evaluator closure")
+    for key in ("outcomes", "claim_audit"):
+        rows = _read_jsonl(root / primary[key])
+        if not rows or any(row.get("direct_input_sha256") != expected for row in rows):
+            raise CriticalV2ExecutionError(
+                f"PRIMARY {key} do not prove the six-input evaluator closure"
+            )
+    return expected
+
+
+def migrate_r14_primary_state_for_r15_continuation(
+    root: Path,
+    config_path: Path,
+) -> dict[str, Any]:
+    """Verify committed A15 authority, then repair an exact legacy copy once."""
+    future_authorization = verify_execution_authorization(root, config_path)
+    config = load_execution_config(config_path)
+    continuation = config.get("continuation", {})
+    receipt_path = root / continuation.get("receipt", "")
+    state_path = _state_path(root, config)
+    runtime = continuation.get("historical_runtime_environment", {})
+    for key, expected in CONTINUATION_AUTHORIZATION_FIELDS.items():
+        if future_authorization.get(key) != expected:
+            raise CriticalV2ExecutionError(f"verified continuation authority mismatch: {key}")
+    if receipt_path.is_file():
+        raise CriticalV2ExecutionError("R15 continuation migration receipt already exists")
+    if not state_path.is_file() or sha256_file(state_path) != LEGACY_R14_STATE_SHA256:
+        raise CriticalV2ExecutionError("unexpected legacy execution state fingerprint")
+    state = _read_json(state_path)
+    if (
+        state.get("state") != "PRIMARY_EVALUATED"
+        or state.get("authorization_commit") != LEGACY_R14_AUTHORIZATION_COMMIT
+        or state.get("readiness_implementation_commit") != LEGACY_R14_READINESS_COMMIT
+    ):
+        raise CriticalV2ExecutionError("unexpected legacy authorization/readiness lineage")
+    historical_runtime = root / runtime.get("path", "")
+    if (
+        runtime.get("sha256") != LEGACY_R14_RUNTIME_SHA256
+        or not historical_runtime.is_file()
+        or sha256_file(historical_runtime) != LEGACY_R14_RUNTIME_SHA256
+    ):
+        raise CriticalV2ExecutionError("historical runtime environment fingerprint mismatch")
+    primary = config["evaluation_outputs"]["primary"]
+    for key, expected_hash in LOCKED_PRIMARY_SHA256.items():
+        path = root / primary[key]
+        if not path.is_file() or sha256_file(path) != expected_hash:
+            raise CriticalV2ExecutionError(f"locked PRIMARY artifact drift: {key}")
+    outputs = config["evaluation_outputs"]
+    forbidden = [
+        *(root / outputs["reproducibility_rerun"][key] for key in outputs["reproducibility_rerun"]),
+        root / outputs["reproduction_comparison"],
+        root / outputs["final_summary"],
+        root / config["runtime_environment"]["manifest"],
+    ]
+    if any(path.exists() for path in forbidden):
+        raise CriticalV2ExecutionError("continuation requires absent reproduction/final/current-runtime artifacts")
+    proven_inputs = _assert_primary_evaluation_provenance(root, config)
+    history = state.get("history")
+    if not isinstance(history, list) or len(history) != 5:
+        raise CriticalV2ExecutionError("legacy PRIMARY history is not exact")
+    repaired_history = json.loads(json.dumps(history))
+    repaired_history[4]["direct_input_sha256"] = proven_inputs
+    repaired = {
+        **state,
+        "authorization_commit": future_authorization["authorization_commit"],
+        "readiness_implementation_commit": future_authorization["readiness_implementation_commit"],
+        "history": repaired_history,
+    }
+    old_outputs = history[4].get("direct_output_sha256")
+    if repaired_history[4].get("direct_output_sha256") != old_outputs:
+        raise CriticalV2ExecutionError("continuation changed historical direct outputs")
+    repaired_state_sha256 = hashlib.sha256(_json_bytes(repaired)).hexdigest()
+    receipt = {
+        "schema_version": "1.0",
+        "status": "PREPARED",
+        "migration": CONTINUATION_MIGRATION_ID,
+        "legacy_authorization_commit": LEGACY_R14_AUTHORIZATION_COMMIT,
+        "legacy_readiness_commit": LEGACY_R14_READINESS_COMMIT,
+        "legacy_state_sha256": LEGACY_R14_STATE_SHA256,
+        "legacy_runtime_environment_sha256": LEGACY_R14_RUNTIME_SHA256,
+        "legacy_execution_contract_sha256": LEGACY_R14_EXECUTION_CONTRACT_SHA256,
+        "new_authorization_commit": future_authorization["authorization_commit"],
+        "new_readiness_commit": future_authorization["readiness_implementation_commit"],
+        "repaired_state_sha256": repaired_state_sha256,
+        "primary_history_sha256": stable_sha256(repaired_history[:5]),
+        "primary_artifact_sha256": dict(LOCKED_PRIMARY_SHA256),
+        "canonical_evaluator_input_sha256": proven_inputs,
+        "historical_runtime_path": runtime["path"],
+        "future_runtime_path": config["runtime_environment"]["manifest"],
+        "model_calls": 0,
+        "encoder_calls": 0,
+        "retrieval_calls": 0,
+        "generation_calls": 0,
+    }
+    receipt_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with receipt_path.open("x", encoding="utf-8", newline="\n") as handle:
+            handle.write(_json_bytes(receipt).decode("utf-8"))
+            handle.flush()
+            os.fsync(handle.fileno())
+    except FileExistsError:
+        raise CriticalV2ExecutionError("R15 continuation migration receipt collision") from None
+    try:
+        _atomic_write_json(state_path, repaired)
+        if sha256_file(state_path) != repaired_state_sha256:
+            raise CriticalV2ExecutionError("R15 continuation repaired-state hash mismatch")
+        receipt = {**receipt, "status": "PASS"}
+        _atomic_write_json(receipt_path, receipt)
+    except Exception as error:
+        raise CriticalV2ExecutionError(
+            "R15 continuation transaction incomplete; PREPARED receipt is deterministic recovery evidence"
+        ) from error
+    return receipt
 
 
 def validate_state_history(
@@ -3968,11 +4174,25 @@ def validate_state_history(
     if not isinstance(history, list) or len(history) != STATE_SEQUENCE.index(current):
         raise CriticalV2ExecutionError("execution state history is not the exact required prefix")
     machine = _read_json(root / config["state_machine"]["spec"])
+    receipt = _continuation_receipt(root, config)
+    if receipt is not None and (
+        receipt.get("status") != "PASS"
+        or receipt.get("primary_history_sha256") != stable_sha256(history[:5])
+        or receipt.get("new_authorization_commit") != state.get("authorization_commit")
+        or receipt.get("new_readiness_commit") != state.get("readiness_implementation_commit")
+        or receipt.get("legacy_state_sha256") != LEGACY_R14_STATE_SHA256
+        or receipt.get("legacy_runtime_environment_sha256") != LEGACY_R14_RUNTIME_SHA256
+    ):
+        raise CriticalV2ExecutionError("R15 continuation receipt binding mismatch")
     for index, entry in enumerate(history):
         expected = machine["transitions"][index]
         if {key: entry.get(key) for key in ("from", "action", "to")} != expected:
             raise CriticalV2ExecutionError(f"execution state history transition mismatch at index {index}")
         expected_inputs, expected_outputs = _expected_transition_paths(config, index)
+        if receipt is not None and index in {0, 1, 2}:
+            expected_inputs = set(expected_inputs)
+            expected_inputs.remove(config["runtime_environment"]["manifest"])
+            expected_inputs.add(config["continuation"]["historical_runtime_environment"]["path"])
         inputs = entry.get("direct_input_sha256")
         outputs = entry.get("direct_output_sha256")
         if not isinstance(inputs, dict) or set(inputs) != expected_inputs:
@@ -3981,7 +4201,14 @@ def validate_state_history(
             raise CriticalV2ExecutionError(f"execution state output set mismatch at index {index}")
         for relative, expected_hash in {**inputs, **outputs}.items():
             path = root / relative
-            if not path.is_file() or sha256_file(path) != expected_hash:
+            legacy_contract = (
+                index in {0, 1, 2}
+                and relative == "configs/evaluation/critical_eval_v2_execution.json"
+                and expected_hash == LEGACY_R14_EXECUTION_CONTRACT_SHA256
+                and receipt is not None
+                and receipt.get("legacy_execution_contract_sha256") == expected_hash
+            )
+            if not legacy_contract and (not path.is_file() or sha256_file(path) != expected_hash):
                 raise CriticalV2ExecutionError(f"state-bound artifact hash mismatch: {relative}")
 
 
@@ -4315,11 +4542,10 @@ def evaluate_frozen_run(root: Path, config_path: Path, run_label: str) -> dict[s
     assert_evaluator_load_allowed(root, config_path, run_label)
 
     candidate_config = _read_json(root / config["candidate"]["config"])
-    mapping_path = root / candidate_config["outputs"]["pass_c"]
-    rules_path = root / config["safety_evaluator"]["rules"]
-    boundary_rules_path = root / config["safety_evaluator"]["boundary_rules"]
-    obligation_rules_path = root / config["safety_evaluator"]["obligation_rules"]
-    literal_registry_path = root / config["safety_evaluator"]["disclosure_literal_registry"]
+    evaluator_inputs = evaluation_direct_input_paths(root, config, run_label)
+    manifest_path, mapping_path, rules_path, boundary_rules_path, obligation_rules_path, literal_registry_path = evaluator_inputs
+    if mapping_path != root / candidate_config["outputs"]["pass_c"]:
+        raise CriticalV2ExecutionError("canonical evaluator mapping does not match candidate")
     mappings = {row["query_id"]: row for row in _read_jsonl(mapping_path)}
     rules = {row["query_id"]: row for row in _read_jsonl(rules_path)}
     boundary_rules = {row["query_id"]: row for row in _read_jsonl(boundary_rules_path)}
@@ -4329,15 +4555,7 @@ def evaluate_frozen_run(root: Path, config_path: Path, run_label: str) -> dict[s
     output_paths = [root / targets[name] for name in ("outcomes", "metrics", "claim_audit")]
     if any(path.exists() for path in output_paths):
         raise CriticalV2ExecutionError("evaluated output overwrite is forbidden")
-    manifest_path = root / targets["raw_manifest"]
-    direct_inputs = {
-        manifest_path.relative_to(root).as_posix(): sha256_file(manifest_path),
-        mapping_path.relative_to(root).as_posix(): sha256_file(mapping_path),
-        literal_registry_path.relative_to(root).as_posix(): sha256_file(literal_registry_path),
-        rules_path.relative_to(root).as_posix(): sha256_file(rules_path),
-        boundary_rules_path.relative_to(root).as_posix(): sha256_file(boundary_rules_path),
-        obligation_rules_path.relative_to(root).as_posix(): sha256_file(obligation_rules_path),
-    }
+    direct_inputs = {path.relative_to(root).as_posix(): sha256_file(path) for path in evaluator_inputs}
     outcomes: list[dict[str, Any]] = []
     claim_audits: list[dict[str, Any]] = []
     metrics: dict[str, Any] = {
@@ -4433,7 +4651,7 @@ def evaluate_frozen_run(root: Path, config_path: Path, run_label: str) -> dict[s
     _write_json(output_paths[1], metrics)
     _write_jsonl(output_paths[2], claim_audits)
     action_label = "primary" if run_label == "primary" else "repro"
-    _transition_state(root, config, state, required_state, target_state, f"evaluate-{action_label}", [manifest_path, mapping_path, rules_path, boundary_rules_path, obligation_rules_path], output_paths)
+    _transition_state(root, config, state, required_state, target_state, f"evaluate-{action_label}", evaluator_inputs, output_paths)
     return {"status": "PASS", "run_label": run_label, "outcome_rows": len(outcomes), "metrics": metrics}
 
 

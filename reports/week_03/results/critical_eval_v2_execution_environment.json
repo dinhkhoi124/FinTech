@@ -421,9 +421,9 @@
   "python_implementation": "CPython",
   "python_version": "3.13.3",
   "readiness_observed_head": "e3e9588e5f9e12745ef70fe67e03deaa1731b35d",
-  "readiness_revision": 14,
+  "readiness_revision": 15,
   "required_runtime_environment": {
-    "manifest": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+    "manifest": "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json",
     "pythonhashseed_rationale": "Runtime payload ordering, stable sorting, serialized hashes, and metric aggregation do not depend on Python hash iteration order.",
     "pythonhashseed_required": false,
     "required_environment": {
@@ -496,7 +496,7 @@
     "reports/week_03/results/evidence_gate_v2_selection.json": "b17cee0c976552d14eec940f9bb81d95bb2ba9731b615295ab6be10313606469"
   },
   "runtime_manifest_created": false,
-  "runtime_manifest_path": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+  "runtime_manifest_path": "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json",
   "secrets_recorded": false,
   "task_id": "W3-002-CR1-EA1"
 }

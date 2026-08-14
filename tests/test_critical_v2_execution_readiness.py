@@ -47,6 +47,7 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
             "runtime_asset_manifest_sha256": execution.sha256_file(ROOT / self.config["readiness_outputs"]["runtime_asset_manifest"]),
             "reviewed_environment_identity_sha256": contract["environment_identity_sha256"],
             "environment_contract_artifact_sha256": execution.sha256_file(contract_path),
+            **execution.CONTINUATION_AUTHORIZATION_FIELDS,
         }
 
     def _temp_authorization(self, payload: dict):
@@ -787,16 +788,16 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
 
     def test_evaluator_cannot_load_before_raw_freeze(self) -> None:
         with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "cannot load before"):
-            execution.assert_evaluator_load_allowed(ROOT, CONFIG_PATH, "primary")
+            execution.assert_evaluator_load_allowed(ROOT, CONFIG_PATH, "reproducibility_rerun")
 
     def test_reproduction_cannot_start_before_primary_freeze(self) -> None:
         counter = {"loads": 0, "executions": 0}
         auth = {"status": "PASS", "authorization_commit": "a", "readiness_implementation_commit": "r"}
         with mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
                 mock.patch.object(execution, "freeze_or_verify_runtime_environment", return_value={"path": CONFIG_PATH}):
-            # R14 preserves the A12 state only in incident history; the active
-            # state remains absent until a future authorized PRIMARY V0.
-            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "execution state is absent"):
+            # R15 preserves active PRIMARY_EVALUATED under the historical A14
+            # binding; a future A15 continuation repair must occur first.
+            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "authorization binding mismatch"):
                 execution.run_critical(ROOT, CONFIG_PATH, "reproducibility_rerun", "V0", model_loader=lambda: counter.update(loads=1), executor=self._counted_executor(counter))
         self.assertEqual(counter, {"loads": 0, "executions": 0})
 
@@ -804,8 +805,9 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         self._require_local_runtime_assets()
         execution.verify_execution_contract(ROOT, CONFIG_PATH)
         preserved = {
-            self.config["runtime_environment"]["manifest"],
             self.config["evaluation_outputs"]["execution_state"],
+            self.config["continuation"]["historical_runtime_environment"]["path"],
+            *self.config["evaluation_outputs"]["primary"].values(),
         }
         self.assertFalse(any(
             (ROOT / path).exists()

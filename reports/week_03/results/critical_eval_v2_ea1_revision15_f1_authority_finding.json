@@ -1,0 +1,8 @@
+{
+  "active_state_mutated": false,
+  "classification": "R15_CONTINUATION_AUTHORITY_NOT_PRODUCTION_BOUND",
+  "corrected_behavior": "migration accepts only root/config_path and internally calls production verify_execution_authorization",
+  "model_calls": 0,
+  "old_behavior": "caller-supplied synthetic authorization/readiness SHAs plus continuation_authorized=true passed migration authority gate",
+  "status": "REMEDIATED"
+}

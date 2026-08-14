@@ -1,0 +1,53 @@
+{
+  "active_repository_mutated": false,
+  "classification": "R15_SYNTHETIC_WORKTREE_SHARED_CONFIG_MUTATION",
+  "common_config_bytes_unchanged": true,
+  "common_config_sha256_after": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+  "common_config_sha256_before": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+  "core_autocrlf": "false",
+  "core_autocrlf_review_flag": "CORE_AUTOCRLF_BASELINE_REQUIRES_SENIOR_REVIEW_BEFORE_COMMIT",
+  "persistent_git_config_writes_in_synthetic_topology": 0,
+  "phase_checks": [
+    {
+      "phase": "linked_worktree_creation",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "synthetic_r15_commit",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "synthetic_a15_commit",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "production_verifier",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "migration",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "linked_worktree_removal",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    }
+  ],
+  "precheck_contamination": {
+    "common_config_sha256": "30fff6c1dee3cc2d8fc881e8768a6ba074640d120767199ca6817a294f71dfd8",
+    "user_email": "r15-f1@example.invalid",
+    "user_name": "R15 F1 Synthetic"
+  },
+  "restored_repository_local_identity": {
+    "user_email": "dinhkhoi1work@gmail.com",
+    "user_name": "dinhkhoi124"
+  },
+  "status": "PASS",
+  "synthetic_commit_identity_is_command_local": true
+}

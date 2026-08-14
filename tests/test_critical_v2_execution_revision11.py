@@ -61,8 +61,10 @@ class CriticalV2ExecutionRevision11Tests(unittest.TestCase):
     ) -> tuple[mock.Mock, mock.Mock]:
         auth = {"authorization_commit": "a", "readiness_implementation_commit": "r"}
         state = {"state": "AUTHORIZED", **auth, "history": []}
-        with mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
-                mock.patch.object(execution, "load_execution_config", return_value=self.config), \
+        config = copy.deepcopy(self.config)
+        with tempfile.TemporaryDirectory() as directory, \
+                mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
+                mock.patch.object(execution, "load_execution_config", return_value=config), \
                 mock.patch.object(execution, "freeze_or_verify_runtime_environment", return_value={"path": CONFIG_PATH}), \
                 mock.patch.object(execution, "_load_or_initialize_state", return_value=state), \
                 mock.patch.object(execution, "validate_state_history"), \
@@ -70,6 +72,7 @@ class CriticalV2ExecutionRevision11Tests(unittest.TestCase):
                 mock.patch.object(execution, "verify_raw_environment_binding"), \
                 mock.patch.object(execution, "_write_jsonl") as writer, \
                 mock.patch.object(execution, "_transition_state") as transition:
+            config["evaluation_outputs"]["primary"]["V0_raw"] = str(Path(directory) / "V0.jsonl")
             if expected_error is None:
                 execution.run_critical(
                     ROOT, CONFIG_PATH, "primary", "V0", executor=lambda *_: rows

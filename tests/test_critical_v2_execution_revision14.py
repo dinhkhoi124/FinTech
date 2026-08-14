@@ -36,13 +36,14 @@ class CriticalV2ExecutionRevision14Tests(unittest.TestCase):
                 "readiness_implementation_commit": "1" * 40,
                 "senior_authorization_claimed": True,
                 "senior_authorization_verdict": "APPROVE_EXECUTION",
+                **execution.CONTINUATION_AUTHORIZATION_FIELDS,
             }
         )
         return authorization
 
     def test_r14_identity_is_active_and_candidate_remains_non_authorized(self) -> None:
-        self.assertEqual(self.config["readiness_revision"], 14)
-        self.assertEqual(self.candidate["readiness_revision"], 14)
+        self.assertEqual(self.config["readiness_revision"], 15)
+        self.assertEqual(self.candidate["readiness_revision"], 15)
         self.assertEqual(self.candidate["authorization_status"], "AWAITING_SENIOR_REVIEW")
         self.assertFalse(self.candidate["evaluation_authorized"])
         self.assertFalse(self.candidate["senior_authorization_claimed"])

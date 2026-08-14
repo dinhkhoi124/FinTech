@@ -1,0 +1,309 @@
+{
+  "exact_count": 12,
+  "rows": [
+    {
+      "action": "run-primary-V0",
+      "actual_direct_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v0_raw_outputs.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v0_raw_outputs.jsonl"
+      ],
+      "from": "AUTHORIZED",
+      "index": 0,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "PRIMARY_V0_COMPLETE"
+    },
+    {
+      "action": "run-primary-V1",
+      "actual_direct_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v1_raw_outputs.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v1_raw_outputs.jsonl"
+      ],
+      "from": "PRIMARY_V0_COMPLETE",
+      "index": 1,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "PRIMARY_V1_COMPLETE"
+    },
+    {
+      "action": "run-primary-V2",
+      "actual_direct_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v2_raw_outputs.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v2_raw_outputs.jsonl"
+      ],
+      "from": "PRIMARY_V1_COMPLETE",
+      "index": 2,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "PRIMARY_V2_COMPLETE"
+    },
+    {
+      "action": "freeze-primary",
+      "actual_direct_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v0_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v1_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v2_raw_outputs.jsonl"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json"
+      ],
+      "expected_validator_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v0_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v1_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v2_raw_outputs.jsonl"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json"
+      ],
+      "from": "PRIMARY_V2_COMPLETE",
+      "index": 3,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "PRIMARY_FROZEN"
+    },
+    {
+      "action": "evaluate-primary",
+      "actual_direct_inputs": [
+        "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl",
+        "data/evaluation/critical_eval_v2_mapping.jsonl",
+        "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+        "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json",
+        "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_outcomes.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl",
+        "data/evaluation/critical_eval_v2_mapping.jsonl",
+        "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+        "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json",
+        "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_outcomes.jsonl"
+      ],
+      "from": "PRIMARY_FROZEN",
+      "index": 4,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "PRIMARY_EVALUATED"
+    },
+    {
+      "action": "run-repro-V0",
+      "actual_direct_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v0_raw_outputs.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v0_raw_outputs.jsonl"
+      ],
+      "from": "PRIMARY_EVALUATED",
+      "index": 5,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "REPRO_V0_COMPLETE"
+    },
+    {
+      "action": "run-repro-V1",
+      "actual_direct_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v1_raw_outputs.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v1_raw_outputs.jsonl"
+      ],
+      "from": "REPRO_V0_COMPLETE",
+      "index": 6,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "REPRO_V1_COMPLETE"
+    },
+    {
+      "action": "run-repro-V2",
+      "actual_direct_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v2_raw_outputs.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "configs/evaluation/critical_eval_v2_execution.json",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v2_raw_outputs.jsonl"
+      ],
+      "from": "REPRO_V1_COMPLETE",
+      "index": 7,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "REPRO_V2_COMPLETE"
+    },
+    {
+      "action": "freeze-repro",
+      "actual_direct_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v0_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v1_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v2_raw_outputs.jsonl"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json"
+      ],
+      "expected_validator_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v0_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v1_raw_outputs.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v2_raw_outputs.jsonl"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json"
+      ],
+      "from": "REPRO_V2_COMPLETE",
+      "index": 8,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "REPRO_FROZEN"
+    },
+    {
+      "action": "evaluate-repro",
+      "actual_direct_inputs": [
+        "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl",
+        "data/evaluation/critical_eval_v2_mapping.jsonl",
+        "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+        "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json",
+        "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_outcomes.jsonl"
+      ],
+      "expected_validator_inputs": [
+        "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl",
+        "data/evaluation/critical_eval_v2_mapping.jsonl",
+        "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+        "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json",
+        "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_outcomes.jsonl"
+      ],
+      "from": "REPRO_FROZEN",
+      "index": 9,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "REPRO_EVALUATED"
+    },
+    {
+      "action": "verify-reproducibility",
+      "actual_direct_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json"
+      ],
+      "expected_validator_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json"
+      ],
+      "from": "REPRO_EVALUATED",
+      "index": 10,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "REPRO_VERIFIED"
+    },
+    {
+      "action": "finalize",
+      "actual_direct_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_outcomes.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_outcomes.jsonl"
+      ],
+      "actual_direct_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_final_summary.json"
+      ],
+      "expected_validator_inputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_outcomes.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_claim_audit.jsonl",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_metrics.json",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_outcomes.jsonl"
+      ],
+      "expected_validator_outputs": [
+        "reports/week_03/results/critical_eval_v2_revision_7_final_summary.json"
+      ],
+      "from": "REPRO_VERIFIED",
+      "index": 11,
+      "input_equal": true,
+      "output_equal": true,
+      "to": "FINALIZED"
+    }
+  ],
+  "status": "PASS",
+  "transition_count": 12
+}

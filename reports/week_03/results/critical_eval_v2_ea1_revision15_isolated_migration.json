@@ -1,0 +1,12 @@
+{
+  "active_workspace_mutated": false,
+  "canonical_input_count": 6,
+  "direct_outputs_preserved": true,
+  "future_runtime_reference": "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json",
+  "historical_runtime_preserved": true,
+  "historical_runtime_sha256": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d",
+  "legacy_state_sha256": "6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd",
+  "receipt_write_once": true,
+  "repaired_state_sha256": "1172279644eaa06748817d3c77cb7730747579eaf60b76004c7a6a43439a38a8",
+  "status": "PASS"
+}

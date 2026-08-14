@@ -1,0 +1,33 @@
+{
+  "affected_keys": [
+    "core.autocrlf",
+    "user.email",
+    "user.name"
+  ],
+  "classification": "R15_SYNTHETIC_WORKTREE_SHARED_CONFIG_MUTATION",
+  "disposable_repository_only": true,
+  "observations": [
+    {
+      "key": "user.name",
+      "main_after": "R15 F2 Synthetic",
+      "main_before": "Disposable Real",
+      "shared_mutation_proven": true,
+      "written_from_linked_worktree": "R15 F2 Synthetic"
+    },
+    {
+      "key": "user.email",
+      "main_after": "r15-f2@example.invalid",
+      "main_before": "disposable-real@example.test",
+      "shared_mutation_proven": true,
+      "written_from_linked_worktree": "r15-f2@example.invalid"
+    },
+    {
+      "key": "core.autocrlf",
+      "main_after": "false",
+      "main_before": "true",
+      "shared_mutation_proven": true,
+      "written_from_linked_worktree": "false"
+    }
+  ],
+  "status": "REPRODUCED_IN_DISPOSABLE_REPOSITORY"
+}

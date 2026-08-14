@@ -1,0 +1,31 @@
+{
+  "encoder_calls": 0,
+  "error": "execution state input set mismatch at index 4",
+  "generation_calls": 0,
+  "model_calls": 0,
+  "r14_validator_inputs": [
+    "data/evaluation/critical_eval_v2_mapping.jsonl",
+    "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+    "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json",
+    "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+    "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json"
+  ],
+  "r15_canonical_inputs": [
+    "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl",
+    "data/evaluation/critical_eval_v2_mapping.jsonl",
+    "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+    "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json",
+    "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+    "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json"
+  ],
+  "recorded_inputs": [
+    "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl",
+    "data/evaluation/critical_eval_v2_mapping.jsonl",
+    "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl",
+    "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl",
+    "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json"
+  ],
+  "retrieval_calls": 0,
+  "same_defect_at_index9": true,
+  "status": "REPRODUCED_IN_ISOLATED_COPY"
+}

@@ -1,0 +1,87 @@
+{
+  "authorization_commit": "3b7f30c8aec4e981a0b5f664c418758498624a34",
+  "authorization_identity": {
+    "author_email": "r15-f1@example.invalid",
+    "author_name": "R15 F1 Synthetic",
+    "committer_email": "r15-f1@example.invalid",
+    "committer_name": "R15 F1 Synthetic"
+  },
+  "authorization_parent": "04e02b3839b9f800e3a37be6e9d2c5d55954ce20",
+  "changed_paths": [
+    "PROJECT_STATE.md",
+    "TASKS.md",
+    "reports/week_03/daily/2026-08-13.md",
+    "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+    "reports/week_03/week_03_summary.md"
+  ],
+  "common_config_baseline_sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+  "common_config_phase_checks": [
+    {
+      "phase": "linked_worktree_creation",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "synthetic_r15_commit",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "synthetic_a15_commit",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "production_verifier",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "migration",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    },
+    {
+      "phase": "linked_worktree_removal",
+      "sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+      "status": "UNCHANGED"
+    }
+  ],
+  "differing_committed_bytes_control": {
+    "error": "authorization record differs from committed bytes",
+    "status": "REJECTED_BEFORE_MIGRATION"
+  },
+  "encoder_calls": 0,
+  "future_runtime_absent": true,
+  "generation_calls": 0,
+  "historical_runtime_preserved": true,
+  "migration_receipt_status": "PASS",
+  "model_calls": 0,
+  "premodel_repro_v0_gate": true,
+  "primary_preserved": true,
+  "production_verifier": {
+    "authorization_commit": "3b7f30c8aec4e981a0b5f664c418758498624a34",
+    "authorization_record": "reports/week_03/results/critical_eval_v2_evaluation_authorization.json",
+    "continuation_authorized": true,
+    "continuation_from_authorization_commit": "1dd7e054f17f9aaf48dca87ba0e00611ca3f2094",
+    "continuation_from_readiness_commit": "c0afb7ba74cbcb778a5952399f1db628166df40d",
+    "continuation_legacy_runtime_environment_sha256": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d",
+    "continuation_legacy_state_sha256": "6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd",
+    "continuation_migration": "R14_PRIMARY_EVALUATED_TO_R15_CONTINUATION",
+    "evaluation_authorized": true,
+    "readiness_implementation_commit": "04e02b3839b9f800e3a37be6e9d2c5d55954ce20",
+    "reviewed_environment_identity_sha256": "17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97",
+    "status": "PASS"
+  },
+  "readiness_commit": "04e02b3839b9f800e3a37be6e9d2c5d55954ce20",
+  "readiness_identity": {
+    "author_email": "r15-f1@example.invalid",
+    "author_name": "R15 F1 Synthetic",
+    "committer_email": "r15-f1@example.invalid",
+    "committer_name": "R15 F1 Synthetic"
+  },
+  "retrieval_calls": 0,
+  "six_input_lineage": 6,
+  "state": "PRIMARY_EVALUATED",
+  "status": "PASS"
+}

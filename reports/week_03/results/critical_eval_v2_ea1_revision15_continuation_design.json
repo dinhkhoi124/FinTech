@@ -1,0 +1,8 @@
+{
+  "active_state_repair_performed": false,
+  "future_authorization_required": true,
+  "future_runtime_path": "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json",
+  "historical_runtime_path": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+  "status": "PASS",
+  "strategy": "WRITE_ONCE_RECEIPT_AND_DISTINCT_FUTURE_RUNTIME"
+}

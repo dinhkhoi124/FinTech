@@ -164,3 +164,21 @@ The nine environment/authorization enforcement functions remain in `src/payresol
 The commit dry run discovered that `tests/test_retrieval_benchmark.py` contained an R13 regression-compatibility change but was absent from the review package and readiness hash surface. Exact review confirmed one strengthened test only: the frozen Week-2 verifier must now expose the intentional post-Week-2 `benchmark.py` provenance drift without loading cache/model/encoder. No R0/R1 behavior, assertion, or regression case was weakened or removed.
 
 The test is now authorization/readiness hash-bound and included in bundle `task_files` and inventory, while remaining outside the 18-module runtime closure. A deterministic review-scope audit classifies every dirty path, requires byte equality for every proposed R13 commit path, and fails closed for omissions or unclassified paths. Focused coverage passes 6/6, retrieval 56/56, and the corrected full harness 694/694.
+
+## Readiness Revision 15 — evaluation state-input closure
+
+R15 supersedes R14 only for future continuation. The canonical evaluator closure is raw manifest, mapping, safety rules, boundary rules, obligation rules, and disclosure literal registry. One helper supplies provenance, state recording, and validation at both evaluation transitions.
+
+Future migration accepts only locked R14/A14 state, runtime, and PRIMARY fingerprints; proves six inputs from frozen artifacts; retains boundary and literal lineage; rebinds authorization/readiness; and writes a no-overwrite receipt. Historical runtime stays immutable; future reproduction uses `critical_eval_v2_revision_15_runtime_execution_environment.json`.
+
+R15 authoring does not migrate active artifacts, authorize A15, or retry reproduction. Status: `FROZEN_READINESS_PACKAGE / AWAITING_SENIOR_REVIEW`.
+
+### F1 correction — committed continuation authority
+
+`migrate-r15-continuation` accepts no caller authority object. It verifies committed A15 bytes and exact topology internally, verifies the six continuation fields, performs the one-time repair, validates state, writes its transaction receipt, and stops before reproduction/model loading. A durable `PREPARED` receipt is failure evidence; only a hash-verified state advances it to `PASS`.
+
+### F2 correction — synthetic Git-config isolation
+
+The linked-worktree topology must not persist synthetic identity or line-ending settings into the shared repository config.
+
+Synthetic readiness/authorization commits receive author and committer identity through command-local environment variables, while line-ending behavior is scoped with `git -c core.autocrlf=false`. Guards compare common-config bytes, SHA-256, local identity, and local `core.autocrlf` after worktree creation, both commits, production verification, migration, and removal. Any drift aborts evidence generation.

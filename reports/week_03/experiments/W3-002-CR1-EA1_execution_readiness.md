@@ -224,3 +224,19 @@ All ordered suites pass, including the 655/655 full harness.
 - The changed test replaces a stale PASS expectation with a stricter `implementation hash mismatch` expectation while preserving mocks proving no cache/model/encoder load. No production or R0/R1 semantics changed.
 - The test is now readiness/authorization hash-bound and bundled. Review-scope omission and unreviewed-task-owned-path controls fail closed.
 - Final regenerated offline probe: 45.061138 seconds, zero network attempts, unchanged embedding identity. Final exact-byte full harness: 694/694 in 237.471 seconds process time.
+
+## Revision 15 — evaluator input closure and continuation experiment
+
+The isolated historical reproducer failed at index 4 before model load. Frozen metrics, outcomes, and claim-audit rows bind the same six dependencies, proving a metadata-lineage omission. One resolver yields 12/12 exact transition contracts; missing, extra, wrong-hash, boundary, and literal mutations fail closed.
+
+The isolated continuation verifies exact R14/A14/state/runtime and seven PRIMARY hashes, rejects reproduction/final/future-runtime artifacts, writes one receipt, preserves historical evidence, and reaches pre-model Repro V0 with zero runtime calls. Real state/runtime were not modified.
+
+### R15 F1 authority experiment
+
+The original migration trusted a caller dictionary. The corrected migration obtains authority only from production verification. An isolated Git worktree created a real R15 readiness commit and direct A15 child changing exactly five allowed paths; production verification and the real migration entrypoint passed. Sixteen negative controls cover authority, fields, topology/scope, artifact drift/presence, receipt collision, and future-runtime collision.
+
+### R15 F2 Git-config isolation experiment
+
+A disposable linked-worktree experiment proves that unscoped `git config` writes mutate the shared common config for `user.name`, `user.email`, and `core.autocrlf`.
+
+The corrected synthetic topology uses only command-local commit identity and `git -c core.autocrlf=false`. Byte/hash and key-level guards pass after six phases, while both synthetic commits retain the exact intended synthetic author and committer. The real repository identity and common-config SHA remain unchanged.

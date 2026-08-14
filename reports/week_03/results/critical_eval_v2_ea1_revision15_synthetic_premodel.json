@@ -1,0 +1,10 @@
+{
+  "encoder_calls": 0,
+  "generation_calls": 0,
+  "model_calls": 0,
+  "next_action": "run-repro-V0",
+  "pre_model_gate_reached": true,
+  "retrieval_calls": 0,
+  "state": "PRIMARY_EVALUATED",
+  "status": "PASS"
+}

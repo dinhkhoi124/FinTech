@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "readiness_revision": 15,
+  "focused_r15_f2": {"passed": 14, "subtests": 10},
+  "authority_topology_r14_environment_regressions": {"passed": 168, "subtests": 107},
+  "full_executable_suite": {"passed": 799, "skipped": 5, "subtests": 126, "seconds": 338.48},
+  "continuation_negative_controls": {"passed": 16, "active_mutations": 0},
+  "committed_synthetic_a15": "PASS",
+  "git_config_isolation_phase_checks": 6,
+  "git_config_isolation_regression": "PASS",
+  "real_common_config_sha256": "7716d945f65b5f8723285101d384cedc194ff2ff20d6640fce8aa493dbd261d0",
+  "core_autocrlf_review_flag": "CORE_AUTOCRLF_BASELINE_REQUIRES_SENIOR_REVIEW_BEFORE_COMMIT",
+  "excluded_context_only_tests": {"count": 5, "path": "tests/test_feasibility_review_bundle.py", "reason": "requires detached review/ bundle-root payload"},
+  "plain_discovery_issue": "existing tests/test_reporting.py versus tests/test_reporting/ namespace collision; importlib mode used without filesystem mutation",
+  "primary_evaluation_rerun": false,
+  "reproduction_rerun": false,
+  "model_calls": 0,
+  "encoder_calls": 0,
+  "retrieval_calls": 0,
+  "generation_calls": 0
+}

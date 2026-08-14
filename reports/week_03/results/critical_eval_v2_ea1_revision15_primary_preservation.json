@@ -1,0 +1,23 @@
+{
+  "active_runtime_sha256": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d",
+  "active_state_sha256": "6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd",
+  "hash_count": 7,
+  "hashes": {
+    "V0_raw": "c27ff7a80d3ed2214fca647ce46091a7ed2c8029ff0b8527fcad8d3e36844ab2",
+    "V1_raw": "dff680373ff943adfe6379eb59add82b95254670653646ffc4abd946e562a608",
+    "V2_raw": "943c4a7a1bc3e0d305962751256c1723d4e18ff8dd84b63fdd5b520532418a35",
+    "claim_audit": "3d6766797c65c876ce3070cef311587152b68655bd4ad7e88f8f753b754e80ae",
+    "metrics": "ef480aae3d4d0f30e306c5fd9c2fb97ce1fe3dafda44c5a5caf7a4e592296c3b",
+    "outcomes": "bb7715af1e22bbe1ce791f344c833358af7075ea6ae02adfc952f615dc1b64ce",
+    "raw_manifest": "114d29ec72a561886a8effd393510f9365e62f1d3c8783aa9def919fee04e0b3"
+  },
+  "six_input_provenance": {
+    "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl": "866d53d598ddaa22c109b5c248e93af3d1d7674b57b04df3b86854fd8c69abc5",
+    "data/evaluation/critical_eval_v2_mapping.jsonl": "cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1",
+    "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl": "7b35f0a4b35b2fe919f8e8585ab6f827fd97670ee2ecce8b480a91e658664625",
+    "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json": "67d727c15b7531f3837d1540c0f82af88ebc1d31ed696cceeee329c6996f9509",
+    "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl": "d3547962f436102ee4387ae7761187df253117a225b14e72cfd64d43d664a1de",
+    "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json": "114d29ec72a561886a8effd393510f9365e62f1d3c8783aa9def919fee04e0b3"
+  },
+  "status": "PASS"
+}

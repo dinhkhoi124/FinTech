@@ -117,6 +117,7 @@ class CriticalV2ExecutionRevision10Tests(unittest.TestCase):
             config = copy.deepcopy(self.config)
             config["evaluation_outputs"]["primary"]["raw_manifest"] = str(Path(directory) / "absent.json")
             with mock.patch.object(execution, "_require_authorized_state", return_value=(config, {}, state)), \
+                    mock.patch.object(execution, "assert_evaluator_load_allowed", side_effect=execution.CriticalV2ExecutionError("evaluator cannot load before raw freeze")), \
                     mock.patch.object(execution, "_read_jsonl", side_effect=loader):
                 with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "cannot load before"):
                     execution.evaluate_frozen_run(ROOT, CONFIG_PATH, "primary")
@@ -231,8 +232,10 @@ class CriticalV2ExecutionRevision10Tests(unittest.TestCase):
         rows[0]["execution_id"] = "critical_eval_v2_revision6_primary_V0"
         auth = {"authorization_commit": "a", "readiness_implementation_commit": "r"}
         state = {"state": "AUTHORIZED", **auth, "history": []}
-        with mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
-                mock.patch.object(execution, "load_execution_config", return_value=self.config), \
+        config = copy.deepcopy(self.config)
+        with tempfile.TemporaryDirectory() as directory, \
+                mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
+                mock.patch.object(execution, "load_execution_config", return_value=config), \
                 mock.patch.object(execution, "freeze_or_verify_runtime_environment", return_value={"path": CONFIG_PATH}), \
                 mock.patch.object(execution, "_load_or_initialize_state", return_value=state), \
                 mock.patch.object(execution, "validate_state_history"), \
@@ -240,6 +243,7 @@ class CriticalV2ExecutionRevision10Tests(unittest.TestCase):
                 mock.patch.object(execution, "verify_raw_environment_binding"), \
                 mock.patch.object(execution, "_write_jsonl") as writer, \
                 mock.patch.object(execution, "_transition_state") as transition:
+            config["evaluation_outputs"]["primary"]["V0_raw"] = str(Path(directory) / "V0.jsonl")
             with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "EXECUTION_ID_MISMATCH"):
                 execution.run_critical(ROOT, CONFIG_PATH, "primary", "V0", executor=lambda *_: rows)
         writer.assert_not_called(); transition.assert_not_called()

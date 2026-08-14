@@ -1,6 +1,6 @@
 {
   "schema_version": "4.0",
-  "readiness_revision": 14,
+  "readiness_revision": 15,
   "task_id": "W3-002-CR1-EA1",
   "candidate_revision": 7,
   "candidate_revision_id": "critical_eval_v2_candidate_revision_7",
@@ -130,17 +130,37 @@
     "runtime_incident_lineage": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_incident_lineage.json",
     "preauthorization_reset_plan": "reports/week_03/results/critical_eval_v2_ea1_revision13_preauthorization_reset_plan.json",
     "offline_encoder_probe": "reports/week_03/results/critical_eval_v2_ea1_revision13_offline_encoder_probe.json",
-    "transitive_runtime_source_binding": "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json",
+    "transitive_runtime_source_binding": "reports/week_03/results/critical_eval_v2_ea1_revision15_runtime_source_closure.json",
     "runtime_asset_comparison": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_asset_comparison.json",
     "runtime_payload_comparison": "reports/week_03/results/critical_eval_v2_ea1_revision13_runtime_payload_comparison.json",
     "a12_negative_control": "reports/week_03/results/critical_eval_v2_ea1_revision13_a12_negative_control.json",
     "environment_reconciliation": "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_reconciliation.json",
     "environment_contract": "reports/week_03/results/critical_eval_v2_ea1_revision13_environment_contract.json",
-    "runtime_source_closure": "reports/week_03/results/critical_eval_v2_ea1_revision14_runtime_source_closure.json",
+    "runtime_source_closure": "reports/week_03/results/critical_eval_v2_ea1_revision15_runtime_source_closure.json",
     "binding_negative_controls": "reports/week_03/results/critical_eval_v2_ea1_revision13_binding_negative_controls.json"
   },
+  "continuation": {
+    "authorization_fields": {
+      "continuation_authorized": true,
+      "continuation_from_authorization_commit": "1dd7e054f17f9aaf48dca87ba0e00611ca3f2094",
+      "continuation_from_readiness_commit": "c0afb7ba74cbcb778a5952399f1db628166df40d",
+      "continuation_legacy_runtime_environment_sha256": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d",
+      "continuation_legacy_state_sha256": "6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd",
+      "continuation_migration": "R14_PRIMARY_EVALUATED_TO_R15_CONTINUATION"
+    },
+    "migration": "R14_PRIMARY_EVALUATED_TO_R15_CONTINUATION",
+    "required_legacy_authorization_commit": "1dd7e054f17f9aaf48dca87ba0e00611ca3f2094",
+    "required_legacy_readiness_commit": "c0afb7ba74cbcb778a5952399f1db628166df40d",
+    "required_legacy_state_sha256": "6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd",
+    "required_legacy_execution_contract_sha256": "4af2357c3c24341b2c144978df1b967439f4ff0fed337f0513547618a62431cf",
+    "historical_runtime_environment": {
+      "path": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+      "sha256": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
+    },
+    "receipt": "reports/week_03/results/critical_eval_v2_revision_15_continuation_migration_receipt.json"
+  },
   "runtime_environment": {
-    "manifest": "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json",
+    "manifest": "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json",
     "reviewed_environment_contract_revision": 13,
     "required_environment": {
       "OMP_NUM_THREADS": "1",

@@ -647,3 +647,24 @@ and Week 4 remain blocked.
 - **State:** `AUTHORIZED_FOR_PRIMARY_EXECUTION`; Candidate Revision 7 remains frozen/Senior-approved/committed/pushed; A13 was not created.
 - **Boundary:** `evaluation_authorized=true`, `critical_evaluated=false`, `model_verdict=NOT_ESTABLISHED`; PRIMARY NOT YET RUN. Week 3 blocked/in progress; Week 4 blocked/not started.
 - **Next:** Senior verifies committed A14 topology before PRIMARY.
+
+### W3-002-CR1-EA1-R15-EVALUATION-STATE-INPUT-CLOSURE — Week 3 P0
+
+- **Status:** DONE / `R15_READY_FOR_SENIOR_REVIEW`.
+- **Fix:** canonical six-input evaluator closure at indexes 4 and 9; 12/12 transition contracts exact.
+- **Continuation:** exact legacy fingerprints, 7/7 PRIMARY hashes, absent reproduction/final outputs, write-once receipt, authorization rebinding, and distinct historical/future runtime paths are tested on isolated copies.
+- **Verification:** focused 7/7; EA1 Rev10–15/readiness 169/169; full executable suite 792 passed, 5 skips, 116 subtests.
+- **Boundary:** no active state/runtime mutation, rerun, A15, stage, commit, or push.
+
+#### F1 — continuation authority production binding
+
+- **Status:** DONE / `R15_CORRECTED_READY_FOR_SENIOR_REVIEW`.
+- Arbitrary authority dictionaries are rejected; migration internally requires production-verified committed A15 authority and exact continuation fields.
+- One-shot CLI, PREPARED/PASS transaction receipt, 16 required negative controls, and committed synthetic A15 positive control are covered.
+
+#### F2 — synthetic Git-config isolation
+
+- **Status:** DONE / `R15_F2_CORRECTED_READY_FOR_SENIOR_REVIEW`.
+- Linked-worktree common-config mutation is reproduced in a disposable repository for local identity and `core.autocrlf`.
+- Real local identity is restored; synthetic commits use command-local identity/config, with exact common-config guards at six phases.
+- Local `core.autocrlf=false` is unchanged and flagged for Senior review. Active state/runtime and PRIMARY remain exact; reproduction not retried; staged 0; commit/push none.

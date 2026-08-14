@@ -1,0 +1,24 @@
+{
+  "active_mutations": 0,
+  "all_before_model": true,
+  "controls": [
+    "handcrafted authority API rejected",
+    "uncommitted record rejected",
+    "committed-byte mismatch rejected",
+    "missing continuation_authorized rejected",
+    "continuation_authorized=false rejected",
+    "wrong migration rejected",
+    "wrong legacy A14 commit rejected",
+    "wrong legacy R14 commit rejected",
+    "wrong legacy state SHA rejected",
+    "wrong runtime SHA rejected",
+    "wrong A15 parent rejected",
+    "unexpected A15 path rejected",
+    "PRIMARY drift rejected",
+    "reproduction presence rejected",
+    "receipt presence rejected",
+    "future runtime presence rejected"
+  ],
+  "required_control_count": 16,
+  "status": "PASS"
+}
