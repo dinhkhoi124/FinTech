@@ -7,9 +7,9 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / IN PROGRESS
-- Active task: `W3-002-CR1-EA1-A14-AUTHORIZATION` — PROPOSED / AWAITING SENIOR TOPOLOGY VERIFICATION
-- Next task: Senior verifies committed A14 topology before any PRIMARY execution
-- Last updated: 2026-08-13 by Codex
+- Active task: `W3-002-CR1-EA1-A15-AUTHORIZATION-AUTHORING` — PROPOSED / AWAITING SENIOR REVIEW
+- Next task: Senior reviews A15 authorization; after a real A15 commit and post-push verification, run only the one-shot `migrate-r15-continuation` before any reproduction retry.
+- Last updated: 2026-08-14 by Codex
 
 ## Active objective
 Candidate Revision 7 remains frozen and Senior semantic-approved. Real E1
@@ -690,3 +690,11 @@ W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
 - Synthetic commits use command-local identity and config overrides; six phase guards preserve the common Git config exactly.
 - Local `core.autocrlf=false` remains unchanged and requires Senior review before commit.
 - Active state/runtime and PRIMARY remain exact; reproduction was not retried. Status: `R15_F2_CORRECTED_READY_FOR_SENIOR_REVIEW`.
+
+### Proposed A15 continuation authorization — 2026-08-13
+
+- Corrected R15-F3 readiness is Senior-approved, committed, and pushed at `a8dc336b73be6ec91b2280c56c048d348329cff5`; historical initial R15 commit `5e89ec1ed2b7284ed5f263be674e3cb20e0facaf` remains immutable.
+- A15 is proposed with exact five-path topology and direct parent R15-F3. It authorizes only the one-shot `R14_PRIMARY_EVALUATED_TO_R15_CONTINUATION` migration and binds legacy A14 `1dd7e054f17f9aaf48dca87ba0e00611ca3f2094`, legacy R14 `c0afb7ba74cbcb778a5952399f1db628166df40d`, state `6cab044610b566f4b7c6ecfbcafc5b49868891c167543ef950b20e29710416bd`, and historical runtime `b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d`.
+- Lifecycle: `evaluation_authorized=true`, `critical_evaluated=false`, `model_verdict=NOT_ESTABLISHED`. Historical PRIMARY is preserved and was not rerun.
+- Real state is not migrated during authoring. Reproduction remains unauthorized until A15 is committed, production-verified, migration succeeds, and Senior separately permits the retry.
+- Next: Senior reviews the proposed A15 bytes and synthetic committed-topology/migration evidence.

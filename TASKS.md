@@ -675,3 +675,12 @@ and Week 4 remain blocked.
 - **Finding:** `R15_POST_PUSH_COMMITTED_BYTE_CLOSURE_MISMATCH`; exactly four of 62 candidate hash-bound paths differ in initial R15 commit `5e89ec1`.
 - **Correction:** propose a new Revision-15 corrective readiness commit containing the exact reviewed omissions and a fail-closed committed-tree/scope verifier. Historical commit `5e89ec1` remains immutable.
 - **Boundary:** A15 unauthorized; no migration, reproduction, PRIMARY, stage, real commit, or push.
+
+### W3-002-CR1-EA1-A15-AUTHORIZATION-AUTHORING — Week 3 P0
+
+- **Status:** PROPOSED / `A15_AUTHORIZATION_READY_FOR_SENIOR_REVIEW`.
+- **Binding:** exact five-path A15 child of Senior-approved R15-F3 `a8dc336b73be6ec91b2280c56c048d348329cff5`; no future A15 commit SHA is self-referenced.
+- **Authority:** exact continuation lineage and one-shot `R14_PRIMARY_EVALUATED_TO_R15_CONTINUATION`; `evaluation_authorized=true`, `critical_evaluated=false`, `model_verdict=NOT_ESTABLISHED`.
+- **Evidence boundary:** synthetic committed A15 production verification, fail-closed negative controls, isolated PREPARED→PASS migration, and pre-model Repro V0 gate only.
+- **Preserved:** Candidate Revision 7, R15-F3 bytes, historical PRIMARY/state/runtime, and real workspace runtime state. PRIMARY was not rerun; reproduction/finalization were not run.
+- **Next:** Senior reviews A15; only after a real committed A15 and successful production migration may a separately authorized reproduction retry be considered.

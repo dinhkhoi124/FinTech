@@ -618,3 +618,7 @@ Six phase guards and an explicit committed-topology regression preserve the real
 ### R15 post-push committed-byte closure correction — 2026-08-14
 
 Post-push audit found exactly four of 62 reviewed readiness hashes absent from initial R15 commit `5e89ec1`, including the one-shot continuation CLI. F3 retains Revision 15 and preserves the historical commit while proposing a corrective child with full committed-tree and proposed-scope closure. Candidate, PRIMARY, state/runtime, F1/F2, and transition semantics remain unchanged; A15 remains unauthorized and reproduction was not retried.
+
+### Proposed A15 continuation authorization — 2026-08-13
+
+A15 is proposed as the exact five-path child of Senior-approved R15-F3 `a8dc336b73be6ec91b2280c56c048d348329cff5`. It authorizes only the production-verified one-shot R14 PRIMARY-evaluated to R15 continuation migration and binds the exact legacy A14/R14/state/runtime lineage. Candidate Revision 7 and the seven historical PRIMARY artifacts remain immutable. The authoring proof uses a synthetic committed A15, fail-closed controls, and an isolated PREPARED→PASS migration reaching the pre-model Repro V0 gate with zero model/encoder/retrieval/generation calls. The real state is not migrated, PRIMARY is not rerun, and reproduction remains unauthorized pending real A15 commit, migration, and separate Senior permission.
