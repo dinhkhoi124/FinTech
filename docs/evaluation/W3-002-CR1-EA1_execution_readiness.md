@@ -182,3 +182,7 @@ R15 authoring does not migrate active artifacts, authorize A15, or retry reprodu
 The linked-worktree topology must not persist synthetic identity or line-ending settings into the shared repository config.
 
 Synthetic readiness/authorization commits receive author and committer identity through command-local environment variables, while line-ending behavior is scoped with `git -c core.autocrlf=false`. Guards compare common-config bytes, SHA-256, local identity, and local `core.autocrlf` after worktree creation, both commits, production verification, migration, and removal. Any drift aborts evidence generation.
+
+### F3 correction — committed-byte closure
+
+Future readiness approval requires every `execution_artifact_sha256` entry to match the proposed readiness commit tree, not the current working tree. The proposed commit diff must equal its reviewed scope, and every changed hash-bound path must be included. The initial R15 commit remains immutable; future A15 must be a direct child of the separately reviewed corrective R15 readiness commit.

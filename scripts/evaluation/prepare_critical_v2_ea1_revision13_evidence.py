@@ -315,6 +315,7 @@ def main() -> int:
     candidate = read_json(root / config["authorization"]["candidate"])
     candidate["evaluation_authorized"] = True
     candidate["senior_authorization_verdict"] = config["authorization"]["required_verdict"]
+    candidate.update(execution.CONTINUATION_AUTHORIZATION_FIELDS)
     source_results = []
     for relative in (
         "src/payresolve_ai/generation/verification.py",

@@ -668,3 +668,10 @@ and Week 4 remain blocked.
 - Linked-worktree common-config mutation is reproduced in a disposable repository for local identity and `core.autocrlf`.
 - Real local identity is restored; synthetic commits use command-local identity/config, with exact common-config guards at six phases.
 - Local `core.autocrlf=false` is unchanged and flagged for Senior review. Active state/runtime and PRIMARY remain exact; reproduction not retried; staged 0; commit/push none.
+
+#### F3 — post-push committed-byte closure
+
+- **Status:** CORRECTED / AWAITING SENIOR REVIEW.
+- **Finding:** `R15_POST_PUSH_COMMITTED_BYTE_CLOSURE_MISMATCH`; exactly four of 62 candidate hash-bound paths differ in initial R15 commit `5e89ec1`.
+- **Correction:** propose a new Revision-15 corrective readiness commit containing the exact reviewed omissions and a fail-closed committed-tree/scope verifier. Historical commit `5e89ec1` remains immutable.
+- **Boundary:** A15 unauthorized; no migration, reproduction, PRIMARY, stage, real commit, or push.

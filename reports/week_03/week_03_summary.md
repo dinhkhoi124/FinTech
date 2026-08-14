@@ -614,3 +614,7 @@ R15 retains the six-input evaluator closure and closes the migration trust bound
 F2 reproduced the linked-worktree common-config mutation in a disposable repository, restored the real repository-local identity, and replaced persistent synthetic config writes with command-local commit identity and config overrides.
 
 Six phase guards and an explicit committed-topology regression preserve the real common config exactly. Local `core.autocrlf=false` remains unchanged pending Senior review. PRIMARY/state/runtime remain exact and reproduction was not retried.
+
+### R15 post-push committed-byte closure correction — 2026-08-14
+
+Post-push audit found exactly four of 62 reviewed readiness hashes absent from initial R15 commit `5e89ec1`, including the one-shot continuation CLI. F3 retains Revision 15 and preserves the historical commit while proposing a corrective child with full committed-tree and proposed-scope closure. Candidate, PRIMARY, state/runtime, F1/F2, and transition semantics remain unchanged; A15 remains unauthorized and reproduction was not retried.

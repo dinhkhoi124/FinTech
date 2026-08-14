@@ -122,6 +122,7 @@ class CriticalV2AuthDateClosureTests(unittest.TestCase):
         candidate["readiness_commit_binding"] = "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT"
         candidate["senior_authorization_claimed"] = True
         candidate["senior_authorization_verdict"] = self.config["authorization"]["required_verdict"]
+        candidate.update(execution.CONTINUATION_AUTHORIZATION_FIELDS)
         with tempfile.TemporaryDirectory(prefix="ea1_r13_auth_date_") as temporary:
             isolated = Path(temporary)
             for bound in execution.READINESS_HASH_PATHS:

@@ -240,3 +240,7 @@ The original migration trusted a caller dictionary. The corrected migration obta
 A disposable linked-worktree experiment proves that unscoped `git config` writes mutate the shared common config for `user.name`, `user.email`, and `core.autocrlf`.
 
 The corrected synthetic topology uses only command-local commit identity and `git -c core.autocrlf=false`. Byte/hash and key-level guards pass after six phases, while both synthetic commits retain the exact intended synthetic author and committer. The real repository identity and common-config SHA remain unchanged.
+
+### R15 F3 committed-tree closure experiment
+
+The controlled variable is source-of-truth location: working-tree and bundle hashes are no longer sufficient. The F3 verifier reads every candidate-bound blob from a synthetic corrective Git commit whose parent is the immutable initial R15 commit. It requires 62/62 exact hashes and exact equality between the committed diff and proposed scope. Omission, working-only hash, committed-byte mismatch, and unreviewed-extra controls fail closed; unrelated dirty files remain outside the commit tree.

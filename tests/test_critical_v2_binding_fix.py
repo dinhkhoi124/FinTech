@@ -134,6 +134,7 @@ class CriticalV2BindingFixTests(unittest.TestCase):
         candidate["readiness_commit_binding"] = "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT"
         candidate["senior_authorization_claimed"] = True
         candidate["senior_authorization_verdict"] = self.config["authorization"]["required_verdict"]
+        candidate.update(execution.CONTINUATION_AUTHORIZATION_FIELDS)
         loader = Mock()
         with tempfile.TemporaryDirectory(prefix="ea1_r13_binding_") as temporary:
             isolated = Path(temporary)

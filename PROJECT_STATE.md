@@ -676,6 +676,13 @@ W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
 - One-shot CLI and fail-closed PREPARED/PASS transaction receipt are implemented; committed synthetic R15→A15 control passes with zero runtime calls.
 - Active state/runtime and PRIMARY evidence remain exact. Status: `R15_CORRECTED_READY_FOR_SENIOR_REVIEW`.
 
+### R15 F3 post-push committed-byte closure — 2026-08-14
+
+- Initial R15 commit `5e89ec1ed2b7284ed5f263be674e3cb20e0facaf` is preserved and not rewritten.
+- A complete 62-path audit found exactly four reviewed/hash-bound files absent from the committed tree, including the required `migrate-r15-continuation` CLI.
+- The corrective readiness package remains Revision 15 and requires a new readiness commit on `5e89ec1`; future A15 must use that corrected commit as its direct parent.
+- Candidate Revision 7, PRIMARY, active state/runtime, six-input closure, F1, F2, and 12/12 transitions remain unchanged. A15 remains unauthorized and reproduction was not retried.
+
 ### R15 F2 synthetic Git-config isolation correction — 2026-08-14
 
 - Classification: `R15_SYNTHETIC_WORKTREE_SHARED_CONFIG_MUTATION`, reproduced only in a disposable repository for `user.name`, `user.email`, and `core.autocrlf`.

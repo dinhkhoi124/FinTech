@@ -1,0 +1,13 @@
+{
+  "bundle_internal_verification_was_correct_but_incomplete": true,
+  "cause_chain": [
+    "authorization readiness hashes were computed from reviewed working-tree bytes",
+    "the final proposed commit scope contained only 41 task paths",
+    "manual staging verified exactly those 41 paths and their index bytes",
+    "no gate compared all 62 hash-bound paths with the future readiness commit tree",
+    "four dirty hash-bound compatibility/runtime files escaped the readiness commit"
+  ],
+  "classification": "R15_POST_PUSH_COMMITTED_BYTE_CLOSURE_MISMATCH",
+  "required_fix": "validate candidate hashes against committed corrective R tree and require every changed hash-bound path in proposed scope",
+  "status": "ROOT_CAUSE_CONFIRMED"
+}

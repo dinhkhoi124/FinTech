@@ -1,0 +1,39 @@
+{
+  "candidate_manifest": {
+    "exact": 23,
+    "required": 23
+  },
+  "committed_tree_closure": {
+    "exact": 62,
+    "required": 62
+  },
+  "encoder_calls": 0,
+  "focused_f3_committed_tree": {
+    "passed": 10,
+    "seconds": 18.32
+  },
+  "full_executable_suite": {
+    "context": "parent-based isolated authoring fixture with exact proposed bytes; F3 committed-tree suite run separately on synthetic R",
+    "passed": 799,
+    "seconds": 188.87,
+    "skipped": 5,
+    "subtests": 126
+  },
+  "generation_calls": 0,
+  "legacy_r15_f1_f2": {
+    "passed": 14,
+    "subtests": 10
+  },
+  "migration_run": false,
+  "model_calls": 0,
+  "primary_rerun": false,
+  "readiness_revision": 15,
+  "related_authorization_environment_readiness": {
+    "passed": 195,
+    "subtests": 112
+  },
+  "reproduction_rerun": false,
+  "retrieval_calls": 0,
+  "status": "PASS",
+  "synthetic_a15_run": false
+}

@@ -23,6 +23,7 @@ def parser() -> argparse.ArgumentParser:
     run.add_argument("--run-label", required=True, choices=("primary", "reproducibility_rerun"))
     run.add_argument("--variant", required=True, choices=("V0", "V1", "V2"))
     for name in (
+        "migrate-r15-continuation",
         "freeze-primary",
         "evaluate-frozen-primary",
         "freeze-reproducibility",
@@ -58,6 +59,7 @@ def main() -> int:
         prepare_readiness,
         run_critical,
         verify_execution_contract,
+        migrate_r14_primary_state_for_r15_continuation,
         verify_reproducibility,
         verify_readiness,
         verify_results,
@@ -80,6 +82,8 @@ def main() -> int:
                     payloads, config, label, variant, loaded, root=root
                 ),
             )
+        elif args.command == "migrate-r15-continuation":
+            payload = migrate_r14_primary_state_for_r15_continuation(root, config_path)
         elif args.command == "freeze-primary":
             payload = freeze_raw_run(root, config_path, "primary")
         elif args.command == "freeze-reproducibility":

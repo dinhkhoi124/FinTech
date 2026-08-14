@@ -1,0 +1,35 @@
+{
+  "parent": "5e89ec1ed2b7284ed5f263be674e3cb20e0facaf",
+  "path_count": 19,
+  "paths": [
+    "PROJECT_STATE.md",
+    "TASKS.md",
+    "docs/evaluation/W3-002-CR1-EA1_execution_readiness.md",
+    "reports/week_03/daily/2026-08-14.md",
+    "reports/week_03/experiments/W3-002-CR1-EA1_execution_readiness.md",
+    "reports/week_03/week_03_summary.md",
+    "reports/week_03/results/critical_eval_v2_ea1_revision15_f3_committed_byte_audit.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision15_f3_root_cause.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision15_f3_corrective_scope.json",
+    "reports/week_03/results/critical_eval_v2_ea1_revision15_f3_verification_summary.json",
+    "scripts/evaluation/prepare_critical_v2_ea1_revision13_evidence.py",
+    "scripts/evaluation/week3_critical_v2_execution.py",
+    "tests/test_critical_v2_auth_date_closure.py",
+    "tests/test_critical_v2_binding_fix.py",
+    "scripts/evaluation/prepare_critical_v2_ea1_revision15_f3_evidence.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision15_committed_tree.py",
+    "scripts/evaluation/build_critical_v2_ea1_revision15_f3_review_bundle.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision15_f3_bundle.py",
+    "tests/test_critical_v2_execution_revision15_f3.py"
+  ],
+  "readiness_revision": 15,
+  "required_reviewed_omissions": [
+    "scripts/evaluation/prepare_critical_v2_ea1_revision13_evidence.py",
+    "scripts/evaluation/week3_critical_v2_execution.py",
+    "tests/test_critical_v2_auth_date_closure.py",
+    "tests/test_critical_v2_binding_fix.py"
+  ],
+  "source_of_omission_bytes": "FINAL_R15_F2_REVIEW_BUNDLE_READINESS_FILES",
+  "status": "PROPOSED",
+  "user_owned_unrelated_dirty_paths_excluded": true
+}
