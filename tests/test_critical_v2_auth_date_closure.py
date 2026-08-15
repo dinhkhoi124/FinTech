@@ -105,7 +105,24 @@ class CriticalV2AuthDateClosureTests(unittest.TestCase):
             (ROOT / self.config["authorization"]["candidate"]).read_text(encoding="utf-8")
         )
         self.assertIn(relative, execution.READINESS_HASH_PATHS)
-        self.assertEqual(candidate["execution_artifact_sha256"][relative], row["sha256"])
+        self.assertNotEqual(candidate["execution_artifact_sha256"][relative], row["sha256"])
+        authorized = copy.deepcopy(candidate)
+        authorized.update({
+            "authorization_status": "AUTHORIZED_FOR_PRIMARY_EXECUTION",
+            "evaluation_authorized": True,
+            "readiness_commit_binding": "BOUND_TO_REVIEWED_READINESS_IMPLEMENTATION_COMMIT",
+            "readiness_implementation_commit": "1" * 40,
+            "senior_authorization_claimed": True,
+            "senior_authorization_verdict": self.config["authorization"]["required_verdict"],
+            **execution.CONTINUATION_AUTHORIZATION_FIELDS,
+        })
+        with self.assertRaisesRegex(
+            execution.CriticalV2ExecutionError,
+            "authorization execution source/config/test hash mismatch",
+        ):
+            execution._validate_authorization_payload(
+                ROOT, CONFIG_PATH, self.config, authorized
+            )
         self.assertTrue(set(ENFORCEMENT_SYMBOLS) <= set(row["runtime_used_symbols"]))
         for symbol in ENFORCEMENT_SYMBOLS:
             with self.subTest(symbol=symbol):

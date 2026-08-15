@@ -3,6 +3,8 @@ from __future__ import annotations
 import copy
 import contextlib
 import json
+import os
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -20,6 +22,64 @@ CONFIG_PATH = ROOT / "configs/evaluation/critical_eval_v2_execution.json"
 class CriticalV2ExecutionReadinessTests(unittest.TestCase):
     def setUp(self) -> None:
         self.config = execution.load_execution_config(CONFIG_PATH)
+
+    @contextlib.contextmanager
+    def _isolated_preexecution_root(self):
+        """Yield a tracked-tree readiness fixture with no lifecycle outputs."""
+        self._require_local_runtime_assets()
+        scratch_parent = ROOT / "review"
+        scratch_parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(
+            prefix="ea1_readiness_fixture_", dir=scratch_parent
+        ) as directory:
+            isolated = Path(directory)
+            tracked = subprocess.check_output(
+                ["git", "-C", str(ROOT), "ls-files", "-z"]
+            ).split(b"\0")
+            for encoded in tracked:
+                if not encoded:
+                    continue
+                relative = encoded.decode("utf-8")
+                source = ROOT / relative
+                if not source.is_file():
+                    continue
+                target = isolated / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                try:
+                    if source.is_symlink():
+                        raise OSError("copy symlink target bytes into isolated fixture")
+                    os.link(source, target)
+                except OSError:
+                    shutil.copyfile(source, target)
+            manifest = json.loads(
+                (ROOT / self.config["readiness_outputs"]["runtime_asset_manifest"])
+                .read_text(encoding="utf-8")
+            )
+            retrieval = json.loads(
+                (ROOT / self.config["runtime_dependencies"]["retrieval_config"]["path"])
+                .read_text(encoding="utf-8")
+            )
+            assets = set(manifest["asset_file_sha256"])
+            snapshot = Path(retrieval["encoder"]["huggingface_home"]) / (
+                "models--sentence-transformers--all-MiniLM-L6-v2/snapshots/"
+                + retrieval["encoder"]["revision"]
+            )
+            assets.update(snapshot / row["logical_path"] for row in manifest["encoder"]["files"])
+            for relative in assets:
+                source = ROOT / relative
+                target = isolated / relative
+                if target.exists():
+                    continue
+                target.parent.mkdir(parents=True, exist_ok=True)
+                try:
+                    if source.is_symlink():
+                        raise OSError("copy symlink target bytes into isolated fixture")
+                    os.link(source, target)
+                except OSError:
+                    shutil.copyfile(source, target)
+            for relative in execution._evaluation_output_paths(self.config):
+                (isolated / relative).unlink(missing_ok=True)
+            yield isolated, isolated / "configs/evaluation/critical_eval_v2_execution.json"
 
     def _valid_authorization(self) -> dict:
         contract_path = ROOT / self.config["readiness_outputs"]["environment_contract"]
@@ -71,8 +131,8 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         return execute
 
     def test_execution_contract_and_all_frozen_dependencies_pass(self) -> None:
-        self._require_local_runtime_assets()
-        result = execution.verify_execution_contract(ROOT, CONFIG_PATH)
+        with self._isolated_preexecution_root() as (root, config_path):
+            result = execution.verify_execution_contract(root, config_path)
         self.assertEqual(result["status"], "PASS")
         self.assertEqual(result["candidate"]["verified_artifacts"], 23)
         self.assertEqual(result["runtime_payload_count"], 60)
@@ -787,33 +847,37 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         self.assertEqual(counter, {"loads": 0, "executions": 0})
 
     def test_evaluator_cannot_load_before_raw_freeze(self) -> None:
-        with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "cannot load before"):
-            execution.assert_evaluator_load_allowed(ROOT, CONFIG_PATH, "reproducibility_rerun")
+        with self._isolated_preexecution_root() as (root, config_path):
+            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "cannot load before"):
+                execution.assert_evaluator_load_allowed(root, config_path, "reproducibility_rerun")
 
     def test_reproduction_cannot_start_before_primary_freeze(self) -> None:
         counter = {"loads": 0, "executions": 0}
         auth = {"status": "PASS", "authorization_commit": "a", "readiness_implementation_commit": "r"}
-        with mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
-                mock.patch.object(execution, "freeze_or_verify_runtime_environment", return_value={"path": CONFIG_PATH}):
-            # R15 preserves active PRIMARY_EVALUATED under the historical A14
-            # binding; a future A15 continuation repair must occur first.
-            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "authorization binding mismatch"):
-                execution.run_critical(ROOT, CONFIG_PATH, "reproducibility_rerun", "V0", model_loader=lambda: counter.update(loads=1), executor=self._counted_executor(counter))
+        with self._isolated_preexecution_root() as (root, config_path):
+            execution._write_json(
+                root / self.config["evaluation_outputs"]["execution_state"],
+                {**auth, "task_id": self.config["task_id"], "state": "AUTHORIZED", "history": []},
+            )
+            with mock.patch.object(execution, "verify_execution_authorization", return_value=auth), \
+                    mock.patch.object(execution, "freeze_or_verify_runtime_environment", return_value={"path": config_path}):
+                with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "requires state PRIMARY_EVALUATED"):
+                    execution.run_critical(root, config_path, "reproducibility_rerun", "V0", model_loader=lambda: counter.update(loads=1), executor=self._counted_executor(counter))
         self.assertEqual(counter, {"loads": 0, "executions": 0})
 
     def test_readiness_contract_creates_no_evaluation_output(self) -> None:
-        self._require_local_runtime_assets()
-        execution.verify_execution_contract(ROOT, CONFIG_PATH)
-        preserved = {
-            self.config["evaluation_outputs"]["execution_state"],
-            self.config["continuation"]["historical_runtime_environment"]["path"],
-            *self.config["evaluation_outputs"]["primary"].values(),
-        }
-        self.assertFalse(any(
-            (ROOT / path).exists()
-            for path in execution._evaluation_output_paths(self.config)
-            if path not in preserved
-        ))
+        with self._isolated_preexecution_root() as (root, config_path):
+            before = {
+                path for path in execution._evaluation_output_paths(self.config)
+                if (root / path).exists()
+            }
+            execution.verify_execution_contract(root, config_path)
+            after = {
+                path for path in execution._evaluation_output_paths(self.config)
+                if (root / path).exists()
+            }
+            self.assertEqual(before, set())
+            self.assertEqual(after, before)
 
     def test_authorization_candidate_remains_false(self) -> None:
         path = ROOT / self.config["authorization"]["candidate"]
@@ -909,9 +973,9 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
                 execution.audit_revision7_stale_bindings(root, config)
 
     def test_verification_does_not_import_model_runtime(self) -> None:
-        self._require_local_runtime_assets()
-        before = set(execution.sys.modules)
-        execution.verify_execution_contract(ROOT, CONFIG_PATH)
+        with self._isolated_preexecution_root() as (root, config_path):
+            before = set(execution.sys.modules)
+            execution.verify_execution_contract(root, config_path)
         newly_loaded = set(execution.sys.modules) - before
         self.assertFalse(any(name.startswith("sentence_transformers") for name in newly_loaded))
         self.assertFalse(any(name.startswith("torch") for name in newly_loaded))
@@ -1242,17 +1306,22 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
                     execution.freeze_raw_run(root, CONFIG_PATH, "primary")
 
     def test_state_history_mutated_action_is_rejected(self) -> None:
-        authorization = {"authorization_commit": "a", "readiness_implementation_commit": "r"}
-        state = {
-            **authorization,
-            "state": "PRIMARY_V0_COMPLETE",
-            "history": [{
-                "from": "AUTHORIZED", "to": "PRIMARY_V0_COMPLETE", "action": "forged-action",
-                "direct_input_sha256": {}, "direct_output_sha256": {},
-            }],
-        }
-        with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "transition mismatch"):
-            execution.validate_state_history(ROOT, self.config, state, authorization)
+        with tempfile.TemporaryDirectory(prefix="ea1_mutated_state_") as directory:
+            root = Path(directory)
+            machine = root / self.config["state_machine"]["spec"]
+            machine.parent.mkdir(parents=True)
+            shutil.copyfile(ROOT / self.config["state_machine"]["spec"], machine)
+            authorization = {"authorization_commit": "a", "readiness_implementation_commit": "r"}
+            state = {
+                **authorization,
+                "state": "PRIMARY_V0_COMPLETE",
+                "history": [{
+                    "from": "AUTHORIZED", "to": "PRIMARY_V0_COMPLETE", "action": "forged-action",
+                    "direct_input_sha256": {}, "direct_output_sha256": {},
+                }],
+            }
+            with self.assertRaisesRegex(execution.CriticalV2ExecutionError, "transition mismatch"):
+                execution.validate_state_history(root, self.config, state, authorization)
 
     def test_state_history_rejects_from_to_hash_key_and_binding_mutations(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

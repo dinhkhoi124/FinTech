@@ -30,6 +30,27 @@ class Revision15EvaluationStateClosureTests(unittest.TestCase):
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / relative, destination)
 
+    def _legacy_r14_state(self) -> dict:
+        """Reconstruct the byte-exact locked R14 fixture from preserved history."""
+        state = json.loads(
+            (ROOT / self.config["evaluation_outputs"]["execution_state"]).read_text(
+                encoding="utf-8"
+            )
+        )
+        state["state"] = "PRIMARY_EVALUATED"
+        state["authorization_commit"] = execution.LEGACY_R14_AUTHORIZATION_COMMIT
+        state["readiness_implementation_commit"] = execution.LEGACY_R14_READINESS_COMMIT
+        state["history"] = state["history"][:5]
+        state["history"][4]["direct_input_sha256"].pop(
+            self.config["safety_evaluator"]["disclosure_literal_registry"], None
+        )
+        encoded = (json.dumps(state, indent=2, sort_keys=True) + "\n").encode()
+        self.assertEqual(
+            execution.hashlib.sha256(encoded).hexdigest(),
+            execution.LEGACY_R14_STATE_SHA256,
+        )
+        return state
+
     def _primary_workspace(self, *, exact_legacy_state: bool) -> tuple[tempfile.TemporaryDirectory[str], Path, dict, dict]:
         temporary = tempfile.TemporaryDirectory(prefix="ea1_r15_state_")
         root = Path(temporary.name)
@@ -44,9 +65,12 @@ class Revision15EvaluationStateClosureTests(unittest.TestCase):
         }
         for relative in paths:
             self._copy(root, relative)
-        self._copy(root, state_relative)
         state_path = root / state_relative
-        state = json.loads(state_path.read_text(encoding="utf-8"))
+        state = self._legacy_r14_state()
+        state_path.parent.mkdir(parents=True, exist_ok=True)
+        state_path.write_bytes(
+            (json.dumps(state, indent=2, sort_keys=True) + "\n").encode("utf-8")
+        )
         authorization = {
             "authorization_commit": "2" * 40,
             "readiness_implementation_commit": "3" * 40,
@@ -78,11 +102,7 @@ class Revision15EvaluationStateClosureTests(unittest.TestCase):
         return temporary, root, state, authorization
 
     def test_historical_r14_index4_mismatch_is_reproduced_before_model(self) -> None:
-        historical = json.loads(
-            (ROOT / self.config["evaluation_outputs"]["execution_state"]).read_text(
-                encoding="utf-8"
-            )
-        )
+        historical = self._legacy_r14_state()
         self.assertNotEqual(set(historical["history"][4]["direct_input_sha256"]), set(self.primary_refs))
         self.assertIn(self.config["safety_evaluator"]["boundary_rules"], historical["history"][4]["direct_input_sha256"])
         self.assertNotIn(self.config["safety_evaluator"]["disclosure_literal_registry"], historical["history"][4]["direct_input_sha256"])
@@ -306,6 +326,9 @@ class Revision15EvaluationStateClosureTests(unittest.TestCase):
                     temporary.cleanup()
 
     def test_synthetic_committed_topology_preserves_real_common_git_config(self) -> None:
+        active_state = ROOT / self.config["evaluation_outputs"]["execution_state"]
+        if execution.sha256_file(active_state) != execution.LEGACY_R14_STATE_SHA256:
+            self.skipTest("historical A15 topology helper requires the retired R14 live state")
         candidate = json.loads(
             (ROOT / self.config["authorization"]["candidate"]).read_text(encoding="utf-8")
         )

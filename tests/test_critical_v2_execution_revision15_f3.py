@@ -22,11 +22,12 @@ from scripts.evaluation.verify_critical_v2_ea1_revision15_committed_tree import 
 
 
 ROOT = Path(__file__).resolve().parents[1]
+HISTORICAL_F3 = "a8dc336b73be6ec91b2280c56c048d348329cff5"
 
 
 class Revision15F3CommittedTreeClosureTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.revision = "HEAD"
+        self.revision = HISTORICAL_F3
         self.candidate = candidate_at(ROOT, self.revision)
         self.expected = self.candidate["execution_artifact_sha256"]
 

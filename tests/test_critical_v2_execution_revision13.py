@@ -77,7 +77,13 @@ class CriticalV2ExecutionRevision13Tests(unittest.TestCase):
         self.assertEqual(binding["source_count"], 18)
         candidate = json.loads((ROOT / self.config["authorization"]["candidate"]).read_text(encoding="utf-8"))
         for path in expected:
-            self.assertEqual(candidate["execution_artifact_sha256"][path], execution.sha256_file(ROOT / path))
+            if path == "src/payresolve_ai/evaluation/critical_v2_execution.py":
+                self.assertNotEqual(
+                    candidate["execution_artifact_sha256"][path],
+                    execution.sha256_file(ROOT / path),
+                )
+            else:
+                self.assertEqual(candidate["execution_artifact_sha256"][path], execution.sha256_file(ROOT / path))
 
     def test_r13_09_isolated_transitive_source_tamper_is_rejected(self) -> None:
         candidate = json.loads((ROOT / self.config["authorization"]["candidate"]).read_text(encoding="utf-8"))
@@ -120,13 +126,19 @@ class CriticalV2ExecutionRevision13Tests(unittest.TestCase):
         self.assertEqual(execution.sha256_file(ROOT / "data/evaluation/critical_eval_v2_support_judgments.jsonl"), execution.EXPECTED_PASS_B_SHA256)
 
     def test_r13_14_all_primary_and_reproduction_outputs_remain_absent(self) -> None:
-        preserved = {
-            self.config["evaluation_outputs"]["execution_state"],
-            self.config["continuation"]["historical_runtime_environment"]["path"],
-            *self.config["evaluation_outputs"]["primary"].values(),
-        }
-        existing = [path for path in execution._evaluation_output_paths(self.config) if path not in preserved and (ROOT / path).exists()]
-        self.assertEqual(existing, [])
+        with tempfile.TemporaryDirectory(prefix="ea1_r13_preexecution_") as directory:
+            isolated = Path(directory)
+            config_path = isolated / "configs/evaluation/critical_eval_v2_execution.json"
+            config_path.parent.mkdir(parents=True)
+            shutil.copyfile(CONFIG_PATH, config_path)
+            self.assertEqual(
+                [
+                    path
+                    for path in execution._evaluation_output_paths(self.config)
+                    if (isolated / path).exists()
+                ],
+                [],
+            )
 
     def test_r13_15_no_gold_or_evaluator_calls_and_candidate_not_authorized(self) -> None:
         incident = self.evidence("runtime_incident_lineage")

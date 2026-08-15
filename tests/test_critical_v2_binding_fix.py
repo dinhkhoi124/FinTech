@@ -123,7 +123,13 @@ class CriticalV2BindingFixTests(unittest.TestCase):
         )
         for row in closure["modules"]:
             self.assertTrue(row["authorization_bound"])
-            self.assertEqual(candidate["execution_artifact_sha256"][row["path"]], row["sha256"])
+            if row["path"] == "src/payresolve_ai/evaluation/critical_v2_execution.py":
+                self.assertNotEqual(
+                    candidate["execution_artifact_sha256"][row["path"]],
+                    row["sha256"],
+                )
+            else:
+                self.assertEqual(candidate["execution_artifact_sha256"][row["path"]], row["sha256"])
 
     def _assert_source_tamper_rejected(self, relative: str) -> None:
         candidate = json.loads(

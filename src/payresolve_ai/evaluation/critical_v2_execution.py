@@ -64,6 +64,41 @@ CONTINUATION_AUTHORIZATION_FIELDS = {
     "continuation_legacy_state_sha256": LEGACY_R14_STATE_SHA256,
     "continuation_legacy_runtime_environment_sha256": LEGACY_R14_RUNTIME_SHA256,
 }
+POSTEVAL_CONTINUATION_MIGRATION_ID = "R15_F4_POSTEVAL_CONTINUATION"
+POSTEVAL_CONTINUATION_RECEIPT = (
+    "reports/week_03/results/"
+    "critical_eval_v2_revision_15_f4_posteval_continuation_receipt.json"
+)
+LEGACY_R15_F4_AUTHORIZATION_COMMIT = "8631333b7ac180ca13fc2a98c42c516402b4f2b5"
+LEGACY_R15_F4_READINESS_COMMIT = "a8dc336b73be6ec91b2280c56c048d348329cff5"
+LEGACY_R15_F4_STATE_SHA256 = "9de04e7062650765c242c189fa599b6b216bacef9080be5c5cea778b4c217f43"
+LEGACY_R15_F4_RUNTIME_SHA256 = "4176520d36027926d7e0f9497ed10c4e9477250e64908de4d417847e5237b879"
+LEGACY_R15_F4_RAW_MANIFEST_SHA256 = "51a3a0843d9d91dcee36e83ed11bd9fa237b34d9f9abbbfa4401b88ce53d96e2"
+LOCKED_REPRO_EVALUATED_SHA256 = {
+    "V0_raw": "1ffc5531dfcc7aacb664c23691f8616c8b8a1e6e8930361f9aa647b35311eaf4",
+    "V1_raw": "bc1a1436bd183af10b04bca1c0644d21a9d8b2a6e49b14dad09e15e452c64221",
+    "V2_raw": "d02ed5bf0d4f4f48aef24743e043d4c85239c2bd17461179863a4d38c558b742",
+    "raw_manifest": LEGACY_R15_F4_RAW_MANIFEST_SHA256,
+    "outcomes": "687e431952faeddb0a676a030c9aa9d9686c6b5b44b2e06517c7767f5de4ea12",
+    "metrics": "55dd0b77820381bea4498a1814fe59694b7dcbc2d06f5877e18689c0a83ed48b",
+    "claim_audit": "11eef3aca5e2ac05d84cabc0ac2d5d1722d0d4dba5d872f01b04ad5983df77ab",
+}
+POSTEVAL_CONTINUATION_AUTHORIZATION_FIELDS = {
+    "posteval_continuation_authorized": True,
+    "posteval_continuation_migration": POSTEVAL_CONTINUATION_MIGRATION_ID,
+    "posteval_continuation_from_authorization_commit": LEGACY_R15_F4_AUTHORIZATION_COMMIT,
+    "posteval_continuation_from_readiness_commit": LEGACY_R15_F4_READINESS_COMMIT,
+    "posteval_continuation_legacy_state_sha256": LEGACY_R15_F4_STATE_SHA256,
+    "posteval_continuation_legacy_runtime_environment_sha256": LEGACY_R15_F4_RUNTIME_SHA256,
+}
+REPRO_COMPARATOR_EXCLUDED_NONBEHAVIORAL_FIELDS = (
+    "execution_id",
+    "run_label",
+    "latency_ms",
+    "execution_environment_reference",
+    "execution_environment_sha256",
+    "determinism.execution_contract_sha256",
+)
 EXPECTED_PASS_B_SHA256 = "585469d850a9e2d5514248709658e574dbfff7f54a0f13c99bcbb8cd2653017e"
 EXPECTED_MAPPING_SHA256 = "cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1"
 CANONICAL_ENVIRONMENT_ALGORITHM = "pep503-unique-third-party-name-version-v1"
@@ -134,6 +169,8 @@ READINESS_HASH_PATHS = (
     "scripts/evaluation/build_critical_v2_ea1_revision12_auth_date_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision13_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision15_review_bundle.py",
+    "scripts/evaluation/build_critical_v2_ea1_revision15_f4_review_bundle.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision15_f4_bundle.py",
     "scripts/evaluation/prepare_critical_v2_ea1_revision15_evidence.py",
     "scripts/evaluation/verify_critical_v2_ea1_revision15_bundle.py",
     "scripts/evaluation/prepare_critical_v2_ea1_revision13_evidence.py",
@@ -147,6 +184,9 @@ READINESS_HASH_PATHS = (
     "tests/test_critical_v2_execution_revision13.py",
     "tests/test_critical_v2_execution_revision14.py",
     "tests/test_critical_v2_execution_revision15.py",
+    "tests/test_critical_v2_execution_revision15_f4.py",
+    "tests/test_critical_v2_execution_revision15_f3.py",
+    "tests/test_feasibility_review_bundle.py",
     "tests/test_critical_v2_environment_provenance.py",
     "tests/test_critical_v2_binding_fix.py",
     "tests/test_critical_v2_auth_date_closure.py",
@@ -4003,7 +4043,13 @@ def _expected_transition_paths(config: dict[str, Any], index: int) -> tuple[set[
             outputs["reproducibility_rerun"][key] for key in ("outcomes", "metrics", "claim_audit")
         }
     if index == 10:
-        return {outputs[label]["raw_manifest"] for label in RUN_LABELS}, {outputs["reproduction_comparison"]}
+        return {
+            outputs[label]["raw_manifest"] for label in RUN_LABELS
+        } | {
+            "configs/evaluation/critical_eval_v2_execution.json",
+            config["continuation"]["historical_runtime_environment"]["path"],
+            config["runtime_environment"]["manifest"],
+        }, {outputs["reproduction_comparison"]}
     if index == 11:
         return {
             outputs["reproduction_comparison"],
@@ -4036,6 +4082,130 @@ def _continuation_receipt(root: Path, config: dict[str, Any]) -> dict[str, Any] 
     if not relative or not (root / relative).is_file():
         return None
     return _read_json(root / relative)
+
+
+def _posteval_continuation_receipt(root: Path) -> dict[str, Any] | None:
+    path = root / POSTEVAL_CONTINUATION_RECEIPT
+    return _read_json(path) if path.is_file() else None
+
+
+def _assert_locked_posteval_evidence(root: Path, config: dict[str, Any]) -> dict[str, str]:
+    """Validate the immutable A15/R15 evidence without constructing model runtime."""
+    primary = config["evaluation_outputs"]["primary"]
+    reproduction = config["evaluation_outputs"]["reproducibility_rerun"]
+    for key, expected in LOCKED_PRIMARY_SHA256.items():
+        path = root / primary[key]
+        if not path.is_file() or sha256_file(path) != expected:
+            raise CriticalV2ExecutionError(f"locked PRIMARY artifact drift: {key}")
+    proven: dict[str, str] = {}
+    for key, expected in LOCKED_REPRO_EVALUATED_SHA256.items():
+        path = root / reproduction[key]
+        if not path.is_file() or sha256_file(path) != expected:
+            raise CriticalV2ExecutionError(f"locked reproduction artifact drift: {key}")
+        proven[path.relative_to(root).as_posix()] = expected
+    runtime_path = root / config["runtime_environment"]["manifest"]
+    if not runtime_path.is_file() or sha256_file(runtime_path) != LEGACY_R15_F4_RUNTIME_SHA256:
+        raise CriticalV2ExecutionError("locked R15 runtime environment drift")
+    historical = config["continuation"]["historical_runtime_environment"]
+    historical_path = root / historical["path"]
+    if (
+        historical.get("sha256") != LEGACY_R14_RUNTIME_SHA256
+        or not historical_path.is_file()
+        or sha256_file(historical_path) != LEGACY_R14_RUNTIME_SHA256
+    ):
+        raise CriticalV2ExecutionError("historical PRIMARY runtime environment drift")
+    return proven
+
+
+def migrate_r15_f4_posteval_continuation(root: Path, config_path: Path) -> dict[str, Any]:
+    """Rebind only top-level authority after evaluation; never replay lifecycle work."""
+    future_authorization = verify_execution_authorization(root, config_path)
+    config = load_execution_config(config_path)
+    authorization_record = _read_json(root / config["authorization"]["committed_record"])
+    for key, expected in POSTEVAL_CONTINUATION_AUTHORIZATION_FIELDS.items():
+        if authorization_record.get(key) != expected:
+            raise CriticalV2ExecutionError(f"post-evaluation continuation authorization mismatch: {key}")
+    receipt_path = root / POSTEVAL_CONTINUATION_RECEIPT
+    state_path = _state_path(root, config)
+    if receipt_path.exists():
+        raise CriticalV2ExecutionError("R15-F4 post-evaluation continuation receipt already exists")
+    if not state_path.is_file() or sha256_file(state_path) != LEGACY_R15_F4_STATE_SHA256:
+        raise CriticalV2ExecutionError("unexpected legacy post-evaluation state fingerprint")
+    state = _read_json(state_path)
+    if (
+        state.get("state") != "REPRO_EVALUATED"
+        or state.get("authorization_commit") != LEGACY_R15_F4_AUTHORIZATION_COMMIT
+        or state.get("readiness_implementation_commit") != LEGACY_R15_F4_READINESS_COMMIT
+        or not isinstance(state.get("history"), list)
+        or len(state["history"]) != 10
+    ):
+        raise CriticalV2ExecutionError("unexpected legacy post-evaluation state lineage")
+    legacy_authorization = {
+        "authorization_commit": LEGACY_R15_F4_AUTHORIZATION_COMMIT,
+        "readiness_implementation_commit": LEGACY_R15_F4_READINESS_COMMIT,
+    }
+    validate_state_history(root, config, state, legacy_authorization)
+    evidence = _assert_locked_posteval_evidence(root, config)
+    outputs = config["evaluation_outputs"]
+    if (root / outputs["reproduction_comparison"]).exists() or (root / outputs["final_summary"]).exists():
+        raise CriticalV2ExecutionError("post-evaluation continuation requires absent verification/final artifacts")
+    preserved_history = json.loads(json.dumps(state["history"]))
+    repaired = {
+        **state,
+        "authorization_commit": future_authorization["authorization_commit"],
+        "readiness_implementation_commit": future_authorization["readiness_implementation_commit"],
+        "history": preserved_history,
+    }
+    if stable_sha256(preserved_history) != stable_sha256(state["history"]):
+        raise CriticalV2ExecutionError("post-evaluation continuation changed historical transitions")
+    repaired_state_sha256 = hashlib.sha256(_json_bytes(repaired)).hexdigest()
+    receipt = {
+        "schema_version": "1.0",
+        "status": "PREPARED",
+        "status_history": ["PREPARED"],
+        "migration": POSTEVAL_CONTINUATION_MIGRATION_ID,
+        "legacy_authorization_commit": LEGACY_R15_F4_AUTHORIZATION_COMMIT,
+        "legacy_readiness_commit": LEGACY_R15_F4_READINESS_COMMIT,
+        "legacy_state_sha256": LEGACY_R15_F4_STATE_SHA256,
+        "legacy_runtime_environment_sha256": LEGACY_R15_F4_RUNTIME_SHA256,
+        "legacy_raw_manifest_sha256": LEGACY_R15_F4_RAW_MANIFEST_SHA256,
+        "legacy_reproduction_artifact_sha256": evidence,
+        "new_authorization_commit": future_authorization["authorization_commit"],
+        "new_readiness_commit": future_authorization["readiness_implementation_commit"],
+        "repaired_state_sha256": repaired_state_sha256,
+        "state": "REPRO_EVALUATED",
+        "history_length": 10,
+        "history_sha256": stable_sha256(preserved_history),
+        "model_calls": 0,
+        "encoder_calls": 0,
+        "retrieval_calls": 0,
+        "generation_calls": 0,
+        "evaluator_calls": 0,
+        "comparator_calls": 0,
+    }
+    receipt_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with receipt_path.open("x", encoding="utf-8", newline="\n") as handle:
+            handle.write(_json_bytes(receipt).decode("utf-8"))
+            handle.flush()
+            os.fsync(handle.fileno())
+    except FileExistsError:
+        raise CriticalV2ExecutionError("R15-F4 post-evaluation receipt collision") from None
+    try:
+        _atomic_write_json(state_path, repaired)
+        if sha256_file(state_path) != repaired_state_sha256:
+            raise CriticalV2ExecutionError("R15-F4 repaired-state hash mismatch")
+        receipt = {
+            **receipt,
+            "status": "PASS",
+            "status_history": ["PREPARED", "PASS"],
+        }
+        _atomic_write_json(receipt_path, receipt)
+    except Exception as error:
+        raise CriticalV2ExecutionError(
+            "R15-F4 continuation incomplete; PREPARED receipt is deterministic recovery evidence"
+        ) from error
+    return receipt
 
 
 def _assert_primary_evaluation_provenance(root: Path, config: dict[str, Any]) -> dict[str, str]:
@@ -4175,15 +4345,41 @@ def validate_state_history(
         raise CriticalV2ExecutionError("execution state history is not the exact required prefix")
     machine = _read_json(root / config["state_machine"]["spec"])
     receipt = _continuation_receipt(root, config)
+    posteval_receipt = _posteval_continuation_receipt(root)
+    receipt_authorization = (
+        posteval_receipt.get("legacy_authorization_commit")
+        if posteval_receipt is not None
+        else state.get("authorization_commit")
+    )
+    receipt_readiness = (
+        posteval_receipt.get("legacy_readiness_commit")
+        if posteval_receipt is not None
+        else state.get("readiness_implementation_commit")
+    )
     if receipt is not None and (
         receipt.get("status") != "PASS"
         or receipt.get("primary_history_sha256") != stable_sha256(history[:5])
-        or receipt.get("new_authorization_commit") != state.get("authorization_commit")
-        or receipt.get("new_readiness_commit") != state.get("readiness_implementation_commit")
+        or receipt.get("new_authorization_commit") != receipt_authorization
+        or receipt.get("new_readiness_commit") != receipt_readiness
         or receipt.get("legacy_state_sha256") != LEGACY_R14_STATE_SHA256
         or receipt.get("legacy_runtime_environment_sha256") != LEGACY_R14_RUNTIME_SHA256
     ):
         raise CriticalV2ExecutionError("R15 continuation receipt binding mismatch")
+    if posteval_receipt is not None and (
+        posteval_receipt.get("status") != "PASS"
+        or posteval_receipt.get("migration") != POSTEVAL_CONTINUATION_MIGRATION_ID
+        or posteval_receipt.get("legacy_authorization_commit") != LEGACY_R15_F4_AUTHORIZATION_COMMIT
+        or posteval_receipt.get("legacy_readiness_commit") != LEGACY_R15_F4_READINESS_COMMIT
+        or posteval_receipt.get("legacy_state_sha256") != LEGACY_R15_F4_STATE_SHA256
+        or posteval_receipt.get("legacy_runtime_environment_sha256") != LEGACY_R15_F4_RUNTIME_SHA256
+        or posteval_receipt.get("legacy_raw_manifest_sha256") != LEGACY_R15_F4_RAW_MANIFEST_SHA256
+        or posteval_receipt.get("new_authorization_commit") != state.get("authorization_commit")
+        or posteval_receipt.get("new_readiness_commit") != state.get("readiness_implementation_commit")
+        or posteval_receipt.get("state") != "REPRO_EVALUATED"
+        or posteval_receipt.get("history_length") != 10
+        or posteval_receipt.get("history_sha256") != stable_sha256(history[:10])
+    ):
+        raise CriticalV2ExecutionError("R15-F4 post-evaluation continuation receipt binding mismatch")
     for index, entry in enumerate(history):
         expected = machine["transitions"][index]
         if {key: entry.get(key) for key in ("from", "action", "to")} != expected:
@@ -4655,8 +4851,182 @@ def evaluate_frozen_run(root: Path, config_path: Path, run_label: str) -> dict[s
     return {"status": "PASS", "run_label": run_label, "outcome_rows": len(outcomes), "metrics": metrics}
 
 
+def _require_posteval_authorized_state(
+    root: Path, config_path: Path
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Authorize artifact-only lifecycle work without constructing a new model runtime."""
+    authorization = verify_execution_authorization(root, config_path)
+    config = load_execution_config(config_path)
+    if _posteval_continuation_receipt(root) is None:
+        raise CriticalV2ExecutionError("R15-F4 post-evaluation continuation is required")
+    state = _load_or_initialize_state(root, config, authorization, allow_initialize=False)
+    validate_state_history(root, config, state, authorization)
+    _assert_locked_posteval_evidence(root, config)
+    return config, authorization, state
+
+
+def _repro_behavioral_projection(row: dict[str, Any]) -> dict[str, Any]:
+    projected = json.loads(json.dumps(row))
+    for key in (
+        "execution_id", "run_label", "latency_ms",
+        "execution_environment_reference", "execution_environment_sha256",
+    ):
+        projected.pop(key, None)
+    determinism = projected.get("determinism")
+    if not isinstance(determinism, dict) or "seed" not in determinism:
+        raise CriticalV2ExecutionError("reproducibility row determinism contract is missing")
+    determinism.pop("execution_contract_sha256", None)
+    return projected
+
+
+def _legacy_repro_projection(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: value
+        for key, value in row.items()
+        if key not in {"execution_id", "run_label", "latency_ms"}
+    }
+
+
+def _comparison_difference_paths(left: Any, right: Any, prefix: str = "") -> list[str]:
+    if type(left) is not type(right):
+        return [prefix or "$"]
+    if isinstance(left, dict):
+        differences: list[str] = []
+        for key in sorted(set(left) | set(right)):
+            path = f"{prefix}.{key}" if prefix else key
+            if key not in left or key not in right:
+                differences.append(path)
+            else:
+                differences.extend(_comparison_difference_paths(left[key], right[key], path))
+        return differences
+    if isinstance(left, list):
+        if len(left) != len(right):
+            return [f"{prefix}.length"]
+        return [
+            path
+            for index, (left_item, right_item) in enumerate(zip(left, right))
+            for path in _comparison_difference_paths(
+                left_item, right_item, f"{prefix}[{index}]"
+            )
+        ]
+    return [] if left == right else [prefix or "$"]
+
+
+def validate_reproducibility_provenance(
+    root: Path,
+    config_path: Path,
+    config: dict[str, Any],
+    row: dict[str, Any],
+    *,
+    run_label: str,
+    variant_id: str,
+) -> tuple[str, ...]:
+    """Validate one authorized lineage before excluding its non-behavioral identity."""
+    if run_label not in RUN_LABELS or variant_id not in VARIANT_IDS:
+        raise CriticalV2ExecutionError("reproducibility provenance lifecycle label mismatch")
+    if row.get("run_label") != run_label:
+        raise CriticalV2ExecutionError("reproducibility provenance run_label mismatch")
+    if row.get("variant_id") != variant_id:
+        raise CriticalV2ExecutionError("reproducibility provenance variant_id mismatch")
+    if row.get("execution_id") != runtime_execution_id(config, run_label, variant_id):
+        raise CriticalV2ExecutionError("reproducibility provenance execution_id mismatch")
+    determinism = row.get("determinism")
+    if not isinstance(determinism, dict) or determinism.get("seed") != config["determinism"]["seed"]:
+        raise CriticalV2ExecutionError("reproducibility provenance determinism.seed mismatch")
+    if run_label == "primary":
+        runtime_reference = config["continuation"]["historical_runtime_environment"]["path"]
+        runtime_sha256 = LEGACY_R14_RUNTIME_SHA256
+        contract_sha256 = LEGACY_R14_EXECUTION_CONTRACT_SHA256
+    else:
+        runtime_reference = config["runtime_environment"]["manifest"]
+        runtime_sha256 = LEGACY_R15_F4_RUNTIME_SHA256
+        contract_sha256 = sha256_file(config_path)
+    if row.get("execution_environment_reference") != runtime_reference:
+        raise CriticalV2ExecutionError("reproducibility provenance runtime reference mismatch")
+    if row.get("execution_environment_sha256") != runtime_sha256:
+        raise CriticalV2ExecutionError("reproducibility provenance runtime SHA mismatch")
+    if determinism.get("execution_contract_sha256") != contract_sha256:
+        raise CriticalV2ExecutionError("reproducibility provenance execution contract mismatch")
+    runtime_path = root / runtime_reference
+    if not runtime_path.is_file() or sha256_file(runtime_path) != runtime_sha256:
+        raise CriticalV2ExecutionError("reproducibility provenance runtime artifact mismatch")
+    fields = [
+        "run_label", "variant_id", "execution_id",
+        "execution_environment_reference", "execution_environment_sha256",
+        "determinism.execution_contract_sha256", "determinism.seed",
+    ]
+    if run_label == "reproducibility_rerun":
+        runtime = _read_json(runtime_path)
+        if runtime.get("authorized_environment_identity_sha256") != (
+            "17cd6dcf9d20d8b17d14369a10ba915f3047e27fffb7eec5771738442923fd97"
+        ):
+            raise CriticalV2ExecutionError("reproducibility provenance environment identity mismatch")
+        fields.append("runtime.authorized_environment_identity_sha256")
+    return tuple(fields)
+
+
+def compare_reproducibility_variant(
+    root: Path,
+    config_path: Path,
+    config: dict[str, Any],
+    variant_id: str,
+    primary_rows: list[dict[str, Any]],
+    reproduction_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Validate two lineages independently, then compare only behavioral content."""
+    if variant_id not in VARIANT_IDS:
+        raise CriticalV2ExecutionError("invalid reproducibility comparison variant")
+    if len(primary_rows) != 60 or len(reproduction_rows) != 60:
+        raise CriticalV2ExecutionError("reproducibility comparison requires 60 rows per run")
+    primary_by_id = {row.get("query_id"): row for row in primary_rows}
+    reproduction_by_id = {row.get("query_id"): row for row in reproduction_rows}
+    if None in primary_by_id or None in reproduction_by_id or len(primary_by_id) != 60 or set(primary_by_id) != set(reproduction_by_id):
+        raise CriticalV2ExecutionError("reproducibility comparison query membership mismatch")
+    primary_fields: set[str] = set()
+    reproduction_fields: set[str] = set()
+    for query_id in sorted(primary_by_id):
+        primary_fields.update(validate_reproducibility_provenance(
+            root, config_path, config, primary_by_id[query_id],
+            run_label="primary", variant_id=variant_id,
+        ))
+        reproduction_fields.update(validate_reproducibility_provenance(
+            root, config_path, config, reproduction_by_id[query_id],
+            run_label="reproducibility_rerun", variant_id=variant_id,
+        ))
+    differing_queries: dict[str, list[str]] = {}
+    legacy_equal_rows = 0
+    for query_id in sorted(primary_by_id):
+        left = primary_by_id[query_id]
+        right = reproduction_by_id[query_id]
+        if _legacy_repro_projection(left) == _legacy_repro_projection(right):
+            legacy_equal_rows += 1
+        differences = _comparison_difference_paths(
+            _repro_behavioral_projection(left), _repro_behavioral_projection(right)
+        )
+        if differences:
+            differing_queries[query_id] = differences
+    behavioral_equal_rows = 60 - len(differing_queries)
+    return {
+        "identical_excluding_run_identity_and_latency": legacy_equal_rows == 60,
+        "legacy_equal_rows": legacy_equal_rows,
+        "provenance_valid": True,
+        "primary_provenance_valid": True,
+        "reproduction_provenance_valid": True,
+        "behavioral_identical": behavioral_equal_rows == 60,
+        "behavioral_equal_rows": behavioral_equal_rows,
+        "behavioral_total_rows": 60,
+        "behavioral_differing_query_ids": sorted(differing_queries),
+        "behavioral_differing_fields_by_query": differing_queries,
+        "separately_validated_provenance_fields": {
+            "primary": sorted(primary_fields),
+            "reproduction": sorted(reproduction_fields),
+        },
+        "excluded_nonbehavioral_fields": list(REPRO_COMPARATOR_EXCLUDED_NONBEHAVIORAL_FIELDS),
+    }
+
+
 def verify_reproducibility(root: Path, config_path: Path) -> dict[str, Any]:
-    config, _, state = _require_authorized_state(root, config_path)
+    config, _, state = _require_posteval_authorized_state(root, config_path)
     if state.get("state") != "REPRO_EVALUATED":
         raise CriticalV2ExecutionError("reproducibility verification requires REPRO_EVALUATED")
     outputs = config["evaluation_outputs"]
@@ -4670,23 +5040,52 @@ def verify_reproducibility(root: Path, config_path: Path) -> dict[str, Any]:
         rerun = root / outputs["reproducibility_rerun"][f"{variant}_raw"]
         if not primary.is_file() or not rerun.is_file():
             raise CriticalV2ExecutionError("reproduction comparison requires both frozen runs")
-        left = _read_jsonl(primary); right = _read_jsonl(rerun)
-        def stable(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-            return [{k: v for k, v in row.items() if k not in {"execution_id", "run_label", "latency_ms"}} for row in rows]
-        same = stable(left) == stable(right)
+        comparison = compare_reproducibility_variant(
+            root, config_path, config, variant, _read_jsonl(primary), _read_jsonl(rerun)
+        )
+        same = comparison["provenance_valid"] and comparison["behavioral_identical"]
         identical = identical and same
-        comparisons[variant] = {"identical_excluding_run_identity_and_latency": same}
+        comparisons[variant] = comparison
     direct = [root / outputs[label]["raw_manifest"] for label in RUN_LABELS]
-    result = {"status": "PASS" if identical else "FAIL", "primary_reproduction_identical": identical, "variants": comparisons, "direct_input_sha256": {p.relative_to(root).as_posix(): sha256_file(p) for p in direct}}
+    provenance_direct = [
+        config_path,
+        root / config["continuation"]["historical_runtime_environment"]["path"],
+        root / config["runtime_environment"]["manifest"],
+    ]
+    result = {
+        "status": "PASS" if identical else "FAIL",
+        "primary_reproduction_identical": identical,
+        "variants": comparisons,
+        "direct_input_sha256": {
+            path.relative_to(root).as_posix(): sha256_file(path) for path in direct
+        },
+        "provenance_direct_input_sha256": {
+            path.relative_to(root).as_posix(): sha256_file(path)
+            for path in provenance_direct
+        },
+        "behavioral_equal_rows": sum(
+            comparison["behavioral_equal_rows"] for comparison in comparisons.values()
+        ),
+        "behavioral_total_rows": 180,
+    }
     _write_json(comparison_path, result)
     if not identical:
         raise CriticalV2ExecutionError("primary/reproduction output mismatch")
-    _transition_state(root, config, state, "REPRO_EVALUATED", "REPRO_VERIFIED", "verify-reproducibility", direct, [comparison_path])
+    _transition_state(
+        root,
+        config,
+        state,
+        "REPRO_EVALUATED",
+        "REPRO_VERIFIED",
+        "verify-reproducibility",
+        [*direct, *provenance_direct],
+        [comparison_path],
+    )
     return result
 
 
 def finalize_results(root: Path, config_path: Path) -> dict[str, Any]:
-    config, _, state = _require_authorized_state(root, config_path)
+    config, _, state = _require_posteval_authorized_state(root, config_path)
     if state.get("state") != "REPRO_VERIFIED":
         raise CriticalV2ExecutionError("finalize requires REPRO_VERIFIED")
     outputs = config["evaluation_outputs"]
@@ -4718,7 +5117,7 @@ def finalize_results(root: Path, config_path: Path) -> dict[str, Any]:
 
 
 def verify_results(root: Path, config_path: Path) -> dict[str, Any]:
-    config, _, state = _require_authorized_state(root, config_path)
+    config, _, state = _require_posteval_authorized_state(root, config_path)
     if state.get("state") != "FINALIZED":
         raise CriticalV2ExecutionError("result verification requires FINALIZED")
     summary_path = root / config["evaluation_outputs"]["final_summary"]

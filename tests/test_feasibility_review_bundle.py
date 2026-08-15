@@ -16,6 +16,11 @@ VERIFIER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(VERIFIER)
 
 
+@unittest.skipUnless(
+    (ROOT / "bundle_inventory.json").is_file()
+    and (ROOT / "review/contract_amendment_safety_challenges.jsonl").is_file(),
+    "standalone feasibility-bundle-only tests: extracted bundle fixture root is absent",
+)
 class FeasibilityReviewBundleTests(unittest.TestCase):
     def test_inventory_is_complete(self) -> None:
         self.assertGreater(VERIFIER.verify_inventory(ROOT), 0)

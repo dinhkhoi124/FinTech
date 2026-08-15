@@ -52,10 +52,14 @@ class CriticalV2ExecutionRevision14Tests(unittest.TestCase):
             "DEFERRED_TO_SEPARATE_AUTHORIZATION_RECORD",
         )
 
-    def test_final_authorization_field_contract_accepts_exact_payload(self) -> None:
-        execution._validate_authorization_payload(
-            ROOT, CONFIG_PATH, self.config, self._final_authorization()
-        )
+    def test_real_a15_authorization_rejects_unreviewed_f4_source_bytes(self) -> None:
+        with self.assertRaisesRegex(
+            execution.CriticalV2ExecutionError,
+            "authorization execution source/config/test hash mismatch",
+        ):
+            execution._validate_authorization_payload(
+                ROOT, CONFIG_PATH, self.config, self._final_authorization()
+            )
 
     def test_final_authorization_field_mutations_reject(self) -> None:
         cases = {
