@@ -622,3 +622,12 @@ Post-push audit found exactly four of 62 reviewed readiness hashes absent from i
 ### Proposed A15 continuation authorization — 2026-08-13
 
 A15 is proposed as the exact five-path child of Senior-approved R15-F3 `a8dc336b73be6ec91b2280c56c048d348329cff5`. It authorizes only the production-verified one-shot R14 PRIMARY-evaluated to R15 continuation migration and binds the exact legacy A14/R14/state/runtime lineage. Candidate Revision 7 and the seven historical PRIMARY artifacts remain immutable. The authoring proof uses a synthetic committed A15, fail-closed controls, and an isolated PREPARED→PASS migration reaching the pre-model Repro V0 gate with zero model/encoder/retrieval/generation calls. The real state is not migrated, PRIMARY is not rerun, and reproduction remains unauthorized pending real A15 commit, migration, and separate Senior permission.
+
+
+## A16 post-evaluation continuation authorization
+
+- The real R15-F4-F1 comparator implementation correction is committed and pushed as `e6b49d4db4658251d68692aba812ad080ce5b3e1`.
+- The real lifecycle state remains `REPRO_EVALUATED`; the frozen raw reproduction behavioral evidence remains `180/180` and substantively matches PRIMARY.
+- A16 authorizes only the post-evaluation continuation required to bind the committed R15-F4-F1 readiness implementation before reproducibility verification.
+- No model or evaluator rerun is authorized. Real `verify-reproducibility` has not run, finalization has not run, and the model verdict remains `NOT_ESTABLISHED`.
+- This authoring package does not claim `REPRO_VERIFIED`, `FINALIZED`, Week 3 P0 completion, or model approval.

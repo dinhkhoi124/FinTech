@@ -684,3 +684,12 @@ and Week 4 remain blocked.
 - **Evidence boundary:** synthetic committed A15 production verification, fail-closed negative controls, isolated PREPARED→PASS migration, and pre-model Repro V0 gate only.
 - **Preserved:** Candidate Revision 7, R15-F3 bytes, historical PRIMARY/state/runtime, and real workspace runtime state. PRIMARY was not rerun; reproduction/finalization were not run.
 - **Next:** Senior reviews A15; only after a real committed A15 and successful production migration may a separately authorized reproduction retry be considered.
+
+
+## A16 post-evaluation continuation authorization
+
+- The real R15-F4-F1 comparator implementation correction is committed and pushed as `e6b49d4db4658251d68692aba812ad080ce5b3e1`.
+- The real lifecycle state remains `REPRO_EVALUATED`; the frozen raw reproduction behavioral evidence remains `180/180` and substantively matches PRIMARY.
+- A16 authorizes only the post-evaluation continuation required to bind the committed R15-F4-F1 readiness implementation before reproducibility verification.
+- No model or evaluator rerun is authorized. Real `verify-reproducibility` has not run, finalization has not run, and the model verdict remains `NOT_ESTABLISHED`.
+- This authoring package does not claim `REPRO_VERIFIED`, `FINALIZED`, Week 3 P0 completion, or model approval.
