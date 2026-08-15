@@ -91,6 +91,25 @@ POSTEVAL_CONTINUATION_AUTHORIZATION_FIELDS = {
     "posteval_continuation_legacy_state_sha256": LEGACY_R15_F4_STATE_SHA256,
     "posteval_continuation_legacy_runtime_environment_sha256": LEGACY_R15_F4_RUNTIME_SHA256,
 }
+POSTVERIFY_CONTINUATION_MIGRATION_ID = "R15_F5_POSTVERIFY_CONTINUATION"
+POSTVERIFY_CONTINUATION_RECEIPT = (
+    "reports/week_03/results/"
+    "critical_eval_v2_revision_15_f5_postverify_continuation_receipt.json"
+)
+LEGACY_R15_F5_AUTHORIZATION_COMMIT = "8de0061ed3f4e421353a3c47a733ab081bfccd88"
+LEGACY_R15_F5_READINESS_COMMIT = "e6b49d4db4658251d68692aba812ad080ce5b3e1"
+LEGACY_R15_F5_STATE_SHA256 = "7b221a4c35878a1aa597220e8e089d090bc9317f39b6201872cfa7c5f04387bd"
+LEGACY_R15_F5_COMPARISON_SHA256 = "3476317b6946f703b43375f039e3b4f25d777c42e7c055698d490585c5e9cb80"
+LEGACY_R15_F5_POSTEVAL_RECEIPT_SHA256 = "9d258ee17f64b930f092a7c6502f0e475405ed4773aab05e2cc06257070583d8"
+POSTVERIFY_CONTINUATION_AUTHORIZATION_FIELDS = {
+    "postverify_continuation_authorized": True,
+    "postverify_continuation_migration": POSTVERIFY_CONTINUATION_MIGRATION_ID,
+    "postverify_continuation_from_authorization_commit": LEGACY_R15_F5_AUTHORIZATION_COMMIT,
+    "postverify_continuation_from_readiness_commit": LEGACY_R15_F5_READINESS_COMMIT,
+    "postverify_continuation_legacy_state_sha256": LEGACY_R15_F5_STATE_SHA256,
+    "postverify_continuation_legacy_comparison_sha256": LEGACY_R15_F5_COMPARISON_SHA256,
+    "postverify_continuation_posteval_receipt_sha256": LEGACY_R15_F5_POSTEVAL_RECEIPT_SHA256,
+}
 REPRO_COMPARATOR_EXCLUDED_NONBEHAVIORAL_FIELDS = (
     "execution_id",
     "run_label",
@@ -171,6 +190,8 @@ READINESS_HASH_PATHS = (
     "scripts/evaluation/build_critical_v2_ea1_revision15_review_bundle.py",
     "scripts/evaluation/build_critical_v2_ea1_revision15_f4_review_bundle.py",
     "scripts/evaluation/verify_critical_v2_ea1_revision15_f4_bundle.py",
+    "scripts/evaluation/build_critical_v2_ea1_revision15_f5_f1_review_bundle.py",
+    "scripts/evaluation/verify_critical_v2_ea1_revision15_f5_f1_bundle.py",
     "scripts/evaluation/prepare_critical_v2_ea1_revision15_evidence.py",
     "scripts/evaluation/verify_critical_v2_ea1_revision15_bundle.py",
     "scripts/evaluation/prepare_critical_v2_ea1_revision13_evidence.py",
@@ -185,6 +206,7 @@ READINESS_HASH_PATHS = (
     "tests/test_critical_v2_execution_revision14.py",
     "tests/test_critical_v2_execution_revision15.py",
     "tests/test_critical_v2_execution_revision15_f4.py",
+    "tests/test_critical_v2_execution_revision15_f5_f1.py",
     "tests/test_critical_v2_execution_revision15_f3.py",
     "tests/test_feasibility_review_bundle.py",
     "tests/test_critical_v2_environment_provenance.py",
@@ -4089,6 +4111,11 @@ def _posteval_continuation_receipt(root: Path) -> dict[str, Any] | None:
     return _read_json(path) if path.is_file() else None
 
 
+def _postverify_continuation_receipt(root: Path) -> dict[str, Any] | None:
+    path = root / POSTVERIFY_CONTINUATION_RECEIPT
+    return _read_json(path) if path.is_file() else None
+
+
 def _assert_locked_posteval_evidence(root: Path, config: dict[str, Any]) -> dict[str, str]:
     """Validate the immutable A15/R15 evidence without constructing model runtime."""
     primary = config["evaluation_outputs"]["primary"]
@@ -4204,6 +4231,98 @@ def migrate_r15_f4_posteval_continuation(root: Path, config_path: Path) -> dict[
     except Exception as error:
         raise CriticalV2ExecutionError(
             "R15-F4 continuation incomplete; PREPARED receipt is deterministic recovery evidence"
+        ) from error
+    return receipt
+
+
+def migrate_r15_f5_postverify_continuation(root: Path, config_path: Path) -> dict[str, Any]:
+    """Rebind verified evidence to the corrected finalizer without replaying work."""
+    future_authorization = verify_execution_authorization(root, config_path)
+    config = load_execution_config(config_path)
+    authorization_record = _read_json(root / config["authorization"]["committed_record"])
+    for key, expected in POSTVERIFY_CONTINUATION_AUTHORIZATION_FIELDS.items():
+        if authorization_record.get(key) != expected:
+            raise CriticalV2ExecutionError(f"post-verification continuation authorization mismatch: {key}")
+    receipt_path = root / POSTVERIFY_CONTINUATION_RECEIPT
+    state_path = _state_path(root, config)
+    comparison_path = root / config["evaluation_outputs"]["reproduction_comparison"]
+    posteval_path = root / POSTEVAL_CONTINUATION_RECEIPT
+    final_path = root / config["evaluation_outputs"]["final_summary"]
+    if receipt_path.exists():
+        raise CriticalV2ExecutionError("R15-F5 post-verification continuation receipt already exists")
+    required_hashes = {
+        state_path: LEGACY_R15_F5_STATE_SHA256,
+        comparison_path: LEGACY_R15_F5_COMPARISON_SHA256,
+        posteval_path: LEGACY_R15_F5_POSTEVAL_RECEIPT_SHA256,
+    }
+    for path, expected in required_hashes.items():
+        if not path.is_file() or sha256_file(path) != expected:
+            raise CriticalV2ExecutionError(f"unexpected legacy post-verification fingerprint: {path.name}")
+    if final_path.exists():
+        raise CriticalV2ExecutionError("post-verification continuation requires absent final summary")
+    state = _read_json(state_path)
+    if (
+        state.get("state") != "REPRO_VERIFIED"
+        or state.get("authorization_commit") != LEGACY_R15_F5_AUTHORIZATION_COMMIT
+        or state.get("readiness_implementation_commit") != LEGACY_R15_F5_READINESS_COMMIT
+        or not isinstance(state.get("history"), list)
+        or len(state["history"]) != 11
+    ):
+        raise CriticalV2ExecutionError("unexpected legacy post-verification state lineage")
+    legacy_authorization = {
+        "authorization_commit": LEGACY_R15_F5_AUTHORIZATION_COMMIT,
+        "readiness_implementation_commit": LEGACY_R15_F5_READINESS_COMMIT,
+    }
+    validate_state_history(root, config, state, legacy_authorization)
+    _assert_locked_posteval_evidence(root, config)
+    preserved_history = json.loads(json.dumps(state["history"]))
+    repaired = {
+        **state,
+        "authorization_commit": future_authorization["authorization_commit"],
+        "readiness_implementation_commit": future_authorization["readiness_implementation_commit"],
+        "history": preserved_history,
+    }
+    repaired_state_sha256 = hashlib.sha256(_json_bytes(repaired)).hexdigest()
+    receipt = {
+        "schema_version": "1.0",
+        "status": "PREPARED",
+        "status_history": ["PREPARED"],
+        "migration": POSTVERIFY_CONTINUATION_MIGRATION_ID,
+        "legacy_authorization_commit": LEGACY_R15_F5_AUTHORIZATION_COMMIT,
+        "legacy_readiness_commit": LEGACY_R15_F5_READINESS_COMMIT,
+        "legacy_state_sha256": LEGACY_R15_F5_STATE_SHA256,
+        "legacy_comparison_sha256": LEGACY_R15_F5_COMPARISON_SHA256,
+        "posteval_receipt_sha256": LEGACY_R15_F5_POSTEVAL_RECEIPT_SHA256,
+        "new_authorization_commit": future_authorization["authorization_commit"],
+        "new_readiness_commit": future_authorization["readiness_implementation_commit"],
+        "repaired_state_sha256": repaired_state_sha256,
+        "state": "REPRO_VERIFIED",
+        "history_length": 11,
+        "history_sha256": stable_sha256(preserved_history),
+        "model_calls": 0,
+        "encoder_calls": 0,
+        "retrieval_calls": 0,
+        "generation_calls": 0,
+        "evaluator_calls": 0,
+        "comparator_calls": 0,
+    }
+    receipt_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with receipt_path.open("x", encoding="utf-8", newline="\n") as handle:
+            handle.write(_json_bytes(receipt).decode("utf-8"))
+            handle.flush()
+            os.fsync(handle.fileno())
+    except FileExistsError:
+        raise CriticalV2ExecutionError("R15-F5 post-verification receipt collision") from None
+    try:
+        _atomic_write_json(state_path, repaired)
+        if sha256_file(state_path) != repaired_state_sha256:
+            raise CriticalV2ExecutionError("R15-F5 repaired-state hash mismatch")
+        receipt = {**receipt, "status": "PASS", "status_history": ["PREPARED", "PASS"]}
+        _atomic_write_json(receipt_path, receipt)
+    except Exception as error:
+        raise CriticalV2ExecutionError(
+            "R15-F5 continuation incomplete; PREPARED receipt is deterministic recovery evidence"
         ) from error
     return receipt
 
@@ -4346,6 +4465,7 @@ def validate_state_history(
     machine = _read_json(root / config["state_machine"]["spec"])
     receipt = _continuation_receipt(root, config)
     posteval_receipt = _posteval_continuation_receipt(root)
+    postverify_receipt = _postverify_continuation_receipt(root)
     receipt_authorization = (
         posteval_receipt.get("legacy_authorization_commit")
         if posteval_receipt is not None
@@ -4365,6 +4485,14 @@ def validate_state_history(
         or receipt.get("legacy_runtime_environment_sha256") != LEGACY_R14_RUNTIME_SHA256
     ):
         raise CriticalV2ExecutionError("R15 continuation receipt binding mismatch")
+    posteval_current_authorization = (
+        postverify_receipt.get("legacy_authorization_commit")
+        if postverify_receipt is not None else state.get("authorization_commit")
+    )
+    posteval_current_readiness = (
+        postverify_receipt.get("legacy_readiness_commit")
+        if postverify_receipt is not None else state.get("readiness_implementation_commit")
+    )
     if posteval_receipt is not None and (
         posteval_receipt.get("status") != "PASS"
         or posteval_receipt.get("migration") != POSTEVAL_CONTINUATION_MIGRATION_ID
@@ -4373,13 +4501,35 @@ def validate_state_history(
         or posteval_receipt.get("legacy_state_sha256") != LEGACY_R15_F4_STATE_SHA256
         or posteval_receipt.get("legacy_runtime_environment_sha256") != LEGACY_R15_F4_RUNTIME_SHA256
         or posteval_receipt.get("legacy_raw_manifest_sha256") != LEGACY_R15_F4_RAW_MANIFEST_SHA256
-        or posteval_receipt.get("new_authorization_commit") != state.get("authorization_commit")
-        or posteval_receipt.get("new_readiness_commit") != state.get("readiness_implementation_commit")
+        or posteval_receipt.get("new_authorization_commit") != posteval_current_authorization
+        or posteval_receipt.get("new_readiness_commit") != posteval_current_readiness
         or posteval_receipt.get("state") != "REPRO_EVALUATED"
         or posteval_receipt.get("history_length") != 10
         or posteval_receipt.get("history_sha256") != stable_sha256(history[:10])
     ):
         raise CriticalV2ExecutionError("R15-F4 post-evaluation continuation receipt binding mismatch")
+    if postverify_receipt is not None and (
+        postverify_receipt.get("status") != "PASS"
+        or postverify_receipt.get("migration") != POSTVERIFY_CONTINUATION_MIGRATION_ID
+        or postverify_receipt.get("legacy_authorization_commit") != LEGACY_R15_F5_AUTHORIZATION_COMMIT
+        or postverify_receipt.get("legacy_readiness_commit") != LEGACY_R15_F5_READINESS_COMMIT
+        or postverify_receipt.get("legacy_state_sha256") != LEGACY_R15_F5_STATE_SHA256
+        or postverify_receipt.get("legacy_comparison_sha256") != LEGACY_R15_F5_COMPARISON_SHA256
+        or postverify_receipt.get("posteval_receipt_sha256") != LEGACY_R15_F5_POSTEVAL_RECEIPT_SHA256
+        or postverify_receipt.get("new_authorization_commit") != state.get("authorization_commit")
+        or postverify_receipt.get("new_readiness_commit") != state.get("readiness_implementation_commit")
+        or postverify_receipt.get("state") != "REPRO_VERIFIED"
+        or postverify_receipt.get("history_length") != 11
+        or postverify_receipt.get("history_sha256") != stable_sha256(history[:11])
+        or any(
+            postverify_receipt.get(counter) != 0
+            for counter in (
+                "model_calls", "encoder_calls", "retrieval_calls",
+                "generation_calls", "evaluator_calls", "comparator_calls",
+            )
+        )
+    ):
+        raise CriticalV2ExecutionError("R15-F5 post-verification continuation receipt binding mismatch")
     for index, entry in enumerate(history):
         expected = machine["transitions"][index]
         if {key: entry.get(key) for key in ("from", "action", "to")} != expected:
@@ -5086,6 +5236,8 @@ def verify_reproducibility(root: Path, config_path: Path) -> dict[str, Any]:
 
 def finalize_results(root: Path, config_path: Path) -> dict[str, Any]:
     config, _, state = _require_posteval_authorized_state(root, config_path)
+    if _postverify_continuation_receipt(root) is None:
+        raise CriticalV2ExecutionError("R15-F5 post-verification continuation is required")
     if state.get("state") != "REPRO_VERIFIED":
         raise CriticalV2ExecutionError("finalize requires REPRO_VERIFIED")
     outputs = config["evaluation_outputs"]
@@ -5098,15 +5250,18 @@ def finalize_results(root: Path, config_path: Path) -> dict[str, Any]:
         for key in ("outcomes", "metrics", "claim_audit"):
             if not (root / outputs[label][key]).is_file():
                 raise CriticalV2ExecutionError("evaluated artifacts incomplete")
+    pre_finalization_state_sha256 = sha256_file(_state_path(root, config))
     summary = {
         "task_id": config["task_id"],
         "critical_evaluated": True,
         "primary_reproduction_identical": comparison["primary_reproduction_identical"],
         "model_verdict": "AWAITING_SENIOR_RESULT_REVIEW",
+        "pre_finalization_state_sha256": pre_finalization_state_sha256,
         "artifact_sha256": {
             path: sha256_file(root / path)
             for path in _evaluation_output_paths(config)
-            if path != outputs["final_summary"] and (root / path).is_file()
+            if path not in {outputs["final_summary"], outputs["execution_state"]}
+            and (root / path).is_file()
         },
     }
     direct = [comparison_path] + [root / outputs[label][key] for label in RUN_LABELS for key in ("outcomes", "metrics", "claim_audit")]
@@ -5118,12 +5273,50 @@ def finalize_results(root: Path, config_path: Path) -> dict[str, Any]:
 
 def verify_results(root: Path, config_path: Path) -> dict[str, Any]:
     config, _, state = _require_posteval_authorized_state(root, config_path)
+    if _postverify_continuation_receipt(root) is None:
+        raise CriticalV2ExecutionError("R15-F5 post-verification continuation is required")
     if state.get("state") != "FINALIZED":
         raise CriticalV2ExecutionError("result verification requires FINALIZED")
-    summary_path = root / config["evaluation_outputs"]["final_summary"]
+    outputs = config["evaluation_outputs"]
+    summary_path = root / outputs["final_summary"]
     if not summary_path.is_file():
         raise CriticalV2ExecutionError("final summary is absent")
     summary = _read_json(summary_path)
+    expected_direct = [
+        outputs["reproduction_comparison"],
+        *[
+            outputs[label][key]
+            for label in RUN_LABELS
+            for key in ("outcomes", "metrics", "claim_audit")
+        ],
+    ]
+    expected_artifacts = {
+        path
+        for path in _evaluation_output_paths(config)
+        if path not in {outputs["final_summary"], outputs["execution_state"]}
+    }
+    if (
+        summary.get("task_id") != config["task_id"]
+        or summary.get("critical_evaluated") is not True
+        or summary.get("primary_reproduction_identical") is not True
+        or summary.get("model_verdict") != "AWAITING_SENIOR_RESULT_REVIEW"
+        or set(summary.get("artifact_sha256", {})) != expected_artifacts
+        or set(summary.get("direct_input_sha256", {})) != set(expected_direct)
+    ):
+        raise CriticalV2ExecutionError("final summary contract mismatch")
+    pre_finalization_state = json.loads(json.dumps(state))
+    last_transition = pre_finalization_state["history"].pop()
+    if {key: last_transition.get(key) for key in ("from", "action", "to")} != {
+        "from": "REPRO_VERIFIED", "action": "finalize", "to": "FINALIZED"
+    }:
+        raise CriticalV2ExecutionError("finalization transition mismatch")
+    pre_finalization_state["state"] = "REPRO_VERIFIED"
+    reconstructed_sha256 = hashlib.sha256(_json_bytes(pre_finalization_state)).hexdigest()
+    if summary.get("pre_finalization_state_sha256") != reconstructed_sha256:
+        raise CriticalV2ExecutionError("pre-finalization state hash mismatch")
+    for path, digest in summary["direct_input_sha256"].items():
+        if sha256_file(root / path) != digest:
+            raise CriticalV2ExecutionError(f"final direct input artifact drift: {path}")
     for path, digest in summary.get("artifact_sha256", {}).items():
         if sha256_file(root / path) != digest:
             raise CriticalV2ExecutionError(f"final result artifact drift: {path}")

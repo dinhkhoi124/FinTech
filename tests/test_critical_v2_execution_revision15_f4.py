@@ -9,7 +9,6 @@ from pathlib import Path
 from unittest.mock import patch
 
 from scripts.evaluation import week3_critical_v2_execution as cli
-from scripts.evaluation import build_critical_v2_ea1_revision15_f4_review_bundle as f4_builder
 from payresolve_ai.evaluation import critical_v2_execution as execution
 
 
@@ -126,6 +125,14 @@ class Revision15F4ComparatorCorrectionTests(unittest.TestCase):
         }
         for relative in paths:
             self._copy(root, relative)
+        legacy_state = execution._read_json(root / self.outputs["execution_state"])
+        legacy_state.update({
+            "state": "REPRO_EVALUATED",
+            "authorization_commit": execution.LEGACY_R15_F4_AUTHORIZATION_COMMIT,
+            "readiness_implementation_commit": execution.LEGACY_R15_F4_READINESS_COMMIT,
+            "history": legacy_state["history"][:10],
+        })
+        execution._atomic_write_json(root / self.outputs["execution_state"], legacy_state)
         authorization_path = root / self.config["authorization"]["committed_record"]
         authorization_path.parent.mkdir(parents=True, exist_ok=True)
         authorization_path.write_text(
@@ -212,32 +219,12 @@ class Revision15F4ComparatorCorrectionTests(unittest.TestCase):
             "36f372c6dd08e948bceea52d3222e8510e32382bec8748e264f8ac4eb977d943",
         )
 
-    def test_stale_a15_rejects_f4_bytes_and_synthetic_a16_authorizes_exact_scope(self) -> None:
+    def test_real_a16_rejects_uncommitted_f5_bytes(self) -> None:
         with self.assertRaisesRegex(
             execution.CriticalV2ExecutionError,
             "authorization execution source/config/test hash mismatch",
         ):
             execution.verify_execution_authorization(ROOT, CONFIG_PATH)
-        (ROOT / "review").mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(
-            prefix="ea1_r15_f4_a16_test_", dir=ROOT / "review"
-        ) as directory:
-            proof = f4_builder.create_synthetic_proof(ROOT, Path(directory))
-            repo = proof["repo"]
-            authorization = json.loads(
-                (repo / self.config["authorization"]["committed_record"])
-                .read_text(encoding="utf-8")
-            )
-            self.assertEqual(proof["authorization"]["status"], "PASS")
-            self.assertEqual(
-                authorization["execution_artifact_sha256"],
-                execution._readiness_artifact_hashes(repo),
-            )
-            self.assertEqual(
-                authorization["readiness_implementation_commit"],
-                proof["topology"]["r15_f4_commit"],
-            )
-            self.assertEqual(proof["comparison"]["behavioral_equal_rows"], 180)
 
 
 if __name__ == "__main__":
