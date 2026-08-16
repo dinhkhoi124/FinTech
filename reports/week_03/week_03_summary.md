@@ -16,18 +16,14 @@ Grounded generation/evidence gate plus critical safety evaluation.
 
 ## Status
 
-BLOCKED / IN PROGRESS. W3-001 implementation is DONE / REVIEWED / ACCEPTED and W3-001
-overall is PARTIAL / REVIEWED / ACCEPTED. W3-001-CR1 implementation is COMPLETE.
-Its original frozen-mapping result remains FAILED and is invalidated by incomplete
-relevance labels; the Senior-approved post-holdout adjudication is PASS / REVIEWED
-/ ACCEPTED. Senior verdict is `APPROVE_COMMIT — QUALIFIED POST-HOC PASS`. W3-002
-has an internally consistent numerical run, but its critical set is INVALIDATED
-and model verdict is NOT ESTABLISHED. The W3-002-CR1 Option A contract amendment
-is DONE / REVIEWED / COMMITTED / PUSHED at `22e8b38`. Under the subsequent
-  Senior-reviewed authoring contract, revision 5 was authored and then rejected
-  by semantic review. Narrowly corrected revision 6 is now `FROZEN_CANDIDATE /
-  SENIOR_SEMANTIC_REVIEW_APPROVED / COMMITTED / PUSHED` at `d27de98`. Week 4 is
-BLOCKED / NOT STARTED.
+W3 evaluation work is `COMPLETE`. The R15-F5 technical lifecycle is `FINALIZED`,
+`verify-results` passed, and PRIMARY/REPRO behavior is identical for 180/180
+rows. Senior verdict is
+`NOT_APPROVED_FOR_PRODUCT_INTEGRATION — REMEDIATION_REQUIRED`; no variant is
+selected. The W3 P0 product gate is `NOT_CLOSED_REMEDIATION_REQUIRED`, and W4
+real AI integration remains `BLOCKED`. The next task is planning-only
+`W3-003 — Grounded RAG Behavior Remediation`, using non-locked development
+evidence while Revision 7 remains locked.
 
 ## Deliverables completed
 
@@ -70,15 +66,20 @@ BLOCKED / NOT STARTED.
 
 ## P0 exit criteria
 
-Not passed. W3-001-CR1 is accepted. W3-002 implementation and integrity incident
-analysis are DONE / REVIEWED / ACCEPTED, but the critical set is invalidated and
-the model verdict is not established.
+`NOT PASSED / NOT CLOSED`. The critical evaluation is valid, finalized, and
+cryptographically verified, but Senior approved none of V0, V1, or V2. Every
+variant fails all 15 Safe Corrective cases; V0/V1 over-abstain on answerable
+cases; and V2 contains evaluator-classified unsafe outcomes and fails all five
+true-abstain cases. This conclusion is categorical under the safety/product
+contract and does not introduce a post-hoc numeric threshold.
 
 ## Risks / limitations
 
 - The safety-first selected gate abstains on all development cases. This avoids
   unsafe answers but has no demonstrated development utility.
-- Results are development-only and cannot be presented as final Week 3 safety.
+- The earlier W3-001 selected-gate results are development-only and must not be
+  presented as the final Week-3 critical-evaluation result. Revision-7 critical
+  evaluation completed and is `FINALIZED`, but no product variant is approved.
 - Classifier confidence remains diagnostic and does not alter R0 rankings.
 - The original Gate-v2 evaluation failed because the frozen relevance mapping was
   incomplete. The adjudicated holdout is post-hoc, not a pristine untouched-label
@@ -86,17 +87,15 @@ the model verdict is not established.
 
 ## Handoff
 
-Senior verdict is `APPROVE_COMMIT — PARTIAL BASELINE`. Review lifecycle: initial
-implementation → Senior `FIX_REQUIRED` → citation metadata binding → evidence
-relevance metrics → non-vacuous citation metrics → config-driven generator
-weights → final approval. The implementation infrastructure is accepted, but
-the selected gate is not a useful production candidate because it answered zero
-of ten positive development queries. CR1 subsequently selected `S0.40_C0.20` on
-design only. Preserve its original FAILED result alongside the exhaustive
-three-row adjudicated PASS evidence. Senior final verdict is `APPROVE_COMMIT —
-QUALIFIED POST-HOC PASS`. W3-002's original numerical run is preserved, but the
-self-referential mapping audit invalidates its model verdict. Do not mark the Week
-3 P0 gate passed.
+The technical evaluation lifecycle is closed: R15-F5 is `FINALIZED`,
+`verify-results` passed, and the 180/180 reproducibility evidence is preserved.
+Senior product verdict is
+`NOT_APPROVED_FOR_PRODUCT_INTEGRATION — REMEDIATION_REQUIRED`; selected variant
+is `NONE`. Candidate Rev7 and its PRIMARY/REPRO evidence remain immutable and
+must not be used for tuning or rerun as a fresh holdout. Next, plan W3-003 using
+non-locked development evidence and define a separately authorized independent
+evaluation before any new product-approval claim. W4 real AI integration remains
+blocked until that future gate passes.
 
 ## W3-002 pristine critical evaluation — 2026-08-03
 
@@ -636,8 +635,48 @@ A15 is proposed as the exact five-path child of Senior-approved R15-F3 `a8dc336b
 ## W3-002-CR1-EA1 A17 post-verify continuation authorization — 2026-08-16
 
 - R15-F5-F1 is published as `328757ffd768ce9603b3ee596f74505afa1b4a4c`.
-- The real lifecycle remains `REPRO_VERIFIED` with history length 11; reproducibility remains provenance-valid and behaviorally identical for 180/180 rows.
+- At A17 authoring time, the real lifecycle was `REPRO_VERIFIED` with history length 11; reproducibility was provenance-valid and behaviorally identical for 180/180 rows.
 - A17 authorizes only `R15_F5_POSTVERIFY_CONTINUATION` to bind the corrected finalization implementation to the existing verified evidence.
-- Real post-verify continuation, finalization, and `verify-results` have not run; the final summary remains absent.
+- At that authoring milestone, real post-verify continuation, finalization, and `verify-results` had not run and the final summary was absent; those steps subsequently completed under separate Senior authorizations.
 - Before finalization, `critical_evaluated=false` and `model_verdict=NOT_ESTABLISHED`; A17 alone does not establish model approval or complete the Week 3 P0 gate.
 - Candidate Revision 7, PRIMARY, reproduction, comparison, and historical lifecycle evidence remain immutable.
+
+## Senior result-quality decision — 2026-08-16
+
+Technical integrity is complete: the R15-F5 package is `FINALIZED`,
+`verify-results` passed, and PRIMARY/REPRO behavior is identical for 180/180
+rows. This cryptographic and reproducibility closure does not imply product
+approval. Senior verdict is
+`NOT_APPROVED_FOR_PRODUCT_INTEGRATION — REMEDIATION_REQUIRED`; no variant is
+selected.
+
+- **V0 — `REJECT_LOW_UTILITY_OVER_ABSTENTION`:** Standard success 0.25, Safe
+  Corrective success 0.0, true-abstain success 1.0, overall safe resolution
+  0.25, unsafe-answer rate 0.0, wrong abstention on answerable cases
+  0.8181818181818182, citation correctness 1.0, and unsupported-claim rate 0.0.
+  It safely abstains but incorrectly abstains on 45/55 answerable cases and
+  succeeds on 0/15 Safe Corrective cases.
+- **V1 — `REJECT_NO_END_TO_END_GAIN`:** all critical outcome metrics exactly
+  match V0. The soft intent boost gives no critical end-to-end improvement.
+- **V2 — `REJECT_UNSAFE_AND_ABSTAIN_FAILURE`:** Standard success 0.625, Safe
+  Corrective success 0.0, true-abstain success 0.0, overall safe resolution
+  0.4166666666666667, unsafe-answer rate 0.08333333333333333, wrong abstention
+  on answerable cases 0.01818181818181818, citation correctness 1.0, and
+  unsupported-claim rate 0.0. It contains five
+  `UNSAFE_PROHIBITED_REQUEST_COMPLIANCE` outcomes, fails all five true-abstain
+  cases, and succeeds on 0/15 Safe Corrective cases.
+
+Across variants, citation correctness is 1.0, unsupported-claim rate is 0.0,
+and Draft/Expired/Future effective usage is 0.0. Grounding integrity is strong,
+while the reproducible remediation surface is runtime behavior and policy:
+gating, abstention utility, Safe Corrective behavior, and unsafe-answer
+prevention. The Banking77 classifier must not be treated as the sole root cause.
+The decision is based on categorical safety/product-contract failures and the
+absence of an acceptable variant, not a new post-hoc numeric threshold.
+
+W3 evaluation work is `COMPLETE`; the W3 P0 product gate is
+`NOT_CLOSED_REMEDIATION_REQUIRED`; W4 real AI integration is `BLOCKED`.
+Candidate Rev7 and its PRIMARY/REPRO evidence remain locked and must not be used
+for tuning or rerun as a fresh holdout. The next task is planning-only
+`W3-003 — Grounded RAG Behavior Remediation`, using non-locked development
+evidence and a separately authorized independent evaluation boundary.

@@ -23,7 +23,8 @@ Priority: `P0 | P1 | P2`
 | W3-001 | 3 | P0 | Grounded pipeline + evidence gate | Implementation accepted; gate-v1 utility not demonstrated | DONE |
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
-| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Candidate revision 7 unchanged; R13 committed/pushed then superseded for future execution by R14 authorization-verifier hardening | BLOCKED / IN PROGRESS |
+| W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Technical lifecycle finalized and verify-results PASS; Senior product verdict requires remediation and approves no variant | DONE / PRODUCT GATE NOT CLOSED |
+| W3-003 | 3 | P0 | Grounded RAG Behavior Remediation | Planning uses non-locked development evidence; protects fail-closed safety; defines a new independent evaluation boundary | TODO / PLANNING ONLY |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -698,8 +699,28 @@ and Week 4 remain blocked.
 ## W3-002-CR1-EA1 A17 post-verify continuation authorization — 2026-08-16
 
 - R15-F5-F1 is published as `328757ffd768ce9603b3ee596f74505afa1b4a4c`.
-- The real lifecycle remains `REPRO_VERIFIED` with history length 11; reproducibility remains provenance-valid and behaviorally identical for 180/180 rows.
+- At A17 authoring time, the real lifecycle was `REPRO_VERIFIED` with history length 11; reproducibility was provenance-valid and behaviorally identical for 180/180 rows.
 - A17 authorizes only `R15_F5_POSTVERIFY_CONTINUATION` to bind the corrected finalization implementation to the existing verified evidence.
-- Real post-verify continuation, finalization, and `verify-results` have not run; the final summary remains absent.
+- At that authoring milestone, real post-verify continuation, finalization, and `verify-results` had not run and the final summary was absent; those steps subsequently completed under separate Senior authorizations.
 - Before finalization, `critical_evaluated=false` and `model_verdict=NOT_ESTABLISHED`; A17 alone does not establish model approval or complete the Week 3 P0 gate.
 - Candidate Revision 7, PRIMARY, reproduction, comparison, and historical lifecycle evidence remain immutable.
+
+## W3-002-CR1-EA1-SRD1 — Senior result decision record
+
+- **Priority:** P0.
+- **Status:** `DONE / READY FOR SENIOR REVIEW`.
+- **Technical integrity:** `DONE / FINALIZED / VERIFY_RESULTS_PASS`; lifecycle
+  state is `FINALIZED`, history length is 12, and PRIMARY/REPRO equality is
+  180/180.
+- **Senior model/pipeline verdict:**
+  `NOT_APPROVED_FOR_PRODUCT_INTEGRATION — REMEDIATION_REQUIRED`.
+- **Selected variant:** none. V0 is `REJECT_LOW_UTILITY_OVER_ABSTENTION`, V1 is
+  `REJECT_NO_END_TO_END_GAIN`, and V2 is
+  `REJECT_UNSAFE_AND_ABSTAIN_FAILURE`.
+- **Gate status:** W3 evaluation work is complete, but the W3 P0 product gate is
+  `NOT_CLOSED_REMEDIATION_REQUIRED`; W4 real AI integration is `BLOCKED`.
+- **Locked boundary:** Candidate Rev7 and frozen PRIMARY/REPRO evidence remain
+  immutable and must not become tuning data or be rerun as a fresh holdout.
+- **Next:** plan `W3-003 — Grounded RAG Behavior Remediation` using separate
+  development/regression evidence. Implementation and any independent
+  reevaluation require separate authorization.

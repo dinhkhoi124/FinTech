@@ -6,12 +6,30 @@
 - Project: PayResolve AI
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
-- P0 gate status: BLOCKED / IN PROGRESS
-- Active task: `W3-002-CR1-EA1-A15-AUTHORIZATION-AUTHORING` — PROPOSED / AWAITING SENIOR REVIEW
-- Next task: Senior reviews A15 authorization; after a real A15 commit and post-push verification, run only the one-shot `migrate-r15-continuation` before any reproduction retry.
-- Last updated: 2026-08-14 by Codex
+- P0 gate status: NOT CLOSED / REMEDIATION REQUIRED
+- Active task: `W3-002-CR1-EA1-SRD1-SENIOR-RESULT-DECISION-RECORD` — READY FOR REVIEW
+- Next task: `W3-003 — Grounded RAG Behavior Remediation` planning only; use non-locked development evidence and define a separately authorized independent evaluation boundary before any new product-approval claim.
+- Last updated: 2026-08-16 by Codex
+
+The current authoritative status is the SRD1 section at the end of this file.
+Earlier readiness, authorization, and execution sections are retained as dated
+historical milestones and do not override the finalized SRD1 status.
 
 ## Active objective
+
+The technical critical-evaluation lifecycle is complete: R15-F5 is
+`FINALIZED`, `verify-results` passed, and PRIMARY/REPRO behavior is identical
+for 180/180 rows. Senior approved no product variant and issued
+`NOT_APPROVED_FOR_PRODUCT_INTEGRATION — REMEDIATION_REQUIRED`. Current work is
+limited to closing and publishing the SRD1 decision documentation. The next
+engineering task is planning-only `W3-003 — Grounded RAG Behavior Remediation`,
+using non-locked development evidence. Candidate Rev7 and its PRIMARY/REPRO
+results remain immutable and must not be tuning data or be rerun as a fresh
+holdout. W4 real AI integration remains blocked until remediation is followed
+by a separately authorized independent evaluation and product verdict.
+
+## Historical pre-evaluation objective context
+
 Candidate Revision 7 remains frozen and Senior semantic-approved. Real E1
 attempts under historical A12 exposed an offline encoder-binding defect before
 any raw output was persisted. EA1 Revision 12 and A12 remain historical
@@ -79,7 +97,11 @@ create or authorize candidate revision 5; the later, separately reviewed
 authoring contract was the sole authorization for revision 5, while the Senior
 `FIX_REQUIRED` correction contract separately authorized revision 6.
 
-## W3-002-CR1 authoring boundary
+## Historical W3-002-CR1 authoring boundary
+
+The lifecycle booleans below describe the pre-evaluation authoring milestone.
+They are preserved as historical evidence and are superseded for current
+operational status by the SRD1 section at the end of this file.
 
 - Contract-amendment task: DONE / REVIEWED / COMMITTED / PUSHED
 - Contract-amendment commit: `22e8b38ae28e86537ece8aa892f39c35b517e74b`
@@ -462,11 +484,13 @@ not candidate semantic approval.
   exhaustive symmetric correction passes the registered safety and utility gates.
 
 ## Next 3 actions
-1. Submit the frozen W3-002-CR1-EA1 readiness revision-10 bundle for independent
-   Senior authorization review.
-2. Keep evaluation, inference, and critical execution closed until a separate
-   authorization record is approved.
-3. Keep Week 3 P0 and Week 4 blocked while evaluation authorization remains false.
+1. Close, review, and publish the SRD1 Senior result decision record without
+   modifying the finalized lifecycle or locked Revision-7 evidence.
+2. Plan `W3-003 — Grounded RAG Behavior Remediation` root-cause and remediation
+   work using non-locked development evidence; do not start implementation in
+   this reporting task.
+3. Define a new independent evaluation boundary before any product-approval
+   claim, and keep W4 real AI integration blocked until that gate passes.
 
 ## W3-002-CR1-EA1 readiness revision 10 — 2026-08-11
 
@@ -576,7 +600,12 @@ not candidate semantic approval.
   model/encoder loading, retrieval, generation, inference, V0/V1/V2,
   gold/evaluator loading, or critical evaluation has occurred.
 
-## Handoff note
+## Historical pre-CR1 handoff note
+
+This handoff describes the earlier W3-001/W3-002 incident milestone and is
+superseded for current operational status by `## Current status`,
+`## Active objective`, `## Next 3 actions`, and the final SRD1 section.
+
 Week 1 is complete and defensible. The exact semantic model/config above is frozen
 for downstream PayResolve AI, with lexical retained as fallback. Git preflight on
 2026-07-28 confirmed clean synchronized `main` at W1-004 commit `7c60110`.
@@ -712,8 +741,35 @@ W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
 ### W3-002-CR1-EA1 A17 post-verify continuation authorization — 2026-08-16
 
 - R15-F5-F1 is published as `328757ffd768ce9603b3ee596f74505afa1b4a4c`.
-- The real lifecycle remains `REPRO_VERIFIED` with history length 11; reproducibility remains provenance-valid and behaviorally identical for 180/180 rows.
+- At A17 authoring time, the real lifecycle was `REPRO_VERIFIED` with history length 11; reproducibility was provenance-valid and behaviorally identical for 180/180 rows.
 - A17 authorizes only `R15_F5_POSTVERIFY_CONTINUATION` to bind the corrected finalization implementation to the existing verified evidence.
-- Real post-verify continuation, finalization, and `verify-results` have not run; the final summary remains absent.
+- At that authoring milestone, real post-verify continuation, finalization, and `verify-results` had not run and the final summary was absent; those steps subsequently completed under separate Senior authorizations.
 - Before finalization, `critical_evaluated=false` and `model_verdict=NOT_ESTABLISHED`; A17 alone does not establish model approval or complete the Week 3 P0 gate.
 - Candidate Revision 7, PRIMARY, reproduction, comparison, and historical lifecycle evidence remain immutable.
+
+## SRD1 Senior result decision — 2026-08-16
+
+- **Technical integrity:** `DONE / FINALIZED / VERIFY_RESULTS_PASS`. The finalized
+  execution state remains `FINALIZED` with history length 12, and PRIMARY versus
+  REPRO remains behaviorally identical for 180/180 rows.
+- **Model/pipeline result:** `NOT_APPROVED_FOR_PRODUCT_INTEGRATION /
+  REMEDIATION_REQUIRED`; selected variant is `NONE`.
+- **Variant disposition:** V0 is rejected for low utility and over-abstention;
+  V1 is rejected because the soft intent boost produces no end-to-end gain over
+  V0; V2 is rejected for unsafe prohibited-request compliance and abstain failure.
+- **Decision basis:** all variants fail all 15 Safe Corrective cases; V0/V1
+  incorrectly abstain on 45/55 answerable cases; V2 fails all five true-abstain
+  cases and contains five evaluator-classified unsafe outcomes. This is a
+  categorical safety/product-contract decision, not a newly invented numeric
+  threshold failure.
+- **Grounding/reproducibility:** citation correctness is 1.0, unsupported-claim
+  rate is 0.0, and Draft/Expired/Future effective usage is 0.0 for every
+  variant. The weaknesses are stable and reproducible; grounding integrity is
+  strong. Do not infer that the Banking77 classifier alone is the root cause.
+- **Gates:** W3 evaluation work is `COMPLETE`; the W3 P0 product gate is
+  `NOT_CLOSED_REMEDIATION_REQUIRED`; W4 real AI integration remains `BLOCKED`.
+- **Locked-eval policy:** Candidate Rev7 and its PRIMARY/REPRO results remain
+  immutable. Do not tune against Rev7 or rerun it as a fresh holdout. Future
+  remediation must use non-locked development evidence and a separately
+  authorized independent evaluation before any new product-approval claim.
+- **Next task:** `W3-003 — Grounded RAG Behavior Remediation`, planning only.

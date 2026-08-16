@@ -1,0 +1,140 @@
+{
+  "behavioral_equal_rows": 180,
+  "behavioral_total_rows": 180,
+  "direct_input_sha256": {
+    "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json": "114d29ec72a561886a8effd393510f9365e62f1d3c8783aa9def919fee04e0b3",
+    "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json": "51a3a0843d9d91dcee36e83ed11bd9fa237b34d9f9abbbfa4401b88ce53d96e2"
+  },
+  "primary_reproduction_identical": true,
+  "provenance_direct_input_sha256": {
+    "configs/evaluation/critical_eval_v2_execution.json": "36f372c6dd08e948bceea52d3222e8510e32382bec8748e264f8ac4eb977d943",
+    "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json": "4176520d36027926d7e0f9497ed10c4e9477250e64908de4d417847e5237b879",
+    "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
+  },
+  "status": "PASS",
+  "variants": {
+    "V0": {
+      "behavioral_differing_fields_by_query": {},
+      "behavioral_differing_query_ids": [],
+      "behavioral_equal_rows": 60,
+      "behavioral_identical": true,
+      "behavioral_total_rows": 60,
+      "excluded_nonbehavioral_fields": [
+        "execution_id",
+        "run_label",
+        "latency_ms",
+        "execution_environment_reference",
+        "execution_environment_sha256",
+        "determinism.execution_contract_sha256"
+      ],
+      "identical_excluding_run_identity_and_latency": false,
+      "legacy_equal_rows": 0,
+      "primary_provenance_valid": true,
+      "provenance_valid": true,
+      "reproduction_provenance_valid": true,
+      "separately_validated_provenance_fields": {
+        "primary": [
+          "determinism.execution_contract_sha256",
+          "determinism.seed",
+          "execution_environment_reference",
+          "execution_environment_sha256",
+          "execution_id",
+          "run_label",
+          "variant_id"
+        ],
+        "reproduction": [
+          "determinism.execution_contract_sha256",
+          "determinism.seed",
+          "execution_environment_reference",
+          "execution_environment_sha256",
+          "execution_id",
+          "run_label",
+          "runtime.authorized_environment_identity_sha256",
+          "variant_id"
+        ]
+      }
+    },
+    "V1": {
+      "behavioral_differing_fields_by_query": {},
+      "behavioral_differing_query_ids": [],
+      "behavioral_equal_rows": 60,
+      "behavioral_identical": true,
+      "behavioral_total_rows": 60,
+      "excluded_nonbehavioral_fields": [
+        "execution_id",
+        "run_label",
+        "latency_ms",
+        "execution_environment_reference",
+        "execution_environment_sha256",
+        "determinism.execution_contract_sha256"
+      ],
+      "identical_excluding_run_identity_and_latency": false,
+      "legacy_equal_rows": 0,
+      "primary_provenance_valid": true,
+      "provenance_valid": true,
+      "reproduction_provenance_valid": true,
+      "separately_validated_provenance_fields": {
+        "primary": [
+          "determinism.execution_contract_sha256",
+          "determinism.seed",
+          "execution_environment_reference",
+          "execution_environment_sha256",
+          "execution_id",
+          "run_label",
+          "variant_id"
+        ],
+        "reproduction": [
+          "determinism.execution_contract_sha256",
+          "determinism.seed",
+          "execution_environment_reference",
+          "execution_environment_sha256",
+          "execution_id",
+          "run_label",
+          "runtime.authorized_environment_identity_sha256",
+          "variant_id"
+        ]
+      }
+    },
+    "V2": {
+      "behavioral_differing_fields_by_query": {},
+      "behavioral_differing_query_ids": [],
+      "behavioral_equal_rows": 60,
+      "behavioral_identical": true,
+      "behavioral_total_rows": 60,
+      "excluded_nonbehavioral_fields": [
+        "execution_id",
+        "run_label",
+        "latency_ms",
+        "execution_environment_reference",
+        "execution_environment_sha256",
+        "determinism.execution_contract_sha256"
+      ],
+      "identical_excluding_run_identity_and_latency": false,
+      "legacy_equal_rows": 0,
+      "primary_provenance_valid": true,
+      "provenance_valid": true,
+      "reproduction_provenance_valid": true,
+      "separately_validated_provenance_fields": {
+        "primary": [
+          "determinism.execution_contract_sha256",
+          "determinism.seed",
+          "execution_environment_reference",
+          "execution_environment_sha256",
+          "execution_id",
+          "run_label",
+          "variant_id"
+        ],
+        "reproduction": [
+          "determinism.execution_contract_sha256",
+          "determinism.seed",
+          "execution_environment_reference",
+          "execution_environment_sha256",
+          "execution_id",
+          "run_label",
+          "runtime.authorized_environment_identity_sha256",
+          "variant_id"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "authorization_commit": "5263b93b0a1e26dc409f083f3190bfcedf80063b",
+  "history": [
+    {
+      "action": "run-primary-V0",
+      "direct_input_sha256": {
+        "configs/evaluation/critical_eval_v2_execution.json": "4af2357c3c24341b2c144978df1b967439f4ff0fed337f0513547618a62431cf",
+        "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v0_raw_outputs.jsonl": "c27ff7a80d3ed2214fca647ce46091a7ed2c8029ff0b8527fcad8d3e36844ab2"
+      },
+      "from": "AUTHORIZED",
+      "to": "PRIMARY_V0_COMPLETE"
+    },
+    {
+      "action": "run-primary-V1",
+      "direct_input_sha256": {
+        "configs/evaluation/critical_eval_v2_execution.json": "4af2357c3c24341b2c144978df1b967439f4ff0fed337f0513547618a62431cf",
+        "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v1_raw_outputs.jsonl": "dff680373ff943adfe6379eb59add82b95254670653646ffc4abd946e562a608"
+      },
+      "from": "PRIMARY_V0_COMPLETE",
+      "to": "PRIMARY_V1_COMPLETE"
+    },
+    {
+      "action": "run-primary-V2",
+      "direct_input_sha256": {
+        "configs/evaluation/critical_eval_v2_execution.json": "4af2357c3c24341b2c144978df1b967439f4ff0fed337f0513547618a62431cf",
+        "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v2_raw_outputs.jsonl": "943c4a7a1bc3e0d305962751256c1723d4e18ff8dd84b63fdd5b520532418a35"
+      },
+      "from": "PRIMARY_V1_COMPLETE",
+      "to": "PRIMARY_V2_COMPLETE"
+    },
+    {
+      "action": "freeze-primary",
+      "direct_input_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v0_raw_outputs.jsonl": "c27ff7a80d3ed2214fca647ce46091a7ed2c8029ff0b8527fcad8d3e36844ab2",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v1_raw_outputs.jsonl": "dff680373ff943adfe6379eb59add82b95254670653646ffc4abd946e562a608",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_v2_raw_outputs.jsonl": "943c4a7a1bc3e0d305962751256c1723d4e18ff8dd84b63fdd5b520532418a35"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json": "114d29ec72a561886a8effd393510f9365e62f1d3c8783aa9def919fee04e0b3"
+      },
+      "from": "PRIMARY_V2_COMPLETE",
+      "to": "PRIMARY_FROZEN"
+    },
+    {
+      "action": "evaluate-primary",
+      "direct_input_sha256": {
+        "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl": "866d53d598ddaa22c109b5c248e93af3d1d7674b57b04df3b86854fd8c69abc5",
+        "data/evaluation/critical_eval_v2_mapping.jsonl": "cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1",
+        "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl": "7b35f0a4b35b2fe919f8e8585ab6f827fd97670ee2ecce8b480a91e658664625",
+        "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json": "67d727c15b7531f3837d1540c0f82af88ebc1d31ed696cceeee329c6996f9509",
+        "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl": "d3547962f436102ee4387ae7761187df253117a225b14e72cfd64d43d664a1de",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json": "114d29ec72a561886a8effd393510f9365e62f1d3c8783aa9def919fee04e0b3"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_claim_audit.jsonl": "3d6766797c65c876ce3070cef311587152b68655bd4ad7e88f8f753b754e80ae",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_metrics.json": "ef480aae3d4d0f30e306c5fd9c2fb97ce1fe3dafda44c5a5caf7a4e592296c3b",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_outcomes.jsonl": "bb7715af1e22bbe1ce791f344c833358af7075ea6ae02adfc952f615dc1b64ce"
+      },
+      "from": "PRIMARY_FROZEN",
+      "to": "PRIMARY_EVALUATED"
+    },
+    {
+      "action": "run-repro-V0",
+      "direct_input_sha256": {
+        "configs/evaluation/critical_eval_v2_execution.json": "36f372c6dd08e948bceea52d3222e8510e32382bec8748e264f8ac4eb977d943",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json": "4176520d36027926d7e0f9497ed10c4e9477250e64908de4d417847e5237b879"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v0_raw_outputs.jsonl": "1ffc5531dfcc7aacb664c23691f8616c8b8a1e6e8930361f9aa647b35311eaf4"
+      },
+      "from": "PRIMARY_EVALUATED",
+      "to": "REPRO_V0_COMPLETE"
+    },
+    {
+      "action": "run-repro-V1",
+      "direct_input_sha256": {
+        "configs/evaluation/critical_eval_v2_execution.json": "36f372c6dd08e948bceea52d3222e8510e32382bec8748e264f8ac4eb977d943",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json": "4176520d36027926d7e0f9497ed10c4e9477250e64908de4d417847e5237b879"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v1_raw_outputs.jsonl": "bc1a1436bd183af10b04bca1c0644d21a9d8b2a6e49b14dad09e15e452c64221"
+      },
+      "from": "REPRO_V0_COMPLETE",
+      "to": "REPRO_V1_COMPLETE"
+    },
+    {
+      "action": "run-repro-V2",
+      "direct_input_sha256": {
+        "configs/evaluation/critical_eval_v2_execution.json": "36f372c6dd08e948bceea52d3222e8510e32382bec8748e264f8ac4eb977d943",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json": "4176520d36027926d7e0f9497ed10c4e9477250e64908de4d417847e5237b879"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v2_raw_outputs.jsonl": "d02ed5bf0d4f4f48aef24743e043d4c85239c2bd17461179863a4d38c558b742"
+      },
+      "from": "REPRO_V1_COMPLETE",
+      "to": "REPRO_V2_COMPLETE"
+    },
+    {
+      "action": "freeze-repro",
+      "direct_input_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v0_raw_outputs.jsonl": "1ffc5531dfcc7aacb664c23691f8616c8b8a1e6e8930361f9aa647b35311eaf4",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v1_raw_outputs.jsonl": "bc1a1436bd183af10b04bca1c0644d21a9d8b2a6e49b14dad09e15e452c64221",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_v2_raw_outputs.jsonl": "d02ed5bf0d4f4f48aef24743e043d4c85239c2bd17461179863a4d38c558b742"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json": "51a3a0843d9d91dcee36e83ed11bd9fa237b34d9f9abbbfa4401b88ce53d96e2"
+      },
+      "from": "REPRO_V2_COMPLETE",
+      "to": "REPRO_FROZEN"
+    },
+    {
+      "action": "evaluate-repro",
+      "direct_input_sha256": {
+        "data/evaluation/critical_eval_v2_control_plane_boundary_rules.jsonl": "866d53d598ddaa22c109b5c248e93af3d1d7674b57b04df3b86854fd8c69abc5",
+        "data/evaluation/critical_eval_v2_mapping.jsonl": "cc9e82adbb97fd8054e58d3d6548ca03b15046bb37eca53ef9aa529dc4ec12f1",
+        "data/evaluation/critical_eval_v2_obligation_evaluator_rules.jsonl": "7b35f0a4b35b2fe919f8e8585ab6f827fd97670ee2ecce8b480a91e658664625",
+        "data/evaluation/critical_eval_v2_revision_10_disclosure_literal_registry.json": "67d727c15b7531f3837d1540c0f82af88ebc1d31ed696cceeee329c6996f9509",
+        "data/evaluation/critical_eval_v2_safety_evaluator_rules.jsonl": "d3547962f436102ee4387ae7761187df253117a225b14e72cfd64d43d664a1de",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json": "51a3a0843d9d91dcee36e83ed11bd9fa237b34d9f9abbbfa4401b88ce53d96e2"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_claim_audit.jsonl": "11eef3aca5e2ac05d84cabc0ac2d5d1722d0d4dba5d872f01b04ad5983df77ab",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_metrics.json": "55dd0b77820381bea4498a1814fe59694b7dcbc2d06f5877e18689c0a83ed48b",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_outcomes.jsonl": "687e431952faeddb0a676a030c9aa9d9686c6b5b44b2e06517c7767f5de4ea12"
+      },
+      "from": "REPRO_FROZEN",
+      "to": "REPRO_EVALUATED"
+    },
+    {
+      "action": "verify-reproducibility",
+      "direct_input_sha256": {
+        "configs/evaluation/critical_eval_v2_execution.json": "36f372c6dd08e948bceea52d3222e8510e32382bec8748e264f8ac4eb977d943",
+        "reports/week_03/results/critical_eval_v2_revision_15_runtime_execution_environment.json": "4176520d36027926d7e0f9497ed10c4e9477250e64908de4d417847e5237b879",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_raw_manifest.json": "114d29ec72a561886a8effd393510f9365e62f1d3c8783aa9def919fee04e0b3",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_raw_manifest.json": "51a3a0843d9d91dcee36e83ed11bd9fa237b34d9f9abbbfa4401b88ce53d96e2",
+        "reports/week_03/results/critical_eval_v2_runtime_execution_environment.json": "b036b8e337f809817dbbc6006e36d892c63480df2a919d9775279195c85bd22d"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json": "3476317b6946f703b43375f039e3b4f25d777c42e7c055698d490585c5e9cb80"
+      },
+      "from": "REPRO_EVALUATED",
+      "to": "REPRO_VERIFIED"
+    },
+    {
+      "action": "finalize",
+      "direct_input_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_claim_audit.jsonl": "3d6766797c65c876ce3070cef311587152b68655bd4ad7e88f8f753b754e80ae",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_metrics.json": "ef480aae3d4d0f30e306c5fd9c2fb97ce1fe3dafda44c5a5caf7a4e592296c3b",
+        "reports/week_03/results/critical_eval_v2_revision_7_primary_outcomes.jsonl": "bb7715af1e22bbe1ce791f344c833358af7075ea6ae02adfc952f615dc1b64ce",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_claim_audit.jsonl": "11eef3aca5e2ac05d84cabc0ac2d5d1722d0d4dba5d872f01b04ad5983df77ab",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_comparison.json": "3476317b6946f703b43375f039e3b4f25d777c42e7c055698d490585c5e9cb80",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_metrics.json": "55dd0b77820381bea4498a1814fe59694b7dcbc2d06f5877e18689c0a83ed48b",
+        "reports/week_03/results/critical_eval_v2_revision_7_reproduction_outcomes.jsonl": "687e431952faeddb0a676a030c9aa9d9686c6b5b44b2e06517c7767f5de4ea12"
+      },
+      "direct_output_sha256": {
+        "reports/week_03/results/critical_eval_v2_revision_7_final_summary.json": "cdd43647b480b8e1f1643d0ed048f80138d6e2e84925b8cb0ed6bceae8d55200"
+      },
+      "from": "REPRO_VERIFIED",
+      "to": "FINALIZED"
+    }
+  ],
+  "readiness_implementation_commit": "328757ffd768ce9603b3ee596f74505afa1b4a4c",
+  "state": "FINALIZED",
+  "task_id": "W3-002-CR1-EA1"
+}

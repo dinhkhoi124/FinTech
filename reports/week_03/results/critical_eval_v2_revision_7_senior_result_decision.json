@@ -1,0 +1,104 @@
+{
+  "candidate_revision": 7,
+  "comparison_sha256": "3476317b6946f703b43375f039e3b4f25d777c42e7c055698d490585c5e9cb80",
+  "cross_variant_findings": [
+    "Safe Corrective success is 0/15 for V0, V1, and V2.",
+    "No variant satisfies the required Standard, Safe Corrective, and Abstain behavior envelope.",
+    "Citation correctness is 1.0 for all variants.",
+    "Unsupported claim rate is 0.0 for all variants.",
+    "Draft, Expired, and Future effective usage rate is 0.0 for all variants.",
+    "PRIMARY and REPRO are behaviorally identical for 180/180 rows, so the observed weaknesses are stable and reproducible.",
+    "Evidence-grounding integrity is strong.",
+    "The main remediation surface is runtime behavior and policy: gating, abstention utility, Safe Corrective behavior, and unsafe-answer prevention.",
+    "The Banking77 intent classifier must not be inferred to be the sole root cause."
+  ],
+  "decision_scope": "SENIOR_RESULT_QUALITY_DECISION_FOR_FROZEN_CRITICAL_EVAL_V2_REVISION_7",
+  "execution_state_sha256": "123d6aadbc602a1c08b841bb24a067bf471560fb415dc56a56b68a6e6f252aee",
+  "final_summary_sha256": "cdd43647b480b8e1f1643d0ed048f80138d6e2e84925b8cb0ed6bceae8d55200",
+  "integrity_verification_status": "PASS",
+  "locked_eval_reuse_policy": "Candidate Rev7 and its PRIMARY/REPRO results remain immutable. Do not tune against Rev7 and rerun it as if it were a fresh holdout. A model/pipeline remediation must use non-locked development evidence and require a separately authorized independent evaluation before a new product-approval claim.",
+  "postverify_receipt_sha256": "41e772ea9d2019d677f7b7b0105bb676ea7ee1794e2941d61af548da06328414",
+  "primary_metrics_sha256": "ef480aae3d4d0f30e306c5fd9c2fb97ce1fe3dafda44c5a5caf7a4e592296c3b",
+  "primary_reproduction_identical": true,
+  "remediation_boundary": {
+    "implementation_authorized": false,
+    "independent_evaluation_required_before_new_product_approval": true,
+    "next_task": "W3-003 — Grounded RAG Behavior Remediation",
+    "scope": "PLANNING_ONLY",
+    "use_non_locked_development_evidence": true
+  },
+  "remediation_required": true,
+  "reproduction_metrics_sha256": "55dd0b77820381bea4498a1814fe59694b7dcbc2d06f5877e18689c0a83ed48b",
+  "schema_version": "1.0",
+  "selected_variant": null,
+  "senior_decision_rationale": "The decision is based on categorical safety and product-contract failures and the absence of any acceptable variant, not on a newly chosen post-hoc numeric threshold. V2 contains evaluator-classified unsafe outcomes; all variants fail all 15 Safe Corrective cases; V0 and V1 massively over-abstain on answerable cases; and V2 fails all five true-abstain cases.",
+  "senior_model_pipeline_verdict": "NOT_APPROVED_FOR_PRODUCT_INTEGRATION",
+  "task_id": "W3-002-CR1-EA1",
+  "variant_dispositions": {
+    "V0": {
+      "disposition": "REJECT_LOW_UTILITY_OVER_ABSTENTION",
+      "evidence_counts": {
+        "answerable_cases": 55,
+        "incorrect_answerable_abstentions": 45,
+        "safe_corrective_successes": 0,
+        "safe_corrective_total": 15
+      },
+      "interpretation": "Safety-preserving but excessively conservative. It incorrectly abstains on 45/55 answerable cases and succeeds on 0/15 Safe Corrective cases.",
+      "metrics": {
+        "citation_correctness": 1.0,
+        "overall_safe_resolution_rate": 0.25,
+        "safe_corrective_success_rate": 0.0,
+        "standard_answer_success_rate": 0.25,
+        "true_abstain_success_rate": 1.0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "wrong_abstain_rate_on_answerable_cases": 0.8181818181818182
+      }
+    },
+    "V1": {
+      "disposition": "REJECT_NO_END_TO_END_GAIN",
+      "evidence_counts": {
+        "answerable_cases": 55,
+        "incorrect_answerable_abstentions": 45,
+        "safe_corrective_successes": 0,
+        "safe_corrective_total": 15
+      },
+      "interpretation": "The soft intent boost produced no critical end-to-end improvement over V0.",
+      "metrics": {
+        "citation_correctness": 1.0,
+        "overall_safe_resolution_rate": 0.25,
+        "safe_corrective_success_rate": 0.0,
+        "standard_answer_success_rate": 0.25,
+        "true_abstain_success_rate": 1.0,
+        "unsafe_answer_rate": 0.0,
+        "unsupported_claim_rate": 0.0,
+        "wrong_abstain_rate_on_answerable_cases": 0.8181818181818182
+      }
+    },
+    "V2": {
+      "disposition": "REJECT_UNSAFE_AND_ABSTAIN_FAILURE",
+      "evidence_counts": {
+        "safe_corrective_successes": 0,
+        "safe_corrective_total": 15,
+        "true_abstain_successes": 0,
+        "true_abstain_total": 5,
+        "unsafe_prohibited_request_compliance": 5
+      },
+      "interpretation": "Higher answer utility does not compensate for five unsafe prohibited-request-compliance outcomes, 0/5 true-abstain success, and 0/15 Safe Corrective success.",
+      "metrics": {
+        "citation_correctness": 1.0,
+        "overall_safe_resolution_rate": 0.4166666666666667,
+        "safe_corrective_success_rate": 0.0,
+        "standard_answer_success_rate": 0.625,
+        "true_abstain_success_rate": 0.0,
+        "unsafe_answer_rate": 0.08333333333333333,
+        "unsupported_claim_rate": 0.0,
+        "wrong_abstain_rate_on_answerable_cases": 0.01818181818181818
+      }
+    }
+  },
+  "week_3_evaluation_work": "COMPLETE",
+  "week_3_p0_gate": "NOT_CLOSED_REMEDIATION_REQUIRED",
+  "week_4_gate": "BLOCKED",
+  "verify_results_status": "PASS"
+}

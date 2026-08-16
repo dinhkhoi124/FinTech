@@ -1,0 +1,17 @@
+{
+  "candidate_membership_sha256": "8788891545693b640abbaab0d8de8ae3d7b5900f5acb810df7b674250721c875",
+  "mapping_loaded": false,
+  "raw_outputs_frozen": true,
+  "run_label": "primary",
+  "task_id": "W3-002-CR1-EA1",
+  "variant_query_count": {
+    "V0": 60,
+    "V1": 60,
+    "V2": 60
+  },
+  "variant_sha256": {
+    "V0": "c27ff7a80d3ed2214fca647ce46091a7ed2c8029ff0b8527fcad8d3e36844ab2",
+    "V1": "dff680373ff943adfe6379eb59add82b95254670653646ffc4abd946e562a608",
+    "V2": "943c4a7a1bc3e0d305962751256c1723d4e18ff8dd84b63fdd5b520532418a35"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "comparator_calls": 0,
+  "encoder_calls": 0,
+  "evaluator_calls": 0,
+  "generation_calls": 0,
+  "history_length": 11,
+  "history_sha256": "49767242971fe98135d6bfe2faa24350e5dfc3561bd0d0339d7c7ae04f42cc34",
+  "legacy_authorization_commit": "8de0061ed3f4e421353a3c47a733ab081bfccd88",
+  "legacy_comparison_sha256": "3476317b6946f703b43375f039e3b4f25d777c42e7c055698d490585c5e9cb80",
+  "legacy_readiness_commit": "e6b49d4db4658251d68692aba812ad080ce5b3e1",
+  "legacy_state_sha256": "7b221a4c35878a1aa597220e8e089d090bc9317f39b6201872cfa7c5f04387bd",
+  "migration": "R15_F5_POSTVERIFY_CONTINUATION",
+  "model_calls": 0,
+  "new_authorization_commit": "5263b93b0a1e26dc409f083f3190bfcedf80063b",
+  "new_readiness_commit": "328757ffd768ce9603b3ee596f74505afa1b4a4c",
+  "posteval_receipt_sha256": "9d258ee17f64b930f092a7c6502f0e475405ed4773aab05e2cc06257070583d8",
+  "repaired_state_sha256": "bbafbf10fbd758cf81741b763480bcb3d5dfb6e8464cc8b9dc43be03b72dc55b",
+  "retrieval_calls": 0,
+  "schema_version": "1.0",
+  "state": "REPRO_VERIFIED",
+  "status": "PASS",
+  "status_history": [
+    "PREPARED",
+    "PASS"
+  ]
+}
