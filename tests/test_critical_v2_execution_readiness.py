@@ -855,6 +855,17 @@ class CriticalV2ExecutionReadinessTests(unittest.TestCase):
         counter = {"loads": 0, "executions": 0}
         auth = {"status": "PASS", "authorization_commit": "a", "readiness_implementation_commit": "r"}
         with self._isolated_preexecution_root() as (root, config_path):
+            # This is an AUTHORIZED/history-0 fixture, before any R15
+            # continuation exists.  The isolated tracked tree also contains
+            # today's published continuation receipts, so remove those
+            # unrelated later-state prerequisites instead of mocking the
+            # state-machine guard that this test exercises.
+            for relative in (
+                self.config["continuation"]["receipt"],
+                execution.POSTEVAL_CONTINUATION_RECEIPT,
+                execution.POSTVERIFY_CONTINUATION_RECEIPT,
+            ):
+                (root / relative).unlink(missing_ok=True)
             execution._write_json(
                 root / self.config["evaluation_outputs"]["execution_state"],
                 {**auth, "task_id": self.config["task_id"], "state": "AUTHORIZED", "history": []},

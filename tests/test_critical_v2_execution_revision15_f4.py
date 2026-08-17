@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import shutil
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -220,11 +222,64 @@ class Revision15F4ComparatorCorrectionTests(unittest.TestCase):
         )
 
     def test_real_a16_rejects_uncommitted_f5_bytes(self) -> None:
-        with self.assertRaisesRegex(
-            execution.CriticalV2ExecutionError,
-            "authorization execution source/config/test hash mismatch",
-        ):
-            execution.verify_execution_authorization(ROOT, CONFIG_PATH)
+        # Prove the historical byte binding directly.  Current HEAD is no
+        # longer A16, so asking its topology verifier to behave like A16 would
+        # only test whichever modern guard happens to fail first.
+        a16_commit = execution.LEGACY_R15_F5_AUTHORIZATION_COMMIT
+        readiness_commit = execution.LEGACY_R15_F5_READINESS_COMMIT
+        f5_commit = "328757ffd768ce9603b3ee596f74505afa1b4a4c"
+        authorization_relative = self.config["authorization"]["committed_record"]
+        authorization = json.loads(
+            subprocess.check_output(
+                ["git", "-C", str(ROOT), "show", f"{a16_commit}:{authorization_relative}"]
+            )
+        )
+        self.assertEqual(authorization["readiness_implementation_commit"], readiness_commit)
+        self.assertEqual(
+            subprocess.check_output(
+                ["git", "-C", str(ROOT), "rev-parse", f"{f5_commit}^"],
+                text=True,
+            ).strip(),
+            a16_commit,
+        )
+        f5_paths = set(
+            subprocess.check_output(
+                [
+                    "git", "-C", str(ROOT), "diff-tree", "--no-commit-id",
+                    "--name-only", "-r", f5_commit,
+                ],
+                text=True,
+            ).splitlines()
+        )
+        self.assertEqual(
+            f5_paths,
+            {
+                "src/payresolve_ai/evaluation/critical_v2_execution.py",
+                "scripts/evaluation/week3_critical_v2_execution.py",
+                "scripts/evaluation/build_critical_v2_ea1_revision15_f5_f1_review_bundle.py",
+                "scripts/evaluation/verify_critical_v2_ea1_revision15_f5_f1_bundle.py",
+                "tests/test_critical_v2_execution_revision15_f5_f1.py",
+                "tests/test_critical_v2_execution_revision15_f4.py",
+            },
+        )
+        authorized_hashes = authorization["execution_artifact_sha256"]
+        for relative in sorted(f5_paths):
+            with self.subTest(f5_path=relative):
+                f5_bytes = subprocess.check_output(
+                    ["git", "-C", str(ROOT), "show", f"{f5_commit}:{relative}"]
+                )
+                self.assertNotEqual(
+                    authorized_hashes.get(relative),
+                    hashlib.sha256(f5_bytes).hexdigest(),
+                )
+                if relative in authorized_hashes:
+                    readiness_bytes = subprocess.check_output(
+                        ["git", "-C", str(ROOT), "show", f"{readiness_commit}:{relative}"]
+                    )
+                    self.assertEqual(
+                        authorized_hashes[relative],
+                        hashlib.sha256(readiness_bytes).hexdigest(),
+                    )
 
 
 if __name__ == "__main__":

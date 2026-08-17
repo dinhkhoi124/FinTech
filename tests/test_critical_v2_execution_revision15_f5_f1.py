@@ -50,6 +50,32 @@ class Revision15F5F1FinalizationHashClosureTests(unittest.TestCase):
         }
         for relative in paths:
             self._copy(root, relative)
+        # The published source state is FINALIZED/history-12.  Reconstruct the
+        # exact historical REPRO_VERIFIED/history-11 A16/F4 input consumed by
+        # the one-shot F5 migration; using today's state directly would make
+        # these historical tests depend on publication progress.
+        state_path = root / self.outputs["execution_state"]
+        historical_state = execution._read_json(state_path)
+        historical_state.update(
+            {
+                "state": "REPRO_VERIFIED",
+                "authorization_commit": execution.LEGACY_R15_F5_AUTHORIZATION_COMMIT,
+                "readiness_implementation_commit": execution.LEGACY_R15_F5_READINESS_COMMIT,
+                "history": historical_state["history"][:11],
+            }
+        )
+        execution._atomic_write_json(state_path, historical_state)
+        self.assertEqual(historical_state["state"], "REPRO_VERIFIED")
+        self.assertEqual(len(historical_state["history"]), 11)
+        self.assertEqual(
+            execution.sha256_file(state_path), execution.LEGACY_R15_F5_STATE_SHA256
+        )
+        self.assertEqual(
+            execution.sha256_file(root / execution.POSTEVAL_CONTINUATION_RECEIPT),
+            execution.LEGACY_R15_F5_POSTEVAL_RECEIPT_SHA256,
+        )
+        self.assertFalse((root / execution.POSTVERIFY_CONTINUATION_RECEIPT).exists())
+        self.assertFalse((root / self.outputs["final_summary"]).exists())
         authorization_path = root / self.config["authorization"]["committed_record"]
         authorization_path.parent.mkdir(parents=True, exist_ok=True)
         authorization_path.write_text(
