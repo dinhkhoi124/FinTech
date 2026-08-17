@@ -1,0 +1,146 @@
+{
+  "atomic_claim_contract": {
+    "answerable_cases_reachable": 45,
+    "corrective_within_eight_claims": 15,
+    "ineligible_requirements_after": 0,
+    "mandatory_obligations_after": 61,
+    "mandatory_obligations_before": 61,
+    "multi_sentence_requirements_after": 0,
+    "non_extractable_requirements_after": 0,
+    "requirements_after": 118,
+    "requirements_before": 113,
+    "rules_path": "data/evaluation/w3_003_independent_obligation_rules_v3.jsonl",
+    "standard_within_three_claims": 30
+  },
+  "authoring_preservation": {
+    "correction_ledger_unchanged": true,
+    "distribution": {
+      "ABSTAIN": 15,
+      "CORRECTIVE": 15,
+      "STANDARD": 30
+    },
+    "metric_thresholds_unchanged": true,
+    "no_v3_output_observed": true,
+    "overlap_audit_unchanged": true,
+    "query_bytes_unchanged": true,
+    "semantic_60_case_membership_unchanged": true,
+    "support_audit_unchanged": true
+  },
+  "authorization_topology": {
+    "authorization_bytes": "working tree SHA256 must equal committed A SHA256",
+    "authorization_commit_scope": "exactly one authorization artifact path",
+    "authorization_parent_contract": "A^ = C",
+    "execution_head_contract": "HEAD = A",
+    "package_commit_scope": "18 manifest-bound payloads + 1 candidate manifest = 19 exact paths",
+    "package_parent_contract": "C^ = R",
+    "runtime_source_commit": "5f7216fd64ad6a7518480318ff2fe4862a06abc3"
+  },
+  "candidate_manifest_separately_bound": true,
+  "evaluation_authorized": false,
+  "manifest_bound_payload_count": 18,
+  "metric_contract_sha256": "b7ab2a4b5f2ebc581e5266596a507fe85840d17f6eb4668a7bfb3af86afbab77",
+  "package_state": "PACKAGE_FROZEN",
+  "proposed_paths": [
+    {
+      "bytes": 6306,
+      "path": "configs/evaluation/w3_003_independent_eval_v1.json",
+      "sha256": "33e10a0ac4049dbb40acd10f05d4f70e798c95b7edc0449094c727510aaf2b25"
+    },
+    {
+      "bytes": 3234,
+      "path": "configs/evaluation/w3_003_independent_metric_contract_v1.json",
+      "sha256": "b7ab2a4b5f2ebc581e5266596a507fe85840d17f6eb4668a7bfb3af86afbab77"
+    },
+    {
+      "bytes": 6692,
+      "path": "data/evaluation/w3_003_independent_correction_ledger_v1.jsonl",
+      "sha256": "762f81db4436dadc98d2ce930f0f51bd7c89bb5c0ab1ba55234d64de7c4b649e"
+    },
+    {
+      "bytes": 88031,
+      "path": "data/evaluation/w3_003_independent_gold_v1.jsonl",
+      "sha256": "43a98bbce215c1d96e20edcf1df971f3d46cdf5cdfcea549580323d8d976de1c"
+    },
+    {
+      "bytes": 90904,
+      "path": "data/evaluation/w3_003_independent_obligation_rules_v3.jsonl",
+      "sha256": "4075136722e1dc94dbe3719efb025f7a52e48eba251423f2e881fa5164515976"
+    },
+    {
+      "bytes": 10725,
+      "path": "data/evaluation/w3_003_independent_queries_v1.jsonl",
+      "sha256": "6600ae250bcd288e1588a089df1030d8f68eeea01525958b0d0259e695eff6ba"
+    },
+    {
+      "bytes": 92726,
+      "path": "data/evaluation/w3_003_independent_scenarios_v1.jsonl",
+      "sha256": "f957f839c7fe5cac8f2a4395d62f08e1032afe931f8795b473e0e643c49a3e08"
+    },
+    {
+      "bytes": 2238709,
+      "path": "data/evaluation/w3_003_independent_support_audit_v1.jsonl",
+      "sha256": "25f092416167e99b03f2748d9fb3c2673861f10fe939930b26bb0eecbb1a78d4"
+    },
+    {
+      "bytes": 2579,
+      "path": "reports/week_03/results/w3_003_independent_authoring_freeze_manifest.json",
+      "sha256": "e4cea8aecd99be81fed1734cc6a31918af04fcf758800c8dd18ece06b085a10b"
+    },
+    {
+      "bytes": 4677,
+      "path": "reports/week_03/results/w3_003_independent_candidate_manifest.json",
+      "sha256": "91f67218262ea000d7401871bdabc5776e72968c79047addafedb300d7a16213"
+    },
+    {
+      "bytes": 869,
+      "path": "reports/week_03/results/w3_003_independent_overlap_audit.json",
+      "sha256": "fc3f132baba8e6e86dc3f1001783a254a21daf8946807804294ac34329bb0c7d"
+    },
+    {
+      "bytes": 2148,
+      "path": "scripts/evaluation/week3_w3_003_independent_eval.py",
+      "sha256": "15d80767eae3122dded6e91e7b4c2b4637dfa82485c71333d2503f718d9a4991"
+    },
+    {
+      "bytes": 40951,
+      "path": "src/payresolve_ai/evaluation/w3_003_independent.py",
+      "sha256": "3e170636b747d9e22bcbe0d582d52e1e75f860e1574433ed267afc56b66ef8d1"
+    },
+    {
+      "bytes": 28030,
+      "path": "tests/test_w3_003_independent_eval.py",
+      "sha256": "d365a800f31a1c28641f27c60bb8a31bf63508e35e382ce18d04b06146c70ff3"
+    },
+    {
+      "bytes": 55482,
+      "path": "PROJECT_STATE.md",
+      "sha256": "d171645198154fb0f9dc50182f7f4d76557e2aa2bac7d4d39736029fa3ea8428"
+    },
+    {
+      "bytes": 50559,
+      "path": "TASKS.md",
+      "sha256": "45037eeee1fdbb1668a617a1897782cc19bc36192f5b4dc8a71ca15503f062f6"
+    },
+    {
+      "bytes": 46711,
+      "path": "reports/week_03/week_03_summary.md",
+      "sha256": "ae56d96ff9755432014e2466fbac08134de0e456f0895c6a1f1a6c79c32d6667"
+    },
+    {
+      "bytes": 2545,
+      "path": "reports/week_03/daily/2026-08-17.md",
+      "sha256": "0be29bf3f9ebda008316384fa732f60a681ecf8ac6c3fdc24820102e25406aec"
+    }
+  ],
+  "schema_version": "3.0",
+  "senior_semantic_review_approved": false,
+  "task_id": "W3-003-EV1-R3",
+  "testing": {
+    "authorization_negative_cases": 10,
+    "dummy_static_only": true,
+    "model_imported": false,
+    "tests_passed": 35,
+    "v3_inference_executed": false
+  },
+  "total_future_package_commit_paths": 19
+}

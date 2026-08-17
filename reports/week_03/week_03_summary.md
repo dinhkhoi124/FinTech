@@ -680,3 +680,32 @@ Candidate Rev7 and its PRIMARY/REPRO evidence remain locked and must not be used
 for tuning or rerun as a fresh holdout. The next task is planning-only
 `W3-003 — Grounded RAG Behavior Remediation`, using non-locked development
 evidence and a separately authorized independent evaluation boundary.
+
+## W3-003 EV1-R2 pre-inference evaluator closure — 2026-08-17
+
+Senior accepted the independently authored 60-case EV1 membership and required
+execution-topology and evaluator-integrity corrections before inference. R2
+preserves the 30/15/15 candidate, all query/scenario/support/overlap/correction
+bytes, and all 18 frozen hard thresholds. It separates runtime-source and package
+commits, requires committed authorization topology `A^ = C`, verifies factual
+claims/citations individually, formalizes 61 obligations for all 45 answerable
+cases, checks corrective boundaries and abstentions in rendered output, and
+freezes reproduction bytes before comparison. The dummy-only structural suite
+passed 21/21. EV1 remains unauthorized and no V3 output has been observed.
+
+## W3-003 EV1-R3 atomic reachability and committed authorization — 2026-08-17
+
+Senior's R2 defect reproduced exactly: 113 requirements, 45 multi-sentence
+requirements, 39/61 unreachable obligations, and 34/45 affected answerable
+cases (22/30 Standard, 12/15 Corrective). R3 replaces those evaluator-only
+rules with 118 atomic requirements: 0 multi-sentence, 0 non-extractable, and 0
+ineligible. All 61 frozen obligations remain, and minimum complete covers fit
+the unchanged V3 budgets for 30/30 Standard and 15/15 Corrective cases.
+
+Authorization now reads committed `A` bytes, requires worktree equality, direct
+`C^=R` and `A^=C` lineage, exact 19-path package scope (18 payloads plus the
+manifest), and exact one-path authorization scope. Ten isolated negative Git
+cases fail closed before runtime import. The dummy/static suite passes 35/35;
+no model, encoder, retrieval, generation, PRIMARY, evaluation, or reproduction
+ran. EV1 remains unauthorized and the R3 package is awaiting final commit
+review.

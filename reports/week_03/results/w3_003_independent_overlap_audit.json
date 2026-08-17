@@ -1,0 +1,27 @@
+{
+  "audit_order": "AFTER_INITIAL_AUTHORING_BEFORE_CANDIDATE_FREEZE",
+  "candidate_count": 60,
+  "candidate_rewrites": 9,
+  "correction_ledger_rows": 10,
+  "exact_overlap_count": 0,
+  "historical_query_count": 13307,
+  "jaccard_tokenization": "unicode_nfkc_lowercase_ascii_alphanumeric_token_set",
+  "manual_reviewed_candidates": [],
+  "near_duplicate_candidates_at_or_above_threshold": 0,
+  "normalized_exact_overlap_count": 0,
+  "passed": true,
+  "preregistered_token_jaccard_threshold": 0.7,
+  "sources": {
+    "BANKING77_TEST": 3080,
+    "BANKING77_TRAIN": 10003,
+    "REV7_CRITICAL": 60,
+    "W2_GOLD_EVALUATION": 60,
+    "W3_001_CR1_HOLDOUT_NOW_DEV": 20,
+    "W3_001_DEVELOPMENT": 10,
+    "W3_003_BEHAVIOR_DEV": 14,
+    "W3_CRITICAL_V1": 60
+  },
+  "unresolved_exact_overlap": 0,
+  "unresolved_near_duplicate_candidates": 0,
+  "unresolved_normalized_overlap": 0
+}

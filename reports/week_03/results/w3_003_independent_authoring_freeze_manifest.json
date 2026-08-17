@@ -1,0 +1,69 @@
+{
+  "authoring_order": "AUTHORING_AND_FREEZE_COMPLETED_BEFORE_V3_SOURCE_INSPECTION_OR_INFERENCE",
+  "candidate_frozen": true,
+  "authoring_support_audit_as_of_date": "2026-07-28",
+  "files": [
+    {
+      "bytes": 92726,
+      "path": "data/evaluation/w3_003_independent_scenarios_v1.jsonl",
+      "sha256": "f957f839c7fe5cac8f2a4395d62f08e1032afe931f8795b473e0e643c49a3e08"
+    },
+    {
+      "bytes": 10725,
+      "path": "data/evaluation/w3_003_independent_queries_v1.jsonl",
+      "sha256": "6600ae250bcd288e1588a089df1030d8f68eeea01525958b0d0259e695eff6ba"
+    },
+    {
+      "bytes": 88031,
+      "path": "data/evaluation/w3_003_independent_gold_v1.jsonl",
+      "sha256": "43a98bbce215c1d96e20edcf1df971f3d46cdf5cdfcea549580323d8d976de1c"
+    },
+    {
+      "bytes": 2238709,
+      "path": "data/evaluation/w3_003_independent_support_audit_v1.jsonl",
+      "sha256": "25f092416167e99b03f2748d9fb3c2673861f10fe939930b26bb0eecbb1a78d4"
+    },
+    {
+      "bytes": 6692,
+      "path": "data/evaluation/w3_003_independent_correction_ledger_v1.jsonl",
+      "sha256": "762f81db4436dadc98d2ce930f0f51bd7c89bb5c0ab1ba55234d64de7c4b649e"
+    },
+    {
+      "bytes": 869,
+      "path": "reports/week_03/results/w3_003_independent_overlap_audit.json",
+      "sha256": "fc3f132baba8e6e86dc3f1001783a254a21daf8946807804294ac34329bb0c7d"
+    }
+  ],
+  "freeze_reason": "Prevent outcome-aware authoring and preserve the independent product-gate candidate before any V3 implementation inspection or execution.",
+  "frozen_at_utc": "2026-08-17T04:26:45Z",
+  "metric_contract": {
+    "bytes": 3234,
+    "path": "configs/evaluation/w3_003_independent_metric_contract_v1.json",
+    "sha256": "b7ab2a4b5f2ebc581e5266596a507fe85840d17f6eb4668a7bfb3af86afbab77"
+  },
+  "overlap_audit": {
+    "exact": 0,
+    "historical_queries": 13307,
+    "jaccard_at_or_above_0_70": 0,
+    "normalized_exact": 0,
+    "passed": true
+  },
+  "package_state": "PACKAGE_FROZEN",
+  "post_freeze_runtime_date_binding": {
+    "eligible_document_count_at_authoring_date": 26,
+    "eligible_document_count_at_runtime_date": 26,
+    "eligible_document_sets_identical": true,
+    "runtime_evaluation_as_of_date": "2026-08-16",
+    "source": "configs/generation/grounded_pipeline_v3.json"
+  },
+  "prior_dataset_case_used_for_construction": false,
+  "prior_v3_output_observed": false,
+  "schema_version": "1.0",
+  "semantic_validation": {
+    "checks_passed": 212,
+    "direct_support_rows": 101,
+    "status": "PASS_PRE_FREEZE_SEMANTIC_AND_STRUCTURAL_VALIDATION",
+    "support_rows": 4320
+  },
+  "task_id": "W3-003-EV1"
+}

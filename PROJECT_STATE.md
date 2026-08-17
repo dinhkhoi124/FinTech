@@ -7,15 +7,29 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: NOT CLOSED / REMEDIATION REQUIRED
-- Active task: `W3-002-CR1-EA1-SRD1-SENIOR-RESULT-DECISION-RECORD` — READY FOR REVIEW
-- Next task: `W3-003 — Grounded RAG Behavior Remediation` planning only; use non-locked development evidence and define a separately authorized independent evaluation boundary before any new product-approval claim.
-- Last updated: 2026-08-16 by Codex
+- Active task: `W3-003-EV1-R3` — ATOMIC CLAIM/AUTHORIZATION PACKAGE FROZEN / AWAITING FINAL COMMIT REVIEW
+- Next task: Senior reviews the exact R3 19-path package; no EV1 inference is authorized.
+- Last updated: 2026-08-17 by Codex
 
 The current authoritative status is the SRD1 section at the end of this file.
 Earlier readiness, authorization, and execution sections are retained as dated
 historical milestones and do not override the finalized SRD1 status.
 
 ## Active objective
+
+Preserve the Senior-accepted blind 60-case W3-003 independent benchmark while
+closing the final pre-inference atomic-claim and committed-authorization gaps.
+EV1-R3 keeps the exact 30/15/15 membership and all frozen semantic/threshold
+bytes. Its 118 requirements are each exactly one production-split KB sentence,
+all 61 obligations are preserved, and all 45 answerable cases fit the frozen
+route budgets (Standard <=3, Corrective <=8). Execution requires direct topology
+`C^=R`, `A^=C`, `HEAD=A`, exact 19-path C scope, exact one-path A scope, and
+working authorization bytes equal to committed A bytes. The package remains
+`PACKAGE_FROZEN / AWAITING_FINAL_COMMIT_REVIEW`; authorization, model loading,
+EV1 inference, PRIMARY, evaluation, reproduction, and finalization remain
+false/not run.
+
+## Prior finalized-product-decision context
 
 The technical critical-evaluation lifecycle is complete: R15-F5 is
 `FINALIZED`, `verify-results` passed, and PRIMARY/REPRO behavior is identical
