@@ -1,0 +1,26 @@
+{
+  "dataset_name": "payresolve_w3_003_behavior_development",
+  "version": "w3_003_behavior_dev_v1",
+  "dataset_path": "data/evaluation/w3_003_behavior_dev_v1.jsonl",
+  "classification": "DEVELOPMENT_REGRESSION_ONLY",
+  "independent_evaluation": false,
+  "newly_authored_synthetic": true,
+  "expected_cases": 14,
+  "coverage": [
+    "supported_standard",
+    "unknown_dimension_direct_support",
+    "genuine_target_ambiguity",
+    "private_detail_complete_corrective",
+    "exact_value_complete_corrective",
+    "override_complete_corrective",
+    "incomplete_corrective",
+    "out_of_domain_rich_unrelated_corrective_evidence",
+    "low_overlap_end_to_end_corrective_discovery",
+    "corrective_larger_than_standard_pool",
+    "varying_corrective_obligations",
+    "ineligible_attractive_evidence",
+    "partial_corrective_cover",
+    "no_eligible_evidence"
+  ],
+  "cardinality_policy": "Variable generic obligation coverage; not derived from any locked evaluation distribution."
+}

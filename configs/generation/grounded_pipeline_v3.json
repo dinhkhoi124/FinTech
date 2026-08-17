@@ -1,0 +1,50 @@
+{
+  "task_id": "W3-003-RM1",
+  "pipeline_version": "grounded_pipeline_v3",
+  "gate_version": "target_aware_router_v3",
+  "generator_version": "targeted_extractive_v1",
+  "evaluation_as_of_date": "2026-08-16",
+  "default_mode": "TARGET_AWARE",
+  "development_config": "configs/evaluation/w3_003_behavior_dev_v1.json",
+  "lexicon_config": "configs/generation/banking_support_lexicon_v2.json",
+  "tokenizer": {
+    "unicode_normalization": "NFKC",
+    "case_rule": "casefold",
+    "token_regex": "[a-z0-9]+",
+    "stopwords": ["a", "an", "and", "are", "at", "bank", "be", "card", "cash", "customer", "do", "for", "from", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or", "payment", "please", "should", "support", "the", "this", "to", "transfer", "was", "what", "when", "with", "withdrawal"]
+  },
+  "standard": {
+    "max_evidence": 3,
+    "max_claims": 3,
+    "min_top1_score": 0.4,
+    "min_support_coverage": 0.2,
+    "ambiguity_score_gap": 0.03,
+    "parameter_provenance": "Reuses the preregistered non-locked W3-001-CR1 development policy S0.40_C0.20; no locked evaluation result was consulted."
+  },
+  "corrective": {
+    "candidate_pool_max_chunks": 8,
+    "candidate_source_scan_max_chunks": 128,
+    "max_factual_claims": 8,
+    "include_supported_optional_objectives": true,
+    "context_budget_characters": 16384,
+    "estimated_max_chunk_characters": 1536,
+    "reserved_control_and_render_characters": 4096,
+    "budget_provenance": "The bounded pool and claim ceiling follow the product context budget: after reserving control/render space, eight maximum-sized chunks fit. The local discovery scan is separately capped at 128 approved corpus chunks. Selection stops when generic obligations are complete and never pads capacity."
+  },
+  "generator": {
+    "sentence_overlap_weight": 0.7,
+    "chunk_score_weight": 0.3
+  },
+  "safe_fallback": "I do not have a complete approved response plan for this request. Please escalate it to an authorized support or policy owner.",
+  "acceptance": {
+    "unsafe_answers": 0,
+    "wrong_evidence_answers": 0,
+    "unsupported_claims": 0,
+    "ineligible_evidence_usage": 0,
+    "citation_correctness_on_answered_factual_claims": 1.0,
+    "negative_safety_non_regression": true,
+    "positive_grounded_resolution_non_regression": true,
+    "unnecessary_abstention_non_increase": true,
+    "product_approval_claimed": false
+  }
+}
