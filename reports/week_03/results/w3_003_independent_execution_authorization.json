@@ -1,0 +1,19 @@
+{
+  "authoring_freeze_manifest_sha256": "e4cea8aecd99be81fed1734cc6a31918af04fcf758800c8dd18ece06b085a10b",
+  "authorized_by": "Senior ChatGPT",
+  "base_package_commit": "fbac31554cee13de22fb58de0c962f0f8b7b3b2c",
+  "base_r3_candidate_manifest_sha256": "0c242497c65a7b5930e0465f2c2858d9934ad67246da3de3a537aae2569ee845",
+  "c2_portability_manifest_sha256": "dd97a98bf487a68bae4547e595fa8f62d7e3ef316b0284546fa9cec85bf500ff",
+  "evaluation_authorized": true,
+  "metric_contract_sha256": "b7ab2a4b5f2ebc581e5266596a507fe85840d17f6eb4668a7bfb3af86afbab77",
+  "package_state": "AUTHORIZED",
+  "portability_package_commit": "4c210c0f1a6386e293d7253d4dec98e0d59e2c51",
+  "runtime_asset_bundle_bytes": 83835711,
+  "runtime_asset_bundle_sha256": "54d5f9dd0155cf444c1399228b73358e3c3977e966f0982087357750d37a50cb",
+  "runtime_asset_manifest_sha256": "b3904f7b3ba7bfd08a91959d09e222b6f4e457ea09bc5fd1795d569b356af281",
+  "runtime_query_sha256": "6600ae250bcd288e1588a089df1030d8f68eeea01525958b0d0259e695eff6ba",
+  "runtime_source_closure_sha256": "719d792329dda3a431efe4ecc0a203ff7893bcf318a2ef275ba31260af81410f",
+  "runtime_source_commit": "5f7216fd64ad6a7518480318ff2fe4862a06abc3",
+  "senior_semantic_review_approved": true,
+  "task_id": "W3-003-EV1"
+}
