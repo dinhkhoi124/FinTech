@@ -1,0 +1,8 @@
+{
+  "model_input_sha256_exact": true,
+  "normalized_behavioral_equality_count": 60,
+  "normalized_behavioral_equality_rate": 1.0,
+  "primary_rows": 60,
+  "query_id_sequence_exact": true,
+  "reproduction_rows": 60
+}

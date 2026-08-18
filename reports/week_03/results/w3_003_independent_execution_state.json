@@ -1,0 +1,50 @@
+{
+  "candidate_frozen": true,
+  "evaluated": false,
+  "evaluation_authorized": true,
+  "history": [
+    {
+      "action": "consume-senior-authorization",
+      "from": "PACKAGE_FROZEN",
+      "to": "AUTHORIZED"
+    },
+    {
+      "action": "freeze-primary",
+      "from": "AUTHORIZED",
+      "to": "PRIMARY_FROZEN"
+    },
+    {
+      "action": "evaluate",
+      "from": "PRIMARY_FROZEN",
+      "to": "EVALUATED"
+    },
+    {
+      "action": "freeze-reproduction",
+      "from": "EVALUATED",
+      "to": "REPRO_FROZEN"
+    },
+    {
+      "action": "verify-reproducibility",
+      "from": "REPRO_FROZEN",
+      "to": "REPRO_VERIFIED"
+    },
+    {
+      "action": "finalize",
+      "from": "REPRO_VERIFIED",
+      "to": "FINALIZED"
+    }
+  ],
+  "numeric_metric_contract_frozen": true,
+  "overlap_audit_passed": true,
+  "package_state": "FINALIZED",
+  "portability_corrected": true,
+  "primary_executed": true,
+  "primary_frozen": true,
+  "primary_raw_sha256": "15888ee29c2a6bae5ef099127a0decdb2b7e786c0ef76017360fd6758be5a814",
+  "reproduction_executed": true,
+  "reproduction_frozen": true,
+  "reproduction_raw_sha256": "9c660793e30a3d1bfe5592f6772507d182e12381f7d3c5a3b3db7f878617d172",
+  "senior_semantic_review_approved": true,
+  "structural_integrity_verified": true,
+  "support_audit_complete": true
+}
