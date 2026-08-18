@@ -13,9 +13,11 @@ from payresolve_ai.evaluation.w3_003_independent import (
     finalize,
     freeze_primary,
     freeze_reproduction,
+    provision_runtime_asset_bundle,
     verify_package,
     verify_reproducibility,
     verify_results,
+    verify_runtime_assets,
 )
 
 
@@ -26,8 +28,9 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument("--bundle", type=Path)
     parser.add_argument("command", choices=(
-        "verify-package", "authorize", "run-primary", "freeze-primary", "evaluate",
+        "verify-package", "verify-runtime-assets", "provision-runtime-assets", "authorize", "run-primary", "freeze-primary", "evaluate",
         "run-reproduction", "freeze-reproduction", "verify-reproducibility", "finalize", "verify-results",
     ))
     return parser.parse_args()
@@ -39,6 +42,14 @@ def main() -> int:
     command = args.command
     if command == "verify-package":
         result = verify_package(root, args.config)
+    elif command == "verify-runtime-assets":
+        config = json.loads((args.config if args.config.is_absolute() else root / args.config).read_text(encoding="utf-8"))
+        result = verify_runtime_assets(root, config, load_encoder=True)
+    elif command == "provision-runtime-assets":
+        if args.bundle is None:
+            raise SystemExit("--bundle is required for provision-runtime-assets")
+        config = json.loads((args.config if args.config.is_absolute() else root / args.config).read_text(encoding="utf-8"))
+        result = provision_runtime_asset_bundle(root, config, args.bundle.resolve())
     elif command == "authorize":
         result = authorize_from_review(root, args.config)
     elif command == "run-primary":

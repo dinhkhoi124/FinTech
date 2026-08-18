@@ -7,11 +7,11 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: NOT CLOSED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV1-R3` — ATOMIC CLAIM/AUTHORIZATION PACKAGE FROZEN / AWAITING FINAL COMMIT REVIEW
-- Next task: Senior reviews the exact R3 19-path package; no EV1 inference is authorized.
-- Last updated: 2026-08-17 by Codex
+- Active task: `W3-003-EV1-C2-FIX1` — PORTABLE RUNTIME-BINDING CORRECTION / AWAITING SENIOR REVIEW
+- Next task: Senior reviews the corrected C2 candidate; no EV1 inference is authorized.
+- Last updated: 2026-08-18 by Codex
 
-The current authoritative status is the SRD1 section at the end of this file.
+The current authoritative status is the C2 Fix1 section at the end of this file.
 Earlier readiness, authorization, and execution sections are retained as dated
 historical milestones and do not override the finalized SRD1 status.
 
@@ -787,3 +787,12 @@ W3-002 implementation and integrity analysis are DONE / REVIEWED / ACCEPTED.
   remediation must use non-locked development evidence and a separately
   authorized independent evaluation before any new product-approval claim.
 - **Next task:** `W3-003 — Grounded RAG Behavior Remediation`, planning only.
+
+## W3-003-EV1-C2 Fix1 portable runtime readiness — 2026-08-18
+
+- C1 remains immutable at `fbac31554cee13de22fb58de0c962f0f8b7b3b2c` with parent R `5f7216fd64ad6a7518480318ff2fe4862a06abc3`.
+- C2 binds Git-canonical runtime sources separately from 14 external immutable runtime assets.
+- The external ZIP receipt is committed metadata: authorization A must match both SHA-256 and byte size, plus the runtime-asset and C2 manifest hashes.
+- Provisioning validates the receipt and exact inventory, then materializes 11 encoder snapshot files as ordinary copies; no symlink privilege is required.
+- Load-only readiness passed for the exact MiniLM revision on CPU with `local_files_only=true`, `trust_remote_code=false`, dimension 384, and zero network/encode/EV1-input accesses.
+- Authorization, EV1 inference, PRIMARY, evaluation, reproduction, and finalization remain absent; W4 remains blocked pending Senior review and publication.

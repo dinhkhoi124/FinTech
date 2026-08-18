@@ -8,10 +8,16 @@ from __future__ import annotations
 
 import gzip
 import hashlib
+import importlib.metadata
+import io
 import json
 import operator
+import os
 import re
+import shutil
+import socket
 import subprocess
+import zipfile
 from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
@@ -20,6 +26,12 @@ from typing import Any, Iterable, Sequence
 
 class IndependentEvaluationError(RuntimeError):
     """Raised when a frozen-package, authorization, or lifecycle gate fails."""
+
+
+class LocalRuntimeAssetsError(IndependentEvaluationError):
+    """Raised when Git-portable package integrity passes but local assets do not."""
+
+    error_code = "LOCAL_RUNTIME_ASSETS_MISSING"
 
 
 OUTCOME_CLASSES = frozenset({
@@ -47,6 +59,12 @@ STATE_ORDER = (
     "PACKAGE_AUTHORED", "PACKAGE_FROZEN", "AUTHORIZED", "PRIMARY_FROZEN",
     "EVALUATED", "REPRO_FROZEN", "REPRO_VERIFIED", "FINALIZED",
 )
+
+REQUIRED_OFFLINE_ENVIRONMENT = {
+    "HF_HUB_OFFLINE": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+}
 
 
 def sha256_file(path: Path) -> str:
@@ -95,30 +113,354 @@ def load_config(root: Path, config_path: Path) -> dict[str, Any]:
     return config
 
 
-def verify_runtime_bindings(root: Path, config: dict[str, Any]) -> dict[str, Any]:
+def canonicalize_tracked_text_bytes(value: bytes) -> bytes:
+    """Normalize checkout newlines without otherwise changing UTF-8 bytes."""
+    try:
+        value.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise IndependentEvaluationError("tracked runtime text is not valid UTF-8") from error
+    return value.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def verify_git_tracked_runtime_sources(root: Path, config: dict[str, Any]) -> dict[str, Any]:
+    """Verify R-owned production sources using Git blobs, tolerating only EOL drift."""
+    manifest_path = root / config["runtime_source_closure_manifest"]
+    manifest = load_json(manifest_path)
+    revision = config["runtime_source_commit"]
+    if manifest.get("runtime_source_commit") != revision:
+        raise IndependentEvaluationError("runtime source closure revision mismatch")
     checked: list[dict[str, Any]] = []
-    for binding in config["runtime_bindings"]["dependencies"]:
-        path = root / binding["path"]
-        actual = sha256_file(path) if path.is_file() else None
-        if actual != binding["sha256"]:
-            raise IndependentEvaluationError(f"runtime binding mismatch: {binding['path']}")
-        checked.append({"path": binding["path"], "sha256": actual})
-    encoder = config["runtime_bindings"]["encoder"]
-    asset_dir = root / encoder["asset_directory"]
-    expected = encoder["asset_inventory_sha256"]
-    actual_names = {path.name for path in asset_dir.iterdir() if path.is_file()}
-    if actual_names != set(expected):
-        raise IndependentEvaluationError("MiniLM encoder asset inventory mismatch")
-    for name, digest in expected.items():
-        if sha256_file(asset_dir / name) != digest:
-            raise IndependentEvaluationError(f"MiniLM encoder asset hash mismatch: {name}")
+    for item in manifest.get("tracked_paths", []):
+        relative = item["path"]
+        committed = _git_file_bytes(root, revision, relative)
+        committed_sha = hashlib.sha256(committed).hexdigest()
+        if committed_sha != item["git_canonical_sha256"] or len(committed) != item["git_bytes"]:
+            raise IndependentEvaluationError(f"Git-canonical runtime binding mismatch: {relative}")
+        worktree = root / relative
+        if not worktree.is_file():
+            raise IndependentEvaluationError(f"tracked runtime path missing: {relative}")
+        if canonicalize_tracked_text_bytes(worktree.read_bytes()) != committed:
+            raise IndependentEvaluationError(f"tracked runtime semantic drift: {relative}")
+        checked.append({"path": relative, "git_canonical_sha256": committed_sha})
+    expected_count = manifest.get("production_python_path_count", 0) + manifest.get("tracked_runtime_input_count", 0)
+    if len(checked) != expected_count:
+        raise IndependentEvaluationError("runtime source closure path-count mismatch")
     return {
-        "runtime_source_commit": config["runtime_source_commit"],
-        "retriever": config["retriever"],
-        "evaluation_as_of_date": config["evaluation_as_of_date"],
-        "dependency_count": len(checked),
-        "encoder_revision": encoder["revision"],
-        "encoder_asset_count": len(expected),
+        "runtime_source_commit": revision,
+        "manifest_sha256": sha256_file(manifest_path),
+        "tracked_paths_verified": len(checked),
+        "production_python_paths": manifest["production_python_path_count"],
+        "tracked_runtime_inputs": manifest["tracked_runtime_input_count"],
+    }
+
+
+def _runtime_asset_fail(code: str, paths: Sequence[str]) -> None:
+    detail = ", ".join(sorted(paths))
+    raise LocalRuntimeAssetsError(f"{code}: {detail}")
+
+
+def verify_runtime_assets(
+    root: Path,
+    config: dict[str, Any],
+    *,
+    load_encoder: bool = False,
+) -> dict[str, Any]:
+    """Verify immutable assets, materialized snapshot topology, and cache alignment."""
+    manifest_path = root / config["runtime_asset_manifest"]
+    manifest = load_json(manifest_path)
+    if manifest.get("artifact_policy") != "LOCAL_IGNORED_IMMUTABLE_RUNTIME_ASSETS":
+        raise IndependentEvaluationError("runtime asset policy mismatch")
+    assets = manifest.get("assets", [])
+    missing = [item["path"] for item in assets if not (root / item["path"]).is_file()]
+    if missing:
+        _runtime_asset_fail(LocalRuntimeAssetsError.error_code, missing)
+    mutated = [
+        item["path"] for item in assets
+        if sha256_file(root / item["path"]) != item["sha256"]
+        or (root / item["path"]).stat().st_size != item["bytes"]
+    ]
+    if mutated:
+        _runtime_asset_fail("LOCAL_RUNTIME_ASSETS_MUTATED", mutated)
+    encoder_assets = [item for item in assets if item["role"] == "encoder_blob"]
+    encoder_dir = root / manifest["encoder"]["blob_directory"]
+    actual_names = {path.name for path in encoder_dir.iterdir() if path.is_file()}
+    expected_names = {Path(item["path"]).name for item in encoder_assets}
+    if actual_names != expected_names:
+        _runtime_asset_fail("LOCAL_RUNTIME_ENCODER_INVENTORY_MISMATCH", sorted(actual_names ^ expected_names))
+
+    snapshot_items = manifest["encoder"].get("snapshot_files", [])
+    missing_snapshot = [
+        item["snapshot_path"] for item in snapshot_items
+        if not (root / item["snapshot_path"]).is_file()
+    ]
+    if missing_snapshot:
+        _runtime_asset_fail("LOCAL_RUNTIME_ENCODER_SNAPSHOT_MISSING", missing_snapshot)
+    mutated_snapshot = [
+        item["snapshot_path"] for item in snapshot_items
+        if sha256_file(root / item["snapshot_path"]) != item["sha256"]
+        or (root / item["snapshot_path"]).stat().st_size != item["bytes"]
+    ]
+    if mutated_snapshot:
+        _runtime_asset_fail("LOCAL_RUNTIME_ENCODER_SNAPSHOT_MUTATED", mutated_snapshot)
+
+    # NumPy is a data-format dependency here; no encoder/model module is imported.
+    import numpy as np
+
+    corpus_path = root / next(item["path"] for item in assets if item["role"] == "retrieval_corpus")
+    embedding_path = root / next(item["path"] for item in assets if item["role"] == "retrieval_embeddings")
+    corpus = load_jsonl(corpus_path)
+    embeddings = np.load(embedding_path, allow_pickle=False)
+    expected = manifest["retrieval_cache"]
+    chunk_ids = [row.get("chunk_id") for row in corpus]
+    alignment = hashlib.sha256(("\n".join(chunk_ids) + "\n").encode("utf-8")).hexdigest()
+    if len(corpus) != expected["chunk_count"] or list(embeddings.shape) != expected["embedding_shape"]:
+        raise LocalRuntimeAssetsError("LOCAL_RUNTIME_ASSET_STRUCTURE_MISMATCH: corpus/embedding shape")
+    if alignment != expected["chunk_alignment_sha256"] or len(chunk_ids) != len(set(chunk_ids)):
+        raise LocalRuntimeAssetsError("LOCAL_RUNTIME_ASSET_STRUCTURE_MISMATCH: chunk alignment")
+    result = {
+        "status": "PASS",
+        "asset_policy": manifest["artifact_policy"],
+        "manifest_sha256": sha256_file(manifest_path),
+        "assets_verified": len(assets),
+        "encoder_assets_verified": len(encoder_assets),
+        "encoder_revision": manifest["encoder"]["revision"],
+        "encoder_snapshot_files_verified": len(snapshot_items),
+        "corpus_chunks": len(corpus),
+        "embedding_shape": list(embeddings.shape),
+        "chunk_alignment_sha256": alignment,
+        "model_imported": False,
+        "inference_executed": False,
+    }
+    if load_encoder:
+        result["offline_encoder_load"] = verify_offline_encoder_load(root, config, structural_result=result)
+        result["model_imported"] = True
+    return result
+
+
+def verify_runtime_bindings(root: Path, config: dict[str, Any]) -> dict[str, Any]:
+    """Compatibility wrapper for the complete pre-import runtime readiness gate."""
+    return {
+        "tracked": verify_git_tracked_runtime_sources(root, config),
+        "local_assets": verify_runtime_assets(root, config),
+    }
+
+
+def verify_offline_environment() -> dict[str, str]:
+    mismatches = [name for name, value in REQUIRED_OFFLINE_ENVIRONMENT.items() if os.environ.get(name) != value]
+    if mismatches:
+        raise IndependentEvaluationError(f"offline runtime environment missing before model import: {sorted(mismatches)}")
+    return dict(REQUIRED_OFFLINE_ENVIRONMENT)
+
+
+def verify_offline_encoder_load(
+    root: Path,
+    config: dict[str, Any],
+    *,
+    structural_result: dict[str, Any] | None = None,
+    model_factory: Any | None = None,
+) -> dict[str, Any]:
+    """Load the exact encoder offline while proving zero encode/query/network use."""
+    if structural_result is None:
+        structural_result = verify_runtime_assets(root, config, load_encoder=False)
+    environment = verify_offline_environment()
+    manifest = load_json(root / config["runtime_asset_manifest"])
+    encoder = manifest["encoder"]
+    cache_folder = (root / encoder["cache_folder"]).resolve()
+    forbidden = {
+        (root / config["runtime_query_input"]).resolve(),
+        *((root / relative).resolve() for relative in config.get("evaluator_inputs", {}).values()),
+    }
+    counters = {"network_attempts": 0, "encode_calls": 0, "ev1_input_accesses": 0}
+    original_builtin_open = open
+    original_io_open = io.open
+    original_connect = socket.socket.connect
+    original_connect_ex = socket.socket.connect_ex
+    original_create_connection = socket.create_connection
+
+    def _audited_open(file: Any, *args: Any, **kwargs: Any) -> Any:
+        if isinstance(file, (str, bytes, os.PathLike)) and Path(file).resolve() in forbidden:
+            counters["ev1_input_accesses"] += 1
+            raise IndependentEvaluationError("offline encoder readiness accessed EV1 query/evaluator input")
+        return original_builtin_open(file, *args, **kwargs)
+
+    def _audited_io_open(file: Any, *args: Any, **kwargs: Any) -> Any:
+        if isinstance(file, (str, bytes, os.PathLike)) and Path(file).resolve() in forbidden:
+            counters["ev1_input_accesses"] += 1
+            raise IndependentEvaluationError("offline encoder readiness accessed EV1 query/evaluator input")
+        return original_io_open(file, *args, **kwargs)
+
+    def _network_forbidden(*args: Any, **kwargs: Any) -> Any:
+        counters["network_attempts"] += 1
+        raise IndependentEvaluationError("network attempted during offline encoder load")
+
+    os.environ["HF_HOME"] = str(cache_folder)
+    os.environ["HF_HUB_CACHE"] = str(cache_folder / "hub")
+    if model_factory is None:
+        try:
+            from sentence_transformers import SentenceTransformer
+        except ImportError as error:
+            raise IndependentEvaluationError("sentence-transformers dependency missing") from error
+        model_factory = SentenceTransformer
+    original_encode = getattr(model_factory, "encode", None)
+
+    def _encode_forbidden(*args: Any, **kwargs: Any) -> Any:
+        counters["encode_calls"] += 1
+        raise IndependentEvaluationError("encoder inference is forbidden during readiness")
+
+    try:
+        import builtins
+
+        builtins.open = _audited_open
+        io.open = _audited_io_open
+        socket.socket.connect = _network_forbidden
+        socket.socket.connect_ex = _network_forbidden
+        socket.create_connection = _network_forbidden
+        if original_encode is not None:
+            setattr(model_factory, "encode", _encode_forbidden)
+        model = model_factory(
+            encoder["model_id"],
+            revision=encoder["revision"],
+            device="cpu",
+            cache_folder=str(cache_folder),
+            trust_remote_code=False,
+            local_files_only=True,
+        )
+        dimension = model.get_sentence_embedding_dimension()
+    finally:
+        import builtins
+
+        builtins.open = original_builtin_open
+        io.open = original_io_open
+        socket.socket.connect = original_connect
+        socket.socket.connect_ex = original_connect_ex
+        socket.create_connection = original_create_connection
+        if original_encode is not None:
+            setattr(model_factory, "encode", original_encode)
+    if dimension != 384:
+        raise IndependentEvaluationError(f"offline encoder dimension mismatch: {dimension}")
+    if any(counters.values()):
+        raise IndependentEvaluationError(f"offline encoder readiness counter mismatch: {counters}")
+    versions = {}
+    for distribution in ("sentence-transformers", "transformers", "huggingface-hub", "torch"):
+        try:
+            versions[distribution] = importlib.metadata.version(distribution)
+        except importlib.metadata.PackageNotFoundError:
+            versions[distribution] = "NOT_INSTALLED"
+    return {
+        "status": "PASS",
+        "model_id": encoder["model_id"],
+        "revision": encoder["revision"],
+        "device": "cpu",
+        "cache_folder": encoder["cache_folder"],
+        "embedding_dimension": dimension,
+        "local_files_only": True,
+        "trust_remote_code": False,
+        "offline_environment": environment,
+        "dependency_versions": versions,
+        "network_attempts": counters["network_attempts"],
+        "encode_calls": counters["encode_calls"],
+        "ev1_input_accesses": counters["ev1_input_accesses"],
+        "snapshot_files_verified": structural_result["encoder_snapshot_files_verified"],
+    }
+
+
+def create_runtime_asset_bundle(root: Path, config: dict[str, Any], output: Path) -> dict[str, Any]:
+    """Create the deterministic external runtime-only ZIP; never include EV1 data."""
+    manifest = load_json(root / config["runtime_asset_manifest"])
+    verify_runtime_assets(root, config, load_encoder=False)
+    inventory = {
+        "schema_version": "1.0",
+        "artifact_policy": manifest["artifact_policy"],
+        "encoder": manifest["encoder"],
+        "retrieval_cache": manifest["retrieval_cache"],
+        "assets": manifest["assets"],
+    }
+    inventory_bytes = canonical_json_bytes(inventory)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    entries = sorted([
+            ("runtime_asset_inventory.json", inventory_bytes),
+            *((item["path"], (root / item["path"]).read_bytes()) for item in manifest["assets"]),
+        ], key=lambda item: item[0])
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for relative, payload in entries:
+            info = zipfile.ZipInfo(relative, date_time=(1980, 1, 1, 0, 0, 0))
+            info.create_system = 3
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o100644 << 16
+            archive.writestr(info, payload, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+    receipt = verify_runtime_asset_bundle(output, manifest)
+    return {**receipt, "filename": output.name, "path": str(output.resolve())}
+
+
+def verify_runtime_asset_bundle(
+    bundle: Path,
+    manifest: dict[str, Any],
+    expected_receipt: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    with zipfile.ZipFile(bundle, "r") as archive:
+        names = archive.namelist()
+        expected = sorted(["runtime_asset_inventory.json", *(item["path"] for item in manifest["assets"])])
+        if names != expected:
+            raise IndependentEvaluationError("runtime asset bundle entry inventory mismatch")
+        inventory_bytes = archive.read("runtime_asset_inventory.json")
+        inventory = json.loads(inventory_bytes)
+        if inventory.get("assets") != manifest["assets"] or inventory.get("encoder") != manifest["encoder"]:
+            raise IndependentEvaluationError("runtime asset bundle internal manifest mismatch")
+        for item in manifest["assets"]:
+            payload = archive.read(item["path"])
+            if len(payload) != item["bytes"] or hashlib.sha256(payload).hexdigest() != item["sha256"]:
+                raise IndependentEvaluationError(f"runtime asset bundle payload mismatch: {item['path']}")
+    receipt = {
+        "sha256": sha256_file(bundle),
+        "bytes": bundle.stat().st_size,
+        "entry_count": len(expected),
+        "payload_count": len(manifest["assets"]),
+        "inventory_sha256": hashlib.sha256(inventory_bytes).hexdigest(),
+        "verified": True,
+    }
+    if expected_receipt is not None and any(
+        receipt.get(key) != expected_receipt.get(key)
+        for key in ("sha256", "bytes", "entry_count", "inventory_sha256")
+    ):
+        raise IndependentEvaluationError("runtime asset bundle receipt mismatch")
+    return receipt
+
+
+def provision_runtime_asset_bundle(
+    root: Path,
+    config: dict[str, Any],
+    bundle: Path,
+    expected_receipt: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Validate the external ZIP, extract declared payloads, then copy snapshot files."""
+    manifest = load_json(root / config["runtime_asset_manifest"])
+    if expected_receipt is None:
+        candidate = load_json(root / config["portability_candidate_manifest"])
+        expected_receipt = candidate["external_runtime_asset_bundle"]
+    receipt = verify_runtime_asset_bundle(bundle, manifest, expected_receipt)
+    expected_names = {"runtime_asset_inventory.json", *(item["path"] for item in manifest["assets"])}
+    with zipfile.ZipFile(bundle, "r") as archive:
+        for name in expected_names:
+            parts = Path(name.replace("/", os.sep)).parts
+            if not parts or Path(name).is_absolute() or ".." in parts:
+                raise IndependentEvaluationError(f"unsafe runtime asset bundle member: {name}")
+        for item in manifest["assets"]:
+            destination = root / item["path"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(archive.read(item["path"]))
+    for item in manifest["encoder"]["snapshot_files"]:
+        source = root / item["blob_path"]
+        destination = root / item["snapshot_path"]
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if destination.is_symlink():
+            destination.unlink()
+        shutil.copyfile(source, destination)
+    structural = verify_runtime_assets(root, config, load_encoder=False)
+    return {
+        **receipt,
+        "provisioned_assets": structural["assets_verified"],
+        "materialized_snapshot_files": structural["encoder_snapshot_files_verified"],
+        "snapshot_materialization": "ordinary_file_copy_no_symlink",
     }
 
 
@@ -187,48 +529,145 @@ def _git_changed_paths(root: Path, commit: str) -> set[str]:
     return {line for line in result.stdout.splitlines() if line}
 
 
-def verify_candidate_manifest(root: Path, config: dict[str, Any]) -> dict[str, Any]:
-    path = root / config["outputs"]["candidate_manifest"]
+def verify_base_c1_package(root: Path, config: dict[str, Any]) -> dict[str, Any]:
+    """Re-prove the immutable blind C1 package from committed bytes only."""
+    base = config["base_package"]
+    commit = base["commit"]
+    if _git_rev(root, f"{commit}^") != base["parent"]:
+        raise IndependentEvaluationError("C1 parent is not frozen runtime R")
+    if _git_rev(root, f"{commit}^{{tree}}") != base["tree"]:
+        raise IndependentEvaluationError("C1 tree mismatch")
+    manifest_bytes = _git_file_bytes(root, commit, base["r3_candidate_manifest"])
+    if hashlib.sha256(manifest_bytes).hexdigest() != base["r3_candidate_manifest_sha256"]:
+        raise IndependentEvaluationError("C1 R3 candidate manifest mismatch")
+    try:
+        manifest = json.loads(manifest_bytes)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise IndependentEvaluationError("C1 R3 candidate manifest is invalid") from error
+    proposed = manifest.get("proposed_paths", [])
+    expected_paths = {base["r3_candidate_manifest"], *(item["path"] for item in proposed)}
+    if len(proposed) != 18 or len(expected_paths) != base["changed_path_count"]:
+        raise IndependentEvaluationError("C1 package path-count mismatch")
+    if _git_changed_paths(root, commit) != expected_paths:
+        raise IndependentEvaluationError("C1 changed paths differ from immutable 19-path package")
+    for item in proposed:
+        committed = _git_file_bytes(root, commit, item["path"])
+        if len(committed) != item["bytes"] or hashlib.sha256(committed).hexdigest() != item["sha256"]:
+            raise IndependentEvaluationError(f"C1 committed package byte mismatch: {item['path']}")
+    return {
+        "commit": commit,
+        "parent": base["parent"],
+        "tree": base["tree"],
+        "changed_paths": len(expected_paths),
+        "r3_candidate_manifest_sha256": base["r3_candidate_manifest_sha256"],
+    }
+
+
+def verify_portability_candidate(
+    root: Path,
+    config: dict[str, Any],
+    *,
+    candidate_commit: str | None = None,
+) -> dict[str, Any]:
+    path_rel = config["portability_candidate_manifest"]
+    path = root / path_rel
     if not path.is_file():
-        raise IndependentEvaluationError("R3 candidate manifest missing")
+        raise IndependentEvaluationError("C2 portability candidate manifest missing")
     manifest = load_json(path)
-    if manifest.get("package_state") != "PACKAGE_FROZEN" or manifest.get("evaluation_authorized") is not False:
-        raise IndependentEvaluationError("R3 candidate manifest state mismatch")
-    for item in manifest["proposed_paths"]:
+    base = config["base_package"]
+    required = {
+        "runtime_source_commit": config["runtime_source_commit"],
+        "base_package_commit": base["commit"],
+        "base_r3_manifest_sha256": base["r3_candidate_manifest_sha256"],
+        "package_state": "PACKAGE_FROZEN_PORTABILITY_CORRECTED",
+        "evaluation_authorized": False,
+        "semantic_membership_unchanged": True,
+        "metric_contract_unchanged": True,
+    }
+    if any(manifest.get(key) != value for key, value in required.items()):
+        raise IndependentEvaluationError("C2 portability candidate identity mismatch")
+    if manifest.get("runtime_asset_manifest_sha256") != sha256_file(root / config["runtime_asset_manifest"]):
+        raise IndependentEvaluationError("C2 runtime asset manifest binding mismatch")
+    bundle = manifest.get("external_runtime_asset_bundle", {})
+    if (
+        bundle.get("filename") != "W3-003_EV1_runtime_assets_v1.zip"
+        or not isinstance(bundle.get("bytes"), int)
+        or bundle.get("bytes", 0) <= 0
+        or not re.fullmatch(r"[0-9a-f]{64}", str(bundle.get("sha256", "")))
+        or not re.fullmatch(r"[0-9a-f]{64}", str(bundle.get("inventory_sha256", "")))
+        or "path" in bundle
+    ):
+        raise IndependentEvaluationError("C2 external runtime asset receipt is incomplete or machine-bound")
+    proposed = manifest.get("proposed_paths", [])
+    if not proposed or path_rel in {item.get("path") for item in proposed}:
+        raise IndependentEvaluationError("C2 candidate manifest must bind payloads but not itself")
+    for item in proposed:
         candidate = root / item["path"]
-        if not candidate.is_file() or sha256_file(candidate) != item["sha256"] or candidate.stat().st_size != item["bytes"]:
-            raise IndependentEvaluationError(f"R3 candidate byte mismatch: {item['path']}")
-    return {"manifest_sha256": sha256_file(path), "proposed_paths_verified": len(manifest["proposed_paths"])}
+        if not candidate.is_file() or candidate.stat().st_size != item["bytes"] or sha256_file(candidate) != item["sha256"]:
+            raise IndependentEvaluationError(f"C2 candidate byte mismatch: {item['path']}")
+    if candidate_commit is not None:
+        if _git_rev(root, f"{candidate_commit}^") != base["commit"]:
+            raise IndependentEvaluationError("C2 parent is not C1")
+        committed_manifest = _git_file_bytes(root, candidate_commit, path_rel)
+        if hashlib.sha256(committed_manifest).hexdigest() != sha256_file(path):
+            raise IndependentEvaluationError("working C2 manifest differs from committed C2")
+        expected_paths = {path_rel, *(item["path"] for item in proposed)}
+        if _git_changed_paths(root, candidate_commit) != expected_paths:
+            raise IndependentEvaluationError("C2 committed scope mismatch")
+        for item in proposed:
+            committed = _git_file_bytes(root, candidate_commit, item["path"])
+            if len(committed) != item["bytes"] or hashlib.sha256(committed).hexdigest() != item["sha256"]:
+                raise IndependentEvaluationError(f"committed C2 byte mismatch: {item['path']}")
+    return {
+        "manifest_sha256": sha256_file(path),
+        "proposed_paths_verified": len(proposed),
+        "candidate_commit": candidate_commit,
+        "external_runtime_asset_bundle": bundle,
+    }
 
 
 def verify_package(root: Path, config_path: Path) -> dict[str, Any]:
     config = load_config(root, config_path)
+    c1 = verify_base_c1_package(root, config)
+    head = _git_head(root)
+    if head == config["base_package"]["commit"]:
+        portability_commit = None
+    elif _git_rev(root, f"{head}^") == config["base_package"]["commit"]:
+        portability_commit = head
+    else:
+        raise IndependentEvaluationError("package verification requires HEAD at C1 or its direct C2 child")
     freeze = verify_authoring_freeze(root, config)
-    bindings = verify_runtime_bindings(root, config)
+    sources = verify_git_tracked_runtime_sources(root, config)
     payloads = build_runtime_payloads(root, config)
-    candidate = verify_candidate_manifest(root, config)
+    candidate = verify_portability_candidate(root, config, candidate_commit=portability_commit)
+    authorization_path = root / config["authorization"]["path"]
+    if authorization_path.exists():
+        raise IndependentEvaluationError("authorization must be absent before Senior review")
     forbidden_outputs = [
         value for key, value in config["outputs"].items()
-        if key not in {"candidate_manifest", "state"}
+        if key != "portability_candidate_manifest"
     ]
     existing = [path for path in forbidden_outputs if (root / path).exists()]
     if existing:
         raise IndependentEvaluationError(f"evaluation output already exists: {existing}")
     return {
-        "status": "PACKAGE_FROZEN_AWAITING_SENIOR_REVIEW",
+        "status": "PACKAGE_FROZEN_PORTABILITY_CORRECTED_AWAITING_SENIOR_AUTHORIZATION",
         "state": config["initial_state"],
+        "base_c1": c1,
         "authoring_freeze": freeze,
-        "candidate": candidate,
-        "current_head": _git_head(root),
-        "runtime_bindings": bindings,
+        "portability_candidate": candidate,
+        "current_head": head,
+        "git_tracked_runtime_sources": sources,
+        "local_runtime_assets_required_separately": True,
         "runtime_query_rows": len(payloads),
         "runtime_input_contract_sha256": hashlib.sha256(canonical_json_bytes(payloads)).hexdigest(),
+        "authorization_present": False,
         "evaluation_outputs_present": False,
     }
 
 
 def _candidate_manifest_sha(root: Path, config: dict[str, Any]) -> str:
-    path = root / config["outputs"]["candidate_manifest"]
+    path = root / config["portability_candidate_manifest"]
     if not path.is_file():
         raise IndependentEvaluationError("candidate manifest missing")
     return sha256_file(path)
@@ -240,10 +679,16 @@ def verify_execution_authorization(root: Path, config: dict[str, Any]) -> dict[s
     if not path.is_file():
         raise IndependentEvaluationError("Senior execution authorization is absent")
     authorization_commit = _git_head(root)
-    package_commit = _git_rev(root, f"{authorization_commit}^")
+    portability_commit = _git_rev(root, f"{authorization_commit}^")
+    base_package_commit = _git_rev(root, f"{portability_commit}^")
     runtime_source_commit = config["runtime_source_commit"]
-    if _git_rev(root, f"{package_commit}^") != runtime_source_commit:
-        raise IndependentEvaluationError("package candidate is not a direct child of runtime source")
+    if base_package_commit != config["base_package"]["commit"] or _git_rev(root, f"{base_package_commit}^") != runtime_source_commit:
+        raise IndependentEvaluationError("authorization topology must be R -> C1 -> C2 -> A")
+    verify_base_c1_package(root, config)
+    portability = verify_portability_candidate(root, config, candidate_commit=portability_commit)
+    verify_authoring_freeze(root, config)
+    verify_git_tracked_runtime_sources(root, config)
+    verify_runtime_assets(root, config)
     if _git_changed_paths(root, authorization_commit) != {authorization_rel}:
         raise IndependentEvaluationError("authorization commit scope must contain exactly one authorization path")
     committed_authorization = _git_file_bytes(root, authorization_commit, authorization_rel)
@@ -256,28 +701,28 @@ def verify_execution_authorization(root: Path, config: dict[str, Any]) -> dict[s
         raise IndependentEvaluationError("committed authorization is not valid JSON") from error
     if not isinstance(authorization, dict):
         raise IndependentEvaluationError("committed authorization must be a JSON object")
-    manifest_rel = config["outputs"]["candidate_manifest"]
-    committed_manifest = _git_file_bytes(root, package_commit, manifest_rel)
+    manifest_rel = config["portability_candidate_manifest"]
+    committed_manifest = _git_file_bytes(root, portability_commit, manifest_rel)
     committed_manifest_sha = hashlib.sha256(committed_manifest).hexdigest()
     try:
         manifest = json.loads(committed_manifest)
     except (UnicodeDecodeError, json.JSONDecodeError) as error:
         raise IndependentEvaluationError("committed candidate manifest is not valid JSON") from error
-    proposed = manifest.get("proposed_paths", []) if isinstance(manifest, dict) else []
-    expected_package_paths = {manifest_rel, *(item.get("path") for item in proposed if isinstance(item, dict))}
-    if len(proposed) != 18 or len(expected_package_paths) != 19:
-        raise IndependentEvaluationError("candidate package must bind 18 payloads plus one manifest")
-    if _git_changed_paths(root, package_commit) != expected_package_paths:
-        raise IndependentEvaluationError("package candidate committed scope is not the exact expected 19 paths")
+    bundle = manifest.get("external_runtime_asset_bundle", {}) if isinstance(manifest, dict) else {}
     required = {
         "task_id": config["task_id"],
         "package_state": config["authorization"]["required_package_state"],
-        "package_candidate_commit": package_commit,
         "runtime_source_commit": runtime_source_commit,
-        "candidate_manifest_sha256": committed_manifest_sha,
-        "runtime_query_sha256": sha256_file(root / config["runtime_query_input"]),
-        "authoring_freeze_manifest_sha256": sha256_file(root / config["authoring_freeze_manifest"]),
-        "metric_contract_sha256": sha256_file(root / config["evaluator_inputs"]["metric_contract"]),
+        "base_package_commit": base_package_commit,
+        "base_r3_candidate_manifest_sha256": config["base_package"]["r3_candidate_manifest_sha256"],
+        "portability_package_commit": portability_commit,
+        "c2_portability_manifest_sha256": committed_manifest_sha,
+        "runtime_asset_manifest_sha256": sha256_file(root / config["runtime_asset_manifest"]),
+        "runtime_asset_bundle_sha256": bundle.get("sha256"),
+        "runtime_asset_bundle_bytes": bundle.get("bytes"),
+        "runtime_query_sha256": hashlib.sha256(_git_file_bytes(root, base_package_commit, config["runtime_query_input"])).hexdigest(),
+        "authoring_freeze_manifest_sha256": hashlib.sha256(_git_file_bytes(root, base_package_commit, config["authoring_freeze_manifest"])).hexdigest(),
+        "metric_contract_sha256": hashlib.sha256(_git_file_bytes(root, base_package_commit, config["evaluator_inputs"]["metric_contract"])).hexdigest(),
         "senior_semantic_review_approved": True,
         "evaluation_authorized": True,
     }
@@ -285,12 +730,8 @@ def verify_execution_authorization(root: Path, config: dict[str, Any]) -> dict[s
         raise IndependentEvaluationError("Senior authorization binding mismatch")
     if not authorization.get("authorized_by"):
         raise IndependentEvaluationError("authorization identity or commit mismatch")
-    for item in proposed:
-        committed = _git_file_bytes(root, package_commit, item["path"])
-        if hashlib.sha256(committed).hexdigest() != item["sha256"] or len(committed) != item["bytes"]:
-            raise IndependentEvaluationError(f"committed package byte mismatch: {item['path']}")
-    verify_authoring_freeze(root, config)
-    verify_runtime_bindings(root, config)
+    if portability["manifest_sha256"] != committed_manifest_sha:
+        raise IndependentEvaluationError("C2 portability manifest committed-byte mismatch")
     return authorization
 
 
@@ -349,6 +790,7 @@ def execute_runtime(root: Path, config_path: Path, run_label: str) -> dict[str, 
         raise IndependentEvaluationError("invalid run label")
     config = load_config(root, config_path)
     verify_execution_authorization(root, config)
+    verify_offline_environment()
     state = load_state(root, config)
     _require_state(state, "AUTHORIZED" if run_label == "primary" else "EVALUATED")
     output_path = root / config["outputs"][f"{run_label}_raw"]

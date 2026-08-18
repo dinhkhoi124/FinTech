@@ -1,0 +1,97 @@
+{
+  "base_package_commit": "fbac31554cee13de22fb58de0c962f0f8b7b3b2c",
+  "base_r3_manifest_sha256": "0c242497c65a7b5930e0465f2c2858d9934ad67246da3de3a537aae2569ee845",
+  "encoder_load_only_performed": true,
+  "evaluation_authorized": false,
+  "external_runtime_asset_bundle": {
+    "bytes": 83835711,
+    "embedded_in_repository": false,
+    "entry_count": 15,
+    "filename": "W3-003_EV1_runtime_assets_v1.zip",
+    "inventory_sha256": "be64d39ecd13fd00612af45b05b7ec62faae7a5c27115eeb2d278ed9b23f2f20",
+    "payload_count": 14,
+    "sha256": "54d5f9dd0155cf444c1399228b73358e3c3977e966f0982087357750d37a50cb"
+  },
+  "frozen_semantic_hashes": {
+    "correction_ledger": "762f81db4436dadc98d2ce930f0f51bd7c89bb5c0ab1ba55234d64de7c4b649e",
+    "metric_contract": "b7ab2a4b5f2ebc581e5266596a507fe85840d17f6eb4668a7bfb3af86afbab77",
+    "overlap_audit": "fc3f132baba8e6e86dc3f1001783a254a21daf8946807804294ac34329bb0c7d",
+    "queries": "6600ae250bcd288e1588a089df1030d8f68eeea01525958b0d0259e695eff6ba",
+    "scenarios": "f957f839c7fe5cac8f2a4395d62f08e1032afe931f8795b473e0e643c49a3e08",
+    "support_audit": "25f092416167e99b03f2748d9fb3c2673861f10fe939930b26bb0eecbb1a78d4"
+  },
+  "metric_contract_unchanged": true,
+  "no_inference": true,
+  "no_model_import": false,
+  "no_network": true,
+  "obligation_semantics": {
+    "answerable_reachable": 45,
+    "atomic_requirements": 118,
+    "corrective_within_eight_claims": 15,
+    "mandatory_obligations": 61,
+    "standard_within_three_claims": 30
+  },
+  "package_state": "PACKAGE_FROZEN_PORTABILITY_CORRECTED",
+  "proposed_paths": [
+    {
+      "bytes": 3170,
+      "path": "configs/evaluation/w3_003_independent_eval_v1.json",
+      "sha256": "42fc52daaedbf4708010e5a8f6bc862708d37dbd211469e2a7c0790b016100d6"
+    },
+    {
+      "bytes": 62492,
+      "path": "src/payresolve_ai/evaluation/w3_003_independent.py",
+      "sha256": "f8cbd0540c4adfcd34b322d7af693fae26aa131cad4e9cc80352fba27a81b537"
+    },
+    {
+      "bytes": 2923,
+      "path": "scripts/evaluation/week3_w3_003_independent_eval.py",
+      "sha256": "4af1c29bbc2892f99634f7d38297b982d814a3705658e315667af8c4fc99442c"
+    },
+    {
+      "bytes": 47175,
+      "path": "tests/test_w3_003_independent_eval.py",
+      "sha256": "95c41bbfbdeecb60c29dff786c1b0be7b17c3dbc8a38af6a4bfecff3cb2854f6"
+    },
+    {
+      "bytes": 10022,
+      "path": "reports/week_03/results/w3_003_independent_runtime_asset_manifest.json",
+      "sha256": "b3904f7b3ba7bfd08a91959d09e222b6f4e457ea09bc5fd1795d569b356af281"
+    },
+    {
+      "bytes": 11944,
+      "path": "reports/week_03/results/w3_003_independent_runtime_source_closure.json",
+      "sha256": "719d792329dda3a431efe4ecc0a203ff7893bcf318a2ef275ba31260af81410f"
+    },
+    {
+      "bytes": 56411,
+      "path": "PROJECT_STATE.md",
+      "sha256": "90e249a3c8c64a2c424297301fab9067bf44594a2cc62f17660adceef0887691"
+    },
+    {
+      "bytes": 51536,
+      "path": "TASKS.md",
+      "sha256": "832baa01ee3236fc100e33c38ffd5901665841df52fbf7b266c43bde520517bd"
+    },
+    {
+      "bytes": 47592,
+      "path": "reports/week_03/week_03_summary.md",
+      "sha256": "f19d2dd02bc1659c856484dbca6c41b4221141f98944611b13eea25687d3511b"
+    },
+    {
+      "bytes": 3272,
+      "path": "reports/week_03/daily/2026-08-18.md",
+      "sha256": "73d2e4e863a44a4aed423894f2d9dd3a887d7d898190ae2927a6d3962aecda60"
+    }
+  ],
+  "proposed_payload_count": 10,
+  "review_state": "AWAITING_SENIOR_AUTHORIZATION",
+  "runtime_asset_manifest_sha256": "b3904f7b3ba7bfd08a91959d09e222b6f4e457ea09bc5fd1795d569b356af281",
+  "runtime_source_closure_sha256": "719d792329dda3a431efe4ecc0a203ff7893bcf318a2ef275ba31260af81410f",
+  "runtime_source_commit": "5f7216fd64ad6a7518480318ff2fe4862a06abc3",
+  "schema_version": "1.0",
+  "self_hash_included": false,
+  "semantic_membership_unchanged": true,
+  "task_id": "W3-003-EV1-C2",
+  "total_future_c2_commit_paths": 11
+}

@@ -7,6 +7,7 @@ import json
 import subprocess
 import tempfile
 import unittest
+import zipfile
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -15,12 +16,15 @@ from unittest import mock
 from payresolve_ai.evaluation.w3_003_independent import (
     FORBIDDEN_RUNTIME_FIELDS,
     IndependentEvaluationError,
+    LocalRuntimeAssetsError,
     STATE_ORDER,
     _affirmative_forbidden_phrase,
     _assert_output_absent,
     apply_metric_contract,
     build_runtime_payloads,
     compare_reproduction_rows,
+    canonicalize_tracked_text_bytes,
+    create_runtime_asset_bundle,
     detect_blocked_target_compliance,
     eligible_approved_evidence_text,
     evaluate_obligation_fulfillment,
@@ -28,11 +32,17 @@ from payresolve_ai.evaluation.w3_003_independent import (
     execute_runtime,
     load_config,
     load_jsonl,
+    provision_runtime_asset_bundle,
     rendered_boundary_present,
     runtime_input_contract_sha256,
     sha256_file,
     summarize_evaluation,
     verify_execution_authorization,
+    verify_git_tracked_runtime_sources,
+    verify_offline_environment,
+    verify_offline_encoder_load,
+    verify_runtime_asset_bundle,
+    verify_runtime_assets,
     verify_runtime_bindings,
     verify_claims_individually,
 )
@@ -84,8 +94,8 @@ class PackageIntegrityTests(unittest.TestCase):
 
     def test_runtime_source_binding_drift_fails_closed(self) -> None:
         mutated = json.loads(json.dumps(self.config))
-        mutated["runtime_bindings"]["dependencies"][0]["sha256"] = "0" * 64
-        with self.assertRaisesRegex(IndependentEvaluationError, "runtime binding mismatch"):
+        mutated["runtime_source_commit"] = "0" * 40
+        with self.assertRaises(IndependentEvaluationError):
             verify_runtime_bindings(ROOT, mutated)
 
     def test_package_topology_no_longer_requires_head_equal_runtime_source(self) -> None:
@@ -158,12 +168,12 @@ class PackageIntegrityTests(unittest.TestCase):
                 self.assertTrue(all(requirement["necessity"] for alternative in obligation["fulfillment_alternatives"] for requirement in alternative["requirements"]))
 
     def test_candidate_manifest_accounts_for_18_payloads_plus_self(self) -> None:
-        manifest_path = ROOT / self.config["outputs"]["candidate_manifest"]
+        manifest_path = ROOT / self.config["base_package"]["r3_candidate_manifest"]
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         payload_paths = [item["path"] for item in manifest["proposed_paths"]]
         self.assertEqual(18, len(payload_paths))
         self.assertEqual(18, len(set(payload_paths)))
-        self.assertNotIn(self.config["outputs"]["candidate_manifest"], payload_paths)
+        self.assertNotIn(self.config["base_package"]["r3_candidate_manifest"], payload_paths)
         self.assertEqual(18, manifest["manifest_bound_payload_count"])
         self.assertEqual(19, manifest["total_future_package_commit_paths"])
 
@@ -171,59 +181,107 @@ class PackageIntegrityTests(unittest.TestCase):
 class AuthorizationTopologyTests(unittest.TestCase):
     def _topology(self, root: Path, mutation: str = "") -> tuple[dict, dict]:
         _git(root, "init")
-        _git(root, "config", "user.name", "R3 Test")
-        _git(root, "config", "user.email", "r3@example.invalid")
+        _git(root, "config", "user.name", "C2 Test")
+        _git(root, "config", "user.email", "c2@example.invalid")
         _write(root / "runtime.txt", b"frozen runtime\n")
         _git(root, "add", "runtime.txt")
         _git(root, "commit", "-m", "runtime R")
         runtime_commit = _git(root, "rev-parse", "HEAD")
-        if mutation == "c_parent":
+        if mutation == "c1_parent":
             _write(root / "intervening.txt", b"unreviewed\n")
             _git(root, "add", "intervening.txt")
             _git(root, "commit", "-m", "intervening")
-        paths = {
+        c1_paths = {
             "query.jsonl": b'{"query_id":"Q","query_text":"x"}\n',
             "authoring.json": b"{}\n",
             "metric.json": b"{}\n",
             **{f"payload-{index:02d}.txt": f"payload {index}\n".encode() for index in range(15)},
         }
-        items = [{"path": path, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()} for path, data in paths.items()]
-        for path, data in paths.items():
-            if not (mutation == "missing_path" and path == "payload-14.txt"):
-                _write(root / path, data)
-        manifest = {
+        c1_items = [{"path": path, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()} for path, data in c1_paths.items()]
+        for path, data in c1_paths.items():
+            _write(root / path, data)
+        c1_manifest = {
             "package_state": "PACKAGE_FROZEN", "evaluation_authorized": False,
             "manifest_bound_payload_count": 18, "total_future_package_commit_paths": 19,
-            "proposed_paths": items,
+            "proposed_paths": c1_items,
         }
-        _write(root / "candidate.json", (json.dumps(manifest, sort_keys=True) + "\n").encode())
-        if mutation == "mutated_payload":
-            _write(root / "payload-14.txt", b"mutated after manifest\n")
-        if mutation == "extra_path":
-            _write(root / "extra.txt", b"extra\n")
+        _write(root / "r3.json", (json.dumps(c1_manifest, sort_keys=True) + "\n").encode())
         _git(root, "add", ".")
-        _git(root, "commit", "-m", "candidate C")
-        candidate_commit = _git(root, "rev-parse", "HEAD")
+        _git(root, "commit", "-m", "base package C1")
+        c1_commit = _git(root, "rev-parse", "HEAD")
+        c1_tree = _git(root, "rev-parse", "HEAD^{tree}")
+        if mutation == "c2_parent":
+            _git(root, "commit", "--allow-empty", "-m", "intervening before C2")
+
+        _write(root / "asset-manifest.json", b'{"artifact_policy":"LOCAL_IGNORED_IMMUTABLE_RUNTIME_ASSETS"}\n')
+        _write(root / "c2.txt", b"portable correction\n")
+        c2_items = [
+            {"path": "asset-manifest.json", "bytes": (root / "asset-manifest.json").stat().st_size, "sha256": sha256_file(root / "asset-manifest.json")},
+            {"path": "c2.txt", "bytes": (root / "c2.txt").stat().st_size, "sha256": sha256_file(root / "c2.txt")},
+        ]
+        c2_manifest = {
+            "runtime_source_commit": runtime_commit,
+            "base_package_commit": c1_commit,
+            "base_r3_manifest_sha256": sha256_file(root / "r3.json"),
+            "package_state": "PACKAGE_FROZEN_PORTABILITY_CORRECTED",
+            "evaluation_authorized": False,
+            "semantic_membership_unchanged": True,
+            "metric_contract_unchanged": True,
+            "runtime_asset_manifest_sha256": sha256_file(root / "asset-manifest.json"),
+            "external_runtime_asset_bundle": {
+                "filename": "W3-003_EV1_runtime_assets_v1.zip",
+                "sha256": "b" * 64,
+                "bytes": 123,
+                "entry_count": 15,
+                "inventory_sha256": "c" * 64,
+            },
+            "proposed_paths": c2_items,
+        }
+        _write(root / "c2-manifest.json", (json.dumps(c2_manifest, sort_keys=True) + "\n").encode())
+        if mutation == "mutated_c2_payload":
+            _write(root / "c2.txt", b"mutated after manifest\n")
+        if mutation == "extra_c2_path":
+            _write(root / "extra-c2.txt", b"extra\n")
+        _git(root, "add", ".")
+        _git(root, "commit", "-m", "portability C2")
+        c2_commit = _git(root, "rev-parse", "HEAD")
         config = {
             "task_id": "W3-003-EV1", "runtime_source_commit": runtime_commit,
             "runtime_query_input": "query.jsonl", "authoring_freeze_manifest": "authoring.json",
-            "evaluator_inputs": {"metric_contract": "metric.json"}, "outputs": {"candidate_manifest": "candidate.json"},
+            "evaluator_inputs": {"metric_contract": "metric.json"},
+            "base_package": {
+                "commit": c1_commit, "parent": runtime_commit, "tree": ("0" * 40 if mutation == "wrong_c1_tree" else c1_tree),
+                "changed_path_count": 19, "r3_candidate_manifest": "r3.json",
+                "r3_candidate_manifest_sha256": sha256_file(root / "r3.json"),
+            },
+            "runtime_asset_manifest": "asset-manifest.json", "runtime_source_closure_manifest": "closure.json",
+            "portability_candidate_manifest": "c2-manifest.json", "outputs": {},
             "authorization": {"path": "auth.json", "required_package_state": "AUTHORIZED"},
         }
         authorization = {
             "task_id": "W3-003-EV1", "package_state": "AUTHORIZED",
-            "package_candidate_commit": "0" * 40 if mutation == "wrong_package_sha" else candidate_commit,
             "runtime_source_commit": runtime_commit,
-            "candidate_manifest_sha256": "0" * 64 if mutation == "wrong_manifest_sha" else sha256_file(root / "candidate.json"),
+            "base_package_commit": c1_commit,
+            "base_r3_candidate_manifest_sha256": sha256_file(root / "r3.json"),
+            "portability_package_commit": c2_commit,
+            "c2_portability_manifest_sha256": "0" * 64 if mutation == "wrong_c2_manifest_sha" else sha256_file(root / "c2-manifest.json"),
+            "runtime_asset_manifest_sha256": sha256_file(root / "asset-manifest.json"),
+            "runtime_asset_bundle_sha256": "b" * 64,
+            "runtime_asset_bundle_bytes": 123,
             "runtime_query_sha256": sha256_file(root / "query.jsonl"),
             "authoring_freeze_manifest_sha256": sha256_file(root / "authoring.json"),
             "metric_contract_sha256": sha256_file(root / "metric.json"),
             "senior_semantic_review_approved": True, "evaluation_authorized": True, "authorized_by": "Senior",
         }
+        if mutation == "missing_bundle_sha": authorization.pop("runtime_asset_bundle_sha256")
+        if mutation == "wrong_bundle_sha": authorization["runtime_asset_bundle_sha256"] = "0" * 64
+        if mutation == "missing_bundle_bytes": authorization.pop("runtime_asset_bundle_bytes")
+        if mutation == "wrong_bundle_bytes": authorization["runtime_asset_bundle_bytes"] = 124
+        if mutation == "wrong_asset_manifest_sha": authorization["runtime_asset_manifest_sha256"] = "0" * 64
         if mutation == "a_parent":
-            _git(root, "commit", "--allow-empty", "-m", "intervening after C")
+            _git(root, "commit", "--allow-empty", "-m", "intervening after C2")
         _write(root / "auth.json", (json.dumps(authorization, sort_keys=True) + "\n").encode())
-        if mutation == "head_c":
+        if mutation == "head_c2":
             return config, authorization
         if mutation == "auth_absent_a":
             (root / "auth.json").unlink()
@@ -240,30 +298,281 @@ class AuthorizationTopologyTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             config, _ = self._topology(root, mutation)
-            with mock.patch("builtins.__import__", wraps=__import__) as importer:
+            with mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_authoring_freeze", return_value={}), mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_git_tracked_runtime_sources", return_value={}), mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_runtime_assets", return_value={}), mock.patch("builtins.__import__", wraps=__import__) as importer:
                 with self.assertRaises(IndependentEvaluationError):
                     verify_execution_authorization(root, config)
             imported = [str(call.args[0]) for call in importer.mock_calls if call.args]
             self.assertNotIn("payresolve_ai.retrieval.benchmark", imported)
             self.assertNotIn("payresolve_ai.generation.pipeline_v3", imported)
 
-    def test_valid_committed_authorization_and_exact_19_path_package(self) -> None:
+    def test_valid_committed_authorization_r_c1_c2_a(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             config, authorization = self._topology(root)
-            with mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_authoring_freeze", return_value={}), mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_runtime_bindings", return_value={}):
+            with mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_authoring_freeze", return_value={}), mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_git_tracked_runtime_sources", return_value={}), mock.patch("payresolve_ai.evaluation.w3_003_independent.verify_runtime_assets", return_value={}):
                 self.assertEqual(authorization, verify_execution_authorization(root, config))
 
-    def test_rejects_head_c_with_uncommitted_authorization(self) -> None: self._assert_rejected("head_c")
+    def test_rejects_head_c2_with_uncommitted_authorization(self) -> None: self._assert_rejected("head_c2")
     def test_rejects_modified_authorization_worktree_bytes(self) -> None: self._assert_rejected("auth_modified")
     def test_rejects_authorization_absent_from_a(self) -> None: self._assert_rejected("auth_absent_a")
-    def test_rejects_a_parent_not_c(self) -> None: self._assert_rejected("a_parent")
-    def test_rejects_c_parent_not_runtime_r(self) -> None: self._assert_rejected("c_parent")
-    def test_rejects_wrong_package_candidate_sha(self) -> None: self._assert_rejected("wrong_package_sha")
-    def test_rejects_wrong_candidate_manifest_sha(self) -> None: self._assert_rejected("wrong_manifest_sha")
-    def test_rejects_extra_path_in_c(self) -> None: self._assert_rejected("extra_path")
-    def test_rejects_missing_package_path_in_c(self) -> None: self._assert_rejected("missing_path")
-    def test_rejects_mutated_committed_package_payload(self) -> None: self._assert_rejected("mutated_payload")
+    def test_rejects_a_parent_not_c2(self) -> None: self._assert_rejected("a_parent")
+    def test_rejects_c1_parent_not_runtime_r(self) -> None: self._assert_rejected("c1_parent")
+    def test_rejects_c2_parent_not_c1(self) -> None: self._assert_rejected("c2_parent")
+    def test_rejects_wrong_c1_tree(self) -> None: self._assert_rejected("wrong_c1_tree")
+    def test_rejects_wrong_c2_manifest_sha(self) -> None: self._assert_rejected("wrong_c2_manifest_sha")
+    def test_rejects_missing_bundle_sha(self) -> None: self._assert_rejected("missing_bundle_sha")
+    def test_rejects_wrong_bundle_sha(self) -> None: self._assert_rejected("wrong_bundle_sha")
+    def test_rejects_missing_bundle_bytes(self) -> None: self._assert_rejected("missing_bundle_bytes")
+    def test_rejects_wrong_bundle_bytes(self) -> None: self._assert_rejected("wrong_bundle_bytes")
+    def test_rejects_wrong_asset_manifest_sha(self) -> None: self._assert_rejected("wrong_asset_manifest_sha")
+    def test_rejects_extra_path_in_c2(self) -> None: self._assert_rejected("extra_c2_path")
+    def test_rejects_mutated_committed_c2_payload(self) -> None: self._assert_rejected("mutated_c2_payload")
+
+
+class PortabilityBindingTests(unittest.TestCase):
+    @staticmethod
+    def _tracked_fixture(root: Path, worktree_bytes: bytes) -> dict:
+        _git(root, "init")
+        _git(root, "config", "user.name", "C2 Test")
+        _git(root, "config", "user.email", "c2@example.invalid")
+        _write(root / "runtime.txt", b"alpha\nbeta\n")
+        _git(root, "add", "runtime.txt")
+        _git(root, "commit", "-m", "runtime R")
+        revision = _git(root, "rev-parse", "HEAD")
+        committed = b"alpha\nbeta\n"
+        closure = {
+            "runtime_source_commit": revision,
+            "production_python_path_count": 1,
+            "tracked_runtime_input_count": 0,
+            "tracked_paths": [{
+                "path": "runtime.txt", "git_bytes": len(committed),
+                "git_canonical_sha256": hashlib.sha256(committed).hexdigest(),
+            }],
+        }
+        _write(root / "closure.json", (json.dumps(closure) + "\n").encode())
+        _write(root / "runtime.txt", worktree_bytes)
+        return {"runtime_source_commit": revision, "runtime_source_closure_manifest": "closure.json"}
+
+    @staticmethod
+    def _asset_fixture(root: Path) -> tuple[dict, dict]:
+        import numpy as np
+
+        corpus = [{"chunk_id": f"C{index:02d}"} for index in range(52)]
+        _write(root / "artifacts/cache/w2-003/corpus.jsonl", b"".join((json.dumps(row) + "\n").encode() for row in corpus))
+        embedding_path = root / "artifacts/cache/w2-003/corpus_embeddings.npy"
+        embedding_path.parent.mkdir(parents=True, exist_ok=True)
+        np.save(embedding_path, np.zeros((52, 384), dtype=np.float32), allow_pickle=False)
+        _write(root / "artifacts/models/w1-004/semantic_classifier_parameters.json.gz", b"classifier")
+        blob_dir = root / "artifacts/cache/w1-003/huggingface/model/blobs"
+        snapshot_dir = root / "artifacts/cache/w1-003/huggingface/model/snapshots/frozen"
+        for index in range(11):
+            _write(blob_dir / f"blob-{index:02d}", f"blob {index}".encode())
+            _write(snapshot_dir / f"file-{index:02d}", f"blob {index}".encode())
+        roles = [
+            ("artifacts/models/w1-004/semantic_classifier_parameters.json.gz", "classifier_parameters"),
+            ("artifacts/cache/w2-003/corpus.jsonl", "retrieval_corpus"),
+            ("artifacts/cache/w2-003/corpus_embeddings.npy", "retrieval_embeddings"),
+            *((f"artifacts/cache/w1-003/huggingface/model/blobs/blob-{index:02d}", "encoder_blob") for index in range(11)),
+        ]
+        assets = [{"path": path, "role": role, "bytes": (root / path).stat().st_size, "sha256": sha256_file(root / path)} for path, role in roles]
+        alignment = hashlib.sha256(("\n".join(row["chunk_id"] for row in corpus) + "\n").encode()).hexdigest()
+        manifest = {
+            "artifact_policy": "LOCAL_IGNORED_IMMUTABLE_RUNTIME_ASSETS",
+            "encoder": {
+                "blob_directory": "artifacts/cache/w1-003/huggingface/model/blobs",
+                "cache_folder": "artifacts/cache/w1-003/huggingface",
+                "revision": "frozen",
+                "model_id": "sentence-transformers/test",
+                "snapshot_materialization": "ordinary_file_copy_no_symlink",
+                "snapshot_files": [{
+                    "blob_path": f"artifacts/cache/w1-003/huggingface/model/blobs/blob-{index:02d}",
+                    "snapshot_path": f"artifacts/cache/w1-003/huggingface/model/snapshots/frozen/file-{index:02d}",
+                    "bytes": (blob_dir / f"blob-{index:02d}").stat().st_size,
+                    "sha256": sha256_file(blob_dir / f"blob-{index:02d}"),
+                } for index in range(11)],
+            },
+            "retrieval_cache": {"chunk_count": 52, "embedding_shape": [52, 384], "chunk_alignment_sha256": alignment},
+            "assets": assets,
+        }
+        _write(root / "asset-manifest.json", (json.dumps(manifest) + "\n").encode())
+        return {"runtime_asset_manifest": "asset-manifest.json"}, manifest
+
+    def test_canonical_text_lf_and_crlf_are_equivalent(self) -> None:
+        self.assertEqual(b"a\nb\n", canonicalize_tracked_text_bytes(b"a\nb\n"))
+        self.assertEqual(b"a\nb\n", canonicalize_tracked_text_bytes(b"a\r\nb\r\n"))
+        self.assertEqual(b"a\nb\n", canonicalize_tracked_text_bytes(b"a\rb\r"))
+
+    def test_git_lf_worktree_lf_passes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config = self._tracked_fixture(root, b"alpha\nbeta\n")
+            self.assertEqual(1, verify_git_tracked_runtime_sources(root, config)["tracked_paths_verified"])
+
+    def test_git_lf_worktree_crlf_passes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config = self._tracked_fixture(root, b"alpha\r\nbeta\r\n")
+            self.assertEqual(1, verify_git_tracked_runtime_sources(root, config)["tracked_paths_verified"])
+
+    def test_semantic_character_mutation_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config = self._tracked_fixture(root, b"alpha\nBeta\n")
+            with self.assertRaisesRegex(IndependentEvaluationError, "semantic drift"):
+                verify_git_tracked_runtime_sources(root, config)
+
+    def test_line_deletion_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config = self._tracked_fixture(root, b"alpha\n")
+            with self.assertRaisesRegex(IndependentEvaluationError, "semantic drift"):
+                verify_git_tracked_runtime_sources(root, config)
+
+    def test_real_runtime_source_closure_is_complete_and_exact(self) -> None:
+        result = verify_git_tracked_runtime_sources(ROOT, load_config(ROOT, CONFIG_PATH))
+        self.assertEqual((19, 6, 25), (result["production_python_paths"], result["tracked_runtime_inputs"], result["tracked_paths_verified"]))
+
+    def test_runtime_assets_pass_without_model_import(self) -> None:
+        result = verify_runtime_assets(ROOT, load_config(ROOT, CONFIG_PATH))
+        self.assertEqual((14, 11, [52, 384]), (result["assets_verified"], result["encoder_assets_verified"], result["embedding_shape"]))
+        self.assertEqual(11, result["encoder_snapshot_files_verified"])
+        self.assertFalse(result["model_imported"]); self.assertFalse(result["inference_executed"])
+
+    def test_missing_classifier_reports_local_assets_missing(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, _ = self._asset_fixture(root)
+            (root / "artifacts/models/w1-004/semantic_classifier_parameters.json.gz").unlink()
+            with self.assertRaisesRegex(LocalRuntimeAssetsError, "LOCAL_RUNTIME_ASSETS_MISSING"):
+                verify_runtime_assets(root, config)
+
+    def test_mutated_classifier_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, _ = self._asset_fixture(root)
+            _write(root / "artifacts/models/w1-004/semantic_classifier_parameters.json.gz", b"mutated")
+            with self.assertRaisesRegex(LocalRuntimeAssetsError, "MUTATED"):
+                verify_runtime_assets(root, config)
+
+    def test_missing_corpus_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, _ = self._asset_fixture(root)
+            (root / "artifacts/cache/w2-003/corpus.jsonl").unlink()
+            with self.assertRaisesRegex(LocalRuntimeAssetsError, "MISSING"):
+                verify_runtime_assets(root, config)
+
+    def test_mutated_embeddings_fail(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, _ = self._asset_fixture(root)
+            with (root / "artifacts/cache/w2-003/corpus_embeddings.npy").open("ab") as handle: handle.write(b"x")
+            with self.assertRaisesRegex(LocalRuntimeAssetsError, "MUTATED"):
+                verify_runtime_assets(root, config)
+
+    def test_missing_encoder_blob_fails_even_with_extra_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, _ = self._asset_fixture(root)
+            blob = root / "artifacts/cache/w1-003/huggingface/model/blobs/blob-00"; blob.unlink()
+            _write(blob.parent / "extra", b"blob 0")
+            with self.assertRaisesRegex(LocalRuntimeAssetsError, "MISSING"):
+                verify_runtime_assets(root, config)
+
+    def test_mutated_encoder_blob_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, _ = self._asset_fixture(root)
+            _write(root / "artifacts/cache/w1-003/huggingface/model/blobs/blob-00", b"changed")
+            with self.assertRaisesRegex(LocalRuntimeAssetsError, "MUTATED"):
+                verify_runtime_assets(root, config)
+
+    def test_wrong_encoder_inventory_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, _ = self._asset_fixture(root)
+            _write(root / "artifacts/cache/w1-003/huggingface/model/blobs/extra", b"extra")
+            with self.assertRaisesRegex(LocalRuntimeAssetsError, "INVENTORY"):
+                verify_runtime_assets(root, config)
+
+    def test_asset_bundle_is_deterministic_and_receipt_bound(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, manifest = self._asset_fixture(root)
+            one, two = root / "one.zip", root / "two.zip"
+            first = create_runtime_asset_bundle(root, config, one); second = create_runtime_asset_bundle(root, config, two)
+            self.assertEqual(first["sha256"], second["sha256"])
+            self.assertEqual(15, first["entry_count"])
+            self.assertTrue(verify_runtime_asset_bundle(one, manifest, first)["verified"])
+
+    def test_asset_bundle_payload_mutation_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, manifest = self._asset_fixture(root); bundle = root / "bundle.zip"
+            create_runtime_asset_bundle(root, config, bundle)
+            with zipfile.ZipFile(bundle, "a") as archive: archive.writestr("unexpected", b"x")
+            with self.assertRaisesRegex(IndependentEvaluationError, "inventory mismatch"):
+                verify_runtime_asset_bundle(bundle, manifest)
+
+    def test_wrong_asset_bundle_receipt_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, manifest = self._asset_fixture(root); bundle = root / "bundle.zip"
+            receipt = create_runtime_asset_bundle(root, config, bundle); receipt["sha256"] = "0" * 64
+            with self.assertRaisesRegex(IndependentEvaluationError, "receipt mismatch"):
+                verify_runtime_asset_bundle(bundle, manifest, receipt)
+
+    def test_wrong_asset_bundle_byte_receipt_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); config, manifest = self._asset_fixture(root); bundle = root / "bundle.zip"
+            receipt = create_runtime_asset_bundle(root, config, bundle); receipt["bytes"] += 1
+            with self.assertRaisesRegex(IndependentEvaluationError, "receipt mismatch"):
+                verify_runtime_asset_bundle(bundle, manifest, receipt)
+
+    def test_provision_materializes_ordinary_snapshot_copies_without_symlink(self) -> None:
+        with tempfile.TemporaryDirectory() as source_tmp, tempfile.TemporaryDirectory() as target_tmp:
+            source = Path(source_tmp); target = Path(target_tmp)
+            config, manifest = self._asset_fixture(source); bundle = source / "bundle.zip"
+            receipt = create_runtime_asset_bundle(source, config, bundle)
+            _write(target / "asset-manifest.json", (json.dumps(manifest) + "\n").encode())
+            with mock.patch("os.symlink", side_effect=PermissionError("symlink denied")) as symlink:
+                result = provision_runtime_asset_bundle(target, config, bundle, receipt)
+            symlink.assert_not_called()
+            self.assertEqual("ordinary_file_copy_no_symlink", result["snapshot_materialization"])
+            self.assertTrue(all((target / item["snapshot_path"]).is_file() for item in manifest["encoder"]["snapshot_files"]))
+            self.assertTrue(all(not (target / item["snapshot_path"]).is_symlink() for item in manifest["encoder"]["snapshot_files"]))
+
+    def test_offline_encoder_load_uses_exact_safe_constructor_and_zero_counters(self) -> None:
+        config = load_config(ROOT, CONFIG_PATH)
+        calls: list[tuple[tuple, dict]] = []
+
+        class DummyEncoder:
+            def __init__(self, *args, **kwargs): calls.append((args, kwargs))
+            def encode(self, *args, **kwargs): raise AssertionError("must be instrumented")
+            def get_sentence_embedding_dimension(self): return 384
+
+        with mock.patch.dict("os.environ", {"HF_HUB_OFFLINE": "1", "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}, clear=False):
+            result = verify_offline_encoder_load(ROOT, config, model_factory=DummyEncoder)
+        self.assertEqual((0, 0, 0), (result["network_attempts"], result["encode_calls"], result["ev1_input_accesses"]))
+        self.assertEqual("sentence-transformers/all-MiniLM-L6-v2", calls[0][0][0])
+        self.assertEqual({
+            "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+            "device": "cpu",
+            "cache_folder": str((ROOT / "artifacts/cache/w1-003/huggingface").resolve()),
+            "trust_remote_code": False,
+            "local_files_only": True,
+        }, calls[0][1])
+
+    def test_offline_encoder_load_fails_on_attempted_network_use(self) -> None:
+        config = load_config(ROOT, CONFIG_PATH)
+
+        class NetworkEncoder:
+            def __init__(self, *args, **kwargs):
+                import socket
+                socket.create_connection(("example.invalid", 443))
+            def encode(self, *args, **kwargs): return None
+
+        with mock.patch.dict("os.environ", {"HF_HUB_OFFLINE": "1", "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}, clear=False):
+            with self.assertRaisesRegex(IndependentEvaluationError, "network attempted"):
+                verify_offline_encoder_load(ROOT, config, model_factory=NetworkEncoder)
+
+    def test_offline_environment_is_required_before_import(self) -> None:
+        with mock.patch.dict("os.environ", {"HF_HUB_OFFLINE": "1", "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}, clear=True):
+            self.assertEqual("1", verify_offline_environment()["HF_HUB_OFFLINE"])
+        with mock.patch.dict("os.environ", {}, clear=True):
+            with self.assertRaisesRegex(IndependentEvaluationError, "before model import"):
+                verify_offline_environment()
+
+    def test_runtime_asset_verification_makes_no_network_attempt(self) -> None:
+        with mock.patch("socket.create_connection", side_effect=AssertionError("network attempted")) as network:
+            verify_runtime_assets(ROOT, load_config(ROOT, CONFIG_PATH))
+        network.assert_not_called()
 
 
 class EvaluatorIntegrityTests(unittest.TestCase):

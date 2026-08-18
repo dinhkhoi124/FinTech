@@ -709,3 +709,11 @@ cases fail closed before runtime import. The dummy/static suite passes 35/35;
 no model, encoder, retrieval, generation, PRIMARY, evaluation, or reproduction
 ran. EV1 remains unauthorized and the R3 package is awaiting final commit
 review.
+
+## W3-003-EV1-C2 Fix1 portable runtime readiness — 2026-08-18
+
+C1 remains immutable. C2 now separates Git-portable verification from 14 ignored runtime assets, binds the external ZIP by SHA-256 and byte size, and requires future authorization A to match both values plus the asset and C2 manifests.
+
+The deterministic ZIP carries 14 payloads and an inventory that maps 11 MiniLM snapshot paths to their exact blobs. Provisioning validates the full receipt before writing and materializes ordinary files, so no symlink privilege is required. A real load-only check resolved revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41` on CPU at dimension 384 with offline flags and zero network, encode, or EV1-input accesses.
+
+Authorization and all EV1 execution/evaluation states remain absent. C2 is uncommitted and awaits Senior review; the Week 3 product gate and W4 remain blocked.

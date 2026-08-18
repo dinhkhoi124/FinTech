@@ -27,7 +27,8 @@ Priority: `P0 | P1 | P2`
 | W3-003 | 3 | P0 | Grounded RAG Behavior Remediation | V3 remediation selected and frozen; independent product-gate evaluation must pass before W4 opens | IN_PROGRESS / PRODUCT GATE PENDING |
 | W3-003-EV1 | 3 | P0 | Independent 60-case product-gate package | Blind 30/15/15 candidate frozen before inference; Senior semantic membership accepted | DONE / SUPERSEDED PRE-INFERENCE BY R2 |
 | W3-003-EV1-R2 | 3 | P0 | Execution topology and evaluator-integrity closure | `A^=C` authorization topology, per-claim metrics, 45-case obligation rules, rendered safety, reproduction freeze, dummy-only tests | DONE / AWAITING SENIOR REVIEW |
-| W3-003-EV1-R3 | 3 | P0 | Atomic claim reachability and committed authorization closure | 61 obligations preserved; 45/45 fit frozen claim budgets; exact `C^=R`, `A^=C`, 19-path C and one-path A; 10 negative Git controls | DONE / AWAITING FINAL COMMIT REVIEW |
+| W3-003-EV1-R3 | 3 | P0 | Atomic claim reachability and committed authorization closure | 61 obligations preserved; 45/45 fit frozen claim budgets; immutable 19-path package published as C1 | DONE / COMMITTED / PUSHED |
+| W3-003-EV1-C2 | 3 | P0 | Portable runtime-binding correction | SHA+bytes-bound runtime ZIP; copy-materialized encoder snapshot; offline load-only proof | DONE / AWAITING SENIOR REVIEW |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
@@ -229,6 +230,15 @@ DONE / REVIEWED / COMMITTED / PUSHED.
   selected retriever remains R0.
 
 ## Week 3 executable task contracts
+
+### W3-003-EV1-C2 — Portable runtime-binding correction
+
+- **Objective:** preserve immutable C1 and frozen EV1 semantics while separating Git-portable integrity from external offline runtime readiness.
+- **Acceptance:** bind 25 R-owned tracked inputs; verify 14 external assets; provision 11 exact snapshot files by ordinary copy; load exact MiniLM revision offline on CPU without encode/query/evaluation.
+- **Authorization:** future A must be a one-path child of C2 and bind bundle SHA-256 plus bytes, asset-manifest SHA, C2-manifest SHA, C1/R identities, and Senior approval.
+- **Boundary:** no commit/push, authorization, network, retrieval, generation, inference, PRIMARY, evaluation, reproduction, or finalization.
+- **Status:** corrected uncommitted candidate awaits Senior review; W3 product gate and W4 remain blocked.
+
 
 ### W3-001 — Grounded Pipeline + Evidence Gate
 

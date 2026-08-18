@@ -1,0 +1,280 @@
+{
+  "classification_audit": {
+    "GIT_TRACKED_RUNTIME_SOURCE_OR_INPUT": [
+      "src/payresolve_ai/baselines/lexical.py",
+      "src/payresolve_ai/baselines/semantic.py",
+      "src/payresolve_ai/data/banking77.py",
+      "src/payresolve_ai/evaluation/gold_mapping.py",
+      "src/payresolve_ai/generation/citations.py",
+      "src/payresolve_ai/generation/context.py",
+      "src/payresolve_ai/generation/corrective_v1.py",
+      "src/payresolve_ai/generation/extractive.py",
+      "src/payresolve_ai/generation/gate.py",
+      "src/payresolve_ai/generation/pipeline_v3.py",
+      "src/payresolve_ai/generation/routing_v3.py",
+      "src/payresolve_ai/generation/support_v2.py",
+      "src/payresolve_ai/generation/targeted_extractive.py",
+      "src/payresolve_ai/generation/types.py",
+      "src/payresolve_ai/kb/validation.py",
+      "src/payresolve_ai/retrieval/benchmark.py",
+      "src/payresolve_ai/retrieval/corpus.py",
+      "src/payresolve_ai/retrieval/dense.py",
+      "src/payresolve_ai/retrieval/runtime.py",
+      "configs/generation/banking_support_lexicon_v2.json",
+      "configs/generation/grounded_pipeline_v3.json",
+      "configs/models/banking77_semantic_w1.json",
+      "configs/retrieval/kb_v1_r0_r1.json",
+      "data/kb/kb_v1.jsonl",
+      "reports/week_02/results/retrieval_corpus_manifest.json"
+    ],
+    "LOCAL_IGNORED_RUNTIME_ASSET": [
+      "artifacts/models/w1-004/semantic_classifier_parameters.json.gz",
+      "artifacts/cache/w2-003/corpus.jsonl",
+      "artifacts/cache/w2-003/corpus_embeddings.npy",
+      "artifacts/cache/w1-003/huggingface/models--sentence-transformers--all-MiniLM-L6-v2/blobs/<11 frozen files>"
+    ],
+    "PACKAGE_INPUT": [
+      "data/evaluation/w3_003_independent_queries_v1.jsonl"
+    ],
+    "PROVENANCE_ONLY": [
+      "configs/kb/kb_v1.json"
+    ]
+  },
+  "derivation": {
+    "direct_lazy_import_seeds": [
+      "payresolve_ai.generation.context",
+      "payresolve_ai.generation.gate",
+      "payresolve_ai.generation.pipeline_v3",
+      "payresolve_ai.generation.support_v2",
+      "payresolve_ai.retrieval.benchmark",
+      "payresolve_ai.retrieval.corpus",
+      "payresolve_ai.retrieval.dense"
+    ],
+    "entrypoint": "execute_runtime",
+    "excluded_development_only_imports": [
+      "payresolve_ai.generation.verification",
+      "payresolve_ai.generation.pipeline"
+    ],
+    "function_local_runtime_imports": [
+      "payresolve_ai.retrieval.runtime"
+    ],
+    "method": "STATIC_EXECUTION_PATH_IMPORT_CLOSURE"
+  },
+  "excluded_from_r_closure": {
+    "package_owned_evaluator_inputs": [
+      "data/evaluation/w3_003_independent_queries_v1.jsonl",
+      "data/evaluation/w3_003_independent_gold_v1.jsonl",
+      "data/evaluation/w3_003_independent_obligation_rules_v3.jsonl"
+    ],
+    "provenance_only": [
+      "configs/kb/kb_v1.json"
+    ]
+  },
+  "production_python_path_count": 19,
+  "runtime_source_commit": "5f7216fd64ad6a7518480318ff2fe4862a06abc3",
+  "schema_version": "1.0",
+  "task_id": "W3-003-EV1-C2",
+  "tracked_paths": [
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 17543,
+      "git_canonical_sha256": "cc5359d68b4e3caf408ca2421d9be4fa9b3ffcd4cb8f4d3ceff8e8101590b741",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/baselines/lexical.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 37806,
+      "git_canonical_sha256": "18f751b6bd20422fcd4b55e563fd1b058c40e0553369de4aa9580111dca0575c",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/baselines/semantic.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 24511,
+      "git_canonical_sha256": "f6b0a8dcd1dc1463d461299ccb2eba812add6e1b795fcec64c96a45ffd6b1b68",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/data/banking77.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 30460,
+      "git_canonical_sha256": "85cd81493bda9f9dc80e3090203e2c97ddb3b47a4578811574ff81352667927a",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/evaluation/gold_mapping.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 4955,
+      "git_canonical_sha256": "1ade5dad4fa7eda8e76862466517410095c29d8798f83d86170920a7ac7dfc25",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/citations.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 2568,
+      "git_canonical_sha256": "2a4df880345a9606ab3a8932b422f0622829fa93a50a0af872d853915388a1a7",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/context.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 5334,
+      "git_canonical_sha256": "8411e9eac1bfa3fcbde9bca136cd5d4ca32fc4357c737f788448570d228e0cc4",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/corrective_v1.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 3667,
+      "git_canonical_sha256": "e2982fa3c6eee4fc35a7d437b43f9e98d88c0ebfca5f8d4030ec3e21d8111880",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/extractive.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 3884,
+      "git_canonical_sha256": "53412a2d6f7c25cb6ca6dcde1ff86717158770e26147a11a3ea20a2597d70a6f",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/gate.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 24912,
+      "git_canonical_sha256": "a59aaebf55ee589c5a17e64f713bd4bc7430f3eb4bc5e80331b3e583ea5b6c66",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/pipeline_v3.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 14479,
+      "git_canonical_sha256": "fc98e1a13a641298fff3107c3e4f4803985166c54b865b982fdf21bd5238a979",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/routing_v3.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 12895,
+      "git_canonical_sha256": "5f71bd203665c5109293144139527aaf8895e100dc455749815eb5b1b3e926e1",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/support_v2.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 2437,
+      "git_canonical_sha256": "c1649d0defec426d1090360f13f62bd8bbbd26905009dbbb6eb0226acd93fe46",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/targeted_extractive.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 1083,
+      "git_canonical_sha256": "78857b1e3e9b7e4e16508af977f0850ca99eda25762f0e7e8cc09fec51b961be",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/generation/types.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 45738,
+      "git_canonical_sha256": "35d8bed2d950012363cc888482fb2eace53f656a2fc33a0bcb02a1aef4f93fc5",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/kb/validation.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 63600,
+      "git_canonical_sha256": "5f1dd5e3e2bf149d21afeb37d83631672677fd0b50371f562ca0dcd80b12393a",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/retrieval/benchmark.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 3525,
+      "git_canonical_sha256": "cd2a0a1dafa49dafc6b93bfb98e3b8f36deaff6c5e50a4f7b8251699ff7bc67e",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/retrieval/corpus.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 1418,
+      "git_canonical_sha256": "974d8e23922c1016a5667f175bd7e4cd65201d9f19672b945a5f1fdf32ce4034",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/retrieval/dense.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 4768,
+      "git_canonical_sha256": "8e09bcb978d5fe921fb978246f61f1711560830092ea7fdeb0d62e39d321fe27",
+      "kind": "PRODUCTION_PYTHON_SOURCE",
+      "path": "src/payresolve_ai/retrieval/runtime.py",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 2562,
+      "git_canonical_sha256": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+      "kind": "TRACKED_RUNTIME_INPUT",
+      "path": "configs/generation/banking_support_lexicon_v2.json",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 2388,
+      "git_canonical_sha256": "bca279ea11feffbde8b3fa569c3ea2a076d94664f6aa4e473a770b19c3428d09",
+      "kind": "TRACKED_RUNTIME_INPUT",
+      "path": "configs/generation/grounded_pipeline_v3.json",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 2680,
+      "git_canonical_sha256": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
+      "kind": "TRACKED_RUNTIME_INPUT",
+      "path": "configs/models/banking77_semantic_w1.json",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 4151,
+      "git_canonical_sha256": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
+      "kind": "TRACKED_RUNTIME_INPUT",
+      "path": "configs/retrieval/kb_v1_r0_r1.json",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 40820,
+      "git_canonical_sha256": "d4e32a12ac4aa64fe03059b197aa4e36fd0b2628ccea6a1d2a2432e934611006",
+      "kind": "TRACKED_RUNTIME_INPUT",
+      "path": "data/kb/kb_v1.jsonl",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    },
+    {
+      "content_type": "UTF8_TEXT",
+      "git_bytes": 2979,
+      "git_canonical_sha256": "d5c633b981e82010ff80b20ec1c9e55cd37e70ac2b58629772b7ef14746140fa",
+      "kind": "TRACKED_RUNTIME_INPUT",
+      "path": "reports/week_02/results/retrieval_corpus_manifest.json",
+      "worktree_equivalence": "CRLF_TO_LF__CR_TO_LF__UTF8_BYTES_OTHERWISE_UNCHANGED"
+    }
+  ],
+  "tracked_runtime_input_count": 6
+}
