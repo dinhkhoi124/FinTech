@@ -30,6 +30,8 @@ Priority: `P0 | P1 | P2`
 | W3-003-EV1-R3 | 3 | P0 | Atomic claim reachability and committed authorization closure | 61 obligations preserved; 45/45 fit frozen claim budgets; immutable 19-path package published as C1 | DONE / COMMITTED / PUSHED |
 | W3-003-EV1-C2 | 3 | P0 | Portable runtime-binding correction | SHA+bytes-bound runtime ZIP; copy-materialized encoder snapshot; offline load-only proof | DONE / AWAITING SENIOR REVIEW |
 | W3-003-EV1-NB1 | 3 | P0 | Mentor-facing frozen EV1 results and benchmark notebook | E1-pinned immutable inputs; 60/60 reproducibility; hard-gate/result tables; failure-pattern analysis; deterministic representative cases; read-only notebook; Senior content review approved | DONE / REVIEWED |
+| W3-003-RM1 | 3 | P0 | Post-EV1 remediation RCA using non-locked development evidence | Explicit development-evidence registry; no EV1 individual-content access; V3 decision graph; two proven root-cause clusters; bounded counterfactual diagnostics; Senior RCA review accepted | DONE / REVIEWED |
+| W3-003-RM2 | 3 | P0 | Test-first V3 remediation for Senior-accepted RM1 root causes | Requires separate authorization after RM1 reporting publication and Senior remote verification | TODO / NOT AUTHORIZED |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |

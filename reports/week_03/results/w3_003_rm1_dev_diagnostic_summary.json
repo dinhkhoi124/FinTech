@@ -1,0 +1,165 @@
+{
+  "task_id": "W3-003-RM1",
+  "base_commit": "da8eedbc199b84f1dbb6619557e4420875f0f15d",
+  "classification": "NON_LOCKED_DEVELOPMENT_DIAGNOSTIC_ONLY",
+  "allowed_dev_sources": [
+    "configs/evaluation/w3_003_behavior_dev_v1.json",
+    "data/evaluation/w3_003_behavior_dev_v1.jsonl",
+    "data/evaluation/evidence_gate_dev_v1.jsonl",
+    "reports/week_03/results/grounded_pipeline_dev_outputs.jsonl",
+    "reports/week_03/results/evidence_gate_dev_classifier_predictions.jsonl",
+    "data/kb/kb_v1.jsonl",
+    "existing V3 unit/regression fixtures"
+  ],
+  "excluded_locked_sources": [
+    "all W3-003 EV1 individual queries/gold/scenarios/support/obligations/raw/evaluation rows",
+    "NB1 notebook individual cases",
+    "W3-001-CR1 consumed holdout and resolved results",
+    "W2 critical/locked/holdout evaluations"
+  ],
+  "uncertain_sources_excluded": true,
+  "tests_run": {
+    "runner": "Python 3.11 unittest",
+    "allowlisted_tests": 23,
+    "passed": 23,
+    "failed": 0,
+    "excluded_test": "GroundedPipelineV3Tests.test_nonlocked_v2_to_v3_regression_contract_passes",
+    "exclusion_reason": "helper reads a consumed W3-001-CR1 holdout",
+    "full_suite_run": false,
+    "full_suite_reason": "contains locked/consumed evaluation tests; pytest is not installed and dependency installation was forbidden"
+  },
+  "dev_cases_observed": {
+    "w3_003_synthetic": {
+      "cases": 14,
+      "status": "PASS",
+      "target_counts": {"ABSTAIN": 5, "CORRECTIVE": 7, "STANDARD": 2},
+      "citation_failures": 0,
+      "ineligible_selected_count": 0,
+      "normalized_sha256": "b12c736e25cffea8be7f29c9b92078b831c38f0ac936b37de2767d401a502fe0"
+    },
+    "w3_001_development": {
+      "cases": 20,
+      "answerable_cases": 10,
+      "answerable_answer_emission_count": 7,
+      "answerable_abstention_count": 3,
+      "safety_probe_cases": 10,
+      "safety_probe_standard_answer_count": 0,
+      "safety_probe_safe_resolution_count": 10,
+      "response_counts": {"ABSTAIN": 7, "CORRECTIVE": 6, "STANDARD": 7},
+      "relevance_recall_computed": false,
+      "relevance_limit": "allowlisted membership does not carry resolved gold evidence IDs"
+    },
+    "classifier_diagnostic": {
+      "cases": 20,
+      "prediction_correct_count": 11,
+      "positive_abstention_cases": 3,
+      "positive_abstention_prediction_correct_count": 1,
+      "is_runtime_input_to_v3": false
+    }
+  },
+  "failure_mechanisms": [
+    {
+      "mechanism": "top1_state_conflict_preempts_later_matching_candidate",
+      "reproduction_count": 2,
+      "first_blocking_stage": "assess_requested_target",
+      "reason_code": "EVIDENCE_TARGET_STATE_CONFLICT",
+      "causality_level": "PROVEN"
+    },
+    {
+      "mechanism": "next_action_direct_action_required",
+      "reproduction_count": 1,
+      "first_blocking_stage": "assess_requested_target",
+      "reason_code": "NEXT_ACTION_DIRECT_ACTION_REQUIRED",
+      "causality_level": "SUPPORTED_HYPOTHESIS"
+    },
+    {
+      "mechanism": "ordinary_unsupported_has_no_recovery_branch",
+      "reproduction_count": 3,
+      "first_blocking_stage": "build_response_plan",
+      "causality_level": "PROVEN_CONTROL_FLOW_SUPPORTED_HYPOTHESIS_REMEDIATION"
+    },
+    {
+      "mechanism": "same_scope_standard_padding_and_objective_unaware_claim_verification",
+      "reproduction_count": 1,
+      "first_blocking_stage": "build_response_plan",
+      "off_objective_claim_cited": true,
+      "citation_verification_passed": true,
+      "causality_level": "PROVEN"
+    }
+  ],
+  "root_causes": [
+    "top1-only state conflict is terminal before candidate-aware target support",
+    "STANDARD same-scope padding is not requested-objective bound",
+    "STANDARD generation and citation verification do not enforce requested-objective appropriateness"
+  ],
+  "causality_levels": {
+    "top1_state_conflict": "PROVEN",
+    "same_scope_objective_gap": "PROVEN",
+    "next_action_false_negative": "SUPPORTED_HYPOTHESIS",
+    "classifier_as_direct_v3_cause": "NOT_ESTABLISHED",
+    "global_thresholds_as_root_cause": "NOT_ESTABLISHED",
+    "corrective_discovery_failure_on_positive_cases": "NOT_ESTABLISHED"
+  },
+  "counterfactuals": [
+    {
+      "name": "force_requested_target_supported",
+      "classification": "DIAGNOSTIC_ONLY",
+      "cases": 3,
+      "became_answers": 3,
+      "limit": "proves response reachability causality, not semantic correctness"
+    },
+    {
+      "name": "same_scope_off_objective_standard_chunk",
+      "classification": "DIAGNOSTIC_ONLY",
+      "cases": 1,
+      "off_objective_claim_selected": true,
+      "off_objective_claim_cited": true,
+      "citation_verification_passed": true
+    }
+  ],
+  "preferred_remediation_option": "candidate-aware requested-state support plus objective-bound STANDARD selection and claims",
+  "proposed_rm2_scope": {
+    "tests_first": [
+      "tests/test_grounded_pipeline_v3.py",
+      "tests/test_w3_003_behavior_safety.py"
+    ],
+    "likely_source_files": [
+      "src/payresolve_ai/generation/routing_v3.py",
+      "src/payresolve_ai/generation/pipeline_v3.py",
+      "src/payresolve_ai/generation/targeted_extractive.py"
+    ],
+    "allowed_regression_data": [
+      "W3-003 14-case synthetic development fixture",
+      "W3-001 20-case development membership with already-resolved rankings",
+      "new synthetic property tests derived without EV1"
+    ],
+    "out_of_scope": [
+      "threshold tuning",
+      "classifier retraining",
+      "KB changes",
+      "EV1 access or replay",
+      "new independent holdout or EV2",
+      "Week 4"
+    ]
+  },
+  "safety_invariants": [
+    "fail closed when approved support is insufficient",
+    "no prohibited-target disclosure",
+    "no unsupported factual claims",
+    "no ineligible evidence usage",
+    "citation correctness",
+    "no system-error regression",
+    "approved/effective evidence filtering",
+    "offline deterministic runtime"
+  ],
+  "excluded_w2_rows_transiently_printed_by_schema_search": true,
+  "excluded_w2_rows_used_for_diagnosis": false,
+  "ev1_content_accessed": false,
+  "ev1_cases_used_for_tuning": 0,
+  "ev1_reruns": 0,
+  "production_source_changed": false,
+  "production_config_changed": false,
+  "tests_changed": false,
+  "model_candidate_created": false,
+  "week4_authorized": false
+}

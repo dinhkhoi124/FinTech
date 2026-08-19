@@ -7,26 +7,45 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003 — Grounded RAG Behavior Remediation` — PLANNING ONLY / NON-LOCKED DEVELOPMENT EVIDENCE
-- Next task: await independent Senior review of the five-path NB1 reporting-closure candidate; remediation implementation, EV1 rerun/tuning, and W4 remain blocked.
-- Last updated: 2026-08-18 by Codex
+- Active task: `W3-003-RM1 — Post-EV1 remediation RCA` — SENIOR ACCEPTED / AWAITING REPORTING CLOSURE PUBLICATION
+- Next task: publish and independently review the seven-path RM1 reporting-closure candidate; RM2 implementation is not yet authorized, and EV1 rerun/tuning and W4 remain blocked.
+- Last updated: 2026-08-19 by Codex
 
-The current authoritative status is the EV1 completion and NB1 reporting-closure
-state below. Earlier readiness, authorization, and execution sections are dated
-historical milestones and do not override this frozen result.
+The current authoritative status is the EV1 completion, remotely verified N1 NB1
+reporting closure, and Senior-accepted RM1 RCA state below. Earlier readiness,
+authorization, and execution sections are dated historical milestones and do not
+override this frozen result.
 
 ## Active objective
 
 EV1 completed as a one-shot independent 60-case lifecycle and its frozen evidence
 was published at E1 `9233289e1b330b1818d34e22c0fc641ce0f3d63a`. Independent
-Senior remote verification of E1 passed. EV1 integrity is `ACCEPTED`; its product
+Senior remote verification passed. EV1 integrity is `ACCEPTED`; its product
 verdict is `FAIL_REMEDIATION_REQUIRED`. The evidence is `CONSUMED / IMMUTABLE`:
-it must not be rerun or tuned. The Senior-content-approved NB1 notebook is a
-derived mentor-facing analytical/reporting artifact, not a new evaluation.
+it must not be rerun or tuned. N1 NB1 reporting closure is complete and remotely
+verified; the notebook remains a derived mentor-facing reporting artifact, not a
+new evaluation.
 
-W3 P0 is `BLOCKED / REMEDIATION REQUIRED`; W4 is `BLOCKED`, and the current V3
-is not approved for W4 integration. The next engineering activity is remediation
-planning using non-locked development evidence only.
+RM1 used non-locked development evidence only and is independently Senior
+accepted. Its two proven RCA clusters are: (1) top1-preemptive requested-state
+adjudication, where a terminal state conflict can be declared before a later
+eligible candidate directly supports the requested state; and (2) missing
+end-to-end requested-objective binding in STANDARD across same-scope padding,
+claim generation, and local citation verification. `NEXT_ACTION_DIRECT_ACTION_REQUIRED`
+remains a supported hypothesis only. Classifier behavior as a direct V3 cause and
+global thresholds as a root cause remain not established.
+
+One excluded W2 schema-search result was transiently printed and discarded; it
+was not used for diagnosis. No individual W3-003 EV1 content was accessed or
+used by RM1. RM2 diagnostics/tests must use an explicit path allowlist and no
+broad recursive search under evaluation-data directories.
+
+W3-003 remains `IN_PROGRESS / REMEDIATION REQUIRED`; W3 P0 is
+`BLOCKED / REMEDIATION REQUIRED`; W4 is `BLOCKED`, and the current V3 is not
+approved for W4 integration. RM2 implementation is not yet authorized until RM1
+reporting publication is closed. Any remediation must use non-locked development
+evidence, and any future independent product gate must be separately authored,
+frozen, reviewed, and authorized.
 
 ## Prior finalized-product-decision context
 

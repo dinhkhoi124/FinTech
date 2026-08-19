@@ -1,5 +1,24 @@
 # Week 03 Summary
 
+## W3-003 RM1 Senior-accepted remediation RCA — 2026-08-19
+
+EV1 remains consumed product-gate failure evidence and RM1 did not tune against
+it. RM1 used only non-locked development evidence and established two proven
+root-cause clusters: top1-preemptive requested-state adjudication, and missing
+end-to-end requested-objective binding in STANDARD across same-scope padding,
+claim generation, and local citation verification. `NEXT_ACTION_DIRECT_ACTION_REQUIRED`
+remains a supported hypothesis only; classifier behavior as a direct V3 cause
+and global thresholds as a root cause are not established.
+
+The preferred future direction is candidate-aware requested-state support plus
+end-to-end objective-bound STANDARD behavior. No threshold lowering, classifier
+retraining, or KB change is justified by RM1. One excluded W2 schema-search
+result was transiently printed and discarded; no individual W3-003 EV1 content
+was accessed or used. RM2 requires separate authorization and an explicit path
+allowlist with no broad evaluation-data search. A future product gate must be
+newly authored and frozen after remediation. W3 P0 remains `BLOCKED / REMEDIATION
+REQUIRED`; W4 remains `BLOCKED`.
+
 ## W3-003 EV1 frozen independent outcome and NB1 analytical companion
 
 W3-003 EV1 completed as a one-shot frozen independent 60-case evaluation. Its
