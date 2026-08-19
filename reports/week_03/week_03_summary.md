@@ -1,5 +1,30 @@
 # Week 03 Summary
 
+## W3-003 EV1 frozen independent outcome and NB1 analytical companion
+
+W3-003 EV1 completed as a one-shot frozen independent 60-case evaluation. Its
+eight frozen evidence artifacts were published in E1
+`9233289e1b330b1818d34e22c0fc641ce0f3d63a`, and independent Senior remote
+integrity verification passed. Reproducibility is 60/60, but the product gate
+failed: Standard success was 3/30, Corrective success 1/15, true abstain 13/15,
+and overall safe resolution 17/60. Wrong abstentions (20/45 answerable cases)
+and evaluator-classified wrong evidence (19 cases) are the dominant observed
+utility/reliability failures.
+
+Safety properties remain preserved: prohibited-target compliance 0, unsupported
+factual claims 0, ineligible evidence usage 0, citation correctness 1.0, and
+system errors 0. All 19 evaluator-classified wrong-evidence cases were
+descriptively verified to contain at least one cited evidence ID outside the
+frozen case-eligible set; this observation does not establish a sole root cause.
+
+The read-only mentor-facing notebook
+`reports/week_03/notebooks/w3_003_ev1_results_benchmark.ipynb` is pinned to E1
+inputs and has passed Senior content review. EV1 integrity is `ACCEPTED`, while
+the product verdict is `FAIL_REMEDIATION_REQUIRED`; EV1 is consumed and
+immutable. Week 3 P0 remains open and `BLOCKED / REMEDIATION REQUIRED`. The next
+step is remediation planning using non-locked development evidence; W4 remains
+blocked.
+
 ## Revision 14 readiness hardening
 
 R13 remains Senior-approved, committed, and pushed, but is superseded for future

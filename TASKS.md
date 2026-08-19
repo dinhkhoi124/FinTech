@@ -24,11 +24,12 @@ Priority: `P0 | P1 | P2`
 | W3-001-CR1 | 3 | P0 | Evidence Gate Utility Recovery v2 | Original FAILED history + exhaustive mapping audit + qualified post-hoc PASS evidence | DONE / REVIEWED / ACCEPTED |
 | W3-002 | 3 | P0 | Critical safety evaluation + integrity incident | Execution preserved as diagnostic evidence; critical set invalidated; model verdict not established | DONE / REVIEWED / ACCEPTED |
 | W3-002-CR1 | 3 | P0 | Pristine Critical Evaluation Recovery | Technical lifecycle finalized and verify-results PASS; Senior product verdict requires remediation and approves no variant | DONE / PRODUCT GATE NOT CLOSED |
-| W3-003 | 3 | P0 | Grounded RAG Behavior Remediation | V3 remediation selected and frozen; independent product-gate evaluation must pass before W4 opens | IN_PROGRESS / PRODUCT GATE PENDING |
-| W3-003-EV1 | 3 | P0 | Independent 60-case product-gate package | Blind 30/15/15 candidate frozen before inference; Senior semantic membership accepted | DONE / SUPERSEDED PRE-INFERENCE BY R2 |
+| W3-003 | 3 | P0 | Grounded RAG Behavior Remediation | EV1 executed, frozen, remotely verified, and consumed; product gate failed and remediation must use non-locked development evidence before any new independent gate | IN_PROGRESS / REMEDIATION REQUIRED |
+| W3-003-EV1 | 3 | P0 | Independent 60-case product-gate package | One-shot lifecycle executed and frozen at E1; integrity ACCEPTED; product result FAIL_REMEDIATION_REQUIRED; 60/60 reproducibility; consumed/immutable | DONE / REVIEWED / FAILED PRODUCT GATE |
 | W3-003-EV1-R2 | 3 | P0 | Execution topology and evaluator-integrity closure | `A^=C` authorization topology, per-claim metrics, 45-case obligation rules, rendered safety, reproduction freeze, dummy-only tests | DONE / AWAITING SENIOR REVIEW |
 | W3-003-EV1-R3 | 3 | P0 | Atomic claim reachability and committed authorization closure | 61 obligations preserved; 45/45 fit frozen claim budgets; immutable 19-path package published as C1 | DONE / COMMITTED / PUSHED |
 | W3-003-EV1-C2 | 3 | P0 | Portable runtime-binding correction | SHA+bytes-bound runtime ZIP; copy-materialized encoder snapshot; offline load-only proof | DONE / AWAITING SENIOR REVIEW |
+| W3-003-EV1-NB1 | 3 | P0 | Mentor-facing frozen EV1 results and benchmark notebook | E1-pinned immutable inputs; 60/60 reproducibility; hard-gate/result tables; failure-pattern analysis; deterministic representative cases; read-only notebook; Senior content review approved | DONE / REVIEWED |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |

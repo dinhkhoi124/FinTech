@@ -6,28 +6,27 @@
 - Project: PayResolve AI
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
-- P0 gate status: NOT CLOSED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV1-C2-FIX1` — PORTABLE RUNTIME-BINDING CORRECTION / AWAITING SENIOR REVIEW
-- Next task: Senior reviews the corrected C2 candidate; no EV1 inference is authorized.
+- P0 gate status: BLOCKED / REMEDIATION REQUIRED
+- Active task: `W3-003 — Grounded RAG Behavior Remediation` — PLANNING ONLY / NON-LOCKED DEVELOPMENT EVIDENCE
+- Next task: await independent Senior review of the five-path NB1 reporting-closure candidate; remediation implementation, EV1 rerun/tuning, and W4 remain blocked.
 - Last updated: 2026-08-18 by Codex
 
-The current authoritative status is the C2 Fix1 section at the end of this file.
-Earlier readiness, authorization, and execution sections are retained as dated
-historical milestones and do not override the finalized SRD1 status.
+The current authoritative status is the EV1 completion and NB1 reporting-closure
+state below. Earlier readiness, authorization, and execution sections are dated
+historical milestones and do not override this frozen result.
 
 ## Active objective
 
-Preserve the Senior-accepted blind 60-case W3-003 independent benchmark while
-closing the final pre-inference atomic-claim and committed-authorization gaps.
-EV1-R3 keeps the exact 30/15/15 membership and all frozen semantic/threshold
-bytes. Its 118 requirements are each exactly one production-split KB sentence,
-all 61 obligations are preserved, and all 45 answerable cases fit the frozen
-route budgets (Standard <=3, Corrective <=8). Execution requires direct topology
-`C^=R`, `A^=C`, `HEAD=A`, exact 19-path C scope, exact one-path A scope, and
-working authorization bytes equal to committed A bytes. The package remains
-`PACKAGE_FROZEN / AWAITING_FINAL_COMMIT_REVIEW`; authorization, model loading,
-EV1 inference, PRIMARY, evaluation, reproduction, and finalization remain
-false/not run.
+EV1 completed as a one-shot independent 60-case lifecycle and its frozen evidence
+was published at E1 `9233289e1b330b1818d34e22c0fc641ce0f3d63a`. Independent
+Senior remote verification of E1 passed. EV1 integrity is `ACCEPTED`; its product
+verdict is `FAIL_REMEDIATION_REQUIRED`. The evidence is `CONSUMED / IMMUTABLE`:
+it must not be rerun or tuned. The Senior-content-approved NB1 notebook is a
+derived mentor-facing analytical/reporting artifact, not a new evaluation.
+
+W3 P0 is `BLOCKED / REMEDIATION REQUIRED`; W4 is `BLOCKED`, and the current V3
+is not approved for W4 integration. The next engineering activity is remediation
+planning using non-locked development evidence only.
 
 ## Prior finalized-product-decision context
 
