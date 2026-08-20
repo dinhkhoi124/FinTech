@@ -1,0 +1,29 @@
+{
+  "task_id": "W3-003-RM2-PUB1",
+  "status": "PUBLICATION_CLOSURE_CANDIDATE_AWAITING_FINAL_SENIOR_BYTE_REVIEW",
+  "base": {"branch": "main", "head": "2209f845bf8be5782c9acbc9bbe605a8630d082d", "tree": "5a19057a28b59d6f67075d44f36c6cb2b49e70b2"},
+  "publication_allowlist": [
+    {"order": 1, "path": "src/payresolve_ai/generation/routing_v3.py", "bytes": 29572, "sha256": "a3ca581dfcd963fa8e36179c65bc1854a6b1748e86486de6a73a98dcb38093a9"},
+    {"order": 2, "path": "src/payresolve_ai/generation/pipeline_v3.py", "bytes": 18543, "sha256": "832efe715586fd50f24c6c1a2bfb5969dc60f9fb870998d3b3c01be0df270058"},
+    {"order": 3, "path": "src/payresolve_ai/generation/support_v2.py", "bytes": 13006, "sha256": "1f354bb160d3c75891dc2c004734fdfdf2e6650475c172ffb7e029f6cb8f09c9"},
+    {"order": 4, "path": "src/payresolve_ai/generation/targeted_extractive.py", "bytes": 3518, "sha256": "e7a1a8af4b2b89d6652348ea3267d2ace99ad7d64583dfaf4d77553ce8fa27ea"},
+    {"order": 5, "path": "src/payresolve_ai/generation/red1_verification.py", "bytes": 11905, "sha256": "95442b9c7776d326f32e4fb7cf0ab6298b642580a08ebc75207179e9da110f3a"},
+    {"order": 6, "path": "tests/test_w3_003_rm2_remediation.py", "bytes": 17163, "sha256": "fbf070b3ceb2330f3af39a2cd72c1acbac8a5e7c1602d142286a3137926a4e54"},
+    {"order": 7, "path": "tests/test_grounded_pipeline_v3.py", "bytes": 8409, "sha256": "585d2cb45d469bc504759bfc164991ad3fa08ff71231bbc382413d15fed865e2"},
+    {"order": 8, "path": "tests/test_red1_verification_boundary.py", "bytes": 2303, "sha256": "c58066e24688a69e82884dd632b9c6c842444cb781662016e0eae93375a097f9"},
+    {"order": 9, "path": "reports/week_03/experiments/w3_003_rm2_remediation_candidate.md", "bytes": 3920, "sha256": "b8bea2840198cb958306d5f8d2fa969769322c518fc697f3df0e83f70a731551"},
+    {"order": 10, "path": "reports/week_03/incidents/w3_003_rm2_red1_consumed_holdout_access_incident.md", "bytes": 8132, "sha256": "85e42c9af7dc99a9047d179dfdd594f14a51af2484838afd171cf5911604b41e"},
+    {"order": 11, "path": "reports/week_03/results/w3_003_rm2_dev_validation.json", "bytes": 7005, "sha256": "d86900b5ee7643eaf60f851c836016a8d67959e289c05c58e04426596483bb59"},
+    {"order": 12, "path": "reports/week_03/results/w3_003_rm2_red1_rcv2_command_evidence.json", "bytes": 2773, "sha256": "fe97c2975000bb0c3c845c633a1bc82209aa42f86c8a14c025090fb20bacb752"},
+    {"order": 13, "path": "reports/week_03/experiments/w3_003_rm2_sa1_plan_scope_audit.md", "bytes": 24589, "sha256": "5b7828f27ca9750ac7d86af4c3ff00a50c5c5d46e513b8480c1b254ad2b98aa4"},
+    {"order": 14, "path": "reports/week_03/results/w3_003_rm2_sa1_scope_matrix.json", "bytes": 17656, "sha256": "e27530d81e3e0883b4c3e2bf9018a7d2a18d6e21a97ced233a8365228657996f"},
+    {"order": 15, "path": "reports/week_03/results/w3_003_rm2_sa1_option_comparison.json", "bytes": 4302, "sha256": "4569d5339aa6becb8a278f14365865f267714d34f2743c4ec4c1ccbfb02879aa"},
+    {"order": 16, "path": "PROJECT_STATE.md", "bytes": 59468, "sha256": "6b88317601aa58de6cb58bab3725e7a2ea161526f517ea840b5f6256426098dd"},
+    {"order": 17, "path": "TASKS.md", "bytes": 54535, "sha256": "911cf5f7fa726573fdfca8193376ffca794a3a19e8f19450836cfda8c8adfa6a"},
+    {"order": 18, "path": "reports/week_03/daily/2026-08-20.md", "bytes": 6093, "sha256": "c7b85b030d885876b078f1a795fcd7569796b7ea123549273e905ab3e38c783f"},
+    {"order": 19, "path": "reports/week_03/week_03_summary.md", "bytes": 53409, "sha256": "9ba1b24be0246dbd7b9675c42880d3ac25bb005ee53ca83ee8d5f8d2bfb524b3"}
+  ],
+  "self_path": "reports/week_03/results/w3_003_rm2_publication_manifest.json",
+  "self_binding": "EXCLUDED_FROM_INTERNAL_SHA_SET_TO_AVOID_RECURSIVE_HASH_DEPENDENCE",
+  "future_commit_constraint": "No git add . or git add -A; path 20 must be independently bound to the final Senior-reviewed PUB1 package bytes."
+}

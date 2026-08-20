@@ -31,9 +31,13 @@ Priority: `P0 | P1 | P2`
 | W3-003-EV1-C2 | 3 | P0 | Portable runtime-binding correction | SHA+bytes-bound runtime ZIP; copy-materialized encoder snapshot; offline load-only proof | DONE / AWAITING SENIOR REVIEW |
 | W3-003-EV1-NB1 | 3 | P0 | Mentor-facing frozen EV1 results and benchmark notebook | E1-pinned immutable inputs; 60/60 reproducibility; hard-gate/result tables; failure-pattern analysis; deterministic representative cases; read-only notebook; Senior content review approved | DONE / REVIEWED |
 | W3-003-RM1 | 3 | P0 | Post-EV1 remediation RCA using non-locked development evidence | Explicit development-evidence registry; no EV1 individual-content access; V3 decision graph; two proven root-cause clusters; bounded counterfactual diagnostics; Senior RCA review accepted | DONE / REVIEWED |
-| W3-003-RM2 | 3 | P0 | Test-first V3 remediation for Senior-accepted RM1 root causes | Requires separate authorization after RM1 reporting publication and Senior remote verification | TODO / NOT AUTHORIZED |
-| W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | TODO |
-| W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | TODO |
+| W3-003-RM2 | 3 | P0 | Test-first V3 remediation for Senior-accepted RM1 root causes | Senior-approved RCV2 implementation and RPF1 evidence; exact publication candidate prepared | SENIOR APPROVED / PUBLICATION AUTHORIZED / AWAITING COMMIT CLOSURE |
+| W3-003-RM2-RED1-RCV1 | 3 | P0 | Historical consumed-holdout containment and clean reverification | Historical predecessor; its legacy executable path was superseded by RCV2 fail-closed closure | HISTORICAL / SUPERSEDED BY RCV2 |
+| W3-003-RM2-RED1-RCV2 | 3 | P0 | Legacy nonlocked regression fail-closed closure | Legacy helper disabled before I/O; mandatory zero-open regression; semantic RED1 hashes equal RCV1 | DONE / SENIOR APPROVED / AWAITING RM2 PUBLICATION |
+| W3-003-RM2-RED1-RCV2-RPF1 | 3 | P0 | Reconcile RCV2 reporting, command evidence, identities, and external package | Current RCV2 identity separated from RCV1; legacy safety test run; command evidence and reopened/CRC-checked package supplied | DONE / SENIOR APPROVED |
+| W3-003-RM2-PUB1 | 3 | P0 | RM2 publication closure candidate | Canonical lifecycle reconciled; exact publication allowlist/hash manifest; approved source/tests/evidence unchanged; Git remains M1; no commit/push | CANDIDATE / AWAITING FINAL SENIOR BYTE REVIEW |
+| W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | BLOCKED / NOT AUTHORIZED BY CURRENT W3 P0 GATE |
+| W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | BLOCKED / NOT AUTHORIZED BY CURRENT W3 P0 GATE |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
 | W5-002 | 5 | P0 | One deep change request | Design/trade-off note | TODO |
 | W5-003 | 5 | P0 | Final report/demo | Mentor-ready artifacts | TODO |
@@ -233,6 +237,22 @@ DONE / REVIEWED / COMMITTED / PUSHED.
   selected retriever remains R0.
 
 ## Week 3 executable task contracts
+
+### W3-003-RM2-RED1-RCV1 — Clean reverification recovery
+
+- **Objective:** contain the prior consumed W3-001-CR1 helper access and certify
+  the already-created RED1 candidate using clean non-locked development evidence
+  only.
+- **Acceptance:** frozen production identities unchanged; exact W3-001
+  membership/path allowlist; consumed/EV1/unknown rejection before open; zero
+  forbidden opens; ordered RED1 suites pass; W3-003 and W3-001 deterministic;
+  incident/candidate/validation/lifecycle evidence updated.
+- **Result:** boundary 5/5, focused 20/20, safe V3 23/23, W3-003 14/14 twice,
+  W3-001 7/10 safe STANDARD and 10/10 safe probes twice; production SHA unchanged.
+- **Boundary:** no production edit, EV1/consumed/W2 locked access, notebook, new
+  independent evaluation, Week 4, stage, commit, or push.
+- **Status:** clean candidate ready; detached bundle export blocked pending
+  explicit user approval for the external path.
 
 ### W3-003-EV1-C2 — Portable runtime-binding correction
 

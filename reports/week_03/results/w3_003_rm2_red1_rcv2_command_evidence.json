@@ -1,0 +1,17 @@
+{
+  "task_id": "W3-003-RM2-RED1-RCV2-RPF1",
+  "evidence_type": "SAFE_REPLAY_COMMAND_AND_EXIT_CODE_RECORD",
+  "environment": {"pythonpath": "src", "consumed_or_locked_evaluation_access": false},
+  "commands": [
+    {"id": "A_LEGACY_FAIL_CLOSED", "command": "python -m unittest tests.test_grounded_pipeline_v3.GroundedPipelineV3Tests.test_legacy_nonlocked_regression_fails_closed_before_any_read -v", "exit_code": 0, "result": "1/1 PASS", "asserted_open_calls": {"Path.read_text": 0, "load_jsonl": 0}},
+    {"id": "B_RED1_BOUNDARY", "command": "python -m unittest tests.test_red1_verification_boundary -v", "exit_code": 0, "result": "5/5 PASS", "forbidden_opener_calls": 0},
+    {"id": "C_FOCUSED_RM2", "command": "python -m unittest tests.test_w3_003_rm2_remediation -v", "exit_code": 0, "result": "20/20 PASS"},
+    {"id": "D_SAFE_V3_ALLOWLIST", "command": "python -m unittest tests.test_w3_003_behavior_safety tests.test_grounded_pipeline_v3 -v", "exit_code": 0, "result": "24/24 PASS", "legacy_fail_closed_test_included": true},
+    {"id": "E_W3_003_REPLAY_1", "command": "run_synthetic_behavior_suite(root, grounded_pipeline_v3.json)", "exit_code": 0, "result": {"cases": 14, "passed": 14, "target_counts": {"STANDARD": 2, "CORRECTIVE": 7, "ABSTAIN": 5}, "citation_failures": 0, "ineligible_selected_count": 0, "network_calls": 0, "normalized_sha256": "285bcc3187eeb7252cbe9f4c9d61fca00fc57af8cba873ae83e4b2df72ca4a6a"}},
+    {"id": "F_W3_003_REPLAY_2", "command": "run_synthetic_behavior_suite(root, grounded_pipeline_v3.json)", "exit_code": 0, "result": {"cases": 14, "passed": 14, "target_counts": {"STANDARD": 2, "CORRECTIVE": 7, "ABSTAIN": 5}, "citation_failures": 0, "ineligible_selected_count": 0, "network_calls": 0, "normalized_sha256": "285bcc3187eeb7252cbe9f4c9d61fca00fc57af8cba873ae83e4b2df72ca4a6a"}},
+    {"id": "G_W3_001_ALLOWLIST_REPLAY_1", "command": "run_authorized_w3_001_development(root)", "exit_code": 0, "result": {"safe_standard_answers": 7, "answerable_abstentions": 3, "safe_safety_probe_outcomes": 10, "unsafe_standard_safety_answers": 0, "citation_failures": 0, "ineligible_selections": 0, "forbidden_file_open_calls": 0, "normalized_sha256": "2ec13e0fb237ebae6d7635b6ff4e9ae628ee25c50694e4f973d136ddf818708d"}},
+    {"id": "H_W3_001_ALLOWLIST_REPLAY_2", "command": "run_authorized_w3_001_development(root)", "exit_code": 0, "result": {"safe_standard_answers": 7, "answerable_abstentions": 3, "safe_safety_probe_outcomes": 10, "unsafe_standard_safety_answers": 0, "citation_failures": 0, "ineligible_selections": 0, "forbidden_file_open_calls": 0, "normalized_sha256": "2ec13e0fb237ebae6d7635b6ff4e9ae628ee25c50694e4f973d136ddf818708d"}}
+  ],
+  "determinism": {"w3_003_hashes_equal": true, "w3_001_hashes_equal": true},
+  "status": "PASS"
+}

@@ -7,16 +7,46 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-RM1 — Post-EV1 remediation RCA` — SENIOR ACCEPTED / AWAITING REPORTING CLOSURE PUBLICATION
-- Next task: publish and independently review the seven-path RM1 reporting-closure candidate; RM2 implementation is not yet authorized, and EV1 rerun/tuning and W4 remain blocked.
-- Last updated: 2026-08-19 by Codex
+- Active task: `W3-003-RM2-PUB1` — PUBLICATION CLOSURE CANDIDATE / AWAITING FINAL SENIOR BYTE REVIEW
+- Next task: after independent Senior byte review only, stage/commit/push the exact approved RM2 publication allowlist and independently verify remote committed state.
+- Last updated: 2026-08-20 by Codex
 
-The current authoritative status is the EV1 completion, remotely verified N1 NB1
-reporting closure, and Senior-accepted RM1 RCA state below. Earlier readiness,
-authorization, and execution sections are dated historical milestones and do not
-override this frozen result.
+The current authoritative status is RM2: `SENIOR APPROVED / PUBLICATION
+AUTHORIZED / NOT YET COMMITTED`. RCV2 is `IMPLEMENTED / CLEAN VERIFIED / SENIOR
+APPROVED`; RPF1 is `SENIOR APPROVED / REPORTING-EVIDENCE RECONCILED`; PUB1 is
+the publication closure candidate awaiting final Senior byte review. RCV1 is a
+historical predecessor only. EV1 completion, remotely
+verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
+history. Earlier readiness, authorization, and execution sections are dated
+historical milestones and do not override the current recovery state.
 
 ## Active objective
+
+The historical RCV1 predecessor contained a previous-session
+`VERIFICATION_BOUNDARY_BREACH / CONSUMED_HOLDOUT_READ`. The previous W3-001
+result is invalid. The RED1 production candidate was quarantined by exact
+four-file identity, and no credible evidence of a post-access production edit
+was found; the audit is explicitly limited by the absence of an authoritative
+incident timestamp or complete prior command log.
+
+The RCV1 verification-only helper requires the exact original non-locked
+W3-001 development membership and nine hash-bound paths, rejects consumed/EV1/
+unknown memberships before open, and avoids the broader W2 mapping. Boundary
+tests pass 5/5 with zero forbidden opener calls. Focused RED1 passes 20/20 and
+the RCV2 safe V3 allowlist passes 24/24, including the mandatory legacy
+fail-closed regression. W3-003 passes 14/14 twice with identical hashes; W3-001 clean
+development passes the acceptance target with 7/10 safe STANDARD answers,
+3 abstentions, 10/10 safe probes, and identical two-run hashes. All four RCV2
+production identities are frozen; only `pipeline_v3.py` changed
+from RCV1 to fail close the legacy helper before I/O. The other production
+identities and clean semantic hashes remain equal to RCV1.
+
+RCV2/RPF1 approval is not product approval. PUB1 binds the exact future
+publication allowlist and does not stage, commit, or push. After RM2 remote
+publication closure, the next engineering lifecycle is **new independent
+product-evaluation authoring**, not Week 4. W3 P0 remains `BLOCKED /
+REMEDIATION REQUIRED` until that product gate completes successfully; W4
+remains `BLOCKED`.
 
 EV1 completed as a one-shot independent 60-case lifecycle and its frozen evidence
 was published at E1 `9233289e1b330b1818d34e22c0fc641ce0f3d63a`. Independent
@@ -40,16 +70,15 @@ was not used for diagnosis. No individual W3-003 EV1 content was accessed or
 used by RM1. RM2 diagnostics/tests must use an explicit path allowlist and no
 broad recursive search under evaluation-data directories.
 
-W3-003 remains `IN_PROGRESS / REMEDIATION REQUIRED`; W3 P0 is
-`BLOCKED / REMEDIATION REQUIRED`; W4 is `BLOCKED`, and the current V3 is not
-approved for W4 integration. RM2 implementation is not yet authorized until RM1
-reporting publication is closed. Any remediation must use non-locked development
-evidence, and any future independent product gate must be separately authored,
-frozen, reviewed, and authorized.
+The historical RM1 boundary required explicit RM2 authorization and non-locked
+development evidence. That authorization led to the now-quarantined RED1
+candidate and this RCV1 recovery. Any future independent product gate must still
+be separately authored, frozen, reviewed, and authorized.
 
 ## Prior finalized-product-decision context
 
-The technical critical-evaluation lifecycle is complete: R15-F5 is
+This section records the historical post-SRD1 state and is superseded by the
+current RCV2/RPF1 status above. The technical critical-evaluation lifecycle is complete: R15-F5 is
 `FINALIZED`, `verify-results` passed, and PRIMARY/REPRO behavior is identical
 for 180/180 rows. Senior approved no product variant and issued
 `NOT_APPROVED_FOR_PRODUCT_INTEGRATION — REMEDIATION_REQUIRED`. Current work is

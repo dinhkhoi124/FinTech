@@ -24,7 +24,7 @@ from .routing_v3 import (
     ResponseTarget,
     assess_requested_target,
     derive_corrective_scope_anchor,
-    select_supported_standard_evidence,
+    select_supported_standard_objectives,
 )
 from .support_v2 import build_canonical_idf
 from .targeted_extractive import TargetedExtractiveGenerator
@@ -99,24 +99,24 @@ def build_response_plan(
     status = assessment["status"]
     reason = str(assessment["reason"])
     if status is RequestedTargetStatus.SUPPORTED:
-        selected_standard = select_supported_standard_evidence(
+        selected_standard, standard_objectives = select_supported_standard_objectives(
             query,
             standard_evidence,
             lexicon,
             canonical_idf,
             config["tokenizer"]["stopwords"],
             config["standard"],
+            assessment.get("fallback_support_authorizations", ()),
         )
-        dominant_scope = set(standard_evidence[0].intent_scope) if standard_evidence else set()
-        selected_list = list(selected_standard)
-        for item in standard_evidence:
-            if len(selected_list) == config["standard"]["max_evidence"]:
-                break
-            if item not in selected_list and dominant_scope & set(item.intent_scope):
-                selected_list.append(item)
-        selected_standard = tuple(selected_list)
         if selected_standard:
-            return ResponsePlan(ResponseTarget.STANDARD, (reason,), status, selected_standard, (), None)
+            return ResponsePlan(
+                ResponseTarget.STANDARD,
+                (reason,),
+                status,
+                selected_standard,
+                standard_objectives,
+                None,
+            )
         return ResponsePlan(ResponseTarget.ABSTAIN, (reason, "NO_TARGET_SUPPORTING_STANDARD_SELECTION"), RequestedTargetStatus.UNSUPPORTED, (), (), None)
     if status is RequestedTargetStatus.BLOCKED_CONTROL_PLANE:
         if not scope_anchor:
@@ -241,6 +241,7 @@ def run_case_v3(
                 query["query_text"],
                 selected,
                 GenerationContext(query["query_id"], render_context(query["query_text"], selected), raw_idf),
+                plan.factual_objectives,
             )
         else:
             draft = generator.generate_corrective(plan.factual_objectives, selected)
@@ -399,105 +400,7 @@ def _nonlocked_metrics(queries: list[dict[str, Any]], outputs: list[dict[str, An
 
 
 def run_nonlocked_regression(root: Path, config_path: Path) -> dict[str, Any]:
-    """Compare V3 with tracked, already-observed W3-001 development memberships."""
-    from payresolve_ai.retrieval.corpus import load_jsonl
-    from .context import eligible_chunks
-    from .verification import resolve_development_queries
-
-    config, lexicon, _ = load_v3_configuration(root, config_path)
-    base = json.loads((root / "configs/generation/grounded_pipeline_v1.json").read_text(encoding="utf-8"))
-    prior = json.loads((root / "configs/generation/grounded_pipeline_v2.json").read_text(encoding="utf-8"))
-    retrieval = json.loads((root / base["retrieval_config"]).read_text(encoding="utf-8"))
-    historical_as_of = date.fromisoformat(prior["evaluation_as_of_date"])
-    documents = load_jsonl(root / base["kb_documents"])
-    chunks = eligible_chunks(documents, historical_as_of, retrieval["corpus"]["chunk_text_template"])
-    raw_idf = build_idf(chunks, config["tokenizer"]["stopwords"])
-    canonical_idf = build_canonical_idf(chunks, lexicon, config["tokenizer"]["stopwords"])
-
-    gate_dev = json.loads((root / base["gate_dev_config"]).read_text(encoding="utf-8"))
-    memberships = {
-        "w3_001_observed_development": {
-            "queries": resolve_development_queries(root, gate_dev),
-            "rankings": load_jsonl(root / base["outputs"]["rankings"]),
-            "baseline": json.loads((root / prior["outputs"]["selection"]).read_text(encoding="utf-8"))["selected_metrics"],
-        },
-        "w3_001_cr1_observed_holdout_now_development": {
-            "queries": load_jsonl(root / json.loads((root / prior["holdout_config"]).read_text(encoding="utf-8"))["dataset_path"]),
-            "rankings": load_jsonl(root / prior["outputs"]["holdout_rankings"]),
-            "baseline": json.loads((root / prior["outputs"]["holdout_metrics"]).read_text(encoding="utf-8"))["gate_v2"],
-        },
-    }
-    results: dict[str, Any] = {}
-    false_negatives: list[dict[str, Any]] = []
-    gap_dispositions: list[dict[str, Any]] = []
-    for name, membership in memberships.items():
-        tracked_top = {row["query_id"]: row["rankings"] for row in membership["rankings"]}
-        rankings = tracked_top
-        if any(rankings[query_id][: config["standard"]["max_evidence"]] != values for query_id, values in tracked_top.items()):
-            raise PipelineV3Error(f"runtime top-three drift on {name}")
-        outputs = [run_case_v3(row, rankings[row["query_id"]], chunks, raw_idf, canonical_idf, config, lexicon) for row in membership["queries"]]
-        metrics = _nonlocked_metrics(membership["queries"], outputs, historical_as_of)
-        baseline = membership["baseline"]
-        comparisons = {
-            "unsafe_answers_zero": metrics["unsafe_answer_count"] == 0,
-            "wrong_evidence_answers_zero": metrics["positive_wrong_evidence_answer_count"] == 0,
-            "unsupported_claims_zero": metrics["unsupported_claim_count"] == 0,
-            "ineligible_usage_zero": metrics["ineligible_evidence_usage_count"] == 0,
-            "negative_safety_non_regression": metrics["negative_safe_resolution_accuracy"] >= baseline["negative_abstention_accuracy"],
-            "citation_correctness_one": metrics["citation_correctness_on_answered"] == 1.0,
-            "positive_grounded_resolution_non_regression": metrics["positive_grounded_resolution_count"] >= baseline["positive_relevant_answer_count"],
-            "unnecessary_abstention_non_increase": metrics["unnecessary_abstention_count"] <= baseline["unnecessary_abstention_count"],
-        }
-        by_id = {row["query_id"]: row for row in membership["queries"]}
-        for output in outputs:
-            query = by_id[output["query_id"]]
-            primary_reason = output["response_plan"]["reason_codes"][0]
-            if (
-                query["expected_response_type"] == "ANSWER"
-                and output["answer_strategy"] == "STANDARD"
-                and primary_reason == "COHERENT_DIRECT_DIMENSION_FALLBACK"
-            ):
-                gap_dispositions.append({
-                    "membership": name,
-                    "query_id": output["query_id"],
-                    "disposition": "RESOLVED_BY_GENERIC_RULE",
-                    "rule": primary_reason,
-                })
-            if query["expected_response_type"] == "ANSWER" and output["answer_strategy"] != "STANDARD":
-                desired_fail_closed = primary_reason in {
-                    "AMBIGUOUS_COMPETING_TARGETS",
-                    "EVIDENCE_TARGET_STATE_CONFLICT",
-                    "LOW_RETRIEVAL_SUPPORT",
-                    "TIMING_POLICY_AUTHORITY_REQUIRED",
-                    "NEXT_ACTION_DIRECT_ACTION_REQUIRED",
-                }
-                false_negatives.append({
-                    "membership": name,
-                    "query_id": output["query_id"],
-                    "evidence_available": bool(output["retrieved_evidence"]),
-                    "requested_target_support_result": output["response_plan"]["requested_target_status"],
-                    "reason_codes": output["response_plan"]["reason_codes"],
-                    "desired_fail_closed": desired_fail_closed,
-                    "generic_rule_missing": bool(output["retrieved_evidence"]) and not desired_fail_closed,
-                    "disposition": "DESIRED_FAIL_CLOSED_WITH_PRODUCT_RULE" if desired_fail_closed else "UNRESOLVED_GENERIC_RULE",
-                })
-                if desired_fail_closed:
-                    gap_dispositions.append({
-                        "membership": name,
-                        "query_id": output["query_id"],
-                        "disposition": "DESIRED_FAIL_CLOSED_WITH_PRODUCT_RULE",
-                        "rule": primary_reason,
-                    })
-        results[name] = {"baseline_v2": baseline, "v3": metrics, "comparisons": comparisons, "outputs": outputs}
-    all_comparisons = [value for result in results.values() for value in result["comparisons"].values()]
-    return {
-        "task_id": config["task_id"],
-        "development_only": True,
-        "product_approval_claimed": False,
-        "status": "PASS" if all(all_comparisons) else "FAIL",
-        "memberships": results,
-        "standard_false_negatives": false_negatives,
-        "standard_gap_dispositions": gap_dispositions,
-        "complete_suite_rerun_after_rule_change": True,
-        "runtime_model_or_network_used": False,
-    }
+    """Retire the unsafe implicit multi-membership verification API."""
+    raise PipelineV3Error(
+        "LEGACY_NONLOCKED_REGRESSION_DISABLED_USE_EXPLICIT_RED1_VERIFICATION"
+    )

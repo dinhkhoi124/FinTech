@@ -1,5 +1,60 @@
 # Week 03 Summary
 
+## Current W3-003 RM2 PUB1 status — 2026-08-20
+
+RCV2 implementation is Senior approved; RPF1 reporting/evidence reconciliation
+is Senior approved. RM2 is publication authorized but not committed. PUB1 is the
+current publication closure candidate awaiting final independent Senior byte
+review. RCV1 below is historical predecessor context, not the current candidate
+status.
+
+The legacy helper fail-closed regression passes 1/1 before any read; boundary,
+focused, and safe-V3 evidence pass 5/5, 20/20, and 24/24 respectively. The
+safe-V3 count includes the mandatory legacy regression, unlike the historical
+23/23 RCV1 set. The two authorized clean replays retain W3-003 hash
+`285bcc3187eeb7252cbe9f4c9d61fca00fc57af8cba873ae83e4b2df72ca4a6a` and
+W3-001 hash `2ec13e0fb237ebae6d7635b6ff4e9ae628ee25c50694e4f973d136ddf818708d`.
+No consumed/locked evaluation content, EV1, notebook, commit, push, or Week 4
+work was used. W3 P0 and W4 remain blocked.
+
+W3 P0 remains blocked; a new independent product gate is still required after
+publication. Week 4 remains blocked. PUB1 final-review status:
+`W3_003_RM2_PUB1_PUBLICATION_CLOSURE_CANDIDATE_AWAITING_FINAL_SENIOR_BYTE_REVIEW`.
+
+## Historical W3-003 RM2 RED1-RCV1 clean reverification — 2026-08-20
+
+### RCV2 legacy verification-path closure
+
+RCV2 retires the unsafe implicit multi-membership helper before I/O and makes
+its zero-open regression mandatory. The explicit hash-bound clean helper remains
+the sole route. All RED1 behavioral hashes and safety evidence equal RCV1; W3 P0
+and Week 4 remain blocked pending independent Senior review.
+
+A previous RED1 verification session crossed the evidence boundary when the
+legacy W3-001 helper automatically loaded a consumed W3-001-CR1 membership. The
+incident is classified `VERIFICATION_BOUNDARY_BREACH / CONSUMED_HOLDOUT_READ`;
+the previous W3-001 result is invalid. RCV1 quarantined the four production
+files by exact SHA-256, found no credible evidence of post-access production
+editing within the available audit record, and preserved the limitation that no
+authoritative incident timestamp or complete prior command log exists.
+
+A verification-only helper now requires one exact W3-001 development membership
+and nine exact path-and-SHA-bound artifacts, using already-resolved development
+output rather than the broader W2 mapping. Consumed, EV1, unknown, and mismatched
+paths are rejected before open. Boundary tests pass 5/5 with zero forbidden
+opener calls; focused RED1 passes 20/20; the safe V3 allowlist passes 23/23 with
+the legacy helper test deselected. W3-003 passes 14/14 twice with the required
+2/7/5 distribution and identical hashes. W3-001 exact development yields 7/10
+safe STANDARD answers, 3 abstentions, 10/10 safe probes, zero unsafe STANDARD,
+and identical two-run hashes. All quarantined production SHA-256 values remain
+unchanged.
+
+RED1-RCV1 is a clean development reverification candidate awaiting independent
+Senior review, not product approval. W3 P0 remains blocked/remediation required
+and Week 4 remains blocked. The external detached bundle is not yet created
+because repository-payload export outside the workspace requires explicit user
+approval.
+
 ## W3-003 RM1 Senior-accepted remediation RCA — 2026-08-19
 
 EV1 remains consumed product-gate failure evidence and RM1 did not tune against

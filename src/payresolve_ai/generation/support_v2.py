@@ -146,7 +146,7 @@ def _sentence_matches_dimension(text: str, dimension: str) -> bool:
         "CHECKS": r"\b(?:check|checks|confirm|verify|recognize|recognise|separate|exclude)\b",
         "NEXT_ACTION": r"\b(?:action|do not|avoid|prevent|route|use|provide|suggest|explain|follow|review|collect|record|send|apply)\b",
         "TIMING_WINDOW": r"\b(?:day|days|hour|hours|window|before|after|when|timing)\b",
-        "RETRY": r"\b(?:retry|attempt|resubmit|duplicate)\b",
+        "RETRY": r"\b(?:retry|attempts?|resubmit|duplicate)\b",
         "ESCALATION_OR_SECURITY": r"\b(?:escalate|escalation|security|handoff|route)\b",
         "ELIGIBILITY": r"\b(?:eligibility|eligible|apply only|requires?)\b",
         "SPECIFIC_INTERNAL_DETAIL": r"\b(?:code|identifier|reference|route|instruction)\b",
@@ -169,6 +169,8 @@ def best_sentence_support(
     lexicon: dict[str, Any],
     canonical_idf: dict[str, float],
     stopwords: Iterable[str],
+    *,
+    require_sentence_dimension_match: bool = False,
 ) -> dict[str, Any]:
     query_tokens = set(canonical_tokens(query, lexicon, stopwords))
     fallback = math.log(len(canonical_idf) + 2) + 1
@@ -176,7 +178,7 @@ def best_sentence_support(
     diagnostics = []
     for item in evidence[:3]:
         for sentence in split_sentences(item.content):
-            dimension_text = f"{item.heading} {sentence}"
+            dimension_text = sentence if require_sentence_dimension_match else f"{item.heading} {sentence}"
             dimension_match = _sentence_matches_dimension(dimension_text, dimension)
             sentence_tokens = set(canonical_tokens(dimension_text, lexicon, stopwords))
             overlap = query_tokens & sentence_tokens

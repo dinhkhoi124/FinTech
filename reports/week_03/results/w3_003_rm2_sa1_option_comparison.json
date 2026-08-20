@@ -1,0 +1,54 @@
+{
+  "task_id": "W3-003-RM2-SA1",
+  "recommended_disposition": "REDUCE_FIX5_BEFORE_PUBLICATION",
+  "options": [
+    {
+      "option": 1,
+      "name": "PUBLISH_FIX5_AS_IS",
+      "selected": false,
+      "benefits": ["Closes all v1-FIX5 synthetic review regressions", "Preserves 14/14 W3-003 routes and 10/10 W3-001 safety probes", "Exact citation and eligibility evidence remain clean"],
+      "risks": ["Publishes P1-style generalized completeness as if it were RM2-minimal", "Target grammar caused the only M1-to-FIX5 utility loss", "unresolved_target_requirements is mechanically empty", "Routing assessment and selection are tightly coupled to a heuristic requirement grammar"],
+      "scope_alignment": "MIXED_CORE_PLUS_P1",
+      "utility": "6/10 versus M1 7/10; only Q_DEV_CARD_REVERT_001 changed",
+      "maintainability": "LOWER_THAN_NEEDED",
+      "decision_reason": "Valid core exists, but publication as-is would blur P0/RM1 closure with incomplete generalized P1 completeness."
+    },
+    {
+      "option": 2,
+      "name": "REDUCE_FIX5_BEFORE_PUBLICATION",
+      "selected": true,
+      "benefits": ["Keeps proven Root A and Root B closure", "Keeps bounded domain safety, exact sentence binding, citation, eligibility, RETRY and NEXT_ACTION compatibility", "Removes the only demonstrated utility-regressive mechanism family", "Shrinks validation surface to accepted RM1 concerns"],
+      "risks": ["Requires one carefully bounded implementation task and rerun of core regression evidence", "Must ensure fallback authorization remains exact if fallback is retained"],
+      "scope_alignment": "BEST_P0_RM1_FIT",
+      "utility": "Expected to restore at least the absence of target-parser-induced card-revert abstention; no target count is prescribed",
+      "maintainability": "BEST_OF_SAFE_OPTIONS",
+      "design_only_reduction": {
+        "retain": ["_state_compatible_pool", "bounded _standard_request_scope_pool and family maps", "same-scope padding removal", "sentence-only requested-dimension support", "exact FactualObjective propagation", "exact-sentence STANDARD generation", "FallbackSupportAuthorization if fallback remains", "RETRY attempts? compatibility", "M1 NEXT_ACTION semantics", "unchanged citation verifier and eligibility checks"],
+        "remove_or_simplify": ["_request_target_anchors generalized entity grammar", "_covered_target_requirements and target equivalence sets", "position-independent and coordinated multi-constraint extraction", "response-level combinations/set-cover", "target completeness diagnostics including mechanically empty unresolved_target_requirements", "same-evidence STANDARD alias reuse if STANDARD returns to one objective per evidence/item", "TIMING_WINDOW target-leader path while retaining the independent M1 timing-policy-authority rule"]
+      },
+      "decision_reason": "Core and optional machinery are functionally separable; a reset is not necessary."
+    },
+    {
+      "option": 3,
+      "name": "CLEAN_MINIMAL_REIMPLEMENTATION_FROM_M1",
+      "selected": false,
+      "benefits": ["Could produce a very small conceptual patch"],
+      "risks": ["Would discard already validated core Root A/B, domain, fallback and compatibility work", "Creates new implementation and review risk", "Prior reset instruction was withdrawn"],
+      "scope_alignment": "POSSIBLE_BUT_UNNECESSARY",
+      "utility": "Unknown until reimplemented",
+      "maintainability": "Potentially good, but transition risk exceeds bounded reduction",
+      "decision_reason": "FIX5 core is sufficiently disentangleable: pipeline changes are small and optional complexity is concentrated in routing_v3 plus multi-claim generator behavior."
+    },
+    {
+      "option": 4,
+      "name": "CONTINUE_FIX6_PLUS",
+      "selected": false,
+      "benefits": ["Could expand generalized completeness coverage"],
+      "risks": ["Continues edge-case expansion", "No accepted RM1/P0 blocker remains", "Would convert the always-empty unresolved field into another out-of-scope fix cycle"],
+      "scope_alignment": "OUT_OF_SCOPE_FOR_RM2",
+      "utility": "No supported gain; FIX3-FIX5 stayed 6/10",
+      "maintainability": "WORST",
+      "decision_reason": "The unresolved field is evidence to remove generalized P1 machinery, not authority to invent FIX6."
+    }
+  ]
+}

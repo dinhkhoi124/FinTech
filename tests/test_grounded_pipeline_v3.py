@@ -6,11 +6,13 @@ import json
 import unittest
 from datetime import date
 from pathlib import Path
+from unittest import mock
 
 from payresolve_ai.generation.citations import verify_draft
 from payresolve_ai.generation.pipeline_v3 import (
     _fixture_chunks,
     load_v3_configuration,
+    PipelineV3Error,
     run_nonlocked_regression,
     run_case_v3,
     run_synthetic_behavior_suite,
@@ -138,16 +140,21 @@ class GroundedPipelineV3Tests(unittest.TestCase):
         self.assertEqual("DEVELOPMENT_REGRESSION_ONLY", dev["classification"])
         self.assertFalse(dev["independent_evaluation"])
 
-    def test_nonlocked_v2_to_v3_regression_contract_passes(self):
-        result = run_nonlocked_regression(ROOT, CONFIG_PATH)
-        self.assertEqual("PASS", result["status"])
-        for membership in result["memberships"].values():
-            self.assertTrue(all(membership["comparisons"].values()))
-        self.assertFalse(result["product_approval_claimed"])
-        self.assertEqual(0, sum(row["generic_rule_missing"] for row in result["standard_false_negatives"]))
-        self.assertEqual(6, sum(row["disposition"] == "RESOLVED_BY_GENERIC_RULE" for row in result["standard_gap_dispositions"]))
-        dispositions = {row.get("disposition") for row in result["standard_gap_dispositions"]}
-        self.assertLessEqual(dispositions, {"RESOLVED_BY_GENERIC_RULE", "DESIRED_FAIL_CLOSED_WITH_PRODUCT_RULE"})
+    def test_legacy_nonlocked_regression_fails_closed_before_any_read(self):
+        with (
+            mock.patch.object(Path, "read_text", side_effect=AssertionError("must not read")) as read_text,
+            mock.patch(
+                "payresolve_ai.retrieval.corpus.load_jsonl",
+                side_effect=AssertionError("must not load JSONL"),
+            ) as load_jsonl,
+        ):
+            with self.assertRaisesRegex(
+                PipelineV3Error,
+                "LEGACY_NONLOCKED_REGRESSION_DISABLED_USE_EXPLICIT_RED1_VERIFICATION",
+            ):
+                run_nonlocked_regression(ROOT, CONFIG_PATH)
+        self.assertEqual(0, read_text.call_count)
+        self.assertEqual(0, load_jsonl.call_count)
 
 
 if __name__ == "__main__":
