@@ -7,15 +7,17 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-RM2-PUB1` — PUBLICATION CLOSURE CANDIDATE / AWAITING FINAL SENIOR BYTE REVIEW
-- Next task: after independent Senior byte review only, stage/commit/push the exact approved RM2 publication allowlist and independently verify remote committed state.
+- Active task: `W3-003 — Grounded RAG Behavior Remediation` — RM2 CLOSED / NEXT PRODUCT-GATE AUTHORING
+- Next task: author and freeze the new independent post-remediation product-evaluation candidate for Senior review; do not execute it yet.
 - Last updated: 2026-08-20 by Codex
 
-The current authoritative status is RM2: `SENIOR APPROVED / PUBLICATION
-AUTHORIZED / NOT YET COMMITTED`. RCV2 is `IMPLEMENTED / CLEAN VERIFIED / SENIOR
-APPROVED`; RPF1 is `SENIOR APPROVED / REPORTING-EVIDENCE RECONCILED`; PUB1 is
-the publication closure candidate awaiting final Senior byte review. RCV1 is a
-historical predecessor only. EV1 completion, remotely
+The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
+VERIFIED`. Its implementation publication commit is
+`cd97de602140e334ec499e8dfa27fa08ec1a6260`. RCV2 is `IMPLEMENTED / CLEAN
+VERIFIED / SENIOR APPROVED / PUBLISHED`; RPF1 is `SENIOR APPROVED /
+REPORTING-EVIDENCE RECONCILED / PUBLISHED`; PUB1 is `SENIOR BYTE REVIEWED`;
+PUB2-WF1 is `SENIOR APPROVED`; and PUB2 is `COMMITTED / PUSHED / REMOTE
+VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
@@ -41,12 +43,12 @@ production identities are frozen; only `pipeline_v3.py` changed
 from RCV1 to fail close the legacy helper before I/O. The other production
 identities and clean semantic hashes remain equal to RCV1.
 
-RCV2/RPF1 approval is not product approval. PUB1 binds the exact future
-publication allowlist and does not stage, commit, or push. After RM2 remote
-publication closure, the next engineering lifecycle is **new independent
-product-evaluation authoring**, not Week 4. W3 P0 remains `BLOCKED /
-REMEDIATION REQUIRED` until that product gate completes successfully; W4
-remains `BLOCKED`.
+RCV2/RPF1 publication is not product approval. RM2 is closed, but the next
+engineering lifecycle is **new independent product-evaluation authoring**, not
+Week 4. That product gate must be separately authored, frozen before execution,
+independently reviewed, explicitly authorized, not tuned against EV1, and run
+only once after authorization. W3 P0 remains `BLOCKED / REMEDIATION REQUIRED`
+until that gate passes; W4 remains `BLOCKED`.
 
 EV1 completed as a one-shot independent 60-case lifecycle and its frozen evidence
 was published at E1 `9233289e1b330b1818d34e22c0fc641ce0f3d63a`. Independent

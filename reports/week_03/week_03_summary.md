@@ -1,12 +1,12 @@
 # Week 03 Summary
 
-## Current W3-003 RM2 PUB1 status — 2026-08-20
+## Current W3-003 RM2 closure status — 2026-08-20
 
-RCV2 implementation is Senior approved; RPF1 reporting/evidence reconciliation
-is Senior approved. RM2 is publication authorized but not committed. PUB1 is the
-current publication closure candidate awaiting final independent Senior byte
-review. RCV1 below is historical predecessor context, not the current candidate
-status.
+RCV2 implementation, RPF1 reporting/evidence reconciliation, and WF1
+whitespace normalization are Senior approved. RM2 implementation publication
+`cd97de602140e334ec499e8dfa27fa08ec1a6260` was pushed to `main` and independently
+remote verified; the RM2 remediation lifecycle is CLOSED. RCV1 below is
+historical predecessor context, not the current candidate status.
 
 The legacy helper fail-closed regression passes 1/1 before any read; boundary,
 focused, and safe-V3 evidence pass 5/5, 20/20, and 24/24 respectively. The
@@ -14,12 +14,11 @@ safe-V3 count includes the mandatory legacy regression, unlike the historical
 23/23 RCV1 set. The two authorized clean replays retain W3-003 hash
 `285bcc3187eeb7252cbe9f4c9d61fca00fc57af8cba873ae83e4b2df72ca4a6a` and
 W3-001 hash `2ec13e0fb237ebae6d7635b6ff4e9ae628ee25c50694e4f973d136ddf818708d`.
-No consumed/locked evaluation content, EV1, notebook, commit, push, or Week 4
-work was used. W3 P0 and W4 remain blocked.
+No consumed/locked evaluation content, EV1, notebook, or Week 4 work was used.
 
-W3 P0 remains blocked; a new independent product gate is still required after
-publication. Week 4 remains blocked. PUB1 final-review status:
-`W3_003_RM2_PUB1_PUBLICATION_CLOSURE_CANDIDATE_AWAITING_FINAL_SENIOR_BYTE_REVIEW`.
+This is not product approval. W3 P0 remains BLOCKED / REMEDIATION REQUIRED; a
+new independently authored, frozen, reviewed, and authorized post-remediation
+product gate is required before it can close. Week 4 remains BLOCKED.
 
 ## Historical W3-003 RM2 RED1-RCV1 clean reverification — 2026-08-20
 

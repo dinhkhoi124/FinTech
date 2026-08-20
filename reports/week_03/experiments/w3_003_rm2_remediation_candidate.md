@@ -2,15 +2,16 @@
 
 ## Current decision
 
-Independent Senior review accepted the RCV2 implementation and the RPF1
-reporting/evidence reconciliation. No semantic or product-source blocker remains
-for RM2 publication. RM2 is **SENIOR APPROVED / PUBLICATION AUTHORIZED / NOT
-YET COMMITTED**; PUB1 awaits one final independent Senior byte review before
-any staging, commit, push, or remote verification.
+Independent Senior review accepted the RCV2 implementation, the RPF1
+reporting/evidence reconciliation, and the WF1 whitespace normalization. The
+implementation publication commit
+`cd97de602140e334ec499e8dfa27fa08ec1a6260` was pushed to `main` and
+independently remote verified. RM2 remediation is **CLOSED**; no further RM2
+semantic remediation is currently authorized.
 
-This is not product approval. W3 P0 remains blocked. After publication, a
-separately authored, frozen, reviewed, and authorized independent product
-evaluation is required before the Week 3 gate can close; Week 4 remains blocked.
+This is not product-gate success. W3 P0 remains blocked. A separately authored,
+frozen, reviewed, and authorized independent product evaluation is required
+before the Week 3 gate can close; Week 4 remains blocked.
 
 ## Historical RCV1 context
 
@@ -62,15 +63,17 @@ The machine-readable command/exit-code record is
 
 ## Safety and scope
 
-Current RCV2 work opened no consumed holdout, EV1, or W2 locked evidence.
-No notebook, new independent evaluation, Week 4 work, staging, commit, or push
-occurred. W3 P0 remains `BLOCKED / REMEDIATION REQUIRED`; W4 remains blocked.
+RCV2 verification opened no consumed holdout, EV1, or W2 locked evidence. No
+notebook, new independent evaluation, or Week 4 work occurred. PUB2 later
+staged, committed, pushed, and remotely verified the approved implementation
+publication. W3 P0 remains `BLOCKED / REMEDIATION REQUIRED`; W4 remains blocked.
 
-## RPF1 and PUB1 status
+## RPF1 and publication status
 
 The detached RPF1 package was reconciled against the frozen RCV2 source/tests
-and accepted by independent Senior review. PUB1 now binds the exact future
-publication allowlist while preserving those approved bytes. Its current status
-is:
-
-`W3_003_RM2_PUB1_PUBLICATION_CLOSURE_CANDIDATE_AWAITING_FINAL_SENIOR_BYTE_REVIEW`.
+and accepted by independent Senior review. PUB1 was Senior byte reviewed;
+PUB2-WF1 whitespace normalization was Senior approved; and PUB2 published the
+exact implementation candidate at
+`cd97de602140e334ec499e8dfa27fa08ec1a6260`. The remote commit was independently
+verified. RM2 is closed, while W3 P0 remains blocked pending a new independent
+product evaluation.

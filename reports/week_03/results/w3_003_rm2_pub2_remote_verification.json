@@ -1,0 +1,37 @@
+{
+  "task_id": "W3-003-RM2-PUB2",
+  "verification_type": "POST_PUBLICATION_REMOTE_VERIFICATION",
+  "publication_commit_sha": "cd97de602140e334ec499e8dfa27fa08ec1a6260",
+  "publication_parent_sha": "2209f845bf8be5782c9acbc9bbe605a8630d082d",
+  "publication_tree_sha": "075eec0787b25f02b8c46b28ad4df46564a89aaa",
+  "publication_commit_message": "fix(week3): publish W3-003 RM2 remediation closure",
+  "remote_branch": "main",
+  "remote_head_verified": true,
+  "changed_path_count": 20,
+  "changed_path_scope_verified": true,
+  "publication_manifest_path": "reports/week_03/results/w3_003_rm2_publication_manifest.json",
+  "publication_manifest_bytes": 3819,
+  "publication_manifest_sha256": "a9eead700475580516616ef205b63ad71033d4ba28dec2dc757a1fa45f9f5c02",
+  "wf1_normalized_paths": {
+    "src/payresolve_ai/generation/red1_verification.py": {
+      "bytes": 11905,
+      "sha256": "95442b9c7776d326f32e4fb7cf0ab6298b642580a08ebc75207179e9da110f3a"
+    },
+    "reports/week_03/experiments/w3_003_rm2_sa1_plan_scope_audit.md": {
+      "bytes": 24589,
+      "sha256": "5b7828f27ca9750ac7d86af4c3ff00a50c5c5d46e513b8480c1b254ad2b98aa4"
+    },
+    "reports/week_03/results/w3_003_rm2_publication_manifest.json": {
+      "bytes": 3819,
+      "sha256": "a9eead700475580516616ef205b63ad71033d4ba28dec2dc757a1fa45f9f5c02"
+    }
+  },
+  "senior_pub1_byte_review": "APPROVED",
+  "senior_pub2_wf1_review": "APPROVED",
+  "senior_pub2_remote_review": "APPROVED",
+  "rm2_implementation_publication_complete": true,
+  "rm2_canonical_closure_authorized": true,
+  "w3_p0_closed": false,
+  "week4_authorized": false,
+  "new_independent_product_eval_executed": false
+}
