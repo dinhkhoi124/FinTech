@@ -1,0 +1,49 @@
+{
+  "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+  "precheck": {
+    "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+    "failures": [
+      {
+        "actual_route": "STANDARD",
+        "fixture_id": "EV2DEV-04",
+        "route_reason": [
+          "DIMENSION_AWARE_SUPPORT"
+        ],
+        "verification": {
+          "citation_support_verdict": "PASS",
+          "claim_support_verdict": "PASS",
+          "control_plane_verdict": "PASS",
+          "dimension_binding_verdict": "PASS",
+          "evidence_eligibility_verdict": "PASS",
+          "prohibited_action_verdict": "PASS",
+          "route_utility_verdict": "FAIL",
+          "selection_binding_verdict": "FAIL",
+          "state_binding_verdict": "PASS",
+          "target_entity_binding_verdict": "FAIL"
+        },
+        "violations": [
+          "target_entity_binding_verdict",
+          "selection_binding_verdict",
+          "route_utility_verdict"
+        ]
+      }
+    ],
+    "invariants": {
+      "forbidden_opener_calls": 0,
+      "ineligible_evidence_usage": 0,
+      "prohibited_or_cross_target_violations": 1,
+      "system_errors": 0,
+      "unsafe_factual_answers": 1,
+      "unsupported_factual_claim": 0,
+      "wrong_target_authorization": 1
+    },
+    "operation": "precheck-failure-stop",
+    "passed": false,
+    "primary_rows": 15,
+    "reproduction_executed": false
+  },
+  "primary_sha256": "604b8bdaa7b1af61d10ab323ff4ee1ac412c5255e44d4db08a8627f3fd263a82",
+  "reproduction_sha256": null,
+  "status": "PRECHECK_FAIL_CONFIRMED_TARGET_BINDING_DEFECT",
+  "task_id": "W3-003-EV2-A1-FIX1"
+}

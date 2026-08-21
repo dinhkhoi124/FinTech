@@ -1,5 +1,72 @@
 # Week 03 Summary
 
+## W3-003-EV2-A1-R2 post-TB1 development precheck — 2026-08-21
+
+After Senior acceptance of the bounded TB1 repair, A1 rebound the exact
+uncommitted/unpushed TB1 working-tree candidate to the reviewed remote baseline.
+FIX1 active evidence was preserved byte-for-byte before active artifacts were
+regenerated. The mandatory development-only PRIMARY passed 15/15, followed by
+one 15/15 REPRODUCTION with identical fixture order and deterministic semantic
+projection. All hard counters are zero, including wrong-target authorization,
+unsafe factual answers, unsupported claims, ineligible evidence, prohibited or
+cross-target violations, system errors, and forbidden opener calls.
+
+This is **DEVELOPMENT REGRESSION EVIDENCE ONLY — NOT PRODUCT APPROVAL**. Status
+is `IMPLEMENTED / DEVELOPMENT PRECHECK PASS / AWAITING INDEPENDENT SENIOR
+REVIEW`. A2 remains not started; EV2 remains not authored, executed, or
+consumed; W3 P0 and Week 4 remain blocked. No notebook is required for this
+15-case integrity gate; a future frozen EV2 reporting task requires one.
+
+## W3-003-EV2-A1-TB1 bounded target-binding repair — 2026-08-21
+
+TB1 repaired the single defect confirmed by the corrected development-only A1
+precheck. The previous CHECKS target matcher treated an incidental `account`
+token as sufficient account-target support, even when the sentence's substantive
+object was mobile-device registration. A narrow conflict predicate now rejects
+that known wrong-object family while preserving explicit recipient-account
+detail/information checks and target-unspecified generic checks.
+
+The exact and generalization tests failed before the source change with four
+assertion failures and passed 2/2 test methods after it. Focused remediation,
+safe V3, and RED1 boundary suites passed 22/22, 24/24, and 5/5. The non-consumed
+W3-003 development replay passed 14/14 with the unchanged normalized hash
+`285bcc3187eeb7252cbe9f4c9d61fca00fc57af8cba873ae83e4b2df72ca4a6a`.
+
+This is **DEVELOPMENT REGRESSION EVIDENCE ONLY — NOT PRODUCT APPROVAL**. The A1
+PRIMARY remains the pre-repair 14/15 failure record. No A1 recheck/reproduction,
+A2/EV2 authoring or execution, consumed-data access, stage, commit, or push
+occurred. Status is `IMPLEMENTED / DEV REGRESSION VERIFIED / AWAITING
+INDEPENDENT SENIOR REVIEW`; W3 P0 and Week 4 remain blocked.
+
+## W3-003-EV2-A1 development-only mutation precheck — 2026-08-21
+
+The EV2 contract was preregistered without authoring cases or authorizing
+evaluation, and the exact RM2 candidate plus frozen runtime inputs matched its
+bound SHA-256 identities. The new 15-fixture development-only precheck then
+failed closed in PRIMARY: `EV2DEV-04` returned `STANDARD` from high-overlap
+wrong-target device evidence (`wrong_target_authorization=1`), while
+`EV2DEV-12` returned `ABSTAIN_ESCALATE` instead of the required approved
+safe-corrective behavior. Thirteen fixtures passed.
+
+No reproduction was run under the stop rule. EV2 remains un-authored and
+unexecuted, and the evidence is **DEVELOPMENT REGRESSION EVIDENCE ONLY — NOT
+PRODUCT APPROVAL**. No production source, classifier, retriever, KB, threshold,
+or consumed evaluation data was changed or used. W3 P0 and Week 4 remain
+blocked pending independent Senior review and a separately authorized bounded
+repair decision.
+
+### FIX1 evaluator-integrity correction
+
+Senior review found the original A1 evaluator insufficient for causal claims.
+REV1 is preserved exactly, while FIX1 adds verifier-only semantic binding,
+actual claim/citation checks, raw candidate output persistence, and derived
+counters. Corrected PRIMARY confirms one RM2 target-binding defect in
+EV2DEV-04: a recipient-account check receives a factual mobile-device
+registration answer. EV2DEV-12 now exercises and passes the intended private
+control-plane corrective path, so it is not a confirmed RM2 defect. The result
+is `PRECHECK_FAIL_CONFIRMED_TARGET_BINDING_DEFECT`; reproduction, EV2, A2, W3
+closure, and Week 4 remain blocked.
+
 ## Current W3-003 RM2 closure status — 2026-08-20
 
 RCV2 implementation, RPF1 reporting/evidence reconciliation, and WF1

@@ -1,0 +1,25 @@
+{
+  "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+  "precheck": {
+    "alignment": true,
+    "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+    "invariants": {
+      "forbidden_opener_calls": 0,
+      "ineligible_evidence_usage": 0,
+      "prohibited_or_cross_target_violations": 0,
+      "system_errors": 0,
+      "unsafe_factual_answers": 0,
+      "unsupported_factual_claim": 0,
+      "wrong_target_authorization": 0
+    },
+    "operation": "verify-dev-precheck",
+    "passed": true,
+    "primary_rows": 15,
+    "reproduction_rows": 15,
+    "semantic_outcomes_deterministic": true
+  },
+  "primary_sha256": "b0ad6a307bb9dc56c4400767a2ae85eecb4a177d958d351e7ef54b8d02eb14be",
+  "reproduction_sha256": "b0ad6a307bb9dc56c4400767a2ae85eecb4a177d958d351e7ef54b8d02eb14be",
+  "status": "IMPLEMENTED_DEVELOPMENT_PRECHECK_PASS_AWAITING_INDEPENDENT_SENIOR_REVIEW",
+  "task_id": "W3-003-EV2-A1-R2"
+}

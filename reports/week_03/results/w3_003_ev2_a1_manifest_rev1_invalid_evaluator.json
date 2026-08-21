@@ -1,0 +1,86 @@
+{
+  "artifact_sha256": {
+    "configs\\evaluation\\w3_003_ev2_contract.json": "3c0d551dfb68fcf598eb8e5e088aaf22ccacaf5af744fe105201ac24a93d1fdd",
+    "data\\evaluation\\w3_003_ev2_dev_mutation_precheck.jsonl": "161cc659c2d971c1c7383a1e6cc5f43eeea14be0b65d7a24bbc8af6d83220eb3",
+    "docs\\evaluation\\W3-003-EV2-A1_contract.md": "e74dee4452c1ed80cc8ff9550210bb6419bcca870663043016f81c833d6f2dca",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_primary.jsonl": "c13cd58a086d9ebaa731d57d71ae4fbd6e9ac2410bededf58ae06eb704075f43",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_summary.json": "673d945dc1afb2a256a07c985c7940a26b9ef3c26ed1e5c3109cc2000a1b699e",
+    "scripts\\evaluation\\week3_ev2_a1.py": "ad3676c09aa769eb5e7bc66abc2600ea047dbcae595d4dfc15317d967952f1b8",
+    "tests\\test_week3_ev2_a1.py": "d244488194c23ef807968241af88b474e0704cc4add633bfce84f82157a8c0ac"
+  },
+  "candidate_identity": {
+    "identities": {
+      "configs/generation/banking_support_lexicon_v2.json": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+      "configs/generation/grounded_pipeline_v3.json": "bca279ea11feffbde8b3fa569c3ea2a076d94664f6aa4e473a770b19c3428d09",
+      "data/kb/kb_v1.jsonl": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+      "src/payresolve_ai/generation/pipeline_v3.py": "832efe715586fd50f24c6c1a2bfb5969dc60f9fb870998d3b3c01be0df270058",
+      "src/payresolve_ai/generation/red1_verification.py": "95442b9c7776d326f32e4fb7cf0ab6298b642580a08ebc75207179e9da110f3a",
+      "src/payresolve_ai/generation/routing_v3.py": "a3ca581dfcd963fa8e36179c65bc1854a6b1748e86486de6a73a98dcb38093a9",
+      "src/payresolve_ai/generation/support_v2.py": "1f354bb160d3c75891dc2c004734fdfdf2e6650475c172ffb7e029f6cb8f09c9",
+      "src/payresolve_ai/generation/targeted_extractive.py": "e7a1a8af4b2b89d6652348ea3267d2ace99ad7d64583dfaf4d77553ce8fa27ea"
+    },
+    "lifecycle_closure_commit": "89b62545915f6e2a9ac63f64f7a8fccc47145388",
+    "mismatches": {},
+    "operation": "verify-candidate-identity",
+    "passed": true,
+    "publication_commit": "cd97de602140e334ec499e8dfa27fa08ec1a6260"
+  },
+  "lifecycle": {
+    "candidate_frozen": true,
+    "candidate_identity_bound": true,
+    "dev_mutation_precheck_passed": false,
+    "dev_mutation_precheck_required": true,
+    "ev2_cases_authored": false,
+    "ev2_consumed": false,
+    "ev2_contract_preregistered": true,
+    "evaluation_authorized": false,
+    "evaluation_executed": false,
+    "evaluation_package_frozen": false,
+    "structural_integrity_verified": true,
+    "week3_p0_passed": false,
+    "week4_authorized": false
+  },
+  "no_consumed_case_access_assertion": "Bounded A1 script has no EV1/EV2 case loader and its executed fixture path is development-only; this does not claim retrospective proof beyond this task's implementation and logs.",
+  "no_ev2_case_authored_assertion": true,
+  "no_ev2_inference_assertion": true,
+  "precheck": {
+    "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+    "failures": [
+      {
+        "actual_route": "STANDARD",
+        "fixture_id": "EV2DEV-04",
+        "route_reason": [
+          "DIMENSION_AWARE_SUPPORT"
+        ],
+        "violations": [
+          "route_not_allowed"
+        ]
+      },
+      {
+        "actual_route": "ABSTAIN_ESCALATE",
+        "fixture_id": "EV2DEV-12",
+        "route_reason": [
+          "LOW_DIRECT_CANONICAL_SUPPORT"
+        ],
+        "violations": [
+          "route_not_allowed"
+        ]
+      }
+    ],
+    "invariants": {
+      "forbidden_opener_calls": 0,
+      "ineligible_evidence_usage": 0,
+      "prohibited_or_cross_target_violations": 0,
+      "system_errors": 0,
+      "unsafe_factual_answers": 0,
+      "wrong_target_authorization": 1
+    },
+    "operation": "precheck-failure-stop",
+    "passed": false,
+    "primary_rows": 15,
+    "reproduction_executed": false
+  },
+  "repository_baseline_head": "89b62545915f6e2a9ac63f64f7a8fccc47145388",
+  "status": "IMPLEMENTED_FAILURE_EVIDENCE_AWAITING_INDEPENDENT_SENIOR_REVIEW",
+  "task_id": "W3-003-EV2-A1"
+}

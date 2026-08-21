@@ -146,6 +146,17 @@ _CHECKS_TARGET_EQUIVALENCE: dict[str, frozenset[str]] = {
     "duplicate": frozenset({"duplicate", "duplicated"}),
 }
 
+# A requested account CHECKS target cannot be established by an incidental
+# ``account`` token when the sentence's actual check object is a distinct
+# registration/profile setting.  This is intentionally narrower than a target
+# ontology and preserves ordinary references to devices outside these objects.
+_CHECKS_TARGET_CONFLICT_PATTERNS: dict[str, tuple[str, ...]] = {
+    "account": (
+        r"\b(?:mobile[- ]?device|device)\s+(?:registration|profile|setting|configuration)\b",
+        r"\bcustomer[- ]?profile\s+(?:registration|setting|configuration)\b",
+    ),
+}
+
 
 def _has_generic_private_target(query: str) -> bool:
     words = set(canonical_tokens(query, {"concepts": {}}, ()))
@@ -232,7 +243,12 @@ def _sentence_matches_single_checks_target(
     if target is None:
         return True
     sentence_tokens = set(canonical_tokens(sentence, lexicon, stopwords))
-    return bool(sentence_tokens & _CHECKS_TARGET_EQUIVALENCE[target])
+    target_present = bool(sentence_tokens & _CHECKS_TARGET_EQUIVALENCE[target])
+    target_conflict = any(
+        re.search(pattern, sentence, re.IGNORECASE)
+        for pattern in _CHECKS_TARGET_CONFLICT_PATTERNS.get(target, ())
+    )
+    return target_present and not target_conflict
 
 
 def _best_requested_sentence_support(

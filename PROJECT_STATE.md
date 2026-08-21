@@ -7,9 +7,9 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003 — Grounded RAG Behavior Remediation` — RM2 CLOSED / NEXT PRODUCT-GATE AUTHORING
-- Next task: author and freeze the new independent post-remediation product-evaluation candidate for Senior review; do not execute it yet.
-- Last updated: 2026-08-20 by Codex
+- Active task: `W3-003-EV2-A1-R2` — IMPLEMENTED / DEVELOPMENT PRECHECK PASS / AWAITING INDEPENDENT SENIOR REVIEW
+- Next task: independent Senior review of the byte-frozen post-TB1 A1 PRIMARY/REPRODUCTION package; A2/EV2 execution, stage, commit, and push remain unauthorized.
+- Last updated: 2026-08-21 by Codex
 
 The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
 VERIFIED`. Its implementation publication commit is
@@ -21,6 +21,79 @@ VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
+
+## W3-003-EV2-A1-R2 post-TB1 recheck — 2026-08-21
+
+Senior accepted TB1 only for an A1 recheck. The fresh remote remains
+`89b62545915f6e2a9ac63f64f7a8fccc47145388`; TB1 routing hash is
+`f13e3f4b0f1dac22fb1a12d9a6094bf63c52b463b2b2b6325b3c3536908beea5`, and
+the other four production identities, runtime inputs, fixtures, and evaluator
+matched their reviewed bytes. FIX1 active PRIMARY/summary/manifest were copied
+byte-for-byte to `*_fix1_pre_tb1` historical paths before active A1 artifacts
+were regenerated.
+
+The candidate is `SENIOR_APPROVED_TB1_WORKING_TREE_CANDIDATE`, byte-frozen,
+uncommitted, and unpushed. PRIMARY passed 15/15 with zero hard counters. One
+REPRODUCTION passed 15/15 with matching fixture IDs/order and deterministic
+semantic projection. A1 status is `IMPLEMENTED / DEVELOPMENT PRECHECK PASS /
+AWAITING INDEPENDENT SENIOR REVIEW`; EV2/A2 remain not started or unauthorized,
+and W3 P0/W4 remain blocked. No consumed evidence was accessed.
+
+## W3-003-EV2-A1-TB1 bounded target-binding repair — 2026-08-21
+
+TB1 repaired only the confirmed same-domain target-binding defect in
+`routing_v3.py`. The old CHECKS predicate accepted an account-target sentence
+when any account-equivalent token was present, even when the actual check object
+was mobile-device registration. A narrow conflict predicate now rejects the
+known mobile-device registration/profile/settings and customer-profile setting
+objects while preserving direct recipient-account detail/information checks and
+generic target-unspecified checks.
+
+The exact new regression and a negative/positive compatibility matrix failed
+before the source change (four assertion failures) and passed 2/2 test methods
+after it. Focused remediation passed 22/22, safe V3 passed 24/24, RED1 boundary
+passed 5/5, and the non-consumed W3-003 development replay passed 14/14 with
+unchanged normalized hash
+`285bcc3187eeb7252cbe9f4c9d61fca00fc57af8cba873ae83e4b2df72ca4a6a`.
+
+Status is `IMPLEMENTED / DEV REGRESSION VERIFIED / AWAITING INDEPENDENT SENIOR
+REVIEW`. The existing A1 PRIMARY remains the pre-repair 14/15 failure record;
+no A1 precheck/reproduction, A2, EV2 authoring/inference/execution, or consumed
+data access occurred. W3 P0 and W4 remain blocked. A recheck requires a separate
+Senior authorization.
+
+## W3-003-EV2-A1 development-only precheck — 2026-08-21
+
+The final EV2 product-gate contract was preregistered and bound to the published
+RM2 production identity. The 15/15 development-only fixture structure and all
+candidate/config/KB hashes verified. PRIMARY then failed closed: `EV2DEV-04`
+produced a `STANDARD` response from high-overlap wrong-target device evidence,
+and `EV2DEV-12` produced `ABSTAIN_ESCALATE` instead of the required approved
+safe corrective alternative. `wrong_target_authorization=1`.
+
+Status is `PRECHECK_FAIL_BLOCK_EV2_AUTHORIZATION`. Reproduction was not run;
+EV2 cases were not authored or inferred; no consumed case-level material,
+production source, classifier, retriever, KB, threshold, staging, commit, or
+push was touched. This is development regression evidence only, not product
+approval. W3 P0 and W4 remain blocked pending independent Senior review.
+
+## W3-003-EV2-A1-FIX1 evaluator-integrity correction — 2026-08-21
+
+REV1 was byte-preserved but cannot establish a causal RM2 verdict because its
+evaluator inferred wrong-target authorization from route/risk labels. FIX1
+persists raw candidate output before verifier-only semantic checks and derives
+all safety counters from row verdicts. Corrected PRIMARY passed 14/15. It
+confirmed exactly one target-binding defect: `EV2DEV-04` answered a recipient
+account-check query with the forbidden `MOBILE_DEVICE_REGISTRATION_CHECK`
+semantic target; `wrong_target_authorization=1` and `unsafe_factual_answers=1`.
+
+`EV2DEV-12` now correctly reaches `PRIVATE_OR_INTERNAL_TARGET_BLOCKED` and a
+complete `SAFE_CORRECTIVE` plan, so REV1's earlier low-direct-support result is
+not a confirmed corrective-discovery defect. Status is
+`PRECHECK_FAIL_CONFIRMED_TARGET_BINDING_DEFECT`; reproduction did not run. That
+statement is the pre-TB1 A1 evidence status. TB1 later repaired the confirmed
+defect under its separate bounded contract, but no A1 recheck was authorized.
+W3 P0, EV2, A2, and W4 remain blocked.
 
 ## Active objective
 

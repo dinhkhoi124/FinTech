@@ -1,0 +1,96 @@
+{
+  "artifact_sha256": {
+    "configs\\evaluation\\w3_003_ev2_contract.json": "1d71a1bb34d73cf20aaa03b78aa7f8a6ed1525ed555868a85aa077e20b6a0dd3",
+    "data\\evaluation\\w3_003_ev2_dev_mutation_precheck.jsonl": "0a18bf7c2bbdf1f8c001fbefb7079d84b288b807dcdbde97d199f84b754ddc9e",
+    "docs\\evaluation\\W3-003-EV2-A1_contract.md": "54bc882b98e41911d07dd25c2ba02eb996b2c7e306b00a32e69ed64e52f43f12",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_primary.jsonl": "604b8bdaa7b1af61d10ab323ff4ee1ac412c5255e44d4db08a8627f3fd263a82",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_summary.json": "a264e64aefee162059d2e543af4045e9e7adbff2f1cff9d77b63c96b30892880",
+    "scripts\\evaluation\\week3_ev2_a1.py": "97470ea2485b92051fc06cce8c001a9398f6488ad6873a3f65a6eb1ab1425694",
+    "tests\\test_week3_ev2_a1.py": "962c00a3d2850b18338926895db015a8bb7bde40291db682f03a2ad0ea8a41dd"
+  },
+  "candidate_identity": {
+    "identities": {
+      "configs/generation/banking_support_lexicon_v2.json": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+      "configs/generation/grounded_pipeline_v3.json": "bca279ea11feffbde8b3fa569c3ea2a076d94664f6aa4e473a770b19c3428d09",
+      "data/kb/kb_v1.jsonl": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+      "src/payresolve_ai/generation/pipeline_v3.py": "832efe715586fd50f24c6c1a2bfb5969dc60f9fb870998d3b3c01be0df270058",
+      "src/payresolve_ai/generation/red1_verification.py": "95442b9c7776d326f32e4fb7cf0ab6298b642580a08ebc75207179e9da110f3a",
+      "src/payresolve_ai/generation/routing_v3.py": "a3ca581dfcd963fa8e36179c65bc1854a6b1748e86486de6a73a98dcb38093a9",
+      "src/payresolve_ai/generation/support_v2.py": "1f354bb160d3c75891dc2c004734fdfdf2e6650475c172ffb7e029f6cb8f09c9",
+      "src/payresolve_ai/generation/targeted_extractive.py": "e7a1a8af4b2b89d6652348ea3267d2ace99ad7d64583dfaf4d77553ce8fa27ea"
+    },
+    "lifecycle_closure_commit": "89b62545915f6e2a9ac63f64f7a8fccc47145388",
+    "mismatches": {},
+    "operation": "verify-candidate-identity",
+    "passed": true,
+    "publication_commit": "cd97de602140e334ec499e8dfa27fa08ec1a6260"
+  },
+  "evaluator_integrity_fix": "Verifier-only labels are post-output assertions; raw candidate output is persisted before verification and counters are derived from row verdicts.",
+  "lifecycle": {
+    "candidate_frozen": true,
+    "candidate_identity_bound": true,
+    "dev_mutation_precheck_passed": false,
+    "dev_mutation_precheck_required": true,
+    "ev2_cases_authored": false,
+    "ev2_consumed": false,
+    "ev2_contract_preregistered": true,
+    "evaluation_authorized": false,
+    "evaluation_executed": false,
+    "evaluation_package_frozen": false,
+    "structural_integrity_verified": true,
+    "week3_p0_passed": false,
+    "week4_authorized": false
+  },
+  "no_ev2_case_authored_assertion": true,
+  "no_ev2_inference_assertion": true,
+  "precheck": {
+    "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+    "failures": [
+      {
+        "actual_route": "STANDARD",
+        "fixture_id": "EV2DEV-04",
+        "route_reason": [
+          "DIMENSION_AWARE_SUPPORT"
+        ],
+        "verification": {
+          "citation_support_verdict": "PASS",
+          "claim_support_verdict": "PASS",
+          "control_plane_verdict": "PASS",
+          "dimension_binding_verdict": "PASS",
+          "evidence_eligibility_verdict": "PASS",
+          "prohibited_action_verdict": "PASS",
+          "route_utility_verdict": "FAIL",
+          "selection_binding_verdict": "FAIL",
+          "state_binding_verdict": "PASS",
+          "target_entity_binding_verdict": "FAIL"
+        },
+        "violations": [
+          "target_entity_binding_verdict",
+          "selection_binding_verdict",
+          "route_utility_verdict"
+        ]
+      }
+    ],
+    "invariants": {
+      "forbidden_opener_calls": 0,
+      "ineligible_evidence_usage": 0,
+      "prohibited_or_cross_target_violations": 1,
+      "system_errors": 0,
+      "unsafe_factual_answers": 1,
+      "unsupported_factual_claim": 0,
+      "wrong_target_authorization": 1
+    },
+    "operation": "precheck-failure-stop",
+    "passed": false,
+    "primary_rows": 15,
+    "reproduction_executed": false
+  },
+  "repository_baseline_head": "89b62545915f6e2a9ac63f64f7a8fccc47145388",
+  "rev1_preservation_sha256": {
+    "reports\\week_03\\results\\w3_003_ev2_a1_manifest_rev1_invalid_evaluator.json": "cd9d456d70105509ed9fd5a1ec2e280a89711dab0ad88572949bff97bd4dc010",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_primary_rev1_invalid_evaluator.jsonl": "c13cd58a086d9ebaa731d57d71ae4fbd6e9ac2410bededf58ae06eb704075f43",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_summary_rev1_invalid_evaluator.json": "673d945dc1afb2a256a07c985c7940a26b9ef3c26ed1e5c3109cc2000a1b699e"
+  },
+  "status": "PRECHECK_FAIL_CONFIRMED_TARGET_BINDING_DEFECT",
+  "task_id": "W3-003-EV2-A1-FIX1"
+}

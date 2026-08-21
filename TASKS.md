@@ -39,7 +39,9 @@ Priority: `P0 | P1 | P2`
 | W3-003-RM2-PUB2-WF1 | 3 | P0 | Pre-commit whitespace normalization | Only approved whitespace normalization; AST equivalence; boundary 5/5; diff-check clean; Senior approved | DONE / SENIOR APPROVED |
 | W3-003-RM2-PUB2 | 3 | P0 | RM2 implementation publication | Exact 20-path commit; commit/tree/parent verified; remote main verified | DONE / COMMITTED / PUSHED / REMOTE VERIFIED |
 | W3-003-RM2-PUB3 | 3 | P0 | Canonical post-publication lifecycle closure | Remote PUB2 receipt; canonical RM2 CLOSED truth; W3 P0 blocked; next product gate identified; no semantic/eval execution | DONE / CLOSURE AUTHORED |
-| W3-003-EV2-A1 | 3 | P0 | Author new independent post-remediation product-gate candidate | New evaluation contract/package authored and frozen for Senior review; no execution; no EV1 tuning | TODO / NEXT |
+| W3-003-EV2-A1 | 3 | P0 | Final EV2 product-gate preregistration + development-only mutation precheck | FIX1 history preserved; post-TB1 R2 PRIMARY/REPRODUCTION both 15/15 with zero hard counters and deterministic semantic projection | IMPLEMENTED / DEVELOPMENT PRECHECK PASS / AWAITING INDEPENDENT SENIOR REVIEW |
+| W3-003-EV2-A1-TB1 | 3 | P0 | Bounded same-domain CHECKS target-binding repair | Test-first exact + generalization matrix; focused 22/22, safe V3 24/24, boundary 5/5, development replay 14/14; accepted solely for A1 R2 recheck | IMPLEMENTED / SENIOR ACCEPTED FOR A1 RECHECK |
+| W3-003-EV2-A1-R2 | 3 | P0 | Rebind post-TB1 candidate and complete mandatory development precheck | FIX1 preserved; candidate byte-frozen/uncommitted; PRIMARY 15/15 + one deterministic REPRODUCTION 15/15, all hard counters zero | IMPLEMENTED / DEVELOPMENT PRECHECK PASS / AWAITING INDEPENDENT SENIOR REVIEW |
 | W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Runnable API + evidence | BLOCKED / NOT AUTHORIZED BY CURRENT W3 P0 GATE |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | BLOCKED / NOT AUTHORIZED BY CURRENT W3 P0 GATE |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |

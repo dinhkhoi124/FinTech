@@ -1,0 +1,44 @@
+{
+  "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+  "precheck": {
+    "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+    "failures": [
+      {
+        "actual_route": "STANDARD",
+        "fixture_id": "EV2DEV-04",
+        "route_reason": [
+          "DIMENSION_AWARE_SUPPORT"
+        ],
+        "violations": [
+          "route_not_allowed"
+        ]
+      },
+      {
+        "actual_route": "ABSTAIN_ESCALATE",
+        "fixture_id": "EV2DEV-12",
+        "route_reason": [
+          "LOW_DIRECT_CANONICAL_SUPPORT"
+        ],
+        "violations": [
+          "route_not_allowed"
+        ]
+      }
+    ],
+    "invariants": {
+      "forbidden_opener_calls": 0,
+      "ineligible_evidence_usage": 0,
+      "prohibited_or_cross_target_violations": 0,
+      "system_errors": 0,
+      "unsafe_factual_answers": 0,
+      "wrong_target_authorization": 1
+    },
+    "operation": "precheck-failure-stop",
+    "passed": false,
+    "primary_rows": 15,
+    "reproduction_executed": false
+  },
+  "primary_sha256": "c13cd58a086d9ebaa731d57d71ae4fbd6e9ac2410bededf58ae06eb704075f43",
+  "reproduction_sha256": null,
+  "status": "PRECHECK_FAIL_BLOCK_EV2_AUTHORIZATION",
+  "task_id": "W3-003-EV2-A1"
+}

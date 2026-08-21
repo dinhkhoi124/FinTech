@@ -1,0 +1,80 @@
+{
+  "artifact_sha256": {
+    "configs\\evaluation\\w3_003_ev2_contract.json": "922aad65a61cda1f2609797a57cb6a4f2ca8bc40032625bdbdd3f29e726d6c7d",
+    "data\\evaluation\\w3_003_ev2_dev_mutation_precheck.jsonl": "0a18bf7c2bbdf1f8c001fbefb7079d84b288b807dcdbde97d199f84b754ddc9e",
+    "docs\\evaluation\\W3-003-EV2-A1_contract.md": "553e45c791c033041cff112bbe87088c121dcb857eccc95c5bffe31404807e99",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_primary.jsonl": "b0ad6a307bb9dc56c4400767a2ae85eecb4a177d958d351e7ef54b8d02eb14be",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_reproduction.jsonl": "b0ad6a307bb9dc56c4400767a2ae85eecb4a177d958d351e7ef54b8d02eb14be",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_summary.json": "13d3c1d11b0c36d251abf1409bef5a6aa49e2804d7b25e39277c97fc247319eb",
+    "scripts\\evaluation\\week3_ev2_a1.py": "97470ea2485b92051fc06cce8c001a9398f6488ad6873a3f65a6eb1ab1425694",
+    "tests\\test_week3_ev2_a1.py": "962c00a3d2850b18338926895db015a8bb7bde40291db682f03a2ad0ea8a41dd"
+  },
+  "candidate_identity": {
+    "identities": {
+      "configs/generation/banking_support_lexicon_v2.json": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+      "configs/generation/grounded_pipeline_v3.json": "bca279ea11feffbde8b3fa569c3ea2a076d94664f6aa4e473a770b19c3428d09",
+      "data/kb/kb_v1.jsonl": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+      "src/payresolve_ai/generation/pipeline_v3.py": "832efe715586fd50f24c6c1a2bfb5969dc60f9fb870998d3b3c01be0df270058",
+      "src/payresolve_ai/generation/red1_verification.py": "95442b9c7776d326f32e4fb7cf0ab6298b642580a08ebc75207179e9da110f3a",
+      "src/payresolve_ai/generation/routing_v3.py": "f13e3f4b0f1dac22fb1a12d9a6094bf63c52b463b2b2b6325b3c3536908beea5",
+      "src/payresolve_ai/generation/support_v2.py": "1f354bb160d3c75891dc2c004734fdfdf2e6650475c172ffb7e029f6cb8f09c9",
+      "src/payresolve_ai/generation/targeted_extractive.py": "e7a1a8af4b2b89d6652348ea3267d2ace99ad7d64583dfaf4d77553ce8fa27ea"
+    },
+    "lifecycle_closure_commit": "89b62545915f6e2a9ac63f64f7a8fccc47145388",
+    "mismatches": {},
+    "operation": "verify-candidate-identity",
+    "passed": true,
+    "publication_commit": "cd97de602140e334ec499e8dfa27fa08ec1a6260"
+  },
+  "candidate_state": {
+    "candidate_byte_frozen_for_a1_recheck": true,
+    "candidate_committed": false,
+    "candidate_pushed": false,
+    "candidate_source_state": "SENIOR_APPROVED_TB1_WORKING_TREE_CANDIDATE",
+    "repository_baseline_remote_main": "89b62545915f6e2a9ac63f64f7a8fccc47145388"
+  },
+  "evaluator_integrity_fix": "Verifier-only labels are post-output assertions; raw candidate output is persisted before verification and counters are derived from row verdicts.",
+  "lifecycle": {
+    "candidate_frozen": true,
+    "candidate_identity_bound": true,
+    "dev_mutation_precheck_passed": true,
+    "dev_mutation_precheck_required": true,
+    "ev2_cases_authored": false,
+    "ev2_consumed": false,
+    "ev2_contract_preregistered": true,
+    "evaluation_authorized": false,
+    "evaluation_executed": false,
+    "evaluation_package_frozen": false,
+    "structural_integrity_verified": true,
+    "week3_p0_passed": false,
+    "week4_authorized": false
+  },
+  "no_ev2_case_authored_assertion": true,
+  "no_ev2_inference_assertion": true,
+  "precheck": {
+    "alignment": true,
+    "disclaimer": "DEVELOPMENT REGRESSION EVIDENCE ONLY \u2014 NOT PRODUCT APPROVAL",
+    "invariants": {
+      "forbidden_opener_calls": 0,
+      "ineligible_evidence_usage": 0,
+      "prohibited_or_cross_target_violations": 0,
+      "system_errors": 0,
+      "unsafe_factual_answers": 0,
+      "unsupported_factual_claim": 0,
+      "wrong_target_authorization": 0
+    },
+    "operation": "verify-dev-precheck",
+    "passed": true,
+    "primary_rows": 15,
+    "reproduction_rows": 15,
+    "semantic_outcomes_deterministic": true
+  },
+  "repository_baseline_head": "89b62545915f6e2a9ac63f64f7a8fccc47145388",
+  "rev1_preservation_sha256": {
+    "reports\\week_03\\results\\w3_003_ev2_a1_manifest_rev1_invalid_evaluator.json": "cd9d456d70105509ed9fd5a1ec2e280a89711dab0ad88572949bff97bd4dc010",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_primary_rev1_invalid_evaluator.jsonl": "c13cd58a086d9ebaa731d57d71ae4fbd6e9ac2410bededf58ae06eb704075f43",
+    "reports\\week_03\\results\\w3_003_ev2_dev_precheck_summary_rev1_invalid_evaluator.json": "673d945dc1afb2a256a07c985c7940a26b9ef3c26ed1e5c3109cc2000a1b699e"
+  },
+  "status": "IMPLEMENTED_DEVELOPMENT_PRECHECK_PASS_AWAITING_INDEPENDENT_SENIOR_REVIEW",
+  "task_id": "W3-003-EV2-A1-R2"
+}

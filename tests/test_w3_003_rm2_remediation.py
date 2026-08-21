@@ -188,6 +188,44 @@ class W3003RM2RemediationTests(unittest.TestCase):
             verify_draft(exact, [_evidence({**chunk, "status": "DRAFT"})], date(2026, 8, 16))
 
     # R1-R6: deliberately narrow CHECKS-only single-target safety boundary.
+    def test_tb1_high_overlap_account_context_does_not_authorize_device_target(self):
+        sentence = "Check the pending transfer account mobile-device registration."
+        chunks = [_chunk("TB1_DEVICE#checks", "pending_transfer", "Pending transfer account device review", sentence, 0.99, 1)]
+        output = self._run("What recipient account checks apply to my pending transfer?", chunks)
+        self.assertEqual("ABSTAIN", output["answer_strategy"], output)
+        self.assertEqual([], output["claims"])
+        self.assertEqual([], output["selected_evidence"])
+
+    def test_tb1_target_binding_matrix_preserves_account_and_generic_checks(self):
+        query = "What recipient account checks apply to my pending transfer?"
+        wrong_sentences = (
+            "Check the pending transfer account mobile-device registration.",
+            "For the pending transfer account, verify the mobile device registration.",
+            "Check the transfer account customer-profile setting.",
+        )
+        for index, sentence in enumerate(wrong_sentences, start=1):
+            with self.subTest(kind="wrong_target", sentence=sentence):
+                chunks = [_chunk(f"TB1_WRONG_{index}#checks", "pending_transfer", "Pending transfer checks", sentence, 0.90, 1)]
+                output = self._run(query, chunks)
+                self.assertEqual("ABSTAIN", output["answer_strategy"], output)
+                self.assertEqual([], output["claims"])
+
+        valid_sentences = (
+            "Check the recipient account details for the pending transfer.",
+            "Confirm the pending transfer recipient account information.",
+        )
+        for index, sentence in enumerate(valid_sentences, start=1):
+            with self.subTest(kind="valid_account", sentence=sentence):
+                chunks = [_chunk(f"TB1_VALID_{index}#checks", "pending_transfer", "Pending transfer checks", sentence, 0.90, 1)]
+                output = self._run(query, chunks)
+                self.assertEqual("STANDARD", output["answer_strategy"], output["response_plan"])
+                self.assertEqual([sentence], [row["text"] for row in output["claims"]])
+
+        generic = "Check the pending transfer status."
+        output = self._run("What checks apply to my pending transfer?", [_chunk("TB1_GENERIC#checks", "pending_transfer", "Pending transfer checks", generic, 0.90, 1)])
+        self.assertEqual("STANDARD", output["answer_strategy"], output["response_plan"])
+        self.assertEqual([generic], [row["text"] for row in output["claims"]])
+
     def test_r1_transfer_account_rejects_mobile_device_sentence(self):
         chunks = [_chunk("R1_DEVICE#checks", "pending_transfer", "Pending transfer checks", "Check the transfer mobile-device registration.", 0.90, 1)]
         self.assertEqual("ABSTAIN", self._run("What checks apply to my pending transfer recipient account?", chunks)["answer_strategy"])
