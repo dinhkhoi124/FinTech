@@ -1,0 +1,38 @@
+{
+  "consumed_exact_normalized_fingerprint_collision": 0,
+  "ev2_registry_sha256": "9791207ba7a7f676dd3fbde87b140d92178823d0f032a47102ddca85e056a4f0",
+  "leakage_probe": {
+    "malformed_returncode_nonzero": true,
+    "passed": true,
+    "registry_schema_exact": true,
+    "sentinel_absent_from_child_surfaces": true,
+    "sentinel_sha256": "8f0f2da4b2c61d4f992b16d2b7bbcffb63646c485b7e9cf431680ba6370a3a6c",
+    "valid_returncode": 0
+  },
+  "passed": true,
+  "registry_allowed_fields": [
+    "exact_query_sha256",
+    "normalization_version",
+    "normalized_query_sha256",
+    "source_case_index_or_opaque_id",
+    "source_evaluation"
+  ],
+  "semantic_paraphrase_collision": "NOT_ESTABLISHED_BY_FINGERPRINT_ONLY_AUDIT",
+  "sources": {
+    "CRITICAL_REV7": {
+      "exact_collisions": 0,
+      "normalized_collisions": 0,
+      "registry_path": "reports/week_03/results/w3_003_ev2_a3_consumed_critical_rev7_fingerprints.jsonl",
+      "registry_sha256": "84f6634a4505be51194af7176ef1767e5913acf8a60679d6e6846f8a02a34702",
+      "rows": 60
+    },
+    "EV1": {
+      "exact_collisions": 0,
+      "normalized_collisions": 0,
+      "registry_path": "reports/week_03/results/w3_003_ev2_a3_consumed_ev1_fingerprints.jsonl",
+      "registry_sha256": "3143742cead1e9a6b8c2e4b94748e381a2a1b222b6eebacc138d562ae779ef62",
+      "rows": 60
+    }
+  },
+  "task_id": "W3-003-EV2-A3-FIX3"
+}

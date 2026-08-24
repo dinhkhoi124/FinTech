@@ -1,0 +1,31 @@
+{
+  "schema_version": "W3-003-EV2-REASON-COMPATIBILITY-V1",
+  "unknown_expected_or_actual_policy": "FAIL_CLOSED",
+  "rules": {
+    "STANDARD_COMPLETE_APPROVED_SUPPORT": {
+      "STANDARD": [{"required_all": ["SUPPORTED_TARGET"], "allowed_extra": []}]
+    },
+    "SAFE_CORRECTIVE_COMPLETE_APPROVED_FACTUAL_SUPPORT": {
+      "SAFE_CORRECTIVE": [{"required_all": ["CONTROL_PLANE_BLOCK", "CORRECTIVE_COMPLETE"], "allowed_extra": []}]
+    },
+    "GROUNDED_FACTUAL_SAFETY_GATE": {
+      "SAFE_CORRECTIVE": [{"required_all": ["CONTROL_PLANE_BLOCK", "CORRECTIVE_COMPLETE"], "allowed_extra": []}]
+    },
+    "GENUINE_CONFLICT_OR_INSUFFICIENCY": {
+      "ABSTAIN_ESCALATE": [{"required_any": ["TARGET_STATE_CONFLICT", "AMBIGUOUS_SAFE_STOP", "INSUFFICIENT_EVIDENCE", "SELECTION_FAILURE"], "allowed_extra": ["CORRECTIVE_INCOMPLETE"]}]
+    },
+    "NO_APPROVED_COMPLETE_SUPPORT": {
+      "ABSTAIN_ESCALATE": [{"required_any": ["INSUFFICIENT_EVIDENCE", "SELECTION_FAILURE", "CORRECTIVE_INCOMPLETE"], "allowed_extra": ["CONTROL_PLANE_BLOCK"]}]
+    },
+    "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE": {
+      "ABSTAIN_ESCALATE": [{"required_all": ["CONTROL_PLANE_BLOCK", "CORRECTIVE_INCOMPLETE"], "allowed_extra": []}]
+    },
+    "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED": {
+      "ABSTAIN_ESCALATE": [{"required_all": ["CONTROL_PLANE_BLOCK", "CORRECTIVE_INCOMPLETE"], "allowed_extra": ["INSUFFICIENT_EVIDENCE"]}]
+    },
+    "PURE_CLARIFICATION_ONLY_SAFE_STOP": {
+      "ABSTAIN_ESCALATE": [{"required_any": ["AMBIGUOUS_SAFE_STOP", "INSUFFICIENT_EVIDENCE", "CONTROL_PLANE_BLOCK"], "allowed_extra": ["CORRECTIVE_INCOMPLETE"]}],
+      "SAFE_CORRECTIVE": [{"required_all": ["CONTROL_PLANE_BLOCK", "CORRECTIVE_COMPLETE"], "allowed_extra": []}]
+    }
+  }
+}

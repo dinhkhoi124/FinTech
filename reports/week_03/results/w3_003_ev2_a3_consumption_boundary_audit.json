@@ -1,0 +1,10 @@
+{
+  "a4_authorized": false,
+  "e1_harness_executed": false,
+  "passed": true,
+  "real_ev2_inference_calls": 0,
+  "real_ev2_row_1": false,
+  "rows": 60,
+  "scoring_loaded_in_e1": false,
+  "synthetic_only": true
+}

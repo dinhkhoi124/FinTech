@@ -1,0 +1,67 @@
+{
+  "actual_reason_exact_source_presence": {
+    "AMBIGUOUS_COMPETING_TARGETS": true,
+    "COHERENT_DIRECT_DIMENSION_FALLBACK": true,
+    "CORRECTIVE_CLAIM_BUDGET_EXCEEDED": true,
+    "CORRECTIVE_NOT_APPLICABLE": true,
+    "CORRECTIVE_PLAN_COMPLETE": true,
+    "DIMENSION_AWARE_SUPPORT": true,
+    "DIRECT_CANONICAL_SUPPORT": true,
+    "EVIDENCE_TARGET_STATE_CONFLICT": true,
+    "LOW_DIRECT_CANONICAL_SUPPORT": true,
+    "LOW_RETRIEVAL_SUPPORT": true,
+    "NEXT_ACTION_DIRECT_ACTION_REQUIRED": true,
+    "NO_ELIGIBLE_EVIDENCE": true,
+    "NO_REQUEST_DOMAIN_COMPATIBLE_EVIDENCE": true,
+    "NO_SAFE_CORRECTIVE_SCOPE_ANCHOR": true,
+    "NO_TARGET_SUPPORTING_STANDARD_SELECTION": true,
+    "PRIVATE_OR_INTERNAL_TARGET_BLOCKED": true,
+    "REQUESTED_DIMENSION_NOT_SUPPORTED": true,
+    "STATE_COMPATIBLE_DIRECT_DIMENSION_FALLBACK": true,
+    "TIMING_POLICY_AUTHORITY_REQUIRED": true,
+    "UNSUPPORTED_EXACT_OR_SPECIFIC_TARGET": true,
+    "UNTRUSTED_OVERRIDE_REQUEST": true
+  },
+  "actual_reason_prefix_source_presence": {
+    "GENERATION_OR_CITATION_FAILURE:": true,
+    "MISSING_": true
+  },
+  "case_id_specific_mapping_absent": true,
+  "compatibility_covered": true,
+  "expected_family_route_pairs": [
+    [
+      "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "ABSTAIN_ESCALATE"
+    ],
+    [
+      "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "ABSTAIN_ESCALATE"
+    ],
+    [
+      "GROUNDED_FACTUAL_SAFETY_GATE",
+      "SAFE_CORRECTIVE"
+    ],
+    [
+      "NO_APPROVED_COMPLETE_SUPPORT",
+      "ABSTAIN_ESCALATE"
+    ],
+    [
+      "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "ABSTAIN_ESCALATE"
+    ],
+    [
+      "PURE_CLARIFICATION_ONLY_SAFE_STOP",
+      "ABSTAIN_ESCALATE"
+    ],
+    [
+      "SAFE_CORRECTIVE_COMPLETE_APPROVED_FACTUAL_SUPPORT",
+      "SAFE_CORRECTIVE"
+    ],
+    [
+      "STANDARD_COMPLETE_APPROVED_SUPPORT",
+      "STANDARD"
+    ]
+  ],
+  "passed": true,
+  "unknown_policy": "FAIL_CLOSED"
+}

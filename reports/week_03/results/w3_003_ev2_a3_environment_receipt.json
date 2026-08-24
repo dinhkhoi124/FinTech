@@ -1,0 +1,11 @@
+{
+  "a1_contract_sha256": "62b763b34733bb5f92ee1087305a35a15744a320fffa4dd3cd79211e96eabd9c",
+  "a1_current_manifest_sha256": "dfea5362d19f8eceaecfec83e8c967aa113b5f9e050a77e6fd7047910c61b07f",
+  "dependency_lockfile_identity": {
+    "pyproject.toml": "7d5883175802b73f1dc589d17414a0de4d0711a55f44914b0767bcb2b0f2f5db",
+    "requirements/week1-lexical.txt": "1d80cc1c337643a152e2d09d026fc3f948bbe606b1816f8e5376738df205a238",
+    "requirements/week1-semantic.txt": "9ba69a0be8f956c678759d19d9093d16965f02093146778e76a98e8bd3cc911b"
+  },
+  "python_implementation": "cpython",
+  "python_version": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]"
+}

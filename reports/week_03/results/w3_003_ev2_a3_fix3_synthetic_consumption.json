@@ -1,0 +1,10 @@
+{
+  "a3_manifest_sha256": "5e1af86ecf60accddfe6b201cb7c62e4f29b4dde3c1ac3573ed989f832a2f0d1",
+  "a4_authorization_id": "SYNTHETIC-FIX3-NOT-SENIOR-A4",
+  "candidate_production_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "candidate_source_tree_sha256": "fbcd9248faf8058571ac2b8747125a013fbc73e52925cfc0d813edd55fbd0193",
+  "ev2_consumed": false,
+  "runtime_input_aggregate_sha256": "031df898e0e9d2b8b134b9b056a156329225699b655bf03526f00fa0bb1b1a6f",
+  "schema_version": "SYNTHETIC_RAW_BINDING_ONLY_V1",
+  "synthetic_only": true
+}

@@ -1,0 +1,346 @@
+{
+  "algorithm": "SORTED_PATH_NUL_U64BE_LENGTH_RAW_BYTES_SHA256_V1",
+  "candidate_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "canonical_sha256": "fbcd9248faf8058571ac2b8747125a013fbc73e52925cfc0d813edd55fbd0193",
+  "entries": [
+    {
+      "bytes": 157,
+      "git_blob": "9ada9c549ec1d98b52f73cdbf9bbd32b8d7c89c8",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/__init__.py",
+      "sha256": "22834c094fa50caddbdccd4cc86c360bb58ab1158356e1cd4ba6d96881b084d3"
+    },
+    {
+      "bytes": 55,
+      "git_blob": "ad6e4db16414db7c25e47e42c8e3ecb27c57edd7",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/baselines/__init__.py",
+      "sha256": "bedd77fb1397e43f207ed5d081dfdb89bd38c83e0878b0e16f6b4376840783a2"
+    },
+    {
+      "bytes": 17543,
+      "git_blob": "2fd2028d6bb944acea7874ccc9060a3cb6c6ef19",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/baselines/lexical.py",
+      "sha256": "cc5359d68b4e3caf408ca2421d9be4fa9b3ffcd4cb8f4d3ceff8e8101590b741"
+    },
+    {
+      "bytes": 1147,
+      "git_blob": "3bd8c033e1a57ec3db8bb6907711d5cabd847d30",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/baselines/lexical_cli.py",
+      "sha256": "2ac9b86d917a7c3e4e0104bd34b1005253be844982de4356592af731988522ec"
+    },
+    {
+      "bytes": 37806,
+      "git_blob": "2fc2a61f3356c60d088ec83918db82983626dc48",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/baselines/semantic.py",
+      "sha256": "18f751b6bd20422fcd4b55e563fd1b058c40e0553369de4aa9580111dca0575c"
+    },
+    {
+      "bytes": 1867,
+      "git_blob": "eac8df60428b18c12a4145e2cff56e9071316d83",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/baselines/semantic_cli.py",
+      "sha256": "0f07cf1ae2d70a3f41c08bd7dd032d477445e3a2eef13750e8b896899cd277d9"
+    },
+    {
+      "bytes": 61,
+      "git_blob": "32dd23d2aa3153e425a93ea02226ed4d7ae305c5",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/data/__init__.py",
+      "sha256": "0e1692ca04067f8452038973445274d32a57ac1884ed2c126888991d7fc22b56"
+    },
+    {
+      "bytes": 24511,
+      "git_blob": "56dab47391c689bc14c8ab98fbf9927133d85cee",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/data/banking77.py",
+      "sha256": "f6b0a8dcd1dc1463d461299ccb2eba812add6e1b795fcec64c96a45ffd6b1b68"
+    },
+    {
+      "bytes": 2252,
+      "git_blob": "2b574904f8db28745d3faf457fa10e2a04bce67c",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/data/banking77_cli.py",
+      "sha256": "167d72b250dd3c07148bfe909c3702ef018b9e85f673f6912df035e6eb980d73"
+    },
+    {
+      "bytes": 204,
+      "git_blob": "b224dddd58230e0bdcc172c6c8a6b4cc857ef85f",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/__init__.py",
+      "sha256": "c4a723b43fe0a3765810f9d8d8953c1ab46ab8caab9b7dc94ef4f2c71942c7b3"
+    },
+    {
+      "bytes": 37931,
+      "git_blob": "daa7793008292780d90153747121787aea2c9d8f",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/critical.py",
+      "sha256": "b6b43c317b9601306d16b56577cbeb68fa3021b07cb5efd066f9c3dafed25b24"
+    },
+    {
+      "bytes": 36636,
+      "git_blob": "3da4945615d928ac0f4c6b90e4e39aeb809780cb",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/critical_integrity.py",
+      "sha256": "16cfe9ee1876994a45d655e7b0f6dde466ff413ee1b3557fd102e4dadac88fd8"
+    },
+    {
+      "bytes": 66170,
+      "git_blob": "2017813fe1f06ae09e742134f05a7020c2710235",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/critical_v2.py",
+      "sha256": "89378524c56d0e86b367795b68c1d21078ac101f74bbb98606fca695fea68d6b"
+    },
+    {
+      "bytes": 13020,
+      "git_blob": "de6fa8ec0ccffffd6625acda459032533be46bbe",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/critical_v2_contract.py",
+      "sha256": "69ecf4e4cbef0d4c7b504b30985b13b1eaf9810a6e46a95075d335812b436376"
+    },
+    {
+      "bytes": 292743,
+      "git_blob": "e8476fc7742868de9a6d56903cbab4a839e33708",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/critical_v2_execution.py",
+      "sha256": "8841270e924ed4cffba330fbf2ae5f23f3f25730fa2cd447a50e6efff497340b"
+    },
+    {
+      "bytes": 11980,
+      "git_blob": "80ded91c642d8748ea3e6a46f11bb014c553efeb",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/critical_v2_feasibility.py",
+      "sha256": "ec6810e6b1d9a9a8007d0d0d637b5dab8543f8b645412fd1ac5a253e039a3db9"
+    },
+    {
+      "bytes": 27269,
+      "git_blob": "8ecf04afea71ac2ac50872da0929160ee2fb172f",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/critical_verification.py",
+      "sha256": "159c71a8e643700604d021dbcec9adbfe23c33d8d0ebe46ee1827f3249af3d37"
+    },
+    {
+      "bytes": 30460,
+      "git_blob": "043c4a7f190a07da83b59379bd0c8a70163702b4",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/gold_mapping.py",
+      "sha256": "85cd81493bda9f9dc80e3090203e2c97ddb3b47a4578811574ff81352667927a"
+    },
+    {
+      "bytes": 3198,
+      "git_blob": "411a4bd6ccf5faad156fee4bf3fb9901ab1cf0f7",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/gold_mapping_cli.py",
+      "sha256": "3c4b7ff9a31dd56a223bce8279eb986477e59a2083f0b1c456bd3dc4e7187b37"
+    },
+    {
+      "bytes": 62492,
+      "git_blob": "4aed2f1542231a2a43eac6657bc73ae16a058c13",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/w3_003_independent.py",
+      "sha256": "f8cbd0540c4adfcd34b322d7af693fae26aa131cad4e9cc80352fba27a81b537"
+    },
+    {
+      "bytes": 48224,
+      "git_blob": "3b1d096b81b1bdcd44e53d2aba8e0beb044427f4",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/week1_final.py",
+      "sha256": "ca424374a59c54bb2905e9c5a746c9e068b972fabff14f227fbbbd68631adfac"
+    },
+    {
+      "bytes": 1669,
+      "git_blob": "4de2201efbda9921feb04b1fa3d72b61d1204463",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/evaluation/week1_final_cli.py",
+      "sha256": "3d8643db0e0fa8caa13e56668925c18ebbea4fcdc039b594bf5ee4b3310f8ad3"
+    },
+    {
+      "bytes": 274,
+      "git_blob": "84e20944f8376b38c9bbedf97b5d6712ce5fdb0b",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/__init__.py",
+      "sha256": "d786eaedb6161126e354de0a97d2b743b77f5aee0d940948369e0e25acfdda80"
+    },
+    {
+      "bytes": 4955,
+      "git_blob": "f4195758157cbc3bedb08a0e90b0cca6ef15eaf5",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/citations.py",
+      "sha256": "1ade5dad4fa7eda8e76862466517410095c29d8798f83d86170920a7ac7dfc25"
+    },
+    {
+      "bytes": 1647,
+      "git_blob": "361263aa2c2f6777cf160e1faf6cf281f45fdb37",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/cli.py",
+      "sha256": "baf5587a3ca60d51d0681f3c3e164ff28659e3059ed2398148a638783f44c1be"
+    },
+    {
+      "bytes": 2568,
+      "git_blob": "88950810e2bed1c360c2754ab4aed85482a1fdf3",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/context.py",
+      "sha256": "2a4df880345a9606ab3a8932b422f0622829fa93a50a0af872d853915388a1a7"
+    },
+    {
+      "bytes": 5334,
+      "git_blob": "0f3c89cf2e14bd8d4a048a8867cb288c4ea5e58f",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/corrective_v1.py",
+      "sha256": "8411e9eac1bfa3fcbde9bca136cd5d4ca32fc4357c737f788448570d228e0cc4"
+    },
+    {
+      "bytes": 1717,
+      "git_blob": "dccd5fe505b62a0dec4bb81631579e76f1447dba",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/cr1_cli.py",
+      "sha256": "947f1bcf76b487f9fffc79e85431ad717f6c4aeebd53f352b9cd896073481e1f"
+    },
+    {
+      "bytes": 3667,
+      "git_blob": "646da7fd6b9785c7975cdae5cf7eb40d577078fb",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/extractive.py",
+      "sha256": "e2982fa3c6eee4fc35a7d437b43f9e98d88c0ebfca5f8d4030ec3e21d8111880"
+    },
+    {
+      "bytes": 3884,
+      "git_blob": "a75ff6746feebfab0e9a5f7d4c61a237d06fbb4f",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/gate.py",
+      "sha256": "53412a2d6f7c25cb6ca6dcde1ff86717158770e26147a11a3ea20a2597d70a6f"
+    },
+    {
+      "bytes": 11356,
+      "git_blob": "52a9c4e72895efa8778f6a30c58bde0813aa183f",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/pipeline.py",
+      "sha256": "6d073a7982d4be6990536c9f2ac70052708b47885fe2b1562c17151ccd9a44fd"
+    },
+    {
+      "bytes": 18543,
+      "git_blob": "0bba9b452167ff702576db5b2acaf6604cd61f48",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/pipeline_v3.py",
+      "sha256": "832efe715586fd50f24c6c1a2bfb5969dc60f9fb870998d3b3c01be0df270058"
+    },
+    {
+      "bytes": 11905,
+      "git_blob": "44e3ec321d42ae1818d7b607c265c6b67d2cd484",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/red1_verification.py",
+      "sha256": "95442b9c7776d326f32e4fb7cf0ab6298b642580a08ebc75207179e9da110f3a"
+    },
+    {
+      "bytes": 30359,
+      "git_blob": "7f9e8548c92c65f7bbffcf96b524bf8fb5a2c128",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/routing_v3.py",
+      "sha256": "f13e3f4b0f1dac22fb1a12d9a6094bf63c52b463b2b2b6325b3c3536908beea5"
+    },
+    {
+      "bytes": 13006,
+      "git_blob": "72723d747d6418e81ec00d9a77604ab5fbcfe1b1",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/support_v2.py",
+      "sha256": "1f354bb160d3c75891dc2c004734fdfdf2e6650475c172ffb7e029f6cb8f09c9"
+    },
+    {
+      "bytes": 3518,
+      "git_blob": "014f61a1fc0802986f41dde25f8f788b8772a9f2",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/targeted_extractive.py",
+      "sha256": "e7a1a8af4b2b89d6652348ea3267d2ace99ad7d64583dfaf4d77553ce8fa27ea"
+    },
+    {
+      "bytes": 1083,
+      "git_blob": "a6ab0c8a2faacbc2331ab0ce8b5cf55e737ec565",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/types.py",
+      "sha256": "78857b1e3e9b7e4e16508af977f0850ca99eda25762f0e7e8cc09fec51b961be"
+    },
+    {
+      "bytes": 20489,
+      "git_blob": "72976bad25629ff7e10f50e323f21ace2a62a4d3",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/verification.py",
+      "sha256": "c0a420bd2b6a648dab46c2ae0070608fbf2e98b56b2a693cff6e05b93c0a334f"
+    },
+    {
+      "bytes": 52943,
+      "git_blob": "a0a8a4330122cff1530c8d0213c51c00c7b3606a",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/generation/verification_v2.py",
+      "sha256": "f41cbd31633995d882a4ca2a6715879c0a610a6840b8df4a86aebfd55ac28e2f"
+    },
+    {
+      "bytes": 370,
+      "git_blob": "180cf9a4eefcd30815e41cbf6689c4f5e0e47e23",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/kb/__init__.py",
+      "sha256": "394f86e0aad801cb8acbd46aa48f4a96e0fe69320912abf367f660ade49a83dc"
+    },
+    {
+      "bytes": 2098,
+      "git_blob": "ec7d2f0f73ec3cf7c8210c910496ac1351a6f8d7",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/kb/cli.py",
+      "sha256": "90295d750d6546d16fc20be3e667ae8019bc553fb70d20849069939be52f6364"
+    },
+    {
+      "bytes": 45738,
+      "git_blob": "f83460f311fc7059940a49020a064e018d8aab8e",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/kb/validation.py",
+      "sha256": "35d8bed2d950012363cc888482fb2eace53f656a2fc33a0bcb02a1aef4f93fc5"
+    },
+    {
+      "bytes": 136,
+      "git_blob": "f4fd00ae4c87077f8e72f8e05f44214da106e465",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/retrieval/__init__.py",
+      "sha256": "8d1c8e367962810dbfd8533f019c0e66d056b3b797c90df9f11b92efee24f66a"
+    },
+    {
+      "bytes": 63600,
+      "git_blob": "a01d7fc333f5ba86fd501fb0ac30f13ac036a99c",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/retrieval/benchmark.py",
+      "sha256": "5f1dd5e3e2bf149d21afeb37d83631672677fd0b50371f562ca0dcd80b12393a"
+    },
+    {
+      "bytes": 1714,
+      "git_blob": "bafe3cbe64ddae4f59d515fe78247f803608e44e",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/retrieval/benchmark_cli.py",
+      "sha256": "f415e0e4e9f54c442b378ef7ad7753061dba0ff4a2af5c7d7a1cbd6bd892d7f4"
+    },
+    {
+      "bytes": 3525,
+      "git_blob": "f39ee04502089e9170facfc96f197992fbc2684c",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/retrieval/corpus.py",
+      "sha256": "cd2a0a1dafa49dafc6b93bfb98e3b8f36deaff6c5e50a4f7b8251699ff7bc67e"
+    },
+    {
+      "bytes": 1418,
+      "git_blob": "1230b405a97fa55d1578744dfe9b931e511df694",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/retrieval/dense.py",
+      "sha256": "974d8e23922c1016a5667f175bd7e4cd65201d9f19672b945a5f1fdf32ce4034"
+    },
+    {
+      "bytes": 4768,
+      "git_blob": "8717e891f12ee73977af23296f3b42dc56af248a",
+      "git_mode": "100644",
+      "path": "src/payresolve_ai/retrieval/runtime.py",
+      "sha256": "8e09bcb978d5fe921fb978246f61f1711560830092ea7fdeb0d62e39d321fe27"
+    }
+  ],
+  "entry_count": 48,
+  "git_tree": "ef943824b886619fd41bb1bb827504a108961ed8",
+  "schema_version": "W3-003-EV2-CANDIDATE-SOURCE-TREE-V1"
+}

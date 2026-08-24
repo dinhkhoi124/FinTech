@@ -1,0 +1,14 @@
+{
+  "schema_version": "W3-003-EV2-CAUSAL-PRECEDENCE-V1",
+  "primary_failure_precedence": [
+    "EVALUATOR_GOLD_INTEGRITY",
+    "KB_COVERAGE_OR_LEGITIMATE_SAFE_STOP",
+    "RETRIEVAL",
+    "SELECTION_BINDING",
+    "GATE_ROUTER",
+    "GENERATOR_RENDERING"
+  ],
+  "success_primary_failure_layer": null,
+  "hard_no_support_unsafe_factual_primary": "KB_COVERAGE_OR_LEGITIMATE_SAFE_STOP",
+  "secondary_failure_signals": "OPTIONAL_ORDERED_LOWER_PRECEDENCE_SIGNALS"
+}

@@ -1,0 +1,17 @@
+{
+  "contract": "configs/evaluation/w3_003_ev2_causal_precedence_contract.json",
+  "expected": {
+    "causal_gate_wrong_route": "GATE_ROUTER",
+    "causal_hard_unsafe_factual": "KB_COVERAGE_OR_LEGITIMATE_SAFE_STOP",
+    "causal_retrieval_missing": "RETRIEVAL",
+    "causal_selection_abstain": "SELECTION_BINDING",
+    "exact_quote_fabrication": "GENERATOR_RENDERING"
+  },
+  "hard_no_support_correct_abstain": {
+    "case_id": "EV2-A2-H01",
+    "primary_failure_layer": null,
+    "product_case_success": true
+  },
+  "passed": true,
+  "version": "W3-003-EV2-CAUSAL-PRECEDENCE-V1"
+}

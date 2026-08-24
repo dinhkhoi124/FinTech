@@ -1,0 +1,17 @@
+{
+  "authoritative_source": "data/evaluation/w3_003_ev2_pass_a.jsonl",
+  "case_id_to_semantic_stratum_sha256": "6443949019bd957f656ab4228fc9cd7b8f593099cc7f731141d6378fbc9ff8f4",
+  "distribution": {
+    "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": 6,
+    "HARD_ABSTAIN_ESCALATE": 12,
+    "SAFE_CORRECTIVE": 18,
+    "STANDARD": 24
+  },
+  "passed": true,
+  "source_sha256": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541",
+  "wrong_abstention_denominator": 42,
+  "wrong_abstention_denominator_strata": [
+    "STANDARD",
+    "SAFE_CORRECTIVE"
+  ]
+}

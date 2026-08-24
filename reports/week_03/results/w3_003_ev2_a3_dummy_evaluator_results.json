@@ -1,0 +1,25 @@
+{
+  "all_17_retained": true,
+  "fix2_focused_execution": "reports/week_03/results/w3_003_ev2_a3_fix3_mutation_audit.json",
+  "fixture_sha256": "cd19fa6aacf3304a1bfa5ade05db5e2411bc6d36e7973fcce148af5f4cd2b7c8",
+  "retained_case_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17"
+  ],
+  "retained_count": 17
+}

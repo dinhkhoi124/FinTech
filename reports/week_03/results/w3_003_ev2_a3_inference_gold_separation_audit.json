@@ -1,0 +1,13 @@
+{
+  "forbidden_gold_or_scorer_tokens_in_e1": {
+    "acceptable_complete_support_sets": false,
+    "evaluate_row": false,
+    "expected_production_route": false,
+    "score_frozen": false,
+    "w3_003_ev2_candidate": false,
+    "w3_003_ev2_pass_b": false
+  },
+  "passed": true,
+  "production_imports_limited_to_post_guard_loader": true,
+  "scoring_loaded_false_emitted": true
+}

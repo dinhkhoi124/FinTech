@@ -1,0 +1,24 @@
+{
+  "all_identities_match": true,
+  "sources": {
+    "CRITICAL_REV7": {
+      "actual_git_blob": "c5ff6dfcf57864a1f767365462e1994c6b3da8a4",
+      "actual_runtime_sha256": "e23ffa026250b939570de337c0de2ab04e88f5a3bdaf69cb508530ceeb92dc57",
+      "git_blob": "c5ff6dfcf57864a1f767365462e1994c6b3da8a4",
+      "identity_match": true,
+      "path": "data/evaluation/critical_eval_v2_scenarios.jsonl",
+      "registry": "reports/week_03/results/w3_003_ev2_a3_consumed_critical_rev7_fingerprints.jsonl",
+      "runtime_sha256": "e23ffa026250b939570de337c0de2ab04e88f5a3bdaf69cb508530ceeb92dc57"
+    },
+    "EV1": {
+      "actual_git_blob": "db9b2355f28a39d806118073870ca829e805de83",
+      "actual_runtime_sha256": "f957f839c7fe5cac8f2a4395d62f08e1032afe931f8795b473e0e643c49a3e08",
+      "git_blob": "db9b2355f28a39d806118073870ca829e805de83",
+      "identity_match": true,
+      "path": "data/evaluation/w3_003_independent_scenarios_v1.jsonl",
+      "registry": "reports/week_03/results/w3_003_ev2_a3_consumed_ev1_fingerprints.jsonl",
+      "runtime_sha256": "f957f839c7fe5cac8f2a4395d62f08e1032afe931f8795b473e0e643c49a3e08"
+    }
+  },
+  "task_id": "W3-003-EV2-A3-FIX3"
+}

@@ -1,0 +1,16 @@
+{
+  "a2_remains_closed": true,
+  "evaluation_authorized": false,
+  "fix1": {
+    "path": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix1_rejected.json",
+    "reason": "R1_SCORER_AND_PRODUCT_GATE_INTEGRITY_DEFECT",
+    "sha256": "1e45c845be612b3369b655f51e779be35e547a3f5dda3c55bd73aa70edb051f7",
+    "status": "REJECTED_BY_SENIOR"
+  },
+  "rev1": {
+    "path": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_rev1_rejected.json",
+    "reason": "EVALUATOR_E1_EXECUTION_INTEGRITY_NOT_ESTABLISHED",
+    "sha256": "01e61002a1d15d7c94e63012a35b72fe586bfa38ee326b25fbe12e5d3d896e72",
+    "status": "REJECTED_BY_SENIOR"
+  }
+}

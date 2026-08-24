@@ -1,0 +1,10 @@
+{
+  "schema_version": "W3-003-EV2-PRODUCTION-RAW-INVARIANTS-V1",
+  "strategies": {
+    "STANDARD": {"response_type": "ANSWER", "claims": "NON_EMPTY_LIST", "citations": "NON_EMPTY_LIST", "selected_evidence": "NON_EMPTY_LIST"},
+    "CORRECTIVE": {"response_type": "ANSWER", "claims": "NON_EMPTY_LIST", "citations": "NON_EMPTY_LIST", "selected_evidence": "NON_EMPTY_LIST"},
+    "ABSTAIN": {"response_type": "ABSTAIN_ESCALATE", "claims": "EMPTY_LIST", "citations": "EMPTY_LIST", "selected_evidence": "EMPTY_LIST"}
+  },
+  "violation": "evaluator_integrity_failure",
+  "final_result": "INVALID"
+}

@@ -1,5 +1,21 @@
 # Week 03 Summary
 
+## W3-003-EV2-A3-FIX3 pre-A4 safety and causal repair — 2026-08-24
+
+FIX3 preserves the rejected FIX2 manifest at `c892ed2f...d2115b` and limits
+the correction to the pre-A4 scorer package. Production-shaped raw rows now
+have strict factual/abstain invariants, safety negation is local to each
+forbidden action, eligibility uses actual approved/effective/unexpired logic,
+and row failures follow a stable integrity → KB → retrieval → selection → gate
+→ generator precedence.
+
+Synthetic R1 passes all 60 frozen-Gold cases at 24/18/12/6 with denominator
+42. Eight raw-schema fail-closed mutations, nine safety-negation regressions,
+and 30 total actual R1 mutations pass. Two complete regenerations have zero
+mismatch. A4, E1, candidate inference, EV2 row 1/execution/consumption,
+staging, committing, and pushing remain unauthorized/unperformed. Status is
+`A3_FIX3_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW`.
+
 ## W3-003-EV2-A2-PB1-FIX2B final reconciliation — 2026-08-24
 
 Senior adjudicated all 17 FIX2A third projections without relaunching either
@@ -1145,3 +1161,60 @@ C1 remains immutable. C2 now separates Git-portable verification from 14 ignored
 The deterministic ZIP carries 14 payloads and an inventory that maps 11 MiniLM snapshot paths to their exact blobs. Provisioning validates the full receipt before writing and materializes ordinary files, so no symlink privilege is required. A real load-only check resolved revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41` on CPU at dimension 384 with offline flags and zero network, encode, or EV1-input accesses.
 
 Authorization and all EV1 execution/evaluation states remain absent. C2 is uncommitted and awaits Senior review; the Week 3 product gate and W4 remain blocked.
+# A3 FIX1 evaluator/E1 integrity correction — 2026-08-24
+
+A3 Rev1 manifest `01e610...96e72` is preserved as rejected historical
+evidence: its identity/fingerprint work passed, but its evaluator/E1 execution
+integrity was not established. FIX1 keeps A2 closed and byte-frozen, verifies
+the consumed EV1/Rev7 Git blobs and runtime hashes, persists two safe 60-row
+hash-only registries, and recomputes zero exact/normalized collisions without a
+semantic-paraphrase claim. Actual subprocess success/error leakage probes pass.
+
+The evaluator now adapts the exact production `run_case_v3()` raw schema and
+uses only source-backed reason strings/bounded prefixes. A real non-EV2
+development invocation passed directly through the adapter. All 17 synthetic
+cases pass, utility/diagnostic failures remain separate from zero-tolerance
+safety failures, and the dummy aggregate proves 24/18/12/6 successes with 42
+answerable cases. The focused suite passes 22/22 and combined
+production/A1/A2/A3 regression passes 64/64.
+
+E1 now consumes a 60-row sanitized input, validates A4 plus all bound
+production/retrieval/generation bytes, writes the row-1 consumption receipt
+atomically before production import/call, persists raw output before scoring,
+disables resume, and exits before gold/evaluator loading. Dummy boundary tests
+prove pre-row failure is unconsumed and post-row-1 failure remains consumed.
+Two complete artifact builds have mismatch count zero. Status is
+`A3_FIX1_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW`; A4 is unauthorized and EV2 is
+`NOT EXECUTED / NOT CONSUMED`. No stage, commit, or push occurred.
+
+# A3 FIX2 final pre-EV2 scorer closure — 2026-08-24
+
+Senior retained FIX1's fingerprint/A4/atomic-consumption improvements but found
+that the real R1 scorer/root and product-gate semantics were not trustworthy.
+Rev1 and FIX1 are now immutable rejected history at `01e610...96e72` and
+`1e45c8...051f7`. A2 remains closed at its exact Pass A/B/C, classification,
+and manifest hashes.
+
+FIX2 requires explicit scorer root, loads semantic strata only from Pass A,
+and freezes row success so factual routes require a complete selected support
+set. The real-Gold synthetic 60-row CLI dry-run returned PASS with exact
+24/18/12/6 denominators, answerable denominator 42, both ambiguous-SAFE rows
+excluded, citation correctness 1.0, evaluator integrity PASS, and
+reproducibility PASS. Product gates are frozen before EV2 at 20/24, 15/18,
+12/12, 5/6, wrong abstention <=6/42, zero safety counters, and citation 1.0.
+
+The scorer reuses production exact-quote citation verification, a global
+fail-closed reason compatibility registry, and 27/27 forbidden-action rules.
+E1 binds the full tracked candidate source tree and writes a strongly bound raw
+manifest; R1 validates physical row hashes/order before Gold and rehashes all
+frozen scorer assets afterward. Seventeen focused mutation runs prove
+route-correct incomplete support fails utility, fabricated claims fail
+grounding, seven safety behaviors are detected, and raw/Gold/evaluator/mapping/
+source-tree drift returns INVALID.
+
+Two full builds are byte-identical with mismatch count zero. Focused tests pass
+17/17 and combined production/A1/A2/A3 regression passes 59/59. Active manifest
+SHA-256 is `c892ed2f551860bd40899a4aa6e4ef33d29226d342c522817c5b583dc3d2115b`.
+Status is `A3_FIX2_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW`; A4 remains
+unauthorized and real EV2 inference/row 1/execution/consumption remain false.
+No stage, commit, or push occurred.

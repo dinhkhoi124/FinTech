@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV2-A2-PB1-FIX2B` — FINAL GOLD RECONCILED / AWAITING SENIOR REVIEW FOR A3
-- Next task: independent Senior review of the FIX2B final-gold package. A3 and EV2 remain not started and unauthorized; stage, commit, and push remain unauthorized.
+- Active task: `W3-003-EV2-A3-FIX3` — FROZEN PACKAGE / READY FOR SENIOR REVIEW
+- Next task: Senior fresh review of the A3 FIX3 bundle; A4/E1/EV2 remain unauthorized and unexecuted.
 - Last updated: 2026-08-24 by Codex
 
 The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
@@ -21,6 +21,94 @@ VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
+
+## W3-003-EV2-A3-FIX3 final pre-A4 safety and causal closure — 2026-08-24
+
+FIX2 is byte-preserved at SHA-256
+`c892ed2f551860bd40899a4aa6e4ef33d29226d342c522817c5b583dc3d2115b`
+and recorded as `REJECTED_BY_SENIOR — PRE_A4_SAFETY_AND_CAUSAL_INTEGRITY_DEFECT`.
+FIX3 adds only bounded scorer/package repairs: production raw-schema invariants,
+rule-local safety negation, actual approved/effective/unexpired eligibility,
+and the frozen causal failure precedence. Synthetic R1 runs pass 60/60 at
+24/18/12/6 with denominator 42; all 30 mutations pass, including eight raw
+schema fail-closed cases, nine safety-negation regressions, causal precedence,
+and expired-approved-evidence parity. The deterministic two-build mismatch is
+zero. No E1 harness or candidate/EV2 inference ran; A4 remains unauthorized,
+and evaluation execution/consumption remain false.
+
+Status is `A3_FIX3_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW`. No Pass A/B/C,
+classification, production, KB/runtime, or EV2 query bytes changed. No stage,
+commit, or push occurred.
+
+## W3-003-EV2-A3-FIX2 final pre-EV2 scorer closure — 2026-08-24
+
+Senior rejected FIX1 for an R1 scorer/root and product-gate integrity defect.
+Rev1 remains preserved at `01e610...96e72`; FIX1 is now preserved byte-for-byte
+at `1e45c8...051f7` with status `REJECTED_BY_SENIOR —
+R1_SCORER_AND_PRODUCT_GATE_INTEGRITY_DEFECT`. A2 remains closed and its five
+frozen identities remain unchanged.
+
+FIX2 requires explicit scorer `--root .`, loads authoritative
+`semantic_stratum` only from frozen Pass A, and proves the real distribution
+24 STANDARD / 18 SAFE_CORRECTIVE / 12 HARD / 6 AMBIGUOUS. Wrong abstention is
+derived only from STANDARD+SAFE_CORRECTIVE, denominator 42; the two ambiguous
+SAFE cases are excluded. Route-correct factual output without a complete
+selected support set is a utility failure and not a product success.
+
+The scorer now reuses production `verify_draft` semantics, freezes global
+reason-family compatibility, covers all 27 unique forbidden-action codes with
+a fail-closed registry, and emits the full causal trace plus ordered failure
+taxonomy. E1 binds a canonical hash of every tracked `src/payresolve_ai/**`
+path/byte from candidate `8492659...`, verifies the complete working source
+tree before row 1, and emits a strict 60-row raw manifest with physical row,
+order, A3/A4, candidate/tree, runtime, input, case-order, consumption, and E1
+bindings. R1 rehashes raw data before Gold, then rehashes every frozen Gold,
+runtime, evaluator, registry, and package input.
+
+The actual future R1 CLI ran against real frozen Pass A/B/C plus synthetic raw
+traces only: exit 0, final PASS, 24/24, 18/18, 12/12, 6/6, denominator 42,
+citation correctness 1.0, evaluator integrity PASS, reproducibility PASS.
+Seventeen focused FIX2 mutations pass, including D06/D17 incomplete support,
+fabricated exact-quote failure, unknown reason, raw reorder/tamper, Gold,
+evaluator/mapping and source-tree drift, plus credential, PIN, OTP, unsupported
+account assertion, guarantee, security-bypass, and audit-record deletion.
+Deterministic mismatch is zero; focused tests pass 17/17 and combined
+production/A1/A2/A3 regression passes 59/59. Active manifest SHA-256 is
+`c892ed2f551860bd40899a4aa6e4ef33d29226d342c522817c5b583dc3d2115b`.
+
+Status is `A3_FIX2_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW`. No Pass A/B/C,
+classification, production, or EV2 query bytes changed. A4 remains
+unauthorized; real EV2 inference, row 1, execution, and consumption remain
+false. No stage, commit, or push occurred.
+
+## W3-003-EV2-A3-FIX1 evaluator/E1 integrity correction — 2026-08-24
+
+A3 Rev1 is preserved at SHA-256 `01e610...96e72`. Its identity and
+fingerprint-only evidence passed, but Senior rejected the evaluator/E1
+execution-integrity claims; Rev1 never authorized evaluation.
+
+FIX1 binds the actual production raw schema and source-backed reason grammar,
+persists separate 60-row EV1 and Critical Rev7 hash-only registries, and
+recomputes zero exact/normalized collisions without claiming semantic
+paraphrase disjointness. The subprocess success/error sentinel probe passes.
+All 17 synthetic evaluator cases pass, including explicit utility versus
+zero-tolerance separation; the replicated aggregate is 24/24 STANDARD, 18/18
+SAFE_CORRECTIVE, 12/12 HARD, and 6/6 AMBIGUOUS with answerable denominator 42.
+A development-only `run_case_v3()` invocation passes directly through the pure
+adapter.
+
+The 60-row sanitized E1 input exposes only ordinal, case ID, query, and query
+hash. The guarded executable path verifies A4 plus all bound identities, writes
+the atomic row-1 consumption receipt before production import/call, persists
+raw rows before scoring, disables resume, and ends before gold/evaluator load.
+Dummy execution proves pre-row failure remains unconsumed and post-row-1
+failure remains consumed. Deterministic regeneration mismatch count is zero;
+the focused suite passes 22/22 and combined production/A1/A2/A3 regression
+passes 64/64.
+
+Status is `A3_FIX1_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW`. A2 remains `CLOSED /
+COMMITTED / PUSHED / REMOTE VERIFIED`; A4 is unauthorized; EV2 is `NOT EXECUTED
+/ NOT CONSUMED`; no stage, commit, or push occurred.
 
 ## W3-003-EV2-A2-PB1-FIX2B final reconciliation — 2026-08-24
 

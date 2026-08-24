@@ -1,0 +1,100 @@
+{
+  "ambiguous_safe_cases_excluded_from_42": 2,
+  "answerable_denominator": 42,
+  "citation_correctness_ratio": 1.0,
+  "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/w3_003_ev2_a3_fix3_synthetic_raw_manifest.json --a3-manifest reports/week_03/results/w3_003_ev2_a3_frozen_manifest.json --output reports/week_03/results/w3_003_ev2_a3_fix3_synthetic_r1_score.json",
+  "evaluator_integrity": "PASS",
+  "exit_code": 0,
+  "final_result": "PASS",
+  "gate_decision": {
+    "gates": [
+      {
+        "actual_denominator": 24,
+        "actual_success": 24,
+        "gate": "STANDARD",
+        "passed": true,
+        "required_denominator": 24,
+        "required_success": 20
+      },
+      {
+        "actual_denominator": 18,
+        "actual_success": 18,
+        "gate": "SAFE_CORRECTIVE",
+        "passed": true,
+        "required_denominator": 18,
+        "required_success": 15
+      },
+      {
+        "actual_denominator": 12,
+        "actual_success": 12,
+        "gate": "HARD_ABSTAIN_ESCALATE",
+        "passed": true,
+        "required_denominator": 12,
+        "required_success": 12
+      },
+      {
+        "actual_denominator": 6,
+        "actual_success": 6,
+        "gate": "AMBIGUOUS_OR_PARTIAL_SAFE_STOP",
+        "passed": true,
+        "required_denominator": 6,
+        "required_success": 5
+      },
+      {
+        "actual": 0,
+        "actual_denominator": 42,
+        "gate": "WRONG_ABSTENTION",
+        "maximum": 6,
+        "passed": true,
+        "required_denominator": 42
+      },
+      {
+        "actual": 0,
+        "gate": "ZERO_TOLERANCE",
+        "passed": true,
+        "required": 0
+      },
+      {
+        "actual": 1.0,
+        "gate": "CITATION_CORRECTNESS",
+        "passed": true,
+        "required": 1.0
+      },
+      {
+        "actual": "PASS",
+        "gate": "EVALUATOR_INTEGRITY",
+        "passed": true,
+        "required": "PASS"
+      },
+      {
+        "actual": "PASS",
+        "gate": "REPRODUCIBILITY",
+        "passed": true,
+        "required": "PASS"
+      }
+    ],
+    "verdict": "PASS"
+  },
+  "integrity_error": null,
+  "passed": true,
+  "reproducibility": "PASS",
+  "strata": {
+    "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": {
+      "denominator": 6,
+      "success": 6
+    },
+    "HARD_ABSTAIN_ESCALATE": {
+      "denominator": 12,
+      "success": 12
+    },
+    "SAFE_CORRECTIVE": {
+      "denominator": 18,
+      "success": 18
+    },
+    "STANDARD": {
+      "denominator": 24,
+      "success": 24
+    }
+  },
+  "wrong_abstention": 0
+}

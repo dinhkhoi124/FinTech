@@ -1,0 +1,8 @@
+{
+  "evaluation_authorized": false,
+  "manifest_path": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_rev1_rejected.json",
+  "manifest_sha256": "01e61002a1d15d7c94e63012a35b72fe586bfa38ee326b25fbe12e5d3d896e72",
+  "reason": "EVALUATOR_E1_EXECUTION_INTEGRITY_NOT_ESTABLISHED",
+  "status": "REJECTED_BY_SENIOR",
+  "task_id": "W3-003-EV2-A3"
+}

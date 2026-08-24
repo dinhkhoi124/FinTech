@@ -1,0 +1,14 @@
+{
+  "a3_manifest_sha256": "c892ed2f551860bd40899a4aa6e4ef33d29226d342c522817c5b583dc3d2115b",
+  "a4_authorization_id": "SYNTHETIC-FIX2-NOT-SENIOR-A4",
+  "candidate_production_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "candidate_source_tree_sha256": "fbcd9248faf8058571ac2b8747125a013fbc73e52925cfc0d813edd55fbd0193",
+  "case_id": "EV2-A2-S01",
+  "ev2_consumed": true,
+  "mid_run_resume_supported": false,
+  "query_sha256": "d8748a0875eab23dbb9ca56edad0e6177029feeec9ad68a31b9fdbe896971959",
+  "runtime_input_aggregate_sha256": "031df898e0e9d2b8b134b9b056a156329225699b655bf03526f00fa0bb1b1a6f",
+  "schema_version": "W3-003-EV2-CONSUMPTION-V2",
+  "start_state": "ROW_1_INFERENCE_BOUNDARY",
+  "started_ordinal": 1
+}

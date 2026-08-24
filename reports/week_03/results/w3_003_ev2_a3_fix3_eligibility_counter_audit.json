@@ -1,0 +1,27 @@
+{
+  "mutation": {
+    "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/eligibility_expired_approved/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/eligibility_expired_approved/a3.json --output reports/week_03/results/.a3m/eligibility_expired_approved/score.json",
+    "exit_code": 0,
+    "final_result": "FAIL_REMEDIATION_REQUIRED",
+    "integrity_error": null,
+    "row_failures": [
+      {
+        "case_id": "EV2-A2-S01",
+        "primary_failure_layer": "GENERATOR_RENDERING",
+        "product_case_success": false,
+        "prohibited": [],
+        "route_correct": true,
+        "secondary_failure_signals": [],
+        "selected_complete": true,
+        "utility_failures": [],
+        "zero_tolerance_failures": [
+          "citation_correctness_failure",
+          "ineligible_draft_expired_evidence_usage",
+          "unsupported_factual_claim"
+        ]
+      }
+    ]
+  },
+  "parity": "STATUS_APPROVED_AND_EFFECTIVE_LE_AS_OF_AND_UNEXPIRED_STRICT_V1",
+  "passed": true
+}

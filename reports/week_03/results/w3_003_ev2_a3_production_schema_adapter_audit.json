@@ -1,0 +1,41 @@
+{
+  "actual_run_case_v3_invoked": true,
+  "adapter_reason_count": 1,
+  "adapter_route": "ABSTAIN_ESCALATE",
+  "consumed_evaluation_source": false,
+  "development_fixture_id": "EV2DEV-01",
+  "eligible_for_ev2": false,
+  "fabricated_flat_fields_absent": {
+    "citation_correct": true,
+    "evidence_ids": true,
+    "reason_code": true,
+    "route": true
+  },
+  "passed": true,
+  "raw_keys": [
+    "answer_strategy",
+    "answer_text",
+    "citations",
+    "claims",
+    "diagnostic_mode",
+    "query_id",
+    "query_text",
+    "response_plan",
+    "response_type",
+    "retrieved_evidence",
+    "selected_evidence",
+    "versions"
+  ],
+  "required_raw_fields_present": {
+    "answer_strategy": true,
+    "answer_text": true,
+    "citations": true,
+    "claims": true,
+    "reason_codes": true,
+    "response_plan": true,
+    "response_type": true,
+    "retrieved_evidence": true,
+    "selected_evidence": true,
+    "versions": true
+  }
+}

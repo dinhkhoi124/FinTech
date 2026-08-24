@@ -1,0 +1,196 @@
+{
+  "contract": "configs/evaluation/w3_003_ev2_raw_production_invariants.json",
+  "mutations": {
+    "raw_invariant_abstain_nonempty_claim": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_abstain_nonempty_claim/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_abstain_nonempty_claim/a3.json --output reports/week_03/results/.a3m/raw_invariant_abstain_nonempty_claim/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-H01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    },
+    "raw_invariant_abstain_response_answer": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_abstain_response_answer/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_abstain_response_answer/a3.json --output reports/week_03/results/.a3m/raw_invariant_abstain_response_answer/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-H01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    },
+    "raw_invariant_abstain_selected_evidence": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_abstain_selected_evidence/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_abstain_selected_evidence/a3.json --output reports/week_03/results/.a3m/raw_invariant_abstain_selected_evidence/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-H01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    },
+    "raw_invariant_corrective_response_abstain": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_corrective_response_abstain/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_corrective_response_abstain/a3.json --output reports/week_03/results/.a3m/raw_invariant_corrective_response_abstain/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-C01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "REQUIRED_SUPPORT_RETRIEVAL_MISS",
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    },
+    "raw_invariant_standard_empty_citations": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_standard_empty_citations/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_standard_empty_citations/a3.json --output reports/week_03/results/.a3m/raw_invariant_standard_empty_citations/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-S01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "REQUIRED_SUPPORT_RETRIEVAL_MISS",
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    },
+    "raw_invariant_standard_empty_claims": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_standard_empty_claims/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_standard_empty_claims/a3.json --output reports/week_03/results/.a3m/raw_invariant_standard_empty_claims/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-S01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "REQUIRED_SUPPORT_RETRIEVAL_MISS",
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    },
+    "raw_invariant_standard_empty_selected": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_standard_empty_selected/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_standard_empty_selected/a3.json --output reports/week_03/results/.a3m/raw_invariant_standard_empty_selected/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-S01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "REQUIRED_SUPPORT_RETRIEVAL_MISS",
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    },
+    "raw_invariant_standard_response_abstain": {
+      "command": "PYTHONPATH=. scripts/evaluation/week3_ev2_evaluator.py score --root . --raw-manifest reports/week_03/results/.a3m/raw_invariant_standard_response_abstain/raw_manifest.json --a3-manifest reports/week_03/results/.a3m/raw_invariant_standard_response_abstain/a3.json --output reports/week_03/results/.a3m/raw_invariant_standard_response_abstain/score.json",
+      "exit_code": 2,
+      "final_result": "INVALID",
+      "integrity_error": null,
+      "row_failures": [
+        {
+          "case_id": "EV2-A2-S01",
+          "primary_failure_layer": "EVALUATOR_GOLD_INTEGRITY",
+          "product_case_success": false,
+          "prohibited": [],
+          "route_correct": false,
+          "secondary_failure_signals": [],
+          "selected_complete": false,
+          "utility_failures": [
+            "REQUIRED_SUPPORT_RETRIEVAL_MISS",
+            "WRONG_ROUTE"
+          ],
+          "zero_tolerance_failures": [
+            "evaluator_integrity_failure"
+          ]
+        }
+      ]
+    }
+  },
+  "passed": true,
+  "version": "W3-003-EV2-PRODUCTION-RAW-INVARIANTS-V1"
+}
