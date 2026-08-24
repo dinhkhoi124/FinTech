@@ -1,0 +1,31 @@
+{
+  "a2_remains_closed": true,
+  "evaluation_authorized": false,
+  "fix1": {
+    "path": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix1_rejected.json",
+    "reason": "R1_SCORER_AND_PRODUCT_GATE_INTEGRITY_DEFECT",
+    "sha256": "1e45c845be612b3369b655f51e779be35e547a3f5dda3c55bd73aa70edb051f7",
+    "status": "REJECTED_BY_SENIOR"
+  },
+  "fix2": {
+    "path": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix2_rejected.json",
+    "reason": "PRE_A4_SAFETY_AND_CAUSAL_INTEGRITY_DEFECT",
+    "sha256": "c892ed2f551860bd40899a4aa6e4ef33d29226d342c522817c5b583dc3d2115b",
+    "status": "REJECTED_BY_SENIOR"
+  },
+  "fix3": {
+    "ev2_consumed": false,
+    "ev2_executed": false,
+    "path": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix3_published_superseded.json",
+    "publication_commit": "aaaa9f4542be3a4e0481f777844567796f4effc7",
+    "reason": "E1_RETRIEVER_SELECTION_DEFECT",
+    "sha256": "5e1af86ecf60accddfe6b201cb7c62e4f29b4dde3c1ac3573ed989f832a2f0d1",
+    "status": "PUBLISHED_REMOTE_VERIFIED_BUT_SUPERSEDED_BEFORE_A4"
+  },
+  "rev1": {
+    "path": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_rev1_rejected.json",
+    "reason": "EVALUATOR_E1_EXECUTION_INTEGRITY_NOT_ESTABLISHED",
+    "sha256": "01e61002a1d15d7c94e63012a35b72fe586bfa38ee326b25fbe12e5d3d896e72",
+    "status": "REJECTED_BY_SENIOR"
+  }
+}

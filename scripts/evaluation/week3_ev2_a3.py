@@ -1,4 +1,4 @@
-"""Build the deterministic A3 FIX3 package without executing E1 or EV2 inference."""
+"""Build the deterministic A3 FIX4 package without executing E1 or EV2 inference."""
 from __future__ import annotations
 
 import argparse
@@ -23,14 +23,17 @@ from scripts.evaluation.week3_ev2_integrity import (
     candidate_source_tree_receipt,
 )
 
-TASK_ID = "W3-003-EV2-A3-FIX3"
-STATUS = "A3_FIX3_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW"
-READY = STATUS
+TASK_ID = "W3-003-EV2-A3-FIX4"
+STATUS = "A3_FIX4_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW"
+READY = "A3_FIX4_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW"
 CANDIDATE = "8492659a50fe00f066f9f64d8759d544356b3a41"
 SOURCE = "9b8ea74072d9ed557e58766301b4eb71fcbeb7eb"
+PUBLICATION = "aaaa9f4542be3a4e0481f777844567796f4effc7"
 REV1_MANIFEST_SHA256 = "01e61002a1d15d7c94e63012a35b72fe586bfa38ee326b25fbe12e5d3d896e72"
 FIX1_MANIFEST_SHA256 = "1e45c845be612b3369b655f51e779be35e547a3f5dda3c55bd73aa70edb051f7"
 FIX2_MANIFEST_SHA256 = "c892ed2f551860bd40899a4aa6e4ef33d29226d342c522817c5b583dc3d2115b"
+FIX3_MANIFEST_SHA256 = "5e1af86ecf60accddfe6b201cb7c62e4f29b4dde3c1ac3573ed989f832a2f0d1"
+RETRIEVAL_DECISION_BLOB = "807b5413004b7afa0c783e7d0cbb4e0a31b7ea4d"
 REMOTE_KB_BLOB = "f5cec69b2460ba46b5e78795f2ba6a1b8965c9ed"
 NORMALIZATION = "NFKC_LOWER_STRIP_COLLAPSE_WS_V1"
 
@@ -47,6 +50,7 @@ INPUTS = {
     "data/kb/kb_v1.jsonl": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
     "configs/retrieval/kb_v1_r0_r1.json": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
     "reports/week_02/results/retrieval_dev_selection.json": "3d9a7d1489da9b0392cbcb49663bc759285331dbdb8c6bcfc188c9fae54739b3",
+    "reports/week_02/results/retrieval_version_manifest.json": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
     "configs/models/banking77_semantic_w1.json": "de4ebff80c7e758339def8b35a31e4c3e5b7723b2e2eec8493e818ae8887b50b",
     "artifacts/models/w1-004/semantic_classifier_parameters.json.gz": "13af15823be2e91c0f6541b94b48276797ba49e698cfdd4a01ea9b49989830e2",
     "artifacts/cache/w2-003/corpus.jsonl": "d4146b76237f5bbdf1c80ecfddcc80a0af55da9415052bed8488386fef0abddc",
@@ -113,6 +117,11 @@ PATHS = {
     "synthetic_score": "reports/week_03/results/w3_003_ev2_a3_fix3_synthetic_r1_score.json",
     "r1_cli_audit": "reports/week_03/results/w3_003_ev2_a3_fix3_r1_cli_audit.json",
     "mutation_audit": "reports/week_03/results/w3_003_ev2_a3_fix3_mutation_audit.json",
+    "retriever_decision_binding_audit": "reports/week_03/results/w3_003_ev2_a3_fix4_retriever_decision_binding_audit.json",
+    "r0_execution_mode_audit": "reports/week_03/results/w3_003_ev2_a3_fix4_r0_execution_mode_audit.json",
+    "pre_consumption_retriever_guard_audit": "reports/week_03/results/w3_003_ev2_a3_fix4_pre_consumption_retriever_guard_audit.json",
+    "a4_retriever_binding_audit": "reports/week_03/results/w3_003_ev2_a3_fix4_a4_retriever_binding_audit.json",
+    "raw_retriever_binding_audit": "reports/week_03/results/w3_003_ev2_a3_fix4_raw_retriever_binding_audit.json",
     "determinism_audit": "reports/week_03/results/w3_003_ev2_a3_deterministic_regeneration_audit.json",
     "manifest": "reports/week_03/results/w3_003_ev2_a3_frozen_manifest.json",
 }
@@ -127,6 +136,7 @@ STATIC_ARTIFACT_NAMES = (
     "candidate_source_tree_receipt", "case_order", "inference_inputs", "ev2_registry",
     "collision_audit", "source_identity", "environment", "reason_audit",
     "separation_audit", "semantic_stratum_receipt", "safety_registry_audit", "dummy_results",
+    "retriever_decision_binding_audit",
 )
 
 
@@ -216,14 +226,22 @@ def preserve_history(root: Path) -> dict[str, Any]:
         shutil.copy2(active, fix2)
     if sha(fix2) != FIX2_MANIFEST_SHA256:
         raise RuntimeError("BLOCKED_A3_FIX3_FIX2_HISTORY_IDENTITY_DRIFT")
+    fix3 = root / RESULT / "w3_003_ev2_a3_frozen_manifest_fix3_published_superseded.json"
+    if not fix3.exists():
+        if not active.is_file() or sha(active) != FIX3_MANIFEST_SHA256:
+            raise RuntimeError("BLOCKED_A3_FIX4_FIX3_PUBLISHED_HISTORY_IDENTITY_DRIFT")
+        shutil.copy2(active, fix3)
+    if sha(fix3) != FIX3_MANIFEST_SHA256:
+        raise RuntimeError("BLOCKED_A3_FIX4_FIX3_PUBLISHED_HISTORY_IDENTITY_DRIFT")
     history = {
         "rev1": {"path": rev1.relative_to(root).as_posix(), "sha256": REV1_MANIFEST_SHA256, "status": "REJECTED_BY_SENIOR", "reason": "EVALUATOR_E1_EXECUTION_INTEGRITY_NOT_ESTABLISHED"},
         "fix1": {"path": fix1.relative_to(root).as_posix(), "sha256": FIX1_MANIFEST_SHA256, "status": "REJECTED_BY_SENIOR", "reason": "R1_SCORER_AND_PRODUCT_GATE_INTEGRITY_DEFECT"},
         "fix2": {"path": fix2.relative_to(root).as_posix(), "sha256": FIX2_MANIFEST_SHA256, "status": "REJECTED_BY_SENIOR", "reason": "PRE_A4_SAFETY_AND_CAUSAL_INTEGRITY_DEFECT"},
+        "fix3": {"path": fix3.relative_to(root).as_posix(), "sha256": FIX3_MANIFEST_SHA256, "publication_commit": PUBLICATION, "status": "PUBLISHED_REMOTE_VERIFIED_BUT_SUPERSEDED_BEFORE_A4", "reason": "E1_RETRIEVER_SELECTION_DEFECT", "ev2_executed": False, "ev2_consumed": False},
         "a2_remains_closed": True,
         "evaluation_authorized": False,
     }
-    write_json(root / RESULT / "w3_003_ev2_a3_fix3_history.json", history)
+    write_json(root / RESULT / "w3_003_ev2_a3_fix4_history.json", history)
     return history
 
 
@@ -232,12 +250,14 @@ def repository_identity(root: Path, fresh_remote: bool = False) -> dict[str, Any
         "branch": git(root, "branch", "--show-current"),
         "head": git(root, "rev-parse", "HEAD"),
         "origin_main": git(root, "rev-parse", "origin/main"),
+        "parent": git(root, "rev-parse", "HEAD^"),
+        "tree": git(root, "show", "-s", "--format=%T", "HEAD"),
         "staged_count": len([line for line in git(root, "diff", "--cached", "--name-only").splitlines() if line]),
     }
     if fresh_remote:
         line = git(root, "ls-remote", "origin", "refs/heads/main")
         identity["fresh_remote_main"] = line.split()[0] if line else None
-    identity["passed"] = identity["branch"] == "main" and identity["head"] == identity["origin_main"] == SOURCE and identity["staged_count"] == 0 and (not fresh_remote or identity.get("fresh_remote_main") == SOURCE)
+    identity["passed"] = identity["branch"] == "main" and identity["head"] == identity["origin_main"] == PUBLICATION and identity["parent"] == SOURCE and identity["tree"] == "28e0f912cfffb734cbbd73c78df366300138d9d5" and identity["staged_count"] == 0 and (not fresh_remote or identity.get("fresh_remote_main") == PUBLICATION)
     return identity
 
 
@@ -258,6 +278,11 @@ def verify(root: Path, fresh_remote: bool = False) -> dict[str, Any]:
     for commit in (CANDIDATE, SOURCE):
         if git(root, "rev-parse", f"{commit}:data/kb/kb_v1.jsonl") != REMOTE_KB_BLOB:
             problems.append(f"kb_blob:{commit}")
+    decision = read_json(root / "reports/week_02/results/retrieval_version_manifest.json")
+    if git(root, "rev-parse", f"{CANDIDATE}:reports/week_02/results/retrieval_version_manifest.json") != RETRIEVAL_DECISION_BLOB:
+        problems.append("retrieval_decision_candidate_blob")
+    if not isinstance(decision, dict) or decision.get("task_id") != "W2-003" or decision.get("status") != "FINALIZED_REVIEW_CORRECTION" or decision.get("final_senior_review_verdict") != "APPROVE_COMMIT" or decision.get("selected_retriever") != "R0":
+        problems.append("retrieval_decision_final_r0")
     consumed_receipt: dict[str, Any] = {}
     for label, binding in CONSUMED.items():
         actual_blob = git(root, "rev-parse", f"HEAD:{binding['path']}")
@@ -401,6 +426,21 @@ def generate_static(root: Path, verified: dict[str, Any]) -> dict[str, Any]:
 
     source_receipt = candidate_source_tree_receipt(root, CANDIDATE)
     write_json(root / PATHS["candidate_source_tree_receipt"], source_receipt)
+    decision_path = "reports/week_02/results/retrieval_version_manifest.json"
+    decision = read_json(root / decision_path)
+    decision_audit = {
+        "task_id": TASK_ID,
+        "decision_source": decision_path,
+        "working_byte_sha256": sha(root / decision_path),
+        "candidate_commit": CANDIDATE,
+        "candidate_git_blob": git(root, "rev-parse", f"{CANDIDATE}:{decision_path}"),
+        "decision_task_id": decision.get("task_id"),
+        "decision_status": decision.get("status"),
+        "final_senior_review_verdict": decision.get("final_senior_review_verdict"),
+        "selected_retriever": decision.get("selected_retriever"),
+    }
+    decision_audit["passed"] = decision_audit["working_byte_sha256"] == INPUTS[decision_path] and decision_audit["candidate_git_blob"] == RETRIEVAL_DECISION_BLOB and decision_audit["decision_task_id"] == "W2-003" and decision_audit["decision_status"] == "FINALIZED_REVIEW_CORRECTION" and decision_audit["final_senior_review_verdict"] == "APPROVE_COMMIT" and decision_audit["selected_retriever"] == "R0"
+    write_json(root / PATHS["retriever_decision_binding_audit"], decision_audit)
     semantic = {
         "authoritative_source": PATHS["pass_a"], "source_sha256": sha(root / PATHS["pass_a"]),
         "case_id_to_semantic_stratum_sha256": evaluator.stable_json_sha256({row["case_id"]: row["semantic_stratum"] for row in pass_a}),
@@ -443,7 +483,7 @@ def generate_static(root: Path, verified: dict[str, Any]) -> dict[str, Any]:
     dependency_paths = ["pyproject.toml", "requirements/week1-lexical.txt", "requirements/week1-semantic.txt"]
     environment = {"python_version": sys.version, "python_implementation": sys.implementation.name, "dependency_lockfile_identity": {path: sha(root / path) for path in dependency_paths}, "a1_contract_sha256": sha(root / "configs/evaluation/w3_003_ev2_contract.json"), "a1_current_manifest_sha256": sha(root / "reports/week_03/results/w3_003_ev2_a1_manifest.json")}
     write_json(root / PATHS["environment"], environment)
-    checks = {"collision": collision["passed"], "source_identity": source_identity["all_identities_match"], "semantic_strata": semantic["wrong_abstention_denominator"] == 42, "safety_registry": safety_audit["passed"], "reason_compatibility": reason_audit["passed"], "inference_gold_separation": separation["passed"], "legacy_17_retained": legacy_receipt["all_17_retained"], "source_tree_count": source_receipt["entry_count"] > 0, "fix3_contracts": True}
+    checks = {"collision": collision["passed"], "source_identity": source_identity["all_identities_match"], "semantic_strata": semantic["wrong_abstention_denominator"] == 42, "safety_registry": safety_audit["passed"], "reason_compatibility": reason_audit["passed"], "inference_gold_separation": separation["passed"], "legacy_17_retained": legacy_receipt["all_17_retained"], "source_tree_count": source_receipt["entry_count"] > 0, "fix3_contracts": True, "frozen_r0_retriever_decision": decision_audit["passed"]}
     return {"passed": all(checks.values()), "checks": checks, "source_receipt": source_receipt, "semantic": semantic}
 
 
@@ -466,7 +506,8 @@ def manifest_payload(root: Path, history: dict[str, Any], generated: dict[str, A
         "e1_harness_sha256": sha(root / "scripts/evaluation/week3_ev2_e1.py"),
         "integrity_source_sha256": sha(root / "scripts/evaluation/week3_ev2_integrity.py"),
         "case_order_sha256": sha(root / PATHS["case_order"]), "inference_input_sha256": sha(root / PATHS["inference_inputs"]),
-        "raw_manifest_schema_version": "W3-003-EV2-E1-RAW-MANIFEST-V1",
+        "selected_retriever": "R0", "retrieval_decision_source": "reports/week_02/results/retrieval_version_manifest.json", "retrieval_decision_sha256": INPUTS["reports/week_02/results/retrieval_version_manifest.json"], "retrieval_decision_candidate_git_blob": RETRIEVAL_DECISION_BLOB,
+        "raw_manifest_schema_version": "W3-003-EV2-E1-RAW-MANIFEST-V2",
         "raw_production_invariant_contract_version": evaluator.RAW_INVARIANT_VERSION,
         "causal_precedence_contract_version": evaluator.CAUSAL_PRECEDENCE_VERSION,
         "eligibility_counter_parity": "STATUS_APPROVED_AND_EFFECTIVE_LE_AS_OF_AND_UNEXPIRED_STRICT_V1",
@@ -621,30 +662,74 @@ def run_mutations(root: Path) -> dict[str, Any]:
     shutil.rmtree(mutation_root); return audit
 
 
+def retriever_binding_audits(root: Path, manifest: dict[str, Any], manifest_path: Path, raw_manifest: dict[str, Any]) -> dict[str, Any]:
+    """Dev-only control-plane checks; this function never imports or executes E1."""
+    captured: list[float | None] = []
+    def fake_rank(_root: Path, _retrieval: dict[str, Any], _queries: list[dict[str, Any]], boost: float | None) -> tuple[list[dict[str, Any]], None]:
+        captured.append(boost)
+        return [], None
+    e1.rank_with_frozen_retriever(fake_rank, root, {}, {"query_id": "DEV_ONLY"}, manifest)
+    r0 = {"captured_boost": captured[0], "development_selected_lambda": read_json(root / "reports/week_02/results/retrieval_dev_selection.json")["selected_lambda"], "real_retrieval_calls": 0, "passed": captured == [None]}
+
+    guard_cases: dict[str, bool] = {}
+    for label, altered in (("selected_r1", {**manifest, "selected_retriever": "R1"}), ("selected_missing", {key: value for key, value in manifest.items() if key != "selected_retriever"}), ("selected_unknown", {**manifest, "selected_retriever": "UNKNOWN"}), ("decision_sha_drift", {**manifest, "retrieval_decision_sha256": "0" * 64})):
+        try: e1.validate_frozen_retriever_decision(root, altered); guard_cases[label] = False
+        except RuntimeError as error: guard_cases[label] = str(error) == e1.FROZEN_RETRIEVER_ERROR
+    with tempfile.TemporaryDirectory(prefix="a3-fix4-retriever-") as temp_name:
+        temp = Path(temp_name); source = manifest["retrieval_decision_source"]
+        decision_path = temp / source; decision_path.parent.mkdir(parents=True); decision = read_json(root / source)
+        for label, field, value in (("verdict_not_approve", "final_senior_review_verdict", "REJECT"), ("status_not_final", "status", "DRAFT")):
+            changed = dict(decision); changed[field] = value; write_json(decision_path, changed)
+            changed_manifest = {**manifest, "retrieval_decision_sha256": sha(decision_path)}
+            try: e1.validate_frozen_retriever_decision(temp, changed_manifest); guard_cases[label] = False
+            except RuntimeError as error: guard_cases[label] = str(error) == e1.FROZEN_RETRIEVER_ERROR
+        a4 = e1.required_a4(manifest, sha(manifest_path)); a4["authorization_nonce_or_id"] = "SYNTHETIC-FIX4-A4-BINDING"; receipt = temp / "a4.json"; write_json(receipt, a4)
+        a4_cases: dict[str, bool] = {}
+        for label, field, value in (("r1", "selected_retriever", "R1"), ("decision_sha_drift", "retrieval_decision_sha256", "0" * 64)):
+            changed = dict(a4); changed[field] = value; write_json(receipt, changed)
+            try: e1.validate_a4(receipt, manifest, sha(manifest_path)); a4_cases[label] = False
+            except PermissionError: a4_cases[label] = True
+        raw_cases: dict[str, bool] = {}
+        raw_temp = Path(tempfile.mkdtemp(prefix=".a3r4-", dir=root / RESULT))
+        try:
+            for label, field, value in (("selected_r1", "selected_retriever", "R1"), ("decision_sha_drift", "retrieval_decision_sha256", "0" * 64)):
+                candidate = dict(raw_manifest); candidate[field] = value; candidate_path = raw_temp / f"{label}_raw_manifest.json"; write_json(candidate_path, candidate)
+                outcome = _run_r1_cli(root, candidate_path, manifest_path, raw_temp / f"{label}_score.json")
+                raw_cases[label] = outcome["exit_code"] == 2 and outcome["final_result"] == "INVALID" and outcome["integrity_error"] == "RAW_RETRIEVER_DECISION_BINDING_MISMATCH"
+        finally:
+            shutil.rmtree(raw_temp)
+    guard = {"mutations": guard_cases, "runner_calls": 0, "consumption_receipt_created": False, "raw_output_created": False, "passed": all(guard_cases.values())}
+    a4_audit = {"schema_version": e1.A4_SCHEMA_VERSION, "dummy_only": True, "mutations": a4_cases, "passed": all(a4_cases.values())}
+    raw_audit = {"schema_version": evaluator.RAW_SCHEMA, "dummy_only": True, "mutations": raw_cases, "passed": all(raw_cases.values())}
+    return {"r0": r0, "guard": guard, "a4": a4_audit, "raw": raw_audit}
+
+
 def generate_synthetic_and_mutations(root: Path) -> dict[str, Any]:
     for name in ("synthetic_a4", "synthetic_consumption", "synthetic_raw", "synthetic_raw_manifest", "synthetic_score", "r1_cli_audit", "mutation_audit", "consumption_audit", "utility_audit", "raw_schema_invariant_audit", "safety_negation_scope_audit", "causal_precedence_audit", "eligibility_counter_audit"):
         path = root / PATHS[name]
         if path.exists(): path.unlink()
     manifest_path = root / PATHS["manifest"]; manifest = read_json(manifest_path); synthetic = synthetic_raw_rows(root)
     write_jsonl(root / PATHS["synthetic_raw"], synthetic)
-    a4 = {"schema_version": "SYNTHETIC_ONLY_NO_A4_AUTHORIZATION", "authorization_nonce_or_id": "SYNTHETIC-FIX3-NOT-SENIOR-A4", "ev2_authorized": False}; write_json(root / PATHS["synthetic_a4"], a4)
-    consumption = {"schema_version": "SYNTHETIC_RAW_BINDING_ONLY_V1", "synthetic_only": True, "ev2_consumed": False, "a3_manifest_sha256": sha(manifest_path), "a4_authorization_id": a4["authorization_nonce_or_id"], "candidate_production_commit": manifest["candidate_production_commit"], "candidate_source_tree_sha256": manifest["candidate_source_tree_sha256"], "runtime_input_aggregate_sha256": manifest["runtime_input_aggregate_sha256"]}; write_json(root / PATHS["synthetic_consumption"], consumption)
+    a4 = {"schema_version": "SYNTHETIC_ONLY_NO_A4_AUTHORIZATION", "authorization_nonce_or_id": "SYNTHETIC-FIX4-NOT-SENIOR-A4", "ev2_authorized": False, "selected_retriever": "R0", "retrieval_decision_sha256": manifest["retrieval_decision_sha256"]}; write_json(root / PATHS["synthetic_a4"], a4)
+    consumption = {"schema_version": "SYNTHETIC_RAW_BINDING_ONLY_V2", "synthetic_only": True, "ev2_consumed": False, "a3_manifest_sha256": sha(manifest_path), "a4_authorization_id": a4["authorization_nonce_or_id"], "candidate_production_commit": manifest["candidate_production_commit"], "candidate_source_tree_sha256": manifest["candidate_source_tree_sha256"], "runtime_input_aggregate_sha256": manifest["runtime_input_aggregate_sha256"], "selected_retriever": manifest["selected_retriever"], "retrieval_decision_sha256": manifest["retrieval_decision_sha256"]}; write_json(root / PATHS["synthetic_consumption"], consumption)
     physical = (root / PATHS["synthetic_raw"]).read_bytes().splitlines(keepends=True); inputs = rows(root / PATHS["inference_inputs"])
-    raw_manifest = {"schema_version": evaluator.RAW_SCHEMA, "rows": 60, "raw_output_path": PATHS["synthetic_raw"], "raw_output_sha256": sha(root / PATHS["synthetic_raw"]), "raw_row_sha256": [hashlib.sha256(line).hexdigest() for line in physical], "case_id_order": [row["case_id"] for row in inputs], "query_sha256_order": [row["query_sha256"] for row in inputs], "case_order_sha256": manifest["case_order_sha256"], "a3_manifest_sha256": sha(manifest_path), "a4_authorization_id": a4["authorization_nonce_or_id"], "candidate_production_commit": manifest["candidate_production_commit"], "candidate_source_tree_sha256": manifest["candidate_source_tree_sha256"], "runtime_input_aggregate_sha256": manifest["runtime_input_aggregate_sha256"], "inference_input_sha256": manifest["inference_input_sha256"], "consumption_receipt_path": PATHS["synthetic_consumption"], "consumption_receipt_sha256": sha(root / PATHS["synthetic_consumption"]), "e1_harness_sha256": manifest["e1_harness_sha256"], "scoring_loaded": False}
+    raw_manifest = {"schema_version": evaluator.RAW_SCHEMA, "rows": 60, "raw_output_path": PATHS["synthetic_raw"], "raw_output_sha256": sha(root / PATHS["synthetic_raw"]), "raw_row_sha256": [hashlib.sha256(line).hexdigest() for line in physical], "case_id_order": [row["case_id"] for row in inputs], "query_sha256_order": [row["query_sha256"] for row in inputs], "case_order_sha256": manifest["case_order_sha256"], "a3_manifest_sha256": sha(manifest_path), "a4_authorization_id": a4["authorization_nonce_or_id"], "candidate_production_commit": manifest["candidate_production_commit"], "candidate_source_tree_sha256": manifest["candidate_source_tree_sha256"], "runtime_input_aggregate_sha256": manifest["runtime_input_aggregate_sha256"], "selected_retriever": manifest["selected_retriever"], "retrieval_decision_sha256": manifest["retrieval_decision_sha256"], "inference_input_sha256": manifest["inference_input_sha256"], "consumption_receipt_path": PATHS["synthetic_consumption"], "consumption_receipt_sha256": sha(root / PATHS["synthetic_consumption"]), "e1_harness_sha256": manifest["e1_harness_sha256"], "scoring_loaded": False}
     if set(raw_manifest) != set(read_json(root / PATHS["raw_manifest_schema"])["required_fields"]): raise RuntimeError("SYNTHETIC_RAW_MANIFEST_SCHEMA")
     write_json(root / PATHS["synthetic_raw_manifest"], raw_manifest)
     cli = _run_r1_cli(root, root / PATHS["synthetic_raw_manifest"], manifest_path, root / PATHS["synthetic_score"]); result = cli.pop("result"); aggregate = result.get("aggregate", {})
     expected_strata = {"STANDARD": {"success": 24, "denominator": 24}, "SAFE_CORRECTIVE": {"success": 18, "denominator": 18}, "HARD_ABSTAIN_ESCALATE": {"success": 12, "denominator": 12}, "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": {"success": 6, "denominator": 6}}
     ambiguous_safe = sum(row["semantic_stratum"] == "AMBIGUOUS_OR_PARTIAL_SAFE_STOP" and row["expected_route"] == "SAFE_CORRECTIVE" for row in result.get("rows", [])); cli_audit = {**cli, "strata": aggregate.get("strata"), "answerable_denominator": aggregate.get("answerable_denominator"), "wrong_abstention": aggregate.get("wrong_abstention"), "ambiguous_safe_cases_excluded_from_42": ambiguous_safe, "citation_correctness_ratio": aggregate.get("citation_correctness_ratio"), "evaluator_integrity": aggregate.get("evaluator_integrity"), "reproducibility": aggregate.get("reproducibility"), "gate_decision": aggregate.get("gate_decision")}
     cli_audit["passed"] = cli_audit["exit_code"] == 0 and cli_audit["final_result"] == "PASS" and cli_audit["strata"] == expected_strata and cli_audit["answerable_denominator"] == 42 and cli_audit["wrong_abstention"] == 0 and ambiguous_safe == 2 and cli_audit["citation_correctness_ratio"] == 1.0 and cli_audit["evaluator_integrity"] == cli_audit["reproducibility"] == "PASS"; write_json(root / PATHS["r1_cli_audit"], cli_audit)
-    consumption_audit = {"synthetic_only": True, "e1_harness_executed": False, "real_ev2_inference_calls": 0, "real_ev2_row_1": False, "rows": 60, "scoring_loaded_in_e1": False, "a4_authorized": False, "passed": True}; write_json(root / PATHS["consumption_audit"], consumption_audit)
+    bindings = retriever_binding_audits(root, manifest, manifest_path, raw_manifest)
+    write_json(root / PATHS["r0_execution_mode_audit"], bindings["r0"]); write_json(root / PATHS["pre_consumption_retriever_guard_audit"], bindings["guard"]); write_json(root / PATHS["a4_retriever_binding_audit"], bindings["a4"]); write_json(root / PATHS["raw_retriever_binding_audit"], bindings["raw"])
+    consumption_audit = {"synthetic_only": True, "e1_harness_executed": False, "real_ev2_inference_calls": 0, "real_ev2_row_1": False, "rows": 60, "scoring_loaded_in_e1": False, "a4_authorized": False, "selected_retriever": "R0", "retrieval_decision_sha256": manifest["retrieval_decision_sha256"], "passed": True}; write_json(root / PATHS["consumption_audit"], consumption_audit)
     utility = {"semantic_strata": aggregate.get("strata"), "wrong_abstention_denominator": aggregate.get("answerable_denominator"), "ambiguous_safe_excluded_count": ambiguous_safe, "product_gate": aggregate.get("gate_decision"), "passed": cli_audit["passed"]}; write_json(root / PATHS["utility_audit"], utility)
     safety = safety_negation_scope_audit(root); write_json(root / PATHS["safety_negation_scope_audit"], safety)
     mutation = run_mutations(root); write_json(root / PATHS["mutation_audit"], mutation)
     raw_audit = {"contract": PATHS["raw_production_invariants"], "version": evaluator.RAW_INVARIANT_VERSION, "mutations": {key: value for key, value in mutation["actual_r1_cli_mutations"].items() if key.startswith("raw_invariant_")}, "passed": mutation["raw_invariant_mutations_passed"]}; write_json(root / PATHS["raw_schema_invariant_audit"], raw_audit)
     causal = {"contract": PATHS["causal_precedence_contract"], "version": evaluator.CAUSAL_PRECEDENCE_VERSION, "expected": mutation["causal_precedence_expected"], "hard_no_support_correct_abstain": mutation["hard_no_support_correct_abstain"], "passed": mutation["causal_precedence_mutations_passed"]}; write_json(root / PATHS["causal_precedence_audit"], causal)
     eligibility = {"parity": manifest["eligibility_counter_parity"], "mutation": mutation["actual_r1_cli_mutations"]["eligibility_expired_approved"], "passed": mutation["eligibility_counter_mutation_passed"]}; write_json(root / PATHS["eligibility_counter_audit"], eligibility)
-    if not (cli_audit["passed"] and mutation["passed"] and safety["passed"]): raise RuntimeError("BLOCKED_A3_FIX3_SYNTHETIC_SCORER_OR_MUTATION")
+    if not (cli_audit["passed"] and mutation["passed"] and safety["passed"] and all(item["passed"] for item in bindings.values())): raise RuntimeError("BLOCKED_A3_FIX4_SYNTHETIC_SCORER_OR_MUTATION")
     return {"cli": cli_audit, "mutation": mutation, "consumption": consumption_audit}
     return {"cli": cli_audit, "mutation": mutation, "consumption": consumption_audit}
 
@@ -668,7 +753,7 @@ def build(root: Path, fresh_remote: bool = False) -> dict[str, Any]:
     mismatch = sum(not item["match"] for item in comparisons) + int(manifests[0] != manifests[1])
     determinism = {"artifact_list": sorted(snapshots[0]), "comparisons": comparisons, "manifest_comparison": {"artifact": PATHS["manifest"], "build1_sha256": manifests[0], "build2_sha256": manifests[1], "match": manifests[0] == manifests[1]}, "mismatch_count": mismatch, "passed": mismatch == 0}
     write_json(root / PATHS["determinism_audit"], determinism)
-    if mismatch: raise RuntimeError("BLOCKED_A3_FIX3_DETERMINISTIC_MISMATCH")
+    if mismatch: raise RuntimeError("BLOCKED_A3_FIX4_DETERMINISTIC_MISMATCH")
     return {"passed": True, "status": STATUS, "completion_status": READY, "manifest_sha256": manifests[1], "case_count": 60, "semantic_strata": last["cli"]["strata"], "wrong_abstention_denominator": last["cli"]["answerable_denominator"], "mutation_count": last["mutation"]["focused_fix3_case_count"], "deterministic_mismatch_count": mismatch}
 
 
@@ -677,15 +762,15 @@ def bundle(root: Path) -> dict[str, Any]:
     test_targets = ["tests/test_w3_003_ev2_a3.py", "tests/test_grounded_pipeline_v3.py", "tests/test_week3_ev2_a1.py", "tests/test_w3_003_ev2_a2_pb1_fix2b.py"]
     test = subprocess.run([sys.executable, "-m", "pytest", *test_targets, "-q"], cwd=root, capture_output=True, text=True, check=False, env={**os.environ, "PYTHONPATH": "." + os.pathsep + "src"})
     if test.returncode != 0:
-        raise RuntimeError("BLOCKED_A3_FIX3_TEST_FAILURE\n" + test.stdout + test.stderr)
-    output = Path(tempfile.gettempdir()) / "W3-003-EV2-A3-FIX3_SENIOR_REVIEW_BUNDLE.zip"
-    stage = Path(tempfile.mkdtemp(prefix="W3-003-EV2-A3-FIX3-"))
+        raise RuntimeError("BLOCKED_A3_FIX4_TEST_FAILURE\n" + test.stdout + test.stderr)
+    output = Path(tempfile.gettempdir()) / "W3-003-EV2-A3-FIX4_SENIOR_REVIEW_BUNDLE.zip"
+    stage = Path(tempfile.mkdtemp(prefix="W3-003-EV2-A3-FIX4-"))
     payload = [
         "configs/evaluation/w3_003_ev2_contract.json", *[PATHS[name] for name in ("evaluator_mapping", "forbidden_action_rules", "reason_compatibility", "product_gate_contract", "raw_manifest_schema", "raw_production_invariants", "causal_precedence_contract")],
-        *GOLD.keys(), "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_rev1_rejected.json", "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix1_rejected.json", "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix2_rejected.json", "reports/week_03/results/w3_003_ev2_a3_fix2_history.json", "reports/week_03/results/w3_003_ev2_a3_fix3_history.json",
+        *GOLD.keys(), "reports/week_02/results/retrieval_version_manifest.json", "reports/week_02/results/retrieval_dev_selection.json", "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_rev1_rejected.json", "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix1_rejected.json", "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix2_rejected.json", "reports/week_03/results/w3_003_ev2_a3_frozen_manifest_fix3_published_superseded.json", "reports/week_03/results/w3_003_ev2_a3_fix2_history.json", "reports/week_03/results/w3_003_ev2_a3_fix3_history.json", "reports/week_03/results/w3_003_ev2_a3_fix4_history.json",
         *[PATHS[name] for name in PATHS if name != "dummy_fixture"], *[binding["registry"] for binding in CONSUMED.values()],
         "scripts/evaluation/week3_ev2_a3.py", "scripts/evaluation/week3_ev2_evaluator.py", "scripts/evaluation/week3_ev2_e1.py", "scripts/evaluation/week3_ev2_integrity.py",
-        PATHS["dummy_fixture"], "tests/test_w3_003_ev2_a3.py", "reports/week_03/experiments/W3-003-EV2-A3.md", "PROJECT_STATE.md", "TASKS.md", "reports/week_03/daily/2026-08-24.md", "reports/week_03/week_03_summary.md",
+        PATHS["dummy_fixture"], "tests/test_w3_003_ev2_a3.py", "reports/week_03/experiments/W3-003-EV2-A3.md", "PROJECT_STATE.md", "TASKS.md", "reports/week_03/daily/2026-08-24.md", "reports/week_03/daily/2026-08-25.md", "reports/week_03/week_03_summary.md",
     ]
     try:
         for relative in dict.fromkeys(payload):
@@ -697,6 +782,9 @@ def bundle(root: Path) -> dict[str, Any]:
         (review / "git_status.txt").write_text(subprocess.run(["git", "status", "--short"], cwd=root, capture_output=True, text=True).stdout, encoding="utf-8")
         (review / "git_diff.patch").write_text(subprocess.run(["git", "diff", "--binary"], cwd=root, capture_output=True, text=True).stdout, encoding="utf-8")
         (review / "commands_and_test_output.txt").write_text("COMMAND: " + sys.executable + " -m pytest " + " ".join(test_targets) + " -q\nEXIT_CODE: 0\n\n" + test.stdout + test.stderr, encoding="utf-8")
+        for name in ("retriever_decision_binding_audit", "r0_execution_mode_audit", "pre_consumption_retriever_guard_audit", "a4_retriever_binding_audit", "raw_retriever_binding_audit", "determinism_audit"):
+            shutil.copy2(root / PATHS[name], review / Path(PATHS[name]).name)
+        (review / "bundle_sha256.txt").write_text("Archive SHA-256 is recorded in the detached sibling .zip.sha256 file; including the archive hash inside the archive would be self-referential.\n", encoding="utf-8")
         entries = sorted(path for path in stage.rglob("*") if path.is_file())
         write_json(review / "bundle_manifest.json", {"manifest_scope": "all archive files except this self-referential manifest", "entries": [{"path": path.relative_to(stage).as_posix(), "bytes": path.stat().st_size, "sha256": sha(path)} for path in entries]})
         with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:

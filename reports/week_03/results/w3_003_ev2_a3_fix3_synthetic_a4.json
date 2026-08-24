@@ -1,5 +1,7 @@
 {
-  "authorization_nonce_or_id": "SYNTHETIC-FIX3-NOT-SENIOR-A4",
+  "authorization_nonce_or_id": "SYNTHETIC-FIX4-NOT-SENIOR-A4",
   "ev2_authorized": false,
-  "schema_version": "SYNTHETIC_ONLY_NO_A4_AUTHORIZATION"
+  "retrieval_decision_sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
+  "schema_version": "SYNTHETIC_ONLY_NO_A4_AUTHORIZATION",
+  "selected_retriever": "R0"
 }

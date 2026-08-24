@@ -1,0 +1,14 @@
+{
+  "consumption_receipt_created": false,
+  "mutations": {
+    "decision_sha_drift": true,
+    "selected_missing": true,
+    "selected_r1": true,
+    "selected_unknown": true,
+    "status_not_final": true,
+    "verdict_not_approve": true
+  },
+  "passed": true,
+  "raw_output_created": false,
+  "runner_calls": 0
+}

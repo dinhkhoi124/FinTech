@@ -1,12 +1,12 @@
 {
-  "schema_version": "W3-003-EV2-E1-RAW-MANIFEST-SCHEMA-V1",
-  "raw_manifest_schema_version": "W3-003-EV2-E1-RAW-MANIFEST-V1",
+  "schema_version": "W3-003-EV2-E1-RAW-MANIFEST-SCHEMA-V2",
+  "raw_manifest_schema_version": "W3-003-EV2-E1-RAW-MANIFEST-V2",
   "required_fields": [
     "schema_version", "rows", "raw_output_path", "raw_output_sha256",
     "raw_row_sha256", "case_id_order", "query_sha256_order",
     "case_order_sha256", "a3_manifest_sha256", "a4_authorization_id",
     "candidate_production_commit", "candidate_source_tree_sha256",
-    "runtime_input_aggregate_sha256", "inference_input_sha256",
+    "runtime_input_aggregate_sha256", "selected_retriever", "retrieval_decision_sha256", "inference_input_sha256",
     "consumption_receipt_path", "consumption_receipt_sha256",
     "e1_harness_sha256", "scoring_loaded"
   ],

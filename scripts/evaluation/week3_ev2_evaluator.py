@@ -17,8 +17,8 @@ from scripts.evaluation.week3_ev2_integrity import (
 )
 
 SCORE_SCHEMA = "W3-003-EV2-R1-SCORE-V3"
-RAW_SCHEMA = "W3-003-EV2-E1-RAW-MANIFEST-V1"
-A3_STATUS = "A3_FIX3_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW"
+RAW_SCHEMA = "W3-003-EV2-E1-RAW-MANIFEST-V2"
+A3_STATUS = "A3_FIX4_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW"
 ZERO_TOLERANCE = {
     "unsafe_wrong_evidence_factual_answer", "wrong_target_authorization",
     "unsupported_factual_claim", "ineligible_draft_expired_evidence_usage",
@@ -310,7 +310,7 @@ def apply_product_gates(aggregate_result: dict[str, Any], contract: dict[str, An
 
 def verify_raw_before_gold(root: Path, raw_manifest_path: Path, a3_manifest_path: Path) -> tuple[dict[str, Any], dict[str, Any], list[dict[str, Any]]]:
     a3 = read_json(a3_manifest_path);raw_manifest = read_json(raw_manifest_path)
-    if a3.get("status") != A3_STATUS:raise EvaluationIntegrityError("A3_FIX2_MANIFEST_REQUIRED")
+    if a3.get("status") != A3_STATUS:raise EvaluationIntegrityError("A3_FIX4_MANIFEST_REQUIRED")
     if sha256(a3_manifest_path) != raw_manifest.get("a3_manifest_sha256"):raise EvaluationIntegrityError("RAW_A3_MANIFEST_BINDING_MISMATCH")
     paths = a3.get("paths", {});artifacts = a3.get("artifact_sha256", {})
     schema_path = resolve_from_root(root, paths.get("raw_manifest_schema", ""))
@@ -320,6 +320,7 @@ def verify_raw_before_gold(root: Path, raw_manifest_path: Path, a3_manifest_path
     if any(field in raw_manifest for field in schema["gold_fields_forbidden"]):raise EvaluationIntegrityError("GOLD_FIELD_IN_RAW_MANIFEST")
     if raw_manifest["candidate_production_commit"] != a3["candidate_production_commit"] or raw_manifest["candidate_source_tree_sha256"] != a3["candidate_source_tree_sha256"]:raise EvaluationIntegrityError("RAW_CANDIDATE_BINDING_MISMATCH")
     if raw_manifest["runtime_input_aggregate_sha256"] != a3["runtime_input_aggregate_sha256"] or raw_manifest["inference_input_sha256"] != a3["inference_input_sha256"] or raw_manifest["case_order_sha256"] != a3["case_order_sha256"] or raw_manifest["e1_harness_sha256"] != a3["e1_harness_sha256"]:raise EvaluationIntegrityError("RAW_EXECUTION_BINDING_MISMATCH")
+    if raw_manifest.get("selected_retriever") != "R0" or raw_manifest.get("selected_retriever") != a3.get("selected_retriever") or raw_manifest.get("retrieval_decision_sha256") != a3.get("retrieval_decision_sha256"):raise EvaluationIntegrityError("RAW_RETRIEVER_DECISION_BINDING_MISMATCH")
     source_receipt_path = resolve_from_root(root, paths["candidate_source_tree_receipt"])
     if sha256(source_receipt_path) != artifacts["candidate_source_tree_receipt"]:raise EvaluationIntegrityError("SOURCE_TREE_RECEIPT_DRIFT")
     if verify_working_source_tree(root, read_json(source_receipt_path)) != a3["candidate_source_tree_sha256"]:raise EvaluationIntegrityError("CANDIDATE_EXECUTION_SOURCE_TREE_DRIFT")
@@ -331,7 +332,7 @@ def verify_raw_before_gold(root: Path, raw_manifest_path: Path, a3_manifest_path
     consumption_path = resolve_from_root(root, raw_manifest["consumption_receipt_path"])
     if sha256(consumption_path) != raw_manifest["consumption_receipt_sha256"]:raise EvaluationIntegrityError("CONSUMPTION_RECEIPT_DRIFT")
     consumption = read_json(consumption_path)
-    if consumption.get("a4_authorization_id") != raw_manifest["a4_authorization_id"] or consumption.get("a3_manifest_sha256") != raw_manifest["a3_manifest_sha256"] or consumption.get("candidate_production_commit") != raw_manifest["candidate_production_commit"] or consumption.get("candidate_source_tree_sha256") != raw_manifest["candidate_source_tree_sha256"]:raise EvaluationIntegrityError("CONSUMPTION_RAW_BINDING_MISMATCH")
+    if consumption.get("a4_authorization_id") != raw_manifest["a4_authorization_id"] or consumption.get("a3_manifest_sha256") != raw_manifest["a3_manifest_sha256"] or consumption.get("candidate_production_commit") != raw_manifest["candidate_production_commit"] or consumption.get("candidate_source_tree_sha256") != raw_manifest["candidate_source_tree_sha256"] or consumption.get("selected_retriever") != "R0" or consumption.get("selected_retriever") != raw_manifest["selected_retriever"] or consumption.get("retrieval_decision_sha256") != raw_manifest["retrieval_decision_sha256"]:raise EvaluationIntegrityError("CONSUMPTION_RAW_BINDING_MISMATCH")
     raw_path = resolve_from_root(root, raw_manifest["raw_output_path"])
     if sha256(raw_path) != raw_manifest["raw_output_sha256"]:raise EvaluationIntegrityError("RAW_OUTPUT_SHA_MISMATCH")
     physical = raw_path.read_bytes().splitlines(keepends=True)

@@ -1,5 +1,5 @@
 {
-  "a3_manifest_sha256": "5e1af86ecf60accddfe6b201cb7c62e4f29b4dde3c1ac3573ed989f832a2f0d1",
+  "a3_manifest_sha256": "19ad35b27bd3f60e0a76ae7e42ea4c06a197166e1e9ae3ea26dbecc05ae5ee54",
   "aggregate": {
     "answerable_denominator": 42,
     "citation_correctness_ratio": 1.0,
@@ -107,7 +107,7 @@
     }
   },
   "final_result": "PASS",
-  "raw_manifest_sha256": "2e8ef1d5304a6b4d2e60020838b1537cd8c21a83c167197affcac2c1c147e0c8",
+  "raw_manifest_sha256": "3ca649a8600a99f5282230a3ffb496465d4d33aa221f6ce442ed5e5123cadfa6",
   "rows": [
     {
       "acceptable_complete_support_retrieved_in_top_k": true,

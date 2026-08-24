@@ -31,14 +31,14 @@ def test_preflight_candidate_and_a2_identity_locks() -> None:
     receipt = a3.verify(ROOT)
     assert receipt["passed"]
     assert receipt["repository"]["branch"] == "main"
-    assert receipt["repository"]["head"] == receipt["repository"]["origin_main"] == a3.SOURCE
+    assert receipt["repository"]["head"] == receipt["repository"]["origin_main"] == a3.PUBLICATION
     assert receipt["repository"]["staged_count"] == 0
     assert {path: a3.sha(ROOT / path) for path in a3.GOLD} == a3.GOLD
     assert {path: a3.sha(ROOT / path) for path in a3.PROD} == a3.PROD
 
 
-def test_rev1_fix1_and_fix2_rejected_history_are_byte_preserved() -> None:
-    history = a3.read_json(ROOT / a3.RESULT / "w3_003_ev2_a3_fix3_history.json")
+def test_rev1_fix1_fix2_and_published_fix3_history_are_byte_preserved() -> None:
+    history = a3.read_json(ROOT / a3.RESULT / "w3_003_ev2_a3_fix4_history.json")
     assert history["rev1"]["sha256"] == a3.REV1_MANIFEST_SHA256
     assert history["fix1"]["sha256"] == a3.FIX1_MANIFEST_SHA256
     assert history["fix1"]["reason"] == "R1_SCORER_AND_PRODUCT_GATE_INTEGRITY_DEFECT"
@@ -47,6 +47,12 @@ def test_rev1_fix1_and_fix2_rejected_history_are_byte_preserved() -> None:
     assert history["fix2"]["sha256"] == a3.FIX2_MANIFEST_SHA256
     assert history["fix2"]["reason"] == "PRE_A4_SAFETY_AND_CAUSAL_INTEGRITY_DEFECT"
     assert a3.sha(ROOT / history["fix2"]["path"]) == a3.FIX2_MANIFEST_SHA256
+    assert history["fix3"]["sha256"] == a3.FIX3_MANIFEST_SHA256
+    assert history["fix3"]["publication_commit"] == a3.PUBLICATION
+    assert history["fix3"]["status"] == "PUBLISHED_REMOTE_VERIFIED_BUT_SUPERSEDED_BEFORE_A4"
+    assert history["fix3"]["reason"] == "E1_RETRIEVER_SELECTION_DEFECT"
+    assert history["fix3"]["ev2_executed"] is history["fix3"]["ev2_consumed"] is False
+    assert a3.sha(ROOT / history["fix3"]["path"]) == a3.FIX3_MANIFEST_SHA256
     assert history["evaluation_authorized"] is False
 
 
@@ -103,6 +109,26 @@ def test_e1_raw_manifest_has_exact_schema_and_physical_row_binding() -> None:
     assert [hashlib.sha256(line).hexdigest() for line in physical] == raw_manifest["raw_row_sha256"]
     assert [json.loads(line)["query_id"] for line in physical] == raw_manifest["case_id_order"]
     assert not set(schema["gold_fields_forbidden"]) & set(raw_manifest)
+    assert raw_manifest["selected_retriever"] == "R0"
+    assert raw_manifest["retrieval_decision_sha256"] == load("manifest")["retrieval_decision_sha256"]
+
+
+def test_frozen_week2_r0_decision_drives_execution_not_development_lambda() -> None:
+    manifest = load("manifest"); audit = load("retriever_decision_binding_audit"); mode = load("r0_execution_mode_audit")
+    assert manifest["selected_retriever"] == "R0"
+    assert manifest["retrieval_decision_source"] == "reports/week_02/results/retrieval_version_manifest.json"
+    assert manifest["retrieval_decision_sha256"] == a3.INPUTS[manifest["retrieval_decision_source"]]
+    assert manifest["retrieval_decision_candidate_git_blob"] == a3.RETRIEVAL_DECISION_BLOB
+    assert audit["passed"] and audit["selected_retriever"] == "R0"
+    assert mode["development_selected_lambda"] == 0.15 and mode["captured_boost"] is None and mode["real_retrieval_calls"] == 0 and mode["passed"]
+
+
+def test_retriever_binding_mutations_fail_closed_before_consumption_and_in_scorer() -> None:
+    guard = load("pre_consumption_retriever_guard_audit"); a4 = load("a4_retriever_binding_audit"); raw = load("raw_retriever_binding_audit")
+    assert guard["passed"] and all(guard["mutations"].values())
+    assert guard["runner_calls"] == 0 and guard["consumption_receipt_created"] is False and guard["raw_output_created"] is False
+    assert a4["schema_version"] == e1.A4_SCHEMA_VERSION and a4["dummy_only"] and a4["passed"] and all(a4["mutations"].values())
+    assert raw["schema_version"] == evaluator.RAW_SCHEMA and raw["dummy_only"] and raw["passed"] and all(raw["mutations"].values())
 
 
 def test_a4_remains_unauthorized_and_synthetic_consumption_is_not_e1() -> None:
@@ -113,6 +139,8 @@ def test_a4_remains_unauthorized_and_synthetic_consumption_is_not_e1() -> None:
     assert consumption["ev2_consumed"] is False
     assert consumption["a3_manifest_sha256"] == a3.sha(ROOT / a3.PATHS["manifest"])
     assert consumption["candidate_source_tree_sha256"] == manifest["candidate_source_tree_sha256"]
+    assert consumption["selected_retriever"] == "R0"
+    assert consumption["retrieval_decision_sha256"] == manifest["retrieval_decision_sha256"]
     assert audit["e1_harness_executed"] is False and audit["real_ev2_inference_calls"] == 0
     assert manifest["mid_run_resume_supported"] is False and manifest["checkpoint_resume_explicitly_disabled"] is True
 

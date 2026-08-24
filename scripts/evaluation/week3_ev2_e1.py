@@ -17,10 +17,11 @@ from scripts.evaluation.week3_ev2_integrity import (
     verify_working_source_tree,
 )
 
-A4_SCHEMA_VERSION = "W3-003-EV2-A4-AUTHORIZATION-V2"
-CONSUMPTION_SCHEMA_VERSION = "W3-003-EV2-CONSUMPTION-V2"
-A3_STATUS = "A3_FIX3_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW"
-RAW_SCHEMA = "W3-003-EV2-E1-RAW-MANIFEST-V1"
+A4_SCHEMA_VERSION = "W3-003-EV2-A4-AUTHORIZATION-V3"
+CONSUMPTION_SCHEMA_VERSION = "W3-003-EV2-CONSUMPTION-V3"
+A3_STATUS = "A3_FIX4_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW"
+RAW_SCHEMA = "W3-003-EV2-E1-RAW-MANIFEST-V2"
+FROZEN_RETRIEVER_ERROR = "FROZEN_RETRIEVER_DECISION_MISMATCH_BEFORE_CONSUMPTION"
 
 
 def load_json(path: Path) -> Any:
@@ -53,6 +54,8 @@ def required_a4(manifest: dict[str, Any], manifest_sha256: str) -> dict[str, Any
         "candidate_source_tree_sha256": manifest["candidate_source_tree_sha256"],
         "candidate_source_tree_receipt_sha256": artifacts["candidate_source_tree_receipt"],
         "runtime_input_aggregate_sha256": manifest["runtime_input_aggregate_sha256"],
+        "selected_retriever": manifest["selected_retriever"],
+        "retrieval_decision_sha256": manifest["retrieval_decision_sha256"],
         "case_order_sha256": manifest["case_order_sha256"],
         "inference_input_sha256": manifest["inference_input_sha256"],
         "evaluator_source_sha256": manifest["evaluator_source_sha256"],
@@ -93,6 +96,45 @@ def _verify_bound_file(root: Path, relative: str, wanted: str, label: str) -> No
         raise RuntimeError(f"A3_EXECUTION_ARTIFACT_IDENTITY_DRIFT:{label}")
 
 
+def validate_frozen_retriever_decision(root: Path, manifest: dict[str, Any]) -> None:
+    """Validate the final Week-2 control-plane decision before row-1 consumption."""
+    try:
+        source = manifest["retrieval_decision_source"]
+        wanted_sha = manifest["retrieval_decision_sha256"]
+        if manifest["selected_retriever"] != "R0" or not isinstance(source, str) or not isinstance(wanted_sha, str):
+            raise ValueError
+        path = root / source
+        if not path.is_file() or sha256(path) != wanted_sha:
+            raise ValueError
+        decision = load_json(path)
+        if not isinstance(decision, dict) or decision.get("selected_retriever") != "R0":
+            raise ValueError
+        if decision.get("final_senior_review_verdict") != "APPROVE_COMMIT":
+            raise ValueError
+        if decision.get("status") != "FINALIZED_REVIEW_CORRECTION":
+            raise ValueError
+    except (KeyError, TypeError, ValueError, OSError, json.JSONDecodeError):
+        raise RuntimeError(FROZEN_RETRIEVER_ERROR) from None
+
+
+def r0_execution_boost(manifest: dict[str, Any]) -> None:
+    """The FIX4 package admits only the frozen R0 branch (``boost is None``)."""
+    if manifest.get("selected_retriever") != "R0":
+        raise RuntimeError(FROZEN_RETRIEVER_ERROR)
+    return None
+
+
+def rank_with_frozen_retriever(
+    rank_queries: Callable[[Path, dict[str, Any], list[dict[str, Any]], float | None], tuple[list[dict[str, Any]], Any]],
+    root: Path,
+    retrieval: dict[str, Any],
+    query: dict[str, Any],
+    manifest: dict[str, Any],
+) -> tuple[list[dict[str, Any]], Any]:
+    """Injection seam proving that R0 never receives the R1 development boost."""
+    return rank_queries(root, retrieval, [query], r0_execution_boost(manifest))
+
+
 def validate_pre_inference(
     root: Path,
     manifest_path: Path,
@@ -102,7 +144,7 @@ def validate_pre_inference(
 ) -> tuple[dict[str, Any], dict[str, Any], list[dict[str, Any]]]:
     manifest = load_json(manifest_path)
     if not isinstance(manifest, dict) or manifest.get("status") != A3_STATUS:
-        raise RuntimeError("A3_FIX2_MANIFEST_REQUIRED")
+        raise RuntimeError("A3_FIX4_MANIFEST_REQUIRED")
     if manifest.get("mid_run_resume_supported") is not False or manifest.get("checkpoint_resume_explicitly_disabled") is not True:
         raise RuntimeError("RESUME_NOT_DISABLED")
     if sha256(inputs_path) != manifest["inference_input_sha256"]:
@@ -116,6 +158,7 @@ def validate_pre_inference(
             _verify_bound_file(root, relative, wanted, relative)
     if aggregate_bindings_sha256(manifest["runtime_input_sha256"]) != manifest["runtime_input_aggregate_sha256"]:
         raise RuntimeError("RUNTIME_BINDING_AGGREGATE_DRIFT")
+    validate_frozen_retriever_decision(root, manifest)
 
     paths = manifest.get("paths")
     artifacts = manifest.get("artifact_sha256")
@@ -209,6 +252,8 @@ def execute_raw_only(
         "candidate_production_commit": manifest["candidate_production_commit"],
         "candidate_source_tree_sha256": manifest["candidate_source_tree_sha256"],
         "runtime_input_aggregate_sha256": manifest["runtime_input_aggregate_sha256"],
+        "selected_retriever": manifest["selected_retriever"],
+        "retrieval_decision_sha256": manifest["retrieval_decision_sha256"],
         "start_state": "ROW_1_INFERENCE_BOUNDARY",
         "mid_run_resume_supported": False,
     }
@@ -243,6 +288,8 @@ def execute_raw_only(
         "candidate_production_commit": manifest["candidate_production_commit"],
         "candidate_source_tree_sha256": manifest["candidate_source_tree_sha256"],
         "runtime_input_aggregate_sha256": manifest["runtime_input_aggregate_sha256"],
+        "selected_retriever": manifest["selected_retriever"],
+        "retrieval_decision_sha256": manifest["retrieval_decision_sha256"],
         "inference_input_sha256": manifest["inference_input_sha256"],
         "consumption_receipt_path": relative_path(root, consumption_path),
         "consumption_receipt_sha256": sha256(consumption_path),
@@ -266,15 +313,13 @@ def _load_production_runner(root: Path, manifest: dict[str, Any]) -> Callable[[d
     retrieval_path = root / "configs/retrieval/kb_v1_r0_r1.json"
     retrieval = load_config(root, retrieval_path, require_local_model=True)
     chunks, _ = _load_runtime(root, retrieval)
-    selection = load_json(root / retrieval["outputs"]["dev_selection"])
-    boost = float(selection["selected_lambda"])
     generation, lexicon, _ = load_v3_configuration(root, root / "configs/generation/grounded_pipeline_v3.json")
     raw_idf = build_idf(chunks, generation["tokenizer"]["stopwords"])
     canonical_idf = build_canonical_idf(chunks, lexicon, generation["tokenizer"]["stopwords"])
 
     def candidate(item: dict[str, Any]) -> dict[str, Any]:
         query = {"query_id": item["case_id"], "query_text": item["query"], "split": "ev2", "gold_intent": "__NOT_AVAILABLE_TO_INFERENCE__"}
-        ranked, _ = _rank_queries(root, retrieval, [query], boost)
+        ranked, _ = rank_with_frozen_retriever(_rank_queries, root, retrieval, query, manifest)
         return run_case_v3(query, ranked[0]["rankings"], chunks, raw_idf, canonical_idf, generation, lexicon)
 
     return candidate

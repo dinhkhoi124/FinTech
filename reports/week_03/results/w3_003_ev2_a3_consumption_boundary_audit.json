@@ -4,7 +4,9 @@
   "passed": true,
   "real_ev2_inference_calls": 0,
   "real_ev2_row_1": false,
+  "retrieval_decision_sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
   "rows": 60,
   "scoring_loaded_in_e1": false,
+  "selected_retriever": "R0",
   "synthetic_only": true
 }

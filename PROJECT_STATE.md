@@ -7,9 +7,9 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV2-A3-FIX3` — FROZEN PACKAGE / READY FOR SENIOR REVIEW
-- Next task: Senior fresh review of the A3 FIX3 bundle; A4/E1/EV2 remain unauthorized and unexecuted.
-- Last updated: 2026-08-24 by Codex
+- Active task: `W3-003-EV2-A3-FIX4` — FROZEN R0 EXECUTION BINDING / READY FOR SENIOR REVIEW
+- Next task: Senior fresh review of the A3 FIX4 bundle; A4/E1/EV2 remain unauthorized and unexecuted.
+- Last updated: 2026-08-25 by Codex
 
 The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
 VERIFIED`. Its implementation publication commit is
@@ -21,6 +21,33 @@ VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
+
+## W3-003-EV2-A3-FIX4 frozen R0 retriever execution binding — 2026-08-25
+
+Published FIX3 is preserved byte-for-byte at SHA-256
+`5e1af86ecf60accddfe6b201cb7c62e4f29b4dde3c1ac3573ed989f832a2f0d1`.
+It was technically published and remote-verified at `aaaa9f...effc7`, but the
+post-publication A4 cross-check found that E1 incorrectly derived runtime mode
+from development `selected_lambda=0.15` rather than the authoritative Week-2
+final decision. FIX3 is therefore `PUBLISHED_REMOTE_VERIFIED_BUT_SUPERSEDED_BEFORE_A4`
+for `E1_RETRIEVER_SELECTION_DEFECT`; EV2 was not executed or consumed.
+
+FIX4 binds `reports/week_02/results/retrieval_version_manifest.json` at working
+SHA-256 `c8834784...9c3ce` and candidate blob `807b5413...7ea4d`. Its finalized
+Senior-approved selected retriever is R0. Before any receipt, E1 now validates
+that decision and fails closed with `FROZEN_RETRIEVER_DECISION_MISMATCH_BEFORE_CONSUMPTION`;
+the R0 ranking branch passes `boost=None`, never development lambda 0.15. A4,
+consumption, raw-manifest, and R1 scorer bindings all carry the same R0 and
+decision hash. Synthetic-only tests cover R1/missing/unknown/drift/finalization
+failures and capture `boost=None`; no real retriever or EV2 query ran.
+
+Two deterministic builds have mismatch count zero, retain 30 prior mutations,
+all nine safety-negation checks, 24/18/12/6 strata and denominator 42. The
+combined regression suite passes 64/64. Active manifest SHA-256 is
+`19ad35b27bd3f60e0a76ae7e42ea4c06a197166e1e9ae3ea26dbecc05ae5ee54`.
+Status is `A3_FIX4_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW`; A4 remains
+unauthorized, E1/EV2 row 1/execution/consumption false, and no production, Gold,
+KB, stage, commit, or push changed.
 
 ## W3-003-EV2-A3-FIX3 final pre-A4 safety and causal closure — 2026-08-24
 

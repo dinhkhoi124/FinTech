@@ -1,5 +1,19 @@
 # Week 03 Summary
 
+## W3-003-EV2-A3-FIX4 frozen R0 execution binding — 2026-08-25
+
+FIX3 was published and remote-verified at `aaaa9f...effc7`, then superseded
+before A4 because E1 mapped the R1 development lambda 0.15 instead of the
+authoritative finalized Week-2 R0 selection. FIX3's `5e1af...2f0d1` manifest is
+byte-preserved. FIX4 binds the final-decision SHA `c883...9c3ce` and candidate
+blob `807b...7ea4d`, validates it before row-1 consumption, and forces R0
+`boost=None`. A4, consumption, raw, and scorer records bind the same decision.
+Synthetic-only guard/A4/raw mutations fail closed, existing 30 mutations and
+9 safety regressions remain, deterministic mismatch is zero, and 64/64 tests
+pass. A4/E1/EV2 remain unauthorized/unexecuted/unconsumed; no production, Gold,
+KB, stage, commit, or push changed. Status:
+`A3_FIX4_FROZEN_PACKAGE_READY_FOR_SENIOR_REVIEW`.
+
 ## W3-003-EV2-A3-FIX3 pre-A4 safety and causal repair — 2026-08-24
 
 FIX3 preserves the rejected FIX2 manifest at `c892ed2f...d2115b` and limits

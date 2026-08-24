@@ -1,0 +1,12 @@
+{
+  "candidate_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "candidate_git_blob": "807b5413004b7afa0c783e7d0cbb4e0a31b7ea4d",
+  "decision_source": "reports/week_02/results/retrieval_version_manifest.json",
+  "decision_status": "FINALIZED_REVIEW_CORRECTION",
+  "decision_task_id": "W2-003",
+  "final_senior_review_verdict": "APPROVE_COMMIT",
+  "passed": true,
+  "selected_retriever": "R0",
+  "task_id": "W3-003-EV2-A3-FIX4",
+  "working_byte_sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce"
+}

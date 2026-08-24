@@ -1,0 +1,9 @@
+{
+  "dummy_only": true,
+  "mutations": {
+    "decision_sha_drift": true,
+    "r1": true
+  },
+  "passed": true,
+  "schema_version": "W3-003-EV2-A4-AUTHORIZATION-V3"
+}
