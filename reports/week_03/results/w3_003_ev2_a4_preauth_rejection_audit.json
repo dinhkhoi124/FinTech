@@ -1,0 +1,10 @@
+{
+  "consumption_receipt_created": false,
+  "error": "A4_BINDING_MISMATCH:authorization",
+  "ev2_query_calls": 0,
+  "passed": true,
+  "production_runner_calls": 0,
+  "raw_output_created": false,
+  "retrieval_calls": 0,
+  "validation_rejected": true
+}

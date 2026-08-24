@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV2-A3-FIX4` — FROZEN R0 EXECUTION BINDING / READY FOR SENIOR REVIEW
-- Next task: Senior fresh review of the A3 FIX4 bundle; A4/E1/EV2 remain unauthorized and unexecuted.
+- Active task: `W3-003-EV2-A4-ATT1-PUB1` — PUBLISHED ATTESTATION EVIDENCE / AWAITING SENIOR REMOTE VERIFICATION
+- Next task: Senior fresh-remote verify ATT1, then issue real A4 authorization if approved; E1/EV2 remain unauthorized and unexecuted.
 - Last updated: 2026-08-25 by Codex
 
 The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
@@ -21,6 +21,34 @@ VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
+
+## W3-003-EV2-A4-ATT1 pre-E1 runtime environment and local model snapshot attestation — 2026-08-25
+
+The A3 FIX4 package remained identity-locked at manifest SHA-256
+`19ad35b27bd3f60e0a76ae7e42ea4c06a197166e1e9ae3ea26dbecc05ae5ee54`.
+The intended E1 runtime is CPython 3.11.9 64-bit CPU at
+`.venv-semantic\\Scripts\\python.exe`: all 30 frozen pins match
+`requirements/week1-semantic.txt`, and `pip check` passed. Offline controls
+were fixed, the local MiniLM snapshot at revision `1110a...4d41` passed all
+11 file/hash/size checks (91,578,415 bytes), and frozen corpus/runtime assets,
+candidate source tree, and final R0 decision all passed.
+
+The read-only load used `local_files_only=true`, made zero network attempts,
+loaded the 52x384 runtime without ranking or encoding any EV2 query, and
+produced environment fingerprint
+`f49e29f3ad3338a191f50e42e28fd2335a36f670541c9eb7337f0bcdcb478a7d`.
+The deliberately non-authorizing preauth payload SHA-256 is
+`f7b59287f478f6fbe6878604a0d2d0ada6f943d3201aaf8cc3eabf1de4488cf3` and
+the E1 validator rejected it before any runner/retrieval/EV2 call with
+`A4_BINDING_MISMATCH:authorization`. No real A4 receipt, consumption receipt,
+raw output, E1 row, EV2 query, staging, commit, or push exists. Status:
+`A4_ATT1_PUBLISHED_AWAITING_SENIOR_REMOTE_VERIFICATION`.
+
+Future real E1 remains conditional on a separately Senior-authorized just-before-
+execution re-attestation: verify the frozen requirements and provenance SHA/blob,
+set the exact offline/thread/hash controls, use CPython 3.11.9, rerun ATT1, and
+require the same environment fingerprint and all ATT1 identities before creating
+and using a real A4 receipt. No install, edit, or mutation may intervene.
 
 ## W3-003-EV2-A3-FIX4 frozen R0 retriever execution binding — 2026-08-25
 

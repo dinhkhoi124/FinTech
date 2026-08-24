@@ -1,0 +1,17 @@
+{
+  "candidate_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "candidate_git_tree": "ef943824b886619fd41bb1bb827504a108961ed8",
+  "candidate_source_tree_sha256": "fbcd9248faf8058571ac2b8747125a013fbc73e52925cfc0d813edd55fbd0193",
+  "decision_selected_retriever": "R0",
+  "decision_status": "FINALIZED_REVIEW_CORRECTION",
+  "decision_task_id": "W2-003",
+  "decision_verdict": "APPROVE_COMMIT",
+  "expected_candidate_source_tree_sha256": "fbcd9248faf8058571ac2b8747125a013fbc73e52925cfc0d813edd55fbd0193",
+  "passed": true,
+  "receipt_git_tree": "ef943824b886619fd41bb1bb827504a108961ed8",
+  "retrieval_decision_actual_sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
+  "retrieval_decision_candidate_git_blob": "807b5413004b7afa0c783e7d0cbb4e0a31b7ea4d",
+  "retrieval_decision_sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
+  "selected_retriever": "R0",
+  "task_id": "W3-003-EV2-A4-ATT1"
+}

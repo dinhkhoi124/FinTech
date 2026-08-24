@@ -1,5 +1,26 @@
 # Week 03 Summary
 
+## W3-003-EV2-A4-ATT1 pre-E1 runtime and local snapshot attestation — 2026-08-25
+
+The A3 FIX4 package and all A2 inputs remain identity-locked. The exact E1
+runtime is CPython 3.11.9 64-bit CPU with all 30 frozen semantic requirements
+matching and `pip check` passing. Offline controls are fixed. The local
+MiniLM revision `1110a...4d41` passed its complete 11-file / 91,578,415-byte
+snapshot identity check, and a `local_files_only=true` load read the frozen
+52x384 runtime without network, ranking, query encoding, or EV2-input reads.
+
+Runtime aggregate, candidate source tree, and Week-2 finalized R0 decision
+passed. Environment fingerprint is `f49e29f3...78a7d`. The only A4-shaped
+payload is explicitly non-authorizing (`f7b59287...88cf3`) and the E1 validator
+rejected it before any runner/retrieval call. Focused fail-closed tests pass
+8/8. Status is `A4_ATT1_PUBLISHED_AWAITING_SENIOR_REMOTE_VERIFICATION`; E1/EV2 remain
+unauthorized, unexecuted, and unconsumed.
+
+Future real E1 requires separately Senior-authorized just-before-execution
+re-attestation in exact CPython 3.11.9 offline controls. It must reverify the
+frozen requirements/provenance, all ATT1 identities, and fingerprint
+`f49e29f3...78a7d` before a real A4 receipt; no mutation may intervene.
+
 ## W3-003-EV2-A3-FIX4 frozen R0 execution binding — 2026-08-25
 
 FIX3 was published and remote-verified at `aaaa9f...effc7`, then superseded
