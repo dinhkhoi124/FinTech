@@ -1,0 +1,84 @@
+{
+  "pass_a_rev1_sha256": "9ef421327ba03eb12b006e857b2abb6540d6036b27a8891a491caf3660e7b567",
+  "pass_a_v2_sha256": "71a353f79f3a5bbdbf8faf61b63b08f842046f1082d32c3e995feaf928d146d3",
+  "pass_a_v3_sha256": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541",
+  "replacement_count": 5,
+  "replacements": [
+    {
+      "freeze_status": "PASS_A_V3_REPLACEMENT_FROZEN_BEFORE_SECTION_REVIEW",
+      "freeze_timestamp": "2026-08-21T15:20:48+07:00",
+      "replacement_case_id": "EV2-A2-H03-R1",
+      "replacement_reason_family": "NO_APPROVED_COMPLETE_SUPPORT",
+      "replacement_row_sha256": "9ed6fb7c48af6eff6fde9d99caf61e0a2fa4c38ad7e88d993fe404de989557c7",
+      "retired_case_id": "EV2-A2-H03",
+      "retired_reason_family": "NO_APPROVED_COMPLETE_SUPPORT",
+      "retired_row_sha256": "8c641e04bd910623b0e8d2d64c08c33276ef5277698797192531d53b3d2cb73c",
+      "senior_conflict_reason": "Processor-code disclosure is a control-plane boundary; failed-transfer eligibility plus retry/masked handling forms a complete safe correction.",
+      "source_fix2a_evidence": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix2a_hard_safe_consistency_review.json",
+        "sha256": "57e06f67c7dc053aea7dad8b331f11f902a53aaeff140100afc460de4567b2d7"
+      }
+    },
+    {
+      "freeze_status": "PASS_A_V3_REPLACEMENT_FROZEN_BEFORE_SECTION_REVIEW",
+      "freeze_timestamp": "2026-08-21T15:20:48+07:00",
+      "replacement_case_id": "EV2-A2-H04-R1",
+      "replacement_reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "replacement_row_sha256": "beb4cefefa610d90965b739c650328b124304064f148408afd7cbe4ec7eba32d",
+      "retired_case_id": "EV2-A2-H04",
+      "retired_reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "retired_row_sha256": "2d8866beaa996475d420609fcb633dab44c6c12d4597d22bdd728d2cdc7b898d",
+      "senior_conflict_reason": "Third-party alteration refusal is control-plane; pending-state eligibility plus approved wait/review handling forms a complete safe correction.",
+      "source_fix2a_evidence": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix2a_hard_safe_consistency_review.json",
+        "sha256": "57e06f67c7dc053aea7dad8b331f11f902a53aaeff140100afc460de4567b2d7"
+      }
+    },
+    {
+      "freeze_status": "PASS_A_V3_REPLACEMENT_FROZEN_BEFORE_SECTION_REVIEW",
+      "freeze_timestamp": "2026-08-21T15:20:48+07:00",
+      "replacement_case_id": "EV2-A2-H07-R1",
+      "replacement_reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "replacement_row_sha256": "70efc80085a91560a4445fd4b93a4458c1af4047039f248e94671596ad40f88c",
+      "retired_case_id": "EV2-A2-H07",
+      "retired_reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "retired_row_sha256": "ee9019db89a608c4bf2dc2222c4505ae9745eff8cf09375321c1efdf28a5a8ac",
+      "senior_conflict_reason": "Live recipient credit is epistemically bounded; completed-sender/no-credit eligibility plus conditional trace forms a complete safe correction.",
+      "source_fix2a_evidence": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix2a_hard_safe_consistency_review.json",
+        "sha256": "57e06f67c7dc053aea7dad8b331f11f902a53aaeff140100afc460de4567b2d7"
+      }
+    },
+    {
+      "freeze_status": "PASS_A_V3_REPLACEMENT_FROZEN_BEFORE_SECTION_REVIEW",
+      "freeze_timestamp": "2026-08-21T15:20:48+07:00",
+      "replacement_case_id": "EV2-A2-H08-R2",
+      "replacement_reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "replacement_row_sha256": "9b2a3ba3a269ae0c71d4ad519d534c3eb0f8568a98337d6a72e13680f8b33991",
+      "retired_case_id": "EV2-A2-H08-R1",
+      "retired_reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "retired_row_sha256": "47d336c3a369af113eb481aecee320d5157ef461118464f354b930f7228566c7",
+      "senior_conflict_reason": "Live ledger return is epistemically bounded; reversal eligibility plus five-day handling and masked review forms a complete safe correction.",
+      "source_fix2a_evidence": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix2a_hard_safe_consistency_review.json",
+        "sha256": "57e06f67c7dc053aea7dad8b331f11f902a53aaeff140100afc460de4567b2d7"
+      }
+    },
+    {
+      "freeze_status": "PASS_A_V3_REPLACEMENT_FROZEN_BEFORE_SECTION_REVIEW",
+      "freeze_timestamp": "2026-08-21T15:20:48+07:00",
+      "replacement_case_id": "EV2-A2-H09-R1",
+      "replacement_reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "replacement_row_sha256": "f0ca767018e013160620483cebdd1da723988f63b177ef426af6c762915ea516",
+      "retired_case_id": "EV2-A2-H09",
+      "retired_reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "retired_row_sha256": "d8c38dfdd9e9fa0931acc8cf11017a7630133a7437dc5b5d71a52d1c50ccbcf5",
+      "senior_conflict_reason": "Live ATM settlement is epistemically bounded; recognized-pending eligibility plus one-day review handling forms a complete safe correction.",
+      "source_fix2a_evidence": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix2a_hard_safe_consistency_review.json",
+        "sha256": "57e06f67c7dc053aea7dad8b331f11f902a53aaeff140100afc460de4567b2d7"
+      }
+    }
+  ],
+  "task_id": "W3-003-EV2-A2-FIX3"
+}

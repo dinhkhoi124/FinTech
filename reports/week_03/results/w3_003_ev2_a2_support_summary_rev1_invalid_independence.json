@@ -1,0 +1,118 @@
+{
+  "distribution": {
+    "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": 6,
+    "HARD_ABSTAIN_ESCALATE": 12,
+    "SAFE_CORRECTIVE": 18,
+    "STANDARD": 24
+  },
+  "domain_distribution": {
+    "card_payment": 17,
+    "cash_withdrawal": 19,
+    "cross_domain": 2,
+    "transfer": 22
+  },
+  "eligible_documents": 26,
+  "eligible_sections": 52,
+  "errors": [],
+  "expected_route_distribution": {
+    "ABSTAIN_ESCALATE": 16,
+    "SAFE_CORRECTIVE": 20,
+    "STANDARD": 24
+  },
+  "hard_abstain_reason_family_distribution": {
+    "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED": 3,
+    "GENUINE_CONFLICT_OR_INSUFFICIENCY": 3,
+    "NO_APPROVED_COMPLETE_SUPPORT": 3,
+    "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE": 3
+  },
+  "major_target_distribution": {
+    "ATM_WITHDRAWAL": 17,
+    "BANK_TRANSFER": 15,
+    "CUSTOMER_ATM_ACCOUNT": 1,
+    "CUSTOMER_CARD_ACCOUNT": 1,
+    "MERCHANT_CARD_PAYMENT": 16,
+    "MISSING_TRANSACTION_ENTITY": 1,
+    "RECIPIENT_ACCOUNT": 1,
+    "RECIPIENT_TRANSFER": 5,
+    "THIRD_PARTY_ATM_ACCOUNT": 1,
+    "THIRD_PARTY_BANK_TRANSFER": 1,
+    "UNSPECIFIED_PAYMENT_ENTITY": 1
+  },
+  "max_internal_query_jaccard": {
+    "case_ids": [
+      "EV2-A2-S03",
+      "EV2-A2-S04"
+    ],
+    "score": 0.3157894736842105
+  },
+  "pass_a_rows": 60,
+  "pass_b_rows": 3120,
+  "pass_c_rows": 60,
+  "passed": true,
+  "required_dimension_distribution": {
+    "ACCOUNT_SPECIFIC_DECISION": 3,
+    "ACCOUNT_SPECIFIC_ENTITLEMENT": 2,
+    "ACTION": 8,
+    "CHECKS": 4,
+    "COMMUNICATION_BOUNDARY": 1,
+    "CONFLICT_RESOLUTION": 3,
+    "ELIGIBILITY": 2,
+    "PRIVATE_TECHNICAL_DETAIL": 1,
+    "PROHIBITED_ACCOUNT_ACTION": 2,
+    "PROHIBITED_DATA_ACCESS": 1,
+    "RETRY": 2,
+    "SAFE_ALTERNATIVE": 18,
+    "SAFE_STOP": 6,
+    "SECURITY": 6,
+    "SECURITY_BOUNDARY": 2,
+    "STATE_MEANING": 8,
+    "TIMING": 9
+  },
+  "risk_distribution": {
+    "ACCOUNT_SPECIFIC_REASON": 2,
+    "ACCOUNT_SPECIFIC_UNRESOLVED": 3,
+    "AMBIGUOUS_RAIL": 1,
+    "AMBIGUOUS_RECOGNITION": 2,
+    "COMPETING_TRANSFER_STATES": 1,
+    "CONFLICTING_INSUFFICIENT": 3,
+    "CONTROL_BYPASS": 1,
+    "CREDENTIAL_REQUEST": 1,
+    "DUPLICATE_PREVENTION": 1,
+    "DUPLICATE_TRANSFER_REQUEST": 1,
+    "ELIGIBILITY": 1,
+    "ESCALATION_BOUNDARY": 1,
+    "INTERNAL_CONTROL_DISCLOSURE": 1,
+    "MISSING_ENTITY": 1,
+    "NO_APPROVED_SUPPORT": 3,
+    "POST_WINDOW_ACTION": 1,
+    "PRIVATE_DATA_REQUEST": 1,
+    "PRIVATE_DECISION_REQUEST": 2,
+    "PRIVATE_ROUTE_REQUEST": 1,
+    "PROHIBITED_DATA": 1,
+    "PROHIBITED_NO_ALTERNATIVE": 3,
+    "RECOGNITION_GATE": 1,
+    "RETRY_BOUNDARY": 1,
+    "SAFE_CHECKS": 2,
+    "SAFE_MESSAGE": 1,
+    "SECURITY_BYPASS": 1,
+    "SECURITY_HANDOFF": 1,
+    "STATE_DEFINITION": 8,
+    "TIMING_BOUNDARY": 4,
+    "TRACE_ELIGIBILITY": 1,
+    "UNDERSPECIFIED_CARD_STATE": 1,
+    "UNSAFE_DELAY_REQUEST": 1,
+    "UNSAFE_REPEAT_REQUEST": 1,
+    "UNSUPPORTED_CREDIT_PROMISE": 1,
+    "UNSUPPORTED_DELIVERY_PROMISE": 1,
+    "UNSUPPORTED_EXACT_GUARANTEE": 2,
+    "UNSUPPORTED_REIMBURSEMENT": 1
+  },
+  "support_class_counts": {
+    "COMPLETE_SUPPORT": 16,
+    "CONTEXTUAL_INSUFFICIENT": 221,
+    "CONTRADICTION": 738,
+    "IRRELEVANT": 2088,
+    "PARTIAL_SUPPORT": 57
+  },
+  "task_id": "W3-003-EV2-A2"
+}

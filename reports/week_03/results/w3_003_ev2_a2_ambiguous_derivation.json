@@ -1,0 +1,103 @@
+{
+  "allowed_routes": [
+    "ABSTAIN_ESCALATE",
+    "SAFE_CORRECTIVE"
+  ],
+  "cases": [
+    {
+      "case_id": "EV2-A2-A01",
+      "derivation_reason": "PURE_CLARIFICATION_ONLY_SAFE_STOP",
+      "derived_route": "ABSTAIN_ESCALATE",
+      "kb_support_required_obligations": [],
+      "minimal_complete_support_sets": [],
+      "proof_valid": true,
+      "safe_stop_controls": [
+        "REQUEST_BANKING_RAIL_CLARIFICATION"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-A02",
+      "derivation_reason": "PURE_CLARIFICATION_ONLY_SAFE_STOP",
+      "derived_route": "ABSTAIN_ESCALATE",
+      "kb_support_required_obligations": [],
+      "minimal_complete_support_sets": [],
+      "proof_valid": true,
+      "safe_stop_controls": [
+        "REQUEST_TRANSACTION_ENTITY_AND_STATE"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-A03",
+      "derivation_reason": "GROUNDED_FACTUAL_SAFETY_GATE",
+      "derived_route": "SAFE_CORRECTIVE",
+      "kb_support_required_obligations": [
+        "STOP_ORDINARY_HANDLING_IF_UNRECOGNIZED"
+      ],
+      "minimal_complete_support_sets": [
+        [
+          "FAQ_CASH_PENDING_001#answer"
+        ],
+        [
+          "RUN_CASH_PENDING_001#recognition_check"
+        ],
+        [
+          "RUN_CASH_UNRECOG_002#recognition_gate"
+        ]
+      ],
+      "proof_valid": true,
+      "safe_stop_controls": [
+        "ASK_ATM_RECOGNITION_GATE"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-A04",
+      "derivation_reason": "PURE_CLARIFICATION_ONLY_SAFE_STOP",
+      "derived_route": "ABSTAIN_ESCALATE",
+      "kb_support_required_obligations": [],
+      "minimal_complete_support_sets": [],
+      "proof_valid": true,
+      "safe_stop_controls": [
+        "REQUEST_SENDER_SIDE_TRANSFER_STATE"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-A05",
+      "derivation_reason": "PURE_CLARIFICATION_ONLY_SAFE_STOP",
+      "derived_route": "ABSTAIN_ESCALATE",
+      "kb_support_required_obligations": [],
+      "minimal_complete_support_sets": [],
+      "proof_valid": true,
+      "safe_stop_controls": [
+        "REQUEST_CARD_STATE_CLARIFICATION"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-A06",
+      "derivation_reason": "GROUNDED_FACTUAL_SAFETY_GATE",
+      "derived_route": "SAFE_CORRECTIVE",
+      "kb_support_required_obligations": [
+        "TRIGGER_SECURITY_PATH_IF_DENIED"
+      ],
+      "minimal_complete_support_sets": [
+        [
+          "ESC_CASH_UNRECOG_001#immediate_trigger"
+        ],
+        [
+          "FAQ_CASH_PENDING_001#answer"
+        ],
+        [
+          "RUN_CASH_PENDING_001#recognition_check"
+        ]
+      ],
+      "proof_valid": true,
+      "safe_stop_controls": [
+        "ASK_ATM_RECOGNITION_GATE"
+      ]
+    }
+  ],
+  "derived_route_counts": {
+    "ABSTAIN_ESCALATE": 4,
+    "SAFE_CORRECTIVE": 2
+  },
+  "task_id": "W3-003-EV2-A2-PB1-FIX2B"
+}

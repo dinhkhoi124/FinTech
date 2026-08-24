@@ -1,0 +1,264 @@
+{
+  "cases": [
+    {
+      "case_id": "EV2-A2-H01",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_CARD_DECLINED_001#policy_gap",
+        "RUN_CARD_DECLINED_001#checks",
+        "RUN_CARD_DECLINED_001#action"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "No eligible clause sets or bounds compensation entitlement and no approved compensation/escalation path exists.",
+      "reason_family": "NO_APPROVED_COMPLETE_SUPPORT",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H02",
+      "closest_partial_or_relevant_evidence": [
+        "POL_CASH_DECLINED_001#eligibility",
+        "POL_CASH_DECLINED_001#review_rule",
+        "ESC_CASH_DECLINED_001#handoff"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "The KB has a two-decline review path but neither a fee-refund boundary nor complete handling for the single-refusal entitlement request.",
+      "reason_family": "NO_APPROVED_COMPLETE_SUPPORT",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H03-R1",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_CARD_DECLINED_001#answer",
+        "FAQ_CARD_DECLINED_001#policy_gap",
+        "RUN_CARD_DECLINED_001#checks",
+        "RUN_CARD_DECLINED_001#action"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "The FAQ and runbook establish an immediate merchant-card decline and explicitly disclose that no approved declined-card policy exists. No eligible clause establishes chargeback eligibility or supplies a declined-card dispute/remedy path. General merchant checks do not complete the requested remedy dimension.",
+      "reason_family": "NO_APPROVED_COMPLETE_SUPPORT",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H04-R1",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_CARD_PENDING_001#answer",
+        "POL_CARD_REVERT_002#state_rule",
+        "RUN_CARD_DECLINED_001#action"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "A non-factual refusal of concealment is allowed, but the frozen KB contains no posted-card record-correction eligibility rule and no merchant-descriptor correction or shared-account privacy handoff. Declined, pending, and reversal handling do not address the record target.",
+      "reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H05-R1",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_TRANSFER_FAILED_001#answer",
+        "POL_TRANSFER_FAILED_001#eligibility",
+        "RUN_TRANSFER_FAILED_001#action"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "Eligible failed-transfer clauses address transaction handling only. None covers the audit-record target, explicitly refuses concealment, preserves the record, or provides an audit-integrity handoff.",
+      "reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H06-R1",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_CARD_PENDING_001#answer",
+        "POL_CARD_PENDING_001#eligibility",
+        "POL_CARD_REVERT_002#state_rule",
+        "RUN_CARD_PENDING_001#checks"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "Five eligible clauses explicitly make pending and reversed mutually exclusive, while all action clauses require one state to be established first. No approved conflict-resolution or clarification rule exists.",
+      "reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H07-R1",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_TRANSFER_FAILED_001#answer",
+        "POL_TRANSFER_FAILED_001#eligibility",
+        "RUN_TRANSFER_FAILED_001#checks",
+        "RUN_TRANSFER_FAILED_001#action"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "Three clauses establish failed-transfer eligibility, but retry and repeated-failure review address transfer processing rather than reserved funds or the customer's spendable balance. No eligible clause provides a balance-impact review path, so the live decision has no prerequisite-complete conditional correction.",
+      "reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H08-R2",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_TRANSFER_DECLINED_001#answer",
+        "POL_TRANSFER_DECLINED_001#eligibility",
+        "RUN_TRANSFER_DECLINED_001#checks",
+        "RUN_TRANSFER_DECLINED_001#action"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "The declined-transfer state is well supported. The threshold-based refusal review is not a daily-limit usage review and cannot establish whether this account's allowance was consumed. No eligible clause supplies a materially target-compatible limit path.",
+      "reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H09-R1",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_TRANSFER_DECLINED_001#answer",
+        "POL_TRANSFER_DECLINED_001#eligibility",
+        "FAQ_TRANSFER_RECIPIENT_002#meaning",
+        "POL_TRANSFER_RECIPIENT_001#eligibility"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "Declined-transfer clauses require refusal before processing while completed-recipient clauses require sender-side completion and explicitly exclude declined states. The frozen KB contains no resolver for the simultaneous statuses, and state-specific actions cannot silently select one prerequisite.",
+      "reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H10",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_TRANSFER_FAILED_001#answer",
+        "FAQ_TRANSFER_PENDING_001#answer",
+        "POL_TRANSFER_FAILED_001#eligibility",
+        "POL_TRANSFER_PENDING_002#eligibility"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "Eligible clauses prove the states are mutually exclusive but do not resolve which displayed state is authoritative or provide a complete approved conflict-resolution action.",
+      "reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H11",
+      "closest_partial_or_relevant_evidence": [
+        "ESC_CASH_DECLINED_001#trigger",
+        "POL_CASH_DECLINED_001#eligibility"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "Both relevant clauses exclude cash-dispensed cases; no eligible section resolves the contradiction.",
+      "reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl"
+      ]
+    },
+    {
+      "case_id": "EV2-A2-H12",
+      "closest_partial_or_relevant_evidence": [
+        "FAQ_TRANSFER_PENDING_001#answer",
+        "FAQ_TRANSFER_RECIPIENT_002#meaning",
+        "POL_TRANSFER_RECIPIENT_001#eligibility"
+      ],
+      "complete_safe_corrective_response_exists": false,
+      "prerequisite_control_plane_reasoning": "Pending and recipient-tracing evidence are mutually exclusive and no clause resolves the sender-state conflict.",
+      "reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "requested_factual_resolution_supported": false,
+      "requested_resolution_proof_valid": true,
+      "review_coverage": "52/52",
+      "reviewed_eligible_sections": 52,
+      "safe_corrective_absence_proof_valid": true,
+      "source_semantic_review_artifacts": [
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl"
+      ]
+    }
+  ],
+  "expected_count": 12,
+  "task_id": "W3-003-EV2-A2-PB1-FIX2B",
+  "valid_count": 12
+}

@@ -1,0 +1,49 @@
+{
+  "task_id": "W3-003-EV2-A2-FIX2A",
+  "status": "A2_FIX2A_HARD_SAFE_CONSISTENCY_READY_FOR_SENIOR_REVIEW",
+  "pass_a_v2_sha256": "71a353f79f3a5bbdbf8faf61b63b08f842046f1082d32c3e995feaf928d146d3",
+  "taxonomy_rule_id": "FIX2A_CONTROL_PLANE_FACTUAL_SEPARATION_V1",
+  "distribution_target_used_for_conclusions": false,
+  "boundaries": {
+    "pass_a_modified": false,
+    "new_52_section_judgments_authored": false,
+    "full_pass_b_started": false,
+    "pass_c_derived": false,
+    "candidate_inference_executed": false,
+    "ev2_executed": false,
+    "ev2_consumed": false,
+    "a3_authorized": false,
+    "week3_p0_passed": false,
+    "week4_authorized": false,
+    "notebook_required": false
+  },
+  "valid_current_hard_cases": [
+    "EV2-A2-H01",
+    "EV2-A2-H02",
+    "EV2-A2-H05-R1",
+    "EV2-A2-H06-R1",
+    "EV2-A2-H10",
+    "EV2-A2-H11",
+    "EV2-A2-H12"
+  ],
+  "conflicted_current_hard_cases": [
+    "EV2-A2-H03",
+    "EV2-A2-H04",
+    "EV2-A2-H07",
+    "EV2-A2-H08-R1",
+    "EV2-A2-H09"
+  ],
+  "conflict_count": 5,
+  "case_specific_reasons": {
+    "EV2-A2-H03": "Refusing disclosure of an unobserved external processor code is a non-factual control-plane boundary. RUN_TRANSFER_FAILED_001#action supplies the grounded one-retry and masked-review handling, matching the C18 boundary-plus-factual-correction pattern; the current HARD label conflicts.",
+    "EV2-A2-H04": "Refusal to alter another person's transfer is a prohibited-action control boundary and needs no banking-fact quote. Existing clauses preserve pending as not completed and provide the approved wait/review path on the same transfer rail; the ownership restriction is handled by the boundary, so a complete safe corrective response exists.",
+    "EV2-A2-H07": "The system can bound its inability to observe a named recipient's live account without a KB quote. The FAQ and policy provide a conditional one-day masked trace path without a delivery promise, completing a useful same-rail safe correction; the current HARD label conflicts.",
+    "EV2-A2-H08-R1": "BOUND_LIVE_LEDGER_RETURN_DETERMINATION is an epistemic control-plane boundary, not a missing factual KB obligation. POL_CARD_REVERT_002#return_window and ESC_CARD_REVERT_001#handoff fully support the conditional five-day handling and masked review without a credit promise, so H08-R1 conflicts with HARD.",
+    "EV2-A2-H09": "Inability to observe the live ATM operator settlement is a non-factual epistemic boundary. Both the FAQ and runbook independently support the one-business-day pending-ledger review window, yielding a useful same-rail safe correction; the current HARD label conflicts."
+  },
+  "replacement_count_required": 5,
+  "pass_a_v2_senior_approved": false,
+  "full_pass_b_status": "NOT_STARTED",
+  "a3_status": "BLOCKED",
+  "ev2_status": "NOT_EXECUTED_NOT_CONSUMED"
+}

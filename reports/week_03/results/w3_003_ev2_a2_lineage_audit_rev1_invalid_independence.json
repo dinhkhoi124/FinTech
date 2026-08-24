@@ -1,0 +1,29 @@
+{
+  "a1_dev_family_collisions": 0,
+  "candidate_inference_executed": false,
+  "candidate_output_used": false,
+  "consumed_fingerprint_collisions_where_available": 0,
+  "critical_rev7_case_level_accessed": false,
+  "direct_kb_sentence_copies": 0,
+  "ev1_case_level_accessed": false,
+  "exact_duplicate_queries": 0,
+  "freshness_limitation": "CONSUMED_CASE_LEVEL_FRESHNESS_LIMITATION: aggregate overlap artifacts expose source counts/hashes but no reusable per-query fingerprints; consumed text was not opened. Final A3 must independently audit freshness using an authorized fingerprint-only surface.",
+  "max_internal_query_jaccard": {
+    "case_ids": [
+      "EV2-A2-S03",
+      "EV2-A2-S04"
+    ],
+    "score": 0.3157894736842105
+  },
+  "normalized_duplicate_queries": 0,
+  "passed": true,
+  "permitted_aggregate_sources": {
+    "reports/week_03/results/critical_eval_v2_overlap_audit.json": "source row counts and SHA-256 only",
+    "reports/week_03/results/w3_003_independent_overlap_audit.json": "candidate_count=60; historical_query_count=13307; prior audit passed"
+  },
+  "preliminary_not_final_a3_approval": true,
+  "rm2_dev_template_reuse": 0,
+  "task_id": "W3-003-EV2-A2",
+  "unique_case_ids": 60,
+  "unique_scenario_families": 60
+}

@@ -1,0 +1,75 @@
+{
+  "task_id": "W3-003-EV2-A2-FIX1B",
+  "status": "A2_FIX1B_HARD_CONFLICT_SWEEP_READY_FOR_SENIOR_REVIEW",
+  "pass_a_sha256": "9ef421327ba03eb12b006e857b2abb6540d6036b27a8891a491caf3660e7b567",
+  "valid_hard_cases": [
+    "EV2-A2-H01",
+    "EV2-A2-H02",
+    "EV2-A2-H03",
+    "EV2-A2-H04",
+    "EV2-A2-H07",
+    "EV2-A2-H09",
+    "EV2-A2-H10",
+    "EV2-A2-H11",
+    "EV2-A2-H12"
+  ],
+  "conflicted_hard_cases": [
+    "EV2-A2-H05",
+    "EV2-A2-H06",
+    "EV2-A2-H08"
+  ],
+  "conflict_count": 3,
+  "reason_family_feasibility": [
+    {
+      "reason_family": "NO_APPROVED_COMPLETE_SUPPORT",
+      "case_count_reviewed": 3,
+      "case_count_still_valid": 3,
+      "case_count_conflicted": 0,
+      "frozen_kb_appears_capable_of_at_least_two_valid_hard_cases": true,
+      "confidence": "HIGH",
+      "evidence_basis": "All three frozen cases remain valid; the KB has no entitlement/fault-code authority.",
+      "feasibility_status": "FEASIBLE"
+    },
+    {
+      "reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "case_count_reviewed": 3,
+      "case_count_still_valid": 1,
+      "case_count_conflicted": 2,
+      "frozen_kb_appears_capable_of_at_least_two_valid_hard_cases": true,
+      "confidence": "MEDIUM",
+      "evidence_basis": "H04 remains valid and the frozen KB can support further prohibited third-party actions lacking a target-compatible explicit safe correction; reauthoring is required and no 3/3 target is forced.",
+      "feasibility_status": "FEASIBLE"
+    },
+    {
+      "reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "case_count_reviewed": 3,
+      "case_count_still_valid": 2,
+      "case_count_conflicted": 1,
+      "frozen_kb_appears_capable_of_at_least_two_valid_hard_cases": true,
+      "confidence": "HIGH",
+      "evidence_basis": "H07 and H09 remain valid, establishing two frozen live/account-specific cases; H08 conflicts because explicit timing correction exists.",
+      "feasibility_status": "FEASIBLE"
+    },
+    {
+      "reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "case_count_reviewed": 3,
+      "case_count_still_valid": 3,
+      "case_count_conflicted": 0,
+      "frozen_kb_appears_capable_of_at_least_two_valid_hard_cases": true,
+      "confidence": "HIGH",
+      "evidence_basis": "All three frozen state-conflict cases remain valid and are explicitly excluded by applicable policies.",
+      "feasibility_status": "FEASIBLE"
+    }
+  ],
+  "recommended_replacement_count": 3,
+  "replacement_queries_authored": false,
+  "pass_a_modified": false,
+  "full_pass_b_authored": false,
+  "pass_c_derived": false,
+  "candidate_inference_executed": false,
+  "ev2_executed": false,
+  "ev2_consumed": false,
+  "a3_authorized": false,
+  "week3_p0_passed": false,
+  "week4_authorized": false
+}

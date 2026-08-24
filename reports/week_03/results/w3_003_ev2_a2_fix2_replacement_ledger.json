@@ -1,0 +1,55 @@
+{
+  "task_id": "W3-003-EV2-A2-FIX2",
+  "rev1_pass_a_sha256": "9ef421327ba03eb12b006e857b2abb6540d6036b27a8891a491caf3660e7b567",
+  "pass_a_v2_sha256": "71a353f79f3a5bbdbf8faf61b63b08f842046f1082d32c3e995feaf928d146d3",
+  "replacements": [
+    {
+      "old_case_id": "EV2-A2-H05",
+      "old_row_sha256": "c0e031c3499a87be5a084acb52fa49a4f3bf3b9583a2a7e42e6c362e28477c78",
+      "old_scenario_family": "ev2_a2_ev2_a2_h05_reverted_card_payment",
+      "old_reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "senior_confirmed_conflict_reason": "COMPLETE_TARGET_STATE_COMPATIBLE_SAFE_CORRECTIVE_ALTERNATIVE_EXISTS",
+      "fix1b_supporting_artifact": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "sha256": "86fa10ba21f619257926a3f6c89b92168d7ea25319c69a5077dcbde8af395099"
+      },
+      "new_case_id": "EV2-A2-H05-R1",
+      "new_row_sha256": "c903e4659222555880c6b9d65d1065ec25f5cc3a7dd1d9d91ae4e49710a7911a",
+      "new_reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "authoring_provenance": "PASS_A_V2_REPLACEMENT_CANDIDATE_OUTPUT_BLIND_FROM_FROZEN_CONTRACT_DOMAIN_REQUIREMENTS_AND_FIX1B_FEASIBILITY",
+      "replacement_status": "RETIRED_CONFLICT_REPLACED_AND_FROZEN_FOR_FIX2_REVIEW"
+    },
+    {
+      "old_case_id": "EV2-A2-H06",
+      "old_row_sha256": "14b7b26230bf6bd575e421655bc66e3ac82c3380b14cf90caaa1c3e0eb12dcbb",
+      "old_scenario_family": "ev2_a2_ev2_a2_h06_cash_withdrawal_not_recognised",
+      "old_reason_family": "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE",
+      "senior_confirmed_conflict_reason": "COMPLETE_TARGET_STATE_COMPATIBLE_SAFE_CORRECTIVE_ALTERNATIVE_EXISTS",
+      "fix1b_supporting_artifact": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "sha256": "86fa10ba21f619257926a3f6c89b92168d7ea25319c69a5077dcbde8af395099"
+      },
+      "new_case_id": "EV2-A2-H06-R1",
+      "new_row_sha256": "a3bfea268b2996ab29bee84c23c709bfaf58d8696d3ddd99d717c5680f99025e",
+      "new_reason_family": "GENUINE_CONFLICT_OR_INSUFFICIENCY",
+      "authoring_provenance": "PASS_A_V2_REPLACEMENT_CANDIDATE_OUTPUT_BLIND_FROM_FROZEN_CONTRACT_DOMAIN_REQUIREMENTS_AND_FIX1B_FEASIBILITY",
+      "replacement_status": "RETIRED_CONFLICT_REPLACED_AND_FROZEN_FOR_FIX2_REVIEW"
+    },
+    {
+      "old_case_id": "EV2-A2-H08",
+      "old_row_sha256": "4265dff53dc58339d24dbe65fece4a93cf63549957bdde096aea664c6e1fc82f",
+      "old_scenario_family": "ev2_a2_ev2_a2_h08_pending_card_payment",
+      "old_reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "senior_confirmed_conflict_reason": "COMPLETE_TARGET_STATE_COMPATIBLE_SAFE_CORRECTIVE_ALTERNATIVE_EXISTS",
+      "fix1b_supporting_artifact": {
+        "path": "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json",
+        "sha256": "86fa10ba21f619257926a3f6c89b92168d7ea25319c69a5077dcbde8af395099"
+      },
+      "new_case_id": "EV2-A2-H08-R1",
+      "new_row_sha256": "47d336c3a369af113eb481aecee320d5157ef461118464f354b930f7228566c7",
+      "new_reason_family": "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED",
+      "authoring_provenance": "PASS_A_V2_REPLACEMENT_CANDIDATE_OUTPUT_BLIND_FROM_FROZEN_CONTRACT_DOMAIN_REQUIREMENTS_AND_FIX1B_FEASIBILITY",
+      "replacement_status": "RETIRED_CONFLICT_REPLACED_AND_FROZEN_FOR_FIX2_REVIEW"
+    }
+  ]
+}

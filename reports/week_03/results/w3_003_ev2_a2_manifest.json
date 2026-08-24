@@ -1,0 +1,338 @@
+{
+  "a3_authorized": false,
+  "active_artifact_sha256": {
+    "data/evaluation/w3_003_ev2_candidate.jsonl": "04c99c88926b306fa44d6169fdf22507d418311e22d491384344585bbc336431",
+    "data/evaluation/w3_003_ev2_candidate_pb1_fix1_pre_fix2b.jsonl": "7197be43ad32e88a13c3567c52f30ec7ac3e8bcdb1c1c576fbefed661ea1117d",
+    "data/evaluation/w3_003_ev2_pass_a.jsonl": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541",
+    "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl": "f70af099f9842c6d51ad8e75219b5eb8a074a88fe7a3dc4914306fe32defb1d2",
+    "data/evaluation/w3_003_ev2_pass_b_support_judgments_pb1_fix1_pre_fix2b.jsonl": "5b0a55b0d7b9e1d0aede02b4858441390d5b1945dbd0dd5689f0098304f4d209",
+    "reports/week_03/results/w3_003_ev2_a2_ambiguous_derivation.json": "66aae02b5da66f7bb09edbdcb74d8a8a37f538c756fab21dc4706ed343bc4252",
+    "reports/week_03/results/w3_003_ev2_a2_hard_abstain_proofs.json": "c66b5fb1f3ac240b5ab5b645033e28ec60af54c4df74c06d82170428d36426b7",
+    "reports/week_03/results/w3_003_ev2_a2_ineligible_evidence_audit.json": "8e16d89757d62124b0ad3165bdc42ab9d11f3a1f11179ca680fab6bb987d9207",
+    "reports/week_03/results/w3_003_ev2_a2_lineage_audit.json": "1088bce6a42bb3ae8cafdb515a518ce84f44c733b43d50a9f92bb74c5764efe4",
+    "reports/week_03/results/w3_003_ev2_a2_obligation_classification.jsonl": "db631eeb7e7e4880b12f1fecd513650f7c6e4f852e5d7d0e0bde1db33048d101",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2_blind_review_packet.jsonl": "01ceaa093f69887a4a9eb47ebaf3d5e49b87d3cfd17a45a5c8f06f67a216420c",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2_blinded_semantic_decisions.jsonl": "4292c2d4f0dd3db420ccec6fdb77f02e17edc82de01e1e33e3e44aa0a9a49092",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2a_senior_hard_adjudication.json": "bb674043d87b8edf9221595d806b6328cf69fc11a731533ae633e430d68a28ce",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2a_tiebreak_decisions.jsonl": "379ca46bc56d50af04058e9809fabbf18dc97b1f75aadf088344ede94a9765ba",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2a_tiebreak_packet.jsonl": "f2ecb40ab1691fb940a8a341fc47bd24ffc72c443b332358c70aed8210ee03e6",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2b_adjudication_summary.json": "776751d7962c339dca453eb56f0be81b1c845049a6ad1304a2084da6561aca82",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2b_final_correction_ledger.json": "ce96022302cadfbb6c4b56a7d17bf59f5d4f31a15734ac37e5d351766f96f929",
+    "reports/week_03/results/w3_003_ev2_a2_pb1_fix2b_senior_17_adjudication.json": "ead61264992a82acabeec6487659c58edd46b638aaa258ada089fe8feea42b2e",
+    "reports/week_03/results/w3_003_ev2_a2_positive_support_audit.json": "9ca17e6271c05130a9bc8e4bf6c33b4b87883a5563bd48c288d60e670d2f0b78",
+    "reports/week_03/results/w3_003_ev2_a2_safe_corrective_proofs.json": "55d12392462e5262dbede34459dc6b928c4bb2370d6d17f15d39e0c88aaff24b",
+    "reports/week_03/results/w3_003_ev2_a2_support_summary.json": "a399aa81f503cd8e8a4abffb9180ef3e0d726cd93c187044906cc1bb8db622db"
+  },
+  "candidate_inference_executed": false,
+  "ev2_consumed": false,
+  "evaluation_authorized": false,
+  "evaluation_executed": false,
+  "evaluation_package_frozen": false,
+  "fix2a_stop_history": {
+    "blind1": 22,
+    "current": 26,
+    "status": "A2_PB1_FIX2A_UNRESOLVED_THREE_WAY_SEMANTIC_CONFLICT",
+    "unresolved": 17
+  },
+  "future_ev2_r1_notebook_required": true,
+  "imported_hard_adjudicated": 33,
+  "nonhard_tiebreak_rows": 65,
+  "nonhard_tiebreak_unresolved": 0,
+  "notebook_required": false,
+  "pass_a_revision": 3,
+  "pass_a_rows": 60,
+  "pass_a_sha256": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541",
+  "pass_b_complete": true,
+  "pass_b_rows": 3120,
+  "pass_b_sha256": "f70af099f9842c6d51ad8e75219b5eb8a074a88fe7a3dc4914306fe32defb1d2",
+  "pass_c_derived": true,
+  "pass_c_rows": 60,
+  "pass_c_sha256": "04c99c88926b306fa44d6169fdf22507d418311e22d491384344585bbc336431",
+  "pre_fix2b_active_gold": {
+    "pass_b": {
+      "path": "data/evaluation/w3_003_ev2_pass_b_support_judgments_pb1_fix1_pre_fix2b.jsonl",
+      "sha256": "5b0a55b0d7b9e1d0aede02b4858441390d5b1945dbd0dd5689f0098304f4d209"
+    },
+    "pass_c": {
+      "path": "data/evaluation/w3_003_ev2_candidate_pb1_fix1_pre_fix2b.jsonl",
+      "sha256": "7197be43ad32e88a13c3567c52f30ec7ac3e8bcdb1c1c576fbefed661ea1117d"
+    }
+  },
+  "prior_history": {
+    "fix2_history": {
+      "a3_authorized": false,
+      "active_rev1_pass_b_c_not_current_gold": {
+        "data/evaluation/w3_003_ev2_candidate.jsonl": "2ac54f030ad7777fc5310c7c0a59f2ab76e2aada342720389853c9cd00c1cb7c",
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl": "9791f6e8699b70f9cec35a4d16d4baa47f41639b8428b81e07560f5fc7b0f9b0",
+        "status": "INVALID_REV1_HISTORICAL_ARTIFACTS_PENDING_REPLACEMENT_BY_INDEPENDENT_FULL_PASS_B_AFTER_SENIOR_PASS_A_V2_APPROVAL"
+      },
+      "candidate_inference_executed": false,
+      "critical_rev7_case_level_accessed": false,
+      "ev1_case_level_accessed": false,
+      "ev2_consumed": false,
+      "evaluation_authorized": false,
+      "evaluation_executed": false,
+      "evaluation_package_frozen": false,
+      "fix1b_immutable_artifact_sha256": {
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_conflict_summary.json": "d51c1af63a9746c4f7536e192a03fbcc1da7f6985cdc132a1fc79d9cf4f2523f",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json": "86fa10ba21f619257926a3f6c89b92168d7ea25319c69a5077dcbde8af395099",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl": "8dc263538c3822b45a4809d6204b1ce3a14880a8972096bf874bc0e281f2ee9b"
+      },
+      "fix2_artifact_sha256": {
+        "reports/week_03/results/w3_003_ev2_a2_fix2_pass_a_v2_audit.json": "9fd47d648cfa33f7b8152e92a5bf37f26011865180aaf218865e3f76ef33156e",
+        "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_case_review.json": "f809304aeed3726f315725c8837a20413649c4139bd4eae1e74b03cf51771c74",
+        "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_ledger.json": "87f19c02e644e958cfd84a91ddc9576d46a16edaef01ec263ac6af7a46f70512",
+        "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_support_judgments.jsonl": "92fb3aef0e253cae7aaa2a9d3b37ba670cb96497b94c48ba17d601958f1d8a7d",
+        "scripts/evaluation/week3_ev2_a2.py": "7d1da88d9344ad3cdc1f14bcabd96d105e850e311e1db7d02eacbe269fe7b498",
+        "tests/test_week3_ev2_a2.py": "ee3d511bae02efaa298d1991837dfe5cd25c7f6a759be7213a838d3de54e38e7"
+      },
+      "kb_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+      "notebook_required": false,
+      "pass_a_replacements": 3,
+      "pass_a_rev1": {
+        "bytes": 72592,
+        "path": "data/evaluation/w3_003_ev2_pass_a_rev1_pre_replacement.jsonl",
+        "preserved": true,
+        "sha256": "9ef421327ba03eb12b006e857b2abb6540d6036b27a8891a491caf3660e7b567"
+      },
+      "pass_a_revision": 2,
+      "pass_a_rows": 60,
+      "pass_a_v2": {
+        "all_57_unchanged_rows_canonical_and_raw_equal": true,
+        "bytes": 73052,
+        "distribution": {
+          "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": 6,
+          "HARD_ABSTAIN_ESCALATE": 12,
+          "SAFE_CORRECTIVE": 18,
+          "STANDARD": 24
+        },
+        "hard_reason_family_counts": {
+          "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED": 3,
+          "GENUINE_CONFLICT_OR_INSUFFICIENCY": 4,
+          "NO_APPROVED_COMPLETE_SUPPORT": 3,
+          "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE": 2
+        },
+        "path": "data/evaluation/w3_003_ev2_pass_a.jsonl",
+        "replacement_ids": [
+          "EV2-A2-H05-R1",
+          "EV2-A2-H06-R1",
+          "EV2-A2-H08-R1"
+        ],
+        "retired_ids": [
+          "EV2-A2-H05",
+          "EV2-A2-H06",
+          "EV2-A2-H08"
+        ],
+        "rows": 60,
+        "sha256": "71a353f79f3a5bbdbf8faf61b63b08f842046f1082d32c3e995feaf928d146d3",
+        "unchanged_rev1_rows": 57,
+        "unique_case_ids": 60,
+        "unique_scenario_families": 60
+      },
+      "pass_b_complete": false,
+      "pass_c_derived": false,
+      "remote_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+      "replacement_feasibility_rows": 156,
+      "status": "PASS_A_V2_REPLACEMENT_FEASIBILITY_PASS_AWAITING_SENIOR_REVIEW",
+      "structural_integrity_verified": false,
+      "task_id": "W3-003-EV2-A2-FIX2",
+      "week3_p0_passed": false,
+      "week4_authorized": false
+    },
+    "fix3_history": {
+      "a3_authorized": false,
+      "active_rev1_pass_b_c_not_current_gold": {
+        "data/evaluation/w3_003_ev2_candidate.jsonl": "2ac54f030ad7777fc5310c7c0a59f2ab76e2aada342720389853c9cd00c1cb7c",
+        "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl": "9791f6e8699b70f9cec35a4d16d4baa47f41639b8428b81e07560f5fc7b0f9b0",
+        "status": "INVALID_REV1_HISTORICAL_ARTIFACTS_NOT_CURRENT_GOLD"
+      },
+      "candidate_inference_executed": false,
+      "completeness_rule_id": "FIX3_PREREQUISITE_COMPLETE_SAFE_CORRECTIVE_V2",
+      "critical_rev7_case_level_accessed": false,
+      "ev1_case_level_accessed": false,
+      "ev2_consumed": false,
+      "evaluation_authorized": false,
+      "evaluation_executed": false,
+      "evaluation_package_frozen": false,
+      "fix1b_immutable_artifact_sha256": {
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_conflict_summary.json": "d51c1af63a9746c4f7536e192a03fbcc1da7f6985cdc132a1fc79d9cf4f2523f",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json": "86fa10ba21f619257926a3f6c89b92168d7ea25319c69a5077dcbde8af395099",
+        "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl": "8dc263538c3822b45a4809d6204b1ce3a14880a8972096bf874bc0e281f2ee9b"
+      },
+      "fix2_history": {
+        "a3_authorized": false,
+        "active_rev1_pass_b_c_not_current_gold": {
+          "data/evaluation/w3_003_ev2_candidate.jsonl": "2ac54f030ad7777fc5310c7c0a59f2ab76e2aada342720389853c9cd00c1cb7c",
+          "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl": "9791f6e8699b70f9cec35a4d16d4baa47f41639b8428b81e07560f5fc7b0f9b0",
+          "status": "INVALID_REV1_HISTORICAL_ARTIFACTS_PENDING_REPLACEMENT_BY_INDEPENDENT_FULL_PASS_B_AFTER_SENIOR_PASS_A_V2_APPROVAL"
+        },
+        "candidate_inference_executed": false,
+        "critical_rev7_case_level_accessed": false,
+        "ev1_case_level_accessed": false,
+        "ev2_consumed": false,
+        "evaluation_authorized": false,
+        "evaluation_executed": false,
+        "evaluation_package_frozen": false,
+        "fix1b_immutable_artifact_sha256": {
+          "reports/week_03/results/w3_003_ev2_a2_fix1b_conflict_summary.json": "d51c1af63a9746c4f7536e192a03fbcc1da7f6985cdc132a1fc79d9cf4f2523f",
+          "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_case_review.json": "86fa10ba21f619257926a3f6c89b92168d7ea25319c69a5077dcbde8af395099",
+          "reports/week_03/results/w3_003_ev2_a2_fix1b_hard_support_judgments.jsonl": "8dc263538c3822b45a4809d6204b1ce3a14880a8972096bf874bc0e281f2ee9b"
+        },
+        "fix2_artifact_sha256": {
+          "reports/week_03/results/w3_003_ev2_a2_fix2_pass_a_v2_audit.json": "9fd47d648cfa33f7b8152e92a5bf37f26011865180aaf218865e3f76ef33156e",
+          "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_case_review.json": "f809304aeed3726f315725c8837a20413649c4139bd4eae1e74b03cf51771c74",
+          "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_ledger.json": "87f19c02e644e958cfd84a91ddc9576d46a16edaef01ec263ac6af7a46f70512",
+          "reports/week_03/results/w3_003_ev2_a2_fix2_replacement_support_judgments.jsonl": "92fb3aef0e253cae7aaa2a9d3b37ba670cb96497b94c48ba17d601958f1d8a7d",
+          "scripts/evaluation/week3_ev2_a2.py": "7d1da88d9344ad3cdc1f14bcabd96d105e850e311e1db7d02eacbe269fe7b498",
+          "tests/test_week3_ev2_a2.py": "ee3d511bae02efaa298d1991837dfe5cd25c7f6a759be7213a838d3de54e38e7"
+        },
+        "kb_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+        "notebook_required": false,
+        "pass_a_replacements": 3,
+        "pass_a_rev1": {
+          "bytes": 72592,
+          "path": "data/evaluation/w3_003_ev2_pass_a_rev1_pre_replacement.jsonl",
+          "preserved": true,
+          "sha256": "9ef421327ba03eb12b006e857b2abb6540d6036b27a8891a491caf3660e7b567"
+        },
+        "pass_a_revision": 2,
+        "pass_a_rows": 60,
+        "pass_a_v2": {
+          "all_57_unchanged_rows_canonical_and_raw_equal": true,
+          "bytes": 73052,
+          "distribution": {
+            "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": 6,
+            "HARD_ABSTAIN_ESCALATE": 12,
+            "SAFE_CORRECTIVE": 18,
+            "STANDARD": 24
+          },
+          "hard_reason_family_counts": {
+            "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED": 3,
+            "GENUINE_CONFLICT_OR_INSUFFICIENCY": 4,
+            "NO_APPROVED_COMPLETE_SUPPORT": 3,
+            "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE": 2
+          },
+          "path": "data/evaluation/w3_003_ev2_pass_a.jsonl",
+          "replacement_ids": [
+            "EV2-A2-H05-R1",
+            "EV2-A2-H06-R1",
+            "EV2-A2-H08-R1"
+          ],
+          "retired_ids": [
+            "EV2-A2-H05",
+            "EV2-A2-H06",
+            "EV2-A2-H08"
+          ],
+          "rows": 60,
+          "sha256": "71a353f79f3a5bbdbf8faf61b63b08f842046f1082d32c3e995feaf928d146d3",
+          "unchanged_rev1_rows": 57,
+          "unique_case_ids": 60,
+          "unique_scenario_families": 60
+        },
+        "pass_b_complete": false,
+        "pass_c_derived": false,
+        "remote_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+        "replacement_feasibility_rows": 156,
+        "status": "PASS_A_V2_REPLACEMENT_FEASIBILITY_PASS_AWAITING_SENIOR_REVIEW",
+        "structural_integrity_verified": false,
+        "task_id": "W3-003-EV2-A2-FIX2",
+        "week3_p0_passed": false,
+        "week4_authorized": false
+      },
+      "fix2a_immutable_artifact_sha256": {
+        "reports/week_03/results/w3_003_ev2_a2_fix2a_conflict_summary.json": "ababae78b25ca584faa113a85b5015ca39f405f1e38ad2b91a1e587dde32055b",
+        "reports/week_03/results/w3_003_ev2_a2_fix2a_hard_safe_consistency_review.json": "57e06f67c7dc053aea7dad8b331f11f902a53aaeff140100afc460de4567b2d7",
+        "reports/week_03/results/w3_003_ev2_a2_fix2a_obligation_classification.json": "40a32d2a992a51132223bcb810984e8eb8a40e58f89ecf2b5b210a2652be24b0"
+      },
+      "fix3_artifact_sha256": {
+        "reports/week_03/results/w3_003_ev2_a2_fix3_pass_a_v3_audit.json": "5f598dee6bbbbd9a4652b815a5d0241393b156534940e65fdd53833db5c841f6",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_case_review.json": "dbe36825cb41cf4e89755de871d3ea0cba196329381778a92921ed2c4de6f1c5",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_ledger.json": "faa5d682f997315a41870c73495d41aaff19608576c5f48a56fac6062670f0af",
+        "reports/week_03/results/w3_003_ev2_a2_fix3_replacement_support_judgments.jsonl": "2f96d89bf70cef4d3e084a1a1844640ca11a11fbf562fdcc6a5220a493323ebb",
+        "scripts/evaluation/week3_ev2_a2.py": "65a4a200aaed1e31a9a43835bc984e1410021da56898d27d6647ac6af44de875",
+        "tests/test_week3_ev2_a2.py": "42faf5e90f49b39544611ef3918ed2be985cb66a85cf59052af7c20adbbec5a6"
+      },
+      "kb_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+      "notebook_required": false,
+      "pass_a_history": {
+        "rev1": {
+          "bytes": 72592,
+          "path": "data/evaluation/w3_003_ev2_pass_a_rev1_pre_replacement.jsonl",
+          "sha256": "9ef421327ba03eb12b006e857b2abb6540d6036b27a8891a491caf3660e7b567"
+        },
+        "v2": {
+          "bytes": 73052,
+          "path": "data/evaluation/w3_003_ev2_pass_a_v2_pre_fix3.jsonl",
+          "sha256": "71a353f79f3a5bbdbf8faf61b63b08f842046f1082d32c3e995feaf928d146d3"
+        },
+        "v3": {
+          "bytes": 74169,
+          "path": "data/evaluation/w3_003_ev2_pass_a.jsonl",
+          "sha256": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541"
+        }
+      },
+      "pass_a_replacements_from_v2": 5,
+      "pass_a_revision": 3,
+      "pass_a_rows": 60,
+      "pass_a_v3": {
+        "all_55_unchanged_rows_canonical_and_raw_equal": true,
+        "distribution": {
+          "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": 6,
+          "HARD_ABSTAIN_ESCALATE": 12,
+          "SAFE_CORRECTIVE": 18,
+          "STANDARD": 24
+        },
+        "hard_reason_family_counts": {
+          "ACCOUNT_SPECIFIC_DECISION_UNRESOLVED": 2,
+          "GENUINE_CONFLICT_OR_INSUFFICIENCY": 5,
+          "NO_APPROVED_COMPLETE_SUPPORT": 3,
+          "PROHIBITED_RESOLUTION_NO_COMPLETE_SAFE_ALTERNATIVE": 2
+        },
+        "replacement_ids": [
+          "EV2-A2-H03-R1",
+          "EV2-A2-H04-R1",
+          "EV2-A2-H07-R1",
+          "EV2-A2-H08-R2",
+          "EV2-A2-H09-R1"
+        ],
+        "retired_ids": [
+          "EV2-A2-H03",
+          "EV2-A2-H04",
+          "EV2-A2-H07",
+          "EV2-A2-H08-R1",
+          "EV2-A2-H09"
+        ],
+        "rows": 60,
+        "unchanged_v2_rows": 55,
+        "unique_case_ids": 60,
+        "unique_scenario_families": 60
+      },
+      "pass_b_complete": false,
+      "pass_c_derived": false,
+      "remote_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+      "replacement_feasibility_rows": 260,
+      "status": "PASS_A_V3_REPLACEMENT_FEASIBILITY_PASS_AWAITING_SENIOR_REVIEW",
+      "structural_integrity_verified": false,
+      "task_id": "W3-003-EV2-A2-FIX3",
+      "week3_p0_passed": false,
+      "week4_authorized": false
+    },
+    "invalid_rev1_history": {
+      "pass_b": {
+        "path": "data/evaluation/w3_003_ev2_pass_b_support_judgments_rev1_invalid_independence.jsonl",
+        "sha256": "9791f6e8699b70f9cec35a4d16d4baa47f41639b8428b81e07560f5fc7b0f9b0"
+      },
+      "pass_c": {
+        "path": "data/evaluation/w3_003_ev2_candidate_rev1_invalid_independence.jsonl",
+        "sha256": "2ac54f030ad7777fc5310c7c0a59f2ab76e2aada342720389853c9cd00c1cb7c"
+      }
+    }
+  },
+  "remote_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "senior_third_projection_adjudications": 17,
+  "status": "A2_FINAL_GOLD_RECONCILED_AWAITING_SENIOR_REVIEW_FOR_A3",
+  "structural_integrity_verified": false,
+  "task_id": "W3-003-EV2-A2-PB1-FIX2B",
+  "week3_p0_passed": false,
+  "week4_authorized": false
+}

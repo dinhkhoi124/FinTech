@@ -1,0 +1,702 @@
+{
+  "adjudications": [
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "authorized_active_change": true,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H01",
+      "evidence_id": "RUN_CARD_DECLINED_001#action",
+      "reason": "Declined-card runbook action is state-compatible although it does not repeat the state label.",
+      "senior_decision": "ACCEPT_BLIND_STATE_COMPATIBILITY_ONLY"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "authorized_active_change": true,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H02",
+      "evidence_id": "ESC_CASH_DECLINED_001#handoff",
+      "reason": "Declined-ATM escalation handoff is state-compatible although it does not repeat the state label.",
+      "senior_decision": "ACCEPT_BLIND_STATE_COMPATIBILITY_ONLY"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "case_id": "EV2-A2-H05-R1",
+      "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+      "reason": "Failed-transfer clauses are materially relevant context but do not support audit-record deletion; retain imported review.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "case_id": "EV2-A2-H05-R1",
+      "evidence_id": "FAQ_TRANSFER_FAILED_001#retry_boundary",
+      "reason": "Failed-transfer clauses are materially relevant context but do not support audit-record deletion; retain imported review.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "case_id": "EV2-A2-H05-R1",
+      "evidence_id": "POL_TRANSFER_FAILED_001#eligibility",
+      "reason": "Failed-transfer clauses are materially relevant context but do not support audit-record deletion; retain imported review.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "case_id": "EV2-A2-H05-R1",
+      "evidence_id": "POL_TRANSFER_FAILED_001#retry_rule",
+      "reason": "Failed-transfer clauses are materially relevant context but do not support audit-record deletion; retain imported review.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "case_id": "EV2-A2-H05-R1",
+      "evidence_id": "RUN_TRANSFER_FAILED_001#action",
+      "reason": "Failed-transfer clauses are materially relevant context but do not support audit-record deletion; retain imported review.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": true,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": false
+      },
+      "case_id": "EV2-A2-H05-R1",
+      "evidence_id": "RUN_TRANSFER_FAILED_001#checks",
+      "reason": "Failed-transfer clauses are materially relevant context but do not support audit-record deletion; retain imported review.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H06-R1",
+      "evidence_id": "ESC_CARD_REVERT_001#trigger",
+      "reason": "Both reviews establish contradiction; diagnostic dimension and wording differences are non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H06-R1",
+      "evidence_id": "FAQ_CARD_PENDING_001#answer",
+      "reason": "Both reviews establish contradiction; diagnostic dimension and wording differences are non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H06-R1",
+      "evidence_id": "POL_CARD_PENDING_001#eligibility",
+      "reason": "Both reviews establish contradiction; diagnostic dimension and wording differences are non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H06-R1",
+      "evidence_id": "POL_CARD_REVERT_002#state_rule",
+      "reason": "Both reviews establish contradiction; diagnostic dimension and wording differences are non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H06-R1",
+      "evidence_id": "RUN_CARD_PENDING_001#checks",
+      "reason": "Both reviews establish contradiction; diagnostic dimension and wording differences are non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H09-R1",
+      "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+      "reason": "Retain imported broad BANK_TRANSFER target compatibility and equivalent contradiction semantics.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H09-R1",
+      "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer",
+      "reason": "Retain imported broad BANK_TRANSFER target compatibility and equivalent contradiction semantics.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTEXTUAL_INSUFFICIENT",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H09-R1",
+      "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning",
+      "reason": "Retain imported broad BANK_TRANSFER target compatibility and equivalent contradiction semantics.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H09-R1",
+      "evidence_id": "POL_TRANSFER_DECLINED_001#eligibility",
+      "reason": "Retain imported broad BANK_TRANSFER target compatibility and equivalent contradiction semantics.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H09-R1",
+      "evidence_id": "POL_TRANSFER_RECIPIENT_001#eligibility",
+      "reason": "Retain imported broad BANK_TRANSFER target compatibility and equivalent contradiction semantics.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": false,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H09-R1",
+      "evidence_id": "RUN_TRANSFER_DECLINED_001#checks",
+      "reason": "Retain imported broad BANK_TRANSFER target compatibility and equivalent contradiction semantics.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H10",
+      "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+      "reason": "Both reviews establish explicit PENDING/FAILED contradiction; diagnostic wording is non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H10",
+      "evidence_id": "FAQ_TRANSFER_PENDING_001#answer",
+      "reason": "Both reviews establish explicit PENDING/FAILED contradiction; diagnostic wording is non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H10",
+      "evidence_id": "POL_TRANSFER_FAILED_001#eligibility",
+      "reason": "Both reviews establish explicit PENDING/FAILED contradiction; diagnostic wording is non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H10",
+      "evidence_id": "POL_TRANSFER_PENDING_002#eligibility",
+      "reason": "Both reviews establish explicit PENDING/FAILED contradiction; diagnostic wording is non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H10",
+      "evidence_id": "RUN_TRANSFER_FAILED_001#checks",
+      "reason": "Both reviews establish explicit PENDING/FAILED contradiction; diagnostic wording is non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H10",
+      "evidence_id": "RUN_TRANSFER_PENDING_001#checks",
+      "reason": "Both reviews establish explicit PENDING/FAILED contradiction; diagnostic wording is non-material.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H11",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "reason": "Both reviews establish no-cash-dispensed versus CASH_DISPENSED contradiction.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H11",
+      "evidence_id": "POL_CASH_DECLINED_001#eligibility",
+      "reason": "Both reviews establish no-cash-dispensed versus CASH_DISPENSED contradiction.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H12",
+      "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+      "reason": "Retain imported contradiction and target semantics; sender completion conflicts with simultaneous PENDING_SENDER.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H12",
+      "evidence_id": "FAQ_TRANSFER_PENDING_001#answer",
+      "reason": "Retain imported contradiction and target semantics; sender completion conflicts with simultaneous PENDING_SENDER.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H12",
+      "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning",
+      "reason": "Retain imported contradiction and target semantics; sender completion conflicts with simultaneous PENDING_SENDER.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H12",
+      "evidence_id": "POL_TRANSFER_PENDING_002#eligibility",
+      "reason": "Retain imported contradiction and target semantics; sender completion conflicts with simultaneous PENDING_SENDER.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H12",
+      "evidence_id": "POL_TRANSFER_RECIPIENT_001#eligibility",
+      "reason": "Retain imported contradiction and target semantics; sender completion conflicts with simultaneous PENDING_SENDER.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    },
+    {
+      "after": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "authorized_active_change": false,
+      "before": {
+        "dimension_match": true,
+        "obligations_covered": [],
+        "state_match": false,
+        "support_class": "CONTRADICTION",
+        "target_match": true
+      },
+      "case_id": "EV2-A2-H12",
+      "evidence_id": "RUN_TRANSFER_PENDING_001#checks",
+      "reason": "Retain imported contradiction and target semantics; sender completion conflicts with simultaneous PENDING_SENDER.",
+      "senior_decision": "RETAIN_IMPORTED_JUDGMENT"
+    }
+  ],
+  "imported_hard_active_row_changes": 2,
+  "imported_hard_senior_adjudicated": 33,
+  "imported_hard_unresolved": 0,
+  "source_fix2_status": "A2_PB1_FIX2_IMPORTED_HARD_SEMANTIC_CONFLICT",
+  "task_id": "W3-003-EV2-A2-PB1-FIX2A"
+}

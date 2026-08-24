@@ -1,0 +1,1484 @@
+{
+  "fix1_corrections_v2_confirmed": 14,
+  "fix1_corrections_v2_tiebreak_required": 9,
+  "gold_impact_projection_v1": {
+    "difference_pairs": [
+      {
+        "case_id": "EV2-A2-A01",
+        "evidence_id": "FAQ_CARD_DECLINED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A01",
+        "evidence_id": "FAQ_CASH_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A01",
+        "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A01",
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A01",
+        "evidence_id": "FAQ_TRANSFER_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A01",
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "FAQ_CARD_DECLINED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "FAQ_CARD_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "FAQ_CASH_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "FAQ_TRANSFER_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning"
+      },
+      {
+        "case_id": "EV2-A2-A02",
+        "evidence_id": "POL_CARD_REVERT_002#state_rule"
+      },
+      {
+        "case_id": "EV2-A2-A03",
+        "evidence_id": "FAQ_CASH_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "POL_TRANSFER_DECLINED_001#eligibility"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "POL_TRANSFER_FAILED_001#eligibility"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "POL_TRANSFER_RECIPIENT_001#eligibility"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "RUN_TRANSFER_DECLINED_001#checks"
+      },
+      {
+        "case_id": "EV2-A2-A04",
+        "evidence_id": "RUN_TRANSFER_FAILED_001#checks"
+      },
+      {
+        "case_id": "EV2-A2-A06",
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate"
+      },
+      {
+        "case_id": "EV2-A2-C06",
+        "evidence_id": "ESC_CASH_UNRECOG_001#immediate_trigger"
+      },
+      {
+        "case_id": "EV2-A2-C06",
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff"
+      },
+      {
+        "case_id": "EV2-A2-C06",
+        "evidence_id": "FAQ_CASH_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-C06",
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions"
+      },
+      {
+        "case_id": "EV2-A2-C06",
+        "evidence_id": "POL_CASH_UNRECOG_001#security_rule"
+      },
+      {
+        "case_id": "EV2-A2-C06",
+        "evidence_id": "RUN_CASH_UNRECOG_002#safe_handoff"
+      },
+      {
+        "case_id": "EV2-A2-C07",
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-C08",
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-C08",
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff"
+      },
+      {
+        "case_id": "EV2-A2-C08",
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions"
+      },
+      {
+        "case_id": "EV2-A2-C08",
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate"
+      },
+      {
+        "case_id": "EV2-A2-C12",
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#handoff"
+      },
+      {
+        "case_id": "EV2-A2-C12",
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-C12",
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#current_window"
+      },
+      {
+        "case_id": "EV2-A2-C13",
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-C13",
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#current_window"
+      },
+      {
+        "case_id": "EV2-A2-C16",
+        "evidence_id": "FAQ_TRANSFER_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-C17",
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-C17",
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff"
+      },
+      {
+        "case_id": "EV2-A2-C17",
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions"
+      },
+      {
+        "case_id": "EV2-A2-C17",
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate"
+      },
+      {
+        "case_id": "EV2-A2-H01",
+        "evidence_id": "RUN_CARD_DECLINED_001#action"
+      },
+      {
+        "case_id": "EV2-A2-H02",
+        "evidence_id": "ESC_CASH_DECLINED_001#handoff"
+      },
+      {
+        "case_id": "EV2-A2-S07",
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-S11",
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-S11",
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff"
+      },
+      {
+        "case_id": "EV2-A2-S11",
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions"
+      },
+      {
+        "case_id": "EV2-A2-S11",
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate"
+      },
+      {
+        "case_id": "EV2-A2-S12",
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-S12",
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff"
+      },
+      {
+        "case_id": "EV2-A2-S19",
+        "evidence_id": "POL_TRANSFER_PENDING_002#current_window"
+      },
+      {
+        "case_id": "EV2-A2-S20",
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger"
+      },
+      {
+        "case_id": "EV2-A2-S22",
+        "evidence_id": "FAQ_CARD_PENDING_001#answer"
+      },
+      {
+        "case_id": "EV2-A2-S23",
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger"
+      }
+    ],
+    "differences": 58,
+    "imported_hard": 2,
+    "matches": 456,
+    "non_hard": 56
+  },
+  "original_exact_differences": 284,
+  "semantic_projection_v2": {
+    "difference_rows": [
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A01",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CARD_DECLINED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A01",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A01",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A01",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A01",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A01",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CARD_DECLINED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CARD_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-A02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_CARD_REVERT_002#state_rule",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-A03",
+        "current_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "STOP_ORDINARY_HANDLING_IF_UNRECOGNIZED"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_TRANSFER_DECLINED_001#eligibility",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_TRANSFER_FAILED_001#eligibility",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_TRANSFER_RECIPIENT_001#eligibility",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "RUN_TRANSFER_DECLINED_001#checks",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-A04",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "RUN_TRANSFER_FAILED_001#checks",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "TRIGGER_SECURITY_PATH_IF_DENIED"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-A06",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-C02",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "RUN_CARD_DECLINED_001#checks",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-C04",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-C05",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-C06",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_UNRECOG_001#immediate_trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-C06",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C06",
+        "current_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "ASK_ATM_RECOGNITION_GATE"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-C06",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-C06",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_CASH_UNRECOG_001#security_rule",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-C06",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "RUN_CASH_UNRECOG_002#safe_handoff",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-C07",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-C08",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C08",
+        "current_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C08",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C08",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "OPEN_MASKED_TRACE",
+            "PROVIDE_SAFE_RECIPIENT_HANDOFF"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C12",
+        "current_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "PROVIDE_SAFE_RECIPIENT_HANDOFF"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#handoff",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C12",
+        "current_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "PROVIDE_SAFE_RECIPIENT_HANDOFF"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "PROVIDE_SAFE_RECIPIENT_HANDOFF"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C12",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#current_window",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "STATE_RECIPIENT_POSTING_WINDOW"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C13",
+        "current_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "PROVIDE_SAFE_RECIPIENT_HANDOFF",
+            "STATE_RECIPIENT_POSTING_WINDOW"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "PROVIDE_SAFE_RECIPIENT_HANDOFF",
+            "STATE_RECIPIENT_POSTING_WINDOW"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C13",
+        "current_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "STATE_RECIPIENT_POSTING_WINDOW"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#current_window",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-C14",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "RUN_CARD_DECLINED_001#checks",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "CONFIRM_PENDING_TRANSFER_STATE"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C16",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-C17",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "PROVIDE_SAFE_MASKED_SECURITY_HANDOFF"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C17",
+        "current_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "PROVIDE_SAFE_MASKED_SECURITY_HANDOFF",
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C17",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-C17",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-H01",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "evidence_id": "RUN_CARD_DECLINED_001#action",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-H02",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#handoff",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "IRRELEVANT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-H05-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "IRRELEVANT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-H05-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "evidence_id": "FAQ_TRANSFER_FAILED_001#retry_boundary",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "IRRELEVANT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-H05-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "evidence_id": "POL_TRANSFER_FAILED_001#eligibility",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "IRRELEVANT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-H05-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "evidence_id": "POL_TRANSFER_FAILED_001#retry_rule",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "IRRELEVANT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-H05-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "evidence_id": "RUN_TRANSFER_FAILED_001#action",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "IRRELEVANT",
+          false,
+          true
+        ],
+        "case_id": "EV2-A2-H05-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          true
+        ],
+        "evidence_id": "RUN_TRANSFER_FAILED_001#checks",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-H09-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          false,
+          false
+        ],
+        "case_id": "EV2-A2-H09-R1",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-H12",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+        "imported_hard": true
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-S03",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "RUN_CARD_DECLINED_001#checks",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-S04",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "RUN_CARD_DECLINED_001#checks",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "STATE_ATM_DECLINE_ELIGIBILITY"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S07",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-S07",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-S08",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "FAQ_CASH_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-S11",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "PROVIDE_SAFE_MASKED_HANDOFF"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S11",
+        "current_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "PROVIDE_SAFE_MASKED_HANDOFF",
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S11",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S11",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "RUN_CASH_UNRECOG_002#recognition_gate",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-S12",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S12",
+        "current_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "STATE_PROHIBITED_CREDENTIAL_COLLECTION"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "ROUTE_MASKED_PENDING_REVIEW",
+            "STATE_PENDING_WINDOW"
+          ],
+          true,
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S19",
+        "current_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "STATE_PENDING_WINDOW"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "POL_TRANSFER_PENDING_002#current_window",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S20",
+        "current_projection": [
+          "COMPLETE_SUPPORT",
+          [
+            "DEFINE_COMPLETED_SENDER_MISSING_RECIPIENT_CREDIT"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "case_id": "EV2-A2-S22",
+        "current_projection": [
+          "PARTIAL_SUPPORT",
+          [
+            "CONFIRM_PENDING_CARD_STATE"
+          ],
+          true,
+          true,
+          true
+        ],
+        "evidence_id": "FAQ_CARD_PENDING_001#answer",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          false
+        ],
+        "case_id": "EV2-A2-S22",
+        "current_projection": [
+          "CONTRADICTION"
+        ],
+        "evidence_id": "RUN_CARD_DECLINED_001#checks",
+        "imported_hard": false
+      },
+      {
+        "blind1_projection": [
+          "CONTRADICTION"
+        ],
+        "case_id": "EV2-A2-S23",
+        "current_projection": [
+          "CONTEXTUAL_INSUFFICIENT",
+          true,
+          true
+        ],
+        "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+        "imported_hard": false
+      }
+    ],
+    "differences": 76,
+    "imported_hard": 11,
+    "matches": 438,
+    "non_hard": 65
+  },
+  "senior_hard_adjudicated": 33,
+  "task_id": "W3-003-EV2-A2-PB1-FIX2A",
+  "three_way_blind1_wins_tiebreak_selected": 22,
+  "three_way_current_wins": 26,
+  "three_way_resolved": 48,
+  "three_way_unresolved": 17,
+  "tiebreak_rows": 65
+}

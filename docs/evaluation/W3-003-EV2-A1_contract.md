@@ -1,14 +1,14 @@
 # W3-003-EV2-A1 — final EV2 product-gate preregistration
 
-This is the frozen A1 contract for a single new independent post-RM2 product-gate evaluation. For the authorized R2 development recheck it evaluates the exact Senior-approved TB1 working-tree candidate, not a future worktree HEAD. The matching machine-readable authority is `configs/evaluation/w3_003_ev2_contract.json`.
+This is the frozen A1 contract for a single new independent post-RM2 product-gate evaluation. A2 authoring is bound to the exact Senior-approved, remotely published TB1 and A1-R2 candidate, not a future worktree HEAD. The matching machine-readable authority is `configs/evaluation/w3_003_ev2_contract.json`.
 
 ## Candidate and lifecycle boundary
 
-The repository baseline is RM2 publication `cd97de602140e334ec499e8dfa27fa08ec1a6260`, with remote/lifecycle closure `89b62545915f6e2a9ac63f64f7a8fccc47145388`. The A1-R2 candidate is `SENIOR_APPROVED_TB1_WORKING_TREE_CANDIDATE`: its routing source is SHA-256 `f13e3f4b0f1dac22fb1a12d9a6094bf63c52b463b2b2b6325b3c3536908beea5`, while the other four production identities and all frozen runtime inputs remain bound in the machine-readable contract. The candidate is byte-frozen for this recheck but is not committed or pushed.
+The authoritative candidate commit and remote main are `8492659a50fe00f066f9f64d8759d544356b3a41` (`fix(week3): publish TB1 and freeze A1 precheck`). TB1 and A1-R2 are Senior approved, committed, pushed, and remote verified. The routing source remains SHA-256 `f13e3f4b0f1dac22fb1a12d9a6094bf63c52b463b2b2b6325b3c3536908beea5`; the other four production identities and frozen runtime inputs remain bound in the machine-readable contract. A2 gold/support authoring is authorized, while evaluation remains unauthorized and unexecuted.
 
-EV1 and Critical Eval Rev7 remain consumed/immutable. This A1 path has no EV1/EV2 case loader and must not read case-level consumed material. It may use only non-consumed development material or newly authored development-only fixtures. It does not author EV2 queries, does not run EV2 inference, and does not authorize A2 or E1.
+EV1 and Critical Eval Rev7 remain consumed/immutable. This A1 path has no consumed-case loader and must not read case-level consumed material. It does not author EV2 queries or run EV2 inference. It authorizes A2 authoring only, not A3, package freeze, or E1.
 
-The authorized A1-R2 development-only PRIMARY and one REPRODUCTION passed 15/15 with semantic determinism and zero hard counters. Lifecycle flags are `candidate_identity_bound=true`, `candidate_frozen=true`, `ev2_contract_preregistered=true`, `dev_mutation_precheck_required=true`, `dev_mutation_precheck_passed=true`, `ev2_cases_authored=false`, `evaluation_package_frozen=false`, `evaluation_authorized=false`, `evaluation_executed=false`, `ev2_consumed=false`, `week3_p0_passed=false`, and `week4_authorized=false`.
+The authorized A1-R2 development-only PRIMARY and one REPRODUCTION passed 15/15 with semantic determinism and zero hard counters. Lifecycle flags at the A2 authorization boundary are `candidate_identity_bound=true`, `candidate_frozen=true`, `ev2_contract_preregistered=true`, `dev_mutation_precheck_required=true`, `dev_mutation_precheck_passed=true`, `A2_authoring_authorized=true`, `ev2_cases_authored=false`, `evaluation_package_frozen=false`, `structural_integrity_verified=false`, `evaluation_authorized=false`, `evaluation_executed=false`, `ev2_consumed=false`, `week3_p0_passed=false`, and `week4_authorized=false`.
 
 ## Product contract
 

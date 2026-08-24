@@ -1,0 +1,63 @@
+{
+  "a1_dev_family_collisions": {
+    "source": "data\\evaluation\\w3_003_ev2_dev_mutation_precheck.jsonl",
+    "source_fields": [
+      "fixture_id",
+      "dev_scenario_family",
+      "eligible_for_ev2",
+      "consumed_evaluation_source"
+    ],
+    "status": "ESTABLISHED",
+    "value": 0
+  },
+  "candidate_inference_executed": false,
+  "candidate_output_used": false,
+  "consumed_per_query_collision_status": {
+    "reason": "CONSUMED_CASE_LEVEL_FRESHNESS_LIMITATION: aggregate artifacts do not expose a reusable per-query fingerprint comparison surface.",
+    "status": "NOT_ESTABLISHED_PENDING_A3_FINGERPRINT_ONLY_AUDIT"
+  },
+  "critical_rev7_case_level_accessed": false,
+  "direct_kb_sentence_copies": {
+    "source": [
+      "data\\evaluation\\w3_003_ev2_pass_a.jsonl",
+      "data\\kb\\kb_v1.jsonl"
+    ],
+    "status": "ESTABLISHED",
+    "value": 0
+  },
+  "ev1_case_level_accessed": false,
+  "exact_duplicate_queries": {
+    "source": "data\\evaluation\\w3_003_ev2_pass_a.jsonl",
+    "status": "ESTABLISHED",
+    "value": 0
+  },
+  "max_internal_query_jaccard": {
+    "case_ids": [
+      "EV2-A2-S03",
+      "EV2-A2-S04"
+    ],
+    "source": "data\\evaluation\\w3_003_ev2_pass_a.jsonl",
+    "status": "ESTABLISHED",
+    "value": 0.3157894736842105
+  },
+  "normalized_duplicate_queries": {
+    "source": "data\\evaluation\\w3_003_ev2_pass_a.jsonl",
+    "status": "ESTABLISHED",
+    "value": 0
+  },
+  "rm2_dev_template_reuse": {
+    "reason": "No explicitly approved RM2 per-template fingerprint registry was identified; no zero claim is made.",
+    "status": "NOT_ESTABLISHED"
+  },
+  "task_id": "W3-003-EV2-A2-PB1",
+  "unique_case_ids": {
+    "source": "data\\evaluation\\w3_003_ev2_pass_a.jsonl",
+    "status": "ESTABLISHED",
+    "value": 60
+  },
+  "unique_scenario_families": {
+    "source": "data\\evaluation\\w3_003_ev2_pass_a.jsonl",
+    "status": "ESTABLISHED",
+    "value": 60
+  }
+}

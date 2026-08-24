@@ -1,0 +1,53 @@
+{
+  "artifact_sha256": {
+    "data/evaluation/w3_003_ev2_candidate.jsonl": "2ac54f030ad7777fc5310c7c0a59f2ab76e2aada342720389853c9cd00c1cb7c",
+    "data/evaluation/w3_003_ev2_pass_a.jsonl": "9ef421327ba03eb12b006e857b2abb6540d6036b27a8891a491caf3660e7b567",
+    "data/evaluation/w3_003_ev2_pass_b_support_judgments.jsonl": "9791f6e8699b70f9cec35a4d16d4baa47f41639b8428b81e07560f5fc7b0f9b0",
+    "reports/week_03/results/w3_003_ev2_a2_lineage_audit.json": "9cf54a49b95190cc07ece10ddb99cc85c6f3066009ca280bed73de86ff4ab44b",
+    "reports/week_03/results/w3_003_ev2_a2_support_summary.json": "94e7e136bb6977198a5b8b8813f5489de0e13482eb97f5e71549e5301687449e"
+  },
+  "authoring_source_sha256": {
+    "configs/evaluation/w3_003_ev2_contract.json": "62b763b34733bb5f92ee1087305a35a15744a320fffa4dd3cd79211e96eabd9c",
+    "data/kb/kb_v1.jsonl": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "scripts/evaluation/week3_ev2_a2.py": "d93b750e016c647c0f6e6f07346b43e30a419f8ac5b3d45a2e2cab21b2905009",
+    "tests/test_week3_ev2_a2.py": "f695b72566836a753ff3d74d56f0cab893681174f76e076a877d98da90a82d01"
+  },
+  "candidate_inference_executed": false,
+  "candidate_source_hashes": {
+    "src/payresolve_ai/generation/pipeline_v3.py": "832efe715586fd50f24c6c1a2bfb5969dc60f9fb870998d3b3c01be0df270058",
+    "src/payresolve_ai/generation/red1_verification.py": "95442b9c7776d326f32e4fb7cf0ab6298b642580a08ebc75207179e9da110f3a",
+    "src/payresolve_ai/generation/routing_v3.py": "f13e3f4b0f1dac22fb1a12d9a6094bf63c52b463b2b2b6325b3c3536908beea5",
+    "src/payresolve_ai/generation/support_v2.py": "1f354bb160d3c75891dc2c004734fdfdf2e6650475c172ffb7e029f6cb8f09c9",
+    "src/payresolve_ai/generation/targeted_extractive.py": "e7a1a8af4b2b89d6652348ea3267d2ace99ad7d64583dfaf4d77553ce8fa27ea"
+  },
+  "distribution": {
+    "AMBIGUOUS_OR_PARTIAL_SAFE_STOP": 6,
+    "HARD_ABSTAIN_ESCALATE": 12,
+    "SAFE_CORRECTIVE": 18,
+    "STANDARD": 24
+  },
+  "eligible_sections_per_case": 52,
+  "ev2_cases_authored": true,
+  "ev2_consumed": false,
+  "evaluation_authorized": false,
+  "evaluation_executed": false,
+  "evaluation_package_frozen": false,
+  "notebook_required": false,
+  "remote_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "row_counts": {
+    "pass_a": 60,
+    "pass_b": 3120,
+    "pass_c": 60
+  },
+  "runtime_input_hashes": {
+    "configs/generation/banking_support_lexicon_v2.json": "156314762b13f55437d947f72f4a8bd2d12943c3843292efffbc5ae59a2e1ef8",
+    "configs/generation/grounded_pipeline_v3.json": "bca279ea11feffbde8b3fa569c3ea2a076d94664f6aa4e473a770b19c3428d09",
+    "data/kb/kb_v1.jsonl": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4"
+  },
+  "status": "AUTHORING_COMPLETE_AWAITING_INDEPENDENT_SENIOR_REVIEW_AND_A3_INTEGRITY",
+  "structural_integrity_verified": false,
+  "task_id": "W3-003-EV2-A2",
+  "total_support_judgments": 3120,
+  "week3_p0_passed": false,
+  "week4_authorized": false
+}

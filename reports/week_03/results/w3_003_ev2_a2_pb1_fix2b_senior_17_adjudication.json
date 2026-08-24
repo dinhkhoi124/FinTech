@@ -1,0 +1,442 @@
+{
+  "additional_semantic_reviewer_used": false,
+  "adjudications": [
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        false,
+        false
+      ],
+      "case_id": "EV2-A2-A01",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_CARD_DECLINED_001#answer",
+      "final_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "reason": "Unspecified payment entity and failure state are unresolved bindings, not specific alternatives contradicted by the section; the contextual example does not satisfy SAFE_STOP or provide positive factual support.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-001",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        false,
+        false
+      ],
+      "case_id": "EV2-A2-A01",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "final_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "reason": "Unspecified payment entity and failure state are unresolved bindings, not specific alternatives contradicted by the section; the contextual example does not satisfy SAFE_STOP or provide positive factual support.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-002",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        false,
+        false
+      ],
+      "case_id": "EV2-A2-A01",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_TRANSFER_DECLINED_001#answer",
+      "final_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "reason": "Unspecified payment entity and failure state are unresolved bindings, not specific alternatives contradicted by the section; the contextual example does not satisfy SAFE_STOP or provide positive factual support.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-003",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        false,
+        false
+      ],
+      "case_id": "EV2-A2-A01",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_TRANSFER_FAILED_001#answer",
+      "final_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "reason": "Unspecified payment entity and failure state are unresolved bindings, not specific alternatives contradicted by the section; the contextual example does not satisfy SAFE_STOP or provide positive factual support.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-004",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        false,
+        false
+      ],
+      "case_id": "EV2-A2-A01",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_TRANSFER_PENDING_001#answer",
+      "final_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "reason": "Unspecified payment entity and failure state are unresolved bindings, not specific alternatives contradicted by the section; the contextual example does not satisfy SAFE_STOP or provide positive factual support.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-005",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        false,
+        false
+      ],
+      "case_id": "EV2-A2-A01",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#meaning",
+      "final_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "reason": "Unspecified payment entity and failure state are unresolved bindings, not specific alternatives contradicted by the section; the contextual example does not satisfy SAFE_STOP or provide positive factual support.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-006",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-C02",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "RUN_CARD_DECLINED_001#checks",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "Immediate merchant-card refusal is explicitly separated from pending authorization.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-025",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-C04",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "The section is PENDING-only while the case requires DECLINED.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-026",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-C05",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "The section is PENDING-only while the case requires DECLINED.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-027",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTRADICTION"
+      ],
+      "case_id": "EV2-A2-C06",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "BLIND1",
+      "evidence_id": "ESC_CASH_UNRECOG_001#immediate_trigger",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "Explicit NOT_RECOGNIZED conflicts with required RECOGNIZED.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-028",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTRADICTION"
+      ],
+      "case_id": "EV2-A2-C06",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "TIEBREAK_UNIQUE",
+      "evidence_id": "POL_CASH_UNRECOG_001#prohibited_actions",
+      "final_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "reason": "The credential-prohibition clause is safety-relevant but neither establishes the recognition gate or pending-ATM window nor states an explicit contradictory fact.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-031",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTRADICTION"
+      ],
+      "case_id": "EV2-A2-C06",
+      "current_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        true
+      ],
+      "decision_source": "BLIND1",
+      "evidence_id": "POL_CASH_UNRECOG_001#security_rule",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "Customer denial or non-recognition conflicts with required RECOGNIZED.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-032",
+      "tiebreak_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-C14",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "RUN_CARD_DECLINED_001#checks",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "Immediate decline is explicitly separate from pending authorization.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-044",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-S03",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "RUN_CARD_DECLINED_001#checks",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "The declined-card state differs from the requested PENDING state.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-050",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-S04",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "RUN_CARD_DECLINED_001#checks",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "Declined-card checks conflict with the required PENDING state.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-051",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-S07",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "The evidence is PENDING-only while the case requires DECLINED.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-053",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    },
+    {
+      "blind1_projection": [
+        "CONTEXTUAL_INSUFFICIENT",
+        true,
+        false
+      ],
+      "case_id": "EV2-A2-S08",
+      "current_projection": [
+        "CONTRADICTION"
+      ],
+      "decision_source": "CURRENT",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "final_projection": [
+        "CONTRADICTION"
+      ],
+      "reason": "The evidence is PENDING-only while the case requires DECLINED.",
+      "resolution": "SENIOR_THIRD_PROJECTION_ADJUDICATION",
+      "review_id": "FIX2A-TIEBREAK-054",
+      "tiebreak_projection": [
+        "IRRELEVANT",
+        true,
+        false
+      ]
+    }
+  ],
+  "senior_verdict": "APPROVE_FINAL_RECONCILIATION",
+  "task_id": "W3-003-EV2-A2-PB1-FIX2B",
+  "third_projection_senior_adjudicated": 17
+}

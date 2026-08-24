@@ -1,0 +1,97 @@
+{
+  "audited_rows": 514,
+  "c09_outcome": {
+    "rows": [
+      {
+        "after": "PARTIAL_SUPPORT",
+        "before": "PARTIAL_SUPPORT",
+        "evidence_id": "FAQ_TRANSFER_DECLINED_001#safe_message",
+        "obligations_after": [
+          "PROVIDE_SAFE_DECLINE_MESSAGE"
+        ]
+      },
+      {
+        "after": "PARTIAL_SUPPORT",
+        "before": "COMPLETE_SUPPORT",
+        "evidence_id": "POL_TRANSFER_DECLINED_001#review_rule",
+        "obligations_after": [
+          "PROVIDE_MASKED_REVIEW"
+        ]
+      },
+      {
+        "after": "PARTIAL_SUPPORT",
+        "before": "COMPLETE_SUPPORT",
+        "evidence_id": "RUN_TRANSFER_DECLINED_001#action",
+        "obligations_after": [
+          "PROVIDE_MASKED_REVIEW"
+        ]
+      }
+    ],
+    "semantic_conclusion": "The safe-message FAQ supplies the customer-facing message; policy/runbook review clauses supply masked review only."
+  },
+  "confirmed_senior_s19_issue": true,
+  "corrected_count": 23,
+  "correction_counts_by_case": {
+    "EV2-A2-A06": 3,
+    "EV2-A2-C05": 1,
+    "EV2-A2-C07": 2,
+    "EV2-A2-C08": 2,
+    "EV2-A2-C09": 2,
+    "EV2-A2-C12": 1,
+    "EV2-A2-C13": 1,
+    "EV2-A2-C17": 2,
+    "EV2-A2-S11": 2,
+    "EV2-A2-S12": 2,
+    "EV2-A2-S14": 1,
+    "EV2-A2-S19": 1,
+    "EV2-A2-S20": 1,
+    "EV2-A2-S21": 1,
+    "EV2-A2-S23": 1
+  },
+  "correction_counts_by_evidence_document": {
+    "ESC_CASH_DECLINED_001": 7,
+    "ESC_CASH_UNRECOG_001": 1,
+    "ESC_TRANSFER_RECIPIENT_001": 3,
+    "FAQ_CASH_PENDING_001": 6,
+    "FAQ_TRANSFER_RECIPIENT_002": 1,
+    "POL_TRANSFER_DECLINED_001": 1,
+    "RUN_CASH_UNRECOG_002": 1,
+    "RUN_TRANSFER_DECLINED_001": 2,
+    "RUN_TRANSFER_PENDING_001": 1
+  },
+  "correction_counts_by_new_class": {
+    "COMPLETE_SUPPORT": 3,
+    "CONTEXTUAL_INSUFFICIENT": 12,
+    "PARTIAL_SUPPORT": 8
+  },
+  "correction_counts_by_old_class": {
+    "COMPLETE_SUPPORT": 7,
+    "CONTEXTUAL_INSUFFICIENT": 3,
+    "CONTRADICTION": 11,
+    "PARTIAL_SUPPORT": 2
+  },
+  "imported_hard_audit_status": "PASS",
+  "imported_hard_conflict_count": 0,
+  "imported_hard_nonirrelevant_rows_reviewed": 60,
+  "pass_a_sha256": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541",
+  "pass_b_post_fix_sha256": "5b0a55b0d7b9e1d0aede02b4858441390d5b1945dbd0dd5689f0098304f4d209",
+  "pass_c_post_fix_sha256": "7197be43ad32e88a13c3567c52f30ec7ac3e8bcdb1c1c576fbefed661ea1117d",
+  "post_fix_support_class_counts": {
+    "COMPLETE_SUPPORT": 66,
+    "CONTEXTUAL_INSUFFICIENT": 205,
+    "CONTRADICTION": 186,
+    "IRRELEVANT": 2606,
+    "PARTIAL_SUPPORT": 57
+  },
+  "reviewed_old_support_class_counts": {
+    "COMPLETE_SUPPORT": 70,
+    "CONTEXTUAL_INSUFFICIENT": 196,
+    "CONTRADICTION": 197,
+    "PARTIAL_SUPPORT": 51
+  },
+  "s19_corrected_obligations_covered": [],
+  "semantic_audit_decision_sha256": "601fad7b92db7086e5d5efe1bc39cf0fff899af8c99c85aa9c220ac71b73fb8d",
+  "status": "PB1_FIX1_SEMANTIC_AUDIT_PASS_AWAITING_SENIOR_REVIEW_AND_A3",
+  "task_id": "W3-003-EV2-A2-PB1-FIX1",
+  "unchanged_count": 491
+}

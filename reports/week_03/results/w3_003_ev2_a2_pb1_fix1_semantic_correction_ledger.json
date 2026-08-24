@@ -1,0 +1,659 @@
+{
+  "audited_rows": 514,
+  "correction_count": 23,
+  "corrections": [
+    {
+      "case_id": "EV2-A2-A06",
+      "evidence_id": "ESC_CASH_UNRECOG_001#safe_handoff",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "TRIGGER_SECURITY_PATH_IF_DENIED"
+      ],
+      "old_quote_map": {
+        "TRIGGER_SECURITY_PATH_IF_DENIED": [
+          "Collect only a masked event reference, never credentials, and route to the fictional security queue without delaying for ordinary ATM troubleshooting."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "COMPLETE_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "The clause describes a masked security handoff but does not state the recognition-denial condition that triggers the path.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-A06",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "TRIGGER_SECURITY_PATH_IF_DENIED"
+      ],
+      "new_quote_map": {
+        "TRIGGER_SECURITY_PATH_IF_DENIED": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "COMPLETE_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {},
+      "old_state_match": true,
+      "old_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly says non-recognition requires immediate security handling, which entails the conditional security-path trigger.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-A06",
+      "evidence_id": "RUN_CASH_UNRECOG_002#safe_handoff",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "TRIGGER_SECURITY_PATH_IF_DENIED"
+      ],
+      "old_quote_map": {
+        "TRIGGER_SECURITY_PATH_IF_DENIED": [
+          "Record a masked synthetic event reference, never request a PIN or one-time code, and use the approved unrecognized-withdrawal escalation guide immediately."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "COMPLETE_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "The clause gives the immediate handoff action but does not entail the conditional IF-DENIED trigger in the recognition-unknown case.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C05",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "CONFIRM_ATM_DECLINE_ELIGIBILITY"
+      ],
+      "new_quote_map": {
+        "CONFIRM_ATM_DECLINE_ELIGIBILITY": [
+          "Use after two recognized ATM refusals in one fictional day, provided no cash was dispensed. Non-recognition uses the security guide instead."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {},
+      "old_state_match": true,
+      "old_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "old_target_match": true,
+      "semantic_reason": "The trigger expressly requires recognized ATM refusals and no cash dispensed, entailing the eligibility checks but not the masked handoff.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C07",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use after two recognized ATM refusals in one fictional day, provided no cash was dispensed. Non-recognition uses the security guide instead."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly redirects non-recognition to the security guide, so it is compatible context rather than a contradiction; it does not itself entail the case's factual obligation.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C07",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The non-recognition branch is relevant to security handling but provides neither a masked reference nor a handoff destination.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C08",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use after two recognized ATM refusals in one fictional day, provided no cash was dispensed. Non-recognition uses the security guide instead."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly redirects non-recognition to the security guide, so it is compatible context rather than a contradiction; it does not itself entail the case's factual obligation.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C08",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+      ],
+      "new_quote_map": {
+        "TRIGGER_IMMEDIATE_SECURITY_ESCALATION": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "COMPLETE_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The clause's non-recognition branch explicitly requires immediate security handling.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C09",
+      "evidence_id": "POL_TRANSFER_DECLINED_001#review_rule",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "PROVIDE_MASKED_REVIEW"
+      ],
+      "new_quote_map": {
+        "PROVIDE_MASKED_REVIEW": [
+          "After two recognized declines within one fictional day, route the masked case reference for review without exposing internal refusal logic."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "PROVIDE_SAFE_DECLINE_MESSAGE",
+        "PROVIDE_MASKED_REVIEW"
+      ],
+      "old_quote_map": {
+        "PROVIDE_MASKED_REVIEW": [
+          "After two recognized declines within one fictional day, route the masked case reference for review without exposing internal refusal logic."
+        ],
+        "PROVIDE_SAFE_DECLINE_MESSAGE": [
+          "After two recognized declines within one fictional day, route the masked case reference for review without exposing internal refusal logic."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "COMPLETE_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "The clause routes a masked review after the threshold but supplies no customer-facing decline message.",
+      "senior_triggered_finding": true
+    },
+    {
+      "case_id": "EV2-A2-C09",
+      "evidence_id": "RUN_TRANSFER_DECLINED_001#action",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "PROVIDE_MASKED_REVIEW"
+      ],
+      "new_quote_map": {
+        "PROVIDE_MASKED_REVIEW": [
+          "Provide no internal decision reason; after the policy threshold, route the masked transfer reference for synthetic review."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "PROVIDE_SAFE_DECLINE_MESSAGE",
+        "PROVIDE_MASKED_REVIEW"
+      ],
+      "old_quote_map": {
+        "PROVIDE_MASKED_REVIEW": [
+          "Provide no internal decision reason; after the policy threshold, route the masked transfer reference for synthetic review."
+        ],
+        "PROVIDE_SAFE_DECLINE_MESSAGE": [
+          "Provide no internal decision reason; after the policy threshold, route the masked transfer reference for synthetic review."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "COMPLETE_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "The clause refuses internal-detail disclosure and routes masked review; it does not state the safe decline message.",
+      "senior_triggered_finding": true
+    },
+    {
+      "case_id": "EV2-A2-C12",
+      "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "PROVIDE_SAFE_RECIPIENT_HANDOFF"
+      ],
+      "new_quote_map": {
+        "PROVIDE_SAFE_RECIPIENT_HANDOFF": [
+          "Escalate when sender completion is confirmed, recipient credit remains absent after one fictional business day, and masked transfer references are available."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "OPEN_MASKED_TRACE"
+      ],
+      "old_quote_map": {
+        "OPEN_MASKED_TRACE": [
+          "Escalate when sender completion is confirmed, recipient credit remains absent after one fictional business day, and masked transfer references are available."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "PARTIAL_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "Escalation with masked references entails a safe recipient handoff, but the clause does not say that a trace is opened.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C13",
+      "evidence_id": "FAQ_TRANSFER_RECIPIENT_002#current_window",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "STATE_RECIPIENT_POSTING_WINDOW"
+      ],
+      "new_quote_map": {
+        "STATE_RECIPIENT_POSTING_WINDOW": [
+          "Allow one fictional business day for recipient-side posting, then follow the approved recipient tracing policy and escalation guide without promising recovery."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "STATE_RECIPIENT_POSTING_WINDOW",
+        "PROVIDE_SAFE_RECIPIENT_HANDOFF"
+      ],
+      "old_quote_map": {
+        "PROVIDE_SAFE_RECIPIENT_HANDOFF": [
+          "Allow one fictional business day for recipient-side posting, then follow the approved recipient tracing policy and escalation guide without promising recovery."
+        ],
+        "STATE_RECIPIENT_POSTING_WINDOW": [
+          "Allow one fictional business day for recipient-side posting, then follow the approved recipient tracing policy and escalation guide without promising recovery."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "COMPLETE_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "The clause states the posting window; referring to a policy and guide does not itself perform or specify the factual handoff.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C17",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use after two recognized ATM refusals in one fictional day, provided no cash was dispensed. Non-recognition uses the security guide instead."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly redirects non-recognition to the security guide, so it is compatible context rather than a contradiction; it does not itself entail the case's factual obligation.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-C17",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+      ],
+      "new_quote_map": {
+        "TRIGGER_IMMEDIATE_SECURITY_ESCALATION": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The non-recognition branch entails immediate security handling but does not provide the separate masked-security handoff.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-S11",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use after two recognized ATM refusals in one fictional day, provided no cash was dispensed. Non-recognition uses the security guide instead."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly redirects non-recognition to the security guide, so it is compatible context rather than a contradiction; it does not itself entail the case's factual obligation.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-S11",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "TRIGGER_IMMEDIATE_SECURITY_ESCALATION"
+      ],
+      "new_quote_map": {
+        "TRIGGER_IMMEDIATE_SECURITY_ESCALATION": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The non-recognition branch entails immediate security handling but says nothing about the masked handoff details.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-S12",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use after two recognized ATM refusals in one fictional day, provided no cash was dispensed. Non-recognition uses the security guide instead."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly redirects non-recognition to the security guide, so it is compatible context rather than a contradiction; it does not itself entail the case's factual obligation.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-S12",
+      "evidence_id": "FAQ_CASH_PENDING_001#answer",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use this FAQ only when the customer recognizes the ATM interaction and the withdrawal entry remains pending. Non-recognition requires immediate security handling."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The non-recognition branch is compatible context but does not state which credentials must not be collected.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-S14",
+      "evidence_id": "RUN_TRANSFER_DECLINED_001#action",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "PROVIDE_SAFE_DECLINE_MESSAGE"
+      ],
+      "old_quote_map": {
+        "PROVIDE_SAFE_DECLINE_MESSAGE": [
+          "Provide no internal decision reason; after the policy threshold, route the masked transfer reference for synthetic review."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "COMPLETE_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "A prohibition on internal-detail disclosure is not itself the customer-facing message that the transfer was not accepted.",
+      "senior_triggered_finding": true
+    },
+    {
+      "case_id": "EV2-A2-S19",
+      "evidence_id": "RUN_TRANSFER_PENDING_001#checks",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "ROUTE_MASKED_PENDING_REVIEW"
+      ],
+      "old_quote_map": {
+        "ROUTE_MASKED_PENDING_REVIEW": [
+          "Confirm the displayed transfer state is pending and that no terminal failure, refusal, or completion appears. Use only masked references."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "PARTIAL_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "The clause verifies a pending state and masked-reference use but never directs routing or review, so it does not entail ROUTE_MASKED_PENDING_REVIEW.",
+      "senior_triggered_finding": true
+    },
+    {
+      "case_id": "EV2-A2-S20",
+      "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "DEFINE_COMPLETED_SENDER_MISSING_RECIPIENT_CREDIT"
+      ],
+      "new_quote_map": {
+        "DEFINE_COMPLETED_SENDER_MISSING_RECIPIENT_CREDIT": [
+          "Escalate when sender completion is confirmed, recipient credit remains absent after one fictional business day, and masked transfer references are available."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "COMPLETE_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {},
+      "old_state_match": true,
+      "old_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly requires confirmed sender completion and absent recipient credit, directly defining the covered situation.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-S21",
+      "evidence_id": "ESC_TRANSFER_RECIPIENT_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": true,
+      "new_obligations_covered": [
+        "STATE_RECIPIENT_POSTING_WINDOW"
+      ],
+      "new_quote_map": {
+        "STATE_RECIPIENT_POSTING_WINDOW": [
+          "Escalate when sender completion is confirmed, recipient credit remains absent after one fictional business day, and masked transfer references are available."
+        ]
+      },
+      "new_state_match": true,
+      "new_support_class": "PARTIAL_SUPPORT",
+      "new_target_match": true,
+      "old_contradicted_constraint": null,
+      "old_dimension_match": true,
+      "old_obligations_covered": [
+        "STATE_RECIPIENT_POSTING_WINDOW",
+        "OPEN_MASKED_TRACE"
+      ],
+      "old_quote_map": {
+        "OPEN_MASKED_TRACE": [
+          "Escalate when sender completion is confirmed, recipient credit remains absent after one fictional business day, and masked transfer references are available."
+        ],
+        "STATE_RECIPIENT_POSTING_WINDOW": [
+          "Escalate when sender completion is confirmed, recipient credit remains absent after one fictional business day, and masked transfer references are available."
+        ]
+      },
+      "old_state_match": true,
+      "old_support_class": "COMPLETE_SUPPORT",
+      "old_target_match": true,
+      "semantic_reason": "The clause establishes the one-business-day trigger but says only escalate, not open a masked trace.",
+      "senior_triggered_finding": false
+    },
+    {
+      "case_id": "EV2-A2-S23",
+      "evidence_id": "ESC_CASH_DECLINED_001#trigger",
+      "new_contradicted_constraint": null,
+      "new_dimension_match": false,
+      "new_obligations_covered": [],
+      "new_quote_map": {},
+      "new_state_match": true,
+      "new_support_class": "CONTEXTUAL_INSUFFICIENT",
+      "new_target_match": true,
+      "old_contradicted_constraint": "STATE:PENDING_OR_UNRECOGNIZED",
+      "old_dimension_match": false,
+      "old_obligations_covered": [],
+      "old_quote_map": {
+        "__contradiction_basis__": [
+          "Use after two recognized ATM refusals in one fictional day, provided no cash was dispensed. Non-recognition uses the security guide instead."
+        ]
+      },
+      "old_state_match": false,
+      "old_support_class": "CONTRADICTION",
+      "old_target_match": true,
+      "semantic_reason": "The clause explicitly redirects non-recognition to the security guide, so it is compatible context rather than a contradiction; it does not itself entail the case's factual obligation.",
+      "senior_triggered_finding": false
+    }
+  ],
+  "pass_a_sha256": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541",
+  "post_fix1_pass_b_sha256": "5b0a55b0d7b9e1d0aede02b4858441390d5b1945dbd0dd5689f0098304f4d209",
+  "post_fix1_pass_c_sha256": "7197be43ad32e88a13c3567c52f30ec7ac3e8bcdb1c1c576fbefed661ea1117d",
+  "pre_fix1_artifact_sha256": {
+    "data/evaluation/w3_003_ev2_candidate_pb1_pre_fix1.jsonl": "e5f28b1e8cb44760363b83e42fe4d36dad132548a2f39810cb671b201cb90f99",
+    "data/evaluation/w3_003_ev2_pass_b_support_judgments_pb1_pre_fix1.jsonl": "7dd4c196a8c45cb31ef0d549db3d6e048de78a8fb12f10cedb8f714c6cdc50b6",
+    "reports/week_03/results/w3_003_ev2_a2_manifest.json": "94371ecf99d1e22e9b494bfdb1639b9166b805120f0729c9e20abfd358e8c192",
+    "reports/week_03/results/w3_003_ev2_a2_positive_support_audit.json": "217e20fa17b95a475878d4eb5ad175b61b28aa9321e711a3a1687a00dc258a2f",
+    "reports/week_03/results/w3_003_ev2_a2_safe_corrective_proofs.json": "43e67999d8551f8ad4706367b0cd41378b5a5995fabc3353f4dc8b2699049afa",
+    "reports/week_03/results/w3_003_ev2_a2_support_summary.json": "7035baad77309f23ca4604e57d90b38f657b488d44c2a39c41b7fd6c0d895729"
+  },
+  "status": "PB1_FIX1_SEMANTIC_AUDIT_PASS_AWAITING_SENIOR_REVIEW_AND_A3",
+  "task_id": "W3-003-EV2-A2-PB1-FIX1"
+}

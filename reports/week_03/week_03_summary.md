@@ -1,9 +1,272 @@
 # Week 03 Summary
 
+## W3-003-EV2-A2-PB1-FIX2B final reconciliation — 2026-08-24
+
+Senior adjudicated all 17 FIX2A third projections without relaunching either
+reviewer. FIX2B mechanically resolved the original 65 non-HARD rows to 40
+current decisions, 24 blind1 decisions, one unique tiebreak decision, and zero
+unresolved. H01/H02 are the only imported-HARD changes. The exact final Pass-B
+diff has 27 rows and is fully represented by the correction ledger.
+
+Final Pass B remains 3,120 unique rows with SHA-256 `f70af099...efb1d2`.
+Mechanical proofs pass 24/18/12/6, and A01 remains without positive support.
+Pass C was derived twice with byte-identical output, retains route counts
+24 STANDARD / 20 SAFE_CORRECTIVE / 16 ABSTAIN_ESCALATE, and has SHA-256
+`04c99c8...36431`. The combined A2/FIX2B suite passes 137/137.
+
+Status is `A2_PB1_FIX2B_READY_FOR_SENIOR_REVIEW`. A3 is not started; candidate
+inference and EV2 remain unauthorized/unexecuted/unconsumed; no notebook,
+stage, commit, or push occurred.
+
+## W3-003-EV2-A2-PB1-FIX2A tiebreak stop — 2026-08-21
+
+Senior's normalized comparator reproduced 76 V2 disagreements (11 HARD, 65
+non-HARD) and 58 Gold Impact disagreements (2 HARD, 56 non-HARD). All 33
+original HARD differences were adjudicated: only H01/H02 state compatibility
+changes are authorized, while the remaining 31 imported judgments are retained.
+
+A sanitized 65-row non-HARD tiebreak packet (`f2ecb40a...03e6`) was reviewed by
+a second isolated fresh-context subagent. Its 65-decision artifact is frozen at
+`379ca46b...65ba`. Three-way V2 comparison selected current for 26 pairs and
+blind1/tiebreak for 22, but 17 projections matched neither side.
+
+FIX2A therefore stopped at
+`A2_PB1_FIX2A_UNRESOLVED_THREE_WAY_SEMANTIC_CONFLICT`. No reviewer relaunch or
+majority guess occurred. Active FIX1 Pass B/C remain unchanged; no final ledger,
+proofs, Pass C, A3, inference, EV2, stage, commit, or push was performed. The A2
+suite passes 121/121.
+
+## W3-003-EV2-A2-PB1-FIX2 blind-review stop — 2026-08-21
+
+Senior authorized a genuinely isolated reviewer because the parent had already
+seen FIX1 labels. The parent froze a sanitized 514-row packet at
+`01ceaa09...6420c`; the fresh-context reviewer received only that packet/hash,
+class definitions, and schema, and returned 514 validated decisions at
+`4292c2d4...49092`. Parent decision authoring was false and the decision bytes
+froze before comparison.
+
+The blind distribution was 66 complete, 60 partial, 197 contextual, 185
+contradiction, and 6 irrelevant. Comparison found 230 semantic matches and 284
+differences. Thirteen FIX1 corrections were independently confirmed, ten
+disagreed, and 274 additional differences were recorded. Thirty-three differences
+touch imported HARD judgments, so FIX2 stopped exactly at
+`A2_PB1_FIX2_IMPORTED_HARD_SEMANTIC_CONFLICT` for Senior adjudication.
+
+No blinded decision was edited after comparison. Active FIX1 Pass B/C remain
+unchanged at `5b0a55...4d209` and `7197be...1117d`; final gold, A3, inference,
+EV2, stage, commit, and push did not occur. The A2 suite passes 110/110.
+
+## W3-003-EV2-A2-PB1-FIX1 semantic audit — 2026-08-21
+
+Senior review proved that PB1's structural quote checks did not prevent a
+semantic obligation misbinding. FIX1 preserved pre-correction Pass B/C, kept
+Pass A v3 immutable, and reread exactly all 514 non-IRRELEVANT judgments from
+the frozen section text. Of those, 491 were retained and 23 corrected; 60
+imported HARD judgments passed with zero conflict.
+
+S19 no longer treats a pending-state/masked-reference check as a routing fact.
+C09 and S14 now distinguish “do not expose internal logic” from the actual safe
+decline message. The audit also corrected conditional-trigger/handoff
+confusions, recovered hidden support in mixed ATM-recognition clauses, and
+removed non-explicit contradictions. Final Pass B counts are 66 complete, 57
+partial, 205 contextual, 186 contradiction, and 2,606 irrelevant; SHA-256 is
+`5b0a55...4d209`.
+
+All strata remain derivable at 24/24, 18/18, 12/12, and 6/6. Pass C was
+mechanically regenerated, is deterministic at 60 rows, retains route counts
+24 STANDARD / 20 SAFE_CORRECTIVE / 16 ABSTAIN_ESCALATE, and has SHA-256
+`7197be...1117d`. Status is `A2_PB1_FIX1_READY_FOR_SENIOR_REVIEW`; evaluation,
+A3, staging, commit, and push remain unauthorized/unperformed. No notebook is
+required at this gold-integrity stage.
+
+## W3-003-EV2-A2-PB1 final gold package — 2026-08-21
+
+Senior-approved Pass A v3 remained byte-frozen at `f66ce6...66541`. PB1
+classified all 104 obligation usages, separating 19 non-factual control-plane
+boundaries and 6 pure safe-stop controls from 79 KB-required factual usages.
+The final independent Pass B contains exactly 3,120 unique rows and 52 eligible
+sections per case: 2,496 new content-grounded reviews plus 624 zero-mutation
+canonical imports from FIX1B/FIX2/FIX3. Pass B SHA-256 is `7dd4c1...c50b6`.
+
+All proof gates pass: 24/24 STANDARD, 18/18 SAFE_CORRECTIVE, 12/12 HARD, and
+6/6 ambiguous. Four ambiguous cases are pure clarification and derive
+ABSTAIN_ESCALATE; two have fully grounded ATM safety gates and derive
+SAFE_CORRECTIVE. Pass C was mechanically derived with 24 STANDARD, 20
+SAFE_CORRECTIVE, and 16 ABSTAIN_ESCALATE rows; SHA-256 is `e5f28b...0f99`.
+There is no CLARIFY or manual route table.
+
+The fail-closed A2 integrity/mutation suite passes 87/87. Rev1 invalid Pass B/C
+remain byte-preserved. Candidate inference and EV2 execution did not occur;
+consumed EV1/Rev7 case-level content was not accessed. Consumed per-query
+freshness remains explicitly pending the separately authorized A3
+fingerprint-only audit. Status is `A2_PB1_READY_FOR_SENIOR_REVIEW`; A2 is not
+frozen, evaluation is unauthorized, EV2 is not consumed, and W3 P0/W4 remain
+blocked. PB1 requires no notebook; the future frozen EV2-R1 product-result
+report still requires the reproducible mentor-facing notebook.
+
+## W3-003-EV2-A2-FIX3 Pass A v3 replacement feasibility — 2026-08-21
+
+Senior authorized replacement of the five FIX2A-conflicted HARD rows. Pass A
+v2 was first byte-preserved at SHA-256 `71a353...146d3`; Rev1 remains
+`9ef421...b567`. Active Pass A v3 retires H03/H04/H07/H08-R1/H09, introduces
+H03-R1/H04-R1/H07-R1/H08-R2/H09-R1, and is frozen at
+`f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541`.
+The other 55 rows are canonical and raw-line byte-equal.
+
+Pass A v3 has 60 unique IDs/families and unchanged 24/18/12/6 strata. HARD
+family counts are 3 no-approved, 2 prohibited, 2 account-specific, and 5
+genuine-conflict. The five replacements were candidate-output blind and
+plausible support requests, not noun/number edits of retired cases.
+
+All 260 required section judgments validate, exactly 52 per replacement. The
+new completeness rule requires exact support for all prerequisite/eligibility
+and corrective objectives, plus compatible target/state evidence and no
+contradiction, silent state assumption, unsupported account fact, or forbidden
+promise. Non-factual control boundaries require no KB quote. All five
+replacements pass: requested resolution support is false and no
+prerequisite-complete safe corrective response exists.
+
+Focused retained/new tests pass 66/66. Status is
+`PASS_A_V3_REPLACEMENT_FEASIBILITY_PASS_AWAITING_SENIOR_REVIEW`; Senior must
+review Pass A v3 before full independent Pass B. No Pass C, inference, A3, EV2
+execution/consumption, production/KB change, stage, commit, or push occurred.
+W3 P0 and W4 remain blocked. Notebook requirement is false for FIX3.
+
+## W3-003-EV2-A2-FIX2A HARD/SAFE_CORRECTIVE consistency audit — 2026-08-21
+
+Senior found a boundary inconsistency in FIX2: a non-factual refusal or live-
+state epistemic limit had been treated as incomplete whenever no KB sentence
+literally stated that boundary. FIX2A retained Pass A v2 exactly at SHA-256
+`71a353...146d3` and reused only the immutable FIX1B/FIX2 evidence, exactly 52
+existing judgments for each of the 12 current HARD cases and 624 total.
+
+The deterministic taxonomy separates control-plane boundaries, factual
+corrective objectives, and requested factual resolutions. A boundary needs no
+KB quote when it only limits what the system may claim/do and asserts no
+banking fact. State, timing, handling, trace, retry, review, and handoff claims
+still require exact eligible evidence. This one rule was applied to all cases;
+the target distribution did not influence any verdict.
+
+Seven HARD cases remain valid: H01, H02, H05-R1, H06-R1, H10, H11, and H12.
+Five conflict: H03, H04, H07, H08-R1, and H09. H03 has grounded masked failed-
+transfer handling after a processor-code disclosure refusal; H04 has pending-
+state preservation and wait/review after a third-party alteration refusal; H07
+has a conditional masked recipient trace after a live-account knowledge bound;
+and H09 has the supported one-day ATM review window after a live-settlement
+bound.
+
+H08-R1 is explicitly conflicted. `BOUND_LIVE_LEDGER_RETURN_DETERMINATION` is a
+control-plane boundary. The five-day conditional reversal handling and masked
+ledger review without a credit promise are factual objectives already supported
+by `POL_CARD_REVERT_002#return_window` and `ESC_CARD_REVERT_001#handoff`.
+
+The honest future replacement count is five. No replacement was authored.
+Focused and mutation tests pass 51/51. Status is
+`A2_FIX2A_HARD_SAFE_CONSISTENCY_READY_FOR_SENIOR_REVIEW`; Pass A v2 is not
+Senior approved, full Pass B is not started, A3 and W4 remain blocked, and EV2
+is not executed/consumed. No Pass A/B/C, production/KB, stage, commit, or push
+operation occurred. Notebook requirement is false for this semantic audit.
+
+## W3-003-EV2-A2-FIX2 Pass A v2 replacement feasibility — 2026-08-21
+
+Senior authorized exactly three replacements after FIX1B. Rev1 Pass A is
+preserved byte-for-byte at SHA-256 `9ef421...b567`; active Pass A v2 retires
+H05/H06/H08, adds H05-R1/H06-R1/H08-R1, and has SHA-256 `71a353...146d3`.
+The remaining 57 rows are canonical and raw-line byte-equal to Rev1.
+
+The three new rows were candidate-output blind and frozen before their
+independent 3×52 review. All 156 judgments validate. H05-R1 proves prohibited
+failed-transfer audit-record deletion has neither approved support nor a
+complete target-compatible safe alternative. H06-R1 proves the pending and
+reversed card states are explicitly mutually exclusive while the KB has no
+conflict resolver. H08-R1 proves general reversal timing and masked review do
+not determine a specific live ledger return or form a complete safe correction.
+All three replacement verdicts are PASS.
+
+Pass A v2 retains 60 rows, 60 unique IDs/families, and 24/18/12/6 strata. HARD
+family counts are 3 no-approved, 2 prohibited, 3 account-specific, and 4
+genuine-conflict, all above the minimum two. Focused tests pass 42/42; lineage
+has no duplicates, direct KB copies, or A1 family collisions. Consumed
+case-level freshness remains explicitly not established.
+
+Status is `PASS_A_V2_REPLACEMENT_FEASIBILITY_PASS_AWAITING_SENIOR_REVIEW`.
+Senior must review Pass A v2 before full independent Pass B. Active Rev1 Pass
+B/C remain invalid historical artifacts and not current gold. No full Pass B,
+Pass C, inference, EV2 execution/consumption, stage, commit, or push occurred;
+A3, W3 P0, and W4 remain blocked. Notebook requirement is false here and
+remains mandatory at frozen EV2-R1 result reporting.
+
+## W3-003-EV2-A2-FIX1B hard-abstain conflict sweep — 2026-08-21
+
+After Senior confirmed H05, FIX1B exhaustively reviewed the 12 frozen HARD cases
+against all 52 eligible sections before any Pass A repair. The diagnostic has
+624 unique case/section judgments, exactly 52 per case, with frozen hashes and
+verbatim traceability. A fail-closed validator derives all case conclusions;
+the retained FIX1 tests plus required FIX1B mutations pass 28/28.
+
+H01, H02, H03, H04, H07, H09, H10, H11, and H12 remain valid. H05, H06, and H08
+are the complete conflict set. H05 has the confirmed reversal window/handoff;
+H06 has complete PIN/credential refusal plus masked immediate security handling;
+H08 has explicit no-exact-release-promise plus three-day review handling. H04
+does not conflict because the pending clauses do not cover the third-party
+target or explicitly refuse unauthorized third-party state alteration.
+
+Reason-family valid/conflict counts are 3/0, 1/2, 2/1, and 3/0 for
+no-approved, prohibited, account-specific, and genuine-conflict respectively.
+The KB appears capable of at least two valid HARD cases in every family, though
+the prohibited-family feasibility finding is medium confidence and must be
+tested by a separately authorized bounded replacement. No 3/3/3/3 distribution
+is forced.
+
+Status is `A2_FIX1B_HARD_CONFLICT_SWEEP_READY_FOR_SENIOR_REVIEW`. Pass A and
+active invalid Rev1 Pass B/C were not modified; no replacement text, full Pass
+B, Pass C, inference, EV2 execution/consumption, stage, commit, or push exists.
+A3, Week 3 P0, and Week 4 remain blocked. Notebook requirement is false for
+this diagnostic task; future frozen EV2 result reporting still requires it.
+
+## W3-003-EV2-A2-FIX1 support-integrity stop — 2026-08-21
+
+Senior review found A2 Rev1 structurally exhaustive but invalid as independent
+semantic support proof: preselected support sets plus intent/domain heuristics
+generated its 3,120 labels. FIX1 preserved all five core Rev1 artifacts exactly,
+kept Pass A at SHA-256 `9ef421...b567`, removed semantic-label authoring from the
+script, and added content-hash, verbatim-quote, compatibility, lineage, and
+mechanical-derivation controls. Focused tests pass 20/20.
+
+FIX1 then stopped on frozen Pass A case `EV2-A2-H05`. Its hard-abstain reason
+claims no complete safe corrective alternative, but the approved reversal state
+rule, five-fictional-business-day return policy, and masked ledger-review
+handoff provide one. No Pass A field was changed and no replacement Pass B/Pass
+C was authored.
+
+Status is `A2_FIX1_PASS_A_STRATUM_CONFLICT`. A separate Senior authorization is
+required for any bounded Pass A replacement. A3/evaluation remain blocked; EV2
+is unexecuted/unconsumed; Week 3 P0 and Week 4 remain blocked.
+
+## Historical W3-003-EV2-A2 Rev1 authoring — 2026-08-21
+
+A2 Rev1 authored a candidate-blind 60-case EV2 package against the remotely
+published commit `8492659a50fe00f066f9f64d8759d544356b3a41`. Pass A/B/C contain
+60/3,120/60 rows with the exact 24 STANDARD / 18 SAFE_CORRECTIVE / 12
+HARD_ABSTAIN_ESCALATE / 6 AMBIGUOUS_OR_PARTIAL_SAFE_STOP distribution. Pass B
+created rows for all 52 eligible KB sections per case. Later Senior review found
+those labels were derived from preselected support plans and heuristics, so the
+claimed semantic review and Pass C proof are invalid. The 14/14 tests established
+only Rev1's earlier structural contract, not independent semantic integrity.
+
+The prior claims that all 12 hard cases prove zero complete support and that
+literal lineage collision values were zero are withdrawn. Candidate output and
+inference were not used, and consumed EV1/Rev7 case text was not opened.
+
+Rev1 is `INVALID AS INDEPENDENT SEMANTIC SUPPORT PROOF / SUPERSEDED BY FIX1`.
+EV2 was not executed or consumed. No notebook was required; frozen EV2 results
+reporting still requires a reproducible notebook.
+
 ## W3-003-EV2-A1-R2 post-TB1 development precheck — 2026-08-21
 
-After Senior acceptance of the bounded TB1 repair, A1 rebound the exact
-uncommitted/unpushed TB1 working-tree candidate to the reviewed remote baseline.
+After Senior acceptance of the bounded TB1 repair, A1 rebound the exact TB1
+candidate to the reviewed remote baseline; the resulting package was later
+Senior approved and remotely published at `8492659a50fe00f066f9f64d8759d544356b3a41`.
 FIX1 active evidence was preserved byte-for-byte before active artifacts were
 regenerated. The mandatory development-only PRIMARY passed 15/15, followed by
 one 15/15 REPRODUCTION with identical fixture order and deterministic semantic
@@ -12,10 +275,10 @@ unsafe factual answers, unsupported claims, ineligible evidence, prohibited or
 cross-target violations, system errors, and forbidden opener calls.
 
 This is **DEVELOPMENT REGRESSION EVIDENCE ONLY — NOT PRODUCT APPROVAL**. Status
-is `IMPLEMENTED / DEVELOPMENT PRECHECK PASS / AWAITING INDEPENDENT SENIOR
-REVIEW`. A2 remains not started; EV2 remains not authored, executed, or
-consumed; W3 P0 and Week 4 remain blocked. No notebook is required for this
-15-case integrity gate; a future frozen EV2 reporting task requires one.
+is `DONE / SENIOR APPROVED / PUBLISHED / REMOTE VERIFIED`. That closure
+authorized A2 authoring only; EV2 execution remained unauthorized. No notebook
+was required for this 15-case integrity gate; a future frozen EV2 reporting
+task requires one.
 
 ## W3-003-EV2-A1-TB1 bounded target-binding repair — 2026-08-21
 
