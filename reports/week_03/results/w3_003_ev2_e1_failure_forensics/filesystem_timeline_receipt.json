@@ -1,0 +1,78 @@
+{
+  "artifact_freeze_observed_after_restart": true,
+  "artifacts": [
+    {
+      "absolute_path": "E:\\merged_partition_content\\Khoi_Project\\VinSmartFuture\\FinTech\\reports\\week_03\\results\\w3_003_ev2_e1_consumption_receipt.json",
+      "bytes": 861,
+      "creation_time_utc": "2026-08-25T02:12:31.0740928Z",
+      "exists": true,
+      "git_status": "??",
+      "last_access_time_utc_at_freeze": "2026-08-25T02:38:39.5537231Z",
+      "last_write_time_utc": "2026-08-25T02:12:31.0751056Z",
+      "role": "consumption_receipt",
+      "sha256": "169e47629d614c4bc0df0ccbeaab4a859814f1ca767d6eec563faad5d0a022d0"
+    },
+    {
+      "absolute_path": "E:\\merged_partition_content\\Khoi_Project\\VinSmartFuture\\FinTech\\reports\\week_03\\results\\w3_003_ev2_e1_raw_output.jsonl",
+      "bytes": 218133,
+      "creation_time_utc": "2026-08-25T02:12:32.8061617Z",
+      "exists": true,
+      "git_status": "??",
+      "last_access_time_utc_at_freeze": "2026-08-25T02:38:39.5676211Z",
+      "last_write_time_utc": "2026-08-25T02:13:43.7083797Z",
+      "role": "raw_output",
+      "sha256": "d7c9a16fb4867f52ded6b793ccda227b3a9c0210eca44c17869d1cab4a60d263"
+    },
+    {
+      "absolute_path": "E:\\merged_partition_content\\Khoi_Project\\VinSmartFuture\\FinTech\\reports\\week_03\\results\\w3_003_ev2_e1_raw_manifest.json",
+      "bytes": 11129,
+      "creation_time_utc": "2026-08-25T02:13:43.7344259Z",
+      "exists": true,
+      "git_status": "??",
+      "last_access_time_utc_at_freeze": "2026-08-25T02:38:39.5557971Z",
+      "last_write_time_utc": "2026-08-25T02:13:43.7354684Z",
+      "role": "raw_manifest",
+      "sha256": "5be5e1e4535f60413c56867ba4f4b4fb11e5b95190d28b609acf3a2cafe5d413"
+    }
+  ],
+  "known_sequence": [
+    {
+      "event": "atomic consumption receipt created",
+      "time_utc": "2026-08-25T02:12:31.0740928Z"
+    },
+    {
+      "event": "raw output created",
+      "time_utc": "2026-08-25T02:12:32.8061617Z"
+    },
+    {
+      "event": "raw output last write",
+      "time_utc": "2026-08-25T02:13:43.7083797Z"
+    },
+    {
+      "event": "raw manifest atomic target created",
+      "time_utc": "2026-08-25T02:13:43.7344259Z"
+    },
+    {
+      "event": "raw manifest last write",
+      "time_utc": "2026-08-25T02:13:43.7354684Z"
+    },
+    {
+      "event": "separate post-command structural check reported MISSING:w3_003_ev2_e1_raw_manifest.json",
+      "ordering_basis": "conversation/tool-call sequence after the E1 execution cell completed",
+      "time_utc": null
+    },
+    {
+      "event": "first INC1 preflight observed the manifest present and stopped under the superseded contract",
+      "ordering_basis": "conversation/tool-call sequence after the structural check",
+      "time_utc": null
+    }
+  ],
+  "manifest_creation_delay_after_raw_last_write_milliseconds": 26.0462,
+  "provenance_class": "A_CONSISTENT_WITH_ORIGINAL_E1",
+  "provenance_reason": "The byte-exact canonical manifest was created 26.0462 ms after the final raw-output write, matching the frozen harness's normal post-loop construction and atomic-write position. Timestamps support but do not independently prove authenticity; the byte-level reconstruction receipt supplies the primary evidence.",
+  "timestamp_limitations": [
+    "No persisted timestamp was found for the separate structural check.",
+    "No persisted timestamp was found for the first INC1 preflight.",
+    "Filesystem timestamps are supporting evidence only."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "authorization_nonce_or_id": "W3-003-EV2-A4-AUTH1-20260825-0001",
+  "consumption_receipt_created": false,
+  "environment_fingerprint_sha256": "f49e29f3ad3338a191f50e42e28fd2335a36f670541c9eb7337f0bcdcb478a7d",
+  "ev2_consumed": false,
+  "ev2_query_calls": 0,
+  "jit_evidence_sha256": {
+    "w3_003_ev2_a4_environment_attestation.json": "b5de459daf275d6f9b2cda72801a6d4dbd5289dc2f0ed865f8bba92caebc24ae",
+    "w3_003_ev2_a4_minilm_snapshot_attestation.json": "f7df7db615ee4a23a8d1d66022fdfa05e9e098e1966f06c463a6203f3f9bfe5f",
+    "w3_003_ev2_a4_offline_model_load_audit.json": "4bda42be82a31b77f5b0c95cbdd14d0782a7ba7bff2dee9e7de25eb46120c58f",
+    "w3_003_ev2_a4_pre_authorization_payload.json": "f7b59287f478f6fbe6878604a0d2d0ada6f943d3201aaf8cc3eabf1de4488cf3",
+    "w3_003_ev2_a4_runtime_asset_attestation.json": "c4c5ff3b09bc5fee8c0885ef49e00fc30a3d11b5c17b3a7763f45c489b151fb9",
+    "w3_003_ev2_a4_source_and_retriever_attestation.json": "22de6a4e2b1deba37fc47e42b6f581a201a412258f74e4c24fb2cbe94aeb336a"
+  },
+  "negative_mutations": [
+    {"error": "A4_BINDING_MISMATCH:authorization", "mutation": "authorization_not_authorize", "rejected": true},
+    {"error": "A4_BINDING_MISMATCH:ev2_authorized", "mutation": "ev2_authorized_false", "rejected": true},
+    {"error": "A4_BINDING_MISMATCH:selected_retriever", "mutation": "selected_retriever_r1", "rejected": true},
+    {"error": "A4_BINDING_MISMATCH:retrieval_decision_sha256", "mutation": "retrieval_decision_drift", "rejected": true},
+    {"error": "A4_BINDING_MISMATCH:e1_harness_sha256", "mutation": "e1_sha_drift", "rejected": true},
+    {"error": "A4_AUTHORIZATION_ID_REQUIRED", "mutation": "empty_authorization_nonce", "rejected": true},
+    {"error": "A4_BINDING_MISMATCH:a3_manifest_sha256", "mutation": "a3_manifest_sha_drift", "rejected": true}
+  ],
+  "passed": true,
+  "production_runner_calls": 0,
+  "raw_output_created": false,
+  "real_receipt_sha256": "cc27895247a15a144d0f13e340ab5476fb4ec30129ca2cc7c64e2cdbcd0016e7",
+  "retrieval_calls": 0,
+  "row1_started": false,
+  "task_id": "W3-003-EV2-A4-AUTH1",
+  "validate_a4_passed": true
+}

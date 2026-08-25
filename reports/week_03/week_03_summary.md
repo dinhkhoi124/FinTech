@@ -1,5 +1,32 @@
 # Week 03 Summary
 
+## W3-003-EV2-E1-INC1-R1 consumed artifact forensics — 2026-08-25
+
+Following explicit Senior authorization, one-shot E1 consumed EV2 and produced
+live receipt/raw/manifest artifacts. A separate post-command check reported the
+manifest missing, while no persisted E1 nonzero exit or traceback was available.
+Read-only forensics found a canonical complete set: 60 valid unique JSON rows,
+60/60 physical row hashes, three 60/60 order bindings, exact raw/receipt hashes,
+exact 20/20 manifest schema, and exact A3/A4/R0/runtime bindings. In-memory
+manifest reconstruction is deep- and serialized-byte-equal at
+`5be5e1e4...d413`. The manifest timestamp is 26.0462 ms after the final raw
+write, consistent with the frozen harness's normal atomic manifest emission.
+Senior accepted provenance Class A and the final
+`CANONICAL_COMPLETE_E1_ARTIFACT_SET` as `E1_RAW_CANONICAL_COMPLETE`. The
+preliminary failure statement is superseded: it came from a separate structural
+check that incorrectly reported the manifest missing. The E1 exit code remains
+unknown/not persisted; canonical completion rests on byte-level postconditions.
+R1 is not executed and awaits separate authorization. No retry/resume, Gold
+load, semantic analysis, or R1 scoring occurred.
+
+## W3-003-EV2-A4-AUTH1 local real A4 receipt — 2026-08-25
+
+Exact offline JIT ATT1 reproduced the published fingerprint and all required
+evidence hashes. The local A4 V3 receipt passes the E1 validator, while seven
+in-memory authorization/binding mutations fail closed. At AUTH1 completion it
+was untracked and unpublished; later Senior-authorized E1 and Class-A
+publication evidence are recorded above. AUTH1 JIT material remains excluded.
+
 ## W3-003-EV2-A4-ATT1 pre-E1 runtime and local snapshot attestation — 2026-08-25
 
 The A3 FIX4 package and all A2 inputs remain identity-locked. The exact E1

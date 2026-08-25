@@ -1,0 +1,130 @@
+{
+  "task_id": "W3-003-EV2-E1-INC1-R1",
+  "status": "E1_MANIFEST_PROVENANCE_FORENSICS_READY_FOR_SENIOR_ADJUDICATION",
+  "preflight": {
+    "branch": "main",
+    "head": "d68f7ee3aaa41cfdfef135be2bc0fc3a5c1b5c97",
+    "origin_main": "d68f7ee3aaa41cfdfef135be2bc0fc3a5c1b5c97",
+    "fresh_remote_main": "d68f7ee3aaa41cfdfef135be2bc0fc3a5c1b5c97",
+    "staged_count": 0
+  },
+  "live_artifacts": {
+    "consumption_receipt": {
+      "bytes": 861,
+      "creation_time_utc": "2026-08-25T02:12:31.0740928Z",
+      "last_access_time_utc_at_freeze": "2026-08-25T02:38:39.5537231Z",
+      "last_write_time_utc": "2026-08-25T02:12:31.0751056Z",
+      "sha256": "169e47629d614c4bc0df0ccbeaab4a859814f1ca767d6eec563faad5d0a022d0"
+    },
+    "raw_output": {
+      "bytes": 218133,
+      "creation_time_utc": "2026-08-25T02:12:32.8061617Z",
+      "last_access_time_utc_at_freeze": "2026-08-25T02:38:39.5676211Z",
+      "last_write_time_utc": "2026-08-25T02:13:43.7083797Z",
+      "sha256": "d7c9a16fb4867f52ded6b793ccda227b3a9c0210eca44c17869d1cab4a60d263"
+    },
+    "raw_manifest": {
+      "bytes": 11129,
+      "creation_time_utc": "2026-08-25T02:13:43.7344259Z",
+      "last_access_time_utc_at_freeze": "2026-08-25T02:38:39.5557971Z",
+      "last_write_time_utc": "2026-08-25T02:13:43.7354684Z",
+      "senior_copy_sha256_match": true,
+      "sha256": "5be5e1e4535f60413c56867ba4f4b4fb11e5b95190d28b609acf3a2cafe5d413"
+    }
+  },
+  "frozen_identity_verdict": {
+    "a3_manifest_sha256_exact": true,
+    "a4_nonce_exact": true,
+    "a4_receipt_sha256_exact": true,
+    "candidate_commit_exact": true,
+    "candidate_source_tree_sha256_exact": true,
+    "case_order_sha256_exact": true,
+    "e1_harness_sha256_exact": true,
+    "inference_input_sha256_exact": true,
+    "retrieval_decision_sha256_exact": true,
+    "runtime_input_aggregate_sha256_exact": true,
+    "selected_retriever_r0": true
+  },
+  "consumption_receipt_verdict": {
+    "all_required_bindings_exact": true,
+    "ev2_consumed": true,
+    "mid_run_resume_supported": false,
+    "schema_version": "W3-003-EV2-CONSUMPTION-V3",
+    "sha256_binding_exact": true,
+    "started_ordinal": 1
+  },
+  "raw_structure": {
+    "duplicate_query_ids": 0,
+    "ends_with_newline": true,
+    "malformed_rows": 0,
+    "physical_rows": 60,
+    "trailing_partial_row": false,
+    "unique_query_ids": 60,
+    "valid_json_object_rows": 60
+  },
+  "row_hash_verdict": {
+    "first_row_hash_mismatch_ordinal": null,
+    "manifest_hash_count": 60,
+    "row_hash_match_count": 60
+  },
+  "order_verdict": {
+    "case_order_file_exact": true,
+    "manifest_case_id_order_match_count": 60,
+    "manifest_query_sha256_order_match_count": 60,
+    "raw_query_id_order_match_count": 60
+  },
+  "manifest_verdict": {
+    "bindings_exact": true,
+    "deep_equal_reconstruction": true,
+    "extra_field_count": 0,
+    "field_mismatch_count": 0,
+    "missing_field_count": 0,
+    "required_fields_present": 20,
+    "required_fields_total": 20,
+    "schema_exact": true,
+    "serialized_bytes_equal_reconstruction": true,
+    "serialized_sha256_equal_reconstruction": true
+  },
+  "harness_control_flow": [
+    "atomic consumption receipt",
+    "load production runner",
+    "60 sequential runner calls",
+    "each row write + flush + fsync",
+    "verify 60 row hashes",
+    "construct manifest object",
+    "validate exact schema field set",
+    "atomic raw-manifest write",
+    "execute_raw_only returns",
+    "main returns 0"
+  ],
+  "harness_post_manifest_fact": "No normal E1 operation follows a successful raw-manifest write except returning from the function and process.",
+  "execution_evidence": {
+    "e1_process_exception": "UNKNOWN",
+    "e1_process_exit_code": "UNKNOWN",
+    "original_failure_source": "STRUCTURAL_CHECK",
+    "outer_wrapper_exit_code": "UNKNOWN",
+    "structural_check_error": "MISSING:w3_003_ev2_e1_raw_manifest.json"
+  },
+  "timeline_summary": {
+    "manifest_creation_delay_after_raw_last_write_milliseconds": 26.0462,
+    "manifest_sequence_consistent_with_frozen_harness": true,
+    "timestamp_authenticity_proof_used_alone": false
+  },
+  "manifest_provenance_classification": "A_CONSISTENT_WITH_ORIGINAL_E1",
+  "final_forensic_classification": "CLASS_A_CANONICAL_COMPLETE_E1_ARTIFACT_SET",
+  "proposed_senior_status": "E1_RAW_FROZEN_CANONICAL_COMPLETE_AWAITING_R1_AUTHORIZATION",
+  "retry_allowed": false,
+  "resume_allowed": false,
+  "r1_allowed": false,
+  "recommended_senior_next_action": "Review the detached adjudication bundle; if provenance Class A is accepted, issue a separate explicit authorization before any R1 scoring.",
+  "unresolved_evidence_gaps": [
+    "E1 process exit code was not persisted by the available command transcript.",
+    "No file-backed E1 stdout/stderr or traceback was found.",
+    "The separate structural check has no persisted wall-clock timestamp or implementation transcript, so its false missing observation cannot be root-caused beyond the check boundary."
+  ],
+  "semantic_content_examined_or_reported": false,
+  "gold_loaded": false,
+  "pass_b_loaded": false,
+  "pass_c_loaded": false,
+  "model_or_retrieval_call_performed": false
+}

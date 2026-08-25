@@ -1,0 +1,29 @@
+{
+  "codex_execution_cell": {
+    "completion_observation": "Script completed",
+    "initial_observation": "Script running with cell ID 1274",
+    "persisted_stdout": "",
+    "process_exception": "UNKNOWN",
+    "process_exit_code": "UNKNOWN"
+  },
+  "current_thread_terminal_lookup": "No app terminal session is attached to this thread yet.",
+  "outer_wrapper_exit_code": "UNKNOWN",
+  "repository_evidence_search": {
+    "failure_report_found": false,
+    "persisted_e1_stdout_stderr_found": false,
+    "persisted_python_traceback_found": false
+  },
+  "structural_check": {
+    "error": "MISSING:w3_003_ev2_e1_raw_manifest.json",
+    "exit_code": "UNKNOWN",
+    "executed_after_e1_cell_completion": true,
+    "separate_from_e1_process": true
+  },
+  "adjudicated_original_failure_source": "STRUCTURAL_CHECK",
+  "adjudication_basis": "The missing-manifest assertion was emitted by a separate post-command structural check. The live manifest is byte-identical to deterministic reconstruction and the frozen harness has no normal operation after its atomic manifest write except returning. No E1 traceback or nonzero exit evidence was found.",
+  "evidence_gaps": [
+    "The command runner's persisted E1 process exit code is unavailable.",
+    "No file-backed E1 stdout/stderr transcript or Python traceback was found.",
+    "The exact wall-clock timestamp and implementation of the separate structural check were not persisted."
+  ]
+}

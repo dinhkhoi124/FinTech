@@ -1,0 +1,26 @@
+{
+  "bindings_exact": true,
+  "case_id_order_match_count": 60,
+  "deep_equal": true,
+  "field_mismatch_count": 0,
+  "field_mismatches": [],
+  "live_manifest_bytes": 11129,
+  "live_manifest_sha256": "5be5e1e4535f60413c56867ba4f4b4fb11e5b95190d28b609acf3a2cafe5d413",
+  "manifest_schema_exact_20_of_20": true,
+  "query_sha256_order_match_count": 60,
+  "raw_output_sha256": "d7c9a16fb4867f52ded6b793ccda227b3a9c0210eca44c17869d1cab4a60d263",
+  "raw_query_id_order_match_count": 60,
+  "raw_row_hash_match_count": 60,
+  "reconstructed_serialized_bytes_equal_live": true,
+  "reconstructed_serialized_sha256": "5be5e1e4535f60413c56867ba4f4b4fb11e5b95190d28b609acf3a2cafe5d413",
+  "serialization_contract": "json.dump(ensure_ascii=False, indent=2, sort_keys=True) + LF; UTF-8; atomic replace",
+  "source_scope": [
+    "live immutable raw output",
+    "live immutable consumption receipt",
+    "A3 frozen manifest",
+    "A4 authorization receipt",
+    "inference structural fields: ordinal, case_id, query_sha256",
+    "case order",
+    "Raw Manifest V2 schema"
+  ]
+}

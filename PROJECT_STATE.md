@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV2-A4-ATT1-PUB1` — PUBLISHED ATTESTATION EVIDENCE / AWAITING SENIOR REMOTE VERIFICATION
-- Next task: Senior fresh-remote verify ATT1, then issue real A4 authorization if approved; E1/EV2 remain unauthorized and unexecuted.
+- Active task: `W3-003-EV2-E1-PUB1` — PUBLISHING SENIOR-ACCEPTED CANONICAL CLASS-A E1 RAW EVIDENCE
+- Next task: Senior fresh-remote verify the E1 Class-A publication, then separately authorize frozen R1 scoring and notebook work.
 - Last updated: 2026-08-25 by Codex
 
 The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
@@ -21,6 +21,48 @@ VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
+
+## W3-003-EV2-E1-INC1-R1 canonical-completeness and provenance forensics — 2026-08-25
+
+After explicit Senior E1 authorization, the one-shot E1 boundary was consumed.
+The command transcript did not preserve a process exit code or traceback; a
+separate post-command structural check reported the raw manifest missing. The
+live receipt, raw JSONL, and manifest were therefore frozen read-only and no
+retry, resume, model/retrieval call, Gold load, or R1 scoring was performed.
+
+Byte-level forensics establish 60 physical and valid JSON-object rows, 60
+unique query IDs, zero malformed/duplicate/partial rows, 60/60 physical row
+hashes, and exact 60/60 case-ID, query-hash, and raw-query-ID order. The raw
+manifest has the exact 20/20 V2 field set and all A3/A4/R0/receipt bindings.
+Mechanical reconstruction is field-deep-equal and serialized-byte-equal at SHA
+`5be5e1e4535f60413c56867ba4f4b4fb11e5b95190d28b609acf3a2cafe5d413`.
+The manifest was created 26.0462 ms after the final raw write, matching the
+frozen harness's normal post-loop atomic-write position. Provenance is
+`A_CONSISTENT_WITH_ORIGINAL_E1`; final forensic classification is
+`CLASS_A_CANONICAL_COMPLETE_E1_ARTIFACT_SET`. Senior accepted Class A as
+`E1_RAW_CANONICAL_COMPLETE`; the preliminary
+`E1_CONSUMED_EXECUTION_FAILED_REQUIRES_SENIOR_ADJUDICATION` observation is
+superseded because a separate structural check incorrectly reported the manifest
+missing. The unavailable persisted E1 exit code remains an explicit evidence
+gap: canonical completion is established by frozen byte-level postconditions,
+not an invented exit code. R1 is not yet executed and remains awaiting separate
+Senior authorization.
+
+## W3-003-EV2-A4-AUTH1 local real A4 receipt — 2026-08-25
+
+The exact CPython 3.11.9 offline JIT re-attestation reproduced ATT1's
+environment fingerprint and all six reviewed JIT evidence hashes byte-for-byte.
+Protected A2/A3/production/KB/runtime/model/requirements/provenance paths and
+fresh remote remained unchanged. The local-only A4 V3 receipt validates against
+the frozen A3 manifest; all seven required negative mutations fail closed. Its
+nonce is `W3-003-EV2-A4-AUTH1-20260825-0001` and SHA-256 is
+`cc27895247a15a144d0f13e340ab5476fb4ec30129ca2cc7c64e2cdbcd0016e7`.
+
+At AUTH1 completion this receipt and its validation audit were deliberately
+untracked and unpublished, with E1/EV2 absent. The later Senior-authorized E1
+and PUB1 publication are recorded above; the AUTH1 JIT directories remain
+unpublished. Status at this historical task boundary:
+`A4_AUTHORIZATION_RECEIPT_READY_FOR_SENIOR_EXECUTION_REVIEW`.
 
 ## W3-003-EV2-A4-ATT1 pre-E1 runtime environment and local model snapshot attestation — 2026-08-25
 

@@ -1,0 +1,16 @@
+{
+  "a3_manifest_sha256": "19ad35b27bd3f60e0a76ae7e42ea4c06a197166e1e9ae3ea26dbecc05ae5ee54",
+  "a4_authorization_id": "W3-003-EV2-A4-AUTH1-20260825-0001",
+  "candidate_production_commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+  "candidate_source_tree_sha256": "fbcd9248faf8058571ac2b8747125a013fbc73e52925cfc0d813edd55fbd0193",
+  "case_id": "EV2-A2-S01",
+  "ev2_consumed": true,
+  "mid_run_resume_supported": false,
+  "query_sha256": "d8748a0875eab23dbb9ca56edad0e6177029feeec9ad68a31b9fdbe896971959",
+  "retrieval_decision_sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
+  "runtime_input_aggregate_sha256": "7cbaa6fe5ad2f18e8f4a4c7932fa20b0d50f861ba5f1a2341fcfc3cd65f025da",
+  "schema_version": "W3-003-EV2-CONSUMPTION-V3",
+  "selected_retriever": "R0",
+  "start_state": "ROW_1_INFERENCE_BOUNDARY",
+  "started_ordinal": 1
+}
