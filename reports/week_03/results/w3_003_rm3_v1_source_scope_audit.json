@@ -1,0 +1,47 @@
+{
+  "task_id": "W3-003-RM3-V1",
+  "base_head": "7160590ae0b236171894ebce297662b7063e0897",
+  "base_tree": "1870dba65ca5972d000d64238830f2a138df8a4c",
+  "primary_paths_changed": [
+    {
+      "path": "src/payresolve_ai/generation/support_v2.py",
+      "base_sha256": "1f354bb160d3c75891dc2c004734fdfdf2e6650475c172ffb7e029f6cb8f09c9",
+      "candidate_sha256": "822a131183b4ee7c29a1bb11d29e31b99831062a1cd988d6bb6a5780bcac978c"
+    },
+    {
+      "path": "src/payresolve_ai/generation/routing_v3.py",
+      "base_sha256": "f13e3f4b0f1dac22fb1a12d9a6094bf63c52b463b2b2b6325b3c3536908beea5",
+      "candidate_sha256": "12a82b2068c29e62d24ae8929cfd3b8500efb3b3ba28f9967a20a5236485fda3"
+    },
+    {
+      "path": "src/payresolve_ai/generation/pipeline_v3.py",
+      "base_sha256": "832efe715586fd50f24c6c1a2bfb5969dc60f9fb870998d3b3c01be0df270058",
+      "candidate_sha256": "ee0a9ce32eeea6112146c4d34b326a52ed2a687ea8803b600562de4aa9d76db2"
+    },
+    {
+      "path": "configs/generation/grounded_pipeline_v3.json",
+      "base_sha256": "bca279ea11feffbde8b3fa569c3ea2a076d94664f6aa4e473a770b19c3428d09",
+      "candidate_sha256": "fdf42e4db5f1d4cfe6779c6ebb567ab5be7193d84505266a07e291a6e5912dc8"
+    }
+  ],
+  "conditional_paths_changed": [],
+  "read_only_retrieval_runtime": {
+    "path": "src/payresolve_ai/retrieval/runtime.py",
+    "base_sha256": "8e09bcb978d5fe921fb978246f61f1711560830092ea7fdeb0d62e39d321fe27",
+    "current_sha256": "8e09bcb978d5fe921fb978246f61f1711560830092ea7fdeb0d62e39d321fe27",
+    "changed": false
+  },
+  "forbidden_scope": {
+    "gold_changed": false,
+    "kb_changed": false,
+    "semantic_retriever_changed": false,
+    "evaluator_changed": false,
+    "ev2_artifact_changed": false,
+    "gate_py_changed": false,
+    "corrective_v1_py_changed": false
+  },
+  "unrelated_preexisting_dirty_paths_preserved": true,
+  "notable_preexisting_dirty_path": "scripts/evaluation/prepare_critical_v2_ea1_revision14_evidence.py",
+  "staged_count": 0,
+  "result": "PASS"
+}

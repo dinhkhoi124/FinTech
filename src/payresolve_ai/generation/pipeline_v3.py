@@ -192,7 +192,20 @@ def run_case_v3(
     scope_anchor: tuple[str, ...] = ()
     scope_anchor_basis: tuple[str, ...] = ()
     corrective_pool: list[EvidenceChunk] = []
-    if assessment["status"] is RequestedTargetStatus.BLOCKED_CONTROL_PLANE:
+    discovery_policy = config["corrective_discovery"]
+    discovery_authorized = (
+        discovery_policy["enabled"] is True
+        and discovery_policy["route_only"] == "SAFE_CORRECTIVE"
+        and discovery_policy["approved_effective_only"] is True
+        and discovery_policy["may_transition_to_standard"] is False
+        and discovery_policy["may_override_failed_standard_authorization"] is False
+        and discovery_policy["may_authorize_unbound_factual_resolution"] is False
+        and discovery_policy["fallback"] == "ABSTAIN_ESCALATE"
+    )
+    if (
+        assessment["status"] is RequestedTargetStatus.BLOCKED_CONTROL_PLANE
+        and discovery_authorized
+    ):
         anchor = derive_corrective_scope_anchor(
             query["query_text"], standard_pool, lexicon, config["tokenizer"]["stopwords"]
         )
@@ -285,6 +298,22 @@ def load_v3_configuration(root: Path, config_path: Path) -> tuple[dict[str, Any]
     rows = [json.loads(line) for line in (root / dev["dataset_path"]).read_text(encoding="utf-8").splitlines() if line]
     if config["default_mode"] != "TARGET_AWARE" or "ALWAYS_ANSWER" in json.dumps(config):
         raise PipelineV3Error("V3 production mode must be target-aware without global answer bypass")
+    required_discovery_policy = {
+        "route_only": "SAFE_CORRECTIVE",
+        "approved_effective_only": True,
+        "may_transition_to_standard": False,
+        "may_override_failed_standard_authorization": False,
+        "may_authorize_unbound_factual_resolution": False,
+        "fallback": "ABSTAIN_ESCALATE",
+    }
+    discovery_policy = config.get("corrective_discovery")
+    if (
+        not isinstance(discovery_policy, dict)
+        or not isinstance(discovery_policy.get("enabled"), bool)
+        or set(discovery_policy) != {"enabled", *required_discovery_policy}
+        or any(discovery_policy.get(key) != value for key, value in required_discovery_policy.items())
+    ):
+        raise PipelineV3Error("corrective discovery policy must remain fail-closed")
     if len(rows) != dev["expected_cases"] or any(row.get("use_expected_target_as_runtime_input") for row in rows):
         raise PipelineV3Error("development fixture contract mismatch")
     return config, lexicon, rows

@@ -1,0 +1,105 @@
+{
+  "authoritative_sources": [
+    "tests/test_w3_003_rm2_remediation.py",
+    "configs/evaluation/w3_003_behavior_dev_v1.json",
+    "data/evaluation/w3_003_behavior_dev_v1.jsonl",
+    "reports/week_03/results/w3_003_rm2_dev_validation.json"
+  ],
+  "axes": {
+    "cross_domain_distractor": {
+      "evidence": "A3 and ambiguity fixture",
+      "gap": "multi-domain plus multi-obligation interaction absent",
+      "represented": true
+    },
+    "cross_state_distractor": {
+      "evidence": "A1/A2 and state compatibility tests",
+      "gap": "composite-state distractors absent",
+      "represented": true
+    },
+    "domain_family_variation": {
+      "evidence": "transfer/card/cash fixtures",
+      "gap": "not crossed systematically with every request dimension",
+      "represented": true
+    },
+    "fallback_authorization_path": {
+      "evidence": "exact fallback and substitution fail-closed tests",
+      "gap": "fallback not crossed with multiple requested dimensions/obligations",
+      "represented": true
+    },
+    "multi_evidence_obligation_coverage": {
+      "evidence": "no systematic set-cover invariant in retained RM2",
+      "gap": "complete route-appropriate coverage across multiple evidence items absent",
+      "represented": false
+    },
+    "partial_evidence_coverage": {
+      "evidence": "incomplete/partial corrective fixtures",
+      "gap": "STANDARD multi-obligation partial cover absent",
+      "represented": true
+    },
+    "requested_dimension": {
+      "evidence": "CHECKS, NEXT_ACTION, RETRY, TIMING",
+      "gap": "safe alternative, security boundary, communication boundary, conflict resolution, account-specific decision absent",
+      "represented": true
+    },
+    "retrieval_rank_top3_position": {
+      "evidence": "A1 rank-2 requested-state recovery",
+      "gap": "bounded corrective discovery reachability was not crossed with route guard variants",
+      "represented": true
+    },
+    "single_vs_multi_obligation": {
+      "evidence": "Root B fixtures validate one detected objective",
+      "gap": "response-level complete obligation coverage absent",
+      "represented": false
+    },
+    "state_variation": {
+      "evidence": "A1-A4 pending/failed and compatibility tests",
+      "gap": "composite and unknown-state contracts absent",
+      "represented": true
+    }
+  },
+  "classification": "FROZEN_RM2_NON_LOCKED_DEV_REPRESENTATIVENESS_AUDIT",
+  "conclusion": "RM2 validation could pass while a materially larger cross-product of state, dimension, obligation cardinality, and route authorization remained untested.",
+  "criticism_boundary": "The issue is concrete missing behavioral dimensions, not suite size alone.",
+  "escaped_same_root_variants": [
+    "multiple requested dimensions or obligations reduced to the first coarse detected dimension",
+    "requested state expressed outside the bounded RM2 state-marker vocabulary",
+    "STANDARD exact citation locally valid while full response-level obligation coverage is incomplete",
+    "ambiguous or partial safe-stop requests not represented as a route-level binding contract"
+  ],
+  "existing_counts": {
+    "existing_safe_v3_allowlist_tests": 24,
+    "rm2_focused_test_methods": 20,
+    "w3_001_answerable_standard_capable": 10,
+    "w3_001_safety_probes": 10,
+    "w3_003_expected_hard_abstain": 5,
+    "w3_003_expected_safe_corrective": 7,
+    "w3_003_expected_standard": 2
+  },
+  "future_fixture_rule": {
+    "allowed_sources": [
+      "RM2/generalized invariants",
+      "existing product/domain ontology",
+      "non-locked development evidence",
+      "systematic transformations/property rules"
+    ],
+    "forbidden_sources": [
+      "EV2 wording",
+      "EV2 paraphrases",
+      "EV2 case-specific evidence IDs",
+      "EV1/EV2 case IDs"
+    ],
+    "independence_from_ev2": true,
+    "overlap_safeguards": [
+      "exact EV1/EV2 query duplicates = 0",
+      "long normalized text-copy overlap audit",
+      "fixture references to EV1/EV2 IDs = 0"
+    ],
+    "required_metadata": [
+      "source_basis",
+      "behavioral_axis",
+      "expected_invariant",
+      "independence_from_ev2"
+    ]
+  },
+  "task_id": "W3-003-RM3-A1"
+}

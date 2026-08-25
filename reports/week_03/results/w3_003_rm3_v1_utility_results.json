@@ -1,0 +1,36 @@
+{
+  "task_id": "W3-003-RM3-V1",
+  "development_only": true,
+  "independent_product_gate": false,
+  "fixture_plan_sha256": "b56e1ef86c1e379bec97f31b7b02c5010679ec898c078cafaddadf49a5133afc",
+  "results": {
+    "STANDARD": {"successes": 12, "denominator": 12, "rate": 1.0, "threshold": 0.8, "pass": true},
+    "SAFE_CORRECTIVE": {"successes": 10, "denominator": 10, "rate": 1.0, "threshold": 0.75, "pass": true},
+    "HARD": {"successes": 8, "denominator": 8, "rate": 1.0, "threshold": 1.0, "pass": true}
+  },
+  "unresolved_mechanisms": {
+    "counts": {},
+    "maximum_same_mechanism_count": 0,
+    "required_maximum_exclusive": 3,
+    "pass": true
+  },
+  "baseline_comparison": {
+    "official_r1_frozen_sha256": "3a1a00a2c9e1993a835687658cebdf7f60d134f5313b71cce9538e1e69f065b0",
+    "official_r1_aggregate": {
+      "STANDARD": "10/24",
+      "SAFE_CORRECTIVE": "1/18",
+      "HARD": "6/12",
+      "failed_cases": 41,
+      "result": "FAIL_REMEDIATION_REQUIRED"
+    },
+    "rm3_v1_invariant_dev": {
+      "STANDARD": "12/12",
+      "SAFE_CORRECTIVE": "10/10",
+      "HARD": "8/8",
+      "failed_cases": 0,
+      "result": "PASS_READY_FOR_SENIOR_REVIEW"
+    },
+    "comparability_warning": "The RM3-V1 figures come from newly frozen invariant-derived development fixtures, not EV2. They demonstrate mechanism coverage and are not an EV2 improvement estimate or product-gate claim."
+  },
+  "result": "PASS"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "W3-003-RM3-V1",
+  "commands": [
+    {
+      "purpose": "preflight and frozen locks",
+      "result": "PASS",
+      "evidence": "main; HEAD=origin/main=7160590ae0b236171894ebce297662b7063e0897; tree=1870dba65ca5972d000d64238830f2a138df8a4c; staged=0; all three A1 hashes exact"
+    },
+    {
+      "purpose": "fixture independence guard",
+      "result": "PASS",
+      "evidence": "30 unique members; exact text duplicates=0; case ID references=0; evidence ID references=0; normalized 12-word-window matches=0"
+    },
+    {
+      "purpose": "focused RM3 + RM2 regression",
+      "command": "python -m pytest tests/test_w3_003_rm3_v1.py tests/test_w3_003_rm2_remediation.py -q",
+      "result": "PASS",
+      "evidence": "25 passed, 35 subtests passed before the rollback-off-switch test was added"
+    },
+    {
+      "purpose": "grounded, safety, RED1 and Option-A regression",
+      "command": "python -m pytest tests/test_grounded_pipeline_v3.py tests/test_w3_003_behavior_safety.py tests/test_red1_verification_boundary.py tests/test_critical_v2_contract.py -q",
+      "result": "PASS",
+      "evidence": "40 passed"
+    },
+    {
+      "purpose": "selected A3 frozen-integrity checks",
+      "result": "EXPECTED_HISTORICAL_LOCK_FAILURE",
+      "evidence": "5 passed; legacy A3 preflight failed only because it intentionally locks the pre-RM3 production/config bytes. A2/EV1/critical-rev7/R0 identities remained exact. The historical test was not changed."
+    },
+    {
+      "purpose": "complete focused pre-freeze suite",
+      "command": "python -m pytest tests/test_w3_003_rm3_v1.py tests/test_w3_003_rm2_remediation.py tests/test_grounded_pipeline_v3.py tests/test_w3_003_behavior_safety.py tests/test_red1_verification_boundary.py tests/test_critical_v2_contract.py tests/test_evidence_gate_v2.py tests/test_critical_safety_evaluation.py -q",
+      "result": "PASS_EXIT_0",
+      "evidence": "199 statically counted test methods plus parameterized/subtest instances"
+    },
+    {
+      "purpose": "compile and whitespace",
+      "result": "PASS",
+      "evidence": "py_compile passed for all changed Python/test files; git diff --check passed"
+    },
+    {
+      "purpose": "candidate validation campaign #1",
+      "result": "PASS_READY_FOR_SENIOR_REVIEW",
+      "evidence": "STANDARD 12/12; SAFE_CORRECTIVE 10/10; HARD 8/8; all zero-tolerance counters 0; no unresolved mechanism"
+    },
+    {
+      "purpose": "post-validation scope and frozen-hash audit",
+      "result": "PASS",
+      "evidence": "candidate bytes exact; retrieval runtime unchanged; A1/R1/A4/E1 frozen hashes exact; no Gold/KB/evaluator/EV2 mutation"
+    }
+  ],
+  "execution_counters": {
+    "candidate_validation_campaigns": 1,
+    "ev2_candidate_runs": 0,
+    "ev2_evaluator_runs": 0,
+    "ev2_scorer_runs": 0,
+    "gold_loads_by_rm3_validation": 0,
+    "semantic_retriever_calls": 0,
+    "model_calls": 0,
+    "network_calls": 0
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "anti_ev2_overfit": {
+    "allowed_sources": [
+      "RM2/generalized invariants",
+      "existing product/domain ontology",
+      "non-locked development evidence",
+      "systematic transformations/property rules"
+    ],
+    "forbidden_sources": [
+      "EV2 wording",
+      "EV2 paraphrases",
+      "EV2 case-specific evidence IDs",
+      "EV1/EV2 case IDs"
+    ],
+    "independence_from_ev2": true,
+    "overlap_safeguards": [
+      "exact EV1/EV2 query duplicates = 0",
+      "long normalized text-copy overlap audit",
+      "fixture references to EV1/EV2 IDs = 0"
+    ],
+    "required_metadata": [
+      "source_basis",
+      "behavioral_axis",
+      "expected_invariant",
+      "independence_from_ev2"
+    ]
+  },
+  "corrective_discovery": {
+    "approved_effective_only": true,
+    "candidate_pool_max_chunks": 8,
+    "candidate_source_scan_max_chunks": 128,
+    "enabled": true,
+    "fallback": "ABSTAIN_ESCALATE",
+    "may_authorize_unbound_factual_resolution": false,
+    "may_override_failed_standard_authorization": false,
+    "may_transition_to_standard": false,
+    "route_only": "SAFE_CORRECTIVE",
+    "trace_reachability": {
+      "safe_corrective_reachable": 8,
+      "safe_corrective_total": 10
+    }
+  },
+  "ev3_no_ev4_contract": {
+    "authorized_only_if_all_readiness_checks_pass": true,
+    "ev4_loop": false,
+    "if_ev3_invalid": {
+      "action": "INTEGRITY_ADJUDICATION_ONLY",
+      "automatic_rerun": false
+    },
+    "if_ev3_pass": "P0_CLOSURE_REVIEW",
+    "if_ev3_valid_fail": {
+      "decision": "TRUTHFUL_SCOPED_RELEASE_OR_DEMO",
+      "ev4": false
+    },
+    "if_readiness_fails": {
+      "demo_scope": [
+        "agent_assist_human_review",
+        "safe_degraded_demo"
+      ],
+      "ev3_authorized": false
+    }
+  },
+  "forbidden_scope": [
+    "new embedding model",
+    "new classifier",
+    "BM25",
+    "hybrid retrieval",
+    "reranker",
+    "R0-to-R1 switch",
+    "global top-k increase",
+    "new response taxonomy",
+    "new architecture",
+    "EV2-specific branch logic",
+    "Gold/evaluator changes",
+    "KB content from EV2",
+    "broad generator rewrite"
+  ],
+  "implementation_authorization_recommendation": "AUTHORIZE_RM3_V1_MINIMAL_P0",
+  "implementation_budget": {
+    "automatic_fix2_allowed": false,
+    "automatic_fix3_allowed": false,
+    "flow": [
+      "RM3_V1",
+      "SENIOR_REVIEW",
+      "OPTIONAL_ONE_BOUNDED_FIX1",
+      "SENIOR_FINAL_REVIEW",
+      "STOP_IF_NOT_READY"
+    ],
+    "maximum_senior_fix_required_after_v1": 1
+  },
+  "implementation_v1_allowed": true,
+  "minimal_invariants": [
+    {
+      "dev_property_family": "systematic domain/state/dimension/obligation-cardinality transformations from non-locked ontology",
+      "files_functions": {
+        "src/payresolve_ai/generation/routing_v3.py": [
+          "_standard_request_scope_pool",
+          "_state_compatible_pool",
+          "assess_requested_target",
+          "select_supported_standard_objectives"
+        ],
+        "src/payresolve_ai/generation/support_v2.py": [
+          "detect_requested_dimension",
+          "new plural deterministic dimension extraction helper"
+        ]
+      },
+      "id": "P0-A",
+      "invariant": "Before any factual route, establish a deterministic request contract covering domain, state, every requested dimension, target/objective family, and ambiguity state; unknown or conflicting bindings fail closed.",
+      "name": "GENERALIZED_REQUEST_BINDING",
+      "negative_safety_family": "cross-domain, cross-state, partial-cover, ambiguous-state, and unbound-dimension twins",
+      "rollback_off_switch": "rm3_generalized_binding.enabled=false restores frozen RM2 behavior"
+    },
+    {
+      "dev_property_family": "route-authorization and complete-obligation properties independent of EV2 wording",
+      "files_functions": {
+        "src/payresolve_ai/generation/corrective_v1.py": [
+          "assemble_corrective_objectives"
+        ],
+        "src/payresolve_ai/generation/gate.py": [
+          "override_requested"
+        ],
+        "src/payresolve_ai/generation/pipeline_v3.py": [
+          "build_response_plan",
+          "run_case_v3"
+        ],
+        "src/payresolve_ai/generation/routing_v3.py": [
+          "assess_requested_target",
+          "ResponsePlan"
+        ],
+        "src/payresolve_ai/generation/support_v2.py": [
+          "requested_specificity_slots"
+        ]
+      },
+      "id": "P0-B",
+      "invariant": "STANDARD requires exact target/state/dimension/objective support and complete requested-obligation coverage; prohibited, guarantee, account-specific, unresolved, or ambiguity requests cannot enter STANDARD; citation correctness alone never authorizes a claim.",
+      "name": "FAIL_CLOSED_FACTUAL_AND_ROUTE_AUTHORIZATION",
+      "negative_safety_family": "wrong target, wrong state, missing obligation, unsupported account decision, prohibited action, and ambiguous safe-stop transformations",
+      "rollback_off_switch": "rm3_fail_closed_authorization.enabled=false restores frozen RM2 while disabling EV3 authorization"
+    },
+    {
+      "dev_property_family": "bounded approved/effective scope/state discovery with pool and scan caps",
+      "files_functions": {
+        "configs/generation/grounded_pipeline_v3.json": [
+          "corrective explicit enable/off-switch contract"
+        ],
+        "src/payresolve_ai/generation/pipeline_v3.py": [
+          "run_case_v3"
+        ],
+        "src/payresolve_ai/generation/routing_v3.py": [
+          "derive_corrective_scope_anchor",
+          "assess_requested_target"
+        ],
+        "src/payresolve_ai/retrieval/runtime.py": [
+          "discover_corrective_candidates (behavior preserved; no semantic retriever)"
+        ]
+      },
+      "id": "P0-C",
+      "invariant": "Use the existing deterministic bounded discovery only after a safe exact scope/state anchor and only for SAFE_CORRECTIVE; discovery expands candidates but never factual authorization or STANDARD eligibility.",
+      "name": "BOUNDED_SAFE_CORRECTIVE_DISCOVERY",
+      "negative_safety_family": "missing anchor, wrong-state anchor, wrong-target competitor, incomplete corrective cover, and attempted STANDARD transition",
+      "rollback_off_switch": "corrective_discovery.enabled=false forces ABSTAIN_ESCALATE"
+    }
+  ],
+  "operating_mode": "P0_RELEASE_CLOSURE_MODE",
+  "production_implementation_started": false,
+  "readiness_contract": "configs/evaluation/w3_003_rm3_dev_readiness_contract_v1.json",
+  "router": {
+    "case_count": 1,
+    "p2_router_fix_required": false,
+    "verdict": "COVERED_BY_P0_BINDING_INVARIANT"
+  },
+  "schema_version": "W3-003-RM3-REMEDIATION-CONTRACT-V1",
+  "strategy": "GENERALIZE_RM2_INVARIANTS",
+  "strategy_basis": {
+    "interaction_fraction": 0.05,
+    "new_root_fraction": 0.3,
+    "same_root_fraction": 0.65
+  },
+  "task_id": "W3-003-RM3-A1"
+}

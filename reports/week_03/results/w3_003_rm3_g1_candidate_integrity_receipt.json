@@ -1,0 +1,46 @@
+{
+  "task_id": "W3-003-RM3-G1",
+  "source_base_commit": "7160590ae0b236171894ebce297662b7063e0897",
+  "source_base_tree": "1870dba65ca5972d000d64238830f2a138df8a4c",
+  "candidate_hashes": {
+    "src/payresolve_ai/generation/support_v2.py": "822a131183b4ee7c29a1bb11d29e31b99831062a1cd988d6bb6a5780bcac978c",
+    "src/payresolve_ai/generation/routing_v3.py": "12a82b2068c29e62d24ae8929cfd3b8500efb3b3ba28f9967a20a5236485fda3",
+    "src/payresolve_ai/generation/pipeline_v3.py": "ee0a9ce32eeea6112146c4d34b326a52ed2a687ea8803b600562de4aa9d76db2",
+    "configs/generation/grounded_pipeline_v3.json": "fdf42e4db5f1d4cfe6779c6ebb567ab5be7193d84505266a07e291a6e5912dc8",
+    "configs/evaluation/w3_003_rm3_v1_dev_fixture_plan.json": "b56e1ef86c1e379bec97f31b7b02c5010679ec898c078cafaddadf49a5133afc",
+    "tests/test_w3_003_rm3_v1.py": "a597644e393258cef5f0fee9b32e9f833b9d76dd81cb323ee40bb493566a1349"
+  },
+  "historical_a3_source_lock": "EXPECTED_SUPERSEDED_PRODUCTION_BYTE_LOCK",
+  "historical_a3_test_not_run": true,
+  "historical_a3_test_not_run_reason": "Running its verifier would load Gold; G1 prohibits Gold access.",
+  "authorized_current_vs_head_changed_paths": [
+    "configs/generation/grounded_pipeline_v3.json",
+    "src/payresolve_ai/generation/pipeline_v3.py",
+    "src/payresolve_ai/generation/routing_v3.py",
+    "src/payresolve_ai/generation/support_v2.py"
+  ],
+  "all_generation_config_changed_paths_equal_authorized_set": true,
+  "retrieval_runtime": {
+    "path": "src/payresolve_ai/retrieval/runtime.py",
+    "sha256": "8e09bcb978d5fe921fb978246f61f1711560830092ea7fdeb0d62e39d321fe27",
+    "changed": false
+  },
+  "frozen_history": {
+    "r1_score_sha256": "3a1a00a2c9e1993a835687658cebdf7f60d134f5313b71cce9538e1e69f065b0",
+    "a3_manifest_sha256": "19ad35b27bd3f60e0a76ae7e42ea4c06a197166e1e9ae3ea26dbecc05ae5ee54",
+    "a4_receipt_sha256": "cc27895247a15a144d0f13e340ab5476fb4ec30129ca2cc7c64e2cdbcd0016e7",
+    "e1_consumption_sha256": "169e47629d614c4bc0df0ccbeaab4a859814f1ca767d6eec563faad5d0a022d0",
+    "e1_raw_sha256": "d7c9a16fb4867f52ded6b793ccda227b3a9c0210eca44c17869d1cab4a60d263",
+    "e1_raw_manifest_sha256": "5be5e1e4535f60413c56867ba4f4b4fb11e5b95190d28b609acf3a2cafe5d413",
+    "pass_a_sha256": "f66ce6b0fa6c86a0cf7e3cc4aba33f3d76699e7981630a8b9b748ce979d66541",
+    "pass_b_sha256": "f70af099f9842c6d51ad8e75219b5eb8a074a88fe7a3dc4914306fe32defb1d2",
+    "pass_c_sha256": "04c99c88926b306fa44d6169fdf22507d418311e22d491384344585bbc336431",
+    "gold_content_loaded": false,
+    "gold_git_path_diff": [],
+    "kb_git_path_diff": [],
+    "evaluator_git_path_diff": []
+  },
+  "candidate_source_mutation_after_gate_start": false,
+  "fixture_mutation_after_gate_start": false,
+  "result": "PASS"
+}

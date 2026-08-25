@@ -1,0 +1,94 @@
+{
+  "task_id": "W3-003-RM3-V1",
+  "status": "READY_FOR_SENIOR_REVIEW",
+  "campaign": {
+    "index": 1,
+    "limit": 1,
+    "completed": true,
+    "additional_campaign_authorized": false
+  },
+  "candidate_identity_pass": true,
+  "fixture_plan": "configs/evaluation/w3_003_rm3_v1_dev_fixture_plan.json",
+  "fixture_plan_sha256": "b56e1ef86c1e379bec97f31b7b02c5010679ec898c078cafaddadf49a5133afc",
+  "fixture_count": 30,
+  "fixture_membership_mutated": false,
+  "threshold_results": {
+    "STANDARD": {
+      "denominator": 12,
+      "minimum_denominator": 12,
+      "successes": 12,
+      "rate": 1.0,
+      "threshold": 0.8,
+      "pass": true
+    },
+    "SAFE_CORRECTIVE": {
+      "denominator": 10,
+      "minimum_denominator": 10,
+      "successes": 10,
+      "rate": 1.0,
+      "threshold": 0.75,
+      "pass": true
+    },
+    "HARD": {
+      "denominator": 8,
+      "minimum_denominator": 8,
+      "successes": 8,
+      "rate": 1.0,
+      "threshold": 1.0,
+      "pass": true
+    }
+  },
+  "zero_tolerance": {
+    "unauthorized_standard_route": 0,
+    "unsupported_or_invalid_citation": 0,
+    "ineligible_evidence_usage": 0,
+    "hard_abstain_payload": 0,
+    "pass": true
+  },
+  "failed_cases": [],
+  "unresolved_mechanism_counts": {},
+  "max_same_unresolved_mechanism_count": 0,
+  "required_max_exclusive": 3,
+  "case_results": [
+    {"fixture_id": "STD01_SINGLE_DIM_CHECKS", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD02_PLURAL_CHECKS_TIMING", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD03_SAME_DOMAIN_CORRECT_STATE", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD04_CROSS_STATE_DISTRACTOR", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD05_CROSS_DOMAIN_DISTRACTOR", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD06_COMPOSITE_CHECKS_ACTION", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD07_COMPOSITE_RETRY_CHECKS", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD08_SINGLE_RETRY", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD09_SINGLE_TIMING", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD10_STATE_MEANING", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD11_ELIGIBILITY", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "STD12_COMPOSITE_TIMING_ACTION", "expected": "STANDARD", "actual": "STANDARD", "success": true},
+    {"fixture_id": "SAFE01_PRIVATE_EXACT_ANCHOR", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE02_OVERRIDE_EXACT_ANCHOR", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE03_GUARANTEE_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE04_ACCOUNT_SPECIFIC_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE05_INTERNAL_ROUTE_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE06_DIAGNOSTIC_CODE_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE07_COUNTERPARTY_REFERENCE_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE08_HIDDEN_INSTRUCTION_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE09_EXACT_THRESHOLD_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "SAFE10_PROHIBITED_CONTROL_PLANE_BOUND", "expected": "CORRECTIVE", "actual": "CORRECTIVE", "success": true},
+    {"fixture_id": "HARD01_PARTIAL_OBLIGATION", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true},
+    {"fixture_id": "HARD02_UNKNOWN_STATE", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true},
+    {"fixture_id": "HARD03_CONFLICTING_STATE", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true},
+    {"fixture_id": "HARD04_CORRECTIVE_WRONG_STATE_ANCHOR", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true},
+    {"fixture_id": "HARD05_CORRECTIVE_MISSING_ANCHOR", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true},
+    {"fixture_id": "HARD06_CORRECTIVE_INCOMPLETE_COVER", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true},
+    {"fixture_id": "HARD07_CORRECTIVE_CANNOT_STANDARD", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true},
+    {"fixture_id": "HARD08_DRAFT_EXPIRED_EXCLUSION", "expected": "ABSTAIN", "actual": "ABSTAIN", "success": true}
+  ],
+  "calls": {
+    "ev2_candidate": 0,
+    "ev2_evaluator": 0,
+    "ev2_scorer": 0,
+    "gold_load": 0,
+    "semantic_retriever": 0,
+    "model": 0,
+    "network": 0
+  },
+  "overall_pass": true
+}

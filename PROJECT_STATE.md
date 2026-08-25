@@ -6,9 +6,9 @@
 - Project: PayResolve AI
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
-- P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV2-R1-PUB1` — PUBLISHING SENIOR-ACCEPTED VALID-FAIL R1 EVIDENCE
-- Next task: Senior fresh-remote verify the R1 publication, then explicitly authorize `W3-003-RM3-A1`; do not begin remediation before that authorization.
+- P0 gate status: BLOCKED PENDING EV3
+- Active task: `W3-003-RM3-PUB1` — PUBLISH RM3 V1 P0 REMEDIATION + A1/G1 EVIDENCE
+- Next task: Senior fresh-remote verify the RM3 V1 EV3 candidate, then explicitly authorize one-shot EV3; do not run EV3 before that authorization.
 - Last updated: 2026-08-25 by Codex
 
 The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
@@ -21,6 +21,20 @@ VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
+
+## W3-003-RM3 publication status — 2026-08-25
+
+R1 is `VALID FAIL / CLOSED / REMOTE VERIFIED`. RM3 A1 is `APPROVED / PUBLISHED
+IN THIS COMMIT`; RM3 V1 is `SENIOR APPROVED`; RM3 FIX1 is `UNUSED`; and G1 is
+`DEV_READINESS_PASS / SENIOR ACCEPTED`. The historical A3 source lock is
+`EXPECTED_SUPERSEDED_PRODUCTION_BYTE_LOCK`: only the four approved RM3 V1
+production/config paths supersede its pre-RM3 bytes, while
+`retrieval/runtime.py` remains unchanged.
+
+EV3 is `NOT EXECUTED / NOT YET AUTHORIZED`. In
+`P0_RELEASE_CLOSURE_MODE`, Week-3 P0 remains `BLOCKED PENDING EV3` and Week-4
+product authorization remains `BLOCKED`; this is not a P0 PASS claim. The demo
+integration shell may continue independently under non-autonomous scope only.
 
 ## W3-003-EV2-R1 official frozen scoring — 2026-08-25
 

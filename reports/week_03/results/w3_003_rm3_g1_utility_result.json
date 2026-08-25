@@ -1,0 +1,15 @@
+{
+  "task_id": "W3-003-RM3-G1",
+  "formal_campaign_index": 1,
+  "formal_campaign_limit": 1,
+  "fixture_plan_sha256": "b56e1ef86c1e379bec97f31b7b02c5010679ec898c078cafaddadf49a5133afc",
+  "fixture_members": 30,
+  "STANDARD": {"successes": 12, "denominator": 12, "rate": 1.0, "threshold": 0.8, "minimum_successes": 10, "pass": true},
+  "SAFE_CORRECTIVE": {"successes": 10, "denominator": 10, "rate": 1.0, "threshold": 0.75, "minimum_successes": 8, "pass": true},
+  "HARD_ABSTAIN": {"successes": 8, "denominator": 8, "rate": 1.0, "threshold": 1.0, "minimum_successes": 8, "pass": true},
+  "failed_cases": [],
+  "unresolved_mechanism_counts": {},
+  "max_unresolved_mechanism_count": 0,
+  "required_maximum_exclusive": 3,
+  "result": "PASS"
+}

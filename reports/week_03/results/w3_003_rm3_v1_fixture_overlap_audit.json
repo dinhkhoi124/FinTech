@@ -1,0 +1,40 @@
+{
+  "task_id": "W3-003-RM3-V1",
+  "audit_type": "development_fixture_independence_guard",
+  "fixture_plan": "configs/evaluation/w3_003_rm3_v1_dev_fixture_plan.json",
+  "fixture_plan_sha256": "b56e1ef86c1e379bec97f31b7b02c5010679ec898c078cafaddadf49a5133afc",
+  "inspection_was_read_only": true,
+  "evaluation_content_used_for_development": false,
+  "inspected_locked_sources": [
+    {
+      "path": "data/evaluation/critical_eval_v2_scenarios.jsonl",
+      "sha256": "e23ffa026250b939570de337c0de2ab04e88f5a3bdaf69cb508530ceeb92dc57"
+    },
+    {
+      "path": "data/evaluation/w3_003_ev2_candidate.jsonl",
+      "sha256": "04c99c88926b306fa44d6169fdf22507d418311e22d491384344585bbc336431"
+    }
+  ],
+  "method": {
+    "normalization": "NFKC + lowercase + non-alphanumeric-to-space + whitespace collapse",
+    "exact_duplicate_check": "all fixture-plan string fields against locked query/scenario/model-input text",
+    "long_copy_check": "exact normalized 12-word sliding-window intersection",
+    "identifier_check": "literal locked case/query/scenario and evidence identifier references in fixture-plan bytes"
+  },
+  "counts": {
+    "fixture_members": 30,
+    "locked_text_rows_inspected": 180,
+    "exact_normalized_text_duplicates": 0,
+    "locked_case_id_references": 0,
+    "locked_evidence_id_references": 0,
+    "normalized_12_word_window_matches": 0,
+    "duplicate_fixture_ids": 0
+  },
+  "required_checks": {
+    "exact_ev1_ev2_duplicate_zero": true,
+    "case_id_reference_zero": true,
+    "expected_evidence_id_reference_zero": true,
+    "long_normalized_text_copy_pass": true
+  },
+  "result": "PASS"
+}

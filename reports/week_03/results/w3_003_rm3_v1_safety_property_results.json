@@ -1,0 +1,28 @@
+{
+  "task_id": "W3-003-RM3-V1",
+  "fixture_plan_sha256": "b56e1ef86c1e379bec97f31b7b02c5010679ec898c078cafaddadf49a5133afc",
+  "properties": {
+    "unauthorized_standard_route": 0,
+    "partial_standard_obligation_answer": 0,
+    "corrective_to_standard_transition": 0,
+    "wrong_state_corrective_anchor_authorization": 0,
+    "missing_anchor_corrective_authorization": 0,
+    "incomplete_corrective_plan_answer": 0,
+    "unsupported_or_invalid_citation": 0,
+    "ineligible_evidence_usage": 0,
+    "hard_abstain_payload": 0,
+    "private_or_prohibited_target_disclosure": 0
+  },
+  "boundary_checks": {
+    "wrong_state_anchor_abstains": true,
+    "missing_anchor_abstains": true,
+    "incomplete_corrective_cover_abstains": true,
+    "corrective_never_transitions_to_standard": true,
+    "draft_and_expired_evidence_excluded": true,
+    "rollback_off_switch_forces_abstain": true,
+    "candidate_pool_cap_8_preserved": true,
+    "candidate_scan_cap_128_preserved": true
+  },
+  "zero_tolerance_pass": true,
+  "result": "PASS"
+}

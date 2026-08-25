@@ -1,0 +1,62 @@
+{
+  "task_id": "W3-003-RM3-G1",
+  "source_base_commit": "7160590ae0b236171894ebce297662b7063e0897",
+  "source_base_tree": "1870dba65ca5972d000d64238830f2a138df8a4c",
+  "readiness_contract_path": "configs/evaluation/w3_003_rm3_dev_readiness_contract_v1.json",
+  "readiness_contract_sha256": "6b4d07801388b6bdbc27751fadf50cd80ac7091626303bf2a79f2ac08c131767",
+  "remediation_contract_sha256": "c2d150e6947ac6bfb7517fe28a6ea52b531baa36b0f3f28e8a1897802c412851",
+  "formal_campaign_index": 1,
+  "formal_campaign_limit": 1,
+  "candidate_source_config_hashes": {
+    "src/payresolve_ai/generation/support_v2.py": "822a131183b4ee7c29a1bb11d29e31b99831062a1cd988d6bb6a5780bcac978c",
+    "src/payresolve_ai/generation/routing_v3.py": "12a82b2068c29e62d24ae8929cfd3b8500efb3b3ba28f9967a20a5236485fda3",
+    "src/payresolve_ai/generation/pipeline_v3.py": "ee0a9ce32eeea6112146c4d34b326a52ed2a687ea8803b600562de4aa9d76db2",
+    "configs/generation/grounded_pipeline_v3.json": "fdf42e4db5f1d4cfe6779c6ebb567ab5be7193d84505266a07e291a6e5912dc8"
+  },
+  "fixture_plan_sha256": "b56e1ef86c1e379bec97f31b7b02c5010679ec898c078cafaddadf49a5133afc",
+  "fixture_independence": {
+    "result": "PASS",
+    "members": 30,
+    "STANDARD": 12,
+    "SAFE_CORRECTIVE": 10,
+    "HARD_ABSTAIN": 8,
+    "exact_ev1_ev2_duplicate": 0,
+    "ev1_ev2_case_id_references": 0,
+    "ev1_ev2_evidence_id_references": 0,
+    "normalized_12_word_copy_overlap": 0,
+    "duplicate_fixture_ids": 0
+  },
+  "utility": {
+    "STANDARD": {"successes": 12, "denominator": 12, "rate": 1.0, "threshold": 0.8, "pass": true},
+    "SAFE_CORRECTIVE": {"successes": 10, "denominator": 10, "rate": 1.0, "threshold": 0.75, "pass": true},
+    "HARD_ABSTAIN": {"successes": 8, "denominator": 8, "rate": 1.0, "threshold": 1.0, "pass": true},
+    "max_unresolved_mechanism_count": 0
+  },
+  "hard_safety_total": 0,
+  "hard_safety_counters": {
+    "wrong_target_authorizations": 0,
+    "draft_or_expired_source_uses": 0,
+    "unsupported_factual_claims": 0,
+    "system_errors": 0,
+    "unauthorized_standard_route": 0,
+    "partial_standard_obligation_answer": 0,
+    "corrective_to_standard_transition": 0,
+    "wrong_state_corrective_anchor_authorization": 0,
+    "missing_anchor_corrective_authorization": 0,
+    "incomplete_corrective_plan_answer": 0,
+    "invalid_or_unsupported_citation": 0,
+    "ineligible_evidence_use": 0,
+    "private_or_prohibited_disclosure": 0
+  },
+  "regression": {"returncode": 0, "defined_test_methods_total": 199, "all_non_historical_source_lock_tests_pass": true},
+  "historical_a3_lock_classification": "EXPECTED_SUPERSEDED_PRODUCTION_BYTE_LOCK",
+  "frozen_history_verification": {"A2": "PASS_BY_FROZEN_MANIFEST_AND_GIT_METADATA", "A3": "PASS", "A4": "PASS", "E1": "PASS", "R1": "PASS"},
+  "calls": {"model_calls": 0, "semantic_retriever_calls": 0, "network_calls": 0, "EV2_calls": 0, "EV3_calls": 0, "Gold_loads": 0, "evaluator_calls": 0},
+  "source_mutation_after_gate_start": false,
+  "fixture_mutation_after_gate_start": false,
+  "test_mutation_after_gate_start": false,
+  "staged_count": 0,
+  "commit_created": false,
+  "push_performed": false,
+  "formal_result": "DEV_READINESS_PASS"
+}

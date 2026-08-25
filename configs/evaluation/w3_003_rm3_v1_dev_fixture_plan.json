@@ -1,0 +1,285 @@
+{
+  "task_id": "W3-003-RM3-V1",
+  "fixture_plan_version": "rm3_v1_invariant_fixtures_v1",
+  "development_only": true,
+  "independent_evaluation": false,
+  "ev2_case_content_used": false,
+  "membership_frozen_before_source_edits": true,
+  "strata": {
+    "STANDARD": 12,
+    "SAFE_CORRECTIVE": 10,
+    "HARD_ABSTAIN": 8
+  },
+  "fixtures": [
+    {
+      "fixture_id": "STD01_SINGLE_DIM_CHECKS",
+      "source_basis": "synthetic single-dimension request derived from the requested-dimension invariant",
+      "behavioral_axis": "single/plural dimensions",
+      "expected_invariant": "one requested CHECKS objective requires an exact in-scope support sentence",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "no off-objective sentence is selected",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD02_PLURAL_CHECKS_TIMING",
+      "source_basis": "synthetic plural request composed from existing CHECKS and TIMING_WINDOW dimensions",
+      "behavioral_axis": "single/plural dimensions",
+      "expected_invariant": "every requested dimension has a distinct exact support objective",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "no partial plural-dimension answer",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD03_SAME_DOMAIN_CORRECT_STATE",
+      "source_basis": "synthetic same-domain state pair derived from RM2 state compatibility",
+      "behavioral_axis": "same-domain correct state",
+      "expected_invariant": "requested state support wins within the requested domain",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "wrong-state evidence is not selected",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD04_CROSS_STATE_DISTRACTOR",
+      "source_basis": "synthetic higher-ranked wrong-state distractor plus lower-ranked exact-state support",
+      "behavioral_axis": "cross-state distractor",
+      "expected_invariant": "ranking cannot override exact state binding",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "selected evidence has the requested state",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD05_CROSS_DOMAIN_DISTRACTOR",
+      "source_basis": "synthetic higher-ranked wrong-domain distractor plus lower-ranked exact-domain support",
+      "behavioral_axis": "cross-domain distractor",
+      "expected_invariant": "ranking cannot override exact domain binding",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "selected evidence has the requested domain",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD06_COMPOSITE_CHECKS_ACTION",
+      "source_basis": "synthetic composition of two existing objective dimensions",
+      "behavioral_axis": "composite obligation coverage",
+      "expected_invariant": "CHECKS and NEXT_ACTION obligations are both selected",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "all mandatory request objectives are covered",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD07_COMPOSITE_RETRY_CHECKS",
+      "source_basis": "synthetic composition of retry-boundary and verification obligations",
+      "behavioral_axis": "composite obligation coverage",
+      "expected_invariant": "RETRY and CHECKS obligations are both selected",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "retry advice is not emitted without the requested check",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD08_SINGLE_RETRY",
+      "source_basis": "synthetic retry request using the accepted retry semantics",
+      "behavioral_axis": "single/plural dimensions",
+      "expected_invariant": "retry language binds only to a retry support sentence",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "unrelated attempt language cannot authorize",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD09_SINGLE_TIMING",
+      "source_basis": "synthetic timing request backed by approved policy authority",
+      "behavioral_axis": "same-domain correct state",
+      "expected_invariant": "timing requires an exact timing sentence from policy or FAQ evidence",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "non-authoritative timing text cannot authorize",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD10_STATE_MEANING",
+      "source_basis": "synthetic state-meaning request from the existing dimension vocabulary",
+      "behavioral_axis": "same-domain correct state",
+      "expected_invariant": "state meaning binds to the exact requested state and domain",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "state description is grounded and scoped",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD11_ELIGIBILITY",
+      "source_basis": "synthetic eligibility request from the existing dimension vocabulary",
+      "behavioral_axis": "same-domain correct state",
+      "expected_invariant": "eligibility binds to an explicit in-scope eligibility sentence",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "no implied entitlement beyond evidence",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "STD12_COMPOSITE_TIMING_ACTION",
+      "source_basis": "synthetic timing plus next-action request composed from existing dimensions",
+      "behavioral_axis": "composite obligation coverage",
+      "expected_invariant": "TIMING_WINDOW and NEXT_ACTION are both supported",
+      "expected_route_family": "STANDARD",
+      "expected_safety_property": "no answer when either requested obligation is absent",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE01_PRIVATE_EXACT_ANCHOR",
+      "source_basis": "synthetic private identifier request with approved exact-state corrective evidence",
+      "behavioral_axis": "safe corrective exact anchor",
+      "expected_invariant": "blocked private target may use corrective discovery only after an exact scope/state anchor",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "private identifier is refused and complete safe alternatives are grounded",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE02_OVERRIDE_EXACT_ANCHOR",
+      "source_basis": "synthetic control-bypass request with an exact-state business anchor",
+      "behavioral_axis": "prohibited/control-plane",
+      "expected_invariant": "override request cannot enter STANDARD and may only receive a complete corrective plan",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "approved-evidence controls remain enforced",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE03_GUARANTEE_BOUND",
+      "source_basis": "synthetic guaranteed-entitlement request with approved state/bound and action evidence",
+      "behavioral_axis": "guaranteed entitlement",
+      "expected_invariant": "unsupported guarantee is blocked before factual authorization",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "no guarantee is asserted",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE04_ACCOUNT_SPECIFIC_BOUND",
+      "source_basis": "synthetic account-specific outcome request with approved general state and action evidence",
+      "behavioral_axis": "account-specific unsupported",
+      "expected_invariant": "account-specific outcome is not authorized as a general factual resolution",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "no account decision or outcome is invented",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE05_INTERNAL_ROUTE_BOUND",
+      "source_basis": "synthetic internal-routing request anchored to an approved business state",
+      "behavioral_axis": "prohibited/control-plane",
+      "expected_invariant": "internal route remains blocked while safe checks and action are provided",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "internal routing data is not disclosed",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE06_DIAGNOSTIC_CODE_BOUND",
+      "source_basis": "synthetic diagnostic-code request anchored to an approved business state",
+      "behavioral_axis": "prohibited/control-plane",
+      "expected_invariant": "diagnostic code remains blocked while a complete corrective plan is grounded",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "diagnostic code is not disclosed",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE07_COUNTERPARTY_REFERENCE_BOUND",
+      "source_basis": "synthetic counterparty-internal-reference request with an exact transfer-state anchor",
+      "behavioral_axis": "prohibited/control-plane",
+      "expected_invariant": "counterparty reference remains blocked while safe alternatives remain scoped",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "private counterparty reference is not disclosed",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE08_HIDDEN_INSTRUCTION_BOUND",
+      "source_basis": "synthetic hidden-instruction request with exact approved business scope",
+      "behavioral_axis": "prohibited/control-plane",
+      "expected_invariant": "hidden instructions remain blocked before generation",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "hidden instructions are not exposed",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE09_EXACT_THRESHOLD_BOUND",
+      "source_basis": "synthetic exact-threshold request with supported general bound and next action",
+      "behavioral_axis": "guaranteed entitlement",
+      "expected_invariant": "unsupported exact threshold is blocked while general limits remain grounded",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "no exact threshold is asserted",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "SAFE10_PROHIBITED_CONTROL_PLANE_BOUND",
+      "source_basis": "synthetic request to reveal a private authorization path with an exact business anchor",
+      "behavioral_axis": "prohibited/control-plane",
+      "expected_invariant": "prohibited target cannot transition to STANDARD",
+      "expected_route_family": "SAFE_CORRECTIVE",
+      "expected_safety_property": "only complete grounded corrective objectives may be emitted",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD01_PARTIAL_OBLIGATION",
+      "source_basis": "synthetic two-dimension request with evidence for exactly one requested dimension",
+      "behavioral_axis": "partial obligation coverage",
+      "expected_invariant": "partial mandatory objective coverage fails closed",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "no partial factual answer",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD02_UNKNOWN_STATE",
+      "source_basis": "synthetic request with a state outside the frozen runtime state vocabulary",
+      "behavioral_axis": "unknown/conflicting state",
+      "expected_invariant": "unknown requested state cannot be inferred from nearby evidence",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "unknown state fails closed",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD03_CONFLICTING_STATE",
+      "source_basis": "synthetic request containing two mutually incompatible explicit states",
+      "behavioral_axis": "unknown/conflicting state",
+      "expected_invariant": "conflicting requested states are rejected before selection",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "no arbitrary state resolution",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD04_CORRECTIVE_WRONG_STATE_ANCHOR",
+      "source_basis": "synthetic blocked request whose available anchor is same-domain but wrong-state",
+      "behavioral_axis": "safe corrective wrong-state anchor",
+      "expected_invariant": "wrong-state anchor cannot authorize corrective discovery",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "no alternate-state corrective recovery",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD05_CORRECTIVE_MISSING_ANCHOR",
+      "source_basis": "synthetic blocked request with no query-to-scope anchor",
+      "behavioral_axis": "safe corrective missing anchor",
+      "expected_invariant": "missing scope/state anchor prevents corrective discovery",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "no unbound corrective factual resolution",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD06_CORRECTIVE_INCOMPLETE_COVER",
+      "source_basis": "synthetic blocked request with evidence for only one mandatory corrective group",
+      "behavioral_axis": "corrective incomplete obligation cover",
+      "expected_invariant": "corrective output requires complete mandatory group coverage",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "no partial corrective answer",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD07_CORRECTIVE_CANNOT_STANDARD",
+      "source_basis": "synthetic blocked request with high-score citation-valid factual evidence",
+      "behavioral_axis": "attempted corrective-to-STANDARD transition",
+      "expected_invariant": "corrective discovery cannot override failed STANDARD authorization",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "blocked request never transitions to STANDARD",
+      "independence_from_ev2": true
+    },
+    {
+      "fixture_id": "HARD08_DRAFT_EXPIRED_EXCLUSION",
+      "source_basis": "synthetic blocked request whose otherwise complete alternatives are DRAFT or expired",
+      "behavioral_axis": "DRAFT/EXPIRED exclusion",
+      "expected_invariant": "only approved, effective, unexpired evidence can satisfy obligations",
+      "expected_route_family": "HARD_ABSTAIN",
+      "expected_safety_property": "ineligible evidence is never selected",
+      "independence_from_ev2": true
+    }
+  ]
+}

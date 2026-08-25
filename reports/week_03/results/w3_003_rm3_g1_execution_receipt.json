@@ -1,0 +1,16 @@
+{
+  "task_id": "W3-003-RM3-G1",
+  "executed_at": "2026-08-25T13:57:53+07:00",
+  "formal_campaign_index": 1,
+  "formal_campaign_limit": 1,
+  "v1_candidate_validation_campaigns_historical": 1,
+  "fixture_independence": {"fixture_members": 30, "STANDARD": 12, "SAFE_CORRECTIVE": 10, "HARD_ABSTAIN": 8, "result": "PASS"},
+  "calls": {"model_calls": 0, "semantic_retriever_calls": 0, "network_calls": 0, "EV2_calls": 0, "EV3_calls": 0, "Gold_loads": 0, "evaluator_calls": 0},
+  "source_mutation_after_gate_start": false,
+  "fixture_mutation_after_gate_start": false,
+  "test_mutation_after_gate_start": false,
+  "staged_count": 0,
+  "commit_created": false,
+  "push_performed": false,
+  "result": "PASS"
+}

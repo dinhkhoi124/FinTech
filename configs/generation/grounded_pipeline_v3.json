@@ -1,7 +1,7 @@
 {
-  "task_id": "W3-003-RM1",
-  "pipeline_version": "grounded_pipeline_v3",
-  "gate_version": "target_aware_router_v3",
+  "task_id": "W3-003-RM3-V1",
+  "pipeline_version": "grounded_pipeline_v3_rm3_v1",
+  "gate_version": "target_aware_router_v3_rm3_v1",
   "generator_version": "targeted_extractive_v1",
   "evaluation_as_of_date": "2026-08-16",
   "default_mode": "TARGET_AWARE",
@@ -30,6 +30,15 @@
     "estimated_max_chunk_characters": 1536,
     "reserved_control_and_render_characters": 4096,
     "budget_provenance": "The bounded pool and claim ceiling follow the product context budget: after reserving control/render space, eight maximum-sized chunks fit. The local discovery scan is separately capped at 128 approved corpus chunks. Selection stops when generic obligations are complete and never pads capacity."
+  },
+  "corrective_discovery": {
+    "enabled": true,
+    "route_only": "SAFE_CORRECTIVE",
+    "approved_effective_only": true,
+    "may_transition_to_standard": false,
+    "may_override_failed_standard_authorization": false,
+    "may_authorize_unbound_factual_resolution": false,
+    "fallback": "ABSTAIN_ESCALATE"
   },
   "generator": {
     "sentence_overlap_weight": 0.7,

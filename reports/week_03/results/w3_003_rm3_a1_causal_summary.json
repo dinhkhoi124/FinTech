@@ -1,0 +1,150 @@
+{
+  "a1_implementation_authorization_recommendation": "AUTHORIZE_RM3_V1_MINIMAL_P0",
+  "bounded_retrieval_required": true,
+  "call_counters": {
+    "bounded_discovery_counterfactual_calls": 12,
+    "classifier_calls": 0,
+    "encoder_calls": 0,
+    "model_inference_calls": 0,
+    "semantic_retriever_calls": 0
+  },
+  "chosen_rm3_strategy": "GENERALIZE_RM2_INVARIANTS",
+  "established_selection_cases": 20,
+  "evaluator_or_gold_mutation": false,
+  "hard_safety": {
+    "required": 13,
+    "status": "13/13_GENERAL_INVARIANT_COVERED",
+    "unique_cases": 10,
+    "unsafe_wrong_evidence": 10,
+    "wrong_target_authorization": 3,
+    "zero_tolerance_events_covered": 13
+  },
+  "interaction_fraction": 0.05,
+  "inventory_integrity": {
+    "failed_cases": 41,
+    "pass": true,
+    "primary_layer_counts": {
+      "GATE_ROUTER": 1,
+      "KB_COVERAGE_OR_LEGITIMATE_SAFE_STOP": 8,
+      "RETRIEVAL": 12,
+      "SELECTION_BINDING": 20
+    },
+    "unique_case_ids": 41
+  },
+  "kb_safe_stop_adjudication_counts": {
+    "LEGITIMATE_ABSTAIN_ESCALATE": 8
+  },
+  "minimal_proposed_p0_invariants": [
+    "P0-A GENERALIZED_REQUEST_BINDING",
+    "P0-B FAIL_CLOSED_FACTUAL_AND_ROUTE_AUTHORIZATION",
+    "P0-C BOUNDED_SAFE_CORRECTIVE_DISCOVERY"
+  ],
+  "new_root_fraction": 0.3,
+  "official_r1": {
+    "failed_cases": 41,
+    "final_result": "FAIL_REMEDIATION_REQUIRED",
+    "sha256": "3a1a00a2c9e1993a835687658cebdf7f60d134f5313b71cce9538e1e69f065b0"
+  },
+  "p2_router_fix_required": false,
+  "production_mutation": false,
+  "retrieval_classification_counts": {
+    "APPROVED_SUPPORT_OUTSIDE_TOP3_DISCOVERABLE": 9,
+    "APPROVED_SUPPORT_OUTSIDE_TOP3_NOT_DISCOVERABLE": 1,
+    "WRONG_SCOPE_OR_STATE_SUPPORT_ONLY": 2
+  },
+  "rm1_rm2_causal_history": {
+    "frozen_candidate": {
+      "commit": "8492659a50fe00f066f9f64d8759d544356b3a41",
+      "git_blobs": {
+        "src/payresolve_ai/generation/pipeline_v3.py": "0bba9b452167ff702576db5b2acaf6604cd61f48",
+        "src/payresolve_ai/generation/routing_v3.py": "7f9e8548c92c65f7bbffcf96b524bf8fb5a2c128",
+        "src/payresolve_ai/generation/support_v2.py": "72723d747d6418e81ec00d9a77604ab5fbcfe1b1",
+        "src/payresolve_ai/generation/targeted_extractive.py": "014f61a1fc0802986f41dde25f8f788b8772a9f2",
+        "tests/test_w3_003_rm2_remediation.py": "11898044bde542b91b9e6f6a2854ae07b0101d6b"
+      },
+      "source_tree_sha256": "fbcd9248faf8058571ac2b8747125a013fbc73e52925cfc0d813edd55fbd0193",
+      "tree": "c1bc263f61378c6f61c513acfff2ed763cdfb303"
+    },
+    "rm2_publication": {
+      "commit": "cd97de602140e334ec499e8dfa27fa08ec1a6260",
+      "development_validation": "reports/week_03/results/w3_003_rm2_dev_validation.json",
+      "report": "reports/week_03/experiments/w3_003_rm2_remediation_candidate.md",
+      "tree": "075eec0787b25f02b8c46b28ad4df46564a89aaa"
+    },
+    "root_cause_a": {
+      "control_flow": [
+        "routing_v3._standard_request_scope_pool",
+        "routing_v3._state_compatible_pool",
+        "routing_v3.assess_requested_target"
+      ],
+      "development_evidence": [
+        "tests/test_w3_003_rm2_remediation.py::test_a1_later_same_domain_requested_state_is_evaluated",
+        "tests/test_w3_003_rm2_remediation.py::test_a2_insufficient_requested_state_support_abstains",
+        "tests/test_w3_003_rm2_remediation.py::test_a3_wrong_domain_same_state_cannot_recover",
+        "tests/test_w3_003_rm2_remediation.py::test_a4_competing_ambiguity_remains_fail_closed"
+      ],
+      "id": "RM1_ROOT_CAUSE_A",
+      "implemented_rm2_invariant": "candidate-aware same-domain state pool adjudication",
+      "intended_guarantee": "evaluate bounded later requested-state support without cross-domain recovery",
+      "mechanism": "candidate-aware requested-state/domain adjudication must precede terminal conflict",
+      "report": "reports/week_03/experiments/w3_003_rm1_remediation_rca.md",
+      "report_commit": "2209f845bf8be5782c9acbc9bbe605a8630d082d"
+    },
+    "root_cause_b": {
+      "control_flow": [
+        "support_v2.detect_requested_dimension",
+        "routing_v3.select_supported_standard_objectives",
+        "pipeline_v3.build_response_plan",
+        "targeted_extractive.TargetedExtractiveGenerator.generate_standard"
+      ],
+      "development_evidence": [
+        "tests/test_w3_003_rm2_remediation.py::test_b1_off_objective_same_scope_evidence_is_not_selected",
+        "tests/test_w3_003_rm2_remediation.py::test_b2_mixed_chunk_emits_only_exact_checks_sentence",
+        "tests/test_w3_003_rm2_remediation.py::test_b3_no_requested_objective_sentence_abstains",
+        "tests/test_w3_003_rm2_remediation.py::test_b4_tamper_and_ineligible_citations_fail_closed"
+      ],
+      "id": "RM1_ROOT_CAUSE_B",
+      "implemented_rm2_invariant": "no same-scope padding; exact requested-dimension sentence and FactualObjective propagation",
+      "intended_guarantee": "every STANDARD emitted sentence is exact, eligible, and bound to the detected requested objective",
+      "mechanism": "every STANDARD selection and exact sentence must bind end-to-end to the requested objective",
+      "report": "reports/week_03/experiments/w3_003_rm1_remediation_rca.md",
+      "report_commit": "2209f845bf8be5782c9acbc9bbe605a8630d082d"
+    }
+  },
+  "rm2_dev_coverage_gaps": [
+    "multiple requested dimensions or obligations reduced to the first coarse detected dimension",
+    "requested state expressed outside the bounded RM2 state-marker vocabulary",
+    "STANDARD exact citation locally valid while full response-level obligation coverage is incomplete",
+    "ambiguous or partial safe-stop requests not represented as a route-level binding contract"
+  ],
+  "rm2_evidence_strength_counts": {
+    "PROVEN": 6,
+    "SUPPORTED_HYPOTHESIS": 14
+  },
+  "rm2_relation_counts": {
+    "INTERACTION_WITH_RM2_ROOT_CAUSE": 1,
+    "NEW_ROOT_CAUSE": 6,
+    "SAME_ROOT_CAUSE_UNGENERALIZED": 13
+  },
+  "router_adjudication": "COVERED_BY_P0_BINDING_INVARIANT",
+  "safe_corrective_bounded_discovery_reachability": {
+    "reachable": 8,
+    "total": 10
+  },
+  "same_root_fraction": 0.65,
+  "schema_version": "W3-003-RM3-A1-CAUSAL-SUMMARY-V1",
+  "selection_defect_counts": {
+    "DOMAIN_TARGET_BINDING": 1,
+    "FACTUAL_AUTHORIZATION_GUARD": 6,
+    "FULL_OBLIGATION_COVERAGE": 5,
+    "REQUESTED_DIMENSION_BINDING": 6,
+    "STATE_BINDING": 2
+  },
+  "status": "RM3_A1_READY_FOR_SENIOR_REMEDIATION_CONTRACT_REVIEW",
+  "task_id": "W3-003-RM3-A1",
+  "unresolved_causal_gaps": [
+    "Detached discovery proves candidate reachability, not future route correctness or EV3 outcomes.",
+    "One SAFE_CORRECTIVE retrieval case has no safe anchor; two retrieval cases bind the wrong state scope and must remain fail closed.",
+    "The generalized binding implementation and independent non-EV2 property suite do not yet exist and require separate authorization."
+  ]
+}

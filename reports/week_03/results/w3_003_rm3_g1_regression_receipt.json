@@ -1,0 +1,21 @@
+{
+  "task_id": "W3-003-RM3-G1",
+  "formal_campaign_index": 1,
+  "command": "python -m pytest tests/test_w3_003_rm2_remediation.py tests/test_grounded_pipeline_v3.py tests/test_w3_003_behavior_safety.py tests/test_red1_verification_boundary.py tests/test_critical_v2_contract.py tests/test_evidence_gate_v2.py tests/test_critical_safety_evaluation.py tests/test_w3_003_rm3_v1.py -q",
+  "returncode": 0,
+  "all_non_historical_source_lock_tests_pass": true,
+  "suites": [
+    {"path": "tests/test_w3_003_rm2_remediation.py", "defined_test_methods": 22, "result": "PASS"},
+    {"path": "tests/test_grounded_pipeline_v3.py", "defined_test_methods": 15, "result": "PASS"},
+    {"path": "tests/test_w3_003_behavior_safety.py", "defined_test_methods": 9, "result": "PASS"},
+    {"path": "tests/test_red1_verification_boundary.py", "defined_test_methods": 5, "result": "PASS"},
+    {"path": "tests/test_critical_v2_contract.py", "defined_test_methods": 11, "result": "PASS"},
+    {"path": "tests/test_evidence_gate_v2.py", "defined_test_methods": 65, "result": "PASS"},
+    {"path": "tests/test_critical_safety_evaluation.py", "defined_test_methods": 68, "result": "PASS"},
+    {"path": "tests/test_w3_003_rm3_v1.py", "defined_test_methods": 4, "result": "PASS"}
+  ],
+  "defined_test_methods_total": 199,
+  "historical_a3_test_executed": false,
+  "historical_a3_reason": "The verifier loads Gold, which is forbidden for G1 readiness. Its source-lock condition is instead classified by the current-candidate integrity receipt.",
+  "result": "PASS"
+}

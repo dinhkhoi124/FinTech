@@ -74,18 +74,33 @@ DIMENSION_PATTERNS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("RETRY", (r"\bretry\b", r"\btry again\b", r"\bresubmit\b", r"\bfurther attempt\b", r"\bonce more\b")),
     ("CHECKS", (r"\bcheck(?:s|ed|ing)?\b", r"\bconfirm\b", r"\bverify\b", r"\bnon-sensitive\b")),
     ("NEXT_ACTION", (r"\bwhat should (?:i|be) do(?:ne)?\b", r"\bwhat can i do\b", r"\bwhat happens next\b", r"\bwhat should i expect\b", r"\bwhat next\b", r"\brecipient-tracing result\b", r"\bhandle\b", r"\baction\b", r"\bdo now\b")),
-    ("STATE_OR_MEANING", (r"\bwhat does (?:this|that) mean\b", r"\bmeaning\b", r"\bwhat state\b")),
+    ("STATE_OR_MEANING", (r"\bwhat does (?:this|that)\b.{0,45}\bmean\b", r"\bmeaning\b", r"\bwhat state\b")),
     ("ELIGIBILITY", (r"\beligib(?:le|ility)\b", r"\bqualif(?:y|ies|ication)\b")),
 )
 
 
-def detect_requested_dimension(text: str) -> dict[str, str | None]:
+def detect_requested_dimensions(text: str) -> tuple[dict[str, str | None], ...]:
+    """Return every explicit requested dimension in deterministic rule order."""
     normalized = unicodedata.normalize("NFKC", text).casefold()
+    matches: list[dict[str, str | None]] = []
     for dimension, patterns in DIMENSION_PATTERNS:
         for pattern in patterns:
             match = re.search(pattern, normalized)
             if match:
-                return {"dimension": dimension, "matched_phrase": match.group(0), "rule_version": DIMENSION_RULE_VERSION}
+                matches.append({
+                    "dimension": dimension,
+                    "matched_phrase": match.group(0),
+                    "rule_version": DIMENSION_RULE_VERSION,
+                })
+                break
+    return tuple(matches)
+
+
+def detect_requested_dimension(text: str) -> dict[str, str | None]:
+    """Compatibility view for callers that consume one primary dimension."""
+    matches = detect_requested_dimensions(text)
+    if matches:
+        return matches[0]
     return {"dimension": "UNKNOWN", "matched_phrase": None, "rule_version": DIMENSION_RULE_VERSION}
 
 
@@ -101,6 +116,8 @@ SPECIFICITY_PATTERNS: tuple[tuple[str, str], ...] = (
     ("SALARY_THRESHOLD", r"\bsalary threshold\b"),
     ("APPROVAL_MATRIX", r"\bapproval matrix\b"),
     ("GUARANTEED_ENTITLEMENT", r"\bguarante(?:e|ed|es)\b.{0,45}\b(?:credit|release|review|entitlement|accepted|amount)\b"),
+    ("ACCOUNT_SPECIFIC_OUTCOME", r"(?:\b(?:will|does|can)\b.{0,35}\b(?:my|this)\b.{0,15}\b(?:account|case|claim|transaction)\b.{0,35}\b(?:receive|qualify|approved|accepted|credit|refund|release)\b|\b(?:my|this)\b.{0,15}\b(?:account|case|claim|transaction)\b.{0,35}\b(?:will|does|can|receive|qualify|approved|accepted|credit|refund|release)\b)"),
+    ("PROHIBITED_PROCESS_ACTION", r"\b(?:conceal|delete|erase|falsify|alter)\b.{0,35}\b(?:audit|record|history|evidence|status|decision)\b"),
 )
 
 
@@ -138,8 +155,8 @@ def specificity_guard(query: str, evidence: Sequence[EvidenceChunk]) -> dict[str
 
 def _sentence_matches_dimension(text: str, dimension: str) -> bool:
     normalized = unicodedata.normalize("NFKC", text).casefold()
-    detected = detect_requested_dimension(normalized)["dimension"]
-    if detected == dimension:
+    detected = {row["dimension"] for row in detect_requested_dimensions(normalized)}
+    if dimension in detected:
         return True
     broad = {
         "STATE_OR_MEANING": r"\b(?:is|means|state|applies|accepted|terminal|open|recognized|recognised)\b",

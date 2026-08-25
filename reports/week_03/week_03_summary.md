@@ -1,5 +1,20 @@
 # Week 03 Summary
 
+## W3-003-RM3 V1 candidate publication — 2026-08-25
+
+The Senior-approved RM3 V1 fail-closed remediation candidate, its A1
+development-readiness contract/evidence, and formal G1 evidence are published
+as one exact-byte EV3 candidate. G1 is `DEV_READINESS_PASS` (campaign 1/1):
+30 fixtures with STANDARD 12/12, SAFE_CORRECTIVE 10/10, HARD_ABSTAIN 8/8, zero
+hard-safety counters, and zero unresolved mechanisms. RM3 FIX1 was not used.
+
+R1 is `VALID FAIL / CLOSED / REMOTE VERIFIED`; historical A3 is
+`EXPECTED_SUPERSEDED_PRODUCTION_BYTE_LOCK`; frozen R1/A3/A4/E1 identities and
+`retrieval/runtime.py` are unchanged. EV3 is neither executed nor authorized.
+In `P0_RELEASE_CLOSURE_MODE`, Week-3 P0 remains blocked pending EV3 and
+Week-4 product authorization remains blocked. The demo integration shell may
+continue independently under non-autonomous scope only; no P0 PASS is claimed.
+
 ## W3-003-EV2-R1 official frozen scoring — 2026-08-25
 
 After Senior closed the E1 Class-A publication, exactly one frozen R1 score was

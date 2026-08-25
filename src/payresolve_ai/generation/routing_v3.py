@@ -18,6 +18,7 @@ from .support_v2 import (
     best_sentence_support,
     canonical_tokens,
     detect_requested_dimension,
+    detect_requested_dimensions,
     requested_specificity_slots,
 )
 from .types import EvidenceChunk
@@ -87,6 +88,12 @@ _STATE_SCOPE_MARKERS = {
     "recipient_not_received": ("not_received", "recipient"),
     "unrecognised": ("not_recognised", "unrecognised"),
 }
+
+_UNKNOWN_TRANSACTION_STATE_PATTERN = re.compile(
+    r"\b(?:transaction|transfer|payment|withdrawal)\b.{0,24}\b(?:suspended|frozen|cancelled|canceled|quarantined)\b"
+    r"|\b(?:suspended|frozen|cancelled|canceled|quarantined)\b.{0,24}\b(?:transaction|transfer|payment|withdrawal)\b",
+    re.IGNORECASE,
+)
 
 _CONTROL_PLANE_TOKENS = {
     "authorization", "bypass", "code", "diagnostic", "disclose", "exact",
@@ -398,6 +405,31 @@ def derive_corrective_scope_anchor(
             len(runner["evidence_ids"]), len(runner["direct"])
         ):
             return {"anchor": (), "basis": (), "reason": "AMBIGUOUS_CORRECTIVE_SCOPE_ANCHOR"}
+    requested_states = tuple(sorted(
+        concept for concept in _STATE_SCOPE_MARKERS if concept in safe_query_tokens
+    ))
+    if len(requested_states) > 1:
+        return {"anchor": (), "basis": (), "reason": "CONFLICTING_CORRECTIVE_STATE_ANCHOR"}
+    anchor_text = " ".join(winner_anchor).casefold()
+    if requested_states and not all(
+        any(marker in anchor_text for marker in _STATE_SCOPE_MARKERS[state])
+        for state in requested_states
+    ):
+        return {"anchor": (), "basis": (), "reason": "WRONG_STATE_CORRECTIVE_SCOPE_ANCHOR"}
+    requested_families = tuple(sorted(
+        family
+        for family, concepts in _DOMAIN_FAMILY_QUERY_CONCEPTS.items()
+        if safe_query_tokens & concepts
+    ))
+    anchor_families = tuple(sorted(
+        family
+        for family, markers in _DOMAIN_FAMILY_SCOPE_MARKERS
+        if any(marker in anchor_text for marker in markers)
+    ))
+    if len(requested_families) > 1:
+        return {"anchor": (), "basis": (), "reason": "AMBIGUOUS_CORRECTIVE_SCOPE_ANCHOR"}
+    if requested_families and requested_families[0] not in anchor_families:
+        return {"anchor": (), "basis": (), "reason": "WRONG_DOMAIN_CORRECTIVE_SCOPE_ANCHOR"}
     basis = tuple(
         [f"QUERY_SCOPE_TOKEN:{token}" for token in sorted(winner["direct"])]
         + [f"SAFE_SCOPE_HINT:{'+'.join(hint)}" for hint in sorted({tuple(value) for value in winner["hints"]})]
@@ -425,6 +457,24 @@ def assess_requested_target(
         return {"status": RequestedTargetStatus.UNSUPPORTED, "reason": "NO_ELIGIBLE_EVIDENCE", "dimension": detect_requested_dimension(query)}
 
     query_concepts = set(canonical_tokens(query, lexicon, stopwords))
+    requested_state_names = tuple(sorted(
+        concept for concept in _STATE_SCOPE_MARKERS if concept in query_concepts
+    ))
+    if len(requested_state_names) > 1:
+        return {
+            "status": RequestedTargetStatus.UNSUPPORTED,
+            "reason": "CONFLICTING_REQUESTED_STATES",
+            "dimension": detect_requested_dimension(query),
+            "dimensions": detect_requested_dimensions(query),
+            "conflicting_states": list(requested_state_names),
+        }
+    if not requested_state_names and _UNKNOWN_TRANSACTION_STATE_PATTERN.search(query):
+        return {
+            "status": RequestedTargetStatus.UNSUPPORTED,
+            "reason": "UNKNOWN_REQUESTED_STATE",
+            "dimension": detect_requested_dimension(query),
+            "dimensions": detect_requested_dimensions(query),
+        }
     domain_compatible, request_domain_family, requested_states = _standard_request_scope_pool(
         query_concepts, standard_evidence,
     )
@@ -456,7 +506,55 @@ def assess_requested_target(
             "domain_compatible_evidence_ids": [],
         }
 
-    dimension = detect_requested_dimension(query)
+    dimensions = detect_requested_dimensions(query)
+    dimension = dimensions[0] if dimensions else detect_requested_dimension(query)
+    if len(dimensions) > 1:
+        obligation_support: list[dict[str, Any]] = []
+        for dimension_row in dimensions:
+            dimension_name = str(dimension_row["dimension"])
+            single_checks_target = _single_checks_target(
+                query, request_domain_family, dimension_name, lexicon, stopwords,
+            )
+            support = _best_requested_sentence_support(
+                query,
+                support_evidence,
+                dimension_name,
+                single_checks_target,
+                lexicon,
+                canonical_idf,
+                stopwords,
+            )
+            complete = (
+                bool(support["dimension_match"])
+                and float(support["best_sentence_support_coverage"]) >= policy["min_support_coverage"]
+            )
+            if complete and dimension_name == "TIMING_WINDOW":
+                by_id = {item.evidence_id: item for item in support_evidence}
+                authority = by_id.get(str(support["best_evidence_id"]))
+                complete = bool(authority and authority.document_type.casefold() in {"policy", "faq"})
+            obligation_support.append({
+                "dimension": dimension_name,
+                "complete": complete,
+                "best_evidence_id": support["best_evidence_id"],
+                "best_sentence": support["best_sentence"],
+                "coverage": support["best_sentence_support_coverage"],
+            })
+        incomplete = [row["dimension"] for row in obligation_support if not row["complete"]]
+        return {
+            "status": RequestedTargetStatus.UNSUPPORTED if incomplete else RequestedTargetStatus.SUPPORTED,
+            "reason": "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE" if incomplete else "COMPLETE_REQUESTED_OBLIGATION_COVERAGE",
+            "dimension": dimension,
+            "dimensions": dimensions,
+            "requested_obligation_support": obligation_support,
+            "incomplete_dimensions": incomplete,
+            "support_evidence_ids": sorted({
+                str(row["best_evidence_id"]) for row in obligation_support if row["complete"]
+            }),
+            "state_compatible_evidence_ids": [item.evidence_id for item in support_evidence],
+            "request_domain_family": request_domain_family,
+            "domain_compatible_evidence_ids": [item.evidence_id for item in domain_compatible],
+            "fallback_support_authorizations": (),
+        }
     single_checks_target = _single_checks_target(
         query, request_domain_family, str(dimension["dimension"]), lexicon, stopwords,
     )
@@ -623,6 +721,7 @@ def assess_requested_target(
         "status": RequestedTargetStatus.SUPPORTED if supported else RequestedTargetStatus.UNSUPPORTED,
         "reason": reason,
         "dimension": dimension,
+        "dimensions": dimensions,
         "direct_coverages": coverages,
         "support_evidence_ids": support_evidence_ids,
         "state_compatible_evidence_ids": [item.evidence_id for item in support_evidence],
@@ -659,7 +758,45 @@ def select_supported_standard_objectives(
     if not scoped_pool:
         return (), ()
 
-    dimension = str(detect_requested_dimension(query)["dimension"])
+    dimension_rows = detect_requested_dimensions(query)
+    if len(dimension_rows) > 1:
+        selected_by_id: dict[str, EvidenceChunk] = {}
+        objectives: list[FactualObjective] = []
+        used_support_pairs: set[tuple[str, str]] = set()
+        for dimension_row in dimension_rows:
+            dimension_name = str(dimension_row["dimension"])
+            single_checks_target = _single_checks_target(
+                query, request_domain_family, dimension_name, lexicon, stopwords,
+            )
+            choices: list[tuple[float, float, int, str, EvidenceChunk, str]] = []
+            for item in scoped_pool:
+                support = _best_requested_sentence_support(
+                    query, [item], dimension_name, single_checks_target,
+                    lexicon, canonical_idf, stopwords,
+                )
+                if not support["dimension_match"]:
+                    continue
+                coverage = float(support["best_sentence_support_coverage"])
+                sentence = support["best_sentence"]
+                if sentence is None or coverage < policy["min_support_coverage"]:
+                    continue
+                if (item.evidence_id, sentence) in used_support_pairs:
+                    continue
+                if dimension_name == "TIMING_WINDOW" and item.document_type.casefold() not in {"policy", "faq"}:
+                    continue
+                choices.append((-coverage, -item.score, item.rank, item.evidence_id, item, sentence))
+            if not choices:
+                return (), ()
+            choice = min(choices, key=lambda row: row[:4])
+            selected_by_id[choice[4].evidence_id] = choice[4]
+            objectives.append(FactualObjective(dimension_name, choice[4].evidence_id, choice[5]))
+            used_support_pairs.add((choice[4].evidence_id, choice[5]))
+        selected = tuple(sorted(selected_by_id.values(), key=lambda item: (item.rank, item.evidence_id)))
+        if len(selected) > policy["max_evidence"] or len(objectives) > policy["max_claims"]:
+            return (), ()
+        return selected, tuple(objectives)
+
+    dimension = str((dimension_rows[0] if dimension_rows else detect_requested_dimension(query))["dimension"])
     single_checks_target = _single_checks_target(
         query, request_domain_family, dimension, lexicon, stopwords,
     )
