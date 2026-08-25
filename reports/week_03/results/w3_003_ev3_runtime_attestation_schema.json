@@ -1,0 +1,34 @@
+{
+  "schema_version": "W3-003-EV3-RUNTIME-ATTESTATION-V1",
+  "task_id": "W3-003-EV3-EH1-FIX1",
+  "purpose": "Runtime-load-only receipt required before Senior authorization and row-1 consumption.",
+  "required_fields": [
+    "schema_version",
+    "status",
+    "timestamp_utc",
+    "execution_package_manifest_sha256",
+    "candidate_production_commit",
+    "candidate_tree_sha256",
+    "candidate_source_config_aggregate_sha256",
+    "inference_input_sha256",
+    "evaluator_source_sha256",
+    "e1_harness_sha256",
+    "retriever_decision_identity",
+    "runtime_identity",
+    "model_identity",
+    "environment_identity",
+    "environment_fingerprint_sha256",
+    "runtime_load_only_proof",
+    "query_encoding_calls",
+    "ranking_calls",
+    "network_attempts"
+  ],
+  "required_invariants": {
+    "status": "RUNTIME_LOAD_ONLY_ATTESTED",
+    "runtime_load_only_proof": true,
+    "query_encoding_calls": 0,
+    "ranking_calls": 0,
+    "network_attempts": 0,
+    "no_ev3_query_or_ranking_may_run": true
+  }
+}

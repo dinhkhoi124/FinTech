@@ -1,0 +1,90 @@
+{
+  "schema_version": "W3-003-EV3-EVALUATOR-BINDING-CONTRACT-V1",
+  "task_id": "W3-003-EV3-SB1",
+  "status": "FROZEN_CONTRACT_ONLY_NO_EVALUATOR_CREATED",
+  "complete_gold_manifest": {
+    "path": "reports/week_03/results/w3_003_ev3_complete_gold_manifest.json",
+    "sha256": "22eb88777cc867c8fece88b0aca38e2d9faff7fae7ff9466476af27a7604af1a",
+    "bytes": 14610
+  },
+  "future_deterministic_companion_merge": {
+    "left": {
+      "path": "data/evaluation/w3_003_ev3_candidate.jsonl",
+      "sha256": "574d6f977fc7579a114d2b3d4d4626610dbed9dae56dfcaf66167961878a4aac",
+      "schema_version": "W3-003-EV3-CANDIDATE-V1",
+      "key": "query_id"
+    },
+    "right": {
+      "path": "data/evaluation/w3_003_ev3_semantic_binding_addendum.jsonl",
+      "sha256": "51a9c49a948cee15307cf909257a9fd3c8ea86aca34f8f91645d87e0eb9c1be8",
+      "schema_version": "W3-003-EV3-SEMANTIC-BINDING-V1",
+      "key": "case_id"
+    },
+    "secondary_integrity_key": "query_sha256",
+    "cardinality": "one_to_one_exactly_60_in_frozen_pass_c_order",
+    "merge_rule": "for each frozen Pass-C row, require exactly one addendum row with case_id=query_id and identical query_sha256; append companion fields without changing any Pass-C value",
+    "fail_closed_conditions": [
+      "missing_or_duplicate companion row",
+      "case/order/query hash mismatch",
+      "artifact hash mismatch",
+      "unknown reason family",
+      "unknown forbidden code",
+      "selected forbidden code missing explicit Pass-A boundary provenance"
+    ]
+  },
+  "future_ev2_evaluator_change_allowlist": [
+    "artifact path literals and their bound SHA-256 values",
+    "schema names/identifiers needed to recognize the EV3 companion",
+    "deterministic Pass-C plus semantic-addendum companion merge plumbing",
+    "candidate implementation commit SHA and tree SHA bindings",
+    "validation that per-case referenced forbidden codes are a subset of the unchanged frozen registry"
+  ],
+  "all_other_frozen_ev2_semantics_must_remain_identical": true,
+  "immutable_ev2_semantics": {
+    "product_gate": {
+      "path": "configs/evaluation/w3_003_ev2_product_gate_contract.json",
+      "sha256": "ebb59cad237d0c36c8383cee9e7dd8944ea4a032d20cf693e28102545c3d7166",
+      "schema_version": "W3-003-EV2-PRODUCT-GATE-V1",
+      "thresholds_and_verdict_semantics_unchanged": true
+    },
+    "reason_compatibility": {
+      "path": "configs/evaluation/w3_003_ev2_reason_compatibility.json",
+      "sha256": "b1a0732e95f4785aa415e3032b4e76f1c470888378daf945981a15932ac582cd",
+      "schema_version": "W3-003-EV2-REASON-COMPATIBILITY-V1",
+      "families_rules_and_fail_closed_policy_unchanged": true
+    },
+    "forbidden_actions": {
+      "path": "configs/evaluation/w3_003_ev2_forbidden_action_rules.json",
+      "sha256": "34b611521d0274331b519657c09e0bf4ff9db5f1a99771502b4848b4783b3814",
+      "schema_version": "W3-003-EV2-FORBIDDEN-ACTION-RULES-V2",
+      "codes_patterns_matching_semantics_and_fail_closed_policy_unchanged": true
+    },
+    "response_taxonomy": {
+      "path": "docs/evaluation/critical_eval_v2_response_taxonomy.md",
+      "sha256": "a87ff57186d496210267c29d478c5ff77e3e20999a9c38886ad56fce793ec745",
+      "response_types_subtypes_outcomes_and_control_plane_separation_unchanged": true
+    },
+    "evaluation_outcome_schema": {
+      "path": "configs/evaluation/schemas/critical_eval_v2_evaluation.schema.json",
+      "sha256": "caf0771588e935364455822bf6752079f860cdaeb1e09bba2965e4e678fb9d43",
+      "$id": "payresolve://critical_eval_v2/evaluation/v1",
+      "field_and_outcome_semantics_unchanged": true
+    },
+    "citation_correctness_requirement": 1.0,
+    "zero_tolerance_requirement": 0,
+    "unknown_reason_and_forbidden_code_policy": "FAIL_CLOSED_UNCHANGED"
+  },
+  "candidate_binding_placeholders": {
+    "candidate_commit_sha": null,
+    "candidate_tree_sha": null,
+    "must_be_bound_only_by_future_separately_authorized_evaluation": true
+  },
+  "authorization_boundaries": {
+    "evaluator_or_harness_created": false,
+    "candidate_output_seen": false,
+    "inference_started": false,
+    "retrieval_started": false,
+    "scoring_started": false,
+    "ev3_consumed": false
+  }
+}

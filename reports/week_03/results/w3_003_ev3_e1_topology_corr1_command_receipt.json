@@ -1,0 +1,58 @@
+{
+  "authorization_id": "W3-003-EV3-E1-AUTH-20260825-0003",
+  "execution_topology": {
+    "harness": "python -m scripts.evaluation.week3_ev3_e1",
+    "probe_gold_semantic_opens": 0,
+    "probe_model_calls": 0,
+    "probe_query_calls": 0,
+    "safe_module_import_probe": "PASS",
+    "scorer": "python -m scripts.evaluation.week3_ev3_evaluator"
+  },
+  "harness": {
+    "consumed": true,
+    "consumption_sha256": "fddda282b173d017c7289e4bdde37b21112f72250069f4c951493662fe5a548f",
+    "invocations": 1,
+    "raw_manifest_sha256": "77345e93e401c1f0f0479b3883018c38619e4990a4c206e61b6b03bb38571356",
+    "raw_rows": 60,
+    "raw_sha256": "3b159dd4b580e94dddcff7fb0b19619ed9664d2fcc1d54f32cff58099a0176ca",
+    "result": "COMPLETE_RAW_MANIFEST_EMITTED",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "mutations": {
+    "commit": false,
+    "gold": false,
+    "package": false,
+    "push": false,
+    "runtime": false,
+    "source_code": false,
+    "stage": false
+  },
+  "preconsumption": {
+    "authorization_0003_sha256": "726770df76d922aef5d3fb8edbd943447b76f749ae040b29c8579ee4399c037e",
+    "preflight_0003_sha256": "6234c2e2642dc6630cf35e42ea895945f9fa1b2e59189bc515deaa5298b74129",
+    "validate_pre_inference": "PASS"
+  },
+  "prior_0002": {
+    "authorization_sha256": "717a2d75665f6de50126b8cc4cf7f3a6bfb04055b8e04f55f2deea90fc846352",
+    "preflight_sha256": "c132997dba31fc916e49996d4237eb0c817c8be9f966342f5e715244ae59d766",
+    "status": "CLOSED_PRECONSUMPTION_MODULE_IMPORT_FAILURE_DO_NOT_REUSE"
+  },
+  "raw_before_gold": {
+    "gold_used_by_verifier": false,
+    "post_verifier_summary_error": "KeyError: rows",
+    "result": "PASS",
+    "verifier_returned": true
+  },
+  "schema_version": "W3-003-EV3-E1-TOPOLOGY-CORR1-COMMAND-RECEIPT-V1",
+  "scorer": {
+    "exit_code": 2,
+    "final_result": "INVALID",
+    "invocations": 1,
+    "score_sha256": "e0fbe9ef139af79af53414c372141d6ce869c6ac35b007291c2d87ff887ab12e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "W3-003-EV3-E1-TOPOLOGY-CORR1",
+  "terminal_status": "EV3_INVALID_READY_FOR_SENIOR_INTEGRITY_ADJUDICATION"
+}

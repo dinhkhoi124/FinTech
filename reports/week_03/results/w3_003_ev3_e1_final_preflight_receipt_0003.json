@@ -1,0 +1,48 @@
+{
+  "authorization_id": "W3-003-EV3-E1-AUTH-20260825-0003",
+  "candidate": {
+    "branch": "main",
+    "head": "87975430f3ade345c86a79f309b0ff04093fb54e",
+    "origin": "https://github.com/dinhkhoi124/FinTech.git",
+    "origin_main_head": "87975430f3ade345c86a79f309b0ff04093fb54e",
+    "staged_file_count": 0,
+    "tree": "fa570c89fd603d992375cedb7da97ce78ce68abb"
+  },
+  "execution_artifacts_absent": {
+    "consumption": true,
+    "raw": true,
+    "raw_manifest": true,
+    "score": true
+  },
+  "frozen_identities": {
+    "environment_fingerprint_sha256": "785ced890b2353d7f9c88535d5a1dc915505451813b6bd74e132fe112f46680e",
+    "evaluator_sha256": "fcca0864803196a1835696bf2a0cf5872cbcdc251c5984f86ac31af0724101aa",
+    "harness_sha256": "1dca8963e42a5e305d9c9d07fdcc09ab9c4cdfa759d7a61d398ea3ea13212dd8",
+    "inference_input_sha256": "d77f2b6c0cae91091550582976bed35eadd1832ceccb43f0edcf7adde9bfecba",
+    "package_sha256": "af8a64a49482e81b57a1f6519ea18d51c99b4f40800c4f42d26ea07a1fcea490",
+    "runtime_attestation_receipt_sha256": "3bd1c969dffd7df41ddaea51cd8139e2ec0a98194bcb96028313918e487faca4"
+  },
+  "gold_hash_only_validation": "PASS",
+  "model_or_query_execution": false,
+  "module_import_probe": {
+    "evaluator_module": "scripts.evaluation.week3_ev3_evaluator",
+    "evaluator_sha256": "fcca0864803196a1835696bf2a0cf5872cbcdc251c5984f86ac31af0724101aa",
+    "gold_semantic_opens": 0,
+    "harness_module": "scripts.evaluation.week3_ev3_e1",
+    "harness_sha256": "1dca8963e42a5e305d9c9d07fdcc09ab9c4cdfa759d7a61d398ea3ea13212dd8",
+    "model_calls": 0,
+    "query_calls": 0,
+    "result": "PASS"
+  },
+  "prior_0002": {
+    "authorization_sha256": "717a2d75665f6de50126b8cc4cf7f3a6bfb04055b8e04f55f2deea90fc846352",
+    "preflight_sha256": "c132997dba31fc916e49996d4237eb0c817c8be9f966342f5e715244ae59d766",
+    "status": "CLOSED_PRECONSUMPTION_MODULE_IMPORT_FAILURE_DO_NOT_REUSE"
+  },
+  "runtime_attestation_validation": "PASS",
+  "schema_version": "W3-003-EV3-E1-FINAL-PREFLIGHT-V2",
+  "status": "PASS_PRECONSUMPTION_MODULE_MODE_AUTHORIZED",
+  "task_id": "W3-003-EV3-E1-TOPOLOGY-CORR1",
+  "timestamp_utc": "2026-08-25T00:00:00Z",
+  "validate_pre_inference": "PASS"
+}

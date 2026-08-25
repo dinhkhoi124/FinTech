@@ -1,0 +1,56 @@
+{
+  "task_id": "W3-003-EV3",
+  "audit_version": "ev3_freshness_v1",
+  "result": "PASS",
+  "audit_helper_sha256": "734bbc75f17a50a5cf3353576fd9094195219e837071bf9be190ad96a28875d7",
+  "thresholds_frozen_before_comparison": {
+    "normalized_12_word_overlap_must_equal": 0,
+    "suspicious_sequence_ratio_at_or_above": 0.9,
+    "suspicious_token_jaccard_at_or_above": 0.8,
+    "similarity_minimum_words": 8
+  },
+  "ev3": {
+    "queries": 60,
+    "pass_a_sha256": "2aa3cac15bc1a665b36ba18bb12a158dfcce4518753759fa99c2c42035ade98e"
+  },
+  "historical_source_counts": {
+    "EV1": 60,
+    "EV2": 60,
+    "RM3_V1": 30
+  },
+  "diagnostics": {
+    "EV1": {
+      "historical_queries": 60,
+      "pairs": 3600,
+      "max_sequence_ratio": 0.831461,
+      "max_token_jaccard": 0.666667,
+      "max_shared_12gram_count": 0
+    },
+    "EV2": {
+      "historical_queries": 60,
+      "pairs": 3600,
+      "max_sequence_ratio": 0.753086,
+      "max_token_jaccard": 0.6,
+      "max_shared_12gram_count": 0
+    },
+    "RM3_V1": {
+      "historical_queries": 30,
+      "pairs": 1800,
+      "max_sequence_ratio": 0.511278,
+      "max_token_jaccard": 0.285714,
+      "max_shared_12gram_count": 0
+    }
+  },
+  "failures": {
+    "exact_query_duplicates": [],
+    "normalized_exact_query_duplicates": [],
+    "normalized_12_word_overlaps": [],
+    "suspicious_near_copies": [],
+    "same_case_ids": [],
+    "historical_case_id_references": [],
+    "rm3_fixture_id_references": [],
+    "ev1_ev2_evidence_id_leakage": []
+  },
+  "historical_query_text_persisted": false,
+  "historical_expected_route_or_evidence_read_by_audit": false
+}

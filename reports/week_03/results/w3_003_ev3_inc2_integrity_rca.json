@@ -1,0 +1,54 @@
+{
+  "identity": {
+    "branch": "main",
+    "dirty_untracked_preserved": true,
+    "head": "87975430f3ade345c86a79f309b0ff04093fb54e",
+    "origin_main": "87975430f3ade345c86a79f309b0ff04093fb54e",
+    "staged_file_count": 0,
+    "tree": "fa570c89fd603d992375cedb7da97ce78ce68abb"
+  },
+  "independent_safety": {
+    "case_count": 19,
+    "consequence": "Mapping-only repair could not establish P0 PASS.",
+    "established": true,
+    "intersection_with_integrity_cases": 0
+  },
+  "official_locks": {
+    "authorization_id": "W3-003-EV3-E1-AUTH-20260825-0003",
+    "consumption_sha256": "fddda282b173d017c7289e4bdde37b21112f72250069f4c951493662fe5a548f",
+    "ev3_consumed": true,
+    "harness_invocations": 1,
+    "historical_final_bundle_sha256": "1f6945d2b93b51a0394a61d7446ebc30682780501c7eb110708d78a89a322abb",
+    "official_score_sha256": "e0fbe9ef139af79af53414c372141d6ce869c6ac35b007291c2d87ff887ab12e",
+    "official_scorer_invocations": 1,
+    "raw_manifest_sha256": "77345e93e401c1f0f0479b3883018c38619e4990a4c206e61b6b03bb38571356",
+    "raw_sha256": "3b159dd4b580e94dddcff7fb0b19619ed9664d2fcc1d54f32cff58099a0176ca",
+    "score_final_result": "INVALID",
+    "score_reproducibility": "PASS"
+  },
+  "raw_integrity": {
+    "case_order_exact": true,
+    "physical_rows": 60,
+    "query_order_exact": true,
+    "raw_before_gold_historical_result": "PASS",
+    "raw_row_hashes": 60,
+    "reproducibility": "PASS",
+    "unique_query_ids": 60,
+    "valid_json_rows": 60
+  },
+  "root_cause": {
+    "classification": "STALE_EVALUATOR_REASON_MAPPING_AFTER_RM3_CANDIDATE_REASON_VOCABULARY_EXPANSION",
+    "evaluator_integrity_failure_count": 14,
+    "explanation": "Frozen EV2 mapping fail-closed on deterministic reason codes emitted by the Senior-approved RM3 candidate.",
+    "inference_execution_corruption": false,
+    "raw_corruption": false,
+    "unknown_reason_code_counts": {
+      "CONFLICTING_REQUESTED_STATES": 7,
+      "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE": 7
+    }
+  },
+  "schema_version": "W3-003-EV3-INC2-INTEGRITY-RCA-V1",
+  "senior_verdict": "EV3_0003_OFFICIAL_INVALID_ACCEPTED — STALE_EVALUATOR_REASON_MAPPING_CONFIRMED — NO_RERUN_NO_RESCORE_NO_EV4",
+  "task_id": "W3-003-EV3-INC2-RCA1",
+  "terminal_state": "EV3_OFFICIAL_INVALID_CLOSED_READY_FOR_SAFE_DEGRADED_DEMO_TRANSITION"
+}

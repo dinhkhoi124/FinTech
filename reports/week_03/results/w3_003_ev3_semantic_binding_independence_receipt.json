@@ -1,0 +1,128 @@
+{
+  "schema_version": "W3-003-EV3-SB1-INDEPENDENCE-RECEIPT-V1",
+  "task_id": "W3-003-EV3-SB1",
+  "status": "PASS",
+  "author_role": "fresh_no_history_semantic_binding_author",
+  "evaluation_as_of_date": "2026-07-28",
+  "exact_read_allowlist": [
+    {
+      "path": "data/evaluation/w3_003_ev3_pass_a.jsonl",
+      "sha256": "2aa3cac15bc1a665b36ba18bb12a158dfcce4518753759fa99c2c42035ade98e",
+      "bytes": 56380,
+      "purpose": "frozen semantic obligations and explicit boundaries",
+      "rows": 60
+    },
+    {
+      "path": "data/evaluation/w3_003_ev3_pass_b_support_judgments.jsonl",
+      "sha256": "73900e1bfcc5a8fed1c88ffd69e3fecd2a487b469706f3b3df97160c4642f108",
+      "bytes": 2482869,
+      "purpose": "frozen exhaustive support judgments",
+      "rows": 4320
+    },
+    {
+      "path": "data/evaluation/w3_003_ev3_candidate.jsonl",
+      "sha256": "574d6f977fc7579a114d2b3d4d4626610dbed9dae56dfcaf66167961878a4aac",
+      "bytes": 152685,
+      "purpose": "frozen Pass-C base Gold and order; not candidate output",
+      "rows": 60
+    },
+    {
+      "path": "configs/evaluation/w3_003_ev2_product_gate_contract.json",
+      "sha256": "ebb59cad237d0c36c8383cee9e7dd8944ea4a032d20cf693e28102545c3d7166",
+      "bytes": 744,
+      "purpose": "frozen EV2 product gate semantics"
+    },
+    {
+      "path": "configs/evaluation/w3_003_ev2_reason_compatibility.json",
+      "sha256": "b1a0732e95f4785aa415e3032b4e76f1c470888378daf945981a15932ac582cd",
+      "bytes": 1741,
+      "purpose": "frozen reason-family registry"
+    },
+    {
+      "path": "configs/evaluation/w3_003_ev2_forbidden_action_rules.json",
+      "sha256": "34b611521d0274331b519657c09e0bf4ff9db5f1a99771502b4848b4783b3814",
+      "bytes": 10290,
+      "purpose": "frozen forbidden-action code registry"
+    },
+    {
+      "path": "docs/evaluation/critical_eval_v2_response_taxonomy.md",
+      "sha256": "a87ff57186d496210267c29d478c5ff77e3e20999a9c38886ad56fce793ec745",
+      "bytes": 1455,
+      "purpose": "frozen response taxonomy"
+    },
+    {
+      "path": "configs/evaluation/schemas/critical_eval_v2_evaluation.schema.json",
+      "sha256": "caf0771588e935364455822bf6752079f860cdaeb1e09bba2965e4e678fb9d43",
+      "bytes": 2376,
+      "purpose": "frozen evaluator outcome schema"
+    },
+    {
+      "path": "data/kb/kb_v1.jsonl",
+      "sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+      "bytes": 40856,
+      "purpose": "metadata/content-section eligibility and support identity only",
+      "rows": 36
+    }
+  ],
+  "read_file_audit": {
+    "files_opened_for_content": [
+      "data/evaluation/w3_003_ev3_pass_a.jsonl",
+      "data/evaluation/w3_003_ev3_pass_b_support_judgments.jsonl",
+      "data/evaluation/w3_003_ev3_candidate.jsonl",
+      "configs/evaluation/w3_003_ev2_product_gate_contract.json",
+      "configs/evaluation/w3_003_ev2_reason_compatibility.json",
+      "configs/evaluation/w3_003_ev2_forbidden_action_rules.json",
+      "docs/evaluation/critical_eval_v2_response_taxonomy.md",
+      "configs/evaluation/schemas/critical_eval_v2_evaluation.schema.json",
+      "data/kb/kb_v1.jsonl"
+    ],
+    "outside_allowlist_content_read": false,
+    "allowlist_hashes_verified": true,
+    "allowlist_only": true
+  },
+  "access_assertions": {
+    "candidate_source_or_config_seen": false,
+    "rm3_diff_seen": false,
+    "rm3_tests_seen": false,
+    "rm3_fixtures_seen": false,
+    "rm3_a1_seen": false,
+    "r1_rows_seen": false,
+    "ev1_query_case_gold_or_output_seen": false,
+    "ev2_query_case_gold_or_output_seen": false,
+    "future_ev3_raw_output_seen": false,
+    "historical_report_content_seen": false,
+    "generation_config_seen": false,
+    "candidate_output_seen": false,
+    "candidate_behavior_considered": false,
+    "production_inference_started": false,
+    "retrieval_run": false,
+    "scoring_run": false,
+    "evaluator_or_harness_created": false,
+    "git_diff_seen": false,
+    "git_status_seen": false
+  },
+  "allowed_frozen_pass_c_access": {
+    "path": "data/evaluation/w3_003_ev3_candidate.jsonl",
+    "role": "frozen Pass-C base Gold/order/derivation only",
+    "candidate_output": false
+  },
+  "temporary_helper": {
+    "path": "tmp_w3_003_ev3_sb1_author.py",
+    "sha256": "905aed2ffaf09a1a12ef6220fad4cbdc9ad9bdca15953da07ba5fe3e78d74a6a",
+    "phase_commands": [
+      "python tmp_w3_003_ev3_sb1_author.py"
+    ],
+    "reads_only_exact_allowlist": true,
+    "writes_only_five_required_outputs": true,
+    "two_in_memory_regenerations_before_single_write": true,
+    "removal_method": "apply_patch",
+    "removed_after_completion": true
+  },
+  "frozen_addendum": {
+    "path": "data/evaluation/w3_003_ev3_semantic_binding_addendum.jsonl",
+    "sha256": "51a9c49a948cee15307cf909257a9fd3c8ea86aca34f8f91645d87e0eb9c1be8",
+    "bytes": 128238,
+    "rows": 60,
+    "written_once": true
+  }
+}

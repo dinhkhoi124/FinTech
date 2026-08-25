@@ -1,0 +1,411 @@
+{
+  "entries": [
+    {
+      "bytes": 21300,
+      "path": "scripts/evaluation/week3_ev3_e1.py",
+      "reason_for_inclusion": "Frozen harness/evaluator source required to audit the consumed official execution and score.",
+      "role": "final_execution_control_source",
+      "sha256": "1dca8963e42a5e305d9c9d07fdcc09ab9c4cdfa759d7a61d398ea3ea13212dd8",
+      "stage_required": true
+    },
+    {
+      "bytes": 24686,
+      "path": "scripts/evaluation/week3_ev3_evaluator.py",
+      "reason_for_inclusion": "Frozen harness/evaluator source required to audit the consumed official execution and score.",
+      "role": "final_execution_control_source",
+      "sha256": "fcca0864803196a1835696bf2a0cf5872cbcdc251c5984f86ac31af0724101aa",
+      "stage_required": true
+    },
+    {
+      "bytes": 152685,
+      "path": "data/evaluation/w3_003_ev3_candidate.jsonl",
+      "reason_for_inclusion": "Frozen Pass A/B/C/addendum data referenced by the complete Gold manifest.",
+      "role": "immutable_ev3_gold",
+      "sha256": "574d6f977fc7579a114d2b3d4d4626610dbed9dae56dfcaf66167961878a4aac",
+      "stage_required": true
+    },
+    {
+      "bytes": 56380,
+      "path": "data/evaluation/w3_003_ev3_pass_a.jsonl",
+      "reason_for_inclusion": "Frozen Pass A/B/C/addendum data referenced by the complete Gold manifest.",
+      "role": "immutable_ev3_gold",
+      "sha256": "2aa3cac15bc1a665b36ba18bb12a158dfcce4518753759fa99c2c42035ade98e",
+      "stage_required": true
+    },
+    {
+      "bytes": 2482869,
+      "path": "data/evaluation/w3_003_ev3_pass_b_support_judgments.jsonl",
+      "reason_for_inclusion": "Frozen Pass A/B/C/addendum data referenced by the complete Gold manifest.",
+      "role": "immutable_ev3_gold",
+      "sha256": "73900e1bfcc5a8fed1c88ffd69e3fecd2a487b469706f3b3df97160c4642f108",
+      "stage_required": true
+    },
+    {
+      "bytes": 128238,
+      "path": "data/evaluation/w3_003_ev3_semantic_binding_addendum.jsonl",
+      "reason_for_inclusion": "Frozen Pass A/B/C/addendum data referenced by the complete Gold manifest.",
+      "role": "immutable_ev3_gold",
+      "sha256": "51a9c49a948cee15307cf909257a9fd3c8ea86aca34f8f91645d87e0eb9c1be8",
+      "stage_required": true
+    },
+    {
+      "bytes": 14610,
+      "path": "reports/week_03/results/w3_003_ev3_complete_gold_manifest.json",
+      "reason_for_inclusion": "Untracked frozen Gold dependency referenced by the complete Gold/package closure.",
+      "role": "gold_dependency_evidence",
+      "sha256": "22eb88777cc867c8fece88b0aca38e2d9faff7fae7ff9466476af27a7604af1a",
+      "stage_required": true
+    },
+    {
+      "bytes": 4853,
+      "path": "reports/week_03/results/w3_003_ev3_semantic_binding_independence_receipt.json",
+      "reason_for_inclusion": "Untracked frozen Gold dependency referenced by the complete Gold/package closure.",
+      "role": "gold_dependency_evidence",
+      "sha256": "96fe7a2661b58b522809f3eefb53f25f3339ceae53f4ec2b72bb713545de10b1",
+      "stage_required": true
+    },
+    {
+      "bytes": 3512,
+      "path": "reports/week_03/results/w3_003_ev3_semantic_binding_validation.json",
+      "reason_for_inclusion": "Untracked frozen Gold dependency referenced by the complete Gold/package closure.",
+      "role": "gold_dependency_evidence",
+      "sha256": "bde8ff2c3ffae99533fbc49e7b16179070272d2dddb94128179008871c3715f9",
+      "stage_required": true
+    },
+    {
+      "bytes": 1610,
+      "path": "reports/week_03/results/w3_003_ev3_freshness_audit.json",
+      "reason_for_inclusion": "Untracked frozen Gold dependency referenced by the complete Gold/package closure.",
+      "role": "gold_dependency_evidence",
+      "sha256": "35942a5773e991d435439ca2e9054b64c89578d68b4d4b8c387e8f7228a037d6",
+      "stage_required": true
+    },
+    {
+      "bytes": 14124,
+      "path": "reports/week_03/results/w3_003_ev3_inference_inputs.jsonl",
+      "reason_for_inclusion": "Exact untracked file referenced by the FIX4 execution package.",
+      "role": "execution_package_dependency",
+      "sha256": "d77f2b6c0cae91091550582976bed35eadd1832ceccb43f0edcf7adde9bfecba",
+      "stage_required": true
+    },
+    {
+      "bytes": 6505,
+      "path": "reports/week_03/results/w3_003_ev3_execution_package_manifest_fix4.json",
+      "reason_for_inclusion": "Exact untracked file referenced by the FIX4 execution package.",
+      "role": "execution_package_dependency",
+      "sha256": "af8a64a49482e81b57a1f6519ea18d51c99b4f40800c4f42d26ea07a1fcea490",
+      "stage_required": true
+    },
+    {
+      "bytes": 1287,
+      "path": "reports/week_03/results/w3_003_ev3_raw_manifest_schema_fix1.json",
+      "reason_for_inclusion": "Exact untracked file referenced by the FIX4 execution package.",
+      "role": "execution_package_dependency",
+      "sha256": "4818308eb4370e521c1d386984351b46ad6f8070138e8143dcd2a54e9d2f0af3",
+      "stage_required": true
+    },
+    {
+      "bytes": 1011,
+      "path": "reports/week_03/results/w3_003_ev3_runtime_attestation_schema.json",
+      "reason_for_inclusion": "Exact untracked file referenced by the FIX4 execution package.",
+      "role": "execution_package_dependency",
+      "sha256": "85be745230c48f369d7c398a65fdaf8357751c085fb2edb648728f4f19a8e9ab",
+      "stage_required": true
+    },
+    {
+      "bytes": 4168,
+      "path": "reports/week_03/results/w3_003_ev3_evaluator_binding_contract.json",
+      "reason_for_inclusion": "Exact untracked file referenced by the FIX4 execution package.",
+      "role": "execution_package_dependency",
+      "sha256": "f62fc3f6357eabdf9cfdab3c5ed22816470dd567f8a6b0bce8dcc9875827364e",
+      "stage_required": true
+    },
+    {
+      "bytes": 10080,
+      "path": "reports/week_03/results/w3_003_ev3_runtime_environment_fingerprint_fix4.json",
+      "reason_for_inclusion": "Runtime receipt/fingerprint closure; the two EV2-A4 files are metadata-only transitive bindings, not model snapshot/cache payloads.",
+      "role": "runtime_attestation_metadata",
+      "sha256": "785ced890b2353d7f9c88535d5a1dc915505451813b6bd74e132fe112f46680e",
+      "stage_required": true
+    },
+    {
+      "bytes": 2831,
+      "path": "reports/week_03/results/w3_003_ev3_runtime_attestation_receipt_fix4.json",
+      "reason_for_inclusion": "Runtime receipt/fingerprint closure; the two EV2-A4 files are metadata-only transitive bindings, not model snapshot/cache payloads.",
+      "role": "runtime_attestation_metadata",
+      "sha256": "3bd1c969dffd7df41ddaea51cd8139e2ec0a98194bcb96028313918e487faca4",
+      "stage_required": true
+    },
+    {
+      "bytes": 5248,
+      "path": "reports/week_03/results/w3_003_ev2_a4_environment_attestation.json",
+      "reason_for_inclusion": "Runtime receipt/fingerprint closure; the two EV2-A4 files are metadata-only transitive bindings, not model snapshot/cache payloads.",
+      "role": "runtime_attestation_metadata",
+      "sha256": "b5de459daf275d6f9b2cda72801a6d4dbd5289dc2f0ed865f8bba92caebc24ae",
+      "stage_required": false
+    },
+    {
+      "bytes": 2257,
+      "path": "reports/week_03/results/w3_003_ev2_a4_minilm_snapshot_attestation.json",
+      "reason_for_inclusion": "Runtime receipt/fingerprint closure; the two EV2-A4 files are metadata-only transitive bindings, not model snapshot/cache payloads.",
+      "role": "runtime_attestation_metadata",
+      "sha256": "f7df7db615ee4a23a8d1d66022fdfa05e9e098e1966f06c463a6203f3f9bfe5f",
+      "stage_required": false
+    },
+    {
+      "bytes": 1722,
+      "path": "reports/week_03/results/w3_003_ev3_senior_execution_authorization_0003.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "f4b96245824a4646a240ffc76b801af1df0e9d8310905ccfecdd9883f2b4ad93",
+      "stage_required": true
+    },
+    {
+      "bytes": 1531,
+      "path": "reports/week_03/results/w3_003_ev3_authorization_receipt_0003.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "726770df76d922aef5d3fb8edbd943447b76f749ae040b29c8579ee4399c037e",
+      "stage_required": true
+    },
+    {
+      "bytes": 2186,
+      "path": "reports/week_03/results/w3_003_ev3_e1_final_preflight_receipt_0003.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "6234c2e2642dc6630cf35e42ea895945f9fa1b2e59189bc515deaa5298b74129",
+      "stage_required": true
+    },
+    {
+      "bytes": 1875,
+      "path": "reports/week_03/results/w3_003_ev3_consumption_receipt.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "fddda282b173d017c7289e4bdde37b21112f72250069f4c951493662fe5a548f",
+      "stage_required": true
+    },
+    {
+      "bytes": 206543,
+      "path": "reports/week_03/results/w3_003_ev3_raw_predictions.jsonl",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "3b159dd4b580e94dddcff7fb0b19619ed9664d2fcc1d54f32cff58099a0176ca",
+      "stage_required": true
+    },
+    {
+      "bytes": 12510,
+      "path": "reports/week_03/results/w3_003_ev3_raw_predictions.manifest.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "77345e93e401c1f0f0479b3883018c38619e4990a4c206e61b6b03bb38571356",
+      "stage_required": true
+    },
+    {
+      "bytes": 113972,
+      "path": "reports/week_03/results/w3_003_ev3_score.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "e0fbe9ef139af79af53414c372141d6ce869c6ac35b007291c2d87ff887ab12e",
+      "stage_required": true
+    },
+    {
+      "bytes": 3575,
+      "path": "reports/week_03/results/w3_003_ev3_review_summary_0003.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "70aa4ddcd7f0005a2a8453bdd0de89c6227209cb2c16422e814ac49b28b2a7af",
+      "stage_required": true
+    },
+    {
+      "bytes": 2366,
+      "path": "reports/week_03/results/w3_003_ev3_e1_topology_corr1_command_receipt.json",
+      "reason_for_inclusion": "Immutable authorization, consumption, raw, score, and review evidence for the consumed official result.",
+      "role": "official_execution_evidence",
+      "sha256": "3eb720e6fdf5f7c11a9612d9a639c7c95f208de567d255ae5e5a31b9df93cf91",
+      "stage_required": true
+    },
+    {
+      "bytes": 2311,
+      "path": "reports/week_03/results/w3_003_ev3_inc2_integrity_rca.json",
+      "reason_for_inclusion": "Senior-approved posthoc RCA/release evidence; it does not alter the official result.",
+      "role": "official_invalid_closure_evidence",
+      "sha256": "b72b6866494f68f1864173d1b58f0039a1b089b0a6d2e2e79492a4211b5a218c",
+      "stage_required": true
+    },
+    {
+      "bytes": 7851,
+      "path": "reports/week_03/results/w3_003_ev3_inc2_reason_vocabulary_audit.json",
+      "reason_for_inclusion": "Senior-approved posthoc RCA/release evidence; it does not alter the official result.",
+      "role": "official_invalid_closure_evidence",
+      "sha256": "4fc20ad68ff39aac7cbebf7aab8eeb728c924cd6a094a0c899ccf19167ed2b6a",
+      "stage_required": true
+    },
+    {
+      "bytes": 9005,
+      "path": "reports/week_03/results/w3_003_ev3_inc2_independent_safety_audit.json",
+      "reason_for_inclusion": "Senior-approved posthoc RCA/release evidence; it does not alter the official result.",
+      "role": "official_invalid_closure_evidence",
+      "sha256": "bc4941cfafda507d1f42511fc43cef64193e558775da2a5bab49b9c39cbf53c3",
+      "stage_required": true
+    },
+    {
+      "bytes": 1568,
+      "path": "reports/week_03/results/w3_003_ev3_inc2_release_adjudication.json",
+      "reason_for_inclusion": "Senior-approved posthoc RCA/release evidence; it does not alter the official result.",
+      "role": "official_invalid_closure_evidence",
+      "sha256": "8279a0c5920ef7887aa072bb9d1075d784c5fa4e58c82975fbeb08afbebe6b27",
+      "stage_required": true
+    },
+    {
+      "bytes": 370,
+      "path": "reports/week_03/results/w3_003_ev3_inc2_fresh_remote_receipt.json",
+      "reason_for_inclusion": "Senior-approved posthoc RCA/release evidence; it does not alter the official result.",
+      "role": "official_invalid_closure_evidence",
+      "sha256": "36f029e4ac63fcbb90366175425ff0d3c1cbd40b58a00630df347ea5c6dccac4",
+      "stage_required": true
+    },
+    {
+      "bytes": 863,
+      "path": "reports/week_03/experiments/W3-003-EV3-E1-FINAL.md",
+      "reason_for_inclusion": "Relevant EV3 historical execution, closure, and integrity context.",
+      "role": "relevant_ev3_experiment_note",
+      "sha256": "0f2e8edb0bec58866b55edf2132a824390488c9425222bf564802c8a960b7e5e",
+      "stage_required": true
+    },
+    {
+      "bytes": 1221,
+      "path": "reports/week_03/experiments/W3-003-EV3-E1-TOPOLOGY-CORR1.md",
+      "reason_for_inclusion": "Relevant EV3 historical execution, closure, and integrity context.",
+      "role": "relevant_ev3_experiment_note",
+      "sha256": "9b4949b86a9effa75230fefce78a6573432b7674ba108d0a818e4a39e280f056",
+      "stage_required": true
+    },
+    {
+      "bytes": 1590,
+      "path": "reports/week_03/experiments/W3-003-EV3-EH1-FIX3.md",
+      "reason_for_inclusion": "Relevant EV3 historical execution, closure, and integrity context.",
+      "role": "relevant_ev3_experiment_note",
+      "sha256": "b59beb886328cb410212f8c76b77ea8960b3b932538b318ef4d048a135c77517",
+      "stage_required": true
+    },
+    {
+      "bytes": 2211,
+      "path": "reports/week_03/experiments/W3-003-EV3-EH1-FIX4.md",
+      "reason_for_inclusion": "Relevant EV3 historical execution, closure, and integrity context.",
+      "role": "relevant_ev3_experiment_note",
+      "sha256": "c1ce8843491829a15130bce5361f079a5f3063369ee56d4b6b1b1eabc2fa3ac5",
+      "stage_required": true
+    },
+    {
+      "bytes": 1386,
+      "path": "reports/week_03/experiments/W3-003-EV3-JIT2-FIX3.md",
+      "reason_for_inclusion": "Relevant EV3 historical execution, closure, and integrity context.",
+      "role": "relevant_ev3_experiment_note",
+      "sha256": "756c656e75d7ce94bd7784e7338979fb03627f9c79dee38257587f28c341f376",
+      "stage_required": true
+    },
+    {
+      "bytes": 1532,
+      "path": "reports/week_03/experiments/W3-003-EV3-JIT3-FIX4.md",
+      "reason_for_inclusion": "Relevant EV3 historical execution, closure, and integrity context.",
+      "role": "relevant_ev3_experiment_note",
+      "sha256": "e165d0e636dc15995fe45ae82bf516071a42c273b9bd39ccf3da935fffce11b1",
+      "stage_required": true
+    },
+    {
+      "bytes": 2021,
+      "path": "reports/week_03/experiments/W3-003-EV3-INC2-RCA1.md",
+      "reason_for_inclusion": "Relevant EV3 historical execution, closure, and integrity context.",
+      "role": "relevant_ev3_experiment_note",
+      "sha256": "62dbaf15170f7f508505b08a6861b21b7aebaea8ed8e956dbbc5efae9689366a",
+      "stage_required": true
+    },
+    {
+      "bytes": 107989,
+      "path": "PROJECT_STATE.md",
+      "reason_for_inclusion": "Current source-of-truth handoff to authorized W4-001 safe-degraded scope.",
+      "role": "current_lifecycle_reporting",
+      "sha256": "879d1eff862564bf4c78c386f6503261ebe9a73da52de2b14e930c2e35460d1c",
+      "stage_required": true
+    },
+    {
+      "bytes": 66512,
+      "path": "TASKS.md",
+      "reason_for_inclusion": "Current source-of-truth handoff to authorized W4-001 safe-degraded scope.",
+      "role": "current_lifecycle_reporting",
+      "sha256": "73680cf832812091e40485154163a46e3053e7b3cd0541f44bbbd10a8f8b40b2",
+      "stage_required": true
+    },
+    {
+      "bytes": 15719,
+      "path": "reports/week_03/daily/2026-08-25.md",
+      "reason_for_inclusion": "Current source-of-truth handoff to authorized W4-001 safe-degraded scope.",
+      "role": "current_lifecycle_reporting",
+      "sha256": "173aa7e4066346402c512031a2494ae54e4c7b4c81f9bebab8baa7e16755a613",
+      "stage_required": true
+    },
+    {
+      "bytes": 88053,
+      "path": "reports/week_03/week_03_summary.md",
+      "reason_for_inclusion": "Current source-of-truth handoff to authorized W4-001 safe-degraded scope.",
+      "role": "current_lifecycle_reporting",
+      "sha256": "bb1fd33cb07d19d901d1926e434956edffa322a65a67aff6f7ffb6a9beab5d6d",
+      "stage_required": true
+    }
+  ],
+  "entry_count": 44,
+  "hard_exclusions_preserved": true,
+  "old_head": "87975430f3ade345c86a79f309b0ff04093fb54e",
+  "old_tree": "fa570c89fd603d992375cedb7da97ce78ce68abb",
+  "publication_dependency_count": 44,
+  "publication_scope": "Reproducibility-critical EV3 official-invalid closure and Week-4 lifecycle handoff only.",
+  "schema_version": "W3-003-EV3-CLOSE2-PUB1-PUBLICATION-MANIFEST-V1",
+  "staged_publication_file_count_including_manifest": 43,
+  "staging_allowlist_count": 42,
+  "staging_allowlist_paths": [
+    "scripts/evaluation/week3_ev3_e1.py",
+    "scripts/evaluation/week3_ev3_evaluator.py",
+    "data/evaluation/w3_003_ev3_candidate.jsonl",
+    "data/evaluation/w3_003_ev3_pass_a.jsonl",
+    "data/evaluation/w3_003_ev3_pass_b_support_judgments.jsonl",
+    "data/evaluation/w3_003_ev3_semantic_binding_addendum.jsonl",
+    "reports/week_03/results/w3_003_ev3_complete_gold_manifest.json",
+    "reports/week_03/results/w3_003_ev3_semantic_binding_independence_receipt.json",
+    "reports/week_03/results/w3_003_ev3_semantic_binding_validation.json",
+    "reports/week_03/results/w3_003_ev3_freshness_audit.json",
+    "reports/week_03/results/w3_003_ev3_inference_inputs.jsonl",
+    "reports/week_03/results/w3_003_ev3_execution_package_manifest_fix4.json",
+    "reports/week_03/results/w3_003_ev3_raw_manifest_schema_fix1.json",
+    "reports/week_03/results/w3_003_ev3_runtime_attestation_schema.json",
+    "reports/week_03/results/w3_003_ev3_evaluator_binding_contract.json",
+    "reports/week_03/results/w3_003_ev3_runtime_environment_fingerprint_fix4.json",
+    "reports/week_03/results/w3_003_ev3_runtime_attestation_receipt_fix4.json",
+    "reports/week_03/results/w3_003_ev3_senior_execution_authorization_0003.json",
+    "reports/week_03/results/w3_003_ev3_authorization_receipt_0003.json",
+    "reports/week_03/results/w3_003_ev3_e1_final_preflight_receipt_0003.json",
+    "reports/week_03/results/w3_003_ev3_consumption_receipt.json",
+    "reports/week_03/results/w3_003_ev3_raw_predictions.jsonl",
+    "reports/week_03/results/w3_003_ev3_raw_predictions.manifest.json",
+    "reports/week_03/results/w3_003_ev3_score.json",
+    "reports/week_03/results/w3_003_ev3_review_summary_0003.json",
+    "reports/week_03/results/w3_003_ev3_e1_topology_corr1_command_receipt.json",
+    "reports/week_03/results/w3_003_ev3_inc2_integrity_rca.json",
+    "reports/week_03/results/w3_003_ev3_inc2_reason_vocabulary_audit.json",
+    "reports/week_03/results/w3_003_ev3_inc2_independent_safety_audit.json",
+    "reports/week_03/results/w3_003_ev3_inc2_release_adjudication.json",
+    "reports/week_03/results/w3_003_ev3_inc2_fresh_remote_receipt.json",
+    "reports/week_03/experiments/W3-003-EV3-E1-FINAL.md",
+    "reports/week_03/experiments/W3-003-EV3-E1-TOPOLOGY-CORR1.md",
+    "reports/week_03/experiments/W3-003-EV3-EH1-FIX3.md",
+    "reports/week_03/experiments/W3-003-EV3-EH1-FIX4.md",
+    "reports/week_03/experiments/W3-003-EV3-JIT2-FIX3.md",
+    "reports/week_03/experiments/W3-003-EV3-JIT3-FIX4.md",
+    "reports/week_03/experiments/W3-003-EV3-INC2-RCA1.md",
+    "PROJECT_STATE.md",
+    "TASKS.md",
+    "reports/week_03/daily/2026-08-25.md",
+    "reports/week_03/week_03_summary.md"
+  ],
+  "task_id": "W3-003-EV3-CLOSE2-PUB1",
+  "tracked_dependency_note": "Dependencies already present unchanged in HEAD are audited in entries but intentionally absent from git diff --cached; the exact staging allowlist contains only newly published or modified paths."
+}

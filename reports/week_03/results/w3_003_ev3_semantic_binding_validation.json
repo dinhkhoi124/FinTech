@@ -1,0 +1,92 @@
+{
+  "schema_version": "W3-003-EV3-SB1-VALIDATION-V1",
+  "task_id": "W3-003-EV3-SB1",
+  "status": "PASS",
+  "evaluation_as_of_date": "2026-07-28",
+  "addendum": {
+    "path": "data/evaluation/w3_003_ev3_semantic_binding_addendum.jsonl",
+    "sha256": "51a9c49a948cee15307cf909257a9fd3c8ea86aca34f8f91645d87e0eb9c1be8",
+    "bytes": 128238,
+    "rows": 60,
+    "semantic_binding_version": "W3-003-EV3-SEMANTIC-BINDING-V1"
+  },
+  "independence_receipt": {
+    "path": "reports/week_03/results/w3_003_ev3_semantic_binding_independence_receipt.json",
+    "sha256": "96fe7a2661b58b522809f3eefb53f25f3339ceae53f4ec2b72bb713545de10b1",
+    "bytes": 4853
+  },
+  "checks": {
+    "row_count_exactly_60": true,
+    "unique_case_ids_exactly_60": true,
+    "pass_c_case_order_exact": true,
+    "pass_c_query_hash_order_exact": true,
+    "top_level_fields_exact": true,
+    "known_reason_families_only": true,
+    "known_forbidden_codes_only": true,
+    "every_selected_forbidden_code_has_explicit_pass_a_boundary_provenance": true,
+    "complete_support_matches_pass_c_derivation_for_all_cases": true,
+    "pass_c_direct_evidence_by_obligation_matches_recomputation_for_all_cases": true,
+    "support_sets_cover_every_mandatory_obligation": true,
+    "support_sets_inclusion_minimal": true,
+    "support_sets_no_strict_supersets": true,
+    "support_sets_lexicographically_sorted": true,
+    "incomplete_cases_have_empty_support_sets": true,
+    "kb_metadata_content_section_identity_verified": true,
+    "pass_b_case_cardinality_exactly_72": true,
+    "zero_candidate_output_dependency": true,
+    "zero_candidate_behavior_dependency": true,
+    "zero_generation_config_dependency": true,
+    "zero_production_inference_dependency": true,
+    "zero_retrieval_dependency": true,
+    "zero_scoring_dependency": true
+  },
+  "reproducibility": {
+    "regenerations": 2,
+    "in_memory_regeneration_1_sha256": "51a9c49a948cee15307cf909257a9fd3c8ea86aca34f8f91645d87e0eb9c1be8",
+    "in_memory_regeneration_2_sha256": "51a9c49a948cee15307cf909257a9fd3c8ea86aca34f8f91645d87e0eb9c1be8",
+    "byte_identical": true,
+    "statistics_identical": true,
+    "single_frozen_addendum_write": true
+  },
+  "support_summary": {
+    "complete_true": 42,
+    "complete_false": 18,
+    "support_set_count": 84,
+    "direct_rows_used": 106,
+    "kb_sections_verified": 49
+  },
+  "reason_family_distribution": {
+    "NO_APPROVED_COMPLETE_SUPPORT": 12,
+    "PURE_CLARIFICATION_ONLY_SAFE_STOP": 6,
+    "SAFE_CORRECTIVE_COMPLETE_APPROVED_FACTUAL_SUPPORT": 18,
+    "STANDARD_COMPLETE_APPROVED_SUPPORT": 24
+  },
+  "forbidden_code_distribution": {
+    "BYPASS_EVIDENCE_CONTROLS": 6,
+    "COLLECT_FULL_ACCOUNT_DATA": 2,
+    "CREATE_DUPLICATE_PENDING_TRANSFER": 1,
+    "CREDENTIAL_REQUEST": 5,
+    "DELAY_SECURITY_ESCALATION": 3,
+    "DISCLOSE_INTERNAL_ATM_CONTROLS": 2,
+    "DISCLOSE_INTERNAL_DECISION_LOGIC": 7,
+    "GUARANTEE_EXACT_RELEASE_TIME": 5,
+    "GUARANTEE_MERCHANT_COMPLETION": 1,
+    "GUARANTEE_RECIPIENT_DELIVERY": 1,
+    "GUARANTEE_REIMBURSEMENT": 3,
+    "PROMISE_PROVISIONAL_CREDIT": 3,
+    "RECOMMEND_REPEATED_TRANSFERS": 2,
+    "RELEASE_ACCOUNT_TRANSFER": 1,
+    "REQUEST_ONE_TIME_CODE": 3,
+    "REQUEST_PIN": 3,
+    "SELECT_HANDLING_WITH_UNRESOLVED_STATE_CONFLICT": 5,
+    "UNSUPPORTED_ACCOUNT_SPECIFIC_DECISION": 2,
+    "UNSUPPORTED_BALANCE_ASSERTION": 2,
+    "UNSUPPORTED_LIMIT_USAGE_ASSERTION": 1
+  },
+  "unknown_counts": {
+    "reason_families": 0,
+    "forbidden_codes": 0,
+    "unmapped_selected_codes": 0
+  },
+  "blockers": []
+}

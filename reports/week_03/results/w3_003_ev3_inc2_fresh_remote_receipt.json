@@ -1,0 +1,12 @@
+{
+  "identity": {
+    "branch": "main",
+    "dirty_untracked_preserved": true,
+    "head": "87975430f3ade345c86a79f309b0ff04093fb54e",
+    "origin_main": "87975430f3ade345c86a79f309b0ff04093fb54e",
+    "staged_file_count": 0,
+    "tree": "fa570c89fd603d992375cedb7da97ce78ce68abb"
+  },
+  "result": "PASS",
+  "schema_version": "W3-003-EV3-INC2-FRESH-REMOTE-RECEIPT-V1"
+}

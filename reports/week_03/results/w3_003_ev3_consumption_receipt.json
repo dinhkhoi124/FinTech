@@ -1,0 +1,33 @@
+{
+  "authorization_id": "W3-003-EV3-E1-AUTH-20260825-0003",
+  "candidate_production_commit": "87975430f3ade345c86a79f309b0ff04093fb54e",
+  "candidate_tree_sha256": "fa570c89fd603d992375cedb7da97ce78ce68abb",
+  "case_id": "EV3-S01",
+  "environment_fingerprint_sha256": "785ced890b2353d7f9c88535d5a1dc915505451813b6bd74e132fe112f46680e",
+  "ev3_consumed": true,
+  "execution_package_manifest_sha256": "af8a64a49482e81b57a1f6519ea18d51c99b4f40800c4f42d26ea07a1fcea490",
+  "inference_input_sha256": "d77f2b6c0cae91091550582976bed35eadd1832ceccb43f0edcf7adde9bfecba",
+  "mid_run_resume_supported": false,
+  "query_sha256": "a960ceb1a8a0be40590749ab956af5eb818a2f9036a47e06bca861b434e50a12",
+  "retriever_decision_identity": {
+    "final_senior_review_verdict": "APPROVE_COMMIT",
+    "path": "reports/week_02/results/retrieval_version_manifest.json",
+    "selected_retriever": "R0",
+    "sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
+    "status": "FINALIZED_REVIEW_CORRECTION"
+  },
+  "runtime_attestation_receipt_path": "reports/week_03/results/w3_003_ev3_runtime_attestation_receipt_fix4.json",
+  "runtime_attestation_receipt_sha256": "3bd1c969dffd7df41ddaea51cd8139e2ec0a98194bcb96028313918e487faca4",
+  "runtime_identity": {
+    "generation_config_path": "configs/generation/grounded_pipeline_v3.json",
+    "generation_config_sha256": "fdf42e4db5f1d4cfe6779c6ebb567ab5be7193d84505266a07e291a6e5912dc8",
+    "kb_path": "data/kb/kb_v1.jsonl",
+    "kb_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "retrieval_config_path": "configs/retrieval/kb_v1_r0_r1.json",
+    "retrieval_config_sha256": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
+    "runtime_attested": false
+  },
+  "schema_version": "W3-003-EV3-CONSUMPTION-V2",
+  "start_state": "ROW_1_INFERENCE_BOUNDARY",
+  "started_ordinal": 1
+}

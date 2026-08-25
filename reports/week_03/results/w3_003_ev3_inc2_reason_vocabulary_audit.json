@@ -1,0 +1,242 @@
+{
+  "candidate_source": {
+    "emission_locations": [
+      {
+        "function": "assess_requested_target",
+        "line": 466,
+        "source": "\"reason\": \"CONFLICTING_REQUESTED_STATES\","
+      },
+      {
+        "function": "assess_requested_target",
+        "line": 545,
+        "source": "\"reason\": \"INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE\" if incomplete else \"COMPLETE_REQUESTED_OBLIGATION_COVERAGE\","
+      }
+    ],
+    "functions": [
+      "assess_requested_target"
+    ],
+    "path": "src/payresolve_ai/generation/routing_v3.py",
+    "sha256": "12a82b2068c29e62d24ae8929cfd3b8500efb3b3ba28f9967a20a5236485fda3"
+  },
+  "finding": "STALE_EVALUATOR_REASON_MAPPING_AFTER_RM3_CANDIDATE_REASON_VOCABULARY_EXPANSION",
+  "frozen_evaluator_mapping": {
+    "bounded_reason_grammars": [
+      {
+        "family": "CORRECTIVE_INCOMPLETE",
+        "prefix": "MISSING_"
+      },
+      {
+        "family": "GENERATION_OR_CITATION_FAILURE",
+        "prefix": "GENERATION_OR_CITATION_FAILURE:"
+      }
+    ],
+    "covers_conflicting_requested_states": false,
+    "covers_incomplete_requested_obligation_coverage": false,
+    "exact_reason_families": {
+      "AMBIGUOUS_COMPETING_TARGETS": "AMBIGUOUS_SAFE_STOP",
+      "COHERENT_DIRECT_DIMENSION_FALLBACK": "SUPPORTED_TARGET",
+      "CORRECTIVE_CLAIM_BUDGET_EXCEEDED": "CORRECTIVE_INCOMPLETE",
+      "CORRECTIVE_NOT_APPLICABLE": "CORRECTIVE_INCOMPLETE",
+      "CORRECTIVE_PLAN_COMPLETE": "CORRECTIVE_COMPLETE",
+      "DIMENSION_AWARE_SUPPORT": "SUPPORTED_TARGET",
+      "DIRECT_CANONICAL_SUPPORT": "SUPPORTED_TARGET",
+      "EVIDENCE_TARGET_STATE_CONFLICT": "TARGET_STATE_CONFLICT",
+      "LOW_DIRECT_CANONICAL_SUPPORT": "INSUFFICIENT_EVIDENCE",
+      "LOW_RETRIEVAL_SUPPORT": "INSUFFICIENT_EVIDENCE",
+      "NEXT_ACTION_DIRECT_ACTION_REQUIRED": "INSUFFICIENT_EVIDENCE",
+      "NO_ELIGIBLE_EVIDENCE": "INSUFFICIENT_EVIDENCE",
+      "NO_REQUEST_DOMAIN_COMPATIBLE_EVIDENCE": "INSUFFICIENT_EVIDENCE",
+      "NO_SAFE_CORRECTIVE_SCOPE_ANCHOR": "CORRECTIVE_INCOMPLETE",
+      "NO_TARGET_SUPPORTING_STANDARD_SELECTION": "SELECTION_FAILURE",
+      "PRIVATE_OR_INTERNAL_TARGET_BLOCKED": "CONTROL_PLANE_BLOCK",
+      "REQUESTED_DIMENSION_NOT_SUPPORTED": "INSUFFICIENT_EVIDENCE",
+      "STATE_COMPATIBLE_DIRECT_DIMENSION_FALLBACK": "SUPPORTED_TARGET",
+      "TIMING_POLICY_AUTHORITY_REQUIRED": "INSUFFICIENT_EVIDENCE",
+      "UNSUPPORTED_EXACT_OR_SPECIFIC_TARGET": "CONTROL_PLANE_BLOCK",
+      "UNTRUSTED_OVERRIDE_REQUEST": "CONTROL_PLANE_BLOCK"
+    },
+    "path": "configs\\evaluation\\w3_003_ev2_evaluator_mapping.json",
+    "sha256": "1e7e63e9609669d91008281a6286eca9b5ae46b8dbe01071ec5ccd673952ea30",
+    "unknown_reason_policy": "FAIL_CLOSED"
+  },
+  "frozen_reason_compatibility": {
+    "path": "configs\\evaluation\\w3_003_ev2_reason_compatibility.json",
+    "sha256": "b1a0732e95f4785aa415e3032b4e76f1c470888378daf945981a15932ac582cd",
+    "unknown_expected_or_actual_policy": "FAIL_CLOSED"
+  },
+  "integrity_cases": [
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S01",
+      "reason_codes": [
+        "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S03",
+      "reason_codes": [
+        "CONFLICTING_REQUESTED_STATES"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S05",
+      "reason_codes": [
+        "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S08",
+      "reason_codes": [
+        "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S10",
+      "reason_codes": [
+        "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S16",
+      "reason_codes": [
+        "CONFLICTING_REQUESTED_STATES"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S19",
+      "reason_codes": [
+        "CONFLICTING_REQUESTED_STATES"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S20",
+      "reason_codes": [
+        "CONFLICTING_REQUESTED_STATES"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S22",
+      "reason_codes": [
+        "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-S23",
+      "reason_codes": [
+        "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-C17",
+      "reason_codes": [
+        "CONFLICTING_REQUESTED_STATES"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-H02",
+      "reason_codes": [
+        "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-A02",
+      "reason_codes": [
+        "CONFLICTING_REQUESTED_STATES"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    },
+    {
+      "answer_strategy": "ABSTAIN",
+      "case_id": "EV3-A05",
+      "reason_codes": [
+        "CONFLICTING_REQUESTED_STATES"
+      ],
+      "response_type": "ABSTAIN_ESCALATE",
+      "zero_tolerance_failures": [
+        "evaluator_integrity_failure"
+      ]
+    }
+  ],
+  "official_locks": {
+    "authorization_id": "W3-003-EV3-E1-AUTH-20260825-0003",
+    "consumption_sha256": "fddda282b173d017c7289e4bdde37b21112f72250069f4c951493662fe5a548f",
+    "ev3_consumed": true,
+    "harness_invocations": 1,
+    "historical_final_bundle_sha256": "1f6945d2b93b51a0394a61d7446ebc30682780501c7eb110708d78a89a322abb",
+    "official_score_sha256": "e0fbe9ef139af79af53414c372141d6ce869c6ac35b007291c2d87ff887ab12e",
+    "official_scorer_invocations": 1,
+    "raw_manifest_sha256": "77345e93e401c1f0f0479b3883018c38619e4990a4c206e61b6b03bb38571356",
+    "raw_sha256": "3b159dd4b580e94dddcff7fb0b19619ed9664d2fcc1d54f32cff58099a0176ca",
+    "score_final_result": "INVALID",
+    "score_reproducibility": "PASS"
+  },
+  "schema_version": "W3-003-EV3-INC2-REASON-VOCABULARY-AUDIT-V1",
+  "task_id": "W3-003-EV3-INC2-RCA1",
+  "unknown_runtime_reason_code_counts": {
+    "CONFLICTING_REQUESTED_STATES": 7,
+    "INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE": 7
+  }
+}

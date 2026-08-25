@@ -1,0 +1,99 @@
+{
+  "schema_version": "W3-003-EV3-EH1-FIX2-EXECUTION-PACKAGE-V1",
+  "task_id": "W3-003-EV3-EH1-FIX2",
+  "status": "EV3_EH1_FIX2_FROZEN_PREEXECUTION_PACKAGE",
+  "evaluation_as_of_date": "2026-07-28",
+  "candidate_production_commit": "87975430f3ade345c86a79f309b0ff04093fb54e",
+  "candidate_tree_sha256": "fa570c89fd603d992375cedb7da97ce78ce68abb",
+  "candidate_source_sha256": {
+    "src/payresolve_ai/generation/support_v2.py": "822a131183b4ee7c29a1bb11d29e31b99831062a1cd988d6bb6a5780bcac978c",
+    "src/payresolve_ai/generation/routing_v3.py": "12a82b2068c29e62d24ae8929cfd3b8500efb3b3ba28f9967a20a5236485fda3",
+    "src/payresolve_ai/generation/pipeline_v3.py": "ee0a9ce32eeea6112146c4d34b326a52ed2a687ea8803b600562de4aa9d76db2",
+    "configs/generation/grounded_pipeline_v3.json": "fdf42e4db5f1d4cfe6779c6ebb567ab5be7193d84505266a07e291a6e5912dc8"
+  },
+  "complete_gold": {
+    "pass_a_sha256": "2aa3cac15bc1a665b36ba18bb12a158dfcce4518753759fa99c2c42035ade98e",
+    "pass_b_sha256": "73900e1bfcc5a8fed1c88ffd69e3fecd2a487b469706f3b3df97160c4642f108",
+    "pass_c_sha256": "574d6f977fc7579a114d2b3d4d4626610dbed9dae56dfcaf66167961878a4aac",
+    "semantic_addendum_sha256": "51a9c49a948cee15307cf909257a9fd3c8ea86aca34f8f91645d87e0eb9c1be8",
+    "complete_gold_manifest_sha256": "22eb88777cc867c8fece88b0aca38e2d9faff7fae7ff9466476af27a7604af1a",
+    "freshness_audit_sha256": "35942a5773e991d435439ca2e9054b64c89578d68b4d4b8c387e8f7228a037d6"
+  },
+  "inference_input_sha256": "d77f2b6c0cae91091550582976bed35eadd1832ceccb43f0edcf7adde9bfecba",
+  "case_id_order_sha256": "a7170eaa0d12a9bcc8f9bdcb7b0ed4706bfb35da47dbffef287ad65b65f21076",
+  "query_sha256_order_sha256": "251f80ae2cbcd854998593d8588028bd6172723eac3dbd94cf7728be2b385cbe",
+  "evaluator_source_sha256": "fcca0864803196a1835696bf2a0cf5872cbcdc251c5984f86ac31af0724101aa",
+  "e1_harness_sha256": "1dca8963e42a5e305d9c9d07fdcc09ab9c4cdfa759d7a61d398ea3ea13212dd8",
+  "raw_manifest_schema_sha256": "4818308eb4370e521c1d386984351b46ad6f8070138e8143dcd2a54e9d2f0af3",
+  "retriever_decision_identity": {
+    "selected_retriever": "R0",
+    "path": "reports/week_02/results/retrieval_version_manifest.json",
+    "sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
+    "status": "FINALIZED_REVIEW_CORRECTION",
+    "final_senior_review_verdict": "APPROVE_COMMIT"
+  },
+  "runtime_identity": {
+    "kb_path": "data/kb/kb_v1.jsonl",
+    "kb_sha256": "e14aa83ed37c8de1ab3fc0fb8a0cae50f1b1e14083b774252a687bc5f0cf67c4",
+    "generation_config_path": "configs/generation/grounded_pipeline_v3.json",
+    "generation_config_sha256": "fdf42e4db5f1d4cfe6779c6ebb567ab5be7193d84505266a07e291a6e5912dc8",
+    "retrieval_config_path": "configs/retrieval/kb_v1_r0_r1.json",
+    "retrieval_config_sha256": "baf74f600b27279ce8fe2d3370d1a9179cc76f07e67597201ef0bc5a03a8929d",
+    "runtime_attested": false
+  },
+  "runtime_attestation_contract": {
+    "model_identity": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "embedding_dimension": 384,
+      "snapshot_attestation_path": "reports/week_03/results/w3_003_ev2_a4_minilm_snapshot_attestation.json",
+      "snapshot_attestation_sha256": "f7df7db615ee4a23a8d1d66022fdfa05e9e098e1966f06c463a6203f3f9bfe5f",
+      "snapshot_files_aggregate_sha256": "cf6816eb42bc1468762a65064c7d0e57bc96de19caea2ef581a6e827bcb08465"
+    },
+    "environment_identity": {
+      "frozen_requirements_path": "requirements/week1-semantic.txt",
+      "frozen_requirements_sha256": "9ba69a0be8f956c678759d19d9093d16965f02093146778e76a98e8bd3cc911b",
+      "historical_environment_attestation_path": "reports/week_03/results/w3_003_ev2_a4_environment_attestation.json",
+      "historical_environment_attestation_sha256": "b5de459daf275d6f9b2cda72801a6d4dbd5289dc2f0ed865f8bba92caebc24ae",
+      "offline_mode_required": true
+    }
+  },
+  "paths": {
+    "inference_inputs": "reports/week_03/results/w3_003_ev3_inference_inputs.jsonl",
+    "raw_manifest_schema": "reports/week_03/results/w3_003_ev3_raw_manifest_schema_fix1.json",
+    "runtime_attestation_schema": "reports/week_03/results/w3_003_ev3_runtime_attestation_schema.json",
+    "evaluator_source": "scripts/evaluation/week3_ev3_evaluator.py",
+    "e1_harness": "scripts/evaluation/week3_ev3_e1.py",
+    "complete_gold_manifest": "reports/week_03/results/w3_003_ev3_complete_gold_manifest.json",
+    "evaluator_binding_contract": "reports/week_03/results/w3_003_ev3_evaluator_binding_contract.json",
+    "evaluator_mapping": "configs/evaluation/w3_003_ev2_evaluator_mapping.json",
+    "reason_compatibility": "configs/evaluation/w3_003_ev2_reason_compatibility.json",
+    "forbidden_action_rules": "configs/evaluation/w3_003_ev2_forbidden_action_rules.json",
+    "product_gate_contract": "configs/evaluation/w3_003_ev2_product_gate_contract.json",
+    "runtime_environment_fingerprint": "reports/week_03/results/w3_003_ev3_runtime_environment_fingerprint_fix4.json"
+  },
+  "artifact_sha256": {
+    "inference_inputs": "d77f2b6c0cae91091550582976bed35eadd1832ceccb43f0edcf7adde9bfecba",
+    "raw_manifest_schema": "4818308eb4370e521c1d386984351b46ad6f8070138e8143dcd2a54e9d2f0af3",
+    "runtime_attestation_schema": "85be745230c48f369d7c398a65fdaf8357751c085fb2edb648728f4f19a8e9ab",
+    "evaluator_source": "fcca0864803196a1835696bf2a0cf5872cbcdc251c5984f86ac31af0724101aa",
+    "e1_harness": "1dca8963e42a5e305d9c9d07fdcc09ab9c4cdfa759d7a61d398ea3ea13212dd8",
+    "complete_gold_manifest": "22eb88777cc867c8fece88b0aca38e2d9faff7fae7ff9466476af27a7604af1a",
+    "evaluator_binding_contract": "f62fc3f6357eabdf9cfdab3c5ed22816470dd567f8a6b0bce8dcc9875827364e",
+    "evaluator_mapping": "1e7e63e9609669d91008281a6286eca9b5ae46b8dbe01071ec5ccd673952ea30",
+    "reason_compatibility": "b1a0732e95f4785aa415e3032b4e76f1c470888378daf945981a15932ac582cd",
+    "forbidden_action_rules": "34b611521d0274331b519657c09e0bf4ff9db5f1a99771502b4848b4783b3814",
+    "product_gate_contract": "ebb59cad237d0c36c8383cee9e7dd8944ea4a032d20cf693e28102545c3d7166"
+  },
+  "mid_run_resume_supported": false,
+  "checkpoint_resume_explicitly_disabled": true,
+  "lifecycle": {
+    "evaluation_package_frozen": true,
+    "evaluator_frozen": true,
+    "harness_frozen": true,
+    "runtime_attested": false,
+    "execution_authorized": false,
+    "ev3_consumed": false,
+    "ev3_executed": false
+  }
+}

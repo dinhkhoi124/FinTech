@@ -1,0 +1,44 @@
+{
+  "future_work": {
+    "audit_must_cover": [
+      "exact production reason strings",
+      "bounded reason grammars",
+      "candidate source revision",
+      "evaluator mapping revision"
+    ],
+    "evaluator_mapping": "POST_EV3_REGRESSION_HARDENING_ONLY",
+    "prevention_contract": "PRODUCTION_REASON_VOCABULARY subset-of EVALUATOR_REASON_MAPPING_COVERAGE before any future independent evaluation freeze"
+  },
+  "official_result": {
+    "autonomous_p0": "NOT_AUTHORIZED",
+    "immutable_score_sha256": "e0fbe9ef139af79af53414c372141d6ce869c6ac35b007291c2d87ff887ab12e",
+    "product_p0": "NOT_ESTABLISHED_AS_PASS",
+    "result": "INVALID",
+    "semantic_reason": "evaluator/candidate semantic-registry incompatibility"
+  },
+  "prohibitions": [
+    "no rerun",
+    "no rescore",
+    "no EV4",
+    "no new Gold",
+    "no new holdout",
+    "no corrected official score"
+  ],
+  "release_decision": {
+    "agent_assist_human_review": "NOT_AUTHORIZED_FOR_CURRENT_CANDIDATE",
+    "autonomous_p0_candidate": "NOT_AUTHORIZED",
+    "conditions": [
+      "demo/research scope only",
+      "no autonomous banking action claim",
+      "no production-readiness claim",
+      "no EV3 PASS claim",
+      "preserve human/operator control",
+      "fail closed where factual grounding is uncertain",
+      "Lovable/mock product shell may be used",
+      "current-candidate factual responses are not production-approved behavior"
+    ],
+    "safe_degraded_demo": "AUTHORIZED"
+  },
+  "schema_version": "W3-003-EV3-INC2-RELEASE-ADJUDICATION-V1",
+  "task_id": "W3-003-EV3-INC2-RCA1"
+}

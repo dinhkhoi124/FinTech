@@ -1,5 +1,35 @@
 # Week 03 Summary
 
+## W3-003-EV3-SB1 complete Gold freeze — 2026-08-25
+
+A new no-history author completed the frozen EV3 Gold package with a separate
+60-row semantic-binding addendum, leaving Pass A/B/C unchanged. Mechanical
+support derivation agrees 60/60: 42 complete, 18 incomplete, and 84
+inclusion-minimal complete support sets. Expected reason families distribute
+24/18/12/6, while unknown reason/forbidden/unmapped codes are all zero.
+
+Semantic validation passes and the complete Gold manifest is frozen. The
+evaluator-binding contract is design-only and preserves the accepted EV2
+scoring semantics except the authorized companion merge and referenced-code
+subset integrity validation. No evaluator/harness, JIT, consumption, inference,
+raw output, or score exists. EV3 remains unconsumed, Week-3 P0 and Week-4 remain
+blocked, and Senior review is required before any later evaluator freeze.
+
+## W3-003-EV3 fresh package pre-execution stop — 2026-08-25
+
+One authorized no-history author froze a fresh 60-case EV3 package: Pass A
+`2aa3cac...e98e`, Pass B `73900e1...f108` (4,320 judgments), and Pass C
+`574d6f9...4aac`, with the required 24/18/12/6 strata and zero unresolved
+conflicts. The post-freeze EV1/EV2/RM3-V1 query leakage audit passes with zero
+duplicates, long-copy overlap, suspicious near-copy, or historical references.
+
+EV3 stopped before consumption because semantic equivalence to the frozen EV2
+scorer is not established: the fresh Gold does not freeze several fields used
+by the accepted success/safety semantics. They cannot be added after freeze
+without a separate Senior decision. No inference, raw artifact, score, retry,
+resume, stage, commit, or push occurred. Week-3 P0 and Week-4 remain blocked;
+there is no automatic EV4.
+
 ## W3-003-RM3 V1 candidate publication — 2026-08-25
 
 The Senior-approved RM3 V1 fail-closed remediation candidate, its A1
@@ -1313,3 +1343,46 @@ SHA-256 is `c892ed2f551860bd40899a4aa6e4ef33d29226d342c522817c5b583dc3d2115b`.
 Status is `A3_FIX2_FROZEN_PACKAGE_AWAITING_SENIOR_REVIEW`; A4 remains
 unauthorized and real EV2 inference/row 1/execution/consumption remain false.
 No stage, commit, or push occurred.
+
+## W3-003-EV3-EH1-FIX4 — canonical runtime-fingerprint binding — 2026-08-25
+
+FIX3/JIT2 evidence revealed an execution-integrity gap, not a model or product
+result: receipt and raw-manifest fingerprint claims were not bound to a
+canonical file. FIX4 adds only that path/hash and identity binding before Gold.
+The actual defect reproduced, temporary structural pre-Gold validation passes,
+and all 20 required negative controls fail closed. No FIX4 runtime fingerprint
+or receipt exists yet; no E1, authorization, consumption, raw execution, Gold
+access, or score occurred. Week-3 P0 remains blocked pending Senior FIX4 review
+and a separately authorized fresh re-attestation.
+
+## W3-003-EV3-JIT3-FIX4 final load-only re-attestation — 2026-08-25
+
+After Senior approval of FIX4, the exact frozen chain passed a final real
+offline load-only runtime check. MiniLM snapshot identity is 11/11 at
+91,578,415 bytes; static R0 is `[52,384]`; all six execution counters are zero.
+The canonical package-bound fingerprint and receipt validate through the FIX4
+harness, 20/20 temporary controls reject, and evaluator pre-Gold validation
+passes without opening Gold. EV3 is still unconsumed and blocked only on a new
+explicit Senior E1 authorization; no product P0 PASS is claimed.
+
+## W3-003-EV3-E1-FINAL one-shot preconsumption stop — 2026-08-25
+
+The final preflight and authorization 0002 validation pass, but the one
+authorized direct harness invocation exits before consumption because its
+Python process cannot import `scripts`. The failure is before row 1; therefore
+no model/inference/raw/Gold/scorer activity occurred and all execution outputs
+remain absent. Retry, alternate invocation, a scorer, and EV4 are prohibited.
+Status is `EV3_E1_PRECONSUMPTION_BLOCKED_NOT_CONSUMED`, pending Senior
+integrity adjudication.
+
+## W3-003-EV3-E1-TOPOLOGY-CORR1 — final authorized execution — 2026-08-25
+
+Senior issued one replacement 0003 authorization solely to correct the package invocation topology after the 0002 pre-consumption import failure. The one module-mode E1 run consumed and completed 60 raw rows; raw-before-Gold passed. The one authorized scorer produced `INVALID` (zero-tolerance total 52, evaluator integrity `FAIL`). EV3 is closed as `EV3_INVALID_READY_FOR_SENIOR_INTEGRITY_ADJUDICATION`; no retry or EV4 is authorized.
+
+## W3-003-EV3-INC2-RCA1 — accepted official-invalid closure — 2026-08-25
+
+EV3 0003 is consumed and its score is immutable `INVALID`. Read-only forensics reproduced a stale frozen evaluator reason mapping: 14 rows fail closed on two real candidate reason codes (7 `CONFLICTING_REQUESTED_STATES`, 7 `INCOMPLETE_REQUESTED_OBLIGATION_COVERAGE`). Independently, 19 disjoint rows carry unsafe wrong-evidence factual answers and wrong-target authorization. Therefore no mapping-only repair could establish a P0 PASS or a hypothetical corrected score. Week-3 P0 is not passed; autonomous release/current-candidate agent assist is blocked. The authorized continuation is a non-autonomous safe degraded demo only, with no rerun, re-score, EV4, Gold, or holdout.
+
+## W3-003-EV3-CLOSE2-PUB1 — Senior-approved Week-4 handoff — 2026-08-25
+
+The official EV3 `INVALID` closure is approved, closed, and immutable. Week-3 autonomous P0 is not passed. W4-001 is authorized/not started only for a non-autonomous safe-degraded demo/service baseline; W4-002 remains blocked pending its review. No EV4, rerun, re-score, new Gold, or new holdout is authorized.

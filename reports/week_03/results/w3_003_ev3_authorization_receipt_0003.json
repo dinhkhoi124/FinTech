@@ -1,0 +1,24 @@
+{
+  "authorization": "EV3_AUTHORIZE_E1",
+  "authorization_nonce_or_id": "W3-003-EV3-E1-AUTH-20260825-0003",
+  "candidate_production_commit": "87975430f3ade345c86a79f309b0ff04093fb54e",
+  "candidate_tree_sha256": "fa570c89fd603d992375cedb7da97ce78ce68abb",
+  "e1_harness_sha256": "1dca8963e42a5e305d9c9d07fdcc09ab9c4cdfa759d7a61d398ea3ea13212dd8",
+  "environment_fingerprint_sha256": "785ced890b2353d7f9c88535d5a1dc915505451813b6bd74e132fe112f46680e",
+  "ev3_authorized": true,
+  "evaluator_source_sha256": "fcca0864803196a1835696bf2a0cf5872cbcdc251c5984f86ac31af0724101aa",
+  "execution_package_manifest_sha256": "af8a64a49482e81b57a1f6519ea18d51c99b4f40800c4f42d26ea07a1fcea490",
+  "inference_input_sha256": "d77f2b6c0cae91091550582976bed35eadd1832ceccb43f0edcf7adde9bfecba",
+  "raw_manifest_schema_sha256": "4818308eb4370e521c1d386984351b46ad6f8070138e8143dcd2a54e9d2f0af3",
+  "retriever_decision_identity": {
+    "final_senior_review_verdict": "APPROVE_COMMIT",
+    "path": "reports/week_02/results/retrieval_version_manifest.json",
+    "selected_retriever": "R0",
+    "sha256": "c883478417e3a31d61457d07f4f6cb2f6c196ef54234a6deb3afb5cc1189c3ce",
+    "status": "FINALIZED_REVIEW_CORRECTION"
+  },
+  "runtime_attestation_receipt_path": "reports/week_03/results/w3_003_ev3_runtime_attestation_receipt_fix4.json",
+  "runtime_attestation_receipt_sha256": "3bd1c969dffd7df41ddaea51cd8139e2ec0a98194bcb96028313918e487faca4",
+  "schema_version": "W3-003-EV3-AUTHORIZATION-V2",
+  "senior_approval_state": "SENIOR_EV3_PREEXEC_APPROVED"
+}
