@@ -1,0 +1,18 @@
+{
+  "task_id": "W3-003-EV2-R1",
+  "notebook_path": "reports/week_03/notebooks/W3-003-EV2-R1-frozen-analysis.ipynb",
+  "execution_command": "C:\\Users\\Administrator\\anaconda3\\Scripts\\jupyter-nbconvert.exe --to notebook --execute --inplace --ExecutePreprocessor.timeout=120 --ExecutePreprocessor.kernel_name=python3 reports/week_03/notebooks/W3-003-EV2-R1-frozen-analysis.ipynb",
+  "exit_code": 0,
+  "cell_count": 11,
+  "code_cell_count": 5,
+  "all_code_cells_executed": true,
+  "error_output_count": 0,
+  "forbidden_scorer_e1_retrieval_tokens_absent": true,
+  "notebook_bytes": 170982,
+  "notebook_sha256": "cfc5a9f841f8545e4a7f331a8b2b70c9311cb4453f4660e00a4da3b95c69ad68",
+  "creation_time_utc": "2026-08-25T03:33:22.6279507Z",
+  "last_write_time_utc": "2026-08-25T03:34:28.5189191Z",
+  "network_calls": 0,
+  "notebook_scorer_calls": 0,
+  "inference_or_retrieval_calls": 0
+}

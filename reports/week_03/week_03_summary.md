@@ -1,5 +1,23 @@
 # Week 03 Summary
 
+## W3-003-EV2-R1 official frozen scoring — 2026-08-25
+
+After Senior closed the E1 Class-A publication, exactly one frozen R1 score was
+created from immutable raw evidence. The scorer exited 0 and passed raw-before-
+Gold integrity, evaluator integrity, reproducibility, and citation correctness.
+The valid product result is `FAIL_REMEDIATION_REQUIRED`: all four semantic
+strata, wrong abstention (18/42), and zero tolerance (13) miss their gates.
+The executed analysis-only notebook derives its scorecard and causal counts from
+the frozen score, with no scorer/E1/model/retrieval calls. E1 remains
+`CLASS_A_CANONICAL_COMPLETE / IMMUTABLE` and EV2 remains consumed. Senior has
+accepted the valid failure and requires RM3, but RM3 implementation is not
+started. `P0_RELEASE_CLOSURE_MODE` keeps Week-3 P0 blocked/remediation-required
+and Week-4 product authorization blocked; this evidence publication does not
+authorize EV3 or production changes.
+
+Target post-push status:
+`EV2_R1_VALID_FAIL_PUBLISHED_AWAITING_SENIOR_REMOTE_VERIFICATION`.
+
 ## W3-003-EV2-E1-INC1-R1 consumed artifact forensics — 2026-08-25
 
 Following explicit Senior authorization, one-shot E1 consumed EV2 and produced

@@ -7,8 +7,8 @@
 - Current phase: Phase 3 — Grounded RAG + safety
 - Current week: Week 3
 - P0 gate status: BLOCKED / REMEDIATION REQUIRED
-- Active task: `W3-003-EV2-E1-PUB1` — PUBLISHING SENIOR-ACCEPTED CANONICAL CLASS-A E1 RAW EVIDENCE
-- Next task: Senior fresh-remote verify the E1 Class-A publication, then separately authorize frozen R1 scoring and notebook work.
+- Active task: `W3-003-EV2-R1-PUB1` — PUBLISHING SENIOR-ACCEPTED VALID-FAIL R1 EVIDENCE
+- Next task: Senior fresh-remote verify the R1 publication, then explicitly authorize `W3-003-RM3-A1`; do not begin remediation before that authorization.
 - Last updated: 2026-08-25 by Codex
 
 The current authoritative status is RM2: `CLOSED / COMMITTED / PUSHED / REMOTE
@@ -21,6 +21,30 @@ VERIFIED`. RCV1 is a historical predecessor only. EV1 completion, remotely
 verified N1 NB1 reporting closure, and Senior-accepted RM1 RCA remain frozen
 history. Earlier readiness, authorization, and execution sections are dated
 historical milestones and do not override the current recovery state.
+
+## W3-003-EV2-R1 official frozen scoring — 2026-08-25
+
+Senior authorized one official frozen R1 scorer invocation after Class-A remote
+closure. Preflight matched source commit `3a95039dcdbc97b474ffbd5826ba3d0a77bc4c45`,
+its parent/tree, remote, Class-A raw artifacts, A3/scorer inputs, and all Gold
+hashes. The frozen scorer proved raw-before-Gold verification, then exited 0
+with score SHA `3a1a00a2c9e1993a835687658cebdf7f60d134f5313b71cce9538e1e69f065b0`.
+
+The result is a valid `FAIL_REMEDIATION_REQUIRED`, not an integrity INVALID:
+STANDARD 10/24, SAFE_CORRECTIVE 1/18, HARD 6/12, AMBIGUOUS 2/6, wrong
+abstention 18/42, and zero-tolerance total 13 all fail their gates. Citation
+correctness 1.0, evaluator integrity PASS, and reproducibility PASS. The
+analysis-only notebook executed cleanly at SHA
+`cfc5a9f841f8545e4a7f331a8b2b70c9311cb4453f4660e00a4da3b95c69ad68`.
+
+E1/raw/A2/A3/production/KB remain unchanged; R1 caused zero inference or
+retrieval calls and no tuning. Senior accepted this as a valid official failure:
+E1 is `CLASS_A_CANONICAL_COMPLETE / IMMUTABLE`, EV2 is consumed, and RM3 is
+required but not started. Release operating mode is `P0_RELEASE_CLOSURE_MODE`:
+Week-3 P0 remains blocked/remediation-required and Week-4 product authorization
+remains blocked. This publication contains evidence only; it does not authorize
+EV3, production changes, or RM3 implementation. Target post-push status:
+`EV2_R1_VALID_FAIL_PUBLISHED_AWAITING_SENIOR_REMOTE_VERIFICATION`.
 
 ## W3-003-EV2-E1-INC1-R1 canonical-completeness and provenance forensics — 2026-08-25
 
