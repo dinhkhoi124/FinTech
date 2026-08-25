@@ -1,0 +1,261 @@
+{
+  "task_id": "W4-001-SD1-R1",
+  "status": "W4_001_SOURCE_COMPLETE_READY_FOR_FINAL_SENIOR_REVIEW",
+  "created_at": "2026-08-26",
+  "worktree": {
+    "branch": "feat/w4-safe-degraded-e2e",
+    "baseline_commit": "38eccbf51c6ac418837a87e4fd94dd6048e665ef",
+    "baseline_tree": "8ef7c7859d6a3a23aa0bfc5585ff1cc829932c83",
+    "staged_file_count_before_audit": 0,
+    "commit_created": false,
+    "push_performed": false
+  },
+  "service_files": [
+    {
+      "path": "src/payresolve_ai/service/__init__.py",
+      "bytes": 122,
+      "sha256": "f2fc824b1a3629d86286fd7bebbb2e454ccf21b0149b293c11dca5931f397dad",
+      "role": "package export"
+    },
+    {
+      "path": "src/payresolve_ai/service/__main__.py",
+      "bytes": 161,
+      "sha256": "415c1e507eafa4803d6f83f0edd7e904f24067f134742d1a01ba331f1d2283c1",
+      "role": "local Uvicorn entrypoint"
+    },
+    {
+      "path": "src/payresolve_ai/service/adapters.py",
+      "bytes": 9676,
+      "sha256": "5c8745c1ff414ea92f9a67ec79d2e4af6f16f3edaf3767e339730e0befddf356",
+      "role": "process-level real classifier, R0, and V3 adapter"
+    },
+    {
+      "path": "src/payresolve_ai/service/app.py",
+      "bytes": 5080,
+      "sha256": "d43c7039fa9b464b40389f6400a9a86e66c80a3a588bb1dacea713b4d497dcb9",
+      "role": "FastAPI endpoints, CORS, and runtime error boundary"
+    },
+    {
+      "path": "src/payresolve_ai/service/audit_logging.py",
+      "bytes": 2601,
+      "sha256": "6eee44f05acdd7e78a517a1a9c27d3b45f2d9b82e71a989c1938abef5df644ae",
+      "role": "privacy-minimized structured query logging"
+    },
+    {
+      "path": "src/payresolve_ai/service/contracts.py",
+      "bytes": 3166,
+      "sha256": "2bfdcfb10ed1abfaba56040ed9176a779d4b608d5edffd7ab9669f9881d75244",
+      "role": "PAYRESOLVE_QUERY_API_V1 Pydantic contracts"
+    },
+    {
+      "path": "src/payresolve_ai/service/query_service.py",
+      "bytes": 2043,
+      "sha256": "3eed1b4aac83ac92312905dcb829119abf6ff97a95bcc2e8bb9e572dafb0eb7a",
+      "role": "adapter, policy, and audit orchestration"
+    },
+    {
+      "path": "src/payresolve_ai/service/release_policy.py",
+      "bytes": 2323,
+      "sha256": "617fc089f333feb35f110a1c939b1a42e67f5807a8db4189ecfdad523d2bbeed",
+      "role": "mandatory safe-degraded response wrapper"
+    }
+  ],
+  "direct_service_artifacts": [
+    {
+      "path": "requirements/week4-service.txt",
+      "bytes": 474,
+      "sha256": "aa0790149f16956ac61c7548a8c8fd3f24a0302ad8221a86432d1aefbe6a7bee",
+      "role": "isolated W4 pinned service dependencies"
+    },
+    {
+      "path": "tests/test_w4_safe_degraded_service.py",
+      "bytes": 8217,
+      "sha256": "c195418c9bb1326d7f9529d883157d423f488784913b3e263a2714ef44678524",
+      "role": "focused W4 API/policy/adapter tests"
+    },
+    {
+      "path": "docs/W4_SAFE_DEGRADED_SERVICE.md",
+      "bytes": 3682,
+      "sha256": "1918bf3bc724c8721f415761395f3500aa7fd094a96dfa63d7f92d13b50c5e1d",
+      "role": "service architecture and runbook"
+    },
+    {
+      "path": "reports/week_04/results/w4_001_sd1_review_evidence.md",
+      "bytes": 4660,
+      "sha256": "52f131141aca1071cafd87297ebcba65fe865e191f33229966cbbbb1e5d72818",
+      "role": "prior W4-001 completion evidence"
+    },
+    {
+      "path": "PROJECT_STATE.md",
+      "bytes": 110029,
+      "sha256": "9acadd6168e04fe4ff47fb56ca09eb36fb9a335601ac715bcd159a1a376e9ae2",
+      "role": "live lifecycle state before source-audit freeze"
+    },
+    {
+      "path": "TASKS.md",
+      "bytes": 66544,
+      "sha256": "cd7a9f3839d03c6947024a17005185a973b3b16209baefa2bdef54eb927c5e5a",
+      "role": "task-board state before source-audit freeze"
+    }
+  ],
+  "production_dependency_inventory": [
+    {
+      "path": "src/payresolve_ai/baselines/semantic.py",
+      "bytes": 37806,
+      "sha256": "18f751b6bd20422fcd4b55e563fd1b058c40e0553369de4aa9580111dca0575c",
+      "role": "local MiniLM encoder loader called by adapter"
+    },
+    {
+      "path": "src/payresolve_ai/generation/pipeline_v3.py",
+      "bytes": 19927,
+      "sha256": "ee0a9ce32eeea6112146c4d34b326a52ed2a687ea8803b600562de4aa9d76db2",
+      "role": "real grounded entrypoint run_case_v3"
+    },
+    {
+      "path": "src/payresolve_ai/generation/citations.py",
+      "bytes": 4955,
+      "sha256": "1ade5dad4fa7eda8e76862466517410095c29d8798f83d86170920a7ac7dfc25",
+      "role": "citation verifier used by run_case_v3"
+    },
+    {
+      "path": "src/payresolve_ai/generation/targeted_extractive.py",
+      "bytes": 3518,
+      "sha256": "e7a1a8af4b2b89d6652348ea3267d2ace99ad7d64583dfaf4d77553ce8fa27ea",
+      "role": "extractive generator used by V3"
+    },
+    {
+      "path": "src/payresolve_ai/generation/routing_v3.py",
+      "bytes": 37464,
+      "sha256": "12a82b2068c29e62d24ae8929cfd3b8500efb3b3ba28f9967a20a5236485fda3",
+      "role": "target-aware V3 routing"
+    },
+    {
+      "path": "src/payresolve_ai/generation/support_v2.py",
+      "bytes": 14035,
+      "sha256": "822a131183b4ee7c29a1bb11d29e31b99831062a1cd988d6bb6a5780bcac978c",
+      "role": "canonical support and IDF"
+    },
+    {
+      "path": "src/payresolve_ai/generation/gate.py",
+      "bytes": 3884,
+      "sha256": "53412a2d6f7c25cb6ca6dcde1ff86717158770e26147a11a3ea20a2597d70a6f",
+      "role": "raw IDF and request safety gate"
+    },
+    {
+      "path": "src/payresolve_ai/generation/types.py",
+      "bytes": 1083,
+      "sha256": "78857b1e3e9b7e4e16508af977f0850ca99eda25762f0e7e8cc09fec51b961be",
+      "role": "typed generation contracts"
+    },
+    {
+      "path": "src/payresolve_ai/generation/context.py",
+      "bytes": 2568,
+      "sha256": "2a4df880345a9606ab3a8932b422f0622829fa93a50a0af872d853915388a1a7",
+      "role": "generation context renderer"
+    },
+    {
+      "path": "src/payresolve_ai/generation/corrective_v1.py",
+      "bytes": 5334,
+      "sha256": "8411e9eac1bfa3fcbde9bca136cd5d4ca32fc4357c737f788448570d228e0cc4",
+      "role": "safe corrective objectives"
+    },
+    {
+      "path": "src/payresolve_ai/generation/extractive.py",
+      "bytes": 3667,
+      "sha256": "e2982fa3c6eee4fc35a7d437b43f9e98d88c0ebfca5f8d4030ec3e21d8111880",
+      "role": "sentence extraction"
+    },
+    {
+      "path": "src/payresolve_ai/retrieval/dense.py",
+      "bytes": 1418,
+      "sha256": "974d8e23922c1016a5667f175bd7e4cd65201d9f19672b945a5f1fdf32ce4034",
+      "role": "selected R0 scores and deterministic ranking"
+    },
+    {
+      "path": "src/payresolve_ai/retrieval/corpus.py",
+      "bytes": 3525,
+      "sha256": "cd2a0a1dafa49dafc6b93bfb98e3b8f36deaff6c5e50a4f7b8251699ff7bc67e",
+      "role": "corpus JSONL loader"
+    },
+    {
+      "path": "src/payresolve_ai/retrieval/runtime.py",
+      "bytes": 4768,
+      "sha256": "8e09bcb978d5fe921fb978246f61f1711560830092ea7fdeb0d62e39d321fe27",
+      "role": "corrective discovery runtime called by V3 when applicable"
+    }
+  ],
+  "real_paths": {
+    "grounded_generation_entrypoint": "payresolve_ai.generation.pipeline_v3.run_case_v3",
+    "classifier_loading_and_encoder": "payresolve_ai.baselines.semantic._load_encoder plus frozen portable coefficients in service.adapters",
+    "selected_r0_retrieval": "payresolve_ai.retrieval.dense.r0_scores and payresolve_ai.retrieval.dense.rank",
+    "citation_verifier": "payresolve_ai.generation.citations.verify_draft, called inside run_case_v3"
+  },
+  "static_import_audit": {
+    "fixture_imports_found_in_service_source": 0,
+    "ev1_ev2_ev3_gold_or_evaluator_imports_found_in_service_source": 0,
+    "official_score_imports_found_in_service_source": 0,
+    "banking_mutation_or_action_endpoints_found": 0,
+    "finding": "Service imports only local application/retrieval/generation dependencies; no fixture, Gold, evaluator, official-score, or banking-action import/path was found."
+  },
+  "static_safety_audit": {
+    "factual_success_path_with_requires_human_review_false": 0,
+    "factual_success_path_with_autonomous_action_allowed_true": 0,
+    "factual_success_path_with_production_approved_true": 0,
+    "abstain_escalate_sets_escalate_true": true,
+    "system_error_mapped_to_abstain_escalate": false,
+    "endpoint_list": [
+      "GET /health",
+      "GET /ready",
+      "GET /version",
+      "POST /query"
+    ],
+    "finding": "Release policy literals and Pydantic Literal constraints bind factual releases to human review=true, autonomous_action_allowed=false, production_approved=false. System errors return HTTP 503 SYSTEM_ERROR."
+  },
+  "api_contract_audit": {
+    "version": "PAYRESOLVE_QUERY_API_V1",
+    "request_fields": [
+      "request_id",
+      "query"
+    ],
+    "response_fields": [
+      "request_id",
+      "runtime_mode",
+      "response_type",
+      "intent",
+      "answer",
+      "reason",
+      "grounded",
+      "escalate",
+      "citations",
+      "evidence",
+      "release",
+      "versions",
+      "latency"
+    ],
+    "error_fields": [
+      "request_id",
+      "error.kind",
+      "error.code",
+      "error.message",
+      "error.retryable"
+    ],
+    "mock_only_fixtureId_required": false,
+    "cors_defaults": [
+      "http://localhost:8080",
+      "http://127.0.0.1:8080"
+    ]
+  },
+  "dependency_audit": {
+    "requirements_path": "requirements/week4-service.txt",
+    "requirements_sha256": "aa0790149f16956ac61c7548a8c8fd3f24a0302ad8221a86432d1aefbe6a7bee",
+    "requirements_bytes": 474,
+    "isolation": "W4 packages are declared separately and installed under ignored artifacts/w4-service-deps; the frozen Week-3 semantic environment was not upgraded."
+  },
+  "recorded_test_evidence": {
+    "w4_unit_api_policy_adapter": "11/11 PASS",
+    "focused_w4_plus_grounded_v3": "26/26 PASS",
+    "real_adapter_and_http_integration": "2/2 PASS",
+    "real_http_smoke": "PASS",
+    "rerun_for_this_freeze": false
+  }
+}

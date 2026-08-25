@@ -78,7 +78,7 @@ Priority: `P0 | P1 | P2`
 | W3-003-EV3-EH1-FIX4 | 3 | P0 | Bind runtime receipt/raw-manifest fingerprint claims to the canonical package-declared file before Gold | Senior-approved; actual FIX3 gap reproduced; only harness/evaluator fingerprint binding changed; structural pre-Gold fixture PASS; 20/20 controls reject | SENIOR APPROVED / JIT3-FIX4 COMPLETE |
 | W3-003-EV3-JIT3-FIX4 | 3 | P0 | Final real FIX4 load-only runtime re-attestation | Offline MiniLM/static R0 PASS; canonical fingerprint/receipt validate; 20/20 controls and evaluator pre-Gold fixture PASS; no E1/auth/consumption/raw/score | FINAL LOAD-ONLY RUNTIME REATTESTATION PASS / AWAITING NEW SENIOR E1 AUTHORIZATION |
 | W3-003-EV3-SB1 | 3 | P0 | Fresh no-history semantic-binding addendum | 60/60 support derivation; 84 minimal support sets; reason/boundary bindings independently frozen; validation PASS; evaluator design contract only | DONE / SENIOR ACCEPTED / HISTORICAL PREREQUISITE |
-| W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Non-autonomous safe-degraded demo only; no autonomous banking or production-readiness claim | AUTHORIZED FOR SAFE DEGRADED DEMO SCOPE ONLY |
+| W4-001 | 4 | P0 | Minimal service/logging/versioning/tests | Senior-approved safe-degraded service + real HTTP shell integration; feature-branch publication and local demo runbook only | SENIOR APPROVED / FEATURE-BRANCH PUBLICATION AUTHORIZED |
 | W4-002 | 4 | P0 | Incident exercise | Postmortem + regression test | BLOCKED / NOT YET AUTHORIZED — AWAIT W4-001 BASELINE REVIEW |
 | W5-001 | 5 | P0 | Freeze and final evaluation | Locked final evidence | TODO |
 | W5-002 | 5 | P0 | One deep change request | Design/trade-off note | TODO |

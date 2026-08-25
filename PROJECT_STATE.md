@@ -8,9 +8,34 @@
 - Current week: Week 4
 - P0 gate status: WEEK-3 AUTONOMOUS P0 NOT PASSED / SAFE DEGRADED DEMO CONTINUATION AUTHORIZED
 - Active task: `W4-001` — MINIMAL SERVICE / LOGGING / VERSIONING / TESTS
-- Status: AUTHORIZED / NOT STARTED
-- Next task: W4-001 non-autonomous safe-degraded demo/service baseline; W4-002 remains blocked until that baseline is reviewed. No EV4, rerun, or re-score.
-- Last updated: 2026-08-25 by Codex
+- Status: SENIOR APPROVED / FEATURE-BRANCH PUBLICATION AUTHORIZED
+- Next task: W4-001-PUB1 publishes only the approved backend and shell feature
+  branches plus the frozen local demo runbook. W4-002 remains blocked. No EV4,
+  rerun, re-score, autonomous action, or production claim is authorized.
+- Last updated: 2026-08-26 by Codex
+
+## W4-001 safe-degraded service baseline — 2026-08-26
+
+- Senior decisions `W4_001_SERVICE_BASELINE_APPROVED` and
+  `APPROVE_REAL_E2E_DEMO_INTEGRATION` authorize feature-branch publication and
+  a local `REAL_SAFE_DEGRADED` demo only. They do not authorize W4-002,
+  autonomous banking action, production readiness, EV4, or a rerun of EV3.
+
+- Clean branch/worktree: `feat/w4-safe-degraded-e2e` at baseline commit
+  `38eccbf51c6ac418837a87e4fd94dd6048e665ef`, tree
+  `8ef7c7859d6a3a23aa0bfc5585ff1cc829932c83`.
+- `PAYRESOLVE_QUERY_API_V1` wraps the frozen local MiniLM classifier, selected
+  R0 retrieval, and `generation.pipeline_v3.run_case_v3`; it does not load
+  Gold, evaluator mappings, official EV3 results, or shell fixtures.
+- The mandatory release wrapper requires human review and forbids autonomous
+  action/production approval for every factual answer; abstention escalates and
+  system errors are structurally distinct.
+- Verification: py_compile PASS; focused W4 plus grounded V3 tests 26/26 PASS;
+  real offline adapter PASS; local health/version/query smoke 3/3 HTTP 200.
+- Smoke outcome: `ABSTAIN_ESCALATE`, 3 considered evidence items, total
+  request latency 42.4869 ms, network model downloads 0.
+- Main and sibling shell were read-only. Staged/commit/push are false.
+- W4-002 remains blocked. No Week-5 advancement is authorized.
 
 ## W3-003-EV3 current authorized lifecycle — STATE-SYNC1
 
